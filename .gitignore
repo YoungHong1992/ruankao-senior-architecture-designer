@@ -1,0 +1,21 @@
+# Dependencies
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project internals
+.claude/
+
+# Source PDFs (large binary files)
+教材相关/*.pdf
