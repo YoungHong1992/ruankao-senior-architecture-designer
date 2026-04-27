@@ -17,5 +17,11 @@ Thumbs.db
 # Project internals
 .claude/
 
+# Local extraction tooling
+node_modules/
+package.json
+package-lock.json
+scripts/
+
 # Source PDFs (large binary files)
 教材相关/*.pdf
