@@ -8,7 +8,7 @@
   },
   "archive_policy": {
     "repository_url": "https://github.com/YoungHong1992/ruankao-senior-architecture-designer",
-    "snapshot_commit": "c587993e26652c37744caa77793fbd0f07d59e23",
+    "snapshot_commit": "52c2609737e160c2dd9185381e60ecafbcdb179b",
     "snapshot_verified_at": "2026-07-12",
     "blob_url_template": "https://github.com/YoungHong1992/ruankao-senior-architecture-designer/blob/{commit}/{path}",
     "coverage": "all_90_source_versions",
@@ -362,7 +362,7 @@
       "item_count": 75,
       "item_unit": "题",
       "completeness": "complete_structural",
-      "completeness_note": "75 题；第 2、3、5、6、7、69 题缺失结构及第 70 题解题图关键信息已据固定非官方 PDF 结构化恢复；第 1 题本地版本原表仍缺，固定 PDF 为另一版本且柱面编号、选项和解析序列冲突，未合并或裁决。",
+      "completeness_note": "75 题；第 1、2、3、5、6、7、69 题缺失结构及第 70 题解题图关键信息已据固定非官方 PDF 结构化恢复。第 1 题的 21 号柱面题干、九行请求表、四个选项和答案由两份一致的固定 PDF 交叉确认；旧稿所谓 20 号柱面冲突实际来自 2022 年题目，已移除误混。",
       "answer_confidence": "medium_non_official",
       "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2018年下半年-系统架构设计师-综合知识.md",
@@ -374,8 +374,8 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2018年下半年-系统架构设计师-综合知识.md",
-          "content_sha256": "dd7092bd5b69093d380f6dd9cf2c9d146291b154a75a787676cd47e24c396973",
-          "verified_at": "2026-07-11",
+          "content_sha256": "fc36be81891c55049624b6b7e313a02cb3a1fba47b679eb9f9af48f64744bb3c",
+          "verified_at": "2026-07-12",
           "item_count": 75,
           "item_unit": "题"
         },
@@ -388,7 +388,7 @@
           "item_unit": "题"
         }
       ],
-      "notes": "75 题；第 2、3、5、6、7、69 题缺失结构及第 70 题解题图关键信息已据固定非官方 PDF 结构化恢复；第 1 题本地版本原表仍缺，固定 PDF 为另一版本且柱面编号、选项和解析序列冲突，未合并或裁决。"
+      "notes": "75 题；第 1、2、3、5、6、7、69 题缺失结构及第 70 题解题图关键信息已据固定非官方 PDF 结构化恢复。第 1 题的 21 号柱面题干、九行请求表、四个选项和答案由两份一致的固定 PDF 交叉确认；旧稿所谓 20 号柱面冲突实际来自 2022 年题目，已移除误混。"
     },
     {
       "id": "2019-h2-case-analysis",
@@ -1001,7 +1001,7 @@
       "item_count": 5,
       "item_unit": "大题",
       "completeness": "partial",
-      "completeness_note": "部分：5 题结构齐；试题一约车平台效用树、问题 2 六空及试题五 GIS 架构已据固定第三方 PDF 结构化恢复；试题四 DDS/SOME-IP 分配与 AP 流程仅提供教学性示意，非原卷重绘；固定 PDF 混入 2015 年可靠性旧题，已隔离。试题二存在物流版与访客版背景、分值及 UML 消息来源冲突，（1）～（9）无逐空可靠答案；试题四精确空号、箭头、模块以及选答题顺序仍待官方原卷裁决。",
+      "completeness_note": "部分：5 题结构齐；试题一约车平台效用树、问题 2 六空及试题五 GIS 架构已据固定第三方 PDF 结构化恢复；固定 PDF 混入的 2015 年可靠性旧题已隔离。试题二已分别保留 2024-05-27 近时点 UML 回忆图与后期培训 PDF 结构/候选答案，两者在生命线、请求处理节点和消息编号上冲突，未合并为唯一答案。试题四 DDS/SOME-IP 分配与 AP 流程仍只有二手教学示意，原卷空号和精确几何待官方来源。",
       "answer_confidence": "low_non_official",
       "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2024年上半年-系统架构设计师-案例分析.md",
@@ -1014,7 +1014,7 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2024年上半年-系统架构设计师-案例分析.md",
-          "content_sha256": "ae0e99e381a8615030cbca85e9265e4511f9f58a74b7734823ea2a2d42dcb483",
+          "content_sha256": "3121cec49e20fd62e4484ae964021ff017ba12cfb599a978f9b6f32323b6c32a",
           "verified_at": "2026-07-12",
           "item_count": 5,
           "item_unit": "大题"
@@ -1036,7 +1036,7 @@
           "item_unit": "大题"
         }
       ],
-      "notes": "部分：5 题结构齐；试题一约车平台效用树、问题 2 六空及试题五 GIS 架构已据固定第三方 PDF 结构化恢复；试题四 DDS/SOME-IP 分配与 AP 流程仅提供教学性示意，非原卷重绘；固定 PDF 混入 2015 年可靠性旧题，已隔离。试题二存在物流版与访客版背景、分值及 UML 消息来源冲突，（1）～（9）无逐空可靠答案；试题四精确空号、箭头、模块以及选答题顺序仍待官方原卷裁决。"
+      "notes": "部分：5 题结构齐；试题一约车平台效用树、问题 2 六空及试题五 GIS 架构已据固定第三方 PDF 结构化恢复；固定 PDF 混入的 2015 年可靠性旧题已隔离。试题二已分别保留 2024-05-27 近时点 UML 回忆图与后期培训 PDF 结构/候选答案，两者在生命线、请求处理节点和消息编号上冲突，未合并为唯一答案。试题四 DDS/SOME-IP 分配与 AP 流程仍只有二手教学示意，原卷空号和精确几何待官方来源。"
     },
     {
       "id": "2024-h1-essay",
@@ -1136,7 +1136,7 @@
       "item_count": 5,
       "item_unit": "大题",
       "completeness": "partial",
-      "completeness_note": "部分：5 题、14 个子问题结构齐；Cache-Aside 读写、ROS 2 通信与分层、Web 架构和故障树已据固定公开来源结构化恢复，并修正 Cache-Aside 第 (2)/(3) 空顺序；质量属性分类表的预填单元格与空号位置、Web 第 (8) 空的 Nginx 位置、ROS 分值 12/8/5 与 13/8/7 冲突及试题四完整背景仍不可裁决。",
+      "completeness_note": "部分：5 题、14 个子问题结构齐；Cache-Aside 读写、ROS 2 通信与分层、Web 架构和故障树已据固定公开来源结构化恢复。质量属性分类表已并列后期完整结构版与较早回忆版，两者的预填/空号位置冲突；Nginx 几何可确认在前端服务提供者顶部且后端为预填，但前端空号存在（3）/（8）两版。ROS 分值冲突及试题四完整背景仍待官方来源裁决。",
       "answer_confidence": "low_non_official",
       "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2024年下半年-系统架构设计师-案例分析.md",
@@ -1149,7 +1149,7 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2024年下半年-系统架构设计师-案例分析.md",
-          "content_sha256": "ad3ca1f9737400fec0160362b38b8b79257221afd07afc4a0a002ac5ddbc32c1",
+          "content_sha256": "a4011911ccbf1999af909919e0a499a3e4aad7336fc8d5c08e9a2ed6466e35d6",
           "verified_at": "2026-07-12",
           "item_count": 5,
           "item_unit": "大题"
@@ -1171,7 +1171,7 @@
           "item_unit": "大题"
         }
       ],
-      "notes": "部分：5 题、14 个子问题结构齐；Cache-Aside 读写、ROS 2 通信与分层、Web 架构和故障树已据固定公开来源结构化恢复，并修正 Cache-Aside 第 (2)/(3) 空顺序；质量属性分类表的预填单元格与空号位置、Web 第 (8) 空的 Nginx 位置、ROS 分值 12/8/5 与 13/8/7 冲突及试题四完整背景仍不可裁决。"
+      "notes": "部分：5 题、14 个子问题结构齐；Cache-Aside 读写、ROS 2 通信与分层、Web 架构和故障树已据固定公开来源结构化恢复。质量属性分类表已并列后期完整结构版与较早回忆版，两者的预填/空号位置冲突；Nginx 几何可确认在前端服务提供者顶部且后端为预填，但前端空号存在（3）/（8）两版。ROS 分值冲突及试题四完整背景仍待官方来源裁决。"
     },
     {
       "id": "2024-h2-essay",
@@ -1226,7 +1226,7 @@
       "item_count": 75,
       "item_unit": "题",
       "completeness": "partial",
-      "completeness_note": "75 题结构齐；第 67 题经固定 GitHub commit/blob、RKPass 及多份回忆题序交叉核验，现只能确认“合规性检查、用户权限、安全测试”联合片段，完整题干、真实 A～D 选项和可靠答案仍不可裁决，已将四个选项槽和答案明确标为未恢复；第 73 题完整表格、选项和答案已由固定公开回忆页恢复并完成计算校核，另一个公开版本的选项冲突已隔离。",
+      "completeness_note": "75 题结构齐；第 67 题的“合规性检查、用户权限、安全测试”联合短语由固定 GitHub/RKPass 片段及两份考试次日 ProcessOn 回忆交叉支持为非官方回忆答案，但原卷 A～D、答案字母和官方答案仍未恢复；第 73 题完整表格、选项和答案已由固定公开回忆页恢复并完成计算校核，另一公开版本的冲突已隔离。",
       "answer_confidence": "low_non_official",
       "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2024年下半年-系统架构设计师-综合知识.md",
@@ -1239,7 +1239,7 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2024年下半年-系统架构设计师-综合知识.md",
-          "content_sha256": "bd6c07b50a5ba7f3e4ed3cab4ae66dab8d167c6bd5c3f891ac69ae005323f074",
+          "content_sha256": "355abb5d94858e5d845f68c0956eaeccbffd81a4fba73155cc01320db8895b7d",
           "verified_at": "2026-07-12",
           "item_count": 75,
           "item_unit": "题"
@@ -1261,7 +1261,7 @@
           "item_unit": "题"
         }
       ],
-      "notes": "75 题结构齐；第 67 题经固定 GitHub commit/blob、RKPass 及多份回忆题序交叉核验，现只能确认“合规性检查、用户权限、安全测试”联合片段，完整题干、真实 A～D 选项和可靠答案仍不可裁决，已将四个选项槽和答案明确标为未恢复；第 73 题完整表格、选项和答案已由固定公开回忆页恢复并完成计算校核，另一个公开版本的选项冲突已隔离。"
+      "notes": "75 题结构齐；第 67 题的“合规性检查、用户权限、安全测试”联合短语由固定 GitHub/RKPass 片段及两份考试次日 ProcessOn 回忆交叉支持为非官方回忆答案，但原卷 A～D、答案字母和官方答案仍未恢复；第 73 题完整表格、选项和答案已由固定公开回忆页恢复并完成计算校核，另一公开版本的冲突已隔离。"
     },
     {
       "id": "2025-h1-case-analysis",

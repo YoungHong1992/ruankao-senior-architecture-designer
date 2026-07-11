@@ -11,6 +11,7 @@ import hashlib
 import json
 import re
 import sys
+from collections import Counter
 from datetime import date
 from pathlib import Path
 from urllib.parse import unquote
@@ -874,10 +875,12 @@ class Validator:
         required = {
             "schema_version",
             "reviewed_at",
+            "field_definitions",
             "baseline",
             "additional_positions",
             "summary",
             "files",
+            "positions",
             "source_limited_visual_items",
             "non_original_substitutes",
         }
@@ -888,8 +891,8 @@ class Validator:
                 f"missing top-level fields: {sorted(missing)}",
             )
             return
-        if audit.get("schema_version") != 1:
-            self.error(EXAM_ASSET_AUDIT_PATH, "schema_version must be 1")
+        if audit.get("schema_version") != 2:
+            self.error(EXAM_ASSET_AUDIT_PATH, "schema_version must be 2")
         try:
             date.fromisoformat(str(audit.get("reviewed_at")))
         except ValueError:
@@ -908,6 +911,7 @@ class Validator:
             self.error(EXAM_ASSET_AUDIT_PATH, "files must be an array")
             return
         seen_paths: set[str] = set()
+        expected_counts_by_path: dict[str, int] = {}
         baseline_total = 0
         current_marker_total = 0
         for position, item in enumerate(files, start=1):
@@ -930,6 +934,7 @@ class Validator:
                 )
                 continue
             baseline_total += count
+            expected_counts_by_path[relative_path] = count
             path = ROOT / relative_path
             if not path.is_file():
                 self.error(EXAM_ASSET_AUDIT_PATH, f"missing audited file {relative_path}")
@@ -943,15 +948,123 @@ class Validator:
                 EXAM_ASSET_AUDIT_PATH,
                 f"baseline position counts sum to {baseline_total}, expected 116",
             )
+        positions = audit.get("positions")
+        position_dispositions: Counter[str] = Counter()
+        position_path_counts: Counter[str] = Counter()
+        baseline_record_count = 0
+        additional_record_count = 0
+        seen_position_ids: set[str] = set()
+        if not isinstance(positions, list):
+            self.error(EXAM_ASSET_AUDIT_PATH, "positions must be an array")
+            positions = []
+        elif len(positions) != 117:
+            self.error(
+                EXAM_ASSET_AUDIT_PATH,
+                f"expected 117 item-level positions, found {len(positions)}",
+            )
+        position_fields = {
+            "id",
+            "origin",
+            "path",
+            "baseline_line",
+            "marker",
+            "nearest_question",
+            "nearest_heading",
+            "context",
+            "disposition",
+            "proof_scope",
+        }
+        allowed_dispositions = {
+            "reviewed_current_carrier",
+            "recovered_structural",
+            "source_limited",
+            "non_original_substitute",
+        }
+        for position, item in enumerate(positions, start=1):
+            label = f"positions #{position}"
+            if not isinstance(item, dict):
+                self.error(EXAM_ASSET_AUDIT_PATH, f"{label} must be an object")
+                continue
+            missing_fields = position_fields - set(item)
+            if missing_fields:
+                self.error(
+                    EXAM_ASSET_AUDIT_PATH,
+                    f"{label} missing fields: {sorted(missing_fields)}",
+                )
+                continue
+            item_id = item.get("id")
+            if not isinstance(item_id, str) or not item_id:
+                self.error(EXAM_ASSET_AUDIT_PATH, f"{label}.id must be text")
+            elif item_id in seen_position_ids:
+                self.error(EXAM_ASSET_AUDIT_PATH, f"duplicate position id: {item_id}")
+            else:
+                seen_position_ids.add(item_id)
+            relative_path = item.get("path")
+            if not isinstance(relative_path, str) or not (ROOT / relative_path).is_file():
+                self.error(EXAM_ASSET_AUDIT_PATH, f"{label}.path is invalid")
+            disposition = item.get("disposition")
+            if disposition not in allowed_dispositions:
+                self.error(
+                    EXAM_ASSET_AUDIT_PATH,
+                    f"{label}.disposition is invalid: {disposition!r}",
+                )
+            else:
+                position_dispositions[str(disposition)] += 1
+            for field in ("nearest_question", "nearest_heading", "context", "proof_scope"):
+                if not isinstance(item.get(field), str) or not item[field].strip():
+                    self.error(EXAM_ASSET_AUDIT_PATH, f"{label}.{field} must be text")
+            origin = item.get("origin")
+            if origin == "baseline_marker":
+                baseline_record_count += 1
+                if isinstance(relative_path, str) and relative_path in seen_paths:
+                    position_path_counts[relative_path] += 1
+                else:
+                    self.error(
+                        EXAM_ASSET_AUDIT_PATH,
+                        f"{label}.path is not in the fixed baseline file list",
+                    )
+                if not isinstance(item.get("baseline_line"), int) or item["baseline_line"] <= 0:
+                    self.error(
+                        EXAM_ASSET_AUDIT_PATH,
+                        f"{label}.baseline_line must be positive",
+                    )
+                if item.get("marker") not in {"原图未收录", "原表未收录"}:
+                    self.error(EXAM_ASSET_AUDIT_PATH, f"{label}.marker is invalid")
+            elif origin == "additional_review":
+                additional_record_count += 1
+                if item.get("baseline_line") is not None or item.get("marker") is not None:
+                    self.error(
+                        EXAM_ASSET_AUDIT_PATH,
+                        f"{label} additional record must have null baseline fields",
+                    )
+            else:
+                self.error(EXAM_ASSET_AUDIT_PATH, f"{label}.origin is invalid")
+        if baseline_record_count != 116:
+            self.error(
+                EXAM_ASSET_AUDIT_PATH,
+                f"expected 116 baseline position records, found {baseline_record_count}",
+            )
+        if additional_record_count != 1:
+            self.error(
+                EXAM_ASSET_AUDIT_PATH,
+                f"expected one additional position record, found {additional_record_count}",
+            )
+        for relative_path, expected_count in expected_counts_by_path.items():
+            actual_count = position_path_counts.get(relative_path, 0)
+            if actual_count != expected_count:
+                self.error(
+                    EXAM_ASSET_AUDIT_PATH,
+                    f"{relative_path}: positions has {actual_count}, expected {expected_count}",
+                )
         additional = audit.get("additional_positions")
         if not isinstance(additional, list) or len(additional) != 1:
             self.error(EXAM_ASSET_AUDIT_PATH, "expected one additional position")
             additional = []
         limited = audit.get("source_limited_visual_items")
-        if not isinstance(limited, list) or len(limited) != 7:
+        if not isinstance(limited, list) or len(limited) != 6:
             self.error(
                 EXAM_ASSET_AUDIT_PATH,
-                "expected seven source-limited visual items",
+                "expected six source-limited visual items",
             )
             limited = []
         for group_name, group in (
@@ -971,12 +1084,55 @@ class Validator:
                         EXAM_ASSET_AUDIT_PATH,
                         f"{group_name} #{position} has an invalid path",
                     )
+                item_id = item.get("id")
+                if not isinstance(item_id, str) or not item_id:
+                    self.error(
+                        EXAM_ASSET_AUDIT_PATH,
+                        f"{group_name} #{position}.id must be text",
+                    )
+                if group_name == "additional_positions":
+                    if item_id not in seen_position_ids:
+                        self.error(
+                            EXAM_ASSET_AUDIT_PATH,
+                            f"{group_name} #{position} is absent from positions[]",
+                        )
+                else:
+                    if (
+                        item.get("baseline_position_id") is not None
+                        or item.get("baseline_mapping")
+                        != "no_matching_legacy_marker_in_fixed_baseline"
+                    ):
+                        self.error(
+                            EXAM_ASSET_AUDIT_PATH,
+                            f"{group_name} #{position} must not claim a false baseline mapping",
+                        )
+                    if item.get("disposition") != "source_limited":
+                        self.error(
+                            EXAM_ASSET_AUDIT_PATH,
+                            f"{group_name} #{position}.disposition must be source_limited",
+                        )
+        substitutes = audit.get("non_original_substitutes")
+        if not isinstance(substitutes, list) or len(substitutes) != 1:
+            self.error(EXAM_ASSET_AUDIT_PATH, "expected one non-original substitute")
+        else:
+            substitute = substitutes[0]
+            if (
+                not isinstance(substitute, dict)
+                or substitute.get("disposition") != "non_original_substitute"
+                or substitute.get("baseline_position_id") not in seen_position_ids
+            ):
+                self.error(
+                    EXAM_ASSET_AUDIT_PATH,
+                    "non-original substitute must map to its item-level position",
+                )
         summary = audit.get("summary")
         if not isinstance(summary, dict):
             self.error(EXAM_ASSET_AUDIT_PATH, "summary must be an object")
         else:
             expected_summary = {
                 "total_positions_reviewed": baseline_total + len(additional),
+                "baseline_positions": baseline_total,
+                "additional_positions": len(additional),
                 "files_with_baseline_positions": len(files),
                 "current_legacy_marker_count": current_marker_total,
                 "source_limited_visual_items": len(limited),
@@ -987,6 +1143,21 @@ class Validator:
                         EXAM_ASSET_AUDIT_PATH,
                         f"summary.{field} must be {expected}",
                     )
+            disposition_summary = summary.get("positions_by_disposition")
+            expected_dispositions = {
+                name: position_dispositions.get(name, 0)
+                for name in (
+                    "reviewed_current_carrier",
+                    "recovered_structural",
+                    "source_limited",
+                    "non_original_substitute",
+                )
+            }
+            if disposition_summary != expected_dispositions:
+                self.error(
+                    EXAM_ASSET_AUDIT_PATH,
+                    "summary.positions_by_disposition does not match positions[]",
+                )
         if current_marker_total != 0:
             self.error(
                 EXAM_ASSET_AUDIT_PATH,
@@ -1005,9 +1176,15 @@ class Validator:
         required = {
             "schema_version",
             "reviewed_at",
+            "field_definitions",
             "source",
             "method",
             "manual_review",
+            "baseline_evidence",
+            "asset_inventory",
+            "additional_unmarked_figures",
+            "formula_status_items",
+            "historical_spliced_tables",
             "debt_scope",
             "summary",
             "chapters",
@@ -1019,8 +1196,8 @@ class Validator:
                 f"missing top-level fields: {sorted(missing)}",
             )
             return
-        if audit.get("schema_version") != 1:
-            self.error(TEXTBOOK_AUDIT_PATH, "schema_version must be 1")
+        if audit.get("schema_version") != 2:
+            self.error(TEXTBOOK_AUDIT_PATH, "schema_version must be 2")
         try:
             date.fromisoformat(str(audit.get("reviewed_at")))
         except ValueError:
@@ -1052,6 +1229,8 @@ class Validator:
             "known_formula_positions": 2,
             "explicit_missing_or_partial_table_positions": 8,
             "reported_spliced_table_positions": 14,
+            "itemized_proven_positions": 294,
+            "historical_unitemized_positions": 14,
         }
         if not isinstance(debt_scope, dict):
             self.error(TEXTBOOK_AUDIT_PATH, "debt_scope must be an object")
@@ -1065,12 +1244,16 @@ class Validator:
         summary = audit.get("summary")
         expected_summary = {
             "chapters": 20,
+            "baseline_explicit_marker_records": 280,
+            "itemized_proven_positions": 294,
+            "historical_unitemized_positions": 14,
             "pdf_unique_figure_numbers": 284,
             "markdown_unique_figure_carriers": 284,
             "missing_figure_carriers": [],
             "pdf_unique_table_numbers": 59,
             "markdown_unique_table_titles": 59,
             "missing_table_titles": [],
+            "table_structure_risks": [],
         }
         if not isinstance(summary, dict):
             self.error(TEXTBOOK_AUDIT_PATH, "summary must be an object")
@@ -1081,6 +1264,210 @@ class Validator:
                         TEXTBOOK_AUDIT_PATH,
                         f"summary.{field} must be {expected}",
                     )
+
+        baseline_evidence = audit.get("baseline_evidence")
+        baseline_ids: set[str] = set()
+        baseline_kind_counts: Counter[str] = Counter()
+        if not isinstance(baseline_evidence, dict):
+            self.error(TEXTBOOK_AUDIT_PATH, "baseline_evidence must be an object")
+        else:
+            baseline_commit = baseline_evidence.get("commit")
+            if not isinstance(baseline_commit, str) or not GIT_COMMIT_RE.fullmatch(
+                baseline_commit
+            ):
+                self.error(TEXTBOOK_AUDIT_PATH, "baseline_evidence.commit is invalid")
+            counts = baseline_evidence.get("counts")
+            expected_counts = {
+                "figure_markers": 272,
+                "table_issue_positions": 8,
+                "total_records": 280,
+            }
+            if counts != expected_counts:
+                self.error(
+                    TEXTBOOK_AUDIT_PATH,
+                    f"baseline_evidence.counts must be {expected_counts}",
+                )
+            records = baseline_evidence.get("records")
+            if not isinstance(records, list) or len(records) != 280:
+                self.error(
+                    TEXTBOOK_AUDIT_PATH,
+                    "baseline_evidence.records must contain 280 items",
+                )
+                records = []
+            for position, record in enumerate(records, start=1):
+                label = f"baseline_evidence.records #{position}"
+                if not isinstance(record, dict):
+                    self.error(TEXTBOOK_AUDIT_PATH, f"{label} must be an object")
+                    continue
+                record_id = record.get("id")
+                if not isinstance(record_id, str) or not record_id:
+                    self.error(TEXTBOOK_AUDIT_PATH, f"{label}.id must be text")
+                elif record_id in baseline_ids:
+                    self.error(TEXTBOOK_AUDIT_PATH, f"duplicate baseline id {record_id}")
+                else:
+                    baseline_ids.add(record_id)
+                kind = record.get("kind")
+                if kind not in {"figure", "table"}:
+                    self.error(TEXTBOOK_AUDIT_PATH, f"{label}.kind is invalid")
+                else:
+                    baseline_kind_counts[str(kind)] += 1
+                relative_path = record.get("path")
+                if not isinstance(relative_path, str) or not (ROOT / relative_path).is_file():
+                    self.error(TEXTBOOK_AUDIT_PATH, f"{label}.path is invalid")
+                if not isinstance(record.get("baseline_line"), int) or record["baseline_line"] <= 0:
+                    self.error(TEXTBOOK_AUDIT_PATH, f"{label}.baseline_line is invalid")
+                if not isinstance(record.get("nearest_asset_number"), str):
+                    self.error(
+                        TEXTBOOK_AUDIT_PATH,
+                        f"{label}.nearest_asset_number must be text",
+                    )
+                carrier_lines = record.get("current_markdown_carrier_lines")
+                if not isinstance(carrier_lines, list) or not carrier_lines or not all(
+                    isinstance(line, int) and line > 0 for line in carrier_lines
+                ):
+                    self.error(
+                        TEXTBOOK_AUDIT_PATH,
+                        f"{label} must have current carrier lines",
+                    )
+                if record.get("current_status") not in {
+                    "current_carrier_present",
+                    "current_structured_carrier_present",
+                }:
+                    self.error(TEXTBOOK_AUDIT_PATH, f"{label}.current_status is invalid")
+            if baseline_kind_counts != Counter({"figure": 272, "table": 8}):
+                self.error(
+                    TEXTBOOK_AUDIT_PATH,
+                    "baseline record kinds must total 272 figures and 8 tables",
+                )
+
+        inventory = audit.get("asset_inventory")
+        inventory_numbers: dict[str, set[str]] = {"figures": set(), "tables": set()}
+        if not isinstance(inventory, dict):
+            self.error(TEXTBOOK_AUDIT_PATH, "asset_inventory must be an object")
+        else:
+            for group_name, expected_count, expected_status in (
+                ("figures", 284, "current_carrier_present"),
+                ("tables", 59, "current_structured_carrier_present"),
+            ):
+                group = inventory.get(group_name)
+                if not isinstance(group, list) or len(group) != expected_count:
+                    self.error(
+                        TEXTBOOK_AUDIT_PATH,
+                        f"asset_inventory.{group_name} must contain {expected_count} items",
+                    )
+                    continue
+                for position, item in enumerate(group, start=1):
+                    label = f"asset_inventory.{group_name} #{position}"
+                    if not isinstance(item, dict):
+                        self.error(TEXTBOOK_AUDIT_PATH, f"{label} must be an object")
+                        continue
+                    number = item.get("number")
+                    if not isinstance(number, str) or not re.fullmatch(r"\d{1,2}-\d{1,2}", number):
+                        self.error(TEXTBOOK_AUDIT_PATH, f"{label}.number is invalid")
+                    elif number in inventory_numbers[group_name]:
+                        self.error(
+                            TEXTBOOK_AUDIT_PATH,
+                            f"duplicate {group_name} number {number}",
+                        )
+                    else:
+                        inventory_numbers[group_name].add(number)
+                    relative_path = item.get("path")
+                    if not isinstance(relative_path, str) or not (ROOT / relative_path).is_file():
+                        self.error(TEXTBOOK_AUDIT_PATH, f"{label}.path is invalid")
+                    for field in ("pdf_reference_pages", "markdown_carrier_lines"):
+                        values = item.get(field)
+                        if not isinstance(values, list) or not values or not all(
+                            isinstance(value, int) and value > 0 for value in values
+                        ):
+                            self.error(
+                                TEXTBOOK_AUDIT_PATH,
+                                f"{label}.{field} must contain positive integers",
+                            )
+                    if item.get("status") != expected_status:
+                        self.error(TEXTBOOK_AUDIT_PATH, f"{label}.status is invalid")
+                    marker_ids = item.get("baseline_marker_ids")
+                    if not isinstance(marker_ids, list) or any(
+                        marker_id not in baseline_ids for marker_id in marker_ids
+                    ):
+                        self.error(
+                            TEXTBOOK_AUDIT_PATH,
+                            f"{label}.baseline_marker_ids is invalid",
+                        )
+
+        additional_figures = audit.get("additional_unmarked_figures")
+        expected_additional_numbers = {
+            "2-4",
+            "2-25",
+            "2-26",
+            "3-1",
+            "3-12",
+            "4-8",
+            "17-15",
+            "17-17",
+            "17-19",
+            "19-12",
+            "19-13",
+            "19-14",
+        }
+        if not isinstance(additional_figures, list) or len(additional_figures) != 12:
+            self.error(
+                TEXTBOOK_AUDIT_PATH,
+                "additional_unmarked_figures must contain 12 items",
+            )
+        else:
+            numbers = {item.get("number") for item in additional_figures if isinstance(item, dict)}
+            if numbers != expected_additional_numbers:
+                self.error(
+                    TEXTBOOK_AUDIT_PATH,
+                    "additional_unmarked_figures has unexpected numbers",
+                )
+            if any(
+                not isinstance(item, dict) or item.get("baseline_marker_ids") != []
+                for item in additional_figures
+            ):
+                self.error(
+                    TEXTBOOK_AUDIT_PATH,
+                    "additional unmarked figures must not claim baseline marker IDs",
+                )
+
+        formula_items = audit.get("formula_status_items")
+        if not isinstance(formula_items, list) or len(formula_items) != 2:
+            self.error(TEXTBOOK_AUDIT_PATH, "formula_status_items must contain 2 items")
+        else:
+            topics = {item.get("topic") for item in formula_items if isinstance(item, dict)}
+            if topics != {"natural_join", "random_walk"}:
+                self.error(TEXTBOOK_AUDIT_PATH, "formula_status_items topics are invalid")
+            for position, item in enumerate(formula_items, start=1):
+                if not isinstance(item, dict) or item.get("status") != "current_formula_carrier_present":
+                    self.error(
+                        TEXTBOOK_AUDIT_PATH,
+                        f"formula_status_items #{position} has invalid status",
+                    )
+
+        spliced = audit.get("historical_spliced_tables")
+        if not isinstance(spliced, dict):
+            self.error(TEXTBOOK_AUDIT_PATH, "historical_spliced_tables must be an object")
+        else:
+            if (
+                spliced.get("reported_positions") != 14
+                or spliced.get("mapping_status") != "ids_not_preserved"
+                or spliced.get("ids_not_preserved") is not True
+                or spliced.get("commit_diff_contains_14_item_manifest") is not False
+            ):
+                self.error(
+                    TEXTBOOK_AUDIT_PATH,
+                    "historical spliced-table limitation must remain explicit",
+                )
+            current_evidence = spliced.get("current_state_evidence")
+            if not isinstance(current_evidence, dict) or current_evidence != {
+                "official_pdf_table_inventory": 59,
+                "markdown_table_carriers": 59,
+                "table_structure_risks": [],
+            }:
+                self.error(
+                    TEXTBOOK_AUDIT_PATH,
+                    "historical_spliced_tables.current_state_evidence is invalid",
+                )
         chapters = audit.get("chapters")
         if not isinstance(chapters, list) or len(chapters) != 20:
             self.error(TEXTBOOK_AUDIT_PATH, "chapters must contain 20 entries")
@@ -1130,8 +1517,10 @@ class Validator:
                     TEXTBOOK_AUDIT_PATH,
                     f"chapters #{position}.assets must be an object",
                 )
-            elif assets.get("missing_figure_carriers") or assets.get(
-                "missing_table_titles"
+            elif (
+                assets.get("missing_figure_carriers")
+                or assets.get("missing_table_titles")
+                or assets.get("table_structure_risks")
             ):
                 self.error(
                     TEXTBOOK_AUDIT_PATH,
