@@ -1,0 +1,28 @@
+name: Knowledge Base Quality
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: knowledge-base-quality-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  knowledge-base-quality:
+    name: knowledge-base-quality
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+
+      - name: Validate knowledge base
+        run: python3 scripts/validate_knowledge_base.py

@@ -1,0 +1,47 @@
+name: 内容勘误
+description: 报告 OCR、题面、答案、来源或图表问题
+title: "【勘误】"
+labels:
+  - correction
+body:
+  - type: input
+    id: path
+    attributes:
+      label: 文件路径与位置
+      description: 请填写仓库路径及章节、题号或行号。
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: 问题类型
+      options:
+        - OCR 错误
+        - 结构或格式错误
+        - 内容缺失
+        - 图表缺失
+        - 来源缺失或冲突
+        - 答案争议
+        - 其他
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: 当前内容与问题
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 建议修改与可复核证据
+      description: 请给出合法来源、版次、页码、URL 与访问日期；不要上传敏感证件或无权公开的材料。
+    validations:
+      required: true
+  - type: checkboxes
+    id: rights
+    attributes:
+      label: 提交确认
+      options:
+        - label: 我没有在公开 Issue 中提交访问凭据、敏感个人信息或无权公开的完整资料。
+          required: true
