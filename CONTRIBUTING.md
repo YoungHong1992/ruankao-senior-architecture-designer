@@ -16,10 +16,11 @@
 
 1. 先读目标目录的 `INDEX.md`；真题先读 `02.历年真题总索引.md`。
 2. 教材清洗应同时对照原始提取稿和依法取得的原资料，优先做最小、可验证的修正。
-3. 在文件说明或 `DATA_SOURCES.md` 中记录来源、版本、页码/题号、链接和访问日期。
+3. 在文件说明或 `DATA_SOURCES.md` 中记录来源、版本、页码/题号、链接和访问日期；历史 URL 不可追溯时，不得猜测，使用 `data/exams.json` 的固定仓库快照策略保留具体文本版本。
 4. 来源冲突时保留多个版本，说明差异和首选依据，不得直接拼接。
-5. 运行 `python scripts/validate_knowledge_base.py`。
-6. 通过 Pull Request 合并；不要直接推送受保护的 `main`。
+5. 教材图表变更后运行 `scripts/audit_textbook_pdf.py` 更新 `data/textbook_audit.json`；真题图表点位变化同步 `data/exam_asset_audit.json`。
+6. 运行 `python scripts/validate_knowledge_base.py`。
+7. 通过 Pull Request 合并；不要直接推送受保护的 `main`。
 
 ## Pull Request 要求
 

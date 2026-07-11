@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-07-12",
+  "baseline": {
+    "commit": "e02f60ca93e78217b3b6b9bdf7a6db964781741c",
+    "tag": "v2026.07.11",
+    "marker_patterns": [
+      "原图未收录",
+      "原表未收录"
+    ],
+    "explicit_positions": 116,
+    "description": "基线提交中 22 份 canonical 正文的显式图表缺失标记；索引中的汇总性标记不计入正文点位。"
+  },
+  "additional_positions": [
+    {
+      "id": "2024-h2-comprehensive-q73-table",
+      "path": "02.历年真题-清洗版/2024年下半年-系统架构设计师-综合知识.md",
+      "location": "第 73 题",
+      "status": "recovered_structural",
+      "description": "旧基线没有统一缺表标记；终审时发现并恢复六列表、选项、答案和计算校核。"
+    }
+  ],
+  "summary": {
+    "total_positions_reviewed": 117,
+    "files_with_baseline_positions": 22,
+    "current_legacy_marker_count": 0,
+    "source_limited_visual_items": 7,
+    "conclusion": "117 个初始点位均已逐项处理：能够核验的内容已转录或结构化重绘；证据不足的原卷几何、空位或答案保留为显式限制，不以推测补齐。"
+  },
+  "files": [
+    {"path": "02.历年真题-清洗版/2016年下半年-系统架构设计师-案例分析.md", "baseline_positions": 9},
+    {"path": "02.历年真题-清洗版/2016年下半年-系统架构设计师-综合知识.md", "baseline_positions": 4},
+    {"path": "02.历年真题-清洗版/2017年下半年-系统架构设计师-案例分析.md", "baseline_positions": 7},
+    {"path": "02.历年真题-清洗版/2017年下半年-系统架构设计师-综合知识.md", "baseline_positions": 9},
+    {"path": "02.历年真题-清洗版/2018年下半年-系统架构设计师-案例分析.md", "baseline_positions": 7},
+    {"path": "02.历年真题-清洗版/2018年下半年-系统架构设计师-综合知识.md", "baseline_positions": 7},
+    {"path": "02.历年真题-清洗版/2019年下半年-系统架构设计师-案例分析.md", "baseline_positions": 6},
+    {"path": "02.历年真题-清洗版/2019年下半年-系统架构设计师-论文.md", "baseline_positions": 1},
+    {"path": "02.历年真题-清洗版/2019年下半年-系统架构设计师-综合知识.md", "baseline_positions": 9},
+    {"path": "02.历年真题-清洗版/2020年下半年-系统架构设计师-案例分析.md", "baseline_positions": 8},
+    {"path": "02.历年真题-清洗版/2020年下半年-系统架构设计师-论文.md", "baseline_positions": 2},
+    {"path": "02.历年真题-清洗版/2020年下半年-系统架构设计师-综合知识.md", "baseline_positions": 3},
+    {"path": "02.历年真题-清洗版/2021年下半年-系统架构设计师-案例分析.md", "baseline_positions": 4},
+    {"path": "02.历年真题-清洗版/2021年下半年-系统架构设计师-综合知识.md", "baseline_positions": 7},
+    {"path": "02.历年真题-清洗版/2022年下半年-系统架构设计师-案例分析.md", "baseline_positions": 6},
+    {"path": "02.历年真题-清洗版/2022年下半年-系统架构设计师-综合知识.md", "baseline_positions": 5},
+    {"path": "02.历年真题-清洗版/2023年下半年-系统架构设计师-案例分析.md", "baseline_positions": 3},
+    {"path": "02.历年真题-清洗版/2024年上半年-系统架构设计师-案例分析.md", "baseline_positions": 4},
+    {"path": "02.历年真题-清洗版/2024年上半年-系统架构设计师-综合知识.md", "baseline_positions": 1},
+    {"path": "02.历年真题-清洗版/2024年下半年-系统架构设计师-案例分析.md", "baseline_positions": 6},
+    {"path": "02.历年真题-清洗版/2025年上半年-系统架构设计师-案例分析.md", "baseline_positions": 5},
+    {"path": "02.历年真题-清洗版/2025年下半年-系统架构设计师-案例分析.md", "baseline_positions": 3}
+  ],
+  "source_limited_visual_items": [
+    {
+      "id": "2018-h2-comprehensive-q1-table",
+      "path": "02.历年真题-清洗版/2018年下半年-系统架构设计师-综合知识.md",
+      "location": "第 1 题",
+      "limitation": "本地版本原表未取得；固定 PDF 是柱面编号、选项和解析序列均不同的另一版本。",
+      "current_handling": "两个版本隔离记录，不合并、不猜答案。"
+    },
+    {
+      "id": "2024-h1-case-q2-uml",
+      "path": "02.历年真题-清洗版/2024年上半年-系统架构设计师-案例分析.md",
+      "location": "试题二 UML（1）～（9）",
+      "limitation": "物流版与访客版题面冲突，近时点回忆图没有逐空答案。",
+      "current_handling": "保留五条生命线和可辨认消息关系，不拼接背景或猜空位。"
+    },
+    {
+      "id": "2024-h1-case-q4-communication",
+      "path": "02.历年真题-清洗版/2024年上半年-系统架构设计师-案例分析.md",
+      "location": "试题四 DDS/SOME-IP 通信框图",
+      "limitation": "完整原卷框图、空号数量和位置未取得。",
+      "current_handling": "仅提供有技术资料支持的协议分配教学示意。"
+    },
+    {
+      "id": "2024-h1-case-q4-ap-flow",
+      "path": "02.历年真题-清洗版/2024年上半年-系统架构设计师-案例分析.md",
+      "location": "试题四自动驾驶 AP 流程图",
+      "limitation": "完整原卷流程图、箭头、端口和空号未取得。",
+      "current_handling": "仅转录二手材料可共同支持的规划控制关系。"
+    },
+    {
+      "id": "2024-h2-case-q1-quality-table",
+      "path": "02.历年真题-清洗版/2024年下半年-系统架构设计师-案例分析.md",
+      "location": "试题一质量属性分类表",
+      "limitation": "预填单元格与七个空号的精确位置在公开版本间不可裁决。",
+      "current_handling": "保留分类知识和冲突说明，不伪造卷面空位。"
+    },
+    {
+      "id": "2024-h2-case-q3-nginx-slot",
+      "path": "02.历年真题-清洗版/2024年下半年-系统架构设计师-案例分析.md",
+      "location": "试题三 Web 架构第（8）空",
+      "limitation": "Nginx 在原图中的精确空位没有足够证据。",
+      "current_handling": "结构化恢复 Web 架构并单列该空位限制。"
+    },
+    {
+      "id": "2025-h2-case-q5-3-petri",
+      "path": "02.历年真题-清洗版/2025年下半年-系统架构设计师-案例分析.md",
+      "location": "试题五问题 3",
+      "limitation": "仅有裁切图 2 片段，缺完整 Petri 网、具体指令和可靠答案。",
+      "current_handling": "完整恢复问题 2 的货物接运网及表格，问题 3 保留明确未恢复状态。"
+    }
+  ],
+  "non_original_substitutes": [
+    {
+      "id": "2019-h2-essay-q3-comparison-table",
+      "path": "02.历年真题-清洗版/2019年下半年-系统架构设计师-论文.md",
+      "location": "试题三数据湖与数据仓库对照",
+      "description": "原解析图表未入库；当前表格是依据 AWS 与 Google Cloud 官方技术文档整理的非官方学习对照，不冒充原解析表。"
+    }
+  ]
+}

@@ -1,10 +1,49 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "updated_at": "2026-07-12",
   "integrity_policy": {
     "algorithm": "sha256",
     "normalization": "utf8_bom_stripped_lf",
     "description": "以 UTF-8（允许 BOM）解码，去除 BOM，将 CRLF 和孤立 CR 统一为 LF，再以无 BOM UTF-8 编码计算 SHA-256。"
+  },
+  "archive_policy": {
+    "repository_url": "https://github.com/YoungHong1992/ruankao-senior-architecture-designer",
+    "snapshot_commit": "c587993e26652c37744caa77793fbd0f07d59e23",
+    "snapshot_verified_at": "2026-07-12",
+    "blob_url_template": "https://github.com/YoungHong1992/ruankao-senior-architecture-designer/blob/{commit}/{path}",
+    "coverage": "all_90_source_versions",
+    "description": "每条 source_versions.path 均可代入 blob_url_template，并使用 snapshot_commit 形成固定仓库快照地址；该快照固定仓库保存的文本，不反向证明其最初外部 URL、取得日期、官方性或许可。"
+  },
+  "review_policy": {
+    "status": "source_limited_terminal_review",
+    "reviewed_at": "2026-07-12",
+    "canonical_exam_count": 36,
+    "conflict_disposition": {
+      "same_name_conflict_count": 17,
+      "status": "retained_separate_source_limited",
+      "description": "17 组同名原始版/补充版均已逐组保留为独立版本；证据不足时不强行选定权威正文，不自动拼接、覆盖或去重。"
+    },
+    "outcome_summary": {
+      "complete_structural": 23,
+      "needs_review": 9,
+      "partial": 4,
+      "medium_non_official_answers": 7,
+      "low_non_official_answers": 29,
+      "official_or_high_confidence_answers": 0
+    },
+    "scope": [
+      "题量与题号结构",
+      "选项与答案槽位",
+      "现存图表公式及缺失位置",
+      "来源版本冲突隔离",
+      "manifest 与两份索引一致性"
+    ],
+    "excludes": [
+      "官方原卷身份认证",
+      "官方标准答案与评分细则",
+      "公开材料无法支持的缺失题面或图形细节"
+    ],
+    "description": "终审完成表示已在仓库材料和已记录公开证据范围内逐卷审计，并不把非官方回忆材料升级为官方或高可信来源；每卷结果仍由 completeness、answer_confidence、same_name_conflict 和 notes 表达。"
   },
   "source_catalog": {
     "local_original": {
@@ -23,7 +62,7 @@
       "label": "清洗交叉校对版",
       "root": "02.历年真题-清洗版",
       "official": false,
-      "description": "36 份唯一试卷均已有标准名首轮结构清洗稿；另保留 2023 年下半年综合知识 A65 独立备选。所有清洗稿仍需复核，不是官方题库或官方答案。"
+      "description": "36 份唯一试卷均已有标准名首选稿并完成现有证据范围终审；另保留 2023 年下半年综合知识 A65 独立备选。终审结论仍保留 partial、needs_review、非官方答案和来源冲突，不是官方题库或官方答案。"
     }
   },
   "exams": [
@@ -37,7 +76,7 @@
       "completeness": "complete_structural",
       "completeness_note": "5 题结构齐；9 处原图、原表已依据固定非官方 PDF 作结构化转录，未纳入扫描图；试题五两处非官方答案版本冲突未裁决，仍待官方原卷核对。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2016年下半年-系统架构设计师-案例分析.md",
       "alternatives": [
         "02.历年真题/2016年下半年-系统架构设计师-案例分析.md"
@@ -73,7 +112,7 @@
       "completeness": "complete_structural",
       "completeness_note": "4 个论题结构齐；备考提示来自非官方底稿，未提供官方范文与评分细则。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2016年下半年-系统架构设计师-论文.md",
       "alternatives": [
         "02.历年真题/2016年下半年-系统架构设计师-论文.md"
@@ -109,7 +148,7 @@
       "completeness": "complete_structural",
       "completeness_note": "75 题结构齐；第 6 题公式与流水线、第 7～8 题双缓冲结构、第 69 题投资效益表已由固定公开资料结构化恢复；第 3 题源文件无解析，题面和答案仍非官方。",
       "answer_confidence": "medium_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2016年下半年-系统架构设计师-综合知识.md",
       "alternatives": [
         "02.历年真题/2016年下半年-系统架构设计师-综合知识.md"
@@ -145,7 +184,7 @@
       "completeness": "complete_structural",
       "completeness_note": "5 题结构齐；6 处题图、原表已据固定第三方 PDF 恢复为结构化转录，非原图、非官方；图 2-1 与图 5-1 的答案映射存在两组冲突，已隔离，仍需官方来源裁决。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2017年下半年-系统架构设计师-案例分析.md",
       "alternatives": [
         "02.历年真题/2017年下半年-系统架构设计师-案例分析.md"
@@ -181,7 +220,7 @@
       "completeness": "complete_structural",
       "completeness_note": "4 个论题结构齐；备考提示来自非官方底稿，未提供官方范文与评分细则。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2017年下半年-系统架构设计师-论文.md",
       "alternatives": [
         "02.历年真题/2017年下半年-系统架构设计师-论文.md"
@@ -217,7 +256,7 @@
       "completeness": "complete_structural",
       "completeness_note": "75 题；第 1、6、7、8、25、64、65、69、70 题所需公式、图表已依据固定非官方 PDF 作结构化恢复；未复制扫描图，题面与答案仍待官方原卷复核。",
       "answer_confidence": "medium_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2017年下半年-系统架构设计师-综合知识.md",
       "alternatives": [
         "02.历年真题/2017年下半年-系统架构设计师-综合知识.md"
@@ -253,7 +292,7 @@
       "completeness": "complete_structural",
       "completeness_note": "5 题结构齐；7 处题图、原表已据固定第三方 PDF 恢复为结构化转录；该 PDF 不含独立图 5-2，且与底稿存在多处答案口径冲突，均已隔离，仍待官方原卷裁决。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2018年下半年-系统架构设计师-案例分析.md",
       "alternatives": [
         "02.历年真题/2018年下半年-系统架构设计师-案例分析.md"
@@ -289,7 +328,7 @@
       "completeness": "complete_structural",
       "completeness_note": "4 个论题结构齐；备考提示来自非官方底稿，未提供官方范文与评分细则。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2018年下半年-系统架构设计师-论文.md",
       "alternatives": [
         "02.历年真题/2018年下半年-系统架构设计师-论文.md"
@@ -325,7 +364,7 @@
       "completeness": "complete_structural",
       "completeness_note": "75 题；第 2、3、5、6、7、69 题缺失结构及第 70 题解题图关键信息已据固定非官方 PDF 结构化恢复；第 1 题本地版本原表仍缺，固定 PDF 为另一版本且柱面编号、选项和解析序列冲突，未合并或裁决。",
       "answer_confidence": "medium_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2018年下半年-系统架构设计师-综合知识.md",
       "alternatives": [
         "02.历年真题/2018年下半年-系统架构设计师-综合知识.md"
@@ -361,7 +400,7 @@
       "completeness": "complete_structural",
       "completeness_note": "清洗稿将底稿误计的 8 节恢复为 5 个逻辑大题；表 1-1 及图 1-1、图 2-1、图 3-1、图 5-1 已据固定非官方 PDF 作结构化恢复，未发现新增答案冲突，仍待官方原卷复核。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2019年下半年-系统架构设计师-案例分析.md",
       "alternatives": [
         "02.历年真题/2019年下半年-系统架构设计师-案例分析.md"
@@ -397,7 +436,7 @@
       "completeness": "complete_structural",
       "completeness_note": "4 个论题结构齐；第 3 题数据湖/数据仓库六方面对照已据 AWS 与 Google Cloud 官方技术文档补为非官方学习表；原解析图表及官方范文、评分细则仍未收录。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2019年下半年-系统架构设计师-论文.md",
       "alternatives": [
         "02.历年真题/2019年下半年-系统架构设计师-论文.md"
@@ -433,7 +472,7 @@
       "completeness": "complete_structural",
       "completeness_note": "75 题；第 9、10、11、18、19、20、53、54、70 题图表已据固定非官方 PDF 作结构化恢复，第 25 题悬空图示引用也已整理；第 54 题第二空存在 B/D 非官方答案冲突，已隔离，仍待官方原卷裁决。",
       "answer_confidence": "medium_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2019年下半年-系统架构设计师-综合知识.md",
       "alternatives": [
         "02.历年真题/2019年下半年-系统架构设计师-综合知识.md"
@@ -469,7 +508,7 @@
       "completeness": "complete_structural",
       "completeness_note": "5 题结构齐；7 组独立图表及 2 处共用引用已据固定非官方材料作结构化恢复，3 个 Mermaid 已渲染核验；隔离 2 项答案冲突和 1 项选项顺序差异。图 3-1 为功能清单示意，非原始 FACE 版式；仍待官方原卷裁决。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2020年下半年-系统架构设计师-案例分析.md",
       "alternatives": [
         "02.历年真题/2020年下半年-系统架构设计师-案例分析.md"
@@ -505,7 +544,7 @@
       "completeness": "complete_structural",
       "completeness_note": "4 个论题结构齐；第 2 题云原生业务代码、第三方软件与非功能职责关系已据现存解析作结构化重绘，非原图、非官方；仍无官方范文与评分细则。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2020年下半年-系统架构设计师-论文.md",
       "alternatives": [
         "02.历年真题/2020年下半年-系统架构设计师-论文.md"
@@ -541,7 +580,7 @@
       "completeness": "complete_structural",
       "completeness_note": "75 题；第 1 题前趋图、第 6 题闭包公式、第 10 题页表与地址翻译均已结构化恢复，第 7 题候选关键字解析已补齐；第 6 题 AD/BC 来源内冲突及第 10 题 15/16 位格式差异已隔离，仍待官方原卷裁决。",
       "answer_confidence": "medium_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2020年下半年-系统架构设计师-综合知识.md",
       "alternatives": [
         "02.历年真题/2020年下半年-系统架构设计师-综合知识.md"
@@ -577,7 +616,7 @@
       "completeness": "complete_structural",
       "completeness_note": "5 题结构齐；试题一效用树、试题二用例图和顺序图、试题三 FACE 数据模型语言图、试题五智能家居架构图均已据固定题图、第三方 PDF 或官方技术标准结构化恢复；FACE 图由公开题图与 The Open Group FACE Technical Standard 3.1 Figure 19 交叉核验，固定第三方 PDF 不含该题，已明确隔离；效用树选项编号、用例图参与者位置及试题五题面/解析布局差异仍待官方原卷裁决。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2021年下半年-系统架构设计师-案例分析.md",
       "alternatives": [
         "02.历年真题/2021年下半年-系统架构设计师-案例分析.md",
@@ -622,7 +661,7 @@
       "completeness": "complete_structural",
       "completeness_note": "4 个论题结构齐；非官方提示较简略，仍待可靠来源复核。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2021年下半年-系统架构设计师-论文.md",
       "alternatives": [
         "02.历年真题/2021年下半年-系统架构设计师-论文.md",
@@ -667,7 +706,7 @@
       "completeness": "complete_structural",
       "completeness_note": "75 题；第 1、4、5、27、57、72、73 题的图表均已据固定第三方 PDF 与公开整理结构化恢复，答案序列未改；第 27 题仍存在 E=14、N=12 与另一来源 E=12、N=10 的计数口径差异，且外部资料题号排列与本地稿不完全一致，待官方原卷裁决。",
       "answer_confidence": "medium_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2021年下半年-系统架构设计师-综合知识.md",
       "alternatives": [
         "02.历年真题/2021年下半年-系统架构设计师-综合知识.md"
@@ -703,7 +742,7 @@
       "completeness": "complete_structural",
       "completeness_note": "5 题、14 个子问题结构齐；效用树、数据流图、E-R 图、故障检测图和智能门禁架构图均已据固定第三方 PDF 与公开核对图结构化恢复；E-R 图实体命名及 (4)～(6) 顺序、故障分类的监控器归属、智能门禁 (1)～(6) 协议映射存在非官方来源冲突，已隔离并待官方原卷裁决。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2022年下半年-系统架构设计师-案例分析.md",
       "alternatives": [
         "02.历年真题(补充)/2022年下半年-系统架构设计师-案例分析.md"
@@ -739,7 +778,7 @@
       "completeness": "complete_structural",
       "completeness_note": "真实论文为 4 题；清洗版已剔除误混的 5 个案例分析段，并为 4 个论题新增非官方原创参考提纲及可定位技术来源；仍无官方范文、标准答案或评分细则。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2022年下半年-系统架构设计师-论文.md",
       "alternatives": [
         "02.历年真题/2022年下半年-系统架构设计师-论文.md",
@@ -784,7 +823,7 @@
       "completeness": "complete_structural",
       "completeness_note": "75 题；第 3、5、15、70 题图表和第 59 题解析效用树已据固定第三方 PDF 与 SEI 官方资料结构化恢复，题号、选项和答案未改；第 70 题固定 PDF 的 D 项为 5，本地首选稿为 12，已并列记录并待官方原卷裁决；第 59 题解析图与 SEI Figure 3 的术语差异已注明。",
       "answer_confidence": "medium_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2022年下半年-系统架构设计师-综合知识.md",
       "alternatives": [
         "02.历年真题/2022年下半年-系统架构设计师-综合知识.md",
@@ -829,7 +868,7 @@
       "completeness": "complete_structural",
       "completeness_note": "5 题、14 个子问题结构齐；试题一效用树以及试题三硬/软件可靠性表、恢复块图和恢复块/N 版本比较表已据固定或公开来源结构化恢复，答案区未改；效用树来源为可变非官方图，可靠性题与固定 2015 PDF 逐字对应而固定 2023 回忆版案例序列不同，且“即使不适用/不使用”异文未裁决，待官方原卷确认。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2023年下半年-系统架构设计师-案例分析.md",
       "alternatives": [
         "02.历年真题(补充)/2023年下半年-系统架构设计师-案例分析.md"
@@ -865,7 +904,7 @@
       "completeness": "needs_review",
       "completeness_note": "原始版 8 节实为 4 个论题各重复一次；清洗版保留 4 个论题并新增非官方原创参考提纲及可定位技术来源；题面来源链仍不完整，且无官方范文或评分细则。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2023年下半年-系统架构设计师-论文.md",
       "alternatives": [
         "02.历年真题/2023年下半年-系统架构设计师-论文.md",
@@ -908,9 +947,9 @@
       "item_count": 75,
       "item_unit": "题",
       "completeness": "needs_review",
-      "completeness_note": "首选回忆版 B 为 75 题并经环球网校 paperId=338793 交叉核验；A65 是独立备选题序，严禁拼接或覆盖。",
+      "completeness_note": "首选回忆版 B 为 75 题并经环球网校 paperId=338793 交叉核验；原底稿缺失的第 4、31、32、70 题表格已按同一固定题库页面转录为 Markdown 表格；A65 是独立备选题序，严禁拼接或覆盖。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2023年下半年-系统架构设计师-综合知识.md",
       "alternatives": [
         "02.历年真题-清洗版/2023年下半年-系统架构设计师-综合知识-回忆版A-65题.md",
@@ -952,7 +991,7 @@
           "item_unit": "题"
         }
       ],
-      "notes": "首选回忆版 B 为 75 题并经环球网校 paperId=338793 交叉核验；A65 是独立备选题序，严禁拼接或覆盖。"
+      "notes": "首选回忆版 B 为 75 题并经环球网校 paperId=338793 交叉核验；原底稿缺失的第 4、31、32、70 题表格已按同一固定题库页面转录为 Markdown 表格；A65 是独立备选题序，严禁拼接或覆盖。"
     },
     {
       "id": "2024-h1-case-analysis",
@@ -964,7 +1003,7 @@
       "completeness": "partial",
       "completeness_note": "部分：5 题结构齐；试题一约车平台效用树、问题 2 六空及试题五 GIS 架构已据固定第三方 PDF 结构化恢复；试题四 DDS/SOME-IP 分配与 AP 流程仅提供教学性示意，非原卷重绘；固定 PDF 混入 2015 年可靠性旧题，已隔离。试题二存在物流版与访客版背景、分值及 UML 消息来源冲突，（1）～（9）无逐空可靠答案；试题四精确空号、箭头、模块以及选答题顺序仍待官方原卷裁决。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2024年上半年-系统架构设计师-案例分析.md",
       "alternatives": [
         "02.历年真题/2024年上半年-系统架构设计师-案例分析.md",
@@ -1009,7 +1048,7 @@
       "completeness": "needs_review",
       "completeness_note": "4 个论题由冲突底稿重组；单元测试题无解析，其余提示仅覆盖部分写作要求。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2024年上半年-系统架构设计师-论文.md",
       "alternatives": [
         "02.历年真题/2024年上半年-系统架构设计师-论文.md",
@@ -1054,7 +1093,7 @@
       "completeness": "needs_review",
       "completeness_note": "75 题；第 14 题 A～L 作业网络图已据固定第三方 PDF 第 2 页结构化恢复，关键路径工期 26 天与既有答案一致，题号、选项和答案未改；题面与答案整体仍为非官方回忆整理，尚未与官方原卷逐题核验。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2024年上半年-系统架构设计师-综合知识.md",
       "alternatives": [
         "02.历年真题/2024年上半年-系统架构设计师-综合知识.md",
@@ -1099,7 +1138,7 @@
       "completeness": "partial",
       "completeness_note": "部分：5 题、14 个子问题结构齐；Cache-Aside 读写、ROS 2 通信与分层、Web 架构和故障树已据固定公开来源结构化恢复，并修正 Cache-Aside 第 (2)/(3) 空顺序；质量属性分类表的预填单元格与空号位置、Web 第 (8) 空的 Nginx 位置、ROS 分值 12/8/5 与 13/8/7 冲突及试题四完整背景仍不可裁决。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2024年下半年-系统架构设计师-案例分析.md",
       "alternatives": [
         "02.历年真题/2024年下半年-系统架构设计师-案例分析.md",
@@ -1144,7 +1183,7 @@
       "completeness": "needs_review",
       "completeness_note": "4 个论题；非官方回忆题面已配逐题原创参考提纲及可定位技术来源；部分背景仍可能是转述，且无官方范文、标准答案或评分细则。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2024年下半年-系统架构设计师-论文.md",
       "alternatives": [
         "02.历年真题/2024年下半年-系统架构设计师-论文.md",
@@ -1189,7 +1228,7 @@
       "completeness": "partial",
       "completeness_note": "75 题结构齐；第 67 题经固定 GitHub commit/blob、RKPass 及多份回忆题序交叉核验，现只能确认“合规性检查、用户权限、安全测试”联合片段，完整题干、真实 A～D 选项和可靠答案仍不可裁决，已将四个选项槽和答案明确标为未恢复；第 73 题完整表格、选项和答案已由固定公开回忆页恢复并完成计算校核，另一个公开版本的选项冲突已隔离。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2024年下半年-系统架构设计师-综合知识.md",
       "alternatives": [
         "02.历年真题/2024年下半年-系统架构设计师-综合知识.md",
@@ -1234,7 +1273,7 @@
       "completeness": "complete_structural",
       "completeness_note": "5 题、15 个子问题结构齐；解释器、知识图谱、Scrapy、资源池和 Redis 原图表未收录，已按固定公开回忆页转录为表格或文字流程，答案仍待官方材料复核。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2025年上半年-系统架构设计师-案例分析.md",
       "alternatives": [
         "02.历年真题(补充)/2025年上半年-系统架构设计师-案例分析.md"
@@ -1270,7 +1309,7 @@
       "completeness": "needs_review",
       "completeness_note": "4 个论题；原/补两版题序和部分题名冲突，当前提示均非官方。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2025年上半年-系统架构设计师-论文.md",
       "alternatives": [
         "02.历年真题/2025年上半年-系统架构设计师-论文.md",
@@ -1315,7 +1354,7 @@
       "completeness": "needs_review",
       "completeness_note": "75 题；基于多份公开回忆/解析资料，外部资料并非官方且精确 URL 尚未逐条保存。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2025年上半年-系统架构设计师-综合知识.md",
       "alternatives": [
         "02.历年真题/2025年上半年-系统架构设计师-综合知识.md",
@@ -1360,7 +1399,7 @@
       "completeness": "partial",
       "completeness_note": "部分：5 题已由固定公开回忆页恢复；AIOS 第三问、缓存流程、试题四 11 空架构图、试题五表 1、完整货物接运 Petri 网及问题 3 表 2 已结构化恢复；试题五问题 3 仍只有裁切图 2 片段，缺完整 Petri 网、具体题面和可靠答案，固定页答案栏仅为“无”，经固定 GitHub commit/blob 与多批次搜索仍不可裁决。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2025年下半年-系统架构设计师-案例分析.md",
       "alternatives": [
         "02.历年真题/2025年下半年-系统架构设计师-案例分析.md",
@@ -1405,7 +1444,7 @@
       "completeness": "needs_review",
       "completeness_note": "4 个论题；原/补两版题序冲突仍保留，现已配逐题非官方原创参考提纲及可定位技术来源；无官方范文、标准答案或评分细则。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2025年下半年-系统架构设计师-论文.md",
       "alternatives": [
         "02.历年真题/2025年下半年-系统架构设计师-论文.md",
@@ -1450,7 +1489,7 @@
       "completeness": "needs_review",
       "completeness_note": "75 题；公开材料以考生回忆为主，个别整理取舍不等同于官方题面或标准答案。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2025年下半年-系统架构设计师-综合知识.md",
       "alternatives": [
         "02.历年真题/2025年下半年-系统架构设计师-综合知识.md",

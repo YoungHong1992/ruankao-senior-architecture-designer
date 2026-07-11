@@ -30,6 +30,8 @@ CLEAN_DIRS = tuple(name for name in CONTENT_DIRS if name.endswith("-清洗版"))
 CHAPTER_DIRS = CONTENT_DIRS[:4]
 EXAM_SOURCE_DIRS = ("02.历年真题", "02.历年真题(补充)")
 MANIFEST_PATH = ROOT / "data" / "exams.json"
+EXAM_ASSET_AUDIT_PATH = ROOT / "data" / "exam_asset_audit.json"
+TEXTBOOK_AUDIT_PATH = ROOT / "data" / "textbook_audit.json"
 MASTER_INDEX_PATH = ROOT / "02.历年真题总索引.md"
 CLEAN_EXAM_INDEX_PATH = ROOT / "02.历年真题-清洗版" / "INDEX.md"
 
@@ -81,6 +83,8 @@ STALE_EXAM_METADATA_RE = re.compile(
     r"(?:应后续|尚未|待)(?:更新|更正|改为)"
 )
 SHA256_RE = re.compile(r"[0-9a-f]{64}")
+GIT_COMMIT_RE = re.compile(r"[0-9a-f]{40}")
+INDEX_STAT_DATE_RE = re.compile(r"统计日期：(\d{4}-\d{2}-\d{2})")
 SOURCE_VERSION_FIELDS = {
     "source_id",
     "path",
@@ -91,6 +95,9 @@ SOURCE_VERSION_FIELDS = {
 }
 INTEGRITY_ALGORITHM = "sha256"
 INTEGRITY_NORMALIZATION = "utf8_bom_stripped_lf"
+ARCHIVE_COVERAGE = "all_90_source_versions"
+REVIEW_STATUS = "source_limited_terminal_review"
+EXAM_CLEAN_STATUS = "source_limited_reviewed"
 COMPLETENESS_INDEX_LABELS = {
     "complete_structural": "结构齐*",
     "needs_review": "待复核",
@@ -268,6 +275,8 @@ class Validator:
             "schema_version",
             "updated_at",
             "integrity_policy",
+            "archive_policy",
+            "review_policy",
             "source_catalog",
             "exams",
         }
@@ -275,8 +284,8 @@ class Validator:
         if missing_top:
             self.error(MANIFEST_PATH, f"missing top-level fields: {sorted(missing_top)}")
             return
-        if manifest.get("schema_version") != 2:
-            self.error(MANIFEST_PATH, "schema_version must be 2")
+        if manifest.get("schema_version") != 3:
+            self.error(MANIFEST_PATH, "schema_version must be 3")
         try:
             date.fromisoformat(str(manifest["updated_at"]))
         except ValueError:
@@ -294,6 +303,113 @@ class Validator:
                 self.error(
                     MANIFEST_PATH,
                     f"integrity_policy.normalization must be {INTEGRITY_NORMALIZATION}",
+                )
+        archive_policy = manifest.get("archive_policy")
+        if not isinstance(archive_policy, dict):
+            self.error(MANIFEST_PATH, "archive_policy must be an object")
+        else:
+            archive_fields = {
+                "repository_url",
+                "snapshot_commit",
+                "snapshot_verified_at",
+                "blob_url_template",
+                "coverage",
+                "description",
+            }
+            missing_archive = archive_fields - set(archive_policy)
+            if missing_archive:
+                self.error(
+                    MANIFEST_PATH,
+                    f"archive_policy missing fields: {sorted(missing_archive)}",
+                )
+            repository_url = archive_policy.get("repository_url")
+            if not isinstance(repository_url, str) or not repository_url.startswith(
+                "https://github.com/"
+            ):
+                self.error(
+                    MANIFEST_PATH,
+                    "archive_policy.repository_url must be an HTTPS GitHub repository URL",
+                )
+            snapshot_commit = archive_policy.get("snapshot_commit")
+            if not isinstance(snapshot_commit, str) or not GIT_COMMIT_RE.fullmatch(
+                snapshot_commit
+            ):
+                self.error(
+                    MANIFEST_PATH,
+                    "archive_policy.snapshot_commit must be a 40-character lowercase Git commit",
+                )
+            try:
+                date.fromisoformat(str(archive_policy.get("snapshot_verified_at")))
+            except ValueError:
+                self.error(
+                    MANIFEST_PATH,
+                    "archive_policy.snapshot_verified_at must be an ISO date",
+                )
+            blob_template = archive_policy.get("blob_url_template")
+            if (
+                not isinstance(blob_template, str)
+                or "{commit}" not in blob_template
+                or "{path}" not in blob_template
+            ):
+                self.error(
+                    MANIFEST_PATH,
+                    "archive_policy.blob_url_template must contain {commit} and {path}",
+                )
+            if archive_policy.get("coverage") != ARCHIVE_COVERAGE:
+                self.error(
+                    MANIFEST_PATH,
+                    f"archive_policy.coverage must be {ARCHIVE_COVERAGE}",
+                )
+        review_policy = manifest.get("review_policy")
+        if not isinstance(review_policy, dict):
+            self.error(MANIFEST_PATH, "review_policy must be an object")
+        else:
+            review_fields = {
+                "status",
+                "reviewed_at",
+                "canonical_exam_count",
+                "conflict_disposition",
+                "outcome_summary",
+                "scope",
+                "excludes",
+                "description",
+            }
+            missing_review = review_fields - set(review_policy)
+            if missing_review:
+                self.error(
+                    MANIFEST_PATH,
+                    f"review_policy missing fields: {sorted(missing_review)}",
+                )
+            if review_policy.get("status") != REVIEW_STATUS:
+                self.error(
+                    MANIFEST_PATH,
+                    f"review_policy.status must be {REVIEW_STATUS}",
+                )
+            try:
+                date.fromisoformat(str(review_policy.get("reviewed_at")))
+            except ValueError:
+                self.error(MANIFEST_PATH, "review_policy.reviewed_at must be an ISO date")
+            for field in ("scope", "excludes"):
+                value = review_policy.get(field)
+                if not isinstance(value, list) or not value or not all(
+                    isinstance(item, str) and item.strip() for item in value
+                ):
+                    self.error(
+                        MANIFEST_PATH,
+                        f"review_policy.{field} must be a non-empty text array",
+                    )
+            conflict_disposition = review_policy.get("conflict_disposition")
+            if not isinstance(conflict_disposition, dict):
+                self.error(
+                    MANIFEST_PATH,
+                    "review_policy.conflict_disposition must be an object",
+                )
+            elif conflict_disposition.get("status") != (
+                "retained_separate_source_limited"
+            ):
+                self.error(
+                    MANIFEST_PATH,
+                    "review_policy.conflict_disposition has an unsupported status",
                 )
         source_catalog = manifest.get("source_catalog")
         if not isinstance(source_catalog, dict):
@@ -337,6 +453,11 @@ class Validator:
                 continue
             valid_exams.append(exam)
             exam_id = str(exam["id"])
+            if exam.get("clean_status") != EXAM_CLEAN_STATUS:
+                self.error(
+                    MANIFEST_PATH,
+                    f"{exam_id}: clean_status must be {EXAM_CLEAN_STATUS}",
+                )
             if exam_id in ids:
                 self.error(MANIFEST_PATH, f"duplicate exam id: {exam_id}")
             ids.add(exam_id)
@@ -488,6 +609,54 @@ class Validator:
             )
         if len(exams) != 36:
             self.error(MANIFEST_PATH, f"expected 36 canonical exams, found {len(exams)}")
+        if isinstance(review_policy, dict) and review_policy.get(
+            "canonical_exam_count"
+        ) != len(exams):
+            self.error(
+                MANIFEST_PATH,
+                "review_policy.canonical_exam_count must match the exams array",
+            )
+        conflict_count = sum(bool(exam.get("same_name_conflict")) for exam in exams)
+        if isinstance(review_policy, dict):
+            conflict_disposition = review_policy.get("conflict_disposition")
+            if isinstance(conflict_disposition, dict) and conflict_disposition.get(
+                "same_name_conflict_count"
+            ) != conflict_count:
+                self.error(
+                    MANIFEST_PATH,
+                    "review_policy conflict count must match same_name_conflict flags",
+                )
+        if conflict_count != 17:
+            self.error(MANIFEST_PATH, f"expected 17 same-name conflicts, found {conflict_count}")
+        if isinstance(review_policy, dict):
+            outcome_summary = review_policy.get("outcome_summary")
+            expected_outcomes = {
+                "complete_structural": sum(
+                    exam.get("completeness") == "complete_structural" for exam in exams
+                ),
+                "needs_review": sum(
+                    exam.get("completeness") == "needs_review" for exam in exams
+                ),
+                "partial": sum(exam.get("completeness") == "partial" for exam in exams),
+                "medium_non_official_answers": sum(
+                    exam.get("answer_confidence") == "medium_non_official"
+                    for exam in exams
+                ),
+                "low_non_official_answers": sum(
+                    exam.get("answer_confidence") == "low_non_official"
+                    for exam in exams
+                ),
+                "official_or_high_confidence_answers": 0,
+            }
+            if not isinstance(outcome_summary, dict):
+                self.error(MANIFEST_PATH, "review_policy.outcome_summary must be an object")
+            else:
+                for field, expected in expected_outcomes.items():
+                    if outcome_summary.get(field) != expected:
+                        self.error(
+                            MANIFEST_PATH,
+                            f"review_policy.outcome_summary.{field} must be {expected}",
+                        )
         if source_version_count != 90:
             self.error(
                 MANIFEST_PATH,
@@ -516,6 +685,14 @@ class Validator:
                 self.error(index_path, "exam index is missing")
                 continue
             index_text = self.read_text(index_path) or ""
+            stat_date = INDEX_STAT_DATE_RE.search(index_text[:500])
+            if stat_date is None:
+                self.error(index_path, "missing statistics date in index header")
+            elif stat_date.group(1) != str(manifest.get("updated_at")):
+                self.error(
+                    index_path,
+                    "statistics date does not match manifest updated_at",
+                )
             index_lines = index_text.splitlines()
             for exam in valid_exams:
                 exam_id = str(exam.get("id", "unknown"))
@@ -603,7 +780,11 @@ class Validator:
                 MANIFEST_PATH,
                 f"{exam_id}: preferred must be canonical clean file {clean_relative}",
             )
-        if exam.get("clean_status") not in {"cleaned", "cleaned_needs_review"}:
+        if exam.get("clean_status") not in {
+            "cleaned",
+            "cleaned_needs_review",
+            EXAM_CLEAN_STATUS,
+        }:
             self.error(
                 MANIFEST_PATH,
                 f"{exam_id}: clean_status must identify a completed clean draft",
@@ -681,6 +862,293 @@ class Validator:
                     f"expected {declared * 4} A-D options, found {options}",
                 )
 
+    def check_exam_asset_audit(self) -> None:
+        if not EXAM_ASSET_AUDIT_PATH.is_file():
+            self.error(EXAM_ASSET_AUDIT_PATH, "exam asset audit is missing")
+            return
+        try:
+            audit = json.loads(EXAM_ASSET_AUDIT_PATH.read_text(encoding="utf-8-sig"))
+        except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+            self.error(EXAM_ASSET_AUDIT_PATH, f"invalid JSON: {exc}")
+            return
+        required = {
+            "schema_version",
+            "reviewed_at",
+            "baseline",
+            "additional_positions",
+            "summary",
+            "files",
+            "source_limited_visual_items",
+            "non_original_substitutes",
+        }
+        missing = required - set(audit)
+        if missing:
+            self.error(
+                EXAM_ASSET_AUDIT_PATH,
+                f"missing top-level fields: {sorted(missing)}",
+            )
+            return
+        if audit.get("schema_version") != 1:
+            self.error(EXAM_ASSET_AUDIT_PATH, "schema_version must be 1")
+        try:
+            date.fromisoformat(str(audit.get("reviewed_at")))
+        except ValueError:
+            self.error(EXAM_ASSET_AUDIT_PATH, "reviewed_at must be an ISO date")
+        baseline = audit.get("baseline")
+        if not isinstance(baseline, dict):
+            self.error(EXAM_ASSET_AUDIT_PATH, "baseline must be an object")
+            return
+        commit = baseline.get("commit")
+        if not isinstance(commit, str) or not GIT_COMMIT_RE.fullmatch(commit):
+            self.error(EXAM_ASSET_AUDIT_PATH, "baseline.commit must be a Git commit")
+        if baseline.get("explicit_positions") != 116:
+            self.error(EXAM_ASSET_AUDIT_PATH, "baseline must record 116 positions")
+        files = audit.get("files")
+        if not isinstance(files, list):
+            self.error(EXAM_ASSET_AUDIT_PATH, "files must be an array")
+            return
+        seen_paths: set[str] = set()
+        baseline_total = 0
+        current_marker_total = 0
+        for position, item in enumerate(files, start=1):
+            label = f"files #{position}"
+            if not isinstance(item, dict):
+                self.error(EXAM_ASSET_AUDIT_PATH, f"{label} must be an object")
+                continue
+            relative_path = item.get("path")
+            count = item.get("baseline_positions")
+            if not isinstance(relative_path, str) or not relative_path:
+                self.error(EXAM_ASSET_AUDIT_PATH, f"{label}.path must be text")
+                continue
+            if relative_path in seen_paths:
+                self.error(EXAM_ASSET_AUDIT_PATH, f"duplicate path: {relative_path}")
+            seen_paths.add(relative_path)
+            if not isinstance(count, int) or count <= 0:
+                self.error(
+                    EXAM_ASSET_AUDIT_PATH,
+                    f"{label}.baseline_positions must be positive",
+                )
+                continue
+            baseline_total += count
+            path = ROOT / relative_path
+            if not path.is_file():
+                self.error(EXAM_ASSET_AUDIT_PATH, f"missing audited file {relative_path}")
+                continue
+            text = self.read_text(path) or ""
+            current_marker_total += text.count("原图未收录") + text.count("原表未收录")
+        if len(files) != 22:
+            self.error(EXAM_ASSET_AUDIT_PATH, f"expected 22 files, found {len(files)}")
+        if baseline_total != 116:
+            self.error(
+                EXAM_ASSET_AUDIT_PATH,
+                f"baseline position counts sum to {baseline_total}, expected 116",
+            )
+        additional = audit.get("additional_positions")
+        if not isinstance(additional, list) or len(additional) != 1:
+            self.error(EXAM_ASSET_AUDIT_PATH, "expected one additional position")
+            additional = []
+        limited = audit.get("source_limited_visual_items")
+        if not isinstance(limited, list) or len(limited) != 7:
+            self.error(
+                EXAM_ASSET_AUDIT_PATH,
+                "expected seven source-limited visual items",
+            )
+            limited = []
+        for group_name, group in (
+            ("additional_positions", additional),
+            ("source_limited_visual_items", limited),
+        ):
+            for position, item in enumerate(group, start=1):
+                if not isinstance(item, dict):
+                    self.error(
+                        EXAM_ASSET_AUDIT_PATH,
+                        f"{group_name} #{position} must be an object",
+                    )
+                    continue
+                relative_path = item.get("path")
+                if not isinstance(relative_path, str) or not (ROOT / relative_path).is_file():
+                    self.error(
+                        EXAM_ASSET_AUDIT_PATH,
+                        f"{group_name} #{position} has an invalid path",
+                    )
+        summary = audit.get("summary")
+        if not isinstance(summary, dict):
+            self.error(EXAM_ASSET_AUDIT_PATH, "summary must be an object")
+        else:
+            expected_summary = {
+                "total_positions_reviewed": baseline_total + len(additional),
+                "files_with_baseline_positions": len(files),
+                "current_legacy_marker_count": current_marker_total,
+                "source_limited_visual_items": len(limited),
+            }
+            for field, expected in expected_summary.items():
+                if summary.get(field) != expected:
+                    self.error(
+                        EXAM_ASSET_AUDIT_PATH,
+                        f"summary.{field} must be {expected}",
+                    )
+        if current_marker_total != 0:
+            self.error(
+                EXAM_ASSET_AUDIT_PATH,
+                f"audited files still contain {current_marker_total} legacy marker(s)",
+            )
+
+    def check_textbook_audit(self) -> None:
+        if not TEXTBOOK_AUDIT_PATH.is_file():
+            self.error(TEXTBOOK_AUDIT_PATH, "textbook PDF audit is missing")
+            return
+        try:
+            audit = json.loads(TEXTBOOK_AUDIT_PATH.read_text(encoding="utf-8-sig"))
+        except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+            self.error(TEXTBOOK_AUDIT_PATH, f"invalid JSON: {exc}")
+            return
+        required = {
+            "schema_version",
+            "reviewed_at",
+            "source",
+            "method",
+            "manual_review",
+            "debt_scope",
+            "summary",
+            "chapters",
+        }
+        missing = required - set(audit)
+        if missing:
+            self.error(
+                TEXTBOOK_AUDIT_PATH,
+                f"missing top-level fields: {sorted(missing)}",
+            )
+            return
+        if audit.get("schema_version") != 1:
+            self.error(TEXTBOOK_AUDIT_PATH, "schema_version must be 1")
+        try:
+            date.fromisoformat(str(audit.get("reviewed_at")))
+        except ValueError:
+            self.error(TEXTBOOK_AUDIT_PATH, "reviewed_at must be an ISO date")
+        source = audit.get("source")
+        expected_source = {
+            "sha256": "ee45900f4622d71539980cfe1bddbcd898fba97ca13ada6df1cbdc215135c2f8",
+            "pages": 721,
+            "chapter_content_pages": 708,
+        }
+        if not isinstance(source, dict):
+            self.error(TEXTBOOK_AUDIT_PATH, "source must be an object")
+        else:
+            for field, expected in expected_source.items():
+                if source.get(field) != expected:
+                    self.error(
+                        TEXTBOOK_AUDIT_PATH,
+                        f"source.{field} must be {expected}",
+                    )
+        manual_review = audit.get("manual_review")
+        if not isinstance(manual_review, dict) or manual_review.get("status") != "completed":
+            self.error(TEXTBOOK_AUDIT_PATH, "manual PDF/render review must be completed")
+        debt_scope = audit.get("debt_scope")
+        expected_debt = {
+            "original_minimum": 296,
+            "corrected_minimum": 308,
+            "legacy_marked_figure_positions": 272,
+            "additional_unmarked_figure_positions": 12,
+            "known_formula_positions": 2,
+            "explicit_missing_or_partial_table_positions": 8,
+            "reported_spliced_table_positions": 14,
+        }
+        if not isinstance(debt_scope, dict):
+            self.error(TEXTBOOK_AUDIT_PATH, "debt_scope must be an object")
+        else:
+            for field, expected in expected_debt.items():
+                if debt_scope.get(field) != expected:
+                    self.error(
+                        TEXTBOOK_AUDIT_PATH,
+                        f"debt_scope.{field} must be {expected}",
+                    )
+        summary = audit.get("summary")
+        expected_summary = {
+            "chapters": 20,
+            "pdf_unique_figure_numbers": 284,
+            "markdown_unique_figure_carriers": 284,
+            "missing_figure_carriers": [],
+            "pdf_unique_table_numbers": 59,
+            "markdown_unique_table_titles": 59,
+            "missing_table_titles": [],
+        }
+        if not isinstance(summary, dict):
+            self.error(TEXTBOOK_AUDIT_PATH, "summary must be an object")
+        else:
+            for field, expected in expected_summary.items():
+                if summary.get(field) != expected:
+                    self.error(
+                        TEXTBOOK_AUDIT_PATH,
+                        f"summary.{field} must be {expected}",
+                    )
+        chapters = audit.get("chapters")
+        if not isinstance(chapters, list) or len(chapters) != 20:
+            self.error(TEXTBOOK_AUDIT_PATH, "chapters must contain 20 entries")
+            return
+        chapter_numbers: list[int] = []
+        page_ranges: list[tuple[int, int]] = []
+        for position, chapter in enumerate(chapters, start=1):
+            if not isinstance(chapter, dict):
+                self.error(
+                    TEXTBOOK_AUDIT_PATH,
+                    f"chapters #{position} must be an object",
+                )
+                continue
+            number = chapter.get("chapter")
+            if isinstance(number, int):
+                chapter_numbers.append(number)
+            relative_path = chapter.get("path")
+            if not isinstance(relative_path, str) or not (ROOT / relative_path).is_file():
+                self.error(
+                    TEXTBOOK_AUDIT_PATH,
+                    f"chapters #{position} has an invalid path",
+                )
+            pages = chapter.get("physical_pages")
+            if isinstance(pages, dict):
+                start, end = pages.get("start"), pages.get("end")
+                if isinstance(start, int) and isinstance(end, int):
+                    page_ranges.append((start, end))
+                else:
+                    self.error(
+                        TEXTBOOK_AUDIT_PATH,
+                        f"chapters #{position} has invalid page bounds",
+                    )
+                    continue
+                if pages.get("count") != end - start + 1:
+                    self.error(
+                        TEXTBOOK_AUDIT_PATH,
+                        f"chapters #{position} has inconsistent page count",
+                    )
+            else:
+                self.error(
+                    TEXTBOOK_AUDIT_PATH,
+                    f"chapters #{position}.physical_pages must be an object",
+                )
+            assets = chapter.get("assets")
+            if not isinstance(assets, dict):
+                self.error(
+                    TEXTBOOK_AUDIT_PATH,
+                    f"chapters #{position}.assets must be an object",
+                )
+            elif assets.get("missing_figure_carriers") or assets.get(
+                "missing_table_titles"
+            ):
+                self.error(
+                    TEXTBOOK_AUDIT_PATH,
+                    f"chapters #{position} still has missing asset carriers",
+                )
+        if chapter_numbers != list(range(1, 21)):
+            self.error(TEXTBOOK_AUDIT_PATH, "chapter numbers must be continuous 1-20")
+        if page_ranges and (
+            page_ranges[0][0] != 13
+            or page_ranges[-1][1] != 720
+            or any(
+                current[1] + 1 != following[0]
+                for current, following in zip(page_ranges, page_ranges[1:])
+            )
+        ):
+            self.error(TEXTBOOK_AUDIT_PATH, "chapter physical page ranges must cover 13-720")
+
     def run(self) -> int:
         markdown_files = self.markdown_files()
         for path in markdown_files:
@@ -689,10 +1157,13 @@ class Validator:
         self.check_clean_ocr()
         self.check_exam_manifest()
         self.check_clean_exam_counts()
+        self.check_exam_asset_audit()
+        self.check_textbook_audit()
 
         print(
             f"Checked {len(markdown_files)} Markdown files, "
-            f"{len(CONTENT_DIRS)} content directories and the exam manifest."
+            f"{len(CONTENT_DIRS)} content directories, the exam manifest "
+            "and the exam/textbook asset audits."
         )
         for warning in self.warnings:
             print(f"WARNING: {warning}")
