@@ -1,0 +1,48 @@
+name: 权利与下架请求
+description: 请求补充署名、限制展示、移除或处理相关内容
+title: "【版权/下架请求】"
+labels:
+  - content-rights
+body:
+  - type: markdown
+    attributes:
+      value: 请勿在公开 Issue 中上传身份证件、合同或其他敏感证明。可先提供内容位置和请求，再通过仓库所有者 GitHub 主页建立非公开联系渠道。
+  - type: input
+    id: content
+    attributes:
+      label: 涉及内容
+      description: 请提供仓库文件路径或精确 URL。
+    validations:
+      required: true
+  - type: textarea
+    id: relationship
+    attributes:
+      label: 作品与请求人关系
+      description: 简要说明作品和您与权利人的关系；敏感证明后续通过非公开渠道提供。
+    validations:
+      required: true
+  - type: dropdown
+    id: action
+    attributes:
+      label: 请求处理方式
+      options:
+        - 补充或更正署名/来源
+        - 限制展示
+        - 移除内容
+        - 更正许可说明
+        - 其他
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: 说明
+    validations:
+      required: true
+  - type: checkboxes
+    id: declaration
+    attributes:
+      label: 声明
+      options:
+        - label: 我确认以上信息真实，并有权代表相关权利人提出请求。
+          required: true

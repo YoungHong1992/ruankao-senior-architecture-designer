@@ -17,11 +17,11 @@ Thumbs.db
 # Project internals
 .claude/
 
-# Local extraction tooling
+# Local extraction dependencies and uncommitted source material
 node_modules/
-package.json
-package-lock.json
-scripts/
+
+# Validation and extraction scripts, dependency manifests and workflows are
+# intentionally tracked so the knowledge base can be reproduced and audited.
 
 # Source PDFs (large binary files)
 教材相关/*.pdf
