@@ -7,9 +7,11 @@ checks run locally and in GitHub Actions without installing dependencies.
 
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import sys
+from datetime import date
 from pathlib import Path
 from urllib.parse import unquote
 
@@ -29,6 +31,7 @@ CHAPTER_DIRS = CONTENT_DIRS[:4]
 EXAM_SOURCE_DIRS = ("02.历年真题", "02.历年真题(补充)")
 MANIFEST_PATH = ROOT / "data" / "exams.json"
 MASTER_INDEX_PATH = ROOT / "02.历年真题总索引.md"
+CLEAN_EXAM_INDEX_PATH = ROOT / "02.历年真题-清洗版" / "INDEX.md"
 
 LINK_RE = re.compile(
     r"!?\[[^\]]*\]\((?P<target><[^>]+>|[^\s)]+)(?:\s+[\"'][^)]*[\"'])?\)"
@@ -73,6 +76,32 @@ OCR_PATTERNS = {
     "broken Federation": re.compile(r"Federetion Wait"),
     "unknown process symbol": re.compile(r"\bP\?"),
 }
+STALE_EXAM_METADATA_RE = re.compile(
+    r"(?:data/exams\.json|统一清单).{0,120}"
+    r"(?:应后续|尚未|待)(?:更新|更正|改为)"
+)
+SHA256_RE = re.compile(r"[0-9a-f]{64}")
+SOURCE_VERSION_FIELDS = {
+    "source_id",
+    "path",
+    "content_sha256",
+    "verified_at",
+    "item_count",
+    "item_unit",
+}
+INTEGRITY_ALGORITHM = "sha256"
+INTEGRITY_NORMALIZATION = "utf8_bom_stripped_lf"
+COMPLETENESS_INDEX_LABELS = {
+    "complete_structural": "结构齐*",
+    "needs_review": "待复核",
+    "partial": "部分",
+}
+ANSWER_CONFIDENCE_INDEX_LABELS = {
+    "medium_non_official": "中·非官方",
+    "low_non_official": "低·非官方",
+    "very_low_non_official": "极低·非官方",
+    "no_answer": "无可用答案",
+}
 
 
 class Validator:
@@ -103,6 +132,12 @@ class Validator:
             return None
         self.text_cache[path] = text
         return text
+
+    @staticmethod
+    def normalized_lf_sha256(path: Path) -> str:
+        text = path.read_bytes().decode("utf-8-sig")
+        normalized = text.replace("\r\n", "\n").replace("\r", "\n")
+        return hashlib.sha256(normalized.encode("utf-8")).hexdigest()
 
     def markdown_files(self) -> list[Path]:
         return sorted(
@@ -229,10 +264,40 @@ class Validator:
             self.error(MANIFEST_PATH, f"invalid JSON: {exc}")
             return
 
-        required_top = {"schema_version", "updated_at", "source_catalog", "exams"}
+        required_top = {
+            "schema_version",
+            "updated_at",
+            "integrity_policy",
+            "source_catalog",
+            "exams",
+        }
         missing_top = required_top - set(manifest)
         if missing_top:
             self.error(MANIFEST_PATH, f"missing top-level fields: {sorted(missing_top)}")
+            return
+        if manifest.get("schema_version") != 2:
+            self.error(MANIFEST_PATH, "schema_version must be 2")
+        try:
+            date.fromisoformat(str(manifest["updated_at"]))
+        except ValueError:
+            self.error(MANIFEST_PATH, "updated_at must be an ISO date (YYYY-MM-DD)")
+        integrity_policy = manifest.get("integrity_policy")
+        if not isinstance(integrity_policy, dict):
+            self.error(MANIFEST_PATH, "integrity_policy must be an object")
+        else:
+            if integrity_policy.get("algorithm") != INTEGRITY_ALGORITHM:
+                self.error(
+                    MANIFEST_PATH,
+                    f"integrity_policy.algorithm must be {INTEGRITY_ALGORITHM}",
+                )
+            if integrity_policy.get("normalization") != INTEGRITY_NORMALIZATION:
+                self.error(
+                    MANIFEST_PATH,
+                    f"integrity_policy.normalization must be {INTEGRITY_NORMALIZATION}",
+                )
+        source_catalog = manifest.get("source_catalog")
+        if not isinstance(source_catalog, dict):
+            self.error(MANIFEST_PATH, "source_catalog must be an object")
             return
         exams = manifest.get("exams")
         if not isinstance(exams, list):
@@ -245,16 +310,22 @@ class Validator:
             "session",
             "subject",
             "item_count",
+            "item_unit",
             "completeness",
+            "completeness_note",
             "answer_confidence",
             "clean_status",
             "preferred",
             "alternatives",
+            "same_name_conflict",
+            "source_versions",
             "notes",
         }
         ids: set[str] = set()
         manifest_keys: set[tuple[int, str, str]] = set()
         referenced_paths: set[str] = set()
+        source_version_paths: set[str] = set()
+        source_version_count = 0
         valid_exams: list[dict[str, object]] = []
         for position, exam in enumerate(exams, start=1):
             if not isinstance(exam, dict):
@@ -285,6 +356,110 @@ class Validator:
                 if not (ROOT / Path(relative_path)).is_file():
                     self.error(MANIFEST_PATH, f"{exam_id}: missing file {relative_path}")
 
+            source_versions = exam["source_versions"]
+            if not isinstance(source_versions, list):
+                self.error(MANIFEST_PATH, f"{exam_id}: source_versions must be an array")
+                continue
+            source_version_count += len(source_versions)
+            exam_version_paths: set[str] = set()
+            for version_position, version in enumerate(source_versions, start=1):
+                label = f"{exam_id}: source_versions #{version_position}"
+                if not isinstance(version, dict):
+                    self.error(MANIFEST_PATH, f"{label} is not an object")
+                    continue
+                raw_relative_path = version.get("path")
+                if isinstance(raw_relative_path, str):
+                    exam_version_paths.add(raw_relative_path)
+                missing_version_fields = SOURCE_VERSION_FIELDS - set(version)
+                if missing_version_fields:
+                    self.error(
+                        MANIFEST_PATH,
+                        f"{label} missing fields: {sorted(missing_version_fields)}",
+                    )
+                    continue
+
+                source_id = version["source_id"]
+                if not isinstance(source_id, str) or source_id not in source_catalog:
+                    self.error(MANIFEST_PATH, f"{label} has unknown source_id {source_id!r}")
+                    continue
+                catalog_entry = source_catalog[source_id]
+                if not isinstance(catalog_entry, dict) or not isinstance(
+                    catalog_entry.get("root"), str
+                ):
+                    self.error(
+                        MANIFEST_PATH,
+                        f"source_catalog.{source_id}.root must be text",
+                    )
+                    continue
+
+                relative_path = version["path"]
+                if not isinstance(relative_path, str):
+                    self.error(MANIFEST_PATH, f"{label} path is not text")
+                    continue
+                if relative_path in source_version_paths:
+                    self.error(
+                        MANIFEST_PATH,
+                        f"{label} duplicates source-version path {relative_path}",
+                    )
+                source_version_paths.add(relative_path)
+                expected_root = str(catalog_entry["root"]).rstrip("/")
+                if not relative_path.startswith(f"{expected_root}/"):
+                    self.error(
+                        MANIFEST_PATH,
+                        f"{label} path is outside source root {expected_root}",
+                    )
+
+                candidate = (ROOT / Path(relative_path)).resolve()
+                if not candidate.is_relative_to(ROOT):
+                    self.error(MANIFEST_PATH, f"{label} path escapes repository root")
+                    continue
+                if not candidate.is_file():
+                    self.error(MANIFEST_PATH, f"{label} file is missing: {relative_path}")
+                    continue
+
+                recorded_hash = version["content_sha256"]
+                if not isinstance(recorded_hash, str) or not SHA256_RE.fullmatch(
+                    recorded_hash
+                ):
+                    self.error(MANIFEST_PATH, f"{label} content_sha256 is invalid")
+                else:
+                    try:
+                        actual_hash = self.normalized_lf_sha256(candidate)
+                    except UnicodeDecodeError as exc:
+                        self.error(
+                            MANIFEST_PATH,
+                            f"{label} cannot be normalized as UTF-8 ({exc})",
+                        )
+                    else:
+                        if recorded_hash != actual_hash:
+                            self.error(
+                                MANIFEST_PATH,
+                                f"{label} content_sha256 mismatch for {relative_path}",
+                            )
+
+                verified_at = version["verified_at"]
+                try:
+                    date.fromisoformat(str(verified_at))
+                except ValueError:
+                    self.error(
+                        MANIFEST_PATH,
+                        f"{label} verified_at must be an ISO date (YYYY-MM-DD)",
+                    )
+
+            expected_version_paths = {
+                relative_path
+                for relative_path in [exam["preferred"], *alternatives]
+                if isinstance(relative_path, str)
+            }
+            if exam_version_paths != expected_version_paths:
+                missing_versions = sorted(expected_version_paths - exam_version_paths)
+                extra_versions = sorted(exam_version_paths - expected_version_paths)
+                self.error(
+                    MANIFEST_PATH,
+                    f"{exam_id}: source_versions path mismatch; "
+                    f"missing={missing_versions}, extra={extra_versions}",
+                )
+
         source_keys: set[tuple[int, str, str]] = set()
         source_paths: set[str] = set()
         for directory_name in EXAM_SOURCE_DIRS:
@@ -313,20 +488,90 @@ class Validator:
             )
         if len(exams) != 36:
             self.error(MANIFEST_PATH, f"expected 36 canonical exams, found {len(exams)}")
+        if source_version_count != 90:
+            self.error(
+                MANIFEST_PATH,
+                f"expected 90 source_versions, found {source_version_count}",
+            )
 
         for exam in valid_exams:
             self.check_canonical_clean_exam(exam)
 
-        if not MASTER_INDEX_PATH.is_file():
-            self.error(MASTER_INDEX_PATH, "master exam index is missing")
-        else:
-            master_text = self.read_text(MASTER_INDEX_PATH) or ""
-            for exam in exams:
+        index_specs = (
+            (
+                MASTER_INDEX_PATH,
+                lambda preferred: preferred,
+                {"period": 0, "subject": 1, "count": 3, "completeness": 4,
+                 "answer": 5, "notes": 9},
+            ),
+            (
+                CLEAN_EXAM_INDEX_PATH,
+                lambda preferred: Path(preferred).name,
+                {"period": 0, "subject": 1, "count": 4, "completeness": 5,
+                 "answer": 6, "notes": 7},
+            ),
+        )
+        for index_path, target_for, columns in index_specs:
+            if not index_path.is_file():
+                self.error(index_path, "exam index is missing")
+                continue
+            index_text = self.read_text(index_path) or ""
+            index_lines = index_text.splitlines()
+            for exam in valid_exams:
+                exam_id = str(exam.get("id", "unknown"))
                 preferred = exam.get("preferred")
-                if isinstance(preferred, str) and preferred not in master_text:
+                if not isinstance(preferred, str):
+                    continue
+                target = target_for(preferred)
+                rows = [line for line in index_lines if line.startswith("|") and target in line]
+                if len(rows) != 1:
                     self.error(
-                        MASTER_INDEX_PATH,
-                        f"preferred path for {exam.get('id')} is not listed",
+                        index_path,
+                        f"expected one row for {exam_id} ({target}), found {len(rows)}",
+                    )
+                    continue
+                cells = [cell.strip() for cell in rows[0].strip().strip("|").split("|")]
+                if len(cells) <= max(columns.values()):
+                    self.error(
+                        index_path,
+                        f"row for {exam_id} has too few columns ({len(cells)})",
+                    )
+                    continue
+                session_label = "上" if exam.get("session") == "上半年" else "下"
+                expected_cells = {
+                    "period": f"{exam.get('year')}{session_label}",
+                    "subject": str(exam.get("subject", "")),
+                    "count": f"{exam.get('item_count')}{exam.get('item_unit')}",
+                    "completeness": COMPLETENESS_INDEX_LABELS.get(
+                        str(exam.get("completeness")), ""
+                    ),
+                    "answer": ANSWER_CONFIDENCE_INDEX_LABELS.get(
+                        str(exam.get("answer_confidence")), ""
+                    ),
+                }
+                for field, expected in expected_cells.items():
+                    actual = cells[columns[field]]
+                    if not expected:
+                        self.error(
+                            MANIFEST_PATH,
+                            f"{exam_id}: unsupported {field} value for index mapping",
+                        )
+                    elif actual != expected:
+                        self.error(
+                            index_path,
+                            f"row for {exam_id} has {field} {actual!r}, expected {expected!r}",
+                        )
+                notes = exam.get("notes")
+                if not isinstance(notes, str) or not notes.strip():
+                    self.error(MANIFEST_PATH, f"{exam_id}: notes must be non-empty text")
+                else:
+                    expected_notes = notes
+                    if index_path == MASTER_INDEX_PATH and exam.get("same_name_conflict"):
+                        expected_notes = f"**同名冲突，禁止自动混并。** {notes}"
+                if isinstance(notes, str) and cells[columns["notes"]] != expected_notes:
+                    self.error(
+                        index_path,
+                        f"row for {exam_id} does not match manifest notes",
                     )
 
     @staticmethod
@@ -365,6 +610,18 @@ class Validator:
             )
 
         text = self.read_text(clean_path) or ""
+        stale_match = STALE_EXAM_METADATA_RE.search(text)
+        if stale_match:
+            line_number = text.count("\n", 0, stale_match.start()) + 1
+            self.error(
+                clean_path,
+                f"stale manifest/index correction note at line {line_number}",
+            )
+        if exam.get("completeness_note") != exam.get("notes"):
+            self.error(
+                MANIFEST_PATH,
+                f"{exam_id}: completeness_note and notes must stay synchronized",
+            )
         count_match = EXAM_COUNT_RE.search(text)
         if not count_match:
             self.error(clean_path, "missing 题目数量/主试题数量 metadata")
