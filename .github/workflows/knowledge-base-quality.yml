@@ -26,3 +26,13 @@ jobs:
 
       - name: Validate knowledge base
         run: python3 scripts/validate_knowledge_base.py
+
+      - name: Verify generated exam asset audit
+        run: python3 scripts/build_exam_asset_audit.py --check
+
+      - name: Compile audit scripts
+        run: >-
+          python3 -m py_compile
+          scripts/validate_knowledge_base.py
+          scripts/build_exam_asset_audit.py
+          scripts/audit_textbook_pdf.py
