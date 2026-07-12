@@ -8,7 +8,7 @@
   },
   "archive_policy": {
     "repository_url": "https://github.com/YoungHong1992/ruankao-senior-architecture-designer",
-    "snapshot_commit": "02ffa54267a375cb0af45201b09261d09e3fe7d4",
+    "snapshot_commit": "1e38caed22502ea0accf24dfbbdb2fc89d55c049",
     "snapshot_verified_at": "2026-07-12",
     "blob_url_template": "https://github.com/YoungHong1992/ruankao-senior-architecture-designer/blob/{commit}/{path}",
     "coverage": "all_90_source_versions",
@@ -1014,7 +1014,7 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2024年上半年-系统架构设计师-案例分析.md",
-          "content_sha256": "c4d8c481fac88f2acd135d161ceb577cfb5a29c713debfad9398f89c030a17fc",
+          "content_sha256": "7b42639e5ac8f28f9ee84bad9948a77cb1158f88acff382673233c81f6926b73",
           "verified_at": "2026-07-12",
           "item_count": 5,
           "item_unit": "大题"
@@ -1136,7 +1136,7 @@
       "item_count": 5,
       "item_unit": "大题",
       "completeness": "partial",
-      "completeness_note": "部分：5 题、14 个子问题结构齐；考试次日腾讯文档已裁定质量表 b 为预填可靠性、c 为第（1）空，并恢复 Web 题的 Elasticsearch/微信小程序背景及 6/12/7 分值；ROS 内容—分值也按近时顺序采用 12/8/5，RKPass 的 13/8/7 因合计 28 分而隔离。同日 17:57 数字化重构与 18:29 手绘重构分别支持（3）/（7）=Nginx，后期另有（8）模板，因此不指定唯一空号。质量表其余精确格位和完整原题/原图仍不可裁决。",
+      "completeness_note": "部分：5 题、14 个子问题结构齐；考试当天腾讯文档已裁定质量表 b 为预填可靠性，并固定 c=（1）、d=（2）、e=（3），其余四个空的精确格位仍不可裁决；Web 题的 Elasticsearch/微信小程序背景及 6/12/7 分值已恢复。ROS 内容—分值按近时顺序采用 12/8/5，RKPass 的 13/8/7 因合计 28 分而隔离。同日下午 17:57 数字化重构与 18:29 手绘重构分别支持（3）/（7）=Nginx，后期另有（8）模板，因此不指定唯一空号。",
       "answer_confidence": "low_non_official",
       "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2024年下半年-系统架构设计师-案例分析.md",
@@ -1149,7 +1149,7 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2024年下半年-系统架构设计师-案例分析.md",
-          "content_sha256": "af02258dd4947c9a0e3f4b5b0542181c8310ca225f2baca56ab79a747e972097",
+          "content_sha256": "15304d86caee341593d7ec09d49859ef3f0096866bb290f900b79d04e3b25d6a",
           "verified_at": "2026-07-12",
           "item_count": 5,
           "item_unit": "大题"
@@ -1171,7 +1171,7 @@
           "item_unit": "大题"
         }
       ],
-      "notes": "部分：5 题、14 个子问题结构齐；考试次日腾讯文档已裁定质量表 b 为预填可靠性、c 为第（1）空，并恢复 Web 题的 Elasticsearch/微信小程序背景及 6/12/7 分值；ROS 内容—分值也按近时顺序采用 12/8/5，RKPass 的 13/8/7 因合计 28 分而隔离。同日 17:57 数字化重构与 18:29 手绘重构分别支持（3）/（7）=Nginx，后期另有（8）模板，因此不指定唯一空号。质量表其余精确格位和完整原题/原图仍不可裁决。"
+      "notes": "部分：5 题、14 个子问题结构齐；考试当天腾讯文档已裁定质量表 b 为预填可靠性，并固定 c=（1）、d=（2）、e=（3），其余四个空的精确格位仍不可裁决；Web 题的 Elasticsearch/微信小程序背景及 6/12/7 分值已恢复。ROS 内容—分值按近时顺序采用 12/8/5，RKPass 的 13/8/7 因合计 28 分而隔离。同日下午 17:57 数字化重构与 18:29 手绘重构分别支持（3）/（7）=Nginx，后期另有（8）模板，因此不指定唯一空号。"
     },
     {
       "id": "2024-h2-essay",
@@ -1226,7 +1226,7 @@
       "item_count": 75,
       "item_unit": "题",
       "completeness": "partial",
-      "completeness_note": "75 题结构齐；第 67 题的“合规性检查、用户权限、安全测试”联合短语由固定 GitHub/RKPass 片段、两份考试次日 ProcessOn 回忆及腾讯同日修订交叉支持为非官方回忆答案；腾讯参与者同时写明“还有一个不记得”，反证原卷 A～D、答案字母和官方答案仍未恢复。第 73 题完整表格、选项和答案已由固定公开回忆页恢复并完成计算校核，另一公开版本的冲突已隔离。",
+      "completeness_note": "75 题结构齐；第 67 题的“合规性检查、用户权限、安全测试”联合短语由固定 GitHub/RKPass、考试当天腾讯修订和两份 2024-11-12 ProcessOn 回忆交叉支持为非官方回忆答案。ProcessOn 把“目标题”和该框架片段分列为两题，腾讯参与者又写明“还有一个不记得”，因此原卷 A～D、答案字母和官方答案仍未恢复。第 73 题完整表格、选项和答案已恢复并完成计算校核，另一公开版本的冲突已隔离。",
       "answer_confidence": "low_non_official",
       "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2024年下半年-系统架构设计师-综合知识.md",
@@ -1239,7 +1239,7 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2024年下半年-系统架构设计师-综合知识.md",
-          "content_sha256": "cbbc06d481bd21dc93975554b83881daa21aa23780c518c2c5127a4285e17dbf",
+          "content_sha256": "ca2ed74298dcb82675049058d6445f126c1035319d60ff9e39af42d11c6811ab",
           "verified_at": "2026-07-12",
           "item_count": 75,
           "item_unit": "题"
@@ -1261,7 +1261,7 @@
           "item_unit": "题"
         }
       ],
-      "notes": "75 题结构齐；第 67 题的“合规性检查、用户权限、安全测试”联合短语由固定 GitHub/RKPass 片段、两份考试次日 ProcessOn 回忆及腾讯同日修订交叉支持为非官方回忆答案；腾讯参与者同时写明“还有一个不记得”，反证原卷 A～D、答案字母和官方答案仍未恢复。第 73 题完整表格、选项和答案已由固定公开回忆页恢复并完成计算校核，另一公开版本的冲突已隔离。"
+      "notes": "75 题结构齐；第 67 题的“合规性检查、用户权限、安全测试”联合短语由固定 GitHub/RKPass、考试当天腾讯修订和两份 2024-11-12 ProcessOn 回忆交叉支持为非官方回忆答案。ProcessOn 把“目标题”和该框架片段分列为两题，腾讯参与者又写明“还有一个不记得”，因此原卷 A～D、答案字母和官方答案仍未恢复。第 73 题完整表格、选项和答案已恢复并完成计算校核，另一公开版本的冲突已隔离。"
     },
     {
       "id": "2025-h1-case-analysis",
@@ -1397,7 +1397,7 @@
       "item_count": 5,
       "item_unit": "大题",
       "completeness": "partial",
-      "completeness_note": "部分：5 题已由固定公开回忆页恢复；AIOS 第三问、缓存流程、试题四 11 空架构图、试题五表 1、完整货物接运 Petri 网及问题 3 表 2 已结构化恢复。问题 3 源页自身标注“缺03/此题不全”且答案为“无”，裁切图只能确认“未知库所→T1→P2→T2→未知库所”局部链；经固定 Git 历史、网页归档和考后视频检索仍无完整网、题面或答案。",
+      "completeness_note": "部分：5 题已由固定公开回忆页恢复；AIOS 第三问、缓存流程、试题四 11 空架构图、试题五表 1、完整货物接运 Petri 网及问题 3 表 2 已结构化恢复。问题 3 源页自身标注“缺03/此题不全”且答案为“无”；图 2 CDN 对象本身仅 489×229 像素，只能确认局部链。最后一份 CSDN PDF 候选的公开上游只列试题一至四；固定 Git 历史、网页归档和考后视频仍无完整网、题面或答案。",
       "answer_confidence": "low_non_official",
       "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2025年下半年-系统架构设计师-案例分析.md",
@@ -1410,7 +1410,7 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2025年下半年-系统架构设计师-案例分析.md",
-          "content_sha256": "4c51ceae8b8c507c7efa24ff2fbe18f985573535502f36dda4f1d25a6e6f5321",
+          "content_sha256": "5daac42df48d0c14bee0ddb9979db4f8cc4528b24bef06e44830030fcf6833ef",
           "verified_at": "2026-07-12",
           "item_count": 5,
           "item_unit": "大题"
@@ -1432,7 +1432,7 @@
           "item_unit": "大题"
         }
       ],
-      "notes": "部分：5 题已由固定公开回忆页恢复；AIOS 第三问、缓存流程、试题四 11 空架构图、试题五表 1、完整货物接运 Petri 网及问题 3 表 2 已结构化恢复。问题 3 源页自身标注“缺03/此题不全”且答案为“无”，裁切图只能确认“未知库所→T1→P2→T2→未知库所”局部链；经固定 Git 历史、网页归档和考后视频检索仍无完整网、题面或答案。"
+      "notes": "部分：5 题已由固定公开回忆页恢复；AIOS 第三问、缓存流程、试题四 11 空架构图、试题五表 1、完整货物接运 Petri 网及问题 3 表 2 已结构化恢复。问题 3 源页自身标注“缺03/此题不全”且答案为“无”；图 2 CDN 对象本身仅 489×229 像素，只能确认局部链。最后一份 CSDN PDF 候选的公开上游只列试题一至四；固定 Git 历史、网页归档和考后视频仍无完整网、题面或答案。"
     },
     {
       "id": "2025-h2-essay",
