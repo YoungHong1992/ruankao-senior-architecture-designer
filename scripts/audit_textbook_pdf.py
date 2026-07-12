@@ -30,6 +30,137 @@ EXPECTED_SHA256 = "ee45900f4622d71539980cfe1bddbcd898fba97ca13ada6df1cbdc215135c
 BASELINE_COMMIT = "e02f60ca93e78217b3b6b9bdf7a6db964781741c"
 HISTORICAL_COUNT_COMMIT = "3ce44b168efdd68d4c876631710c1b938af145ba"
 
+# The scalar historical report said "at least 14" spliced tables but did not
+# preserve its original selection.  The fixed baseline nevertheless contains
+# a larger, independently reproducible set of table carriers whose cells were
+# visibly flattened into one or more concatenated lines.  Each entry below is
+# verified against the fixed baseline, the locally held PDF page inventory and
+# a current pipe-table carrier.  This conservative reconstruction deliberately
+# does not claim that its 15 entries are the exact undocumented original 14.
+HISTORICAL_SPLICED_TABLE_CANDIDATES: dict[str, dict[str, object]] = {
+    "2-2": {
+        "chapter": 2,
+        "baseline_title_line": 397,
+        "baseline_flattened_lines": (399, 399),
+        "baseline_needles": ("ALPHA BETA REPORT SQRT", "张军 RWX"),
+        "pdf_reference_pages": [50],
+    },
+    "2-4": {
+        "chapter": 2,
+        "baseline_title_line": 682,
+        "baseline_flattened_lines": (684, 684),
+        "baseline_needles": ("等级失效状态简要说明目标数量", "A级灾难性"),
+        "pdf_reference_pages": [63],
+    },
+    "2-5": {
+        "chapter": 2,
+        "baseline_title_line": 1115,
+        "baseline_flattened_lines": (1117, 1117),
+        "baseline_needles": ("VT DS FTMA CNIP/CMIS MHS", "物理层 802.3"),
+        "pdf_reference_pages": [82],
+    },
+    "2-6": {
+        "chapter": 2,
+        "baseline_title_line": 1129,
+        "baseline_flattened_lines": (1131, 1131),
+        "baseline_needles": (
+            "ISO/OSI模型 TCP/IP协议 TCP/IP模型",
+            "Token-Ring/IEEE 802.3",
+        ),
+        "pdf_reference_pages": [82, 83],
+    },
+    "2-7": {
+        "chapter": 2,
+        "baseline_title_line": 1560,
+        "baseline_flattened_lines": (1562, 1562),
+        "baseline_needles": ("利用计算机形成三维交互场景", "增强式VR"),
+        "pdf_reference_pages": [101],
+    },
+    "3-1": {
+        "chapter": 3,
+        "baseline_title_line": 578,
+        "baseline_flattened_lines": (580, 580),
+        "baseline_needles": (
+            "系统专家系统一般计算机系统功能",
+            "处理问题种类",
+        ),
+        "pdf_reference_pages": [139],
+    },
+    "4-1": {
+        "chapter": 4,
+        "baseline_title_line": 599,
+        "baseline_flattened_lines": (601, 601),
+        "baseline_needles": ("值名称值(REG_DWORD)", "TcpMaxPortsExhausted"),
+        "pdf_reference_pages": [177],
+    },
+    "4-2": {
+        "chapter": 4,
+        "baseline_title_line": 608,
+        "baseline_flattened_lines": (610, 610),
+        "baseline_needles": ("值名称值(REG_DWORD)EnableICMPRedirect",),
+        "pdf_reference_pages": [178],
+    },
+    "4-3": {
+        "chapter": 4,
+        "baseline_title_line": 618,
+        "baseline_flattened_lines": (620, 620),
+        "baseline_needles": ("值名称值(REG_DWORD)EnableDcadGWDetect",),
+        "pdf_reference_pages": [178],
+    },
+    "5-1": {
+        "chapter": 5,
+        "baseline_title_line": 595,
+        "baseline_flattened_lines": (597, 597),
+        "baseline_needles": (
+            "非直接耦合两个模块之间没有直接关系",
+            "一个模块直接访问另一个模块的内部数据",
+        ),
+        "pdf_reference_pages": [206],
+    },
+    "5-2": {
+        "chapter": 5,
+        "baseline_title_line": 602,
+        "baseline_flattened_lines": (604, 604),
+        "baseline_needles": ("功能内聚完成一个单一功能", "偶然内聚"),
+        "pdf_reference_pages": [207],
+    },
+    "12-13": {
+        "chapter": 12,
+        "baseline_title_line": 863,
+        "baseline_flattened_lines": (865, 865),
+        "baseline_needles": ("企业最大的业务范围是什么", "时间周期"),
+        "pdf_reference_pages": [441],
+    },
+    "17-1": {
+        "chapter": 17,
+        "baseline_title_line": 699,
+        "baseline_flattened_lines": (701, 710),
+        "baseline_needles": ("无环路，不启用STP", "模型四", "生成树"),
+        "pdf_reference_pages": [635, 636],
+    },
+    "18-2": {
+        "chapter": 18,
+        "baseline_title_line": 674,
+        "baseline_flattened_lines": (674, 674),
+        "baseline_needles": (
+            "Oracle支持的基于DBMS的完整性约束",
+            "非空约束",
+            "通过触发器",
+        ),
+        "pdf_reference_pages": [671],
+    },
+    "19-1": {
+        "chapter": 19,
+        "baseline_title_line": 349,
+        "baseline_flattened_lines": (351, 351),
+        "baseline_needles": (
+            "对比内容 Lambda架构 Kappa架构",
+            "流式全量处理",
+        ),
+        "pdf_reference_pages": [698],
+    },
+}
+
 NUMBER_PATTERNS = {
     "figure": re.compile(r"图\s*(\d{1,2})\s*[-—]\s*(\d{1,2})"),
     "table": re.compile(r"表\s*(\d{1,2})\s*[-—]\s*(\d{1,2})"),
@@ -489,6 +620,7 @@ def link_baseline_records_to_inventory(
 def historical_spliced_table_investigation(
     table_records: list[dict[str, object]],
     table_risks: list[dict[str, object]],
+    table_inventory: list[dict[str, object]],
 ) -> dict[str, object]:
     history = run_git(
         "log",
@@ -530,9 +662,101 @@ def historical_spliced_table_investigation(
         raise AssertionError(
             f"expected seven separately counted baseline table issues, found {explicitly_named_shifted}"
         )
+
+    inventory_by_number = {
+        str(item["number"]): item for item in table_inventory
+    }
+    reconstructed: list[dict[str, object]] = []
+    for number, specification in HISTORICAL_SPLICED_TABLE_CANDIDATES.items():
+        chapter = int(specification["chapter"])
+        path = CHAPTER_FILES.get(chapter)
+        if path is None:
+            raise AssertionError(f"missing chapter path for reconstructed table {number}")
+        relative_path = path.relative_to(ROOT).as_posix()
+        baseline_lines = baseline_text(path).splitlines()
+        title_line = int(specification["baseline_title_line"])
+        title_index = title_line - 1
+        title_match = MARKDOWN_CARRIER_PATTERNS["table"].match(
+            baseline_lines[title_index]
+        )
+        if title_match is None or number_from_match(title_match) != number:
+            raise AssertionError(
+                f"baseline title mismatch for reconstructed table {number}: "
+                f"{baseline_lines[title_index]}"
+            )
+        flattened_start, flattened_end = (
+            int(value) for value in specification["baseline_flattened_lines"]
+        )
+        flattened_text = " ".join(
+            compact_line(line)
+            for line in baseline_lines[flattened_start - 1 : flattened_end]
+        )
+        needles = tuple(str(value) for value in specification["baseline_needles"])
+        if not all(needle in flattened_text for needle in needles):
+            raise AssertionError(
+                f"baseline flattened evidence changed for table {number}"
+            )
+
+        inventory_item = inventory_by_number.get(number)
+        if inventory_item is None:
+            raise AssertionError(f"reconstructed table {number} is absent from inventory")
+        expected_pages = list(specification["pdf_reference_pages"])
+        if inventory_item["pdf_reference_pages"] != expected_pages:
+            raise AssertionError(
+                f"PDF page inventory changed for table {number}: "
+                f"{inventory_item['pdf_reference_pages']}"
+            )
+        if inventory_item["status"] != "current_structured_carrier_present":
+            raise AssertionError(
+                f"reconstructed table {number} has invalid status: {inventory_item['status']}"
+            )
+        current_lines = path.read_text(encoding="utf-8-sig").splitlines()
+        carrier_lines = [int(value) for value in inventory_item["markdown_carrier_lines"]]
+        if not carrier_lines or not any(
+            any(
+                candidate.strip().startswith("|")
+                and candidate.strip().endswith("|")
+                for candidate in current_lines[carrier_line : carrier_line + 8]
+            )
+            for carrier_line in carrier_lines
+        ):
+            raise AssertionError(
+                f"reconstructed table {number} lacks a current pipe-table carrier"
+            )
+        reconstructed.append(
+            {
+                "id": (
+                    f"textbook-ch{chapter:02d}-baseline-l{title_line:04d}-"
+                    f"spliced-table-{number}"
+                ),
+                "number": number,
+                "chapter": chapter,
+                "path": relative_path,
+                "baseline_title_line": title_line,
+                "baseline_flattened_lines": [flattened_start, flattened_end],
+                "baseline_evidence": clipped(flattened_text, 240),
+                "pdf_reference_pages": expected_pages,
+                "current_markdown_carrier_lines": carrier_lines,
+                "status": "recovered_structural",
+                "proof_scope": (
+                    "固定基线证明该表的单元格曾被压平或拼栏；PDF 页码与现行管道表标题"
+                    "建立逐项载体闭环。单元格语义仍以相邻来源注和人工逐页核对为准。"
+                ),
+            }
+        )
+    reconstructed.sort(key=lambda item: number_key(str(item["number"])))
+    if len(reconstructed) != 15:
+        raise AssertionError(
+            f"expected 15 conservative reconstructed tables, found {len(reconstructed)}"
+        )
+    reconstructed_numbers = {str(item["number"]) for item in reconstructed}
+    if reconstructed_numbers.intersection(explicitly_named_shifted):
+        raise AssertionError(
+            "conservative reconstructed tables overlap the separate baseline table category"
+        )
     return {
         "reported_positions": 14,
-        "mapping_status": "ids_not_preserved",
+        "mapping_status": "conservative_reconstruction_covers_reported_minimum",
         "ids_not_preserved": True,
         "count_first_recorded_in_commit": HISTORICAL_COUNT_COMMIT,
         "count_field_locations_in_that_commit": count_locations,
@@ -540,10 +764,14 @@ def historical_spliced_table_investigation(
         "baseline_explicit_shifted_table_numbers_in_separate_8_item_category": (
             explicitly_named_shifted
         ),
+        "conservatively_reconstructed_positions": len(reconstructed),
+        "reported_minimum_covered": len(reconstructed) >= 14,
+        "reconstructed_candidates": reconstructed,
         "investigation_conclusion": (
             "固定基线只明确命名了另行计入 8 个缺失或部分表位置中的 7 张拼栏/列错位表；"
-            "提交差异首次加入数值 14 时没有保存逐项 ID 清单。无法仅凭大范围 Markdown 差异"
-            "客观判定那 14 个历史位置，故不生成候选 ID。"
+            "提交差异首次加入数值 14 时没有保存原选择的逐项 ID 清单。重新以固定基线中的"
+            "压平单元格、PDF 表号页和现行管道表三重条件保守识别出 15 张互不重叠的表，"
+            "足以覆盖“至少 14 张”的历史下限；这不等同于声称已找回原报告恰好选择的 14 张。"
         ),
         "current_state_evidence": {
             "official_pdf_table_inventory": 59,
@@ -551,8 +779,8 @@ def historical_spliced_table_investigation(
             "table_structure_risks": table_risks,
         },
         "proof_scope": (
-            "当前 59 表结构扫描为空，只证明现态没有同类启发式残余；"
-            "它不构成历史 14/14 身份映射闭环。"
+            "15 张候选均有固定基线行、PDF 页和现行管道表证据，并已逐页目视核对；"
+            "原报告的恰好 14 个 ID 仍未保存，因此这里只证明独立重建集合覆盖其数量下限。"
         ),
     }
 
@@ -733,15 +961,18 @@ def build_audit(
         raise AssertionError("additional unmarked figure unexpectedly has a baseline marker")
 
     historical_spliced_tables = historical_spliced_table_investigation(
-        baseline_table_records, all_table_structure_risks
+        baseline_table_records, all_table_structure_risks, table_inventory
     )
-    itemized_proven_positions = 272 + 12 + 2 + 8
+    reconstructed_spliced_positions = int(
+        historical_spliced_tables["conservatively_reconstructed_positions"]
+    )
+    itemized_proven_positions = 272 + 12 + 2 + 8 + reconstructed_spliced_positions
     original_minimum = 272 + 2 + 8 + 14
-    corrected_minimum = itemized_proven_positions + 14
+    corrected_minimum = itemized_proven_positions
     if (itemized_proven_positions, original_minimum, corrected_minimum) != (
-        294,
+        309,
         296,
-        308,
+        309,
     ):
         raise AssertionError("debt arithmetic changed")
 
@@ -817,20 +1048,27 @@ def build_audit(
             "known_formula_positions": 2,
             "explicit_missing_or_partial_table_positions": len(baseline_table_records),
             "reported_spliced_table_positions": 14,
+            "conservatively_reconstructed_spliced_table_positions": (
+                reconstructed_spliced_positions
+            ),
             "itemized_proven_positions": itemized_proven_positions,
-            "historical_unitemized_positions": 14,
-            "arithmetic": "272 + 12 + 2 + 8 + 14 = 308",
+            "historical_unitemized_positions": 0,
+            "arithmetic": "272 + 12 + 2 + 8 + 15 = 309",
             "description": (
-                "逐项证据可直接覆盖 272 个基线图、12 个新增图、2 个公式和 8 个表，"
-                "合计 294 项；历史数值 14 未保存逐项 ID，只作为单独的未枚举历史口径，"
-                "因此 308 不能表述为 308 个均已逐项映射。"
+                "逐项证据覆盖 272 个基线图、12 个新增图、2 个公式、8 个显式缺失或部分表，"
+                "以及 15 个由固定基线压平文本、PDF 页和现行管道表独立重建的拼栏表，"
+                "合计 309 项。原报告恰好选择的 14 个 ID 未保存，但独立重建集合已覆盖"
+                "“至少 14 张”的数量下限。"
             ),
         },
         "summary": {
             "chapters": 20,
             "baseline_explicit_marker_records": len(baseline_records),
             "itemized_proven_positions": itemized_proven_positions,
-            "historical_unitemized_positions": 14,
+            "historical_unitemized_positions": 0,
+            "conservatively_reconstructed_spliced_table_positions": (
+                reconstructed_spliced_positions
+            ),
             "pdf_unique_figure_numbers": len(all_pdf_figure_numbers),
             "markdown_unique_figure_carriers": len(all_md_figure_numbers),
             "missing_figure_carriers": sorted(

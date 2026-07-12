@@ -1223,14 +1223,15 @@ class Validator:
         debt_scope = audit.get("debt_scope")
         expected_debt = {
             "original_minimum": 296,
-            "corrected_minimum": 308,
+            "corrected_minimum": 309,
             "legacy_marked_figure_positions": 272,
             "additional_unmarked_figure_positions": 12,
             "known_formula_positions": 2,
             "explicit_missing_or_partial_table_positions": 8,
             "reported_spliced_table_positions": 14,
-            "itemized_proven_positions": 294,
-            "historical_unitemized_positions": 14,
+            "conservatively_reconstructed_spliced_table_positions": 15,
+            "itemized_proven_positions": 309,
+            "historical_unitemized_positions": 0,
         }
         if not isinstance(debt_scope, dict):
             self.error(TEXTBOOK_AUDIT_PATH, "debt_scope must be an object")
@@ -1245,8 +1246,9 @@ class Validator:
         expected_summary = {
             "chapters": 20,
             "baseline_explicit_marker_records": 280,
-            "itemized_proven_positions": 294,
-            "historical_unitemized_positions": 14,
+            "itemized_proven_positions": 309,
+            "historical_unitemized_positions": 0,
+            "conservatively_reconstructed_spliced_table_positions": 15,
             "pdf_unique_figure_numbers": 284,
             "markdown_unique_figure_carriers": 284,
             "missing_figure_carriers": [],
@@ -1450,14 +1452,98 @@ class Validator:
         else:
             if (
                 spliced.get("reported_positions") != 14
-                or spliced.get("mapping_status") != "ids_not_preserved"
+                or spliced.get("mapping_status")
+                != "conservative_reconstruction_covers_reported_minimum"
                 or spliced.get("ids_not_preserved") is not True
                 or spliced.get("commit_diff_contains_14_item_manifest") is not False
+                or spliced.get("conservatively_reconstructed_positions") != 15
+                or spliced.get("reported_minimum_covered") is not True
             ):
                 self.error(
                     TEXTBOOK_AUDIT_PATH,
-                    "historical spliced-table limitation must remain explicit",
+                    "historical spliced-table reconstruction metadata is invalid",
                 )
+            candidates = spliced.get("reconstructed_candidates")
+            expected_candidate_numbers = [
+                "2-2",
+                "2-4",
+                "2-5",
+                "2-6",
+                "2-7",
+                "3-1",
+                "4-1",
+                "4-2",
+                "4-3",
+                "5-1",
+                "5-2",
+                "12-13",
+                "17-1",
+                "18-2",
+                "19-1",
+            ]
+            if not isinstance(candidates, list) or len(candidates) != 15:
+                self.error(
+                    TEXTBOOK_AUDIT_PATH,
+                    "historical spliced-table reconstruction must contain 15 candidates",
+                )
+            else:
+                candidate_numbers: list[str] = []
+                candidate_ids: list[str] = []
+                for position, item in enumerate(candidates, start=1):
+                    if not isinstance(item, dict):
+                        self.error(
+                            TEXTBOOK_AUDIT_PATH,
+                            f"reconstructed spliced-table candidate #{position} must be an object",
+                        )
+                        continue
+                    number = item.get("number")
+                    item_id = item.get("id")
+                    if isinstance(number, str):
+                        candidate_numbers.append(number)
+                    if isinstance(item_id, str):
+                        candidate_ids.append(item_id)
+                    if (
+                        not isinstance(item_id, str)
+                        or not item_id
+                        or not isinstance(number, str)
+                        or not number
+                        or not isinstance(item.get("path"), str)
+                        or not item.get("path")
+                        or not isinstance(item.get("baseline_title_line"), int)
+                        or not isinstance(item.get("baseline_flattened_lines"), list)
+                        or len(item.get("baseline_flattened_lines", [])) != 2
+                        or not isinstance(item.get("pdf_reference_pages"), list)
+                        or not item.get("pdf_reference_pages")
+                        or not isinstance(item.get("current_markdown_carrier_lines"), list)
+                        or not item.get("current_markdown_carrier_lines")
+                        or item.get("status") != "recovered_structural"
+                        or not isinstance(item.get("proof_scope"), str)
+                        or not item.get("proof_scope")
+                    ):
+                        self.error(
+                            TEXTBOOK_AUDIT_PATH,
+                            f"reconstructed spliced-table candidate #{position} is incomplete",
+                        )
+                if candidate_numbers != expected_candidate_numbers:
+                    self.error(
+                        TEXTBOOK_AUDIT_PATH,
+                        "reconstructed spliced-table candidate numbers are invalid",
+                    )
+                if len(candidate_ids) != len(set(candidate_ids)):
+                    self.error(
+                        TEXTBOOK_AUDIT_PATH,
+                        "reconstructed spliced-table candidate IDs must be unique",
+                    )
+                explicit_shifted = spliced.get(
+                    "baseline_explicit_shifted_table_numbers_in_separate_8_item_category"
+                )
+                if not isinstance(explicit_shifted, list) or set(candidate_numbers).intersection(
+                    str(value) for value in explicit_shifted
+                ):
+                    self.error(
+                        TEXTBOOK_AUDIT_PATH,
+                        "reconstructed spliced tables overlap the separate baseline table category",
+                    )
             current_evidence = spliced.get("current_state_evidence")
             if not isinstance(current_evidence, dict) or current_evidence != {
                 "official_pdf_table_inventory": 59,

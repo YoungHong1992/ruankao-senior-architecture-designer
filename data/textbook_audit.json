@@ -411,7 +411,7 @@
         "context": "> 图 2-15 软件生存周期与系统生存周期的关系 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | #### 2. DO-178B的软件生命周期",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          953
+          955
         ],
         "current_status": "current_carrier_present"
       },
@@ -427,7 +427,7 @@
         "context": "> 图 2-16 软件生命周期过程、活动关系图 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | #### 3. DO-178与CMMI差异",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          1002
+          1004
         ],
         "current_status": "current_carrier_present"
       },
@@ -443,7 +443,7 @@
         "context": "> 图 2-17 星状结构网络 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | > 图 2-18 树状结构网络",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          1255
+          1257
         ],
         "current_status": "current_carrier_present"
       },
@@ -459,7 +459,7 @@
         "context": "> 图 2-18 树状结构网络 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | 3. 总线结构。总线结构网络是将各个结点设备和一根总线相连，如图 2-19 (a) 所示。网络中所有的结点设备都是通过总线进行信息传输的。在总线结构中，作为数据通信必经的总线的负载能力是有限度的，这…",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          1269
+          1271
         ],
         "current_status": "current_carrier_present"
       },
@@ -475,7 +475,7 @@
         "context": "> 图 2-19 总线结构和环形结构网络 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | 5. 网状结构。网状网络中的任何结点彼此之间均存在一条通信链路，任何结点故障不会影响其他结点之间的通信。但这种拓扑结构的网络布线较为烦琐，且建设成本高，控制方法复杂。",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          1289
+          1291
         ],
         "current_status": "current_carrier_present"
       },
@@ -491,7 +491,7 @@
         "context": "> 图 2-20 以太帧结构 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | DMAC代表目的终端的MAC地址，SMAC代表源MAC地址，而Length/Type字段长度是2字节，若该字段的值大于1500,则代表该数据帧的类型(比如该帧是属于哪个上层协议的数据单元);若该字段…",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          1316
+          1318
         ],
         "current_status": "current_carrier_present"
       },
@@ -507,7 +507,7 @@
         "context": "> 图 2-21 5G 网络的系统架构 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | 在5G 通信系统中涉及的主要网元NF(Network Function) 如图 2-21所示，其中控制面NF包括：认证服务功能 (Authentication Server Function,AUS…",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          1409
+          1411
         ],
         "current_status": "current_carrier_present"
       },
@@ -523,7 +523,7 @@
         "context": "> 图 2-22 5G 网络切片组成 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | 为了满足5G 网络切片组网的需要，引入了SPN(Slicing Packet Network) 技术，其中包括基于灵活以太网 (Flexible Ethernet,FlexE) 的硬切片技术。Fle…",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          1452
+          1454
         ],
         "current_status": "current_carrier_present"
       },
@@ -539,7 +539,7 @@
         "context": "> 图 2-23 OSI网络体系结构 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | ##### 2. OSI协议集",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          1502
+          1504
         ],
         "current_status": "current_carrier_present"
       },
@@ -555,7 +555,7 @@
         "context": "> 图 2-24 UML的发展历史 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | UML是一种定义良好、易于表达、功能强大且普遍适用的建模语言。它的作用不限于支持面向对象的分析与设计，还支持从需求分析开始的软件开发的全过程。UML成为“标准”建模语言的原因之一在于与程序设计语言无…",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          1745
+          1749
         ],
         "current_status": "current_carrier_present"
       },
@@ -571,7 +571,7 @@
         "context": "> 图 2-27 包 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | > 图 2-28 注解",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          1808
+          1812
         ],
         "current_status": "current_carrier_present"
       },
@@ -587,7 +587,7 @@
         "context": "> 图 2-28 注解 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | 2. 关系。UML中有4种关系：依赖、关联、泛化和实现。",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          1815
+          1819
         ],
         "current_status": "current_carrier_present"
       },
@@ -603,7 +603,7 @@
         "context": "> 图 2-29 依赖 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | > 图 2-30 关联",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          1829
+          1833
         ],
         "current_status": "current_carrier_present"
       },
@@ -619,7 +619,7 @@
         "context": "> 图 2-30 关联 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | > 图 2-31 聚集",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          1836
+          1840
         ],
         "current_status": "current_carrier_present"
       },
@@ -635,7 +635,7 @@
         "context": "> 图 2-31 聚集 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | ③泛化是一种特殊/一般关系，特殊元素(子元素)的对象可替代一般元素(父元素)的对象。用这种方法，子元素共享了父元素的结构和行为。在图形上，把一个泛化关系画成一条带有空心箭头的实线，它指向父元素，如图…",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          1847
+          1851
         ],
         "current_status": "current_carrier_present"
       },
@@ -651,7 +651,7 @@
         "context": "> 图 2-32 泛化 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | > 图 2-33 实现",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          1858
+          1862
         ],
         "current_status": "current_carrier_present"
       },
@@ -667,7 +667,7 @@
         "context": "> 图 2-33 实现 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | 这4种关系是UML模型中可以包含的基本关系事物。它们也有变体，例如，依赖的变体有精化、跟踪、包含和延伸。",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          1865
+          1869
         ],
         "current_status": "current_carrier_present"
       },
@@ -683,7 +683,7 @@
         "context": "> 图 2-34 UML用例图 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | 用例之间有扩展关系(<<extend>>) 和包含关系(<<include>>), 参与者和用例之间有关联关系，用例与用例、参与者与参与者之间有泛化关系。",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          1879
+          1883
         ],
         "current_status": "current_carrier_present"
       },
@@ -699,7 +699,7 @@
         "context": "> 图 2-35 多媒体系统的基本组成 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | #### 3. 多媒体技术应用",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          2010
+          2014
         ],
         "current_status": "current_carrier_present"
       },
@@ -891,7 +891,7 @@
         "context": "> 图 3-14 专家系统的一般结构 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | 切相关，选择什么样的系统结构，要根据系统的应用环境和所执行任务的特点而定。",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          848
+          850
         ],
         "current_status": "current_carrier_present"
       },
@@ -907,7 +907,7 @@
         "context": "> 图 3-15 企业运作的供需链图 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | ### 3.7.2 企业资源规划的结构",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          987
+          989
         ],
         "current_status": "current_carrier_present"
       },
@@ -923,7 +923,7 @@
         "context": "> 图 3-16 ERP结构原理图 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | #### 1. 生产预测",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          1014
+          1016
         ],
         "current_status": "current_carrier_present"
       },
@@ -1083,7 +1083,7 @@
         "context": "> 图 4-11 风险评估各要素关系图 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | 在一般的评估体系中，资产大多属于不同的信息系统，业务生产系统的数量还可能会很多，需要将信息系统及其中的信息资产进行恰当的分类，才能进行下一步的风险评估工作。在实际项目中，具体的资产分类方法根据具体环…",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          869
+          871
         ],
         "current_status": "current_carrier_present"
       },
@@ -1195,7 +1195,7 @@
         "context": "> 图 5-7 WBS示意图 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | WBS树形结构中最底层的被称为工作包，是最低层次的可交付成果，它应当由唯一主体负责完成。",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          1158
+          1162
         ],
         "current_status": "current_carrier_present"
       },
@@ -1211,7 +1211,7 @@
         "context": "> 图 5-8 影响软件质量的三个主要因素关系图 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | #### 1. 软件质量保证",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          1215
+          1219
         ],
         "current_status": "current_carrier_present"
       },
@@ -2307,7 +2307,7 @@
         "context": "> 图 12-10 信息化建设生命周期 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | ##### 3. 信息化工程总体规划的方法论",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          1073
+          1075
         ],
         "current_status": "current_carrier_present"
       },
@@ -2323,7 +2323,7 @@
         "context": "> 图 12-11 HL7消息发展体系——引自HL7V3 Ballot 7 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | 所有的HL7消息都被放在Transmission Wrapper,Wrapper的目的是支持应用软件之间消息的传输(和确认)。Wrapper的重要部分是一些元素，如消息标志符、消息的创建时间、交互标…",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          1232
+          1234
         ],
         "current_status": "current_carrier_present"
       },
@@ -2339,7 +2339,7 @@
         "context": "> 图 12-12 参考体系结构 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | 在图 12-12所示的结构里，能够抽象出HL7发送者/接收者内部的这两组功能：商业逻辑和Web服务适配器(需要强调的是，这里商业逻辑的范围是在HL7应用进行它们的发送者的角色和/或信息的接收者内部。…",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          1277
+          1279
         ],
         "current_status": "current_carrier_present"
       },
@@ -2355,7 +2355,7 @@
         "context": "> 图 12-13 HL7 Web服务信息交换流程 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | 1. 当用户接口从HIS客户机那里收到信号时，HIS业务逻辑就会产生一个序号标识符，同时通过创建一个XML文件以及在HL7负载里加入一个序号ID来构造POLB_IN2120信息。",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          1351
+          1353
         ],
         "current_status": "current_carrier_present"
       },
@@ -2371,7 +2371,7 @@
         "context": "> 图 12-14 Ramp Coordination流程图 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | 很明显，如此多的流程之间共享着一个业务活动的集合，如此多种类型的流程都是这些业务活动的不同组装方式。以服务为中心的企业集成中流程服务就是通过将这些流程间共享的业务活动抽象为可重用的服务，并通过流程服…",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          1422
+          1424
         ],
         "current_status": "current_carrier_present"
       },
@@ -2387,7 +2387,7 @@
         "context": "> 图 12-15 Ramp Coordination系统架构 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书。 | 本案例中的主要架构元素以及它们之间的工作关系如下。",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          1467
+          1469
         ],
         "current_status": "current_carrier_present"
       },
@@ -3843,7 +3843,7 @@
         "context": "> 图 17-22 核心-汇聚层典型组网架构 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | 网络汇聚层作为网络接入层的流量会集点和用户设备网关，需要部署防火墙作为整个服务区的安全控制边界，根据需要，部署应用优化设备(服务负载分担、SSL卸载等)用以减轻用户设备的处理负担，提高应用响应速度。",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          1130
+          1132
         ],
         "current_status": "current_carrier_present"
       },
@@ -3859,7 +3859,7 @@
         "context": "> 图 17-23 汇聚层FW与LB的双机高可用组网模型 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | #### 3. 网络核心层高可用设计",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          1159
+          1161
         ],
         "current_status": "current_carrier_present"
       },
@@ -3875,7 +3875,7 @@
         "context": "> 图 17-24 基于5G 网络的智能电网架构 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | 另外，在智能电网中还存在为提高能源分配效率并要求在发生不可预见事件时能迅速响应以重新配置智能电网的需求，如对于任何时刻发生的事件触发消息、任何两个通信点之间的一个跳闸事件的传输时延应小于8ms。为此…",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          1239
+          1241
         ],
         "current_status": "current_carrier_present"
       },
@@ -4484,7 +4484,7 @@
         "context": "> 图 19-15 某证券大数据系统架构 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | #### 4. 应用效果",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          781
+          783
         ],
         "current_status": "current_carrier_present"
       },
@@ -4500,7 +4500,7 @@
         "context": "> 图 19-16 某电商智能决策大数据系统架构 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | #### 4. 应用效果",
         "proof_scope": "固定基线行只证明当时存在缺图、缺表或错位状态；现行载体行只证明载体存在，语义、数值与版式准确性仍以各章来源注和人工复核为准。",
         "current_markdown_carrier_lines": [
-          857
+          859
         ],
         "current_status": "current_carrier_present"
       },
@@ -4898,7 +4898,7 @@
           64
         ],
         "markdown_carrier_lines": [
-          953
+          955
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -4913,7 +4913,7 @@
           65
         ],
         "markdown_carrier_lines": [
-          1002
+          1004
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -4928,7 +4928,7 @@
           73
         ],
         "markdown_carrier_lines": [
-          1255
+          1257
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -4943,7 +4943,7 @@
           73
         ],
         "markdown_carrier_lines": [
-          1269
+          1271
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -4959,7 +4959,7 @@
           74
         ],
         "markdown_carrier_lines": [
-          1289
+          1291
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -4974,7 +4974,7 @@
           74
         ],
         "markdown_carrier_lines": [
-          1316
+          1318
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -4990,7 +4990,7 @@
           79
         ],
         "markdown_carrier_lines": [
-          1409
+          1411
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -5006,7 +5006,7 @@
           80
         ],
         "markdown_carrier_lines": [
-          1452
+          1454
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -5021,7 +5021,7 @@
           81
         ],
         "markdown_carrier_lines": [
-          1502
+          1504
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -5036,7 +5036,7 @@
           90
         ],
         "markdown_carrier_lines": [
-          1745
+          1749
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -5051,7 +5051,7 @@
           91
         ],
         "markdown_carrier_lines": [
-          1771
+          1775
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": []
@@ -5064,7 +5064,7 @@
           91
         ],
         "markdown_carrier_lines": [
-          1788
+          1792
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": []
@@ -5077,7 +5077,7 @@
           92
         ],
         "markdown_carrier_lines": [
-          1808
+          1812
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -5092,7 +5092,7 @@
           92
         ],
         "markdown_carrier_lines": [
-          1815
+          1819
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -5107,7 +5107,7 @@
           92
         ],
         "markdown_carrier_lines": [
-          1829
+          1833
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -5122,7 +5122,7 @@
           92
         ],
         "markdown_carrier_lines": [
-          1836
+          1840
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -5137,7 +5137,7 @@
           92
         ],
         "markdown_carrier_lines": [
-          1847
+          1851
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -5152,7 +5152,7 @@
           92
         ],
         "markdown_carrier_lines": [
-          1858
+          1862
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -5167,7 +5167,7 @@
           92
         ],
         "markdown_carrier_lines": [
-          1865
+          1869
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -5182,7 +5182,7 @@
           93
         ],
         "markdown_carrier_lines": [
-          1879
+          1883
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -5197,7 +5197,7 @@
           98
         ],
         "markdown_carrier_lines": [
-          2010
+          2014
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -5407,7 +5407,7 @@
           140
         ],
         "markdown_carrier_lines": [
-          848
+          850
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -5422,7 +5422,7 @@
           146
         ],
         "markdown_carrier_lines": [
-          987
+          989
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -5437,7 +5437,7 @@
           147
         ],
         "markdown_carrier_lines": [
-          1014
+          1016
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -5600,7 +5600,7 @@
           182
         ],
         "markdown_carrier_lines": [
-          869
+          871
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -5705,7 +5705,7 @@
           224
         ],
         "markdown_carrier_lines": [
-          1158
+          1162
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -5720,7 +5720,7 @@
           225
         ],
         "markdown_carrier_lines": [
-          1215
+          1219
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -6661,7 +6661,7 @@
           445
         ],
         "markdown_carrier_lines": [
-          1073
+          1075
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -6676,7 +6676,7 @@
           450
         ],
         "markdown_carrier_lines": [
-          1232
+          1234
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -6692,7 +6692,7 @@
           452
         ],
         "markdown_carrier_lines": [
-          1277
+          1279
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -6708,7 +6708,7 @@
           454
         ],
         "markdown_carrier_lines": [
-          1351
+          1353
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -6723,7 +6723,7 @@
           456
         ],
         "markdown_carrier_lines": [
-          1422
+          1424
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -6738,7 +6738,7 @@
           457
         ],
         "markdown_carrier_lines": [
-          1467
+          1469
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -8166,7 +8166,7 @@
           636
         ],
         "markdown_carrier_lines": [
-          1130
+          1132
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -8181,7 +8181,7 @@
           637
         ],
         "markdown_carrier_lines": [
-          1159
+          1161
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -8197,7 +8197,7 @@
           640
         ],
         "markdown_carrier_lines": [
-          1239
+          1241
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -8773,7 +8773,7 @@
           701
         ],
         "markdown_carrier_lines": [
-          568
+          570
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": []
@@ -8786,7 +8786,7 @@
           704
         ],
         "markdown_carrier_lines": [
-          706
+          708
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": []
@@ -8800,7 +8800,7 @@
           707
         ],
         "markdown_carrier_lines": [
-          781
+          783
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -8816,7 +8816,7 @@
           709
         ],
         "markdown_carrier_lines": [
-          857
+          859
         ],
         "status": "current_carrier_present",
         "baseline_marker_ids": [
@@ -8915,7 +8915,7 @@
           82
         ],
         "markdown_carrier_lines": [
-          1528
+          1530
         ],
         "status": "current_structured_carrier_present",
         "baseline_marker_ids": []
@@ -8929,7 +8929,7 @@
           83
         ],
         "markdown_carrier_lines": [
-          1552
+          1554
         ],
         "status": "current_structured_carrier_present",
         "baseline_marker_ids": []
@@ -8942,7 +8942,7 @@
           101
         ],
         "markdown_carrier_lines": [
-          2097
+          2101
         ],
         "status": "current_structured_carrier_present",
         "baseline_marker_ids": []
@@ -8994,7 +8994,7 @@
           178
         ],
         "markdown_carrier_lines": [
-          797
+          799
         ],
         "status": "current_structured_carrier_present",
         "baseline_marker_ids": []
@@ -9020,7 +9020,7 @@
           207
         ],
         "markdown_carrier_lines": [
-          701
+          703
         ],
         "status": "current_structured_carrier_present",
         "baseline_marker_ids": []
@@ -9679,7 +9679,7 @@
         91
       ],
       "markdown_carrier_lines": [
-        1771
+        1775
       ],
       "status": "current_carrier_present",
       "baseline_marker_ids": [],
@@ -9695,7 +9695,7 @@
         91
       ],
       "markdown_carrier_lines": [
-        1788
+        1792
       ],
       "status": "current_carrier_present",
       "baseline_marker_ids": [],
@@ -9823,7 +9823,7 @@
         701
       ],
       "markdown_carrier_lines": [
-        568
+        570
       ],
       "status": "current_carrier_present",
       "baseline_marker_ids": [],
@@ -9839,7 +9839,7 @@
         704
       ],
       "markdown_carrier_lines": [
-        706
+        708
       ],
       "status": "current_carrier_present",
       "baseline_marker_ids": [],
@@ -9885,7 +9885,7 @@
   ],
   "historical_spliced_tables": {
     "reported_positions": 14,
-    "mapping_status": "ids_not_preserved",
+    "mapping_status": "conservative_reconstruction_covers_reported_minimum",
     "ids_not_preserved": true,
     "count_first_recorded_in_commit": "3ce44b168efdd68d4c876631710c1b938af145ba",
     "count_field_locations_in_that_commit": [
@@ -9903,32 +9903,340 @@
       "10-3",
       "10-4"
     ],
-    "investigation_conclusion": "固定基线只明确命名了另行计入 8 个缺失或部分表位置中的 7 张拼栏/列错位表；提交差异首次加入数值 14 时没有保存逐项 ID 清单。无法仅凭大范围 Markdown 差异客观判定那 14 个历史位置，故不生成候选 ID。",
+    "conservatively_reconstructed_positions": 15,
+    "reported_minimum_covered": true,
+    "reconstructed_candidates": [
+      {
+        "id": "textbook-ch02-baseline-l0397-spliced-table-2-2",
+        "number": "2-2",
+        "chapter": 2,
+        "path": "01.系统架构设计师教材-清洗版/第02章-计算机系统基础知识.md",
+        "baseline_title_line": 397,
+        "baseline_flattened_lines": [
+          399,
+          399
+        ],
+        "baseline_evidence": "ALPHA BETA REPORT SQRT张军 RWX R-X王伟 RWX R-XR-X ALPHA BETA REPORT SQRT李晓钢 R-X RWX R-X",
+        "pdf_reference_pages": [
+          50
+        ],
+        "current_markdown_carrier_lines": [
+          579
+        ],
+        "status": "recovered_structural",
+        "proof_scope": "固定基线证明该表的单元格曾被压平或拼栏；PDF 页码与现行管道表标题建立逐项载体闭环。单元格语义仍以相邻来源注和人工逐页核对为准。"
+      },
+      {
+        "id": "textbook-ch02-baseline-l0682-spliced-table-2-4",
+        "number": "2-4",
+        "chapter": 2,
+        "path": "01.系统架构设计师教材-清洗版/第02章-计算机系统基础知识.md",
+        "baseline_title_line": 682,
+        "baseline_flattened_lines": [
+          684,
+          684
+        ],
+        "baseline_evidence": "等级失效状态简要说明目标数量A级灾难性的软件异常会导致的后果是：航空器无法安全飞行和着陆 66软件异常会导致的后果是：严重降低了航空器或机组在克服不利运行情况时的能力软件异常会导致的后果是：显著降低了航空器或机组在克服不利运行情况时的能力软件异常会导致的后果是：轻微降低了航空器或机组在克服不D级不严重的 28利运行情况时的能力E级没有影响的软件异常会导致的后果是：不会影响航空器或机组任何能力 0",
+        "pdf_reference_pages": [
+          63
+        ],
+        "current_markdown_carrier_lines": [
+          939
+        ],
+        "status": "recovered_structural",
+        "proof_scope": "固定基线证明该表的单元格曾被压平或拼栏；PDF 页码与现行管道表标题建立逐项载体闭环。单元格语义仍以相邻来源注和人工逐页核对为准。"
+      },
+      {
+        "id": "textbook-ch02-baseline-l1115-spliced-table-2-5",
+        "number": "2-5",
+        "chapter": 2,
+        "path": "01.系统架构设计师教材-清洗版/第02章-计算机系统基础知识.md",
+        "baseline_title_line": 1115,
+        "baseline_flattened_lines": [
+          1117,
+          1117
+        ],
+        "baseline_evidence": "VT DS FTMA CNIP/CMIS MHS应用层 ANS.1 ACSE,RTSE,ROSE,CCR表示层 OSI表示层协议会话层 OSI会话层协议传输层 TPO,TP1,TP2,TP3,TP4 ES-IS,IS-IS数据链路层 IEEE 802.2 HDLC PAP-B物理层 802.3802.4802.5 FDDI RS-232 RS-449 X-21 V.35 ISDN",
+        "pdf_reference_pages": [
+          82
+        ],
+        "current_markdown_carrier_lines": [
+          1530
+        ],
+        "status": "recovered_structural",
+        "proof_scope": "固定基线证明该表的单元格曾被压平或拼栏；PDF 页码与现行管道表标题建立逐项载体闭环。单元格语义仍以相邻来源注和人工逐页核对为准。"
+      },
+      {
+        "id": "textbook-ch02-baseline-l1129-spliced-table-2-6",
+        "number": "2-6",
+        "chapter": 2,
+        "path": "01.系统架构设计师教材-清洗版/第02章-计算机系统基础知识.md",
+        "baseline_title_line": 1129,
+        "baseline_flattened_lines": [
+          1131,
+          1131
+        ],
+        "baseline_evidence": "ISO/OSI模型 TCP/IP协议 TCP/IP模型文件传输远程登录协网络文件服务协网络管理协表示层件协议应用层协议FTP 议Telnet 议NFS 议SNMP ISO/OSI模型 TCP/IP协议 TCP/IP模型传输层 TCP UDP 传输层网络层 IP ICMP ARP RARP 网际层数据链路层 Enternet Token-Ring/IEEE 802.3 PPP/ 网络接口层物理层 IEEE 802.3 硬件层 SLIP如表 2-6所示，TCP/IP分层模型由4…",
+        "pdf_reference_pages": [
+          82,
+          83
+        ],
+        "current_markdown_carrier_lines": [
+          1554
+        ],
+        "status": "recovered_structural",
+        "proof_scope": "固定基线证明该表的单元格曾被压平或拼栏；PDF 页码与现行管道表标题建立逐项载体闭环。单元格语义仍以相邻来源注和人工逐页核对为准。"
+      },
+      {
+        "id": "textbook-ch02-baseline-l1560-spliced-table-2-7",
+        "number": "2-7",
+        "chapter": 2,
+        "path": "01.系统架构设计师教材-清洗版/第02章-计算机系统基础知识.md",
+        "baseline_title_line": 1560,
+        "baseline_flattened_lines": [
+          1562,
+          1562
+        ],
+        "baseline_evidence": "利用计算机形成三维交互场景，通过鼠标、力易实现、应用广泛、成本较低，但因会矩球等输入设备交互，由屏幕呈现出虚拟环境受到环境干扰而缺乏体验感将VR与网络技术相融合，在同一 VR环境下，忽略地域限制因素，共享度高，同时研多用户之间可以相互共享任何信息发成本极高，适合专业领域借助各类型输入设备与输出设备，给予用户一良好的实时交互性和体验感，但对硬件个可完全沉浸，全身心参与的环境配置、混合技术要求较高，开发成本高增强式VR 将虚拟现实模拟仿真的世界与现实世界叠加到体验更完美，但对混…",
+        "pdf_reference_pages": [
+          101
+        ],
+        "current_markdown_carrier_lines": [
+          2101
+        ],
+        "status": "recovered_structural",
+        "proof_scope": "固定基线证明该表的单元格曾被压平或拼栏；PDF 页码与现行管道表标题建立逐项载体闭环。单元格语义仍以相邻来源注和人工逐页核对为准。"
+      },
+      {
+        "id": "textbook-ch03-baseline-l0578-spliced-table-3-1",
+        "number": "3-1",
+        "chapter": 3,
+        "path": "01.系统架构设计师教材-清洗版/第03章-信息系统基础知识.md",
+        "baseline_title_line": 578,
+        "baseline_flattened_lines": [
+          580,
+          580
+        ],
+        "baseline_evidence": "系统专家系统一般计算机系统功能解决问题、解释结果、进行判断与决策解决问题处理能力处理数字与符号处理数字多属准结构性或非结构性，可处理不确定的知识，处理问题种类多属结构性，处理确定的知识",
+        "pdf_reference_pages": [
+          139
+        ],
+        "current_markdown_carrier_lines": [
+          810
+        ],
+        "status": "recovered_structural",
+        "proof_scope": "固定基线证明该表的单元格曾被压平或拼栏；PDF 页码与现行管道表标题建立逐项载体闭环。单元格语义仍以相邻来源注和人工逐页核对为准。"
+      },
+      {
+        "id": "textbook-ch04-baseline-l0599-spliced-table-4-1",
+        "number": "4-1",
+        "chapter": 4,
+        "path": "01.系统架构设计师教材-清洗版/第04章-信息安全技术基础知识.md",
+        "baseline_title_line": 599,
+        "baseline_flattened_lines": [
+          601,
+          601
+        ],
+        "baseline_evidence": "值名称值(REG_DWORD)TcpMaxPortsExhausted 1 TcpMaxHalfOpenRetried 400 Tcp Max ConnectResponseRetransmissions 2 TcpMaxDataRetransmissions 2 EnablePMTUDiscovery 0 KeepAliveTime 300000(5分钟)NoNameReleaseOnDemand 1",
+        "pdf_reference_pages": [
+          177
+        ],
+        "current_markdown_carrier_lines": [
+          762
+        ],
+        "status": "recovered_structural",
+        "proof_scope": "固定基线证明该表的单元格曾被压平或拼栏；PDF 页码与现行管道表标题建立逐项载体闭环。单元格语义仍以相邻来源注和人工逐页核对为准。"
+      },
+      {
+        "id": "textbook-ch04-baseline-l0608-spliced-table-4-2",
+        "number": "4-2",
+        "chapter": 4,
+        "path": "01.系统架构设计师教材-清洗版/第04章-信息安全技术基础知识.md",
+        "baseline_title_line": 608,
+        "baseline_flattened_lines": [
+          610,
+          610
+        ],
+        "baseline_evidence": "值名称值(REG_DWORD)EnableICMPRedirect 0",
+        "pdf_reference_pages": [
+          178
+        ],
+        "current_markdown_carrier_lines": [
+          785
+        ],
+        "status": "recovered_structural",
+        "proof_scope": "固定基线证明该表的单元格曾被压平或拼栏；PDF 页码与现行管道表标题建立逐项载体闭环。单元格语义仍以相邻来源注和人工逐页核对为准。"
+      },
+      {
+        "id": "textbook-ch04-baseline-l0618-spliced-table-4-3",
+        "number": "4-3",
+        "chapter": 4,
+        "path": "01.系统架构设计师教材-清洗版/第04章-信息安全技术基础知识.md",
+        "baseline_title_line": 618,
+        "baseline_flattened_lines": [
+          620,
+          620
+        ],
+        "baseline_evidence": "值名称值(REG_DWORD)EnableDcadGWDetect 0",
+        "pdf_reference_pages": [
+          178
+        ],
+        "current_markdown_carrier_lines": [
+          799
+        ],
+        "status": "recovered_structural",
+        "proof_scope": "固定基线证明该表的单元格曾被压平或拼栏；PDF 页码与现行管道表标题建立逐项载体闭环。单元格语义仍以相邻来源注和人工逐页核对为准。"
+      },
+      {
+        "id": "textbook-ch05-baseline-l0595-spliced-table-5-1",
+        "number": "5-1",
+        "chapter": 5,
+        "path": "01.系统架构设计师教材-清洗版/第05章-软件工程基础知识.md",
+        "baseline_title_line": 595,
+        "baseline_flattened_lines": [
+          597,
+          597
+        ],
+        "baseline_evidence": "非直接耦合两个模块之间没有直接关系，它们之间的联系完全是通过上级模块的控制和调用来实现的数据耦合一组模块借助参数表传递简单数据标记耦合一组模块通过参数表传递记录等复杂信息(数据结构)控制耦合模块之间传递的信息中包含用于控制模块内部逻辑的信息一组模块共用了一组输入信息，或者它们的输出需要整合以形成完整数据，即共享了输入多个模块都访问同一个公共数据环境，公共的数据环境可以是全局数据结构、共享的通信区、内存的公共覆盖区等一个模块直接访问另一个模块的内部数据；一个模块不通过正常入口…",
+        "pdf_reference_pages": [
+          206
+        ],
+        "current_markdown_carrier_lines": [
+          684
+        ],
+        "status": "recovered_structural",
+        "proof_scope": "固定基线证明该表的单元格曾被压平或拼栏；PDF 页码与现行管道表标题建立逐项载体闭环。单元格语义仍以相邻来源注和人工逐页核对为准。"
+      },
+      {
+        "id": "textbook-ch05-baseline-l0602-spliced-table-5-2",
+        "number": "5-2",
+        "chapter": 5,
+        "path": "01.系统架构设计师教材-清洗版/第05章-软件工程基础知识.md",
+        "baseline_title_line": 602,
+        "baseline_flattened_lines": [
+          604,
+          604
+        ],
+        "baseline_evidence": "功能内聚完成一个单一功能，各个部分协同工作，缺一不可顺序内聚处理元素相关，而且必须顺序执行通信内聚所有处理元素集中在一个数据结构的区域上过程内聚处理元素相关，而且必须按特定的次序执行时间内聚所包含的任务必须在同一时间间隔内执行逻辑内聚完成逻辑上相关的一组任务偶然内聚完成一组没有关系或松散关系的任务一般说来，系统中各模块的内聚越高，则模块间的耦合就越低，但这种关系并不是绝对的。",
+        "pdf_reference_pages": [
+          207
+        ],
+        "current_markdown_carrier_lines": [
+          703
+        ],
+        "status": "recovered_structural",
+        "proof_scope": "固定基线证明该表的单元格曾被压平或拼栏；PDF 页码与现行管道表标题建立逐项载体闭环。单元格语义仍以相邻来源注和人工逐页核对为准。"
+      },
+      {
+        "id": "textbook-ch12-baseline-l0863-spliced-table-12-13",
+        "number": "12-13",
+        "chapter": 12,
+        "path": "01.系统架构设计师教材-清洗版/第12章-信息系统架构设计理论与实践.md",
+        "baseline_title_line": 863,
+        "baseline_flattened_lines": [
+          865,
+          865
+        ],
+        "baseline_evidence": "企业最大的业务范围是什么?其中又有多少是需要架构工作聚焦的?许多企业的规模非常企业范围或大，实际上形成了一个组织单位成员的联盟，每个成员都有自己独立的企业权利。现代企焦点业越来越突破它的传统界线，包括了一个由供应商、客户和合作伙伴形成的模糊的传统行一个全面的企业架构描述应该包括全部四个架构领域(业务、数据、应用、技术),但是实际的资源和时间约束经常意味着没有充分的时间、资金或其他资源去设计一个自顶而下的、包含全部四个架构领域的架构描述。即使在选定的架构活动范围小于企业整体业…",
+        "pdf_reference_pages": [
+          441
+        ],
+        "current_markdown_carrier_lines": [
+          961
+        ],
+        "status": "recovered_structural",
+        "proof_scope": "固定基线证明该表的单元格曾被压平或拼栏；PDF 页码与现行管道表标题建立逐项载体闭环。单元格语义仍以相邻来源注和人工逐页核对为准。"
+      },
+      {
+        "id": "textbook-ch17-baseline-l0699-spliced-table-17-1",
+        "number": "17-1",
+        "chapter": 17,
+        "path": "01.系统架构设计师教材-清洗版/第17章-通信系统架构设计理论与实践.md",
+        "baseline_title_line": 699,
+        "baseline_flattened_lines": [
+          701,
+          710
+        ],
+        "baseline_evidence": "1. 无环路，不启用STP,网络管理简单汇聚交换机故障会造成其同侧接入交换 2. VLAN可以跨汇聚层交换机，用户设备机所连用户设备不可达，无法实现高可二层扩展灵活用接入  1. VLAN不能跨汇聚交换机，用户设 1. 无环路，不启用STP, 网络管理简单模型二备部署不灵活 2. 接入交换机与汇聚交换机之间有冗余链(U形) (2)接入交换机间链路故障时，VRRP心跳报文无法传递，网络处于不稳定状态 1. 存在环路，启用STP 1. 接入交换机与汇聚交换机之间有冗余链 (2)…",
+        "pdf_reference_pages": [
+          635,
+          636
+        ],
+        "current_markdown_carrier_lines": [
+          1114
+        ],
+        "status": "recovered_structural",
+        "proof_scope": "固定基线证明该表的单元格曾被压平或拼栏；PDF 页码与现行管道表标题建立逐项载体闭环。单元格语义仍以相邻来源注和人工逐页核对为准。"
+      },
+      {
+        "id": "textbook-ch18-baseline-l0674-spliced-table-18-2",
+        "number": "18-2",
+        "chapter": 18,
+        "path": "01.系统架构设计师教材-清洗版/第18章-安全架构设计理论与实践.md",
+        "baseline_title_line": 674,
+        "baseline_flattened_lines": [
+          674,
+          674
+        ],
+        "baseline_evidence": "表 18-2 Oracle支持的基于DBMS的完整性约束Oracle支持的完整性约束对应的完整性约束类型备注非空约束 (Not Null) 列级静态约束唯一码约束 (Unique Key) 通过唯一性索引来实现主键约束 (Primary Key) 关系级静态约束可定义5种不同的动作，Restrict、Wet to Null、引用完整性约束 (Referential) 关系级静态约束Set to Default、Cascade、No Action检查约束 (Check) 可定…",
+        "pdf_reference_pages": [
+          671
+        ],
+        "current_markdown_carrier_lines": [
+          1023
+        ],
+        "status": "recovered_structural",
+        "proof_scope": "固定基线证明该表的单元格曾被压平或拼栏；PDF 页码与现行管道表标题建立逐项载体闭环。单元格语义仍以相邻来源注和人工逐页核对为准。"
+      },
+      {
+        "id": "textbook-ch19-baseline-l0349-spliced-table-19-1",
+        "number": "19-1",
+        "chapter": 19,
+        "path": "01.系统架构设计师教材-清洗版/第19章-大数据架构设计理论与实践.md",
+        "baseline_title_line": 349,
+        "baseline_flattened_lines": [
+          351,
+          351
+        ],
+        "baseline_evidence": "对比内容 Lambda架构 Kappa架构需要维护两套系统(引擎),复杂度只需要维护一套系统(引擎),复杂度复杂度与开发、维护成本高，开发、维护成本高低，开发、维护成本低需要一直运行批处理和实时计算，计算开销必要时进行全量计算，计算开销相对较小实时性满足实时性满足实时性批式全量处理，吞吐量大，历史数流式全量处理，吞吐量相对较低，历史据处理能力强数据处理能力相对较弱",
+        "pdf_reference_pages": [
+          698
+        ],
+        "current_markdown_carrier_lines": [
+          483
+        ],
+        "status": "recovered_structural",
+        "proof_scope": "固定基线证明该表的单元格曾被压平或拼栏；PDF 页码与现行管道表标题建立逐项载体闭环。单元格语义仍以相邻来源注和人工逐页核对为准。"
+      }
+    ],
+    "investigation_conclusion": "固定基线只明确命名了另行计入 8 个缺失或部分表位置中的 7 张拼栏/列错位表；提交差异首次加入数值 14 时没有保存原选择的逐项 ID 清单。重新以固定基线中的压平单元格、PDF 表号页和现行管道表三重条件保守识别出 15 张互不重叠的表，足以覆盖“至少 14 张”的历史下限；这不等同于声称已找回原报告恰好选择的 14 张。",
     "current_state_evidence": {
       "official_pdf_table_inventory": 59,
       "markdown_table_carriers": 59,
       "table_structure_risks": []
     },
-    "proof_scope": "当前 59 表结构扫描为空，只证明现态没有同类启发式残余；它不构成历史 14/14 身份映射闭环。"
+    "proof_scope": "15 张候选均有固定基线行、PDF 页和现行管道表证据，并已逐页目视核对；原报告的恰好 14 个 ID 仍未保存，因此这里只证明独立重建集合覆盖其数量下限。"
   },
   "debt_scope": {
     "original_minimum": 296,
-    "corrected_minimum": 308,
+    "corrected_minimum": 309,
     "legacy_marked_figure_positions": 272,
     "additional_unmarked_figure_positions": 12,
     "known_formula_positions": 2,
     "explicit_missing_or_partial_table_positions": 8,
     "reported_spliced_table_positions": 14,
-    "itemized_proven_positions": 294,
-    "historical_unitemized_positions": 14,
-    "arithmetic": "272 + 12 + 2 + 8 + 14 = 308",
-    "description": "逐项证据可直接覆盖 272 个基线图、12 个新增图、2 个公式和 8 个表，合计 294 项；历史数值 14 未保存逐项 ID，只作为单独的未枚举历史口径，因此 308 不能表述为 308 个均已逐项映射。"
+    "conservatively_reconstructed_spliced_table_positions": 15,
+    "itemized_proven_positions": 309,
+    "historical_unitemized_positions": 0,
+    "arithmetic": "272 + 12 + 2 + 8 + 15 = 309",
+    "description": "逐项证据覆盖 272 个基线图、12 个新增图、2 个公式、8 个显式缺失或部分表，以及 15 个由固定基线压平文本、PDF 页和现行管道表独立重建的拼栏表，合计 309 项。原报告恰好选择的 14 个 ID 未保存，但独立重建集合已覆盖“至少 14 张”的数量下限。"
   },
   "summary": {
     "chapters": 20,
     "baseline_explicit_marker_records": 280,
-    "itemized_proven_positions": 294,
-    "historical_unitemized_positions": 14,
+    "itemized_proven_positions": 309,
+    "historical_unitemized_positions": 0,
+    "conservatively_reconstructed_spliced_table_positions": 15,
     "pdf_unique_figure_numbers": 284,
     "markdown_unique_figure_carriers": 284,
     "missing_figure_carriers": [],
@@ -9975,11 +10283,11 @@
         "count": 81
       },
       "normalized_pdf_chars": 78302,
-      "normalized_markdown_chars": 85795,
-      "markdown_to_pdf_char_ratio": 1.095694,
+      "normalized_markdown_chars": 86185,
+      "markdown_to_pdf_char_ratio": 1.100674,
       "page_ngram_coverage": {
         "width": 10,
-        "mean": 0.945126,
+        "mean": 0.944972,
         "median": 0.997599,
         "minimum": 0.555006,
         "below_0_35": []
@@ -10003,8 +10311,8 @@
         "count": 40
       },
       "normalized_pdf_chars": 37122,
-      "normalized_markdown_chars": 42627,
-      "markdown_to_pdf_char_ratio": 1.148295,
+      "normalized_markdown_chars": 42746,
+      "markdown_to_pdf_char_ratio": 1.1515,
       "page_ngram_coverage": {
         "width": 10,
         "mean": 0.955015,
@@ -10031,11 +10339,11 @@
         "count": 30
       },
       "normalized_pdf_chars": 27726,
-      "normalized_markdown_chars": 29971,
-      "markdown_to_pdf_char_ratio": 1.080971,
+      "normalized_markdown_chars": 30353,
+      "markdown_to_pdf_char_ratio": 1.094749,
       "page_ngram_coverage": {
         "width": 10,
-        "mean": 0.952888,
+        "mean": 0.952849,
         "median": 0.996653,
         "minimum": 0.784274,
         "below_0_35": []
@@ -10059,11 +10367,11 @@
         "count": 43
       },
       "normalized_pdf_chars": 41052,
-      "normalized_markdown_chars": 43547,
-      "markdown_to_pdf_char_ratio": 1.060777,
+      "normalized_markdown_chars": 43779,
+      "markdown_to_pdf_char_ratio": 1.066428,
       "page_ngram_coverage": {
         "width": 10,
-        "mean": 0.969361,
+        "mean": 0.968897,
         "median": 0.996815,
         "minimum": 0.71875,
         "below_0_35": []
@@ -10274,11 +10582,11 @@
         "count": 46
       },
       "normalized_pdf_chars": 42140,
-      "normalized_markdown_chars": 43460,
-      "markdown_to_pdf_char_ratio": 1.031324,
+      "normalized_markdown_chars": 43575,
+      "markdown_to_pdf_char_ratio": 1.034053,
       "page_ngram_coverage": {
         "width": 10,
-        "mean": 0.798215,
+        "mean": 0.798049,
         "median": 0.869908,
         "minimum": 0.292994,
         "below_0_35": [
@@ -10419,11 +10727,11 @@
         "count": 34
       },
       "normalized_pdf_chars": 28860,
-      "normalized_markdown_chars": 32967,
-      "markdown_to_pdf_char_ratio": 1.142308,
+      "normalized_markdown_chars": 33092,
+      "markdown_to_pdf_char_ratio": 1.146639,
       "page_ngram_coverage": {
         "width": 10,
-        "mean": 0.881848,
+        "mean": 0.881774,
         "median": 0.920399,
         "minimum": 0.598592,
         "below_0_35": []
@@ -10447,8 +10755,8 @@
         "count": 43
       },
       "normalized_pdf_chars": 39110,
-      "normalized_markdown_chars": 43558,
-      "markdown_to_pdf_char_ratio": 1.113731,
+      "normalized_markdown_chars": 43641,
+      "markdown_to_pdf_char_ratio": 1.115853,
       "page_ngram_coverage": {
         "width": 10,
         "mean": 0.891918,
@@ -10475,11 +10783,11 @@
         "count": 26
       },
       "normalized_pdf_chars": 24650,
-      "normalized_markdown_chars": 28971,
-      "markdown_to_pdf_char_ratio": 1.175294,
+      "normalized_markdown_chars": 29089,
+      "markdown_to_pdf_char_ratio": 1.180081,
       "page_ngram_coverage": {
         "width": 10,
-        "mean": 0.907726,
+        "mean": 0.907382,
         "median": 0.971954,
         "minimum": 0.640051,
         "below_0_35": []
