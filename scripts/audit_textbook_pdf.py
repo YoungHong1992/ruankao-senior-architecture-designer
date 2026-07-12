@@ -195,6 +195,102 @@ FORMULA_TOPICS = {
     },
 }
 
+# These formula positions were not represented by the two explicit formula-status
+# markers in the fixed baseline.  They were discovered independently during the
+# full 708-page visual/text review, so they remain separate from the historical
+# two-item formula inventory and do not change the historical 199-position set.
+ADDITIONAL_UNMARKED_FORMULA_SPECS: tuple[dict[str, object], ...] = (
+    {
+        "id": "textbook-ch02-full-review-p0061-formula-reliability-range",
+        "topic": "reliability_range",
+        "label": "第 2 章安全攸关系统可靠性指标数量级",
+        "chapter": 2,
+        "pdf_reference_pages": [61],
+        "printed_pages": [51],
+        "current_needles": (
+            r"$10^{-6}～10^{-9}$",
+            "FreeSky-X/systemarchitect 固定提交",
+        ),
+        "baseline_needles": ("10?～10°",),
+        "supporting_evidence": {
+            "repository": "FreeSky-X/systemarchitect",
+            "commit": "0e9b17f3fbd1590ecc0e5f664c2031068e52b9d0",
+            "path": "files/unit2/2.4.3嵌入式软件的组成及特点.md",
+            "git_blob": "de5c8cf984f8f5844cc7b37af5edc84c0a4e7b1b",
+            "fixed_excerpt": "10-6O10-9",
+            "purpose": "本地 PDF 上标不可辨时的固定第三方 OCR 补证",
+        },
+        "proof_scope": (
+            "本地 PDF 物理页 61 的两个上标在文本层及高分辨率渲染中均不可辨；"
+            "固定第三方 OCR 同段转录 `10-6O10-9` 为恢复 `10^{-6}～10^{-9}` "
+            "提供透明补证，不声称本地 PDF 字形直接清晰可读。"
+        ),
+    },
+    {
+        "id": "textbook-ch02-full-review-p0070-formula-shannon-capacity",
+        "topic": "shannon_capacity",
+        "label": "第 2 章香农信道容量公式",
+        "chapter": 2,
+        "pdf_reference_pages": [70],
+        "printed_pages": [60],
+        "current_needles": (
+            r"C=B\log_2\left(1+\frac{S}{N}\right)",
+            "香农公式（2-1）",
+        ),
+        "baseline_needles": ("C=B×log (1+)",),
+    },
+    {
+        "id": "textbook-ch02-full-review-p0113-formula-amdahl-speedup",
+        "topic": "amdahl_speedup",
+        "label": "第 2 章阿姆达尔加速比公式组",
+        "chapter": 2,
+        "pdf_reference_pages": [113],
+        "printed_pages": [103],
+        "current_needles": (
+            r"S=\frac{T_{\mathrm{old}}}{T_{\mathrm{new}}}",
+            r"T_{\mathrm{new}}=T_{\mathrm{old}}\left[(1-F)+\frac{F}{S_e}\right]",
+            r"\frac{1}{(1-F)+\frac{F}{S_e}}",
+            "恢复式（2-2）～（2-4）",
+        ),
+        "baseline_needles": (
+            "新的执行时间=原来的执行时间",
+            "总加速比= 1",
+        ),
+    },
+    {
+        "id": "textbook-ch04-full-review-p0162-formula-rsa-exponents",
+        "topic": "rsa_exponents",
+        "label": "第 4 章 RSA 指数与模运算公式组",
+        "chapter": 4,
+        "pdf_reference_pages": [162],
+        "printed_pages": [152],
+        "current_needles": (
+            r"$10^{100}$",
+            r"$2^k<n$",
+            r"ed\equiv1\pmod z",
+            r"C=P^e\pmod n",
+            r"P=C^d\pmod n",
+            "PDF 物理页 162",
+        ),
+        "baseline_needles": ("1010°", "2k<n", "P°", "Cd(modn)"),
+    },
+    {
+        "id": "textbook-ch04-full-review-p0170-formula-keyspace-primality",
+        "topic": "keyspace_primality",
+        "label": "第 4 章密钥空间与素性试除公式组",
+        "chapter": 4,
+        "pdf_reference_pages": [170, 171],
+        "printed_pages": [160, 161],
+        "current_needles": (
+            "密钥空间为 $2^N$",
+            r"$N^{1/2}$",
+            r"$10^{160}$",
+            "PDF 物理页 170～171",
+        ),
+        "baseline_needles": ("密钥空间为2^", "N1/2", "10160"),
+    },
+)
+
 ADDITIONAL_FIGURE_CONTENT_CLASSIFICATION = {
     "2-4": {
         "policy_class": "B",
@@ -281,6 +377,75 @@ CHAPTER_RANGES = {
     18: (641, 683),
     19: (684, 709),
     20: (710, 720),
+}
+
+# Full-review work combines the earlier detailed reviews of chapters 8 and 10
+# with four additional non-overlapping visual batches.  Contact sheets use a
+# maximum 3x3 grid; ambiguous or low-coverage pages were reopened as individual
+# renders at original detail.  The renders are temporary local review aids and
+# are intentionally not committed to the repository.
+FULL_REVIEW_PHASES: tuple[dict[str, object], ...] = (
+    {
+        "phase": "prior_detailed",
+        "chapters": [8, 10],
+        "physical_page_ranges": [[281, 314], [340, 378]],
+        "page_count": 73,
+        "generated_contact_sheet_count": 9,
+        "contact_sheets_used_for_review": 0,
+        "review_origin": "prior_detailed_review",
+        "review_basis": "既有逐页渲染与详细目视复核；本轮生成的9张联系表不作为完成声明依据",
+    },
+    {
+        "phase": "A",
+        "chapters": [1, 2, 3, 4, 5, 6],
+        "physical_page_ranges": [[13, 257]],
+        "page_count": 245,
+        "generated_contact_sheet_count": 30,
+        "contact_sheets_used_for_review": 30,
+        "review_origin": "additional_full_review",
+    },
+    {
+        "phase": "B",
+        "chapters": [7, 9, 11, 12, 13],
+        "physical_page_ranges": [[258, 280], [315, 339], [379, 489]],
+        "page_count": 159,
+        "generated_contact_sheet_count": 20,
+        "contact_sheets_used_for_review": 20,
+        "review_origin": "additional_full_review",
+    },
+    {
+        "phase": "C",
+        "chapters": [14, 15, 16, 17, 18],
+        "physical_page_ranges": [[490, 683]],
+        "page_count": 194,
+        "generated_contact_sheet_count": 24,
+        "contact_sheets_used_for_review": 24,
+        "review_origin": "additional_full_review",
+    },
+    {
+        "phase": "D",
+        "chapters": [19, 20],
+        "physical_page_ranges": [[684, 720]],
+        "page_count": 37,
+        "generated_contact_sheet_count": 5,
+        "contact_sheets_used_for_review": 5,
+        "review_origin": "additional_full_review",
+    },
+)
+
+FULL_REVIEW_RENDER_METADATA: dict[str, object] = {
+    "generated_contact_sheet_count": 88,
+    "prior_phase_generated_contact_sheet_count": 9,
+    "contact_sheets_used_for_current_full_review": 79,
+    "prior_detailed_page_count": 73,
+    "additional_full_review_page_count": 635,
+    "combined_review_page_count": 708,
+    "contact_sheet_grid": "3x3",
+    "maximum_pages_per_contact_sheet": 9,
+    "inspection_detail": "original",
+    "single_page_escalation": "低覆盖、复杂图表、疑似截断、错页或异常空白页单独放大复核",
+    "temporary_artifact_root": "tmp/pdfs/textbook_full_review",
+    "artifacts_committed": False,
 }
 
 CHAPTER_FILES = {
@@ -561,6 +726,97 @@ def build_formula_status_items() -> list[dict[str, object]]:
             )
     if len(items) != 2 or any(item["status"] != "current_formula_carrier_present" for item in items):
         raise AssertionError(f"unexpected formula status inventory: {items}")
+    return items
+
+
+def build_additional_unmarked_formulas() -> list[dict[str, object]]:
+    items: list[dict[str, object]] = []
+    for spec in ADDITIONAL_UNMARKED_FORMULA_SPECS:
+        chapter = int(spec["chapter"])
+        path = CHAPTER_FILES[chapter]
+        relative_path = path.relative_to(ROOT).as_posix()
+        baseline_lines = baseline_text(path).splitlines()
+        current_lines = path.read_text(encoding="utf-8-sig").splitlines()
+        needles = tuple(str(needle) for needle in spec["current_needles"])
+        baseline_needles = tuple(str(needle) for needle in spec["baseline_needles"])
+        matched_lines = {
+            needle: [
+                line_index + 1
+                for line_index, current_line in enumerate(current_lines)
+                if needle in current_line
+            ]
+            for needle in needles
+        }
+        baseline_matched_lines = {
+            needle: [
+                line_index + 1
+                for line_index, baseline_line in enumerate(baseline_lines)
+                if needle in baseline_line
+            ]
+            for needle in baseline_needles
+        }
+        carrier_lines = sorted(
+            {
+                line_number
+                for line_numbers in matched_lines.values()
+                for line_number in line_numbers
+            }
+        )
+        baseline_markdown_lines = sorted(
+            {
+                line_number
+                for line_numbers in baseline_matched_lines.values()
+                for line_number in line_numbers
+            }
+        )
+        status = (
+            "current_formula_carrier_present"
+            if all(matched_lines.values()) and all(baseline_matched_lines.values())
+            else "current_formula_carrier_incomplete"
+        )
+        anchor_index = carrier_lines[0] - 1 if carrier_lines else 0
+        heading_line, heading = nearest_heading(current_lines, anchor_index)
+        item: dict[str, object] = {
+            "id": str(spec["id"]),
+            "topic": str(spec["topic"]),
+            "label": str(spec["label"]),
+            "path": relative_path,
+            "discovery_origin": "full_page_visual_text_review",
+            "pdf_reference_pages": list(spec["pdf_reference_pages"]),
+            "printed_pages": list(spec["printed_pages"]),
+            "baseline_needles": list(baseline_needles),
+            "baseline_markdown_lines": baseline_markdown_lines,
+            "baseline_context": clipped(
+                " | ".join(
+                    compact_line(baseline_lines[line_number - 1])
+                    for line_number in baseline_markdown_lines
+                ),
+                600,
+            ),
+            "nearest_heading_line": heading_line,
+            "nearest_heading": heading,
+            "markdown_carrier_lines": carrier_lines,
+            "status": status,
+            "content_impact": "critical_content_incomplete",
+            "proof_scope": str(
+                spec.get(
+                    "proof_scope",
+                    "全页视觉/文本联合复核证明源 PDF 的公式曾被 OCR 压平或破坏；"
+                    "固定基线损坏文本、PDF 页码、现行公式载体及相邻编校说明"
+                    "建立逐项闭环。",
+                )
+            ),
+        }
+        if "supporting_evidence" in spec:
+            item["supporting_evidence"] = dict(spec["supporting_evidence"])
+        items.append(item)
+    ids = [str(item["id"]) for item in items]
+    if (
+        len(items) != 5
+        or len(ids) != len(set(ids))
+        or any(item["status"] != "current_formula_carrier_present" for item in items)
+    ):
+        raise AssertionError(f"unexpected additional formula inventory: {items}")
     return items
 
 
@@ -887,6 +1143,7 @@ def build_audit(
     pages = [(page.extract_text() or "") for page in reader.pages]
     baseline_records = build_baseline_marker_records()
     formula_status_items = build_formula_status_items()
+    additional_unmarked_formulas = build_additional_unmarked_formulas()
     pdf_figure_pages = pdf_reference_pages(pages, "figure")
     pdf_table_pages = pdf_reference_pages(pages, "table")
     chapters: list[dict[str, object]] = []
@@ -1071,9 +1328,14 @@ def build_audit(
         for item in page_records
         if float(item["ngram_coverage"]) < 0.35
     }
-    additional_asset_pages = {
+    additional_figure_pages = {
         int(page)
         for item in additional_unmarked_figures
+        for page in item["pdf_reference_pages"]
+    }
+    additional_formula_pages = {
+        int(page)
+        for item in additional_unmarked_formulas
         for page in item["pdf_reference_pages"]
     }
     full_chapter_review_pages = {
@@ -1081,35 +1343,64 @@ def build_audit(
         for chapter in (8, 10)
         for page in range(CHAPTER_RANGES[chapter][0], CHAPTER_RANGES[chapter][1] + 1)
     }
-    declared_manual_pages = (
-        low_coverage_pages | additional_asset_pages | full_chapter_review_pages
-    )
+    full_page_review_pages = set(range(13, 721))
+    declared_manual_pages = set(full_page_review_pages)
+    phase_page_numbers = [
+        page
+        for phase in FULL_REVIEW_PHASES
+        for page_range in phase["physical_page_ranges"]
+        for page in range(int(page_range[0]), int(page_range[1]) + 1)
+    ]
     if (
         len(low_coverage_pages),
-        len(additional_asset_pages),
+        len(additional_figure_pages),
+        len(additional_formula_pages),
         len(full_chapter_review_pages),
+        len(full_page_review_pages),
         len(declared_manual_pages),
-    ) != (20, 11, 73, 88):
+    ) != (20, 11, 6, 73, 708, 708):
         raise AssertionError(
             "manual page scope changed: "
-            f"low={len(low_coverage_pages)}, additional={len(additional_asset_pages)}, "
-            f"chapter8_10={len(full_chapter_review_pages)}, union={len(declared_manual_pages)}"
+            f"low={len(low_coverage_pages)}, figures={len(additional_figure_pages)}, "
+            f"formulas={len(additional_formula_pages)}, "
+            f"chapter8_10={len(full_chapter_review_pages)}, "
+            f"full={len(full_page_review_pages)}, union={len(declared_manual_pages)}"
         )
+    if (
+        len(phase_page_numbers) != len(set(phase_page_numbers))
+        or sorted(phase_page_numbers) != list(range(13, 721))
+        or sum(int(phase["page_count"]) for phase in FULL_REVIEW_PHASES) != 708
+        or sum(
+            int(phase["generated_contact_sheet_count"])
+            for phase in FULL_REVIEW_PHASES
+        )
+        != int(FULL_REVIEW_RENDER_METADATA["generated_contact_sheet_count"])
+        or sum(
+            int(phase["contact_sheets_used_for_review"])
+            for phase in FULL_REVIEW_PHASES
+        )
+        != int(FULL_REVIEW_RENDER_METADATA["contact_sheets_used_for_current_full_review"])
+    ):
+        raise AssertionError("full-review batch/render metadata is inconsistent")
     for item in page_records:
         physical_page = int(item["physical_page"])
         reasons: list[str] = []
         if physical_page in low_coverage_pages:
             reasons.append("low_ngram_coverage")
-        if physical_page in additional_asset_pages:
+        if physical_page in additional_figure_pages:
             reasons.append("additional_unmarked_figure")
+        if physical_page in additional_formula_pages:
+            reasons.append("additional_unmarked_formula")
         if physical_page in full_chapter_review_pages:
             reasons.append("full_chapter_8_or_10")
+        if physical_page in full_page_review_pages:
+            reasons.append("full_page_visual_text_review")
         item["declared_manual_review_reasons"] = reasons
         item["declared_manual_review_status"] = (
             "completed"
-            if reasons and manual_review_completed
+            if physical_page in declared_manual_pages and manual_review_completed
             else "pending"
-            if reasons
+            if physical_page in declared_manual_pages
             else "outside_declared_manual_scope"
         )
 
@@ -1126,6 +1417,9 @@ def build_audit(
         and record["content_impact"] == "critical_content_incomplete"
     ]
     formula_position_ids = [str(item["id"]) for item in formula_status_items]
+    additional_formula_position_ids = [
+        str(item["id"]) for item in additional_unmarked_formulas
+    ]
     explicit_table_position_ids = [str(record["id"]) for record in baseline_table_records]
     conservative_spliced_table_position_ids = [
         str(item["id"])
@@ -1150,10 +1444,12 @@ def build_audit(
     current_key_content_position_ids = [
         *historical_key_content_position_ids,
         *additional_critical_figure_position_ids,
+        *additional_formula_position_ids,
     ]
     if (
         len(critical_figure_position_ids),
         len(formula_position_ids),
+        len(additional_formula_position_ids),
         len(explicit_table_position_ids),
         len(conservative_spliced_table_position_ids),
         len(additional_critical_figure_position_ids),
@@ -1162,20 +1458,27 @@ def build_audit(
         len(set(historical_key_content_position_ids)),
         len(current_key_content_position_ids),
         len(set(current_key_content_position_ids)),
-    ) != (174, 2, 8, 15, 4, 8, 199, 199, 203, 203):
+    ) != (174, 2, 5, 8, 15, 4, 8, 199, 199, 208, 208):
         raise AssertionError("key content debt reconstruction changed")
-    itemized_proven_positions = 272 + 12 + 2 + 8 + reconstructed_spliced_positions
+    itemized_proven_positions = (
+        272
+        + 12
+        + len(formula_position_ids)
+        + len(additional_formula_position_ids)
+        + 8
+        + reconstructed_spliced_positions
+    )
     original_minimum = 272 + 2 + 8 + 14
     corrected_minimum = itemized_proven_positions
     if (itemized_proven_positions, original_minimum, corrected_minimum) != (
-        309,
+        314,
         296,
-        309,
+        314,
     ):
         raise AssertionError("debt arithmetic changed")
 
     return {
-        "schema_version": 3,
+        "schema_version": 4,
         "reviewed_at": reviewed_at,
         "field_definitions": {
             "baseline_marker_records": (
@@ -1190,7 +1493,10 @@ def build_audit(
                 "critical_content_incomplete 来自固定基线的“本段信息不完整”标记；"
                 "graphic_detail_only 来自“仅保留图题与正文说明”标记。"
             ),
-            "page_records": "物理页 13～720 的 708 条逐页文本覆盖记录及声明的人工复核范围。",
+            "page_records": "物理页 13～720 的 708 条逐页文本覆盖与全页人工复核记录。",
+            "additional_unmarked_formulas": (
+                "全页复核补发现、但不属于固定基线两条公式状态标记的独立公式位置。"
+            ),
         },
         "source": {
             "path_hint": "本地pdf参考/1. 系统架构设计师教材（官方教程-）.pdf",
@@ -1215,27 +1521,40 @@ def build_audit(
             "limitation": "覆盖率用于定位风险页，不单独证明语义或版式正确；复杂图表另需渲染和目视核验。",
         },
         "manual_review": {
-            "status": "targeted_scope_completed" if manual_review_completed else "pending",
-            "scope": "所有低覆盖风险页、全部新增图表载体及第 8/10 章完整物理页范围",
+            "status": "full_scope_completed" if manual_review_completed else "pending",
+            "scope": "物理页 13～720 共 708 个正文页的视觉/文本联合复核",
             "explicit_page_count": len(declared_manual_pages),
             "explicit_physical_pages": sorted(declared_manual_pages),
             "scope_components": {
                 "low_ngram_coverage_pages": sorted(low_coverage_pages),
-                "additional_unmarked_figure_pages": sorted(additional_asset_pages),
+                "additional_unmarked_figure_pages": sorted(additional_figure_pages),
+                "additional_unmarked_formula_pages": sorted(additional_formula_pages),
                 "full_chapter_8_or_10_pages": sorted(full_chapter_review_pages),
+                "full_page_visual_text_review_pages": sorted(full_page_review_pages),
             },
+            "review_phases": [
+                {
+                    **phase,
+                    "status": "completed" if manual_review_completed else "pending",
+                }
+                for phase in FULL_REVIEW_PHASES
+            ],
+            "render_review": dict(FULL_REVIEW_RENDER_METADATA),
             "chapter_content_pages": len(page_records),
             "outside_declared_manual_scope_pages": len(page_records)
             - len(declared_manual_pages),
             "checks": [
-                "PDF 页面渲染与原始结构目视核对",
+                "联系表以 original detail 逐页目视核对，并对疑似异常页单页放大",
+                "PDF 页序、章界、异常空白、裁切、错页及跨页连续性复核",
+                "page_records 自动文本覆盖与 canonical Markdown 联合对照",
                 "新增及实质修改 Mermaid CLI 渲染",
                 "复杂 Markdown 表格浏览器渲染抽检",
                 "来源页码、图号、表号与残余限制复核",
             ],
             "description": (
-                "该字段是 88 个风险/资产页的人工验收声明，不表示其余 620 个正文页均已逐页"
-                "渲染目视复核；708 页均另有 page_records 自动文本覆盖记录。"
+                "第 8/10 章 73 页沿用既有逐页详细复核；其余 635 页通过 A～D 四批"
+                "79 张联系表完成本轮目视复核。全部 708 页均有 page_records 自动文本覆盖，"
+                "共生成 88 张联系表，其中 prior 阶段的 9 张不作为既有完成声明依据。"
             ),
         },
         "baseline_evidence": {
@@ -1255,6 +1574,7 @@ def build_audit(
         },
         "additional_unmarked_figures": additional_unmarked_figures,
         "formula_status_items": formula_status_items,
+        "additional_unmarked_formulas": additional_unmarked_formulas,
         "historical_spliced_tables": historical_spliced_tables,
         "key_content_debt": {
             "historical_reported_content_minimum": 198,
@@ -1287,6 +1607,7 @@ def build_audit(
                 additional_detail_only_figure_position_ids
             ),
             "formula_position_ids": formula_position_ids,
+            "additional_formula_position_ids": additional_formula_position_ids,
             "explicit_table_position_ids": explicit_table_position_ids,
             "conservative_spliced_table_position_ids": (
                 conservative_spliced_table_position_ids
@@ -1299,11 +1620,12 @@ def build_audit(
             "current_conservative_reconstructed_positions": len(
                 current_key_content_position_ids
             ),
-            "current_conservative_arithmetic": "174 + 4 + 2 + 8 + 15 = 203",
+            "current_conservative_arithmetic": "174 + 4 + 7 + 8 + 15 = 208",
             "current_position_ids": current_key_content_position_ids,
             "proof_scope": (
                 "199 个稳定 ID 形成覆盖历史至少 198 项的高置信保守重建集合；12 个后补图"
-                "经逐项 A/B 复核后有 4 个进入当前关键集合，因此当前为 203 项。基线 A/B 只证明"
+                "经逐项 A/B 复核后有 4 个进入当前关键集合，全页复核另补发现 5 个关键公式"
+                "位置，因此当前为 208 项。基线 A/B 只证明"
                 "固定基线维护者当时的风险判断；最后 15 项是独立三重证据识别的拼栏表候选，"
                 "不声称与历史报告未保存的恰好 14 个 ID 一一对应。"
             ),
@@ -1313,7 +1635,7 @@ def build_audit(
             "corrected_minimum": corrected_minimum,
             "legacy_marked_figure_positions": 272,
             "additional_unmarked_figure_positions": len(additional_unmarked_figures),
-            "known_formula_positions": 2,
+            "known_formula_positions": 7,
             "explicit_missing_or_partial_table_positions": len(baseline_table_records),
             "reported_spliced_table_positions": 14,
             "conservatively_reconstructed_spliced_table_positions": (
@@ -1328,11 +1650,12 @@ def build_audit(
             "key_content_current_conservative_positions": len(
                 current_key_content_position_ids
             ),
-            "arithmetic": "272 + 12 + 2 + 8 + 15 = 309",
+            "arithmetic": "272 + 12 + 7 + 8 + 15 = 314",
             "description": (
-                "逐项证据覆盖 272 个基线图、12 个新增图、2 个公式、8 个显式缺失或部分表，"
+                "逐项证据覆盖 272 个基线图、12 个新增图、2 个历史公式、5 个全页复核"
+                "补发现公式、8 个显式缺失或部分表，"
                 "以及 15 个由固定基线压平文本、PDF 页和现行管道表独立重建的拼栏表，"
-                "合计 309 项。原报告恰好选择的 14 个 ID 未保存，但独立重建集合已覆盖"
+                "合计 314 项。原报告恰好选择的 14 个 ID 未保存，但独立重建集合已覆盖"
                 "“至少 14 张”的数量下限。"
             ),
         },
@@ -1377,7 +1700,7 @@ def main() -> int:
     parser.add_argument(
         "--manual-review-completed",
         action="store_true",
-        help="record that the risk-page and rendered-asset review has been completed",
+        help="record that all 708 textbook content pages completed visual/text review",
     )
     parser.add_argument(
         "--check",
@@ -1403,7 +1726,8 @@ def main() -> int:
             return 1
         print(
             "textbook audit is reproducible: "
-            "280 baseline records, 284 figures, 59 tables"
+            "280 baseline records, 284 figures, 59 tables, 7 formulas, "
+            "708 fully reviewed pages"
         )
         return 0
     args.output.parent.mkdir(parents=True, exist_ok=True)
@@ -1411,7 +1735,9 @@ def main() -> int:
     print(
         f"Audited {audit['summary']['chapters']} chapters; "
         f"figures={audit['summary']['pdf_unique_figure_numbers']}, "
-        f"tables={audit['summary']['pdf_unique_table_numbers']}; output={args.output}"
+        f"tables={audit['summary']['pdf_unique_table_numbers']}, "
+        "formulas=7, full_review_pages=708; "
+        f"output={args.output}"
     )
     return 0
 

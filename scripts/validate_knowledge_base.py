@@ -1224,6 +1224,9 @@ class Validator:
         except (UnicodeDecodeError, json.JSONDecodeError) as exc:
             self.error(TEXTBOOK_AUDIT_PATH, f"invalid JSON: {exc}")
             return
+        if not isinstance(audit, dict):
+            self.error(TEXTBOOK_AUDIT_PATH, "top-level JSON value must be an object")
+            return
         required = {
             "schema_version",
             "reviewed_at",
@@ -1234,6 +1237,7 @@ class Validator:
             "baseline_evidence",
             "asset_inventory",
             "additional_unmarked_figures",
+            "additional_unmarked_formulas",
             "formula_status_items",
             "historical_spliced_tables",
             "key_content_debt",
@@ -1249,8 +1253,8 @@ class Validator:
                 f"missing top-level fields: {sorted(missing)}",
             )
             return
-        if audit.get("schema_version") != 3:
-            self.error(TEXTBOOK_AUDIT_PATH, "schema_version must be 3")
+        if audit.get("schema_version") != 4:
+            self.error(TEXTBOOK_AUDIT_PATH, "schema_version must be 4")
         try:
             date.fromisoformat(str(audit.get("reviewed_at")))
         except ValueError:
@@ -1272,31 +1276,30 @@ class Validator:
                     )
         manual_review = audit.get("manual_review")
         declared_manual_pages: set[int] = set()
+        manual_reason_pages: dict[str, set[int]] = {}
         if not isinstance(manual_review, dict):
             self.error(TEXTBOOK_AUDIT_PATH, "manual_review must be an object")
         else:
-            if manual_review.get("status") != "targeted_scope_completed":
+            if manual_review.get("status") != "full_scope_completed":
                 self.error(
                     TEXTBOOK_AUDIT_PATH,
-                    "targeted manual PDF/render review must be completed",
+                    "full-page PDF/render review must be completed",
                 )
             explicit_pages = manual_review.get("explicit_physical_pages")
             if (
                 not isinstance(explicit_pages, list)
-                or len(explicit_pages) != 88
-                or explicit_pages != sorted(set(explicit_pages))
-                or not all(isinstance(page, int) and 13 <= page <= 720 for page in explicit_pages)
+                or explicit_pages != list(range(13, 721))
             ):
                 self.error(
                     TEXTBOOK_AUDIT_PATH,
-                    "manual_review.explicit_physical_pages must contain 88 unique pages",
+                    "manual_review.explicit_physical_pages must cover physical pages 13-720",
                 )
             else:
                 declared_manual_pages = set(explicit_pages)
             expected_manual_scalars = {
-                "explicit_page_count": 88,
+                "explicit_page_count": 708,
                 "chapter_content_pages": 708,
-                "outside_declared_manual_scope_pages": 620,
+                "outside_declared_manual_scope_pages": 0,
             }
             for field, expected in expected_manual_scalars.items():
                 if manual_review.get(field) != expected:
@@ -1311,7 +1314,16 @@ class Validator:
                 expected_component_counts = {
                     "low_ngram_coverage_pages": 20,
                     "additional_unmarked_figure_pages": 11,
+                    "additional_unmarked_formula_pages": 6,
                     "full_chapter_8_or_10_pages": 73,
+                    "full_page_visual_text_review_pages": 708,
+                }
+                component_reasons = {
+                    "low_ngram_coverage_pages": "low_ngram_coverage",
+                    "additional_unmarked_figure_pages": "additional_unmarked_figure",
+                    "additional_unmarked_formula_pages": "additional_unmarked_formula",
+                    "full_chapter_8_or_10_pages": "full_chapter_8_or_10",
+                    "full_page_visual_text_review_pages": "full_page_visual_text_review",
                 }
                 component_union: set[int] = set()
                 for field, expected_count in expected_component_counts.items():
@@ -1319,34 +1331,141 @@ class Validator:
                     if (
                         not isinstance(values, list)
                         or len(values) != expected_count
+                        or not all(type(page) is int for page in values)
                         or values != sorted(set(values))
                     ):
                         self.error(
                             TEXTBOOK_AUDIT_PATH,
                             f"manual_review.scope_components.{field} is invalid",
                         )
+                    elif any(not 13 <= page <= 720 for page in values):
+                        self.error(
+                            TEXTBOOK_AUDIT_PATH,
+                            f"manual_review.scope_components.{field} has invalid physical pages",
+                        )
                     else:
                         component_union.update(values)
+                        manual_reason_pages[component_reasons[field]] = set(values)
+                if components.get("additional_unmarked_formula_pages") != [
+                    61, 70, 113, 162, 170, 171
+                ]:
+                    self.error(
+                        TEXTBOOK_AUDIT_PATH,
+                        "manual_review.scope_components.additional_unmarked_formula_pages is invalid",
+                    )
+                if components.get("full_page_visual_text_review_pages") != list(
+                    range(13, 721)
+                ):
+                    self.error(
+                        TEXTBOOK_AUDIT_PATH,
+                        "manual_review.scope_components.full_page_visual_text_review_pages must cover 13-720",
+                    )
                 if declared_manual_pages and component_union != declared_manual_pages:
                     self.error(
                         TEXTBOOK_AUDIT_PATH,
                         "manual review component pages do not match explicit page union",
                     )
+            expected_review_phases = [
+                {
+                    "phase": "prior_detailed",
+                    "chapters": [8, 10],
+                    "physical_page_ranges": [[281, 314], [340, 378]],
+                    "page_count": 73,
+                    "generated_contact_sheet_count": 9,
+                    "contact_sheets_used_for_review": 0,
+                    "review_origin": "prior_detailed_review",
+                    "review_basis": (
+                        "既有逐页渲染与详细目视复核；本轮生成的9张联系表"
+                        "不作为完成声明依据"
+                    ),
+                    "status": "completed",
+                },
+                {
+                    "phase": "A",
+                    "chapters": [1, 2, 3, 4, 5, 6],
+                    "physical_page_ranges": [[13, 257]],
+                    "page_count": 245,
+                    "generated_contact_sheet_count": 30,
+                    "contact_sheets_used_for_review": 30,
+                    "review_origin": "additional_full_review",
+                    "status": "completed",
+                },
+                {
+                    "phase": "B",
+                    "chapters": [7, 9, 11, 12, 13],
+                    "physical_page_ranges": [
+                        [258, 280],
+                        [315, 339],
+                        [379, 489],
+                    ],
+                    "page_count": 159,
+                    "generated_contact_sheet_count": 20,
+                    "contact_sheets_used_for_review": 20,
+                    "review_origin": "additional_full_review",
+                    "status": "completed",
+                },
+                {
+                    "phase": "C",
+                    "chapters": [14, 15, 16, 17, 18],
+                    "physical_page_ranges": [[490, 683]],
+                    "page_count": 194,
+                    "generated_contact_sheet_count": 24,
+                    "contact_sheets_used_for_review": 24,
+                    "review_origin": "additional_full_review",
+                    "status": "completed",
+                },
+                {
+                    "phase": "D",
+                    "chapters": [19, 20],
+                    "physical_page_ranges": [[684, 720]],
+                    "page_count": 37,
+                    "generated_contact_sheet_count": 5,
+                    "contact_sheets_used_for_review": 5,
+                    "review_origin": "additional_full_review",
+                    "status": "completed",
+                },
+            ]
+            if manual_review.get("review_phases") != expected_review_phases:
+                self.error(
+                    TEXTBOOK_AUDIT_PATH,
+                    "manual_review.review_phases must preserve the real non-contiguous review batches",
+                )
+            expected_render_review = {
+                "generated_contact_sheet_count": 88,
+                "prior_phase_generated_contact_sheet_count": 9,
+                "contact_sheets_used_for_current_full_review": 79,
+                "prior_detailed_page_count": 73,
+                "additional_full_review_page_count": 635,
+                "combined_review_page_count": 708,
+                "contact_sheet_grid": "3x3",
+                "maximum_pages_per_contact_sheet": 9,
+                "inspection_detail": "original",
+                "single_page_escalation": (
+                    "低覆盖、复杂图表、疑似截断、错页或异常空白页单独放大复核"
+                ),
+                "temporary_artifact_root": "tmp/pdfs/textbook_full_review",
+                "artifacts_committed": False,
+            }
+            if manual_review.get("render_review") != expected_render_review:
+                self.error(
+                    TEXTBOOK_AUDIT_PATH,
+                    "manual_review.render_review must record 79 current/88 generated contact sheets",
+                )
         debt_scope = audit.get("debt_scope")
         expected_debt = {
             "original_minimum": 296,
-            "corrected_minimum": 309,
+            "corrected_minimum": 314,
             "legacy_marked_figure_positions": 272,
             "additional_unmarked_figure_positions": 12,
-            "known_formula_positions": 2,
+            "known_formula_positions": 7,
             "explicit_missing_or_partial_table_positions": 8,
             "reported_spliced_table_positions": 14,
             "conservatively_reconstructed_spliced_table_positions": 15,
-            "itemized_proven_positions": 309,
+            "itemized_proven_positions": 314,
             "historical_unitemized_positions": 0,
             "key_content_historical_minimum": 198,
             "key_content_historical_conservative_positions": 199,
-            "key_content_current_conservative_positions": 203,
+            "key_content_current_conservative_positions": 208,
         }
         if not isinstance(debt_scope, dict):
             self.error(TEXTBOOK_AUDIT_PATH, "debt_scope must be an object")
@@ -1361,13 +1480,13 @@ class Validator:
         expected_summary = {
             "chapters": 20,
             "baseline_explicit_marker_records": 280,
-            "itemized_proven_positions": 309,
+            "itemized_proven_positions": 314,
             "historical_unitemized_positions": 0,
             "key_content_historical_minimum": 198,
             "key_content_historical_conservative_positions": 199,
-            "key_content_current_conservative_positions": 203,
+            "key_content_current_conservative_positions": 208,
             "page_records": 708,
-            "declared_manual_review_pages": 88,
+            "declared_manual_review_pages": 708,
             "conservatively_reconstructed_spliced_table_positions": 15,
             "pdf_unique_figure_numbers": 284,
             "markdown_unique_figure_carriers": 284,
@@ -1391,8 +1510,8 @@ class Validator:
         baseline_ids: set[str] = set()
         baseline_kind_counts: Counter[str] = Counter()
         baseline_impact_counts: Counter[str] = Counter()
-        critical_figure_ids: set[str] = set()
-        explicit_table_ids: set[str] = set()
+        critical_figure_id_order: list[str] = []
+        explicit_table_id_order: list[str] = []
         if not isinstance(baseline_evidence, dict):
             self.error(TEXTBOOK_AUDIT_PATH, "baseline_evidence must be an object")
         else:
@@ -1454,9 +1573,9 @@ class Validator:
                         and content_impact == "critical_content_incomplete"
                         and isinstance(record_id, str)
                     ):
-                        critical_figure_ids.add(record_id)
+                        critical_figure_id_order.append(record_id)
                     if kind == "table" and isinstance(record_id, str):
-                        explicit_table_ids.add(record_id)
+                        explicit_table_id_order.append(record_id)
                 relative_path = record.get("path")
                 if not isinstance(relative_path, str) or not (ROOT / relative_path).is_file():
                     self.error(TEXTBOOK_AUDIT_PATH, f"{label}.path is invalid")
@@ -1548,7 +1667,7 @@ class Validator:
                         )
 
         additional_figures = audit.get("additional_unmarked_figures")
-        expected_additional_numbers = {
+        expected_additional_numbers = [
             "2-4",
             "2-25",
             "2-26",
@@ -1561,7 +1680,7 @@ class Validator:
             "19-12",
             "19-13",
             "19-14",
-        }
+        ]
         additional_critical_ids: list[str] = []
         additional_detail_ids: list[str] = []
         if not isinstance(additional_figures, list) or len(additional_figures) != 12:
@@ -1570,11 +1689,14 @@ class Validator:
                 "additional_unmarked_figures must contain 12 items",
             )
         else:
-            numbers = {item.get("number") for item in additional_figures if isinstance(item, dict)}
+            numbers = [
+                item.get("number") if isinstance(item, dict) else None
+                for item in additional_figures
+            ]
             if numbers != expected_additional_numbers:
                 self.error(
                     TEXTBOOK_AUDIT_PATH,
-                    "additional_unmarked_figures has unexpected numbers",
+                    "additional_unmarked_figures has unexpected numbers or order",
                 )
             if any(
                 not isinstance(item, dict) or item.get("baseline_marker_ids") != []
@@ -1615,13 +1737,188 @@ class Validator:
                     "additional unmarked figures must classify as 4 critical and 8 detail-only",
                 )
 
+        additional_formula_items = audit.get("additional_unmarked_formulas")
+        expected_additional_formulas = (
+            {
+                "id": "textbook-ch02-full-review-p0061-formula-reliability-range",
+                "topic": "reliability_range",
+                "path": "01.系统架构设计师教材-清洗版/第02章-计算机系统基础知识.md",
+                "pdf_reference_pages": [61],
+                "printed_pages": [51],
+            },
+            {
+                "id": "textbook-ch02-full-review-p0070-formula-shannon-capacity",
+                "topic": "shannon_capacity",
+                "path": "01.系统架构设计师教材-清洗版/第02章-计算机系统基础知识.md",
+                "pdf_reference_pages": [70],
+                "printed_pages": [60],
+            },
+            {
+                "id": "textbook-ch02-full-review-p0113-formula-amdahl-speedup",
+                "topic": "amdahl_speedup",
+                "path": "01.系统架构设计师教材-清洗版/第02章-计算机系统基础知识.md",
+                "pdf_reference_pages": [113],
+                "printed_pages": [103],
+            },
+            {
+                "id": "textbook-ch04-full-review-p0162-formula-rsa-exponents",
+                "topic": "rsa_exponents",
+                "path": "01.系统架构设计师教材-清洗版/第04章-信息安全技术基础知识.md",
+                "pdf_reference_pages": [162],
+                "printed_pages": [152],
+            },
+            {
+                "id": "textbook-ch04-full-review-p0170-formula-keyspace-primality",
+                "topic": "keyspace_primality",
+                "path": "01.系统架构设计师教材-清洗版/第04章-信息安全技术基础知识.md",
+                "pdf_reference_pages": [170, 171],
+                "printed_pages": [160, 161],
+            },
+        )
+        additional_formula_ids: list[str] = []
+        if (
+            not isinstance(additional_formula_items, list)
+            or len(additional_formula_items) != len(expected_additional_formulas)
+        ):
+            self.error(
+                TEXTBOOK_AUDIT_PATH,
+                "additional_unmarked_formulas must contain the five full-review formula items",
+            )
+        else:
+            for position, (item, expected) in enumerate(
+                zip(additional_formula_items, expected_additional_formulas, strict=True),
+                start=1,
+            ):
+                label = f"additional_unmarked_formulas #{position}"
+                if not isinstance(item, dict):
+                    self.error(TEXTBOOK_AUDIT_PATH, f"{label} must be an object")
+                    continue
+                for field in (
+                    "id",
+                    "topic",
+                    "path",
+                    "pdf_reference_pages",
+                    "printed_pages",
+                ):
+                    if item.get(field) != expected[field]:
+                        self.error(
+                            TEXTBOOK_AUDIT_PATH,
+                            f"{label}.{field} must be {expected[field]!r}",
+                        )
+                if (
+                    item.get("discovery_origin") != "full_page_visual_text_review"
+                    or item.get("status") != "current_formula_carrier_present"
+                    or item.get("content_impact") != "critical_content_incomplete"
+                ):
+                    self.error(
+                        TEXTBOOK_AUDIT_PATH,
+                        f"{label} review/status metadata is invalid",
+                    )
+                for field in ("label", "nearest_heading", "proof_scope"):
+                    if not isinstance(item.get(field), str) or not item[field].strip():
+                        self.error(
+                            TEXTBOOK_AUDIT_PATH,
+                            f"{label}.{field} must be a non-empty string",
+                        )
+                if (
+                    type(item.get("nearest_heading_line")) is not int
+                    or item["nearest_heading_line"] <= 0
+                ):
+                    self.error(
+                        TEXTBOOK_AUDIT_PATH,
+                        f"{label}.nearest_heading_line must be a positive integer",
+                    )
+                carrier_lines = item.get("markdown_carrier_lines")
+                if (
+                    not isinstance(carrier_lines, list)
+                    or not carrier_lines
+                    or not all(
+                        type(line) is int and line > 0 for line in carrier_lines
+                    )
+                    or carrier_lines != sorted(set(carrier_lines))
+                ):
+                    self.error(
+                        TEXTBOOK_AUDIT_PATH,
+                        f"{label}.markdown_carrier_lines must contain unique positive integers",
+                    )
+                baseline_needles = item.get("baseline_needles")
+                if (
+                    not isinstance(baseline_needles, list)
+                    or not baseline_needles
+                    or not all(
+                        isinstance(needle, str) and needle.strip()
+                        for needle in baseline_needles
+                    )
+                ):
+                    self.error(
+                        TEXTBOOK_AUDIT_PATH,
+                        f"{label}.baseline_needles must contain non-empty strings",
+                    )
+                baseline_lines = item.get("baseline_markdown_lines")
+                if (
+                    not isinstance(baseline_lines, list)
+                    or not baseline_lines
+                    or not all(
+                        type(line) is int and line > 0 for line in baseline_lines
+                    )
+                    or baseline_lines != sorted(set(baseline_lines))
+                ):
+                    self.error(
+                        TEXTBOOK_AUDIT_PATH,
+                        f"{label}.baseline_markdown_lines must contain unique positive integers",
+                    )
+                baseline_context = item.get("baseline_context")
+                if (
+                    not isinstance(baseline_context, str)
+                    or not baseline_context.strip()
+                ):
+                    self.error(
+                        TEXTBOOK_AUDIT_PATH,
+                        f"{label}.baseline_context must be a non-empty string",
+                    )
+                if position == 1:
+                    supporting_evidence = item.get("supporting_evidence")
+                    expected_supporting_evidence = {
+                        "repository": "FreeSky-X/systemarchitect",
+                        "commit": "0e9b17f3fbd1590ecc0e5f664c2031068e52b9d0",
+                        "path": "files/unit2/2.4.3嵌入式软件的组成及特点.md",
+                        "git_blob": "de5c8cf984f8f5844cc7b37af5edc84c0a4e7b1b",
+                        "fixed_excerpt": "10-6O10-9",
+                        "purpose": "本地 PDF 上标不可辨时的固定第三方 OCR 补证",
+                    }
+                    if not isinstance(supporting_evidence, dict):
+                        self.error(
+                            TEXTBOOK_AUDIT_PATH,
+                            f"{label}.supporting_evidence must be an object",
+                        )
+                    else:
+                        for field, expected_value in expected_supporting_evidence.items():
+                            if supporting_evidence.get(field) != expected_value:
+                                self.error(
+                                    TEXTBOOK_AUDIT_PATH,
+                                    f"{label}.supporting_evidence.{field} "
+                                    f"must be {expected_value!r}",
+                                )
+                item_id = item.get("id")
+                if isinstance(item_id, str) and item_id:
+                    additional_formula_ids.append(item_id)
+            if len(additional_formula_ids) != len(set(additional_formula_ids)):
+                self.error(
+                    TEXTBOOK_AUDIT_PATH,
+                    "additional_unmarked_formulas IDs must be unique",
+                )
+
         formula_items = audit.get("formula_status_items")
-        formula_ids: set[str] = set()
+        historical_formula_ids: set[str] = set()
+        historical_formula_id_order: list[str] = []
         if not isinstance(formula_items, list) or len(formula_items) != 2:
             self.error(TEXTBOOK_AUDIT_PATH, "formula_status_items must contain 2 items")
         else:
-            topics = {item.get("topic") for item in formula_items if isinstance(item, dict)}
-            if topics != {"natural_join", "random_walk"}:
+            topics = [
+                item.get("topic") if isinstance(item, dict) else None
+                for item in formula_items
+            ]
+            if topics != ["natural_join", "random_walk"]:
                 self.error(TEXTBOOK_AUDIT_PATH, "formula_status_items topics are invalid")
             for position, item in enumerate(formula_items, start=1):
                 if not isinstance(item, dict) or item.get("status") != "current_formula_carrier_present":
@@ -1635,10 +1932,29 @@ class Validator:
                         f"formula_status_items #{position}.id is invalid",
                     )
                 else:
-                    formula_ids.add(str(item["id"]))
+                    formula_id = str(item["id"])
+                    historical_formula_ids.add(formula_id)
+                    historical_formula_id_order.append(formula_id)
+        expected_historical_formula_id_order = [
+            "textbook-ch06-baseline-l0321-formula-natural_join",
+            "textbook-ch08-baseline-l0345-formula-random_walk",
+        ]
+        if historical_formula_id_order != expected_historical_formula_id_order:
+            self.error(
+                TEXTBOOK_AUDIT_PATH,
+                "formula_status_items must preserve the two historical formula IDs in order",
+            )
+        if (
+            len(set(additional_formula_ids) | historical_formula_ids) != 7
+            or set(additional_formula_ids) & historical_formula_ids
+        ):
+            self.error(
+                TEXTBOOK_AUDIT_PATH,
+                "historical and additional formula inventories must form seven unique items",
+            )
 
         spliced = audit.get("historical_spliced_tables")
-        spliced_candidate_ids: set[str] = set()
+        spliced_candidate_id_order: list[str] = []
         if not isinstance(spliced, dict):
             self.error(TEXTBOOK_AUDIT_PATH, "historical_spliced_tables must be an object")
         else:
@@ -1726,7 +2042,7 @@ class Validator:
                         TEXTBOOK_AUDIT_PATH,
                         "reconstructed spliced-table candidate IDs must be unique",
                     )
-                spliced_candidate_ids = set(candidate_ids)
+                spliced_candidate_id_order = candidate_ids
                 explicit_shifted = spliced.get(
                     "baseline_explicit_shifted_table_numbers_in_separate_8_item_category"
                 )
@@ -1772,11 +2088,11 @@ class Validator:
                 key_content.get("historical_conservative_reconstructed_positions")
                 != 199
                 or key_content.get("current_conservative_reconstructed_positions")
-                != 203
+                != 208
             ):
                 self.error(
                     TEXTBOOK_AUDIT_PATH,
-                    "key_content_debt must record 199 historical and 203 current conservative positions",
+                    "key_content_debt must record 199 historical and 208 current conservative positions",
                 )
             additional_classification = key_content.get(
                 "additional_unmarked_figures_content_classification"
@@ -1801,35 +2117,42 @@ class Validator:
                     "key_content_debt additional figure classification is invalid",
                 )
             expected_key_groups = (
-                ("critical_figure_position_ids", critical_figure_ids, 174),
-                ("formula_position_ids", formula_ids, 2),
-                ("explicit_table_position_ids", explicit_table_ids, 8),
+                (
+                    "critical_figure_position_ids",
+                    critical_figure_id_order,
+                    174,
+                ),
+                ("formula_position_ids", historical_formula_id_order, 2),
+                ("explicit_table_position_ids", explicit_table_id_order, 8),
                 (
                     "conservative_spliced_table_position_ids",
-                    spliced_candidate_ids,
+                    spliced_candidate_id_order,
                     15,
                 ),
             )
             ordered_key_ids: list[str] = []
-            for field, expected_ids, expected_count in expected_key_groups:
+            for field, expected_id_order, expected_count in expected_key_groups:
                 values = key_content.get(field)
                 if (
                     not isinstance(values, list)
                     or len(values) != expected_count
+                    or not all(isinstance(value, str) and value for value in values)
                     or len(values) != len(set(values))
-                    or set(values) != expected_ids
+                    or values != expected_id_order
                 ):
                     self.error(
                         TEXTBOOK_AUDIT_PATH,
-                        f"key_content_debt.{field} must contain the {expected_count} referenced IDs",
+                        f"key_content_debt.{field} must contain the {expected_count} referenced IDs in canonical order",
                     )
-                else:
-                    ordered_key_ids.extend(values)
+                ordered_key_ids.extend(expected_id_order)
             key_additional_critical = key_content.get(
                 "additional_critical_figure_position_ids"
             )
             key_additional_detail = key_content.get(
                 "additional_detail_only_figure_position_ids"
+            )
+            key_additional_formulas = key_content.get(
+                "additional_formula_position_ids"
             )
             if key_additional_critical != additional_critical_ids:
                 self.error(
@@ -1842,10 +2165,20 @@ class Validator:
                     TEXTBOOK_AUDIT_PATH,
                     "key_content_debt.additional_detail_only_figure_position_ids is invalid",
                 )
+            if key_additional_formulas != additional_formula_ids:
+                self.error(
+                    TEXTBOOK_AUDIT_PATH,
+                    "key_content_debt.additional_formula_position_ids is invalid",
+                )
+                key_additional_formulas = []
             historical_position_ids = key_content.get("historical_position_ids")
             if (
                 not isinstance(historical_position_ids, list)
                 or len(historical_position_ids) != 199
+                or not all(
+                    isinstance(item_id, str) and item_id
+                    for item_id in historical_position_ids
+                )
                 or len(historical_position_ids) != len(set(historical_position_ids))
                 or historical_position_ids != ordered_key_ids
             ):
@@ -1854,16 +2187,24 @@ class Validator:
                     "key_content_debt.historical_position_ids must be the ordered 199-item union",
                 )
             current_position_ids = key_content.get("current_position_ids")
-            expected_current_ids = [*ordered_key_ids, *key_additional_critical]
+            expected_current_ids = [
+                *ordered_key_ids,
+                *key_additional_critical,
+                *key_additional_formulas,
+            ]
             if (
                 not isinstance(current_position_ids, list)
-                or len(current_position_ids) != 203
+                or len(current_position_ids) != 208
+                or not all(
+                    isinstance(item_id, str) and item_id
+                    for item_id in current_position_ids
+                )
                 or len(current_position_ids) != len(set(current_position_ids))
                 or current_position_ids != expected_current_ids
             ):
                 self.error(
                     TEXTBOOK_AUDIT_PATH,
-                    "key_content_debt.current_position_ids must be the ordered 203-item union",
+                    "key_content_debt.current_position_ids must be the ordered 208-item union",
                 )
 
         page_records = audit.get("page_records")
@@ -1898,10 +2239,13 @@ class Validator:
             allowed_reasons = {
                 "low_ngram_coverage",
                 "additional_unmarked_figure",
+                "additional_unmarked_formula",
                 "full_chapter_8_or_10",
+                "full_page_visual_text_review",
             }
             if (
                 not isinstance(reasons, list)
+                or not all(isinstance(reason, str) for reason in reasons)
                 or len(reasons) != len(set(reasons))
                 or any(reason not in allowed_reasons for reason in reasons)
             ):
@@ -1911,32 +2255,39 @@ class Validator:
                 )
                 reasons = []
             status = item.get("declared_manual_review_status")
-            if status not in {"completed", "outside_declared_manual_scope"}:
+            if status != "completed":
                 self.error(
                     TEXTBOOK_AUDIT_PATH,
-                    f"{label}.declared_manual_review_status is invalid",
+                    f"{label}.declared_manual_review_status must be completed",
                 )
             else:
                 manual_page_statuses[str(status)] += 1
-            if physical_page in declared_manual_pages:
-                if status != "completed" or not reasons:
-                    self.error(
-                        TEXTBOOK_AUDIT_PATH,
-                        f"{label} is in manual scope but not completed with a reason",
-                    )
-            elif status != "outside_declared_manual_scope" or reasons:
+            if physical_page not in declared_manual_pages:
                 self.error(
                     TEXTBOOK_AUDIT_PATH,
-                    f"{label} is outside manual scope but has inconsistent metadata",
+                    f"{label} is not included in the declared full-page review scope",
+                )
+            if "full_page_visual_text_review" not in reasons:
+                self.error(
+                    TEXTBOOK_AUDIT_PATH,
+                    f"{label} must record full_page_visual_text_review",
+                )
+            expected_reasons = [
+                reason
+                for reason, pages in manual_reason_pages.items()
+                if physical_page in pages
+            ]
+            if reasons != expected_reasons:
+                self.error(
+                    TEXTBOOK_AUDIT_PATH,
+                    f"{label}.declared_manual_review_reasons do not match scope components in canonical order",
                 )
         if page_numbers != list(range(13, 721)):
             self.error(TEXTBOOK_AUDIT_PATH, "page_records must cover physical pages 13-720")
-        if manual_page_statuses != Counter(
-            {"outside_declared_manual_scope": 620, "completed": 88}
-        ):
+        if manual_page_statuses != Counter({"completed": 708}):
             self.error(
                 TEXTBOOK_AUDIT_PATH,
-                "page record manual statuses must total 88 completed and 620 outside scope",
+                "page record manual statuses must total 708 completed and 0 outside scope",
             )
 
         chapters = audit.get("chapters")
