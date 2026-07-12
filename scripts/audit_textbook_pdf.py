@@ -195,6 +195,69 @@ FORMULA_TOPICS = {
     },
 }
 
+ADDITIONAL_FIGURE_CONTENT_CLASSIFICATION = {
+    "2-4": {
+        "policy_class": "B",
+        "content_impact": "graphic_detail_only",
+        "classification_basis": "相邻正文已说明关系模型和二维表语义；图仅给学生/选课关系的版式实例。",
+    },
+    "2-25": {
+        "policy_class": "A",
+        "content_impact": "critical_content_incomplete",
+        "classification_basis": "正文只列 UML 结构事物名称；图中的类、接口、构件等标准图形记法承载独立知识。",
+    },
+    "2-26": {
+        "policy_class": "A",
+        "content_impact": "critical_content_incomplete",
+        "classification_basis": "正文只列 UML 行为事物名称；消息、状态和活动的图形记法需要图表才能完整表达。",
+    },
+    "3-1": {
+        "policy_class": "A",
+        "content_impact": "critical_content_incomplete",
+        "classification_basis": "图承载传票、账簿、报表与统计/分类之间的事务处理流向，正文未逐边列出。",
+    },
+    "3-12": {
+        "policy_class": "B",
+        "content_impact": "graphic_detail_only",
+        "classification_basis": "正文已明确数据库、模型库和对话三个子系统的三角关系，图只可视化该关系。",
+    },
+    "4-8": {
+        "policy_class": "B",
+        "content_impact": "graphic_detail_only",
+        "classification_basis": "正文已逐项说明 Client、Handler、Agent 的部署位置、控制方向和攻击目标。",
+    },
+    "17-15": {
+        "policy_class": "B",
+        "content_impact": "graphic_detail_only",
+        "classification_basis": "正文已说明用户计算机经 LAN/WAN 远程访问专用 NAS，图不增加必要协议语义。",
+    },
+    "17-17": {
+        "policy_class": "B",
+        "content_impact": "graphic_detail_only",
+        "classification_basis": "正文已完整说明应用、控制、数据三平面以及 NBI/SBI 接口方向。",
+    },
+    "17-19": {
+        "policy_class": "B",
+        "content_impact": "graphic_detail_only",
+        "classification_basis": "正文已列明双栈节点同时支持 IPv4/IPv6、TCP/UDP 及共同链路/物理层。",
+    },
+    "19-12": {
+        "policy_class": "B",
+        "content_impact": "graphic_detail_only",
+        "classification_basis": "正文已明确 Kafka 后分流至 Flink 与 ElasticSearch 的完整 Kappa 数据路径。",
+    },
+    "19-13": {
+        "policy_class": "A",
+        "content_impact": "critical_content_incomplete",
+        "classification_basis": "里约奥运案例的平台层次、具体组件和批/速两条链路未由相邻正文逐项展开。",
+    },
+    "19-14": {
+        "policy_class": "B",
+        "content_impact": "graphic_detail_only",
+        "classification_basis": "相邻案例正文已分段说明 Kafka、批处理、实时处理、第三方数据缺口与应用需求。",
+    },
+}
+
 # Physical PDF pages are 1-based. Page 721 is a back-cover advertisement and is
 # excluded from chapter 20 under the repository cleaning rules.
 CHAPTER_RANGES = {
@@ -361,6 +424,14 @@ def build_baseline_marker_records() -> list[dict[str, object]]:
                     raise AssertionError(
                         f"chapter {chapter} marker points to unexpected figure {number}"
                     )
+                if "本段信息不完整" in line:
+                    content_impact = "critical_content_incomplete"
+                elif "仅保留图题与正文说明" in line:
+                    content_impact = "graphic_detail_only"
+                else:
+                    raise AssertionError(
+                        f"chapter {chapter} figure marker has unknown impact wording: {line}"
+                    )
                 records.append(
                     {
                         "id": (
@@ -374,6 +445,7 @@ def build_baseline_marker_records() -> list[dict[str, object]]:
                         "nearest_asset_number": number,
                         "nearest_asset_line": asset_line,
                         "nearest_asset_title": asset_title,
+                        "content_impact": content_impact,
                         "context": short_context(lines, line_index, match.group(0)),
                         "proof_scope": BASELINE_PROOF_SCOPE,
                     }
@@ -411,6 +483,7 @@ def build_baseline_marker_records() -> list[dict[str, object]]:
                         "nearest_asset_number": number,
                         "nearest_asset_line": asset_line,
                         "nearest_asset_title": asset_title or f"表 {number}（由状态行展开）",
+                        "content_impact": "critical_content_incomplete",
                         "expansion_basis": expansion_basis,
                         "context": short_context(lines, line_index, f"表 {number}"),
                         "proof_scope": BASELINE_PROOF_SCOPE,
@@ -420,6 +493,18 @@ def build_baseline_marker_records() -> list[dict[str, object]]:
     kind_counts = Counter(str(record["kind"]) for record in records)
     if kind_counts != {"figure": 272, "table": 8}:
         raise AssertionError(f"unexpected baseline marker counts: {dict(kind_counts)}")
+    figure_impact_counts = Counter(
+        str(record["content_impact"])
+        for record in records
+        if record["kind"] == "figure"
+    )
+    if figure_impact_counts != {
+        "critical_content_incomplete": 174,
+        "graphic_detail_only": 98,
+    }:
+        raise AssertionError(
+            f"unexpected baseline figure impact counts: {dict(figure_impact_counts)}"
+        )
     ids = [str(record["id"]) for record in records]
     if len(ids) != len(set(ids)):
         raise AssertionError("baseline marker IDs are not unique")
@@ -805,6 +890,7 @@ def build_audit(
     pdf_figure_pages = pdf_reference_pages(pages, "figure")
     pdf_table_pages = pdf_reference_pages(pages, "table")
     chapters: list[dict[str, object]] = []
+    page_records: list[dict[str, object]] = []
     all_pdf_figure_numbers: set[str] = set()
     all_pdf_table_numbers: set[str] = set()
     all_md_figure_numbers: set[str] = set()
@@ -825,6 +911,19 @@ def build_audit(
             ngram_coverage(page_text, clean_normalized, width)
             for page_text in normalized_pages
         ]
+        for offset, (normalized_page, coverage) in enumerate(
+            zip(normalized_pages, coverages, strict=True)
+        ):
+            page_records.append(
+                {
+                    "physical_page": start + offset,
+                    "chapter": chapter,
+                    "path": clean_path.relative_to(ROOT).as_posix(),
+                    "normalized_pdf_chars": len(normalized_page),
+                    "ngram_width": width,
+                    "ngram_coverage": round(coverage, 6),
+                }
+            )
         pdf_figures = unique_numbers(page_texts, "图")
         pdf_tables = unique_numbers(page_texts, "表")
         md_figures = independent_numbers(clean_text, "图")
@@ -905,6 +1004,10 @@ def build_audit(
             "current full-table scan still has structure risks: "
             + json.dumps(all_table_structure_risks, ensure_ascii=False)
         )
+    if len(page_records) != 708:
+        raise AssertionError(f"expected 708 page records, found {len(page_records)}")
+    if [int(item["physical_page"]) for item in page_records] != list(range(13, 721)):
+        raise AssertionError("page records do not cover physical pages 13 through 720")
 
     figure_inventory = build_asset_inventory(
         "figure",
@@ -945,11 +1048,14 @@ def build_audit(
         raise AssertionError(
             f"expected 12 additional unmarked figures, found {additional_numbers}"
         )
+    if set(additional_numbers) != set(ADDITIONAL_FIGURE_CONTENT_CLASSIFICATION):
+        raise AssertionError("additional figure content classification is incomplete")
     figure_by_number = {str(item["number"]): item for item in figure_inventory}
     additional_unmarked_figures = [
         {
             "id": f"textbook-additional-unmarked-figure-{number}",
             **figure_by_number[number],
+            **ADDITIONAL_FIGURE_CONTENT_CLASSIFICATION[number],
             "reason": (
                 "官方 PDF 全量图号存在，但固定基线 272 个原图未收录标记中没有该图号。"
             ),
@@ -960,12 +1066,104 @@ def build_audit(
     if any(item["baseline_marker_ids"] for item in additional_unmarked_figures):
         raise AssertionError("additional unmarked figure unexpectedly has a baseline marker")
 
+    low_coverage_pages = {
+        int(item["physical_page"])
+        for item in page_records
+        if float(item["ngram_coverage"]) < 0.35
+    }
+    additional_asset_pages = {
+        int(page)
+        for item in additional_unmarked_figures
+        for page in item["pdf_reference_pages"]
+    }
+    full_chapter_review_pages = {
+        page
+        for chapter in (8, 10)
+        for page in range(CHAPTER_RANGES[chapter][0], CHAPTER_RANGES[chapter][1] + 1)
+    }
+    declared_manual_pages = (
+        low_coverage_pages | additional_asset_pages | full_chapter_review_pages
+    )
+    if (
+        len(low_coverage_pages),
+        len(additional_asset_pages),
+        len(full_chapter_review_pages),
+        len(declared_manual_pages),
+    ) != (20, 11, 73, 88):
+        raise AssertionError(
+            "manual page scope changed: "
+            f"low={len(low_coverage_pages)}, additional={len(additional_asset_pages)}, "
+            f"chapter8_10={len(full_chapter_review_pages)}, union={len(declared_manual_pages)}"
+        )
+    for item in page_records:
+        physical_page = int(item["physical_page"])
+        reasons: list[str] = []
+        if physical_page in low_coverage_pages:
+            reasons.append("low_ngram_coverage")
+        if physical_page in additional_asset_pages:
+            reasons.append("additional_unmarked_figure")
+        if physical_page in full_chapter_review_pages:
+            reasons.append("full_chapter_8_or_10")
+        item["declared_manual_review_reasons"] = reasons
+        item["declared_manual_review_status"] = (
+            "completed"
+            if reasons and manual_review_completed
+            else "pending"
+            if reasons
+            else "outside_declared_manual_scope"
+        )
+
     historical_spliced_tables = historical_spliced_table_investigation(
         baseline_table_records, all_table_structure_risks, table_inventory
     )
     reconstructed_spliced_positions = int(
         historical_spliced_tables["conservatively_reconstructed_positions"]
     )
+    critical_figure_position_ids = [
+        str(record["id"])
+        for record in baseline_records
+        if record["kind"] == "figure"
+        and record["content_impact"] == "critical_content_incomplete"
+    ]
+    formula_position_ids = [str(item["id"]) for item in formula_status_items]
+    explicit_table_position_ids = [str(record["id"]) for record in baseline_table_records]
+    conservative_spliced_table_position_ids = [
+        str(item["id"])
+        for item in historical_spliced_tables["reconstructed_candidates"]
+    ]
+    additional_critical_figure_position_ids = [
+        str(item["id"])
+        for item in additional_unmarked_figures
+        if item["content_impact"] == "critical_content_incomplete"
+    ]
+    additional_detail_only_figure_position_ids = [
+        str(item["id"])
+        for item in additional_unmarked_figures
+        if item["content_impact"] == "graphic_detail_only"
+    ]
+    historical_key_content_position_ids = [
+        *critical_figure_position_ids,
+        *formula_position_ids,
+        *explicit_table_position_ids,
+        *conservative_spliced_table_position_ids,
+    ]
+    current_key_content_position_ids = [
+        *historical_key_content_position_ids,
+        *additional_critical_figure_position_ids,
+    ]
+    if (
+        len(critical_figure_position_ids),
+        len(formula_position_ids),
+        len(explicit_table_position_ids),
+        len(conservative_spliced_table_position_ids),
+        len(additional_critical_figure_position_ids),
+        len(additional_detail_only_figure_position_ids),
+        len(historical_key_content_position_ids),
+        len(set(historical_key_content_position_ids)),
+        len(current_key_content_position_ids),
+        len(set(current_key_content_position_ids)),
+    ) != (174, 2, 8, 15, 4, 8, 199, 199, 203, 203):
+        raise AssertionError("key content debt reconstruction changed")
     itemized_proven_positions = 272 + 12 + 2 + 8 + reconstructed_spliced_positions
     original_minimum = 272 + 2 + 8 + 14
     corrected_minimum = itemized_proven_positions
@@ -977,7 +1175,7 @@ def build_audit(
         raise AssertionError("debt arithmetic changed")
 
     return {
-        "schema_version": 2,
+        "schema_version": 3,
         "reviewed_at": reviewed_at,
         "field_definitions": {
             "baseline_marker_records": (
@@ -988,6 +1186,11 @@ def build_audit(
             "markdown_carrier_lines": "现行 canonical Markdown 中独立图题或表题的 1 基行号。",
             "status": "编号级当前载体状态；不等同于语义或像素级复核结论。",
             "context": "固定基线状态行前后相邻非空行组成的截短上下文。",
+            "content_impact": (
+                "critical_content_incomplete 来自固定基线的“本段信息不完整”标记；"
+                "graphic_detail_only 来自“仅保留图题与正文说明”标记。"
+            ),
+            "page_records": "物理页 13～720 的 708 条逐页文本覆盖记录及声明的人工复核范围。",
         },
         "source": {
             "path_hint": "本地pdf参考/1. 系统架构设计师教材（官方教程-）.pdf",
@@ -1012,15 +1215,28 @@ def build_audit(
             "limitation": "覆盖率用于定位风险页，不单独证明语义或版式正确；复杂图表另需渲染和目视核验。",
         },
         "manual_review": {
-            "status": "completed" if manual_review_completed else "pending",
+            "status": "targeted_scope_completed" if manual_review_completed else "pending",
             "scope": "所有低覆盖风险页、全部新增图表载体及第 8/10 章完整物理页范围",
+            "explicit_page_count": len(declared_manual_pages),
+            "explicit_physical_pages": sorted(declared_manual_pages),
+            "scope_components": {
+                "low_ngram_coverage_pages": sorted(low_coverage_pages),
+                "additional_unmarked_figure_pages": sorted(additional_asset_pages),
+                "full_chapter_8_or_10_pages": sorted(full_chapter_review_pages),
+            },
+            "chapter_content_pages": len(page_records),
+            "outside_declared_manual_scope_pages": len(page_records)
+            - len(declared_manual_pages),
             "checks": [
                 "PDF 页面渲染与原始结构目视核对",
                 "新增及实质修改 Mermaid CLI 渲染",
                 "复杂 Markdown 表格浏览器渲染抽检",
                 "来源页码、图号、表号与残余限制复核",
             ],
-            "description": "该字段是人工验收声明；自动覆盖率本身不能替代视觉或语义复核。",
+            "description": (
+                "该字段是 88 个风险/资产页的人工验收声明，不表示其余 620 个正文页均已逐页"
+                "渲染目视复核；708 页均另有 page_records 自动文本覆盖记录。"
+            ),
         },
         "baseline_evidence": {
             "commit": BASELINE_COMMIT,
@@ -1040,6 +1256,58 @@ def build_audit(
         "additional_unmarked_figures": additional_unmarked_figures,
         "formula_status_items": formula_status_items,
         "historical_spliced_tables": historical_spliced_tables,
+        "key_content_debt": {
+            "historical_reported_content_minimum": 198,
+            "derivation_status": "conservative_reconstruction_from_baseline_markers",
+            "historical_item_ids_preserved": False,
+            "historical_arithmetic": "174 + 2 + 8 + 14 = 198",
+            "historical_identity_status": (
+                "仓库和 Git 历史未保存数字 198 或其 manifest；该下限由固定基线 A/B 标记"
+                "语义及历史 296=272+2+8+14 算式反推。174 个关键缺图、2 个公式和 8 个"
+                "显式缺表可逐项重建；历史报告恰好选择的 14 张拼栏表 ID 未保存。"
+            ),
+            "baseline_content_incomplete_figures": 174,
+            "baseline_content_incomplete_figure_wording": {
+                "exact_policy_a": 168,
+                "semantic_variants": 6,
+            },
+            "baseline_graphic_detail_only_figures": 98,
+            "additional_unmarked_figures_content_classification": {
+                "status": "completed",
+                "positions": 12,
+                "critical_content_incomplete": 4,
+                "graphic_detail_only": 8,
+                "method": "逐项对照 PDF、现行载体及 FIGURE_POLICY A/B 的正文独立可读性测试。",
+            },
+            "critical_figure_position_ids": critical_figure_position_ids,
+            "additional_critical_figure_position_ids": (
+                additional_critical_figure_position_ids
+            ),
+            "additional_detail_only_figure_position_ids": (
+                additional_detail_only_figure_position_ids
+            ),
+            "formula_position_ids": formula_position_ids,
+            "explicit_table_position_ids": explicit_table_position_ids,
+            "conservative_spliced_table_position_ids": (
+                conservative_spliced_table_position_ids
+            ),
+            "historical_conservative_reconstructed_positions": len(
+                historical_key_content_position_ids
+            ),
+            "historical_conservative_arithmetic": "174 + 2 + 8 + 15 = 199",
+            "historical_position_ids": historical_key_content_position_ids,
+            "current_conservative_reconstructed_positions": len(
+                current_key_content_position_ids
+            ),
+            "current_conservative_arithmetic": "174 + 4 + 2 + 8 + 15 = 203",
+            "current_position_ids": current_key_content_position_ids,
+            "proof_scope": (
+                "199 个稳定 ID 形成覆盖历史至少 198 项的高置信保守重建集合；12 个后补图"
+                "经逐项 A/B 复核后有 4 个进入当前关键集合，因此当前为 203 项。基线 A/B 只证明"
+                "固定基线维护者当时的风险判断；最后 15 项是独立三重证据识别的拼栏表候选，"
+                "不声称与历史报告未保存的恰好 14 个 ID 一一对应。"
+            ),
+        },
         "debt_scope": {
             "original_minimum": original_minimum,
             "corrected_minimum": corrected_minimum,
@@ -1053,6 +1321,13 @@ def build_audit(
             ),
             "itemized_proven_positions": itemized_proven_positions,
             "historical_unitemized_positions": 0,
+            "key_content_historical_minimum": 198,
+            "key_content_historical_conservative_positions": len(
+                historical_key_content_position_ids
+            ),
+            "key_content_current_conservative_positions": len(
+                current_key_content_position_ids
+            ),
             "arithmetic": "272 + 12 + 2 + 8 + 15 = 309",
             "description": (
                 "逐项证据覆盖 272 个基线图、12 个新增图、2 个公式、8 个显式缺失或部分表，"
@@ -1066,6 +1341,15 @@ def build_audit(
             "baseline_explicit_marker_records": len(baseline_records),
             "itemized_proven_positions": itemized_proven_positions,
             "historical_unitemized_positions": 0,
+            "key_content_historical_minimum": 198,
+            "key_content_historical_conservative_positions": len(
+                historical_key_content_position_ids
+            ),
+            "key_content_current_conservative_positions": len(
+                current_key_content_position_ids
+            ),
+            "page_records": len(page_records),
+            "declared_manual_review_pages": len(declared_manual_pages),
             "conservatively_reconstructed_spliced_table_positions": (
                 reconstructed_spliced_positions
             ),
@@ -1079,6 +1363,7 @@ def build_audit(
             "missing_table_titles": sorted(all_pdf_table_numbers - all_md_table_numbers),
             "table_structure_risks": all_table_structure_risks,
         },
+        "page_records": page_records,
         "chapters": chapters,
     }
 

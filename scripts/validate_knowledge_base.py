@@ -882,6 +882,7 @@ class Validator:
             "files",
             "positions",
             "source_limited_visual_items",
+            "source_search_refresh",
             "non_original_substitutes",
         }
         missing = required - set(audit)
@@ -957,10 +958,10 @@ class Validator:
         if not isinstance(positions, list):
             self.error(EXAM_ASSET_AUDIT_PATH, "positions must be an array")
             positions = []
-        elif len(positions) != 117:
+        elif len(positions) != 118:
             self.error(
                 EXAM_ASSET_AUDIT_PATH,
-                f"expected 117 item-level positions, found {len(positions)}",
+                f"expected 118 item-level positions, found {len(positions)}",
             )
         position_fields = {
             "id",
@@ -1044,10 +1045,10 @@ class Validator:
                 EXAM_ASSET_AUDIT_PATH,
                 f"expected 116 baseline position records, found {baseline_record_count}",
             )
-        if additional_record_count != 1:
+        if additional_record_count != 2:
             self.error(
                 EXAM_ASSET_AUDIT_PATH,
-                f"expected one additional position record, found {additional_record_count}",
+                f"expected two additional position records, found {additional_record_count}",
             )
         for relative_path, expected_count in expected_counts_by_path.items():
             actual_count = position_path_counts.get(relative_path, 0)
@@ -1057,8 +1058,8 @@ class Validator:
                     f"{relative_path}: positions has {actual_count}, expected {expected_count}",
                 )
         additional = audit.get("additional_positions")
-        if not isinstance(additional, list) or len(additional) != 1:
-            self.error(EXAM_ASSET_AUDIT_PATH, "expected one additional position")
+        if not isinstance(additional, list) or len(additional) != 2:
+            self.error(EXAM_ASSET_AUDIT_PATH, "expected two additional positions")
             additional = []
         limited = audit.get("source_limited_visual_items")
         if not isinstance(limited, list) or len(limited) != 6:
@@ -1067,6 +1068,21 @@ class Validator:
                 "expected six source-limited visual items",
             )
             limited = []
+        search_refresh = audit.get("source_search_refresh")
+        if (
+            not isinstance(search_refresh, dict)
+            or search_refresh.get("reviewed_at") != audit.get("reviewed_at")
+            or search_refresh.get("tool") != "GitHub CLI 2.96.0 code search"
+            or not isinstance(search_refresh.get("queries"), list)
+            or len(search_refresh.get("queries", [])) != 7
+            or search_refresh.get("indexed_code_results") != 0
+            or not isinstance(search_refresh.get("proof_scope"), str)
+            or not search_refresh.get("proof_scope")
+        ):
+            self.error(
+                EXAM_ASSET_AUDIT_PATH,
+                "source_search_refresh must record the dated GitHub CLI search boundary",
+            )
         for group_name, group in (
             ("additional_positions", additional),
             ("source_limited_visual_items", limited),
@@ -1185,8 +1201,10 @@ class Validator:
             "additional_unmarked_figures",
             "formula_status_items",
             "historical_spliced_tables",
+            "key_content_debt",
             "debt_scope",
             "summary",
+            "page_records",
             "chapters",
         }
         missing = required - set(audit)
@@ -1196,8 +1214,8 @@ class Validator:
                 f"missing top-level fields: {sorted(missing)}",
             )
             return
-        if audit.get("schema_version") != 2:
-            self.error(TEXTBOOK_AUDIT_PATH, "schema_version must be 2")
+        if audit.get("schema_version") != 3:
+            self.error(TEXTBOOK_AUDIT_PATH, "schema_version must be 3")
         try:
             date.fromisoformat(str(audit.get("reviewed_at")))
         except ValueError:
@@ -1218,8 +1236,67 @@ class Validator:
                         f"source.{field} must be {expected}",
                     )
         manual_review = audit.get("manual_review")
-        if not isinstance(manual_review, dict) or manual_review.get("status") != "completed":
-            self.error(TEXTBOOK_AUDIT_PATH, "manual PDF/render review must be completed")
+        declared_manual_pages: set[int] = set()
+        if not isinstance(manual_review, dict):
+            self.error(TEXTBOOK_AUDIT_PATH, "manual_review must be an object")
+        else:
+            if manual_review.get("status") != "targeted_scope_completed":
+                self.error(
+                    TEXTBOOK_AUDIT_PATH,
+                    "targeted manual PDF/render review must be completed",
+                )
+            explicit_pages = manual_review.get("explicit_physical_pages")
+            if (
+                not isinstance(explicit_pages, list)
+                or len(explicit_pages) != 88
+                or explicit_pages != sorted(set(explicit_pages))
+                or not all(isinstance(page, int) and 13 <= page <= 720 for page in explicit_pages)
+            ):
+                self.error(
+                    TEXTBOOK_AUDIT_PATH,
+                    "manual_review.explicit_physical_pages must contain 88 unique pages",
+                )
+            else:
+                declared_manual_pages = set(explicit_pages)
+            expected_manual_scalars = {
+                "explicit_page_count": 88,
+                "chapter_content_pages": 708,
+                "outside_declared_manual_scope_pages": 620,
+            }
+            for field, expected in expected_manual_scalars.items():
+                if manual_review.get(field) != expected:
+                    self.error(
+                        TEXTBOOK_AUDIT_PATH,
+                        f"manual_review.{field} must be {expected}",
+                    )
+            components = manual_review.get("scope_components")
+            if not isinstance(components, dict):
+                self.error(TEXTBOOK_AUDIT_PATH, "manual_review.scope_components is invalid")
+            else:
+                expected_component_counts = {
+                    "low_ngram_coverage_pages": 20,
+                    "additional_unmarked_figure_pages": 11,
+                    "full_chapter_8_or_10_pages": 73,
+                }
+                component_union: set[int] = set()
+                for field, expected_count in expected_component_counts.items():
+                    values = components.get(field)
+                    if (
+                        not isinstance(values, list)
+                        or len(values) != expected_count
+                        or values != sorted(set(values))
+                    ):
+                        self.error(
+                            TEXTBOOK_AUDIT_PATH,
+                            f"manual_review.scope_components.{field} is invalid",
+                        )
+                    else:
+                        component_union.update(values)
+                if declared_manual_pages and component_union != declared_manual_pages:
+                    self.error(
+                        TEXTBOOK_AUDIT_PATH,
+                        "manual review component pages do not match explicit page union",
+                    )
         debt_scope = audit.get("debt_scope")
         expected_debt = {
             "original_minimum": 296,
@@ -1232,6 +1309,9 @@ class Validator:
             "conservatively_reconstructed_spliced_table_positions": 15,
             "itemized_proven_positions": 309,
             "historical_unitemized_positions": 0,
+            "key_content_historical_minimum": 198,
+            "key_content_historical_conservative_positions": 199,
+            "key_content_current_conservative_positions": 203,
         }
         if not isinstance(debt_scope, dict):
             self.error(TEXTBOOK_AUDIT_PATH, "debt_scope must be an object")
@@ -1248,6 +1328,11 @@ class Validator:
             "baseline_explicit_marker_records": 280,
             "itemized_proven_positions": 309,
             "historical_unitemized_positions": 0,
+            "key_content_historical_minimum": 198,
+            "key_content_historical_conservative_positions": 199,
+            "key_content_current_conservative_positions": 203,
+            "page_records": 708,
+            "declared_manual_review_pages": 88,
             "conservatively_reconstructed_spliced_table_positions": 15,
             "pdf_unique_figure_numbers": 284,
             "markdown_unique_figure_carriers": 284,
@@ -1270,6 +1355,9 @@ class Validator:
         baseline_evidence = audit.get("baseline_evidence")
         baseline_ids: set[str] = set()
         baseline_kind_counts: Counter[str] = Counter()
+        baseline_impact_counts: Counter[str] = Counter()
+        critical_figure_ids: set[str] = set()
+        explicit_table_ids: set[str] = set()
         if not isinstance(baseline_evidence, dict):
             self.error(TEXTBOOK_AUDIT_PATH, "baseline_evidence must be an object")
         else:
@@ -1313,6 +1401,27 @@ class Validator:
                     self.error(TEXTBOOK_AUDIT_PATH, f"{label}.kind is invalid")
                 else:
                     baseline_kind_counts[str(kind)] += 1
+                content_impact = record.get("content_impact")
+                if content_impact not in {
+                    "critical_content_incomplete",
+                    "graphic_detail_only",
+                }:
+                    self.error(TEXTBOOK_AUDIT_PATH, f"{label}.content_impact is invalid")
+                elif kind == "table" and content_impact != "critical_content_incomplete":
+                    self.error(
+                        TEXTBOOK_AUDIT_PATH,
+                        f"{label} table must be critical_content_incomplete",
+                    )
+                else:
+                    baseline_impact_counts[str(content_impact)] += 1
+                    if (
+                        kind == "figure"
+                        and content_impact == "critical_content_incomplete"
+                        and isinstance(record_id, str)
+                    ):
+                        critical_figure_ids.add(record_id)
+                    if kind == "table" and isinstance(record_id, str):
+                        explicit_table_ids.add(record_id)
                 relative_path = record.get("path")
                 if not isinstance(relative_path, str) or not (ROOT / relative_path).is_file():
                     self.error(TEXTBOOK_AUDIT_PATH, f"{label}.path is invalid")
@@ -1340,6 +1449,13 @@ class Validator:
                 self.error(
                     TEXTBOOK_AUDIT_PATH,
                     "baseline record kinds must total 272 figures and 8 tables",
+                )
+            if baseline_impact_counts != Counter(
+                {"critical_content_incomplete": 182, "graphic_detail_only": 98}
+            ):
+                self.error(
+                    TEXTBOOK_AUDIT_PATH,
+                    "baseline impacts must total 174 critical figures, 8 critical tables and 98 detail-only figures",
                 )
 
         inventory = audit.get("asset_inventory")
@@ -1411,6 +1527,8 @@ class Validator:
             "19-13",
             "19-14",
         }
+        additional_critical_ids: list[str] = []
+        additional_detail_ids: list[str] = []
         if not isinstance(additional_figures, list) or len(additional_figures) != 12:
             self.error(
                 TEXTBOOK_AUDIT_PATH,
@@ -1431,8 +1549,39 @@ class Validator:
                     TEXTBOOK_AUDIT_PATH,
                     "additional unmarked figures must not claim baseline marker IDs",
                 )
+            for position, item in enumerate(additional_figures, start=1):
+                if not isinstance(item, dict):
+                    continue
+                item_id = item.get("id")
+                impact = item.get("content_impact")
+                policy_class = item.get("policy_class")
+                if (
+                    not isinstance(item_id, str)
+                    or not item_id
+                    or impact
+                    not in {"critical_content_incomplete", "graphic_detail_only"}
+                    or policy_class not in {"A", "B"}
+                    or (impact == "critical_content_incomplete") != (policy_class == "A")
+                    or not isinstance(item.get("classification_basis"), str)
+                    or not item.get("classification_basis")
+                ):
+                    self.error(
+                        TEXTBOOK_AUDIT_PATH,
+                        f"additional_unmarked_figures #{position} has invalid A/B classification",
+                    )
+                    continue
+                if impact == "critical_content_incomplete":
+                    additional_critical_ids.append(item_id)
+                else:
+                    additional_detail_ids.append(item_id)
+            if (len(additional_critical_ids), len(additional_detail_ids)) != (4, 8):
+                self.error(
+                    TEXTBOOK_AUDIT_PATH,
+                    "additional unmarked figures must classify as 4 critical and 8 detail-only",
+                )
 
         formula_items = audit.get("formula_status_items")
+        formula_ids: set[str] = set()
         if not isinstance(formula_items, list) or len(formula_items) != 2:
             self.error(TEXTBOOK_AUDIT_PATH, "formula_status_items must contain 2 items")
         else:
@@ -1445,8 +1594,16 @@ class Validator:
                         TEXTBOOK_AUDIT_PATH,
                         f"formula_status_items #{position} has invalid status",
                     )
+                elif not isinstance(item.get("id"), str) or not item["id"]:
+                    self.error(
+                        TEXTBOOK_AUDIT_PATH,
+                        f"formula_status_items #{position}.id is invalid",
+                    )
+                else:
+                    formula_ids.add(str(item["id"]))
 
         spliced = audit.get("historical_spliced_tables")
+        spliced_candidate_ids: set[str] = set()
         if not isinstance(spliced, dict):
             self.error(TEXTBOOK_AUDIT_PATH, "historical_spliced_tables must be an object")
         else:
@@ -1534,6 +1691,7 @@ class Validator:
                         TEXTBOOK_AUDIT_PATH,
                         "reconstructed spliced-table candidate IDs must be unique",
                     )
+                spliced_candidate_ids = set(candidate_ids)
                 explicit_shifted = spliced.get(
                     "baseline_explicit_shifted_table_numbers_in_separate_8_item_category"
                 )
@@ -1554,6 +1712,198 @@ class Validator:
                     TEXTBOOK_AUDIT_PATH,
                     "historical_spliced_tables.current_state_evidence is invalid",
                 )
+
+        key_content = audit.get("key_content_debt")
+        if not isinstance(key_content, dict):
+            self.error(TEXTBOOK_AUDIT_PATH, "key_content_debt must be an object")
+        else:
+            if key_content.get("historical_reported_content_minimum") != 198:
+                self.error(
+                    TEXTBOOK_AUDIT_PATH,
+                    "key_content_debt.historical_reported_content_minimum must be 198",
+                )
+            if (
+                key_content.get("derivation_status")
+                != "conservative_reconstruction_from_baseline_markers"
+                or key_content.get("historical_item_ids_preserved") is not False
+                or key_content.get("baseline_content_incomplete_figures") != 174
+                or key_content.get("baseline_graphic_detail_only_figures") != 98
+            ):
+                self.error(
+                    TEXTBOOK_AUDIT_PATH,
+                    "key_content_debt derivation metadata is invalid",
+                )
+            if (
+                key_content.get("historical_conservative_reconstructed_positions")
+                != 199
+                or key_content.get("current_conservative_reconstructed_positions")
+                != 203
+            ):
+                self.error(
+                    TEXTBOOK_AUDIT_PATH,
+                    "key_content_debt must record 199 historical and 203 current conservative positions",
+                )
+            additional_classification = key_content.get(
+                "additional_unmarked_figures_content_classification"
+            )
+            if not isinstance(additional_classification, dict) or {
+                "status": additional_classification.get("status"),
+                "positions": additional_classification.get("positions"),
+                "critical_content_incomplete": additional_classification.get(
+                    "critical_content_incomplete"
+                ),
+                "graphic_detail_only": additional_classification.get(
+                    "graphic_detail_only"
+                ),
+            } != {
+                "status": "completed",
+                "positions": 12,
+                "critical_content_incomplete": 4,
+                "graphic_detail_only": 8,
+            }:
+                self.error(
+                    TEXTBOOK_AUDIT_PATH,
+                    "key_content_debt additional figure classification is invalid",
+                )
+            expected_key_groups = (
+                ("critical_figure_position_ids", critical_figure_ids, 174),
+                ("formula_position_ids", formula_ids, 2),
+                ("explicit_table_position_ids", explicit_table_ids, 8),
+                (
+                    "conservative_spliced_table_position_ids",
+                    spliced_candidate_ids,
+                    15,
+                ),
+            )
+            ordered_key_ids: list[str] = []
+            for field, expected_ids, expected_count in expected_key_groups:
+                values = key_content.get(field)
+                if (
+                    not isinstance(values, list)
+                    or len(values) != expected_count
+                    or len(values) != len(set(values))
+                    or set(values) != expected_ids
+                ):
+                    self.error(
+                        TEXTBOOK_AUDIT_PATH,
+                        f"key_content_debt.{field} must contain the {expected_count} referenced IDs",
+                    )
+                else:
+                    ordered_key_ids.extend(values)
+            key_additional_critical = key_content.get(
+                "additional_critical_figure_position_ids"
+            )
+            key_additional_detail = key_content.get(
+                "additional_detail_only_figure_position_ids"
+            )
+            if key_additional_critical != additional_critical_ids:
+                self.error(
+                    TEXTBOOK_AUDIT_PATH,
+                    "key_content_debt.additional_critical_figure_position_ids is invalid",
+                )
+                key_additional_critical = []
+            if key_additional_detail != additional_detail_ids:
+                self.error(
+                    TEXTBOOK_AUDIT_PATH,
+                    "key_content_debt.additional_detail_only_figure_position_ids is invalid",
+                )
+            historical_position_ids = key_content.get("historical_position_ids")
+            if (
+                not isinstance(historical_position_ids, list)
+                or len(historical_position_ids) != 199
+                or len(historical_position_ids) != len(set(historical_position_ids))
+                or historical_position_ids != ordered_key_ids
+            ):
+                self.error(
+                    TEXTBOOK_AUDIT_PATH,
+                    "key_content_debt.historical_position_ids must be the ordered 199-item union",
+                )
+            current_position_ids = key_content.get("current_position_ids")
+            expected_current_ids = [*ordered_key_ids, *key_additional_critical]
+            if (
+                not isinstance(current_position_ids, list)
+                or len(current_position_ids) != 203
+                or len(current_position_ids) != len(set(current_position_ids))
+                or current_position_ids != expected_current_ids
+            ):
+                self.error(
+                    TEXTBOOK_AUDIT_PATH,
+                    "key_content_debt.current_position_ids must be the ordered 203-item union",
+                )
+
+        page_records = audit.get("page_records")
+        page_numbers: list[int] = []
+        manual_page_statuses: Counter[str] = Counter()
+        if not isinstance(page_records, list) or len(page_records) != 708:
+            self.error(TEXTBOOK_AUDIT_PATH, "page_records must contain 708 items")
+            page_records = []
+        for position, item in enumerate(page_records, start=1):
+            label = f"page_records #{position}"
+            if not isinstance(item, dict):
+                self.error(TEXTBOOK_AUDIT_PATH, f"{label} must be an object")
+                continue
+            physical_page = item.get("physical_page")
+            if not isinstance(physical_page, int):
+                self.error(TEXTBOOK_AUDIT_PATH, f"{label}.physical_page is invalid")
+                continue
+            page_numbers.append(physical_page)
+            if not isinstance(item.get("chapter"), int) or not 1 <= item["chapter"] <= 20:
+                self.error(TEXTBOOK_AUDIT_PATH, f"{label}.chapter is invalid")
+            relative_path = item.get("path")
+            if not isinstance(relative_path, str) or not (ROOT / relative_path).is_file():
+                self.error(TEXTBOOK_AUDIT_PATH, f"{label}.path is invalid")
+            if not isinstance(item.get("normalized_pdf_chars"), int) or item["normalized_pdf_chars"] < 0:
+                self.error(TEXTBOOK_AUDIT_PATH, f"{label}.normalized_pdf_chars is invalid")
+            coverage = item.get("ngram_coverage")
+            if not isinstance(coverage, (int, float)) or not 0 <= coverage <= 1:
+                self.error(TEXTBOOK_AUDIT_PATH, f"{label}.ngram_coverage is invalid")
+            if item.get("ngram_width") != 10:
+                self.error(TEXTBOOK_AUDIT_PATH, f"{label}.ngram_width must be 10")
+            reasons = item.get("declared_manual_review_reasons")
+            allowed_reasons = {
+                "low_ngram_coverage",
+                "additional_unmarked_figure",
+                "full_chapter_8_or_10",
+            }
+            if (
+                not isinstance(reasons, list)
+                or len(reasons) != len(set(reasons))
+                or any(reason not in allowed_reasons for reason in reasons)
+            ):
+                self.error(
+                    TEXTBOOK_AUDIT_PATH,
+                    f"{label}.declared_manual_review_reasons is invalid",
+                )
+                reasons = []
+            status = item.get("declared_manual_review_status")
+            if status not in {"completed", "outside_declared_manual_scope"}:
+                self.error(
+                    TEXTBOOK_AUDIT_PATH,
+                    f"{label}.declared_manual_review_status is invalid",
+                )
+            else:
+                manual_page_statuses[str(status)] += 1
+            if physical_page in declared_manual_pages:
+                if status != "completed" or not reasons:
+                    self.error(
+                        TEXTBOOK_AUDIT_PATH,
+                        f"{label} is in manual scope but not completed with a reason",
+                    )
+            elif status != "outside_declared_manual_scope" or reasons:
+                self.error(
+                    TEXTBOOK_AUDIT_PATH,
+                    f"{label} is outside manual scope but has inconsistent metadata",
+                )
+        if page_numbers != list(range(13, 721)):
+            self.error(TEXTBOOK_AUDIT_PATH, "page_records must cover physical pages 13-720")
+        if manual_page_statuses != Counter(
+            {"outside_declared_manual_scope": 620, "completed": 88}
+        ):
+            self.error(
+                TEXTBOOK_AUDIT_PATH,
+                "page record manual statuses must total 88 completed and 620 outside scope",
+            )
+
         chapters = audit.get("chapters")
         if not isinstance(chapters, list) or len(chapters) != 20:
             self.error(TEXTBOOK_AUDIT_PATH, "chapters must contain 20 entries")

@@ -62,6 +62,7 @@ PATH_2018_H2_COMPREHENSIVE = (
     "02.历年真题-清洗版/2018年下半年-系统架构设计师-综合知识.md"
 )
 PATH_2019_H2_ESSAY = "02.历年真题-清洗版/2019年下半年-系统架构设计师-论文.md"
+PATH_2020_H2_ESSAY = "02.历年真题-清洗版/2020年下半年-系统架构设计师-论文.md"
 PATH_2024_H1_CASE = "02.历年真题-清洗版/2024年上半年-系统架构设计师-案例分析.md"
 PATH_2024_H2_CASE = "02.历年真题-清洗版/2024年下半年-系统架构设计师-案例分析.md"
 
@@ -76,6 +77,8 @@ NON_ORIGINAL_BINDINGS = {
 }
 RECOVERED_BINDINGS = {
     (PATH_2018_H2_COMPREHENSIVE, 19): "2018-h2-comprehensive-q1-table",
+    (PATH_2020_H2_ESSAY, 69): "2020-h2-essay-q2-cloud-native-diagram-marker",
+    (PATH_2020_H2_ESSAY, 71): "2020-h2-essay-q2-cloud-native-source-marker",
 }
 
 PROOF_SCOPES = {
@@ -168,6 +171,29 @@ SOURCE_LIMITED_VISUAL_ITEMS = [
     },
 ]
 
+SOURCE_SEARCH_REFRESH = {
+    "reviewed_at": REVIEWED_AT,
+    "tool": "GitHub CLI 2.96.0 code search",
+    "queries": [
+        "2024年上半年 系统架构设计师 UML",
+        "AP流程图 系统架构设计师",
+        "SOME/IP DDS 2024",
+        "2024年下半年 系统架构设计师 质量属性 Nginx",
+        "质量属性分类表 系统架构设计师",
+        "2025年下半年 系统架构设计师 Petri 货物接运",
+        "货物接运 Petri",
+    ],
+    "indexed_code_results": 0,
+    "conclusion": (
+        "2026-07-12 使用已登录的官方 GitHub CLI 刷新公开代码索引检索，未发现能够"
+        "裁决六个来源受限视觉细节的新文件。"
+    ),
+    "proof_scope": (
+        "零结果只覆盖 GitHub 当时向该账户返回的代码索引，不证明互联网、私有仓库、"
+        "已删除历史或未索引二进制中不存在材料。"
+    ),
+}
+
 NON_ORIGINAL_SUBSTITUTES = [
     {
         "id": "2019-h2-essay-q3-comparison-table",
@@ -180,22 +206,40 @@ NON_ORIGINAL_SUBSTITUTES = [
     }
 ]
 
-ADDITIONAL_POSITION = {
-    "id": "2024-h2-comprehensive-q73-table",
-    "origin": "additional_review",
-    "path": "02.历年真题-清洗版/2024年下半年-系统架构设计师-综合知识.md",
-    "baseline_line": None,
-    "marker": None,
-    "nearest_question": "第73题",
-    "nearest_heading": "第73题",
-    "context": (
-        "项目 A、B、C、D 四道工序的赶工题；现行载体已恢复完整六列表、选项、"
-        "答案和工程费用计算校核。"
-    ),
-    "disposition": "recovered_structural",
-    "proof_scope": PROOF_SCOPES["recovered_structural"],
-    "description": "旧基线没有统一缺表标记；终审时发现并恢复六列表、选项、答案和计算校核。",
-}
+ADDITIONAL_POSITIONS = [
+    {
+        "id": "2024-h2-comprehensive-q73-table",
+        "origin": "additional_review",
+        "path": "02.历年真题-清洗版/2024年下半年-系统架构设计师-综合知识.md",
+        "baseline_line": None,
+        "marker": None,
+        "nearest_question": "第73题",
+        "nearest_heading": "第73题",
+        "context": (
+            "项目 A、B、C、D 四道工序的赶工题；现行载体已恢复完整六列表、选项、"
+            "答案和工程费用计算校核。"
+        ),
+        "disposition": "recovered_structural",
+        "proof_scope": PROOF_SCOPES["recovered_structural"],
+        "description": "旧基线没有统一缺表标记；终审时发现并恢复六列表、选项、答案和计算校核。",
+    },
+    {
+        "id": "2025-h1-comprehensive-q43-table",
+        "origin": "additional_review",
+        "path": "02.历年真题-清洗版/2025年上半年-系统架构设计师-综合知识.md",
+        "baseline_line": None,
+        "marker": None,
+        "nearest_question": "第43题",
+        "nearest_heading": "第43题",
+        "context": (
+            "A～J 十项作业的紧前关系与工期表；现行载体已从固定公开图片恢复完整表格，"
+            "并校核 D 推迟开始后总工期由 24 天变为 25 天。"
+        ),
+        "disposition": "recovered_structural",
+        "proof_scope": PROOF_SCOPES["recovered_structural"],
+        "description": "旧基线没有缺表标记；终审时发现题干缺失作业表，并据固定图片恢复和复算。",
+    },
+]
 
 
 def run_git(*args: str) -> str:
@@ -364,8 +408,8 @@ def validate_records(
         raise AssertionError("expected file baseline counts to sum to 116")
     if len(baseline) != 116:
         raise AssertionError(f"expected 116 baseline records, found {len(baseline)}")
-    if len(positions) != 117:
-        raise AssertionError(f"expected 116 + 1 = 117 records, found {len(positions)}")
+    if len(positions) != 118:
+        raise AssertionError(f"expected 116 + 2 = 118 records, found {len(positions)}")
 
     ids = [str(record["id"]) for record in positions]
     if len(ids) != len(set(ids)):
@@ -409,7 +453,7 @@ def build_audit() -> dict[str, object]:
         raise AssertionError(f"baseline commit mismatch: {resolved}")
 
     baseline = baseline_records()
-    positions = [*baseline, dict(ADDITIONAL_POSITION)]
+    positions = [*baseline, *(dict(item) for item in ADDITIONAL_POSITIONS)]
     files = [
         {
             "path": relative_path,
@@ -438,8 +482,8 @@ def build_audit() -> dict[str, object]:
 
     disposition_counts = Counter(str(record["disposition"]) for record in positions)
     expected_dispositions = {
-        "reviewed_current_carrier": 114,
-        "recovered_structural": 2,
+        "reviewed_current_carrier": 112,
+        "recovered_structural": 5,
         "non_original_substitute": 1,
     }
     if dict(disposition_counts) != expected_dispositions:
@@ -461,7 +505,7 @@ def build_audit() -> dict[str, object]:
         "schema_version": 2,
         "reviewed_at": REVIEWED_AT,
         "field_definitions": {
-            "positions": "117 个逐项审计记录；前 116 项来自固定基线标记，第 117 项为终审新增 Q73。",
+            "positions": "118 个逐项审计记录；前 116 项来自固定基线标记，后 2 项为终审新增 Q73 与 Q43。",
             "id": "由考试、固定基线行号、标记类型和行内序号组成的稳定唯一标识。",
             "origin": "baseline_marker 表示固定基线标记；additional_review 表示终审新增点位。",
             "baseline_line": "标记在固定基线文件中的 1 基行号；终审新增点位为 null。",
@@ -482,11 +526,11 @@ def build_audit() -> dict[str, object]:
                 "索引汇总标记不计入，逐项记录由 git show 直接生成。"
             ),
         },
-        "additional_positions": [dict(ADDITIONAL_POSITION)],
+        "additional_positions": [dict(item) for item in ADDITIONAL_POSITIONS],
         "summary": {
             "total_positions_reviewed": len(positions),
             "baseline_positions": len(baseline),
-            "additional_positions": 1,
+            "additional_positions": len(ADDITIONAL_POSITIONS),
             "files_with_baseline_positions": len(files),
             "current_legacy_marker_count": sum(
                 int(item["current_legacy_marker_count"]) for item in files
@@ -494,13 +538,14 @@ def build_audit() -> dict[str, object]:
             "source_limited_visual_items": len(source_limited),
             "positions_by_disposition": disposition_summary,
             "conclusion": (
-                "117 个点位均有逐项载体记录；标记消失只证明载体已处理。"
+                "118 个点位均有逐项载体记录；标记消失只证明载体已处理。"
                 "语义证据、来源限制和非原版替代边界以现行段落来源注及人工限制清单为准。"
             ),
         },
         "files": files,
         "positions": positions,
         "source_limited_visual_items": source_limited,
+        "source_search_refresh": dict(SOURCE_SEARCH_REFRESH),
         "non_original_substitutes": substitutes,
     }
 
@@ -529,11 +574,11 @@ def main() -> int:
         if current != content:
             print(f"ERROR: {OUTPUT_PATH.relative_to(ROOT)} is not reproducible", file=sys.stderr)
             return 1
-        print("exam asset audit is reproducible: 116 baseline + 1 additional = 117 records")
+        print("exam asset audit is reproducible: 116 baseline + 2 additional = 118 records")
         return 0
 
     OUTPUT_PATH.write_text(content, encoding="utf-8", newline="\n")
-    print(f"wrote {OUTPUT_PATH.relative_to(ROOT)}: 117 item-level records")
+    print(f"wrote {OUTPUT_PATH.relative_to(ROOT)}: 118 item-level records")
     return 0
 
 

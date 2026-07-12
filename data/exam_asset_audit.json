@@ -2,7 +2,7 @@
   "schema_version": 2,
   "reviewed_at": "2026-07-12",
   "field_definitions": {
-    "positions": "117 个逐项审计记录；前 116 项来自固定基线标记，第 117 项为终审新增 Q73。",
+    "positions": "118 个逐项审计记录；前 116 项来自固定基线标记，后 2 项为终审新增 Q73 与 Q43。",
     "id": "由考试、固定基线行号、标记类型和行内序号组成的稳定唯一标识。",
     "origin": "baseline_marker 表示固定基线标记；additional_review 表示终审新增点位。",
     "baseline_line": "标记在固定基线文件中的 1 基行号；终审新增点位为 null。",
@@ -36,22 +36,35 @@
       "disposition": "recovered_structural",
       "proof_scope": "现行载体已完成结构化恢复；恢复范围与证据见现行题目来源注，本记录不单独证明其为官方原卷。",
       "description": "旧基线没有统一缺表标记；终审时发现并恢复六列表、选项、答案和计算校核。"
+    },
+    {
+      "id": "2025-h1-comprehensive-q43-table",
+      "origin": "additional_review",
+      "path": "02.历年真题-清洗版/2025年上半年-系统架构设计师-综合知识.md",
+      "baseline_line": null,
+      "marker": null,
+      "nearest_question": "第43题",
+      "nearest_heading": "第43题",
+      "context": "A～J 十项作业的紧前关系与工期表；现行载体已从固定公开图片恢复完整表格，并校核 D 推迟开始后总工期由 24 天变为 25 天。",
+      "disposition": "recovered_structural",
+      "proof_scope": "现行载体已完成结构化恢复；恢复范围与证据见现行题目来源注，本记录不单独证明其为官方原卷。",
+      "description": "旧基线没有缺表标记；终审时发现题干缺失作业表，并据固定图片恢复和复算。"
     }
   ],
   "summary": {
-    "total_positions_reviewed": 117,
+    "total_positions_reviewed": 118,
     "baseline_positions": 116,
-    "additional_positions": 1,
+    "additional_positions": 2,
     "files_with_baseline_positions": 22,
     "current_legacy_marker_count": 0,
     "source_limited_visual_items": 6,
     "positions_by_disposition": {
-      "reviewed_current_carrier": 114,
-      "recovered_structural": 2,
+      "reviewed_current_carrier": 112,
+      "recovered_structural": 5,
       "source_limited": 0,
       "non_original_substitute": 1
     },
-    "conclusion": "117 个点位均有逐项载体记录；标记消失只证明载体已处理。语义证据、来源限制和非原版替代边界以现行段落来源注及人工限制清单为准。"
+    "conclusion": "118 个点位均有逐项载体记录；标记消失只证明载体已处理。语义证据、来源限制和非原版替代边界以现行段落来源注及人工限制清单为准。"
   },
   "files": [
     {
@@ -981,8 +994,9 @@
       "nearest_question": "试题二：论云原生架构及其应用",
       "nearest_heading": "对应要求二",
       "context": "从技术角度看，云原生架构是基于云原生技术的一组架构原则和设计模式的集合。它旨在最大程度地从云应用中剥离非业务代码，使云设施接管应用中原有的大量非功能特性，从而使业务代码具备轻量、敏捷和高度自动化的特… | 底稿引用的示意图将代码分为业务代码、第三方软件和处理非功能特性的代码三部分，但原图未收录。现有正文给出的解释是：“业务代码”指实现业务逻辑的代码；“第三方软件”是业务代码所依赖的第三方库，包括业务… | > **图表状态：** 原图未收录；仅保留图题与正文说明，不能据此还原原图细节。",
-      "disposition": "reviewed_current_carrier",
-      "proof_scope": "标记消失只证明载体已处理，语义证据见现行段落来源注，不单独证明官方性。"
+      "disposition": "recovered_structural",
+      "proof_scope": "现行载体已完成结构化恢复；恢复范围与证据见现行题目来源注，本记录不单独证明其为官方原卷。",
+      "manual_item_id": "2020-h2-essay-q2-cloud-native-diagram-marker"
     },
     {
       "id": "2020-h2-essay-baseline-l0071-figure-01",
@@ -993,8 +1007,9 @@
       "nearest_question": "试题二：论云原生架构及其应用",
       "nearest_heading": "对应要求二",
       "context": "底稿引用的示意图将代码分为业务代码、第三方软件和处理非功能特性的代码三部分，但原图未收录。现有正文给出的解释是：“业务代码”指实现业务逻辑的代码；“第三方软件”是业务代码所依赖的第三方库，包括业务库… | > **图表状态：** 原图未收录；仅保留图题与正文说明，不能据此还原原图细节。 | 云原生架构的四类原则包括：",
-      "disposition": "reviewed_current_carrier",
-      "proof_scope": "标记消失只证明载体已处理，语义证据见现行段落来源注，不单独证明官方性。"
+      "disposition": "recovered_structural",
+      "proof_scope": "现行载体已完成结构化恢复；恢复范围与证据见现行题目来源注，本记录不单独证明其为官方原卷。",
+      "manual_item_id": "2020-h2-essay-q2-cloud-native-source-marker"
     },
     {
       "id": "2020-h2-comprehensive-baseline-l0021-figure-01",
@@ -1572,6 +1587,19 @@
       "disposition": "recovered_structural",
       "proof_scope": "现行载体已完成结构化恢复；恢复范围与证据见现行题目来源注，本记录不单独证明其为官方原卷。",
       "description": "旧基线没有统一缺表标记；终审时发现并恢复六列表、选项、答案和计算校核。"
+    },
+    {
+      "id": "2025-h1-comprehensive-q43-table",
+      "origin": "additional_review",
+      "path": "02.历年真题-清洗版/2025年上半年-系统架构设计师-综合知识.md",
+      "baseline_line": null,
+      "marker": null,
+      "nearest_question": "第43题",
+      "nearest_heading": "第43题",
+      "context": "A～J 十项作业的紧前关系与工期表；现行载体已从固定公开图片恢复完整表格，并校核 D 推迟开始后总工期由 24 天变为 25 天。",
+      "disposition": "recovered_structural",
+      "proof_scope": "现行载体已完成结构化恢复；恢复范围与证据见现行题目来源注，本记录不单独证明其为官方原卷。",
+      "description": "旧基线没有缺表标记；终审时发现题干缺失作业表，并据固定图片恢复和复算。"
     }
   ],
   "source_limited_visual_items": [
@@ -1642,6 +1670,22 @@
       "proof_scope": "仅证明现行载体已明确记录来源限制；不证明原卷几何、空号或答案已恢复。"
     }
   ],
+  "source_search_refresh": {
+    "reviewed_at": "2026-07-12",
+    "tool": "GitHub CLI 2.96.0 code search",
+    "queries": [
+      "2024年上半年 系统架构设计师 UML",
+      "AP流程图 系统架构设计师",
+      "SOME/IP DDS 2024",
+      "2024年下半年 系统架构设计师 质量属性 Nginx",
+      "质量属性分类表 系统架构设计师",
+      "2025年下半年 系统架构设计师 Petri 货物接运",
+      "货物接运 Petri"
+    ],
+    "indexed_code_results": 0,
+    "conclusion": "2026-07-12 使用已登录的官方 GitHub CLI 刷新公开代码索引检索，未发现能够裁决六个来源受限视觉细节的新文件。",
+    "proof_scope": "零结果只覆盖 GitHub 当时向该账户返回的代码索引，不证明互联网、私有仓库、已删除历史或未索引二进制中不存在材料。"
+  },
   "non_original_substitutes": [
     {
       "id": "2019-h2-essay-q3-comparison-table",
