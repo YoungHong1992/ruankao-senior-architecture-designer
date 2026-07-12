@@ -8,7 +8,7 @@
   },
   "archive_policy": {
     "repository_url": "https://github.com/YoungHong1992/ruankao-senior-architecture-designer",
-    "snapshot_commit": "203c619334fbc575ed89029a01692e64040759ec",
+    "snapshot_commit": "75053d91f2160a7de3848ea228863215b06014ad",
     "snapshot_verified_at": "2026-07-12",
     "blob_url_template": "https://github.com/YoungHong1992/ruankao-senior-architecture-designer/blob/{commit}/{path}",
     "coverage": "all_90_source_versions",
@@ -24,8 +24,8 @@
       "description": "17 组同名原始版/补充版均已逐组保留为独立版本；证据不足时不强行选定权威正文，不自动拼接、覆盖或去重。"
     },
     "outcome_summary": {
-      "complete_structural": 23,
-      "needs_review": 9,
+      "complete_structural": 24,
+      "needs_review": 8,
       "partial": 4,
       "medium_non_official_answers": 7,
       "low_non_official_answers": 29,
@@ -542,7 +542,7 @@
       "item_count": 4,
       "item_unit": "论题",
       "completeness": "complete_structural",
-      "completeness_note": "4 个论题结构齐；第 2 题云原生业务代码、第三方软件与非功能职责关系已据现存解析作结构化重绘，非原图、非官方；仍无官方范文与评分细则。",
+      "completeness_note": "4 个论题结构齐；第 2 题云原生责任图已据 2021-03-08 同文公开页的固定图片结构化恢复并渲染核验。页面晚于考试，只支持非官方解析关系，不证明官方原卷、底稿原图或评分细则。",
       "answer_confidence": "low_non_official",
       "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2020年下半年-系统架构设计师-论文.md",
@@ -554,8 +554,8 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2020年下半年-系统架构设计师-论文.md",
-          "content_sha256": "e841799b135e2705075dafe697a79e85c5571ba37f628421641770d040a2f133",
-          "verified_at": "2026-07-11",
+          "content_sha256": "bf486cce70e30fd1ad991a59fd477f8badfa843a75fa325f84d8ba4e75ffcd05",
+          "verified_at": "2026-07-12",
           "item_count": 4,
           "item_unit": "论题"
         },
@@ -568,7 +568,7 @@
           "item_unit": "论题"
         }
       ],
-      "notes": "4 个论题结构齐；第 2 题云原生业务代码、第三方软件与非功能职责关系已据现存解析作结构化重绘，非原图、非官方；仍无官方范文与评分细则。"
+      "notes": "4 个论题结构齐；第 2 题云原生责任图已据 2021-03-08 同文公开页的固定图片结构化恢复并渲染核验。页面晚于考试，只支持非官方解析关系，不证明官方原卷、底稿原图或评分细则。"
     },
     {
       "id": "2020-h2-comprehensive",
@@ -1046,7 +1046,7 @@
       "item_count": 4,
       "item_unit": "论题",
       "completeness": "needs_review",
-      "completeness_note": "4 个论题由冲突底稿重组；单元测试题无解析，其余提示仅覆盖部分写作要求。",
+      "completeness_note": "4 个论题由冲突底稿重组，现均有可用的非官方写作框架；单元测试框架为仓库依据教材原创补写，其他三题补齐实施、风险与度量组织建议。仍缺官方题面、范文和评分细则。",
       "answer_confidence": "low_non_official",
       "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2024年上半年-系统架构设计师-论文.md",
@@ -1059,8 +1059,8 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2024年上半年-系统架构设计师-论文.md",
-          "content_sha256": "785fbfe74a29be8a669d7ad253be186ae90b964a4c990d24402c49730ea1c9a8",
-          "verified_at": "2026-07-11",
+          "content_sha256": "dbf85795bff7bc36ea059f41f5cdadbd227279e47c3c36c3d671b73025655227",
+          "verified_at": "2026-07-12",
           "item_count": 4,
           "item_unit": "论题"
         },
@@ -1081,7 +1081,7 @@
           "item_unit": "论题"
         }
       ],
-      "notes": "4 个论题由冲突底稿重组；单元测试题无解析，其余提示仅覆盖部分写作要求。"
+      "notes": "4 个论题由冲突底稿重组，现均有可用的非官方写作框架；单元测试框架为仓库依据教材原创补写，其他三题补齐实施、风险与度量组织建议。仍缺官方题面、范文和评分细则。"
     },
     {
       "id": "2024-h1-comprehensive",
@@ -1307,7 +1307,7 @@
       "item_count": 4,
       "item_unit": "论题",
       "completeness": "needs_review",
-      "completeness_note": "4 个论题；原/补两版题序和部分题名冲突，当前提示均非官方。",
+      "completeness_note": "4 个论题；BitX 后期全科回忆确认四个主题范围，但题序与首选底稿不同。原/补两版题序和“软件测试”题名冲突继续隔离，当前提示均非官方。",
       "answer_confidence": "low_non_official",
       "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2025年上半年-系统架构设计师-论文.md",
@@ -1320,8 +1320,8 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2025年上半年-系统架构设计师-论文.md",
-          "content_sha256": "89d24922cae616754a35454ea4ed6b34372905c8fd6f4e1c7a51d6345c85d04a",
-          "verified_at": "2026-07-11",
+          "content_sha256": "7324af25887115b9eff253c74bed4717fb7c67217831158a24529cc976467f44",
+          "verified_at": "2026-07-12",
           "item_count": 4,
           "item_unit": "论题"
         },
@@ -1342,7 +1342,7 @@
           "item_unit": "论题"
         }
       ],
-      "notes": "4 个论题；原/补两版题序和部分题名冲突，当前提示均非官方。"
+      "notes": "4 个论题；BitX 后期全科回忆确认四个主题范围，但题序与首选底稿不同。原/补两版题序和“软件测试”题名冲突继续隔离，当前提示均非官方。"
     },
     {
       "id": "2025-h1-comprehensive",
@@ -1351,8 +1351,8 @@
       "subject": "综合知识",
       "item_count": 75,
       "item_unit": "题",
-      "completeness": "needs_review",
-      "completeness_note": "75 题；基于多份公开回忆/解析资料，外部资料并非官方且精确 URL 尚未逐条保存。",
+      "completeness": "complete_structural",
+      "completeness_note": "75 题结构齐；已保存腾讯云、希赛、BitX、huanshare 与软考之家固定 URL。第 43 题作业表已恢复并复算；69 个答案字母交叉比较记录 11 处冲突，仅第 5 题由 B 纠正为 A，其余按教材或技术来源保留。仍无官方原卷/答案。",
       "answer_confidence": "low_non_official",
       "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2025年上半年-系统架构设计师-综合知识.md",
@@ -1365,8 +1365,8 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2025年上半年-系统架构设计师-综合知识.md",
-          "content_sha256": "73f15ee7b8aadc84ec37367fab35bd631a0f9a67d0c627890b5a6051b10b7a8f",
-          "verified_at": "2026-07-11",
+          "content_sha256": "7e68219c4ae4907b46fbdc9bc1b966cbddee253bedbe74a4099d6e40aa9ca06b",
+          "verified_at": "2026-07-12",
           "item_count": 75,
           "item_unit": "题"
         },
@@ -1387,7 +1387,7 @@
           "item_unit": "题"
         }
       ],
-      "notes": "75 题；基于多份公开回忆/解析资料，外部资料并非官方且精确 URL 尚未逐条保存。"
+      "notes": "75 题结构齐；已保存腾讯云、希赛、BitX、huanshare 与软考之家固定 URL。第 43 题作业表已恢复并复算；69 个答案字母交叉比较记录 11 处冲突，仅第 5 题由 B 纠正为 A，其余按教材或技术来源保留。仍无官方原卷/答案。"
     },
     {
       "id": "2025-h2-case-analysis",
