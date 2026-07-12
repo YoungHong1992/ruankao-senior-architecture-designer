@@ -1695,8 +1695,8 @@
       "id": "2024-h2-case-q1-quality-table",
       "path": "02.历年真题-清洗版/2024年下半年-系统架构设计师-案例分析.md",
       "location": "试题一质量属性分类表",
-      "limitation": "考试次日腾讯初始正文和修订只保存 a～e、g、h 的部分格位，并可裁定 b 预填可靠性、c 为（1）；其余行标签发生漂移，未固定（4）～（7）。2025-11-27 后期完整图又在 b/c 位置上冲突，仍缺官方原卷裁决。",
-      "current_handling": "按近时材料裁定 b/c，晚期完整表单独隔离；不把漂移片段与后期行序拼成单一卷面。",
+      "limitation": "考试当天腾讯初始正文和修订只保存 a～e、g、h 的部分格位，并可裁定 b 预填可靠性、c 为（1）、d 为（2）、e 为（3）；其余行标签发生漂移，未固定（4）～（7）。2025-11-27 后期完整图又在 b/c 位置上冲突，仍缺官方原卷裁决。",
+      "current_handling": "按近时材料裁定 b/c 并固定 d/e，晚期完整表单独隔离；不把漂移片段与后期行序拼成单一卷面。",
       "baseline_position_id": null,
       "baseline_mapping": "no_matching_legacy_marker_in_fixed_baseline",
       "disposition": "source_limited",
@@ -1706,7 +1706,7 @@
       "id": "2024-h2-case-q4-nginx-slot",
       "path": "02.历年真题-清洗版/2024年下半年-系统架构设计师-案例分析.md",
       "location": "试题四 Web 架构 Nginx 空位",
-      "limitation": "前端顶部位置及后端预填 Nginx 可确认；腾讯文档考试次日 17:57 与 18:29 的两张考生重构分别记（3）和（7），后期模板另记（8），但无原卷截图可供裁决。",
+      "limitation": "前端顶部位置及后端预填 Nginx 可确认；腾讯文档考试当天 17:57 与 18:29 的两张考生重构分别记（3）和（7），后期模板另记（8），但无原卷截图可供裁决。",
       "current_handling": "恢复共同几何结构，并继续隔离（3）/（7）/（8）三套编号，不指定唯一最强候选。",
       "baseline_position_id": null,
       "baseline_mapping": "no_matching_legacy_marker_in_fixed_baseline",
@@ -1717,8 +1717,8 @@
       "id": "2025-h2-case-q5-3-petri",
       "path": "02.历年真题-清洗版/2025年下半年-系统架构设计师-案例分析.md",
       "location": "试题五问题 3",
-      "limitation": "仅有裁切图 2；只能确认未知库所→T1→P2→T2→未知库所的局部链，缺完整 Petri 网、具体指令和可靠答案，固定页答案栏为“无”。",
-      "current_handling": "完整恢复问题 2 的货物接运网及表格，并逐项记录问题 3 的残片、表 2、固定 Git 历史与公开归档检索边界。",
+      "limitation": "固定题页标注“缺03/此题不全”且答案为“无”；图 2 CDN 对象本身仅 489×229 像素，只能确认未知库所→T1→P2→T2→未知库所的局部链，缺完整 Petri 网、具体指令和可靠答案。",
+      "current_handling": "完整恢复问题 2 的货物接运网及表格，并逐项记录问题 3 的残片、表 2、固定 Git 历史、公开归档，以及公开上游只含试题一至四的 CSDN PDF 候选边界。",
       "baseline_position_id": null,
       "baseline_mapping": "no_matching_legacy_marker_in_fixed_baseline",
       "disposition": "source_limited",
@@ -1742,9 +1742,58 @@
       "document": "https://docs.qq.com/doc/DRlNVSkZLZkZ6eHF6",
       "revision_range": "1..14022",
       "initial_payload_sha256": "6d9f02975257f8673aa933e4d2ae42b678702f99fe6e91c071b8761a715fb256",
-      "new_evidence": "考试次日 17:57 与 18:29 的 Nginx 重构分别采用（3）与（7），未能裁决唯一空号。"
+      "new_evidence": "考试当天 17:57 与 18:29 的 Nginx 重构分别采用（3）与（7），未能裁决唯一空号。"
     },
-    "conclusion": "2026-07-12 使用已登录的官方 GitHub CLI 刷新公开代码索引，并回放腾讯文档公开修订；新增证据纠正了 Nginx 的来源先后，却同时确认（3）/（7）同日冲突，仍未裁决六个来源受限视觉细节。",
+    "additional_public_checks": {
+      "2024_h1_case": {
+        "educity_near_time": "https://www.educity.cn/rk/5314886.html",
+        "csdn_comment_api": "https://blog.csdn.net/phoenix/web/v1/comment/list/139214710?page=1&size=100&commentId=",
+        "comment_id": 33078145,
+        "comment_posted_at": "2024-05-28 16:30:15",
+        "comment_content_sha256": "c7c11f1d440fe1bd14e715d580e20cf95ff3ac976c5ee6dd95f9def0428dbca8",
+        "excluded_bilibili": [
+          {
+            "bvid": "BV1Ez421a7wP",
+            "cid": 1560074606,
+            "published_at": "2024-05-26 16:34:36 +08:00",
+            "sprite_sha256": "122e7636a8354eff5ec6e7fe5ecf4057245aab73d7286a3a1b0256e2eeeddbe4",
+            "scope": "逐帧仅见题型回忆、脑图和网页，无三项原图。"
+          },
+          {
+            "bvid": "BV1b142117Zq",
+            "cid": 1561055256,
+            "published_at": "2024-05-27 09:39:34 +08:00",
+            "sprite_sha256": "2f567f08dddbd13c499364823348b7a2d291cb31df3d0af5cb5b6c33b7e81c91",
+            "scope": "公开课及两份同内容转载只讲综合知识与论文，无案例图。"
+          },
+          {
+            "bvid": "BV1m1421y7ns",
+            "cid": 1566432540,
+            "published_at": "2024-05-31 18:09:49 +08:00",
+            "video_sha256": "e6c33efb22776b05b4d24c3db7559d7ea7772cbd516b7a0eb62d2b43bce3bef3",
+            "scope": "全片只滚动综合知识 1～23 题，末尾网络图不是 AP 图。"
+          }
+        ],
+        "conclusion": "仅确认 UML 序列图消息类型与访客流程填空，无原图、空号或逐空答案。"
+      },
+      "2024_h2_comprehensive": {
+        "same_day_archive": "https://web.archive.org/web/20241110122346id_/https://linux.do/t/topic/255765",
+        "archive_html_sha256": "8b6f0a47ea8c08346859767e56abe6a004125f7401f6f71f82cb1345c5db9d14",
+        "processon": [
+          "https://www.processon.com/view/67322e2161fdee7d750b5399",
+          "https://www.processon.com/view/6732ec25be9d2e22e510e6ad"
+        ],
+        "conclusion": "ProcessOn 将目标题、框架题和分类分级层级题分列，不能按回忆题号拼接；Q67 仍无原卷 A～D 或答案字母。"
+      },
+      "2025_h2_petri": {
+        "question_page_sha256": "49df5d7b17f119a25962bb2719780a64957604d42e1a541be28185d43e1339d1",
+        "clipped_image_dimensions": "489x229",
+        "clipped_image_sha256": "a3da4700f619eb4783c94be638bac4de3fe2e46dc1aca80382fb1e8bcef84a52",
+        "excluded_candidate": "https://download.csdn.net/download/heikeyuit/92647100",
+        "conclusion": "固定图像对象即为裁切版；CSDN 候选的公开上游只列试题一至四，仍无完整问题 3。"
+      }
+    },
+    "conclusion": "2026-07-12 使用已登录的官方 GitHub CLI 刷新公开代码索引，回放腾讯文档公开修订，并复核近时评论、固定网页快照和最后一批 PDF 候选；新增证据纠正了 Nginx 时间口径、固定了三组公开检索终点，却仍未裁决六个来源受限视觉细节。",
     "proof_scope": "零结果只覆盖 GitHub 当时向该账户返回的代码索引，不证明互联网、私有仓库、已删除历史或未索引二进制中不存在材料。"
   },
   "non_original_substitutes": [
