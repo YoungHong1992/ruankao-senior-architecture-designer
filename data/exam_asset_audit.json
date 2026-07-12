@@ -2,13 +2,14 @@
   "schema_version": 2,
   "reviewed_at": "2026-07-12",
   "field_definitions": {
-    "positions": "118 个逐项审计记录；前 116 项来自固定基线标记，后 2 项为终审新增 Q73 与 Q43。",
+    "positions": "120 个逐项审计记录；前 116 项来自固定基线标记，后 4 项为续审新增 2024 上 Q68/Q69、2024 下 Q73 与 2025 上 Q43。",
     "id": "由考试、固定基线行号、标记类型和行内序号组成的稳定唯一标识。",
     "origin": "baseline_marker 表示固定基线标记；additional_review 表示终审新增点位。",
     "baseline_line": "标记在固定基线文件中的 1 基行号；终审新增点位为 null。",
     "marker": "固定基线中的原图未收录/原表未收录标记；终审新增点位为 null。",
     "nearest_question": "标记之前最近的题号或主试题标题。",
     "nearest_heading": "标记之前最近的 Markdown 标题，可能细化到问题或解析小节。",
+    "current_location": "来源校正导致题号移动时记录现行位置；不覆盖固定基线中的历史题号。",
     "context": "基线标记前后相邻非空行组成的截短上下文。",
     "disposition": "现行载体的处理归类，不等同于官方性结论。",
     "proof_scope": "该归类能够证明及不能证明的证据边界。"
@@ -24,6 +25,32 @@
     "description": "固定基线中 22 份 canonical 正文的显式图表缺失标记；索引汇总标记不计入，逐项记录由 git show 直接生成。"
   },
   "additional_positions": [
+    {
+      "id": "2024-h1-comprehensive-q68-table",
+      "origin": "additional_review",
+      "path": "02.历年真题-清洗版/2024年上半年-系统架构设计师-综合知识.md",
+      "baseline_line": null,
+      "marker": null,
+      "nearest_question": "第68题",
+      "nearest_heading": "第68题",
+      "context": "甲、乙乳制品的两类原料消耗、库存与利润跨页表；现行载体已从固定第三方 PDF 第 5～6 页恢复，并完成线性规划计算校核。",
+      "disposition": "recovered_structural",
+      "proof_scope": "现行载体已完成结构化恢复；恢复范围与证据见现行题目来源注，本记录不单独证明其为官方原卷。",
+      "description": "旧基线没有缺表标记；续审发现题干引用表格但正文无载体，并据固定 PDF 恢复和复算。"
+    },
+    {
+      "id": "2024-h1-comprehensive-q69-table",
+      "origin": "additional_review",
+      "path": "02.历年真题-清洗版/2024年上半年-系统架构设计师-综合知识.md",
+      "baseline_line": null,
+      "marker": null,
+      "nearest_question": "第69题",
+      "nearest_heading": "第69题",
+      "context": "A～H 八项作业的紧前关系、工期与用工表；现行载体已从固定第三方 PDF逐格恢复，并记录其资源排程和非官方答案边界。",
+      "disposition": "recovered_structural",
+      "proof_scope": "现行载体已完成结构化恢复；恢复范围与证据见现行题目来源注，本记录不单独证明其为官方原卷。",
+      "description": "旧基线没有缺表标记；续审发现表 1 仍缺失，并据固定 PDF 第 6/22 页恢复和核对。"
+    },
     {
       "id": "2024-h2-comprehensive-q73-table",
       "origin": "additional_review",
@@ -52,19 +79,19 @@
     }
   ],
   "summary": {
-    "total_positions_reviewed": 118,
+    "total_positions_reviewed": 120,
     "baseline_positions": 116,
-    "additional_positions": 2,
+    "additional_positions": 4,
     "files_with_baseline_positions": 22,
     "current_legacy_marker_count": 0,
     "source_limited_visual_items": 6,
     "positions_by_disposition": {
-      "reviewed_current_carrier": 112,
-      "recovered_structural": 5,
+      "reviewed_current_carrier": 111,
+      "recovered_structural": 8,
       "source_limited": 0,
       "non_original_substitute": 1
     },
-    "conclusion": "118 个点位均有逐项载体记录；标记消失只证明载体已处理。语义证据、来源限制和非原版替代边界以现行段落来源注及人工限制清单为准。"
+    "conclusion": "120 个点位均有逐项载体记录；标记消失只证明载体已处理。语义证据、来源限制和非原版替代边界以现行段落来源注及人工限制清单为准。"
   },
   "files": [
     {
@@ -1404,8 +1431,10 @@
       "nearest_question": "第14题",
       "nearest_heading": "第14题",
       "context": "某项目包括A~L共12个作业，其实施的衔接关系如下图所示。图中各作业箭线旁标注了作业名称以及完成该作业所需的天数。求完成此项目最少需要（ ）天 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | - **A.** 26",
-      "disposition": "reviewed_current_carrier",
-      "proof_scope": "标记消失只证明载体已处理，语义证据见现行段落来源注，不单独证明官方性。"
+      "disposition": "recovered_structural",
+      "proof_scope": "现行载体已完成结构化恢复；恢复范围与证据见现行题目来源注，本记录不单独证明其为官方原卷。",
+      "manual_item_id": "2024-h1-comprehensive-q15-network",
+      "current_location": "第15题"
     },
     {
       "id": "2024-h2-case-analysis-baseline-l0072-figure-01",
@@ -1574,6 +1603,32 @@
       "context": "针对热点数据缓存失效，完成采用逻辑过期方案的流程图。 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | #### 问题3（11 分）",
       "disposition": "reviewed_current_carrier",
       "proof_scope": "标记消失只证明载体已处理，语义证据见现行段落来源注，不单独证明官方性。"
+    },
+    {
+      "id": "2024-h1-comprehensive-q68-table",
+      "origin": "additional_review",
+      "path": "02.历年真题-清洗版/2024年上半年-系统架构设计师-综合知识.md",
+      "baseline_line": null,
+      "marker": null,
+      "nearest_question": "第68题",
+      "nearest_heading": "第68题",
+      "context": "甲、乙乳制品的两类原料消耗、库存与利润跨页表；现行载体已从固定第三方 PDF 第 5～6 页恢复，并完成线性规划计算校核。",
+      "disposition": "recovered_structural",
+      "proof_scope": "现行载体已完成结构化恢复；恢复范围与证据见现行题目来源注，本记录不单独证明其为官方原卷。",
+      "description": "旧基线没有缺表标记；续审发现题干引用表格但正文无载体，并据固定 PDF 恢复和复算。"
+    },
+    {
+      "id": "2024-h1-comprehensive-q69-table",
+      "origin": "additional_review",
+      "path": "02.历年真题-清洗版/2024年上半年-系统架构设计师-综合知识.md",
+      "baseline_line": null,
+      "marker": null,
+      "nearest_question": "第69题",
+      "nearest_heading": "第69题",
+      "context": "A～H 八项作业的紧前关系、工期与用工表；现行载体已从固定第三方 PDF逐格恢复，并记录其资源排程和非官方答案边界。",
+      "disposition": "recovered_structural",
+      "proof_scope": "现行载体已完成结构化恢复；恢复范围与证据见现行题目来源注，本记录不单独证明其为官方原卷。",
+      "description": "旧基线没有缺表标记；续审发现表 1 仍缺失，并据固定 PDF 第 6/22 页恢复和核对。"
     },
     {
       "id": "2024-h2-comprehensive-q73-table",

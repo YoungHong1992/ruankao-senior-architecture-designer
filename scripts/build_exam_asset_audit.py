@@ -64,6 +64,9 @@ PATH_2018_H2_COMPREHENSIVE = (
 PATH_2019_H2_ESSAY = "02.历年真题-清洗版/2019年下半年-系统架构设计师-论文.md"
 PATH_2020_H2_ESSAY = "02.历年真题-清洗版/2020年下半年-系统架构设计师-论文.md"
 PATH_2024_H1_CASE = "02.历年真题-清洗版/2024年上半年-系统架构设计师-案例分析.md"
+PATH_2024_H1_COMPREHENSIVE = (
+    "02.历年真题-清洗版/2024年上半年-系统架构设计师-综合知识.md"
+)
 PATH_2024_H2_CASE = "02.历年真题-清洗版/2024年下半年-系统架构设计师-案例分析.md"
 
 # The six current manual limitations do not map one-to-one to the fixed legacy
@@ -79,6 +82,14 @@ RECOVERED_BINDINGS = {
     (PATH_2018_H2_COMPREHENSIVE, 19): "2018-h2-comprehensive-q1-table",
     (PATH_2020_H2_ESSAY, 69): "2020-h2-essay-q2-cloud-native-diagram-marker",
     (PATH_2020_H2_ESSAY, 71): "2020-h2-essay-q2-cloud-native-source-marker",
+    (PATH_2024_H1_COMPREHENSIVE, 182): "2024-h1-comprehensive-q15-network",
+}
+
+# Baseline headings are immutable provenance.  When a later source-backed
+# correction moves a carrier, record the current location separately instead
+# of rewriting the historical nearest_question/nearest_heading values.
+CURRENT_LOCATION_OVERRIDES = {
+    (PATH_2024_H1_COMPREHENSIVE, 182): "第15题",
 }
 
 PROOF_SCOPES = {
@@ -207,6 +218,38 @@ NON_ORIGINAL_SUBSTITUTES = [
 ]
 
 ADDITIONAL_POSITIONS = [
+    {
+        "id": "2024-h1-comprehensive-q68-table",
+        "origin": "additional_review",
+        "path": "02.历年真题-清洗版/2024年上半年-系统架构设计师-综合知识.md",
+        "baseline_line": None,
+        "marker": None,
+        "nearest_question": "第68题",
+        "nearest_heading": "第68题",
+        "context": (
+            "甲、乙乳制品的两类原料消耗、库存与利润跨页表；现行载体已从固定"
+            "第三方 PDF 第 5～6 页恢复，并完成线性规划计算校核。"
+        ),
+        "disposition": "recovered_structural",
+        "proof_scope": PROOF_SCOPES["recovered_structural"],
+        "description": "旧基线没有缺表标记；续审发现题干引用表格但正文无载体，并据固定 PDF 恢复和复算。",
+    },
+    {
+        "id": "2024-h1-comprehensive-q69-table",
+        "origin": "additional_review",
+        "path": "02.历年真题-清洗版/2024年上半年-系统架构设计师-综合知识.md",
+        "baseline_line": None,
+        "marker": None,
+        "nearest_question": "第69题",
+        "nearest_heading": "第69题",
+        "context": (
+            "A～H 八项作业的紧前关系、工期与用工表；现行载体已从固定第三方 PDF"
+            "逐格恢复，并记录其资源排程和非官方答案边界。"
+        ),
+        "disposition": "recovered_structural",
+        "proof_scope": PROOF_SCOPES["recovered_structural"],
+        "description": "旧基线没有缺表标记；续审发现表 1 仍缺失，并据固定 PDF 第 6/22 页恢复和核对。",
+    },
     {
         "id": "2024-h2-comprehensive-q73-table",
         "origin": "additional_review",
@@ -366,6 +409,11 @@ def baseline_records() -> list[dict[str, object]]:
                 }
                 if manual_item_id:
                     record["manual_item_id"] = manual_item_id
+                current_location = CURRENT_LOCATION_OVERRIDES.get(
+                    (relative_path, line_number)
+                )
+                if current_location:
+                    record["current_location"] = current_location
                 records.append(record)
     return records
 
@@ -408,8 +456,8 @@ def validate_records(
         raise AssertionError("expected file baseline counts to sum to 116")
     if len(baseline) != 116:
         raise AssertionError(f"expected 116 baseline records, found {len(baseline)}")
-    if len(positions) != 118:
-        raise AssertionError(f"expected 116 + 2 = 118 records, found {len(positions)}")
+    if len(positions) != 120:
+        raise AssertionError(f"expected 116 + 4 = 120 records, found {len(positions)}")
 
     ids = [str(record["id"]) for record in positions]
     if len(ids) != len(set(ids)):
@@ -482,8 +530,8 @@ def build_audit() -> dict[str, object]:
 
     disposition_counts = Counter(str(record["disposition"]) for record in positions)
     expected_dispositions = {
-        "reviewed_current_carrier": 112,
-        "recovered_structural": 5,
+        "reviewed_current_carrier": 111,
+        "recovered_structural": 8,
         "non_original_substitute": 1,
     }
     if dict(disposition_counts) != expected_dispositions:
@@ -505,13 +553,14 @@ def build_audit() -> dict[str, object]:
         "schema_version": 2,
         "reviewed_at": REVIEWED_AT,
         "field_definitions": {
-            "positions": "118 个逐项审计记录；前 116 项来自固定基线标记，后 2 项为终审新增 Q73 与 Q43。",
+            "positions": "120 个逐项审计记录；前 116 项来自固定基线标记，后 4 项为续审新增 2024 上 Q68/Q69、2024 下 Q73 与 2025 上 Q43。",
             "id": "由考试、固定基线行号、标记类型和行内序号组成的稳定唯一标识。",
             "origin": "baseline_marker 表示固定基线标记；additional_review 表示终审新增点位。",
             "baseline_line": "标记在固定基线文件中的 1 基行号；终审新增点位为 null。",
             "marker": "固定基线中的原图未收录/原表未收录标记；终审新增点位为 null。",
             "nearest_question": "标记之前最近的题号或主试题标题。",
             "nearest_heading": "标记之前最近的 Markdown 标题，可能细化到问题或解析小节。",
+            "current_location": "来源校正导致题号移动时记录现行位置；不覆盖固定基线中的历史题号。",
             "context": "基线标记前后相邻非空行组成的截短上下文。",
             "disposition": "现行载体的处理归类，不等同于官方性结论。",
             "proof_scope": "该归类能够证明及不能证明的证据边界。",
@@ -538,7 +587,7 @@ def build_audit() -> dict[str, object]:
             "source_limited_visual_items": len(source_limited),
             "positions_by_disposition": disposition_summary,
             "conclusion": (
-                "118 个点位均有逐项载体记录；标记消失只证明载体已处理。"
+                "120 个点位均有逐项载体记录；标记消失只证明载体已处理。"
                 "语义证据、来源限制和非原版替代边界以现行段落来源注及人工限制清单为准。"
             ),
         },
@@ -574,11 +623,11 @@ def main() -> int:
         if current != content:
             print(f"ERROR: {OUTPUT_PATH.relative_to(ROOT)} is not reproducible", file=sys.stderr)
             return 1
-        print("exam asset audit is reproducible: 116 baseline + 2 additional = 118 records")
+        print("exam asset audit is reproducible: 116 baseline + 4 additional = 120 records")
         return 0
 
     OUTPUT_PATH.write_text(content, encoding="utf-8", newline="\n")
-    print(f"wrote {OUTPUT_PATH.relative_to(ROOT)}: 118 item-level records")
+    print(f"wrote {OUTPUT_PATH.relative_to(ROOT)}: 120 item-level records")
     return 0
 
 

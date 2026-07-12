@@ -54,6 +54,20 @@ MAIN_QUESTION_HEADING_RE = re.compile(
     re.MULTILINE,
 )
 OPTION_RE = re.compile(r"^-\s+\*\*[A-D]\.\*\*", re.MULTILINE)
+UNTRACKED_ASSET_DEBT_RE = re.compile(
+    r"待复核[：:].{0,120}(?:缺少|缺失)(?:表|图)|当前仅保留题面、选项与答案"
+)
+VISUAL_CUE_RE = re.compile(r"如下表|下表|见表\s*\d+|下图|见图\s*\d+|如图\s*\d+")
+STRUCTURED_ASSET_CARRIERS = (
+    "|---",
+    "```mermaid",
+    "<svg",
+    "$$",
+    "**图示",
+    "**结构化",
+    "**表格",
+    "完整结构化重绘见",
+)
 CHINESE_NUMERALS = {
     "一": 1,
     "二": 2,
@@ -841,6 +855,13 @@ class Validator:
         directory = ROOT / "02.历年真题-清洗版"
         for path in sorted(directory.glob("*综合知识*.md")):
             text = self.read_text(path) or ""
+            unresolved_match = UNTRACKED_ASSET_DEBT_RE.search(text)
+            if unresolved_match:
+                self.error(
+                    path,
+                    "contains an untracked unresolved asset phrase: "
+                    + unresolved_match.group(0),
+                )
             total_match = EXAM_COUNT_RE.search(text)
             if not total_match:
                 self.error(path, "missing 题目数量 metadata")
@@ -849,13 +870,27 @@ class Validator:
             answers = len(ANSWER_RE.findall(text))
             if declared != answers:
                 self.error(path, f"declares {declared} questions but has {answers} answers")
-            numbers = [int(value) for value in QUESTION_HEADING_RE.findall(text)]
+            question_matches = list(QUESTION_HEADING_RE.finditer(text))
+            numbers = [int(match.group(1)) for match in question_matches]
             expected = list(range(1, declared + 1))
             if numbers != expected:
                 self.error(
                     path,
                     f"question headings must be continuous {expected}, found {numbers}",
                 )
+            for index, question_match in enumerate(question_matches):
+                end = (
+                    question_matches[index + 1].start()
+                    if index + 1 < len(question_matches)
+                    else len(text)
+                )
+                block = text[question_match.start() : end]
+                cue = VISUAL_CUE_RE.search(block)
+                if cue and not any(carrier in block for carrier in STRUCTURED_ASSET_CARRIERS):
+                    self.error(
+                        path,
+                        f"question {question_match.group(1)} cites {cue.group(0)!r} without a structured carrier",
+                    )
             options = len(OPTION_RE.findall(text))
             if options != declared * 4:
                 self.error(
@@ -958,10 +993,10 @@ class Validator:
         if not isinstance(positions, list):
             self.error(EXAM_ASSET_AUDIT_PATH, "positions must be an array")
             positions = []
-        elif len(positions) != 118:
+        elif len(positions) != 120:
             self.error(
                 EXAM_ASSET_AUDIT_PATH,
-                f"expected 118 item-level positions, found {len(positions)}",
+                f"expected 120 item-level positions, found {len(positions)}",
             )
         position_fields = {
             "id",
@@ -1045,10 +1080,10 @@ class Validator:
                 EXAM_ASSET_AUDIT_PATH,
                 f"expected 116 baseline position records, found {baseline_record_count}",
             )
-        if additional_record_count != 2:
+        if additional_record_count != 4:
             self.error(
                 EXAM_ASSET_AUDIT_PATH,
-                f"expected two additional position records, found {additional_record_count}",
+                f"expected four additional position records, found {additional_record_count}",
             )
         for relative_path, expected_count in expected_counts_by_path.items():
             actual_count = position_path_counts.get(relative_path, 0)
@@ -1058,8 +1093,8 @@ class Validator:
                     f"{relative_path}: positions has {actual_count}, expected {expected_count}",
                 )
         additional = audit.get("additional_positions")
-        if not isinstance(additional, list) or len(additional) != 2:
-            self.error(EXAM_ASSET_AUDIT_PATH, "expected two additional positions")
+        if not isinstance(additional, list) or len(additional) != 4:
+            self.error(EXAM_ASSET_AUDIT_PATH, "expected four additional positions")
             additional = []
         limited = audit.get("source_limited_visual_items")
         if not isinstance(limited, list) or len(limited) != 6:
