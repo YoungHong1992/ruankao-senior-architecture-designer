@@ -8,7 +8,7 @@
   },
   "archive_policy": {
     "repository_url": "https://github.com/YoungHong1992/ruankao-senior-architecture-designer",
-    "snapshot_commit": "52c2609737e160c2dd9185381e60ecafbcdb179b",
+    "snapshot_commit": "203c619334fbc575ed89029a01692e64040759ec",
     "snapshot_verified_at": "2026-07-12",
     "blob_url_template": "https://github.com/YoungHong1992/ruankao-senior-architecture-designer/blob/{commit}/{path}",
     "coverage": "all_90_source_versions",
@@ -1001,7 +1001,7 @@
       "item_count": 5,
       "item_unit": "大题",
       "completeness": "partial",
-      "completeness_note": "部分：5 题结构齐；试题一约车平台效用树、问题 2 六空及试题五 GIS 架构已据固定第三方 PDF 结构化恢复；固定 PDF 混入的 2015 年可靠性旧题已隔离。试题二已分别保留 2024-05-27 近时点 UML 回忆图与后期培训 PDF 结构/候选答案，两者在生命线、请求处理节点和消息编号上冲突，未合并为唯一答案。试题四 DDS/SOME-IP 分配与 AP 流程仍只有二手教学示意，原卷空号和精确几何待官方来源。",
+      "completeness_note": "部分：5 题结构齐；试题一约车平台效用树、问题 2 六空及试题五 GIS 架构已据固定第三方 PDF 结构化恢复；固定 PDF 混入的 2015 年可靠性旧题已隔离。试题二已分别保留 2024-05-27 近时点 UML 回忆图与后期培训 PDF 结构/候选答案，两者在生命线、请求处理节点和消息编号上冲突。试题四通信图已按同日近时参考逐边纠正，AP 六空框图的 9 条箭头也已恢复；仍缺通信题具体六空位置、AP 原卷空号和官方答案。",
       "answer_confidence": "low_non_official",
       "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2024年上半年-系统架构设计师-案例分析.md",
@@ -1014,7 +1014,7 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2024年上半年-系统架构设计师-案例分析.md",
-          "content_sha256": "3121cec49e20fd62e4484ae964021ff017ba12cfb599a978f9b6f32323b6c32a",
+          "content_sha256": "96ff60382ad56d2e871662e44721626324906e8708ae0be442405f27e16b550a",
           "verified_at": "2026-07-12",
           "item_count": 5,
           "item_unit": "大题"
@@ -1036,7 +1036,7 @@
           "item_unit": "大题"
         }
       ],
-      "notes": "部分：5 题结构齐；试题一约车平台效用树、问题 2 六空及试题五 GIS 架构已据固定第三方 PDF 结构化恢复；固定 PDF 混入的 2015 年可靠性旧题已隔离。试题二已分别保留 2024-05-27 近时点 UML 回忆图与后期培训 PDF 结构/候选答案，两者在生命线、请求处理节点和消息编号上冲突，未合并为唯一答案。试题四 DDS/SOME-IP 分配与 AP 流程仍只有二手教学示意，原卷空号和精确几何待官方来源。"
+      "notes": "部分：5 题结构齐；试题一约车平台效用树、问题 2 六空及试题五 GIS 架构已据固定第三方 PDF 结构化恢复；固定 PDF 混入的 2015 年可靠性旧题已隔离。试题二已分别保留 2024-05-27 近时点 UML 回忆图与后期培训 PDF 结构/候选答案，两者在生命线、请求处理节点和消息编号上冲突。试题四通信图已按同日近时参考逐边纠正，AP 六空框图的 9 条箭头也已恢复；仍缺通信题具体六空位置、AP 原卷空号和官方答案。"
     },
     {
       "id": "2024-h1-essay",
@@ -1136,7 +1136,7 @@
       "item_count": 5,
       "item_unit": "大题",
       "completeness": "partial",
-      "completeness_note": "部分：5 题、14 个子问题结构齐；Cache-Aside 读写、ROS 2 通信与分层、Web 架构和故障树已据固定公开来源结构化恢复。质量属性分类表已并列后期完整结构版与较早回忆版，两者的预填/空号位置冲突；Nginx 几何可确认在前端服务提供者顶部且后端为预填，但前端空号存在（3）/（8）两版。ROS 分值冲突及试题四完整背景仍待官方来源裁决。",
+      "completeness_note": "部分：5 题、14 个子问题结构齐；Cache-Aside 读写、ROS 2 通信与分层、Web 架构和故障树已据固定公开来源结构化恢复。考试当天/次日材料未保存质量表精确格位，2025 年两版 b/c 位置仍冲突；Nginx 几何可确认在前端服务提供者顶部且后端为预填，最早可核编号和另一固定 Git 重构偏向（3），更晚版记（8），无原卷故未裁决。ROS 分值冲突及试题四完整背景仍待官方来源。",
       "answer_confidence": "low_non_official",
       "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2024年下半年-系统架构设计师-案例分析.md",
@@ -1149,7 +1149,7 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2024年下半年-系统架构设计师-案例分析.md",
-          "content_sha256": "a4011911ccbf1999af909919e0a499a3e4aad7336fc8d5c08e9a2ed6466e35d6",
+          "content_sha256": "78df6668ea0eabef5f47788a150dcec7a7a0dd00711075157198da0a2832544f",
           "verified_at": "2026-07-12",
           "item_count": 5,
           "item_unit": "大题"
@@ -1171,7 +1171,7 @@
           "item_unit": "大题"
         }
       ],
-      "notes": "部分：5 题、14 个子问题结构齐；Cache-Aside 读写、ROS 2 通信与分层、Web 架构和故障树已据固定公开来源结构化恢复。质量属性分类表已并列后期完整结构版与较早回忆版，两者的预填/空号位置冲突；Nginx 几何可确认在前端服务提供者顶部且后端为预填，但前端空号存在（3）/（8）两版。ROS 分值冲突及试题四完整背景仍待官方来源裁决。"
+      "notes": "部分：5 题、14 个子问题结构齐；Cache-Aside 读写、ROS 2 通信与分层、Web 架构和故障树已据固定公开来源结构化恢复。考试当天/次日材料未保存质量表精确格位，2025 年两版 b/c 位置仍冲突；Nginx 几何可确认在前端服务提供者顶部且后端为预填，最早可核编号和另一固定 Git 重构偏向（3），更晚版记（8），无原卷故未裁决。ROS 分值冲突及试题四完整背景仍待官方来源。"
     },
     {
       "id": "2024-h2-essay",
@@ -1397,7 +1397,7 @@
       "item_count": 5,
       "item_unit": "大题",
       "completeness": "partial",
-      "completeness_note": "部分：5 题已由固定公开回忆页恢复；AIOS 第三问、缓存流程、试题四 11 空架构图、试题五表 1、完整货物接运 Petri 网及问题 3 表 2 已结构化恢复；试题五问题 3 仍只有裁切图 2 片段，缺完整 Petri 网、具体题面和可靠答案，固定页答案栏仅为“无”，经固定 GitHub commit/blob 与多批次搜索仍不可裁决。",
+      "completeness_note": "部分：5 题已由固定公开回忆页恢复；AIOS 第三问、缓存流程、试题四 11 空架构图、试题五表 1、完整货物接运 Petri 网及问题 3 表 2 已结构化恢复。问题 3 裁切图只能确认“未知库所→T1→P2→T2→未知库所”局部链，缺完整网、具体题面和可靠答案；固定页答案栏为“无”，经固定 Git 历史、公开网页和归档检索仍不可裁决。",
       "answer_confidence": "low_non_official",
       "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2025年下半年-系统架构设计师-案例分析.md",
@@ -1410,7 +1410,7 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2025年下半年-系统架构设计师-案例分析.md",
-          "content_sha256": "14ba5c2b53d443202febcf61462935723f4a39fdf467b1bdc75ea2e54fe896fd",
+          "content_sha256": "96a035a7ffb7dd4b79ab48cc5374677b33f929500bf7009d1fe3722e39b662e6",
           "verified_at": "2026-07-12",
           "item_count": 5,
           "item_unit": "大题"
@@ -1432,7 +1432,7 @@
           "item_unit": "大题"
         }
       ],
-      "notes": "部分：5 题已由固定公开回忆页恢复；AIOS 第三问、缓存流程、试题四 11 空架构图、试题五表 1、完整货物接运 Petri 网及问题 3 表 2 已结构化恢复；试题五问题 3 仍只有裁切图 2 片段，缺完整 Petri 网、具体题面和可靠答案，固定页答案栏仅为“无”，经固定 GitHub commit/blob 与多批次搜索仍不可裁决。"
+      "notes": "部分：5 题已由固定公开回忆页恢复；AIOS 第三问、缓存流程、试题四 11 空架构图、试题五表 1、完整货物接运 Petri 网及问题 3 表 2 已结构化恢复。问题 3 裁切图只能确认“未知库所→T1→P2→T2→未知库所”局部链，缺完整网、具体题面和可靠答案；固定页答案栏为“无”，经固定 Git 历史、公开网页和归档检索仍不可裁决。"
     },
     {
       "id": "2025-h2-essay",
