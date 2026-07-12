@@ -8,7 +8,7 @@
   },
   "archive_policy": {
     "repository_url": "https://github.com/YoungHong1992/ruankao-senior-architecture-designer",
-    "snapshot_commit": "2c750146156515daaa054d4d64ab07fcd3224f94",
+    "snapshot_commit": "02ffa54267a375cb0af45201b09261d09e3fe7d4",
     "snapshot_verified_at": "2026-07-12",
     "blob_url_template": "https://github.com/YoungHong1992/ruankao-senior-architecture-designer/blob/{commit}/{path}",
     "coverage": "all_90_source_versions",
@@ -24,8 +24,8 @@
       "description": "17 组同名原始版/补充版均已逐组保留为独立版本；证据不足时不强行选定权威正文，不自动拼接、覆盖或去重。"
     },
     "outcome_summary": {
-      "complete_structural": 31,
-      "needs_review": 1,
+      "complete_structural": 32,
+      "needs_review": 0,
       "partial": 4,
       "medium_non_official_answers": 9,
       "low_non_official_answers": 27,
@@ -62,7 +62,7 @@
       "label": "清洗交叉校对版",
       "root": "02.历年真题-清洗版",
       "official": false,
-      "description": "36 份唯一试卷均已有标准名首选稿并完成现有证据范围终审；另保留 2023 年下半年综合知识 A65 独立备选。终审结论仍保留 partial、needs_review、非官方答案和来源冲突，不是官方题库或官方答案。"
+      "description": "36 份唯一试卷均已有标准名首选稿并完成现有证据范围终审；另保留 2023 年下半年综合知识 A65 独立备选。终审结论仍保留 partial、非官方答案和来源冲突，不是官方题库或官方答案。"
     }
   },
   "exams": [
@@ -1014,7 +1014,7 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2024年上半年-系统架构设计师-案例分析.md",
-          "content_sha256": "96ff60382ad56d2e871662e44721626324906e8708ae0be442405f27e16b550a",
+          "content_sha256": "c4d8c481fac88f2acd135d161ceb577cfb5a29c713debfad9398f89c030a17fc",
           "verified_at": "2026-07-12",
           "item_count": 5,
           "item_unit": "大题"
@@ -1136,7 +1136,7 @@
       "item_count": 5,
       "item_unit": "大题",
       "completeness": "partial",
-      "completeness_note": "部分：5 题、14 个子问题结构齐；考试次日腾讯文档已裁定质量表 b 为预填可靠性、c 为第（1）空，并恢复 Web 题的 Elasticsearch/微信小程序背景及 6/12/7 分值。同期手绘图支持（7）=Nginx 为最强候选，后期（8）模板与（3）重构继续隔离。质量表其余精确格位、ROS 分值和完整原题仍不可裁决。",
+      "completeness_note": "部分：5 题、14 个子问题结构齐；考试次日腾讯文档已裁定质量表 b 为预填可靠性、c 为第（1）空，并恢复 Web 题的 Elasticsearch/微信小程序背景及 6/12/7 分值；ROS 内容—分值也按近时顺序采用 12/8/5，RKPass 的 13/8/7 因合计 28 分而隔离。同日 17:57 数字化重构与 18:29 手绘重构分别支持（3）/（7）=Nginx，后期另有（8）模板，因此不指定唯一空号。质量表其余精确格位和完整原题/原图仍不可裁决。",
       "answer_confidence": "low_non_official",
       "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2024年下半年-系统架构设计师-案例分析.md",
@@ -1149,7 +1149,7 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2024年下半年-系统架构设计师-案例分析.md",
-          "content_sha256": "17fa53ee775500d397100e04228f830f79dc6b6d76fde8546399616712351952",
+          "content_sha256": "af02258dd4947c9a0e3f4b5b0542181c8310ca225f2baca56ab79a747e972097",
           "verified_at": "2026-07-12",
           "item_count": 5,
           "item_unit": "大题"
@@ -1171,7 +1171,7 @@
           "item_unit": "大题"
         }
       ],
-      "notes": "部分：5 题、14 个子问题结构齐；考试次日腾讯文档已裁定质量表 b 为预填可靠性、c 为第（1）空，并恢复 Web 题的 Elasticsearch/微信小程序背景及 6/12/7 分值。同期手绘图支持（7）=Nginx 为最强候选，后期（8）模板与（3）重构继续隔离。质量表其余精确格位、ROS 分值和完整原题仍不可裁决。"
+      "notes": "部分：5 题、14 个子问题结构齐；考试次日腾讯文档已裁定质量表 b 为预填可靠性、c 为第（1）空，并恢复 Web 题的 Elasticsearch/微信小程序背景及 6/12/7 分值；ROS 内容—分值也按近时顺序采用 12/8/5，RKPass 的 13/8/7 因合计 28 分而隔离。同日 17:57 数字化重构与 18:29 手绘重构分别支持（3）/（7）=Nginx，后期另有（8）模板，因此不指定唯一空号。质量表其余精确格位和完整原题/原图仍不可裁决。"
     },
     {
       "id": "2024-h2-essay",
@@ -1226,7 +1226,7 @@
       "item_count": 75,
       "item_unit": "题",
       "completeness": "partial",
-      "completeness_note": "75 题结构齐；第 67 题的“合规性检查、用户权限、安全测试”联合短语由固定 GitHub/RKPass 片段及两份考试次日 ProcessOn 回忆交叉支持为非官方回忆答案，但原卷 A～D、答案字母和官方答案仍未恢复；第 73 题完整表格、选项和答案已由固定公开回忆页恢复并完成计算校核，另一公开版本的冲突已隔离。",
+      "completeness_note": "75 题结构齐；第 67 题的“合规性检查、用户权限、安全测试”联合短语由固定 GitHub/RKPass 片段、两份考试次日 ProcessOn 回忆及腾讯同日修订交叉支持为非官方回忆答案；腾讯参与者同时写明“还有一个不记得”，反证原卷 A～D、答案字母和官方答案仍未恢复。第 73 题完整表格、选项和答案已由固定公开回忆页恢复并完成计算校核，另一公开版本的冲突已隔离。",
       "answer_confidence": "low_non_official",
       "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2024年下半年-系统架构设计师-综合知识.md",
@@ -1239,7 +1239,7 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2024年下半年-系统架构设计师-综合知识.md",
-          "content_sha256": "355abb5d94858e5d845f68c0956eaeccbffd81a4fba73155cc01320db8895b7d",
+          "content_sha256": "cbbc06d481bd21dc93975554b83881daa21aa23780c518c2c5127a4285e17dbf",
           "verified_at": "2026-07-12",
           "item_count": 75,
           "item_unit": "题"
@@ -1261,7 +1261,7 @@
           "item_unit": "题"
         }
       ],
-      "notes": "75 题结构齐；第 67 题的“合规性检查、用户权限、安全测试”联合短语由固定 GitHub/RKPass 片段及两份考试次日 ProcessOn 回忆交叉支持为非官方回忆答案，但原卷 A～D、答案字母和官方答案仍未恢复；第 73 题完整表格、选项和答案已由固定公开回忆页恢复并完成计算校核，另一公开版本的冲突已隔离。"
+      "notes": "75 题结构齐；第 67 题的“合规性检查、用户权限、安全测试”联合短语由固定 GitHub/RKPass 片段、两份考试次日 ProcessOn 回忆及腾讯同日修订交叉支持为非官方回忆答案；腾讯参与者同时写明“还有一个不记得”，反证原卷 A～D、答案字母和官方答案仍未恢复。第 73 题完整表格、选项和答案已由固定公开回忆页恢复并完成计算校核，另一公开版本的冲突已隔离。"
     },
     {
       "id": "2025-h1-case-analysis",
@@ -1486,8 +1486,8 @@
       "subject": "综合知识",
       "item_count": 75,
       "item_unit": "题",
-      "completeness": "needs_review",
-      "completeness_note": "75 个题目成员已整理齐；当前第 1～64 题有考后次日腾讯文档录屏及独立 64 题序列支持，但 Educity/HQWX 另一近时第 1～31 题序列存在真实冲突，第 65～75 题也缺少单一完整有序定版源。继续保留待复核，不能把当前顺序称为官方题序。",
+      "completeness": "complete_structural",
+      "completeness_note": "75 个题目位置已整理齐；当前第 1～64 题有考后次日腾讯文档录屏及独立 64 题序列支持，2026-03-29 后期 73 题页（缺第 7、8 题）也以相同顺序连续保存第 65～75 题。但 Educity/HQWX 另一近时第 1～31 题序列从第 6 题起冲突，后期页多题异文且第 69 题缺 A～D；结构齐只指本稿载体，不代表当前题序或文字已获官方裁决。",
       "answer_confidence": "low_non_official",
       "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2025年下半年-系统架构设计师-综合知识.md",
@@ -1500,7 +1500,7 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2025年下半年-系统架构设计师-综合知识.md",
-          "content_sha256": "5ca3e6cd035c32da297a2b26e6a0700ced22179fa77d834c1915df0d1ecae859",
+          "content_sha256": "0f13b516aa1a174c0520ab1c8f185d93f7716a10720395274f7dcabcf4375e21",
           "verified_at": "2026-07-11",
           "item_count": 75,
           "item_unit": "题"
@@ -1522,7 +1522,7 @@
           "item_unit": "题"
         }
       ],
-      "notes": "75 个题目成员已整理齐；当前第 1～64 题有考后次日腾讯文档录屏及独立 64 题序列支持，但 Educity/HQWX 另一近时第 1～31 题序列存在真实冲突，第 65～75 题也缺少单一完整有序定版源。继续保留待复核，不能把当前顺序称为官方题序。"
+      "notes": "75 个题目位置已整理齐；当前第 1～64 题有考后次日腾讯文档录屏及独立 64 题序列支持，2026-03-29 后期 73 题页（缺第 7、8 题）也以相同顺序连续保存第 65～75 题。但 Educity/HQWX 另一近时第 1～31 题序列从第 6 题起冲突，后期页多题异文且第 69 题缺 A～D；结构齐只指本稿载体，不代表当前题序或文字已获官方裁决。"
     }
   ]
 }

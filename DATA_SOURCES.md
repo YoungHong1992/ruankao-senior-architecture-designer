@@ -40,7 +40,7 @@
 
 `data/exams.json` 的 90 条 `source_versions` 均记录 `content_sha256` 和 `verified_at`。校验值采用 `utf8_bom_stripped_lf` 规则：以 UTF-8（允许 BOM）解码并去除 BOM，将 CRLF 和孤立 CR 统一为 LF，再以无 BOM UTF-8 编码计算 SHA-256。这样 Windows 与 Linux 的换行差异不会产生不同校验值，验证脚本会对每条记录重新计算并拒绝内容不一致、路径错配或重复映射。
 
-清单 schema v3 另记录统一固定归档策略：90 条版本路径均固定在 GitHub 提交 `2c750146156515daaa054d4d64ab07fcd3224f94`，逐版本归档地址由 `archive_policy.blob_url_template` 代入提交号与路径得到。本地已逐条以该提交中的 Git blob 重算规范化 SHA-256，结果为 90/90 一致。固定仓库快照解决“保存的是哪一版文本”的可定位性，但不反向证明历史来源 URL、首次取得日期、官方身份或再分发许可；这些信息未知时仍明确保持未知。
+清单 schema v3 另记录统一固定归档策略：90 条版本路径均固定在 GitHub 提交 `02ffa54267a375cb0af45201b09261d09e3fe7d4`，逐版本归档地址由 `archive_policy.blob_url_template` 代入提交号与路径得到。本地已逐条以该提交中的 Git blob 重算规范化 SHA-256，结果为 90/90 一致。固定仓库快照解决“保存的是哪一版文本”的可定位性，但不反向证明历史来源 URL、首次取得日期、官方身份或再分发许可；这些信息未知时仍明确保持未知。
 
 初始真题图、表、公式点位的处理账本位于 [`data/exam_asset_audit.json`](data/exam_asset_audit.json)：固定基线提交中的 116 个正文标记，加续审中新发现的 2024 年上半年综合知识第 68、69 题、2024 年下半年综合知识第 73 题与 2025 年上半年综合知识第 43 题四处缺表，共 120 条逐项记录；每项保存稳定 ID、基线行、最近题号/标题、处置和证据边界，可由 [`scripts/build_exam_asset_audit.py`](scripts/build_exam_asset_audit.py) 确定性重建。其中 2024 上 A～L 网络图的固定基线位置仍保留历史“第 14 题”，并另记纠正后的现行位置“第 15 题”；6 个仍受公开来源限制的视觉细节单独列出。标记消失只证明载体已处理，不替代语义与官方性判断。
 
