@@ -9,7 +9,7 @@
     "marker": "固定基线中的原图未收录/原表未收录标记；终审新增点位为 null。",
     "nearest_question": "标记之前最近的题号或主试题标题。",
     "nearest_heading": "标记之前最近的 Markdown 标题，可能细化到问题或解析小节。",
-    "current_location": "来源校正导致题号移动时记录现行位置；不覆盖固定基线中的历史题号。",
+    "current_location": "来源校正导致题号移动、标题改写或内容被勘误排除时记录现行位置；不覆盖固定基线中的历史题号与标题。",
     "context": "基线标记前后相邻非空行组成的截短上下文。",
     "disposition": "现行载体的处理归类，不等同于官方性结论。",
     "proof_scope": "该归类能够证明及不能证明的证据边界。"
@@ -1384,7 +1384,8 @@
       "nearest_heading": "问题2（6 分）",
       "context": "完成质量效用树填空。 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | #### 问题3（12 分）",
       "disposition": "reviewed_current_carrier",
-      "proof_scope": "标记消失只证明载体已处理，语义证据见现行段落来源注，不单独证明官方性。"
+      "proof_scope": "标记消失只证明载体已处理，语义证据见现行段落来源注，不单独证明官方性。",
+      "current_location": "试题一（25 分）：软件架构设计与评估 · 问题 2（12 分）"
     },
     {
       "id": "2024-h1-case-analysis-baseline-l0148-figure-01",
@@ -1396,7 +1397,8 @@
       "nearest_heading": "问题1（11 分）",
       "context": "- （G）MySQL | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | #### 问题2（10 分）",
       "disposition": "reviewed_current_carrier",
-      "proof_scope": "标记消失只证明载体已处理，语义证据见现行段落来源注，不单独证明官方性。"
+      "proof_scope": "标记消失只证明载体已处理，语义证据见现行段落来源注，不单独证明官方性。",
+      "current_location": "试题五（25 分）：GIS 大数据架构与数据存储 · 问题 1（7 分）"
     },
     {
       "id": "2024-h1-case-analysis-baseline-l0201-figure-01",
@@ -1408,7 +1410,8 @@
       "nearest_heading": "问题2（8 分）",
       "context": "说明硬件可靠性特征与对应软件可靠性特征的差异或相似之处，并完成题中比较表。 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | #### 问题3（8 分）",
       "disposition": "reviewed_current_carrier",
-      "proof_scope": "标记消失只证明载体已处理，语义证据见现行段落来源注，不单独证明官方性。"
+      "proof_scope": "标记消失只证明载体已处理，语义证据见现行段落来源注，不单独证明官方性。",
+      "current_location": "文件头“重要勘误”（旧“试题四：嵌入式系统可靠性设计”经勘误为 2015 年误归题，已排除）"
     },
     {
       "id": "2024-h1-case-analysis-baseline-l0209-figure-01",
@@ -1420,7 +1423,8 @@
       "nearest_heading": "问题3（8 分）",
       "context": "软件可靠性设计包括恢复块方法和 N 版本程序设计方法。根据恢复块方法的工作原理完成图中（1）～（4），并比较恢复块方法与 N 版本程序设计方法，完成表中（5）～（8）。 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | ### 参考答案（非官方）",
       "disposition": "reviewed_current_carrier",
-      "proof_scope": "标记消失只证明载体已处理，语义证据见现行段落来源注，不单独证明官方性。"
+      "proof_scope": "标记消失只证明载体已处理，语义证据见现行段落来源注，不单独证明官方性。",
+      "current_location": "文件头“重要勘误”（旧“试题四：嵌入式系统可靠性设计”经勘误为 2015 年误归题，已排除）"
     },
     {
       "id": "2024-h1-comprehensive-baseline-l0182-figure-01",
@@ -1446,7 +1450,8 @@
       "nearest_heading": "问题1（10 分）",
       "context": "完成 Cache-Aside 读取流程图，图中涉及读取请求、缓存和数据库。 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | #### 问题2（6 分）",
       "disposition": "reviewed_current_carrier",
-      "proof_scope": "标记消失只证明载体已处理，语义证据见现行段落来源注，不单独证明官方性。"
+      "proof_scope": "标记消失只证明载体已处理，语义证据见现行段落来源注，不单独证明官方性。",
+      "current_location": "试题二（25 分）：Cache-Aside 缓存架构 · 问题 1（10 分）"
     },
     {
       "id": "2024-h2-case-analysis-baseline-l0078-figure-01",
@@ -1458,7 +1463,8 @@
       "nearest_heading": "问题2（6 分）",
       "context": "完成 Cache-Aside 写入流程图，图中涉及写入请求、数据库和缓存。 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | #### 问题3（9 分）",
       "disposition": "reviewed_current_carrier",
-      "proof_scope": "标记消失只证明载体已处理，语义证据见现行段落来源注，不单独证明官方性。"
+      "proof_scope": "标记消失只证明载体已处理，语义证据见现行段落来源注，不单独证明官方性。",
+      "current_location": "试题二（25 分）：Cache-Aside 缓存架构 · 问题 2（6 分）"
     },
     {
       "id": "2024-h2-case-analysis-baseline-l0100-figure-01",
@@ -1470,7 +1476,8 @@
       "nearest_heading": "问题2",
       "context": "#### 问题2 | 底稿先写成“更新数据库后删除缓存”，随后又改称“把数据库中更新的商品信息写入缓存”，两种表述相互冲突。由于原图未收录，本文件不替二者作选择，正确流程需回查原卷。 | #### 问题3",
       "disposition": "reviewed_current_carrier",
-      "proof_scope": "标记消失只证明载体已处理，语义证据见现行段落来源注，不单独证明官方性。"
+      "proof_scope": "标记消失只证明载体已处理，语义证据见现行段落来源注，不单独证明官方性。",
+      "current_location": "试题二（25 分）：Cache-Aside 缓存架构 · 问题 2（6 分）及文件头“清洗勘误与来源差异”"
     },
     {
       "id": "2024-h2-case-analysis-baseline-l0139-figure-01",
@@ -1482,7 +1489,8 @@
       "nearest_heading": "问题3（底稿记为 7 分）",
       "context": "根据题图解释 ROS 2 架构各层的含义。 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | ### 参考答案与解析（非官方）",
       "disposition": "reviewed_current_carrier",
-      "proof_scope": "标记消失只证明载体已处理，语义证据见现行段落来源注，不单独证明官方性。"
+      "proof_scope": "标记消失只证明载体已处理，语义证据见现行段落来源注，不单独证明官方性。",
+      "current_location": "试题三（25 分）：机器人操作系统 ROS 2 · 问题 3（5 分）"
     },
     {
       "id": "2024-h2-case-analysis-baseline-l0176-figure-01",
@@ -1494,7 +1502,8 @@
       "nearest_heading": "问题2（12 分）",
       "context": "完成系统架构图中的层次和支撑框架填空，底稿称共有 8 个空。回忆到的选项包括接入层、显示层、应用层、业务逻辑层、控制层、数据层，以及 MyBatis、Nginx、Flink、JavaScript、N… | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | #### 问题3（7 分）",
       "disposition": "reviewed_current_carrier",
-      "proof_scope": "标记消失只证明载体已处理，语义证据见现行段落来源注，不单独证明官方性。"
+      "proof_scope": "标记消失只证明载体已处理，语义证据见现行段落来源注，不单独证明官方性。",
+      "current_location": "试题四（25 分）：Elasticsearch 分词与 Web 架构 · 问题 2（12 分）"
     },
     {
       "id": "2024-h2-case-analysis-baseline-l0214-figure-01",
@@ -1506,7 +1515,8 @@
       "nearest_heading": "问题2（9 分）",
       "context": "完成胰岛素系统安全分析图填空。 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | #### 问题3（6 分）",
       "disposition": "reviewed_current_carrier",
-      "proof_scope": "标记消失只证明载体已处理，语义证据见现行段落来源注，不单独证明官方性。"
+      "proof_scope": "标记消失只证明载体已处理，语义证据见现行段落来源注，不单独证明官方性。",
+      "current_location": "试题五（25 分）：安全关键系统与胰岛素泵 · 问题 2（9 分）"
     },
     {
       "id": "2025-h1-case-analysis-baseline-l0048-figure-01",
@@ -1578,7 +1588,8 @@
       "nearest_heading": "问题2（11 分）",
       "context": "> **题面状态：** 底稿称选项范围为（a）～（n），但实际只保留（a）～（m），选项（n）缺失。 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | #### 问题3（8 分）",
       "disposition": "reviewed_current_carrier",
-      "proof_scope": "标记消失只证明载体已处理，语义证据见现行段落来源注，不单独证明官方性。"
+      "proof_scope": "标记消失只证明载体已处理，语义证据见现行段落来源注，不单独证明官方性。",
+      "current_location": "试题四：云端—终端混合餐饮服务系统（25 分） · 问题2（11 分）"
     },
     {
       "id": "2025-h2-case-analysis-baseline-l0171-figure-01",
@@ -1590,7 +1601,8 @@
       "nearest_heading": "问题1（6 分）",
       "context": "针对热点数据缓存失效，完成基于互斥锁的缓存实现流程图。 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | #### 问题2（8 分）",
       "disposition": "reviewed_current_carrier",
-      "proof_scope": "标记消失只证明载体已处理，语义证据见现行段落来源注，不单独证明官方性。"
+      "proof_scope": "标记消失只证明载体已处理，语义证据见现行段落来源注，不单独证明官方性。",
+      "current_location": "试题三：Redis 热点缓存失效处理（25 分） · 问题1（10 分）"
     },
     {
       "id": "2025-h2-case-analysis-baseline-l0177-figure-01",
@@ -1602,7 +1614,8 @@
       "nearest_heading": "问题2（8 分）",
       "context": "针对热点数据缓存失效，完成采用逻辑过期方案的流程图。 | > **图表状态：** 原图未收录；本段信息不完整，需回查原书或可靠来源。 | #### 问题3（11 分）",
       "disposition": "reviewed_current_carrier",
-      "proof_scope": "标记消失只证明载体已处理，语义证据见现行段落来源注，不单独证明官方性。"
+      "proof_scope": "标记消失只证明载体已处理，语义证据见现行段落来源注，不单独证明官方性。",
+      "current_location": "试题三：Redis 热点缓存失效处理（25 分） · 问题2（10 分）"
     },
     {
       "id": "2024-h1-comprehensive-q68-table",

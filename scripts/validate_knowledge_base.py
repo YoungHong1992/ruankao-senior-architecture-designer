@@ -36,10 +36,18 @@ TEXTBOOK_AUDIT_PATH = ROOT / "data" / "textbook_audit.json"
 MASTER_INDEX_PATH = ROOT / "02.历年真题总索引.md"
 CLEAN_EXAM_INDEX_PATH = ROOT / "02.历年真题-清洗版" / "INDEX.md"
 
+# Unbracketed link targets may contain one level of balanced parentheses so
+# that paths like ../02.历年真题(补充)/x.md parse without angle brackets;
+# unbalanced parentheses still fail to match and surface as broken links.
 LINK_RE = re.compile(
-    r"!?\[[^\]]*\]\((?P<target><[^>]+>|[^\s)]+)(?:\s+[\"'][^)]*[\"'])?\)"
+    r"!?\[[^\]]*\]\((?P<target><[^>]+>|[^\s()]+(?:\([^\s()]*\)[^\s()]*)*)"
+    r"(?:\s+[\"'][^)]*[\"'])?\)"
 )
 HEADING_RE = re.compile(r"^(#{1,6})\s+")
+# CommonMark fenced code blocks: backtick or tilde fences of length >= 3,
+# indented by at most three spaces.  A fence closes only with the same marker
+# character at a length >= the opening run.
+FENCE_RE = re.compile(r"^ {0,3}(`{3,}|~{3,})")
 EXAM_NAME_RE = re.compile(
     r"^(?P<year>\d{4})年(?P<session>上半年|下半年)-系统架构设计师-"
     r"(?P<subject>综合知识|案例分析|论文)\.md$"
@@ -125,6 +133,24 @@ ANSWER_CONFIDENCE_INDEX_LABELS = {
     "no_answer": "无可用答案",
 }
 
+# Directories that never contain knowledge-base content.  rglob does not read
+# .gitignore, so these (notably .venv/, which local uv environments create
+# inside the project) must be excluded explicitly to keep local runs identical
+# to CI.
+EXCLUDED_DIR_NAMES = frozenset(
+    {
+        ".git",
+        ".venv",
+        "venv",
+        "node_modules",
+        "tmp",
+        "__pycache__",
+        ".idea",
+        ".vscode",
+        ".claude",
+    }
+)
+
 
 class Validator:
     def __init__(self) -> None:
@@ -165,7 +191,7 @@ class Validator:
         return sorted(
             path
             for path in ROOT.rglob("*.md")
-            if ".git" not in path.parts
+            if EXCLUDED_DIR_NAMES.isdisjoint(path.parts)
         )
 
     def check_markdown_file(self, path: Path) -> None:
@@ -177,30 +203,41 @@ class Validator:
             return
 
         lines = text.splitlines()
-        if sum(1 for line in lines if line.startswith("```")) % 2:
-            self.error(path, "unbalanced fenced code block")
-
-        in_fence = False
-        previous_level = 0
+        fence_char = ""
+        fence_length = 0
+        # The first heading may be H1 or H2 (the exam-outline clean files
+        # legitimately start at H2); anything deeper is a jump from the
+        # implicit document root.
+        previous_level = 1
         check_heading_jumps = any(
             path.is_relative_to(ROOT / directory) for directory in CLEAN_DIRS
         )
         for line_number, line in enumerate(lines, start=1):
-            if line.startswith("```"):
-                in_fence = not in_fence
+            fence_match = FENCE_RE.match(line)
+            if fence_match:
+                marker = fence_match.group(1)
+                if fence_char:
+                    if marker[0] == fence_char and len(marker) >= fence_length:
+                        fence_char = ""
+                        fence_length = 0
+                else:
+                    fence_char = marker[0]
+                    fence_length = len(marker)
                 continue
-            if in_fence:
+            if fence_char:
                 continue
             match = HEADING_RE.match(line)
             if not match:
                 continue
             level = len(match.group(1))
-            if check_heading_jumps and previous_level and level > previous_level + 1:
+            if check_heading_jumps and level > previous_level + 1:
                 self.error(
                     path,
                     f"heading level jumps H{previous_level}->H{level} at line {line_number}",
                 )
             previous_level = level
+        if fence_char:
+            self.error(path, "unbalanced fenced code block")
 
         for match in LINK_RE.finditer(text):
             raw_target = match.group("target").strip("<>")
@@ -466,8 +503,16 @@ class Validator:
             if missing:
                 self.error(MANIFEST_PATH, f"exam #{position} missing fields: {sorted(missing)}")
                 continue
-            valid_exams.append(exam)
             exam_id = str(exam["id"])
+            try:
+                key = (int(exam["year"]), str(exam["session"]), str(exam["subject"]))
+            except (TypeError, ValueError) as exc:
+                self.error(
+                    MANIFEST_PATH,
+                    f"{exam_id}: invalid year/session/subject metadata ({exc})",
+                )
+                continue
+            valid_exams.append(exam)
             if exam.get("clean_status") != EXAM_CLEAN_STATUS:
                 self.error(
                     MANIFEST_PATH,
@@ -476,7 +521,6 @@ class Validator:
             if exam_id in ids:
                 self.error(MANIFEST_PATH, f"duplicate exam id: {exam_id}")
             ids.add(exam_id)
-            key = (int(exam["year"]), str(exam["session"]), str(exam["subject"]))
             if key in manifest_keys:
                 self.error(MANIFEST_PATH, f"duplicate canonical exam: {key}")
             manifest_keys.add(key)

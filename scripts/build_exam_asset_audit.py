@@ -68,6 +68,7 @@ PATH_2024_H1_COMPREHENSIVE = (
     "02.历年真题-清洗版/2024年上半年-系统架构设计师-综合知识.md"
 )
 PATH_2024_H2_CASE = "02.历年真题-清洗版/2024年下半年-系统架构设计师-案例分析.md"
+PATH_2025_H2_CASE = "02.历年真题-清洗版/2025年下半年-系统架构设计师-案例分析.md"
 
 # The six current manual limitations do not map one-to-one to the fixed legacy
 # markers.  In particular, the legacy lines at 2024 H1 L201/L209 describe the
@@ -87,9 +88,37 @@ RECOVERED_BINDINGS = {
 
 # Baseline headings are immutable provenance.  When a later source-backed
 # correction moves a carrier, record the current location separately instead
-# of rewriting the historical nearest_question/nearest_heading values.
+# of rewriting the historical nearest_question/nearest_heading values.  The
+# same applies when a current-file rewrite renames the question heading or
+# moves the topic to another question slot: nearest_question stays anchored
+# to the fixed baseline, current_location points at the current carrier.
 CURRENT_LOCATION_OVERRIDES = {
     (PATH_2024_H1_COMPREHENSIVE, 182): "第15题",
+    # 2024 H1 案例分析：基线标题为“试题一：……（25 分，回忆片段）”，现行标题
+    # 改为“试题一（25 分）：……”；效用树载体在现行问题 2 的 Mermaid 转写中。
+    (PATH_2024_H1_CASE, 33): "试题一（25 分）：软件架构设计与评估 · 问题 2（12 分）",
+    # 基线“试题三：Web 架构与数据存储”经来源校正后改为现行试题五的 GIS 题；
+    # （G）MySQL 选项与（4）MySQL 节点均在现行试题五问题 1。
+    (PATH_2024_H1_CASE, 148): "试题五（25 分）：GIS 大数据架构与数据存储 · 问题 1（7 分）",
+    # 基线“试题四：嵌入式系统可靠性设计”经勘误确认为 2015 年宇航可靠性误归题，
+    # 现行版本排除该题；载体为文件头“重要勘误”说明。
+    (PATH_2024_H1_CASE, 201): "文件头“重要勘误”（旧“试题四：嵌入式系统可靠性设计”经勘误为 2015 年误归题，已排除）",
+    (PATH_2024_H1_CASE, 209): "文件头“重要勘误”（旧“试题四：嵌入式系统可靠性设计”经勘误为 2015 年误归题，已排除）",
+    # 2024 H2 案例分析：基线标题带“（25 分，回忆片段）”后缀，现行标题改写；
+    # 读/写流程图分别恢复在现行试题二问题 1、问题 2。
+    (PATH_2024_H2_CASE, 72): "试题二（25 分）：Cache-Aside 缓存架构 · 问题 1（10 分）",
+    (PATH_2024_H2_CASE, 78): "试题二（25 分）：Cache-Aside 缓存架构 · 问题 2（6 分）",
+    # 基线记录的写流程两种冲突表述已在现行问题 2 恢复，并在文件头
+    # “清洗勘误与来源差异”中裁定。
+    (PATH_2024_H2_CASE, 100): "试题二（25 分）：Cache-Aside 缓存架构 · 问题 2（6 分）及文件头“清洗勘误与来源差异”",
+    (PATH_2024_H2_CASE, 139): "试题三（25 分）：机器人操作系统 ROS 2 · 问题 3（5 分）",
+    (PATH_2024_H2_CASE, 176): "试题四（25 分）：Elasticsearch 分词与 Web 架构 · 问题 2（12 分）",
+    (PATH_2024_H2_CASE, 214): "试题五（25 分）：安全关键系统与胰岛素泵 · 问题 2（9 分）",
+    # 2025 H2 案例分析：基线“试题二：分布式 Web 点餐系统”经来源校正后移至
+    # 现行试题四；互斥锁与逻辑过期流程图分别在现行试题三问题 1、问题 2。
+    (PATH_2025_H2_CASE, 125): "试题四：云端—终端混合餐饮服务系统（25 分） · 问题2（11 分）",
+    (PATH_2025_H2_CASE, 171): "试题三：Redis 热点缓存失效处理（25 分） · 问题1（10 分）",
+    (PATH_2025_H2_CASE, 177): "试题三：Redis 热点缓存失效处理（25 分） · 问题2（10 分）",
 }
 
 PROOF_SCOPES = {
@@ -617,7 +646,7 @@ def build_audit() -> dict[str, object]:
             "marker": "固定基线中的原图未收录/原表未收录标记；终审新增点位为 null。",
             "nearest_question": "标记之前最近的题号或主试题标题。",
             "nearest_heading": "标记之前最近的 Markdown 标题，可能细化到问题或解析小节。",
-            "current_location": "来源校正导致题号移动时记录现行位置；不覆盖固定基线中的历史题号。",
+            "current_location": "来源校正导致题号移动、标题改写或内容被勘误排除时记录现行位置；不覆盖固定基线中的历史题号与标题。",
             "context": "基线标记前后相邻非空行组成的截短上下文。",
             "disposition": "现行载体的处理归类，不等同于官方性结论。",
             "proof_scope": "该归类能够证明及不能证明的证据边界。",

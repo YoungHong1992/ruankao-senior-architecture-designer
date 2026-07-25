@@ -2,8 +2,15 @@
 """Build a reproducible page-level audit for the locally held tutorial PDF.
 
 This helper is intentionally not part of CI because the copyrighted source PDF is
-not stored in the repository. It requires pypdf and writes only measurements and
-source hashes, never extracted textbook text or scanned pages.
+not stored in the repository. It requires the pinned pypdf release declared in
+PYPDF_VERSION below, because pypdf's text extraction output (and therefore the
+committed n-gram coverage measurements) can change between releases.  Install
+the pinned release with:
+
+    uv pip install pypdf==6.14.2
+
+The script writes only measurements and source hashes, never extracted textbook
+text or scanned pages.
 """
 
 from __future__ import annotations
@@ -18,10 +25,19 @@ import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
+# The committed data/textbook_audit.json embeds pypdf extract_text() output, so
+# the generation toolchain is pinned.  Regenerating with any other pypdf release
+# is rejected up front instead of producing a silently divergent audit.
+PYPDF_VERSION = "6.14.2"
+
 try:
+    import pypdf
     from pypdf import PdfReader
 except ImportError as exc:  # pragma: no cover - depends on the local audit runtime
-    raise SystemExit("pypdf is required: install it or use the bundled Codex runtime") from exc
+    raise SystemExit(
+        f"pypdf {PYPDF_VERSION} is required: "
+        f"uv pip install pypdf=={PYPDF_VERSION}"
+    ) from exc
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -469,6 +485,17 @@ def run_git(*args: str) -> str:
     return process.stdout.decode("utf-8-sig")
 
 
+def git_succeeds(*args: str) -> bool:
+    process = subprocess.run(
+        ["git", *args],
+        cwd=ROOT,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+        check=False,
+    )
+    return process.returncode == 0
+
+
 def baseline_text(path: Path) -> str:
     relative_path = path.relative_to(ROOT).as_posix()
     return run_git("show", f"{BASELINE_COMMIT}:{relative_path}")
@@ -650,6 +677,7 @@ def build_baseline_marker_records() -> list[dict[str, object]]:
                         "nearest_asset_title": asset_title or f"表 {number}（由状态行展开）",
                         "content_impact": "critical_content_incomplete",
                         "expansion_basis": expansion_basis,
+                        "baseline_table_numbers": list(table_numbers),
                         "context": short_context(lines, line_index, f"表 {number}"),
                         "proof_scope": BASELINE_PROOF_SCOPE,
                     }
@@ -845,16 +873,25 @@ def ngram_coverage(source: str, target: str, width: int) -> float:
 
 def unique_numbers(texts: list[str], kind: str) -> set[str]:
     pattern = re.compile(rf"{kind}\s*(\d{{1,2}})\s*[-—]\s*(\d{{1,2}})")
-    return {f"{left}-{right}" for text in texts for left, right in pattern.findall(text)}
+    # Normalize with int() so zero-padded references (e.g. 图 2-04) match the
+    # canonical "2-4" form used by number_from_match everywhere else.
+    return {
+        f"{int(left)}-{int(right)}"
+        for text in texts
+        for left, right in pattern.findall(text)
+    }
 
 
 def independent_numbers(text: str, kind: str) -> set[str]:
-    prefix = r">\s*(?:\*\*)?" if kind == "图" else r"(?:>\s*)?(?:\*\*)?"
+    # Keep the same leading-whitespace tolerance as MARKDOWN_CARRIER_PATTERNS
+    # (which is applied per line, so it uses \s; here [ \t] avoids crossing
+    # line boundaries under re.MULTILINE).
+    prefix = r"[ \t]*>\s*(?:\*\*)?" if kind == "图" else r"[ \t]*(?:>\s*)?(?:\*\*)?"
     pattern = re.compile(
         rf"^{prefix}{kind}\s*(\d{{1,2}})\s*[-—]\s*(\d{{1,2}})",
         re.MULTILINE,
     )
-    return {f"{left}-{right}" for left, right in pattern.findall(text)}
+    return {f"{int(left)}-{int(right)}" for left, right in pattern.findall(text)}
 
 
 def table_structure_risks(text: str) -> list[dict[str, object]]:
@@ -963,22 +1000,24 @@ def historical_spliced_table_investigation(
     table_risks: list[dict[str, object]],
     table_inventory: list[dict[str, object]],
 ) -> dict[str, object]:
-    history = run_git(
-        "log",
-        "--all",
-        "--reverse",
-        "--format=%H",
-        "-Sreported_spliced_table_positions",
-        "--",
-        "scripts/audit_textbook_pdf.py",
-        "data/textbook_audit.json",
-        "scripts/validate_knowledge_base.py",
-    ).splitlines()
-    # Later governance commits can legitimately add another occurrence of the
-    # field name.  The provenance claim is only that the oldest -S hit is the
-    # commit where the scalar count first appeared.
-    if not history or history[0] != HISTORICAL_COUNT_COMMIT:
-        raise AssertionError(f"unexpected history for reported count: {history}")
+    # The provenance claim must not depend on clone topology: `git log --all`
+    # ordering changes with single-branch/shallow clones and with extra refs.
+    # Instead verify that the pinned historical commit exists in this object
+    # database and is an ancestor of HEAD, then re-check the recorded field
+    # locations directly against that commit.
+    if not git_succeeds("cat-file", "-e", f"{HISTORICAL_COUNT_COMMIT}^{{commit}}"):
+        raise SystemExit(
+            f"historical count commit {HISTORICAL_COUNT_COMMIT} is not present "
+            "in this clone; fetch the full history (git fetch --unshallow or "
+            "actions/checkout fetch-depth: 0) before running the audit"
+        )
+    if not git_succeeds(
+        "merge-base", "--is-ancestor", HISTORICAL_COUNT_COMMIT, "HEAD"
+    ):
+        raise SystemExit(
+            f"historical count commit {HISTORICAL_COUNT_COMMIT} is not an "
+            "ancestor of HEAD; the audit must run on a descendant checkout"
+        )
 
     count_locations = []
     for relative_path in (
@@ -1102,6 +1141,18 @@ def historical_spliced_table_investigation(
         "count_first_recorded_in_commit": HISTORICAL_COUNT_COMMIT,
         "count_field_locations_in_that_commit": count_locations,
         "commit_diff_contains_14_item_manifest": False,
+        "reported_positions_origin": (
+            f"数值 14 首次写入仓库于 {HISTORICAL_COUNT_COMMIT}"
+            "（2026-07-12，“fix: complete textbook and audit coverage”）。该提交在"
+            " scripts/audit_textbook_pdf.py、data/textbook_audit.json 与"
+            " scripts/validate_knowledge_base.py 同步加入"
+            " reported_spliced_table_positions=14，并在 debt_scope 描述中说明其属于"
+            "“原 296 项资产债口径”（272 图 + 2 公式 + 8 张缺失或部分表 + 至少 14 张"
+            "拼栏表）。更早的仓库提交不存在该口径，14 的直接出处即该提交转述的历史"
+            "审计结论；提交差异未保存这 14 张表的逐项 ID。现行 15 张是此后以固定基线"
+            "压平文本、PDF 表号页和现行管道表三重证据独立重建的保守集合，数量上覆盖"
+            "“至少 14 张”下限，但不声称与原报告恰好选择的 14 张逐一相同。"
+        ),
         "baseline_explicit_shifted_table_numbers_in_separate_8_item_category": (
             explicitly_named_shifted
         ),
@@ -1129,6 +1180,17 @@ def historical_spliced_table_investigation(
 def build_audit(
     pdf_path: Path, reviewed_at: str, width: int, manual_review_completed: bool
 ) -> dict[str, object]:
+    if pypdf.__version__ != PYPDF_VERSION:
+        raise SystemExit(
+            f"ERROR: pypdf {PYPDF_VERSION} is required to reproduce the committed "
+            f"audit, but {pypdf.__version__} is installed; install the pinned "
+            f"release with: uv pip install pypdf=={PYPDF_VERSION}"
+        )
+    if len(CHAPTER_FILES) != 20:
+        raise SystemExit(
+            f"ERROR: expected 20 clean chapter files under {CLEAN_DIR}, found "
+            f"{len(CHAPTER_FILES)}; run this script from the repository checkout"
+        )
     resolved_baseline = run_git("rev-parse", f"{BASELINE_COMMIT}^{{commit}}").strip()
     if resolved_baseline != BASELINE_COMMIT:
         raise SystemExit(f"unexpected baseline commit: {resolved_baseline}")
@@ -1485,6 +1547,10 @@ def build_audit(
                 "固定提交中 272 个缺图标记与展开后的 8 个缺失/部分表位置。"
             ),
             "nearest_asset_number": "标记之前最近的图号，或表格状态行明确列出的表号。",
+            "baseline_table_numbers": (
+                "表格记录所在基线状态行展开覆盖的全部表号；共享同一状态行的多条记录"
+                "通过该字段即可互相定位，逐条回溯无需人工对应表号。"
+            ),
             "pdf_reference_pages": "官方 PDF 内容页文本层中出现该图表号的物理页集合。",
             "markdown_carrier_lines": "现行 canonical Markdown 中独立图题或表题的 1 基行号。",
             "status": "编号级当前载体状态；不等同于语义或像素级复核结论。",
@@ -1708,12 +1774,16 @@ def main() -> int:
         help="verify that the output JSON exactly matches a live PDF/baseline rerun",
     )
     args = parser.parse_args()
-    audit = build_audit(
-        args.pdf.resolve(),
-        args.reviewed_at,
-        args.ngram_width,
-        args.manual_review_completed,
-    )
+    try:
+        audit = build_audit(
+            args.pdf.resolve(),
+            args.reviewed_at,
+            args.ngram_width,
+            args.manual_review_completed,
+        )
+    except (AssertionError, OSError, UnicodeError) as exc:
+        print(f"ERROR: {exc}", file=sys.stderr)
+        return 1
     rendered = json.dumps(audit, ensure_ascii=False, indent=2) + "\n"
     if args.check:
         current = (
