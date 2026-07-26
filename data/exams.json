@@ -1,6 +1,50 @@
 {
-  "schema_version": 1,
-  "updated_at": "2026-07-11",
+  "schema_version": 3,
+  "updated_at": "2026-07-12",
+  "integrity_policy": {
+    "algorithm": "sha256",
+    "normalization": "utf8_bom_stripped_lf",
+    "description": "以 UTF-8（允许 BOM）解码，去除 BOM，将 CRLF 和孤立 CR 统一为 LF，再以无 BOM UTF-8 编码计算 SHA-256。"
+  },
+  "archive_policy": {
+    "repository_url": "https://github.com/YoungHong1992/ruankao-senior-architecture-designer",
+    "snapshot_commit": "1e38caed22502ea0accf24dfbbdb2fc89d55c049",
+    "snapshot_verified_at": "2026-07-12",
+    "blob_url_template": "https://github.com/YoungHong1992/ruankao-senior-architecture-designer/blob/{commit}/{path}",
+    "coverage": "all_90_source_versions",
+    "description": "每条 source_versions.path 均可代入 blob_url_template，并使用 snapshot_commit 形成固定仓库快照地址；该快照固定仓库保存的文本，不反向证明其最初外部 URL、取得日期、官方性或许可。"
+  },
+  "review_policy": {
+    "status": "source_limited_terminal_review",
+    "reviewed_at": "2026-07-12",
+    "canonical_exam_count": 36,
+    "conflict_disposition": {
+      "same_name_conflict_count": 17,
+      "status": "retained_separate_source_limited",
+      "description": "17 组同名原始版/补充版均已逐组保留为独立版本；证据不足时不强行选定权威正文，不自动拼接、覆盖或去重。"
+    },
+    "outcome_summary": {
+      "complete_structural": 32,
+      "needs_review": 0,
+      "partial": 4,
+      "medium_non_official_answers": 9,
+      "low_non_official_answers": 27,
+      "official_or_high_confidence_answers": 0
+    },
+    "scope": [
+      "题量与题号结构",
+      "选项与答案槽位",
+      "现存图表公式及缺失位置",
+      "来源版本冲突隔离",
+      "manifest 与两份索引一致性"
+    ],
+    "excludes": [
+      "官方原卷身份认证",
+      "官方标准答案与评分细则",
+      "公开材料无法支持的缺失题面或图形细节"
+    ],
+    "description": "终审完成表示已在仓库材料和已记录公开证据范围内逐卷审计，并不把非官方回忆材料升级为官方或高可信来源；每卷结果仍由 completeness、answer_confidence、same_name_conflict 和 notes 表达。"
+  },
   "source_catalog": {
     "local_original": {
       "label": "本地原始版",
@@ -18,7 +62,7 @@
       "label": "清洗交叉校对版",
       "root": "02.历年真题-清洗版",
       "official": false,
-      "description": "36 份唯一试卷均已有标准名首轮结构清洗稿；另保留 2023 年下半年综合知识 A65 独立备选。所有清洗稿仍需复核，不是官方题库或官方答案。"
+      "description": "36 份唯一试卷均已有标准名首选稿并完成现有证据范围终审；另保留 2023 年下半年综合知识 A65 独立备选。终审结论仍保留 partial、非官方答案和来源冲突，不是官方题库或官方答案。"
     }
   },
   "exams": [
@@ -30,9 +74,9 @@
       "item_count": 5,
       "item_unit": "大题",
       "completeness": "complete_structural",
-      "completeness_note": "5 题结构齐；原图、原表缺失，试题五问题 2、3 的备选项未收录，未依据答案反推。",
+      "completeness_note": "5 题结构齐；9 处原图、原表已依据固定非官方 PDF 作结构化转录，未纳入扫描图；试题五两处非官方答案版本冲突未裁决，仍待官方原卷核对。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2016年下半年-系统架构设计师-案例分析.md",
       "alternatives": [
         "02.历年真题/2016年下半年-系统架构设计师-案例分析.md"
@@ -42,17 +86,21 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2016年下半年-系统架构设计师-案例分析.md",
+          "content_sha256": "a96ac59adcd14cfe2f6bd0615a1bc0d59d4cc1529851a9974d9da26e0fba0541",
+          "verified_at": "2026-07-11",
           "item_count": 5,
           "item_unit": "大题"
         },
         {
           "source_id": "local_original",
           "path": "02.历年真题/2016年下半年-系统架构设计师-案例分析.md",
+          "content_sha256": "1fccc75c4d4c23f8988fd7ce82e9c77bba9a6e2efe6e617a852e31eb9ede2717",
+          "verified_at": "2026-07-11",
           "item_count": 5,
           "item_unit": "大题"
         }
       ],
-      "notes": "5 题结构齐；原图、原表缺失，试题五问题 2、3 的备选项未收录，未依据答案反推。"
+      "notes": "5 题结构齐；9 处原图、原表已依据固定非官方 PDF 作结构化转录，未纳入扫描图；试题五两处非官方答案版本冲突未裁决，仍待官方原卷核对。"
     },
     {
       "id": "2016-h2-essay",
@@ -64,7 +112,7 @@
       "completeness": "complete_structural",
       "completeness_note": "4 个论题结构齐；备考提示来自非官方底稿，未提供官方范文与评分细则。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2016年下半年-系统架构设计师-论文.md",
       "alternatives": [
         "02.历年真题/2016年下半年-系统架构设计师-论文.md"
@@ -74,12 +122,16 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2016年下半年-系统架构设计师-论文.md",
+          "content_sha256": "63291d6fd6710a5e45db5002deb5f1a43627e137bcca15240a1d46479aa4048b",
+          "verified_at": "2026-07-11",
           "item_count": 4,
           "item_unit": "论题"
         },
         {
           "source_id": "local_original",
           "path": "02.历年真题/2016年下半年-系统架构设计师-论文.md",
+          "content_sha256": "bb1d3c79efbce7ce37099d54daf143ea866a07b247acc27d16d7d7d818ff933e",
+          "verified_at": "2026-07-11",
           "item_count": 4,
           "item_unit": "论题"
         }
@@ -94,9 +146,9 @@
       "item_count": 75,
       "item_unit": "题",
       "completeness": "complete_structural",
-      "completeness_note": "75 题；第 6、7、8、69 题缺图表或公式，第 6 题选项公式为空，第 3 题无解析。",
+      "completeness_note": "75 题结构齐；第 6 题公式与流水线、第 7～8 题双缓冲结构、第 69 题投资效益表已由固定公开资料结构化恢复；第 3 题源文件无解析，题面和答案仍非官方。",
       "answer_confidence": "medium_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2016年下半年-系统架构设计师-综合知识.md",
       "alternatives": [
         "02.历年真题/2016年下半年-系统架构设计师-综合知识.md"
@@ -106,17 +158,21 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2016年下半年-系统架构设计师-综合知识.md",
+          "content_sha256": "f611e90470966315b5420d14f87c659b3e333189c1566ac6e789fe3ec80956e3",
+          "verified_at": "2026-07-11",
           "item_count": 75,
           "item_unit": "题"
         },
         {
           "source_id": "local_original",
           "path": "02.历年真题/2016年下半年-系统架构设计师-综合知识.md",
+          "content_sha256": "4b10999c641308f67d9654412ba1d5aa335e99888b2a0cc1d7c12ceb3a3cd1cf",
+          "verified_at": "2026-07-11",
           "item_count": 75,
           "item_unit": "题"
         }
       ],
-      "notes": "75 题；第 6、7、8、69 题缺图表或公式，第 6 题选项公式为空，第 3 题无解析。"
+      "notes": "75 题结构齐；第 6 题公式与流水线、第 7～8 题双缓冲结构、第 69 题投资效益表已由固定公开资料结构化恢复；第 3 题源文件无解析，题面和答案仍非官方。"
     },
     {
       "id": "2017-h2-case-analysis",
@@ -126,9 +182,9 @@
       "item_count": 5,
       "item_unit": "大题",
       "completeness": "complete_structural",
-      "completeness_note": "5 题结构齐；原图、原表缺失，试题一问题 1 未保留六个填空的明确映射。",
+      "completeness_note": "5 题结构齐；6 处题图、原表已据固定第三方 PDF 恢复为结构化转录，非原图、非官方；图 2-1 与图 5-1 的答案映射存在两组冲突，已隔离，仍需官方来源裁决。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2017年下半年-系统架构设计师-案例分析.md",
       "alternatives": [
         "02.历年真题/2017年下半年-系统架构设计师-案例分析.md"
@@ -138,17 +194,21 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2017年下半年-系统架构设计师-案例分析.md",
+          "content_sha256": "05c9c920bb6db7bed91d2d06b9d727cc77eda36a6559a4ecfda188cffed3c0e7",
+          "verified_at": "2026-07-11",
           "item_count": 5,
           "item_unit": "大题"
         },
         {
           "source_id": "local_original",
           "path": "02.历年真题/2017年下半年-系统架构设计师-案例分析.md",
+          "content_sha256": "3308853cae5942edae5c7f3a95671d78619ad95824cf3bd030ac2673b28575b8",
+          "verified_at": "2026-07-11",
           "item_count": 5,
           "item_unit": "大题"
         }
       ],
-      "notes": "5 题结构齐；原图、原表缺失，试题一问题 1 未保留六个填空的明确映射。"
+      "notes": "5 题结构齐；6 处题图、原表已据固定第三方 PDF 恢复为结构化转录，非原图、非官方；图 2-1 与图 5-1 的答案映射存在两组冲突，已隔离，仍需官方来源裁决。"
     },
     {
       "id": "2017-h2-essay",
@@ -160,7 +220,7 @@
       "completeness": "complete_structural",
       "completeness_note": "4 个论题结构齐；备考提示来自非官方底稿，未提供官方范文与评分细则。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2017年下半年-系统架构设计师-论文.md",
       "alternatives": [
         "02.历年真题/2017年下半年-系统架构设计师-论文.md"
@@ -170,12 +230,16 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2017年下半年-系统架构设计师-论文.md",
+          "content_sha256": "3559e96c10014d1be246efcde47c07b756d995b48557bfb2336034122dd3dda5",
+          "verified_at": "2026-07-11",
           "item_count": 4,
           "item_unit": "论题"
         },
         {
           "source_id": "local_original",
           "path": "02.历年真题/2017年下半年-系统架构设计师-论文.md",
+          "content_sha256": "765f1230a3cb02814d515c7980c0a94ab34b7d1432fd47b3dbf0740c762f0aa5",
+          "verified_at": "2026-07-11",
           "item_count": 4,
           "item_unit": "论题"
         }
@@ -190,9 +254,9 @@
       "item_count": 75,
       "item_unit": "题",
       "completeness": "complete_structural",
-      "completeness_note": "75 题；第 1、6、7、8、25、64、65、69、70 题缺图表或公式，第 1 题选项公式为空。",
+      "completeness_note": "75 题；第 1、6、7、8、25、64、65、69、70 题所需公式、图表已依据固定非官方 PDF 作结构化恢复；未复制扫描图，题面与答案仍待官方原卷复核。",
       "answer_confidence": "medium_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2017年下半年-系统架构设计师-综合知识.md",
       "alternatives": [
         "02.历年真题/2017年下半年-系统架构设计师-综合知识.md"
@@ -202,17 +266,21 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2017年下半年-系统架构设计师-综合知识.md",
+          "content_sha256": "1c46fcabd9c236f994fd032bc3391e629ebb28cd79b489be2fe1972308082e79",
+          "verified_at": "2026-07-11",
           "item_count": 75,
           "item_unit": "题"
         },
         {
           "source_id": "local_original",
           "path": "02.历年真题/2017年下半年-系统架构设计师-综合知识.md",
+          "content_sha256": "12b936e926df2ae0c0768c4b9c194c122a25a0582b57f21fc08f9c8b3042fa83",
+          "verified_at": "2026-07-11",
           "item_count": 75,
           "item_unit": "题"
         }
       ],
-      "notes": "75 题；第 1、6、7、8、25、64、65、69、70 题缺图表或公式，第 1 题选项公式为空。"
+      "notes": "75 题；第 1、6、7、8、25、64、65、69、70 题所需公式、图表已依据固定非官方 PDF 作结构化恢复；未复制扫描图，题面与答案仍待官方原卷复核。"
     },
     {
       "id": "2018-h2-case-analysis",
@@ -222,9 +290,9 @@
       "item_count": 5,
       "item_unit": "大题",
       "completeness": "complete_structural",
-      "completeness_note": "5 题结构齐；多处原图、原表未收录，相关题面和答案仍待原卷复核。",
+      "completeness_note": "5 题结构齐；7 处题图、原表已据固定第三方 PDF 恢复为结构化转录；该 PDF 不含独立图 5-2，且与底稿存在多处答案口径冲突，均已隔离，仍待官方原卷裁决。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2018年下半年-系统架构设计师-案例分析.md",
       "alternatives": [
         "02.历年真题/2018年下半年-系统架构设计师-案例分析.md"
@@ -234,17 +302,21 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2018年下半年-系统架构设计师-案例分析.md",
+          "content_sha256": "2805b733eccbcfae1c9c53dfb168c27c5175471a9ff8e2a0c99154cf19dc2643",
+          "verified_at": "2026-07-11",
           "item_count": 5,
           "item_unit": "大题"
         },
         {
           "source_id": "local_original",
           "path": "02.历年真题/2018年下半年-系统架构设计师-案例分析.md",
+          "content_sha256": "eb97b70436d5736e27a5c7302375e16f2b2d2cacec0cd8a9b52e9f54749fb1f8",
+          "verified_at": "2026-07-11",
           "item_count": 5,
           "item_unit": "大题"
         }
       ],
-      "notes": "5 题结构齐；多处原图、原表未收录，相关题面和答案仍待原卷复核。"
+      "notes": "5 题结构齐；7 处题图、原表已据固定第三方 PDF 恢复为结构化转录；该 PDF 不含独立图 5-2，且与底稿存在多处答案口径冲突，均已隔离，仍待官方原卷裁决。"
     },
     {
       "id": "2018-h2-essay",
@@ -256,7 +328,7 @@
       "completeness": "complete_structural",
       "completeness_note": "4 个论题结构齐；备考提示来自非官方底稿，未提供官方范文与评分细则。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2018年下半年-系统架构设计师-论文.md",
       "alternatives": [
         "02.历年真题/2018年下半年-系统架构设计师-论文.md"
@@ -266,12 +338,16 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2018年下半年-系统架构设计师-论文.md",
+          "content_sha256": "b57f750918d124e6f94cfe6a2d3d40eeb8f7171a7acb22f0337c7b41a1110c87",
+          "verified_at": "2026-07-11",
           "item_count": 4,
           "item_unit": "论题"
         },
         {
           "source_id": "local_original",
           "path": "02.历年真题/2018年下半年-系统架构设计师-论文.md",
+          "content_sha256": "448bb330328ff105704e12964851226578f8ae194683300ae966b8a5264b9c11",
+          "verified_at": "2026-07-11",
           "item_count": 4,
           "item_unit": "论题"
         }
@@ -286,9 +362,9 @@
       "item_count": 75,
       "item_unit": "题",
       "completeness": "complete_structural",
-      "completeness_note": "75 题；第 1、2、3、5、6、7、69 题缺表格、关系代数表达式或示意图。",
+      "completeness_note": "75 题；第 1、2、3、5、6、7、69 题缺失结构及第 70 题解题图关键信息已据固定非官方 PDF 结构化恢复。第 1 题的 21 号柱面题干、九行请求表、四个选项和答案由两份一致的固定 PDF 交叉确认；旧稿所谓 20 号柱面冲突实际来自 2022 年题目，已移除误混。",
       "answer_confidence": "medium_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2018年下半年-系统架构设计师-综合知识.md",
       "alternatives": [
         "02.历年真题/2018年下半年-系统架构设计师-综合知识.md"
@@ -298,17 +374,21 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2018年下半年-系统架构设计师-综合知识.md",
+          "content_sha256": "fc36be81891c55049624b6b7e313a02cb3a1fba47b679eb9f9af48f64744bb3c",
+          "verified_at": "2026-07-12",
           "item_count": 75,
           "item_unit": "题"
         },
         {
           "source_id": "local_original",
           "path": "02.历年真题/2018年下半年-系统架构设计师-综合知识.md",
+          "content_sha256": "33f7435ef2cd89f5d6f4202cba12ac5db422d0679d30966bc7a786eea0b8b500",
+          "verified_at": "2026-07-11",
           "item_count": 75,
           "item_unit": "题"
         }
       ],
-      "notes": "75 题；第 1、2、3、5、6、7、69 题缺表格、关系代数表达式或示意图。"
+      "notes": "75 题；第 1、2、3、5、6、7、69 题缺失结构及第 70 题解题图关键信息已据固定非官方 PDF 结构化恢复。第 1 题的 21 号柱面题干、九行请求表、四个选项和答案由两份一致的固定 PDF 交叉确认；旧稿所谓 20 号柱面冲突实际来自 2022 年题目，已移除误混。"
     },
     {
       "id": "2019-h2-case-analysis",
@@ -318,9 +398,9 @@
       "item_count": 5,
       "item_unit": "大题",
       "completeness": "complete_structural",
-      "completeness_note": "清洗稿将底稿误计的 8 节恢复为 5 个逻辑大题，并去除试题五重复残片；图表仍缺失。",
+      "completeness_note": "清洗稿将底稿误计的 8 节恢复为 5 个逻辑大题；表 1-1 及图 1-1、图 2-1、图 3-1、图 5-1 已据固定非官方 PDF 作结构化恢复，未发现新增答案冲突，仍待官方原卷复核。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2019年下半年-系统架构设计师-案例分析.md",
       "alternatives": [
         "02.历年真题/2019年下半年-系统架构设计师-案例分析.md"
@@ -330,17 +410,21 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2019年下半年-系统架构设计师-案例分析.md",
+          "content_sha256": "e81f27b65c5359e024bba7c332243b9b915ef9e239220b1ce4c8b8015f6f4945",
+          "verified_at": "2026-07-11",
           "item_count": 5,
           "item_unit": "大题"
         },
         {
           "source_id": "local_original",
           "path": "02.历年真题/2019年下半年-系统架构设计师-案例分析.md",
+          "content_sha256": "153057dc3ff24148276a1fd3e8eb95e9b5284b2097ff051f54c862aac2e32784",
+          "verified_at": "2026-07-11",
           "item_count": 5,
           "item_unit": "逻辑大题"
         }
       ],
-      "notes": "清洗稿将底稿误计的 8 节恢复为 5 个逻辑大题，并去除试题五重复残片；图表仍缺失。"
+      "notes": "清洗稿将底稿误计的 8 节恢复为 5 个逻辑大题；表 1-1 及图 1-1、图 2-1、图 3-1、图 5-1 已据固定非官方 PDF 作结构化恢复，未发现新增答案冲突，仍待官方原卷复核。"
     },
     {
       "id": "2019-h2-essay",
@@ -350,9 +434,9 @@
       "item_count": 4,
       "item_unit": "论题",
       "completeness": "complete_structural",
-      "completeness_note": "4 个论题结构齐；第 3 题解析中的数据湖/数据仓库对照内容缺失。",
+      "completeness_note": "4 个论题结构齐；第 3 题数据湖/数据仓库六方面对照已据 AWS 与 Google Cloud 官方技术文档补为非官方学习表；原解析图表及官方范文、评分细则仍未收录。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2019年下半年-系统架构设计师-论文.md",
       "alternatives": [
         "02.历年真题/2019年下半年-系统架构设计师-论文.md"
@@ -362,17 +446,21 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2019年下半年-系统架构设计师-论文.md",
+          "content_sha256": "7eeff14e28059d0bf5d4dbad499615d34103cc127bf25d80496f4c9ce27fd48b",
+          "verified_at": "2026-07-11",
           "item_count": 4,
           "item_unit": "论题"
         },
         {
           "source_id": "local_original",
           "path": "02.历年真题/2019年下半年-系统架构设计师-论文.md",
+          "content_sha256": "1126d12d47c79e2ebba01536bba3d742bf0289fc933a26a3048c4b2b7cdd59c3",
+          "verified_at": "2026-07-11",
           "item_count": 4,
           "item_unit": "论题"
         }
       ],
-      "notes": "4 个论题结构齐；第 3 题解析中的数据湖/数据仓库对照内容缺失。"
+      "notes": "4 个论题结构齐；第 3 题数据湖/数据仓库六方面对照已据 AWS 与 Google Cloud 官方技术文档补为非官方学习表；原解析图表及官方范文、评分细则仍未收录。"
     },
     {
       "id": "2019-h2-comprehensive",
@@ -382,9 +470,9 @@
       "item_count": 75,
       "item_unit": "题",
       "completeness": "complete_structural",
-      "completeness_note": "已补为 75 题；新增第二空由 deepjava-gm 固定提交版和 Qicoder 两份一致资料交叉核验，仍非官方。",
+      "completeness_note": "75 题；第 9、10、11、18、19、20、53、54、70 题图表已据固定非官方 PDF 作结构化恢复，第 25 题悬空图示引用也已整理；第 54 题第二空存在 B/D 非官方答案冲突，已隔离，仍待官方原卷裁决。",
       "answer_confidence": "medium_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2019年下半年-系统架构设计师-综合知识.md",
       "alternatives": [
         "02.历年真题/2019年下半年-系统架构设计师-综合知识.md"
@@ -394,17 +482,21 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2019年下半年-系统架构设计师-综合知识.md",
+          "content_sha256": "55bd3def8494f0152bc3867d71326c9014d8e2dd8d68849e4c08124dcf18ccb0",
+          "verified_at": "2026-07-11",
           "item_count": 75,
           "item_unit": "题"
         },
         {
           "source_id": "local_original",
           "path": "02.历年真题/2019年下半年-系统架构设计师-综合知识.md",
+          "content_sha256": "e6c2e29c1f121a21abe90ae6c5a4264bab6679e5ccb9367ece3dc34173b83478",
+          "verified_at": "2026-07-11",
           "item_count": 74,
           "item_unit": "题"
         }
       ],
-      "notes": "已补为 75 题；新增第二空由 deepjava-gm 固定提交版和 Qicoder 两份一致资料交叉核验，仍非官方。"
+      "notes": "75 题；第 9、10、11、18、19、20、53、54、70 题图表已据固定非官方 PDF 作结构化恢复，第 25 题悬空图示引用也已整理；第 54 题第二空存在 B/D 非官方答案冲突，已隔离，仍待官方原卷裁决。"
     },
     {
       "id": "2020-h2-case-analysis",
@@ -414,9 +506,9 @@
       "item_count": 5,
       "item_unit": "大题",
       "completeness": "complete_structural",
-      "completeness_note": "5 题结构齐；原图、原表缺失，相关答案仍待原卷复核。",
+      "completeness_note": "5 题结构齐；7 组独立图表及 2 处共用引用已据固定非官方材料作结构化恢复，3 个 Mermaid 已渲染核验；隔离 2 项答案冲突和 1 项选项顺序差异。图 3-1 为功能清单示意，非原始 FACE 版式；仍待官方原卷裁决。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2020年下半年-系统架构设计师-案例分析.md",
       "alternatives": [
         "02.历年真题/2020年下半年-系统架构设计师-案例分析.md"
@@ -426,17 +518,21 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2020年下半年-系统架构设计师-案例分析.md",
+          "content_sha256": "dfe0d8915ba1faa2972ac04158226cae05fc3d79367ff966a4735bbac8ca67a4",
+          "verified_at": "2026-07-12",
           "item_count": 5,
           "item_unit": "大题"
         },
         {
           "source_id": "local_original",
           "path": "02.历年真题/2020年下半年-系统架构设计师-案例分析.md",
+          "content_sha256": "d4aaf383d254def7f106968e6d1036be05c41f130545cb839a3d98492a421614",
+          "verified_at": "2026-07-11",
           "item_count": 5,
           "item_unit": "大题"
         }
       ],
-      "notes": "5 题结构齐；原图、原表缺失，相关答案仍待原卷复核。"
+      "notes": "5 题结构齐；7 组独立图表及 2 处共用引用已据固定非官方材料作结构化恢复，3 个 Mermaid 已渲染核验；隔离 2 项答案冲突和 1 项选项顺序差异。图 3-1 为功能清单示意，非原始 FACE 版式；仍待官方原卷裁决。"
     },
     {
       "id": "2020-h2-essay",
@@ -446,9 +542,9 @@
       "item_count": 4,
       "item_unit": "论题",
       "completeness": "complete_structural",
-      "completeness_note": "4 个论题结构齐；第 2 题解析示意图未收录，但现有文字可独立阅读。",
+      "completeness_note": "4 个论题结构齐；第 2 题云原生责任图已据 2021-03-08 同文公开页的固定图片结构化恢复并渲染核验。页面晚于考试，只支持非官方解析关系，不证明官方原卷、底稿原图或评分细则。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2020年下半年-系统架构设计师-论文.md",
       "alternatives": [
         "02.历年真题/2020年下半年-系统架构设计师-论文.md"
@@ -458,17 +554,21 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2020年下半年-系统架构设计师-论文.md",
+          "content_sha256": "bf486cce70e30fd1ad991a59fd477f8badfa843a75fa325f84d8ba4e75ffcd05",
+          "verified_at": "2026-07-12",
           "item_count": 4,
           "item_unit": "论题"
         },
         {
           "source_id": "local_original",
           "path": "02.历年真题/2020年下半年-系统架构设计师-论文.md",
+          "content_sha256": "72cd7236215474ec9495beaa277532813d593f1a235086167936b6e417874cfe",
+          "verified_at": "2026-07-11",
           "item_count": 4,
           "item_unit": "论题"
         }
       ],
-      "notes": "4 个论题结构齐；第 2 题解析示意图未收录，但现有文字可独立阅读。"
+      "notes": "4 个论题结构齐；第 2 题云原生责任图已据 2021-03-08 同文公开页的固定图片结构化恢复并渲染核验。页面晚于考试，只支持非官方解析关系，不证明官方原卷、底稿原图或评分细则。"
     },
     {
       "id": "2020-h2-comprehensive",
@@ -478,9 +578,9 @@
       "item_count": 75,
       "item_unit": "题",
       "completeness": "complete_structural",
-      "completeness_note": "75 题；第 1、6、10 题缺图或公式，第 6 题选项为空且无解析，第 7 题也无解析。",
+      "completeness_note": "75 题；第 1 题前趋图、第 6 题闭包公式、第 10 题页表与地址翻译均已结构化恢复，第 7 题候选关键字解析已补齐；第 6 题 AD/BC 来源内冲突及第 10 题 15/16 位格式差异已隔离，仍待官方原卷裁决。",
       "answer_confidence": "medium_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2020年下半年-系统架构设计师-综合知识.md",
       "alternatives": [
         "02.历年真题/2020年下半年-系统架构设计师-综合知识.md"
@@ -490,29 +590,33 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2020年下半年-系统架构设计师-综合知识.md",
+          "content_sha256": "679eec0436bb2070682b41900943b3eef86ee4e858a37053209b5e62d9d65995",
+          "verified_at": "2026-07-12",
           "item_count": 75,
           "item_unit": "题"
         },
         {
           "source_id": "local_original",
           "path": "02.历年真题/2020年下半年-系统架构设计师-综合知识.md",
+          "content_sha256": "b9e30b77edef176c32eff63cd4d66b2636098fed751240eaa086a100d6bc738c",
+          "verified_at": "2026-07-11",
           "item_count": 75,
           "item_unit": "题"
         }
       ],
-      "notes": "75 题；第 1、6、10 题缺图或公式，第 6 题选项为空且无解析，第 7 题也无解析。"
+      "notes": "75 题；第 1 题前趋图、第 6 题闭包公式、第 10 题页表与地址翻译均已结构化恢复，第 7 题候选关键字解析已补齐；第 6 题 AD/BC 来源内冲突及第 10 题 15/16 位格式差异已隔离，仍待官方原卷裁决。"
     },
     {
       "id": "2021-h2-case-analysis",
       "year": 2021,
       "session": "下半年",
       "subject": "案例分析",
-      "item_count": 4,
+      "item_count": 5,
       "item_unit": "大题",
-      "completeness": "partial",
-      "completeness_note": "仅有试题一、二、四、五，共 4 题；明确缺试题三且不得重编号，效用树、用例图、顺序图和架构图缺失。",
+      "completeness": "complete_structural",
+      "completeness_note": "5 题结构齐；试题一效用树、试题二用例图和顺序图、试题三 FACE 数据模型语言图、试题五智能家居架构图均已据固定题图、第三方 PDF 或官方技术标准结构化恢复；FACE 图由公开题图与 The Open Group FACE Technical Standard 3.1 Figure 19 交叉核验，固定第三方 PDF 不含该题，已明确隔离；效用树选项编号、用例图参与者位置及试题五题面/解析布局差异仍待官方原卷裁决。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2021年下半年-系统架构设计师-案例分析.md",
       "alternatives": [
         "02.历年真题/2021年下半年-系统架构设计师-案例分析.md",
@@ -523,23 +627,29 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2021年下半年-系统架构设计师-案例分析.md",
-          "item_count": 4,
+          "content_sha256": "a2379c94363204d881516bea8f5e1be139ad9822c961168dd81783a03c72d22d",
+          "verified_at": "2026-07-12",
+          "item_count": 5,
           "item_unit": "大题"
         },
         {
           "source_id": "local_original",
           "path": "02.历年真题/2021年下半年-系统架构设计师-案例分析.md",
+          "content_sha256": "703f4d30a85d4958e49d26ad80162e03e9c8617e00da6307849ca993410fa509",
+          "verified_at": "2026-07-11",
           "item_count": 4,
           "item_unit": "大题"
         },
         {
           "source_id": "local_supplement",
           "path": "02.历年真题(补充)/2021年下半年-系统架构设计师-案例分析.md",
+          "content_sha256": "83f12979e867dc5493b32e8f340357ecb018b7405f1163f5900122009731e653",
+          "verified_at": "2026-07-11",
           "item_count": 4,
           "item_unit": "大题"
         }
       ],
-      "notes": "仅有试题一、二、四、五，共 4 题；明确缺试题三且不得重编号，效用树、用例图、顺序图和架构图缺失。"
+      "notes": "5 题结构齐；试题一效用树、试题二用例图和顺序图、试题三 FACE 数据模型语言图、试题五智能家居架构图均已据固定题图、第三方 PDF 或官方技术标准结构化恢复；FACE 图由公开题图与 The Open Group FACE Technical Standard 3.1 Figure 19 交叉核验，固定第三方 PDF 不含该题，已明确隔离；效用树选项编号、用例图参与者位置及试题五题面/解析布局差异仍待官方原卷裁决。"
     },
     {
       "id": "2021-h2-essay",
@@ -551,7 +661,7 @@
       "completeness": "complete_structural",
       "completeness_note": "4 个论题结构齐；非官方提示较简略，仍待可靠来源复核。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2021年下半年-系统架构设计师-论文.md",
       "alternatives": [
         "02.历年真题/2021年下半年-系统架构设计师-论文.md",
@@ -562,18 +672,24 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2021年下半年-系统架构设计师-论文.md",
+          "content_sha256": "3c2798a96f99bf87a1bfdf727fb2b3fd055ea27d11c880f09d5e784d5bdf19e8",
+          "verified_at": "2026-07-11",
           "item_count": 4,
           "item_unit": "论题"
         },
         {
           "source_id": "local_original",
           "path": "02.历年真题/2021年下半年-系统架构设计师-论文.md",
+          "content_sha256": "47d32f9035512c5183b3760083631cbbb00b1a4e59dedc3aba288bbc19b7ecf3",
+          "verified_at": "2026-07-11",
           "item_count": 4,
           "item_unit": "论题"
         },
         {
           "source_id": "local_supplement",
           "path": "02.历年真题(补充)/2021年下半年-系统架构设计师-论文.md",
+          "content_sha256": "b32272dc0a94dc6a1332701df852110e1fd72183cadcb97f1b6ee53bfb1c02c1",
+          "verified_at": "2026-07-11",
           "item_count": 4,
           "item_unit": "论题"
         }
@@ -588,9 +704,9 @@
       "item_count": 75,
       "item_unit": "题",
       "completeness": "complete_structural",
-      "completeness_note": "75 题；第 1、4、5、27、57、72、73 题缺图表，相关答案可信度较低。",
+      "completeness_note": "75 题；第 1、4、5、27、57、72、73 题的图表均已据固定第三方 PDF 与公开整理结构化恢复，答案序列未改；第 27 题仍存在 E=14、N=12 与另一来源 E=12、N=10 的计数口径差异，且外部资料题号排列与本地稿不完全一致，待官方原卷裁决。",
       "answer_confidence": "medium_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2021年下半年-系统架构设计师-综合知识.md",
       "alternatives": [
         "02.历年真题/2021年下半年-系统架构设计师-综合知识.md"
@@ -600,17 +716,21 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2021年下半年-系统架构设计师-综合知识.md",
+          "content_sha256": "80c5ca363d01f37273cf6c61acf85f9780c288d6b78844d97c6a631bb3001944",
+          "verified_at": "2026-07-12",
           "item_count": 75,
           "item_unit": "题"
         },
         {
           "source_id": "local_original",
           "path": "02.历年真题/2021年下半年-系统架构设计师-综合知识.md",
+          "content_sha256": "2fb9036ffb45eb20a99d745042661de4acf05bfec2e4656500b181b2cc05e4dc",
+          "verified_at": "2026-07-11",
           "item_count": 75,
           "item_unit": "题"
         }
       ],
-      "notes": "75 题；第 1、4、5、27、57、72、73 题缺图表，相关答案可信度较低。"
+      "notes": "75 题；第 1、4、5、27、57、72、73 题的图表均已据固定第三方 PDF 与公开整理结构化恢复，答案序列未改；第 27 题仍存在 E=14、N=12 与另一来源 E=12、N=10 的计数口径差异，且外部资料题号排列与本地稿不完全一致，待官方原卷裁决。"
     },
     {
       "id": "2022-h2-case-analysis",
@@ -620,9 +740,9 @@
       "item_count": 5,
       "item_unit": "大题",
       "completeness": "complete_structural",
-      "completeness_note": "5 题、14 个子问题结构齐；效用树、数据流图、E-R 图、故障检测图和门禁架构图未收录。",
+      "completeness_note": "5 题、14 个子问题结构齐；效用树、数据流图、E-R 图、故障检测图和智能门禁架构图均已据固定第三方 PDF 与公开核对图结构化恢复；E-R 图实体命名及 (4)～(6) 顺序、故障分类的监控器归属、智能门禁 (1)～(6) 协议映射存在非官方来源冲突，已隔离并待官方原卷裁决。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2022年下半年-系统架构设计师-案例分析.md",
       "alternatives": [
         "02.历年真题(补充)/2022年下半年-系统架构设计师-案例分析.md"
@@ -632,17 +752,21 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2022年下半年-系统架构设计师-案例分析.md",
+          "content_sha256": "d535e12841afc3dba314fc81b596d5bb5308d984c7d801a520a628f63a9bd583",
+          "verified_at": "2026-07-12",
           "item_count": 5,
           "item_unit": "大题"
         },
         {
           "source_id": "local_supplement",
           "path": "02.历年真题(补充)/2022年下半年-系统架构设计师-案例分析.md",
+          "content_sha256": "c851c9d96ce0ded740f61bc9d581b8253fe8c81f3d39fa7e2e384845ba24a440",
+          "verified_at": "2026-07-11",
           "item_count": 5,
           "item_unit": "大题"
         }
       ],
-      "notes": "5 题、14 个子问题结构齐；效用树、数据流图、E-R 图、故障检测图和门禁架构图未收录。"
+      "notes": "5 题、14 个子问题结构齐；效用树、数据流图、E-R 图、故障检测图和智能门禁架构图均已据固定第三方 PDF 与公开核对图结构化恢复；E-R 图实体命名及 (4)～(6) 顺序、故障分类的监控器归属、智能门禁 (1)～(6) 协议映射存在非官方来源冲突，已隔离并待官方原卷裁决。"
     },
     {
       "id": "2022-h2-essay",
@@ -652,9 +776,9 @@
       "item_count": 4,
       "item_unit": "论题",
       "completeness": "complete_structural",
-      "completeness_note": "真实论文为 4 题；清洗版已从原始版偶数节提取论文并剔除奇数节误混的 5 个案例分析段；无可用答案。",
-      "answer_confidence": "no_answer",
-      "clean_status": "cleaned_needs_review",
+      "completeness_note": "真实论文为 4 题；清洗版已剔除误混的 5 个案例分析段，并为 4 个论题新增非官方原创参考提纲及可定位技术来源；仍无官方范文、标准答案或评分细则。",
+      "answer_confidence": "low_non_official",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2022年下半年-系统架构设计师-论文.md",
       "alternatives": [
         "02.历年真题/2022年下半年-系统架构设计师-论文.md",
@@ -665,23 +789,29 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2022年下半年-系统架构设计师-论文.md",
+          "content_sha256": "6e66b1503c826fdf34b7610343648f6e93f59ce9309958e247b4279165e429be",
+          "verified_at": "2026-07-11",
           "item_count": 4,
           "item_unit": "论题"
         },
         {
           "source_id": "local_original",
           "path": "02.历年真题/2022年下半年-系统架构设计师-论文.md",
+          "content_sha256": "d6960637edcb60c1ea6feb592ac9301d89357dceb76798a9ccd834634df97eff",
+          "verified_at": "2026-07-11",
           "item_count": 4,
           "item_unit": "逻辑论题"
         },
         {
           "source_id": "local_supplement",
           "path": "02.历年真题(补充)/2022年下半年-系统架构设计师-论文.md",
+          "content_sha256": "93f49b1e7146b984e12db9fb3531dba036c810efb0929735ff5bd7b121d04135",
+          "verified_at": "2026-07-11",
           "item_count": 4,
           "item_unit": "逻辑论题"
         }
       ],
-      "notes": "真实论文为 4 题；清洗版已从原始版偶数节提取论文并剔除奇数节误混的 5 个案例分析段；无可用答案。"
+      "notes": "真实论文为 4 题；清洗版已剔除误混的 5 个案例分析段，并为 4 个论题新增非官方原创参考提纲及可定位技术来源；仍无官方范文、标准答案或评分细则。"
     },
     {
       "id": "2022-h2-comprehensive",
@@ -691,9 +821,9 @@
       "item_count": 75,
       "item_unit": "题",
       "completeness": "complete_structural",
-      "completeness_note": "75 题；第 3、5、15、70 题缺图表，第 59 题解析引用的示意图未收录。",
+      "completeness_note": "75 题；第 3、5、15、70 题图表和第 59 题解析效用树已据固定第三方 PDF 与 SEI 官方资料结构化恢复，题号、选项和答案未改；第 70 题固定 PDF 的 D 项为 5，本地首选稿为 12，已并列记录并待官方原卷裁决；第 59 题解析图与 SEI Figure 3 的术语差异已注明。",
       "answer_confidence": "medium_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2022年下半年-系统架构设计师-综合知识.md",
       "alternatives": [
         "02.历年真题/2022年下半年-系统架构设计师-综合知识.md",
@@ -704,23 +834,29 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2022年下半年-系统架构设计师-综合知识.md",
+          "content_sha256": "714a9573b63a5a5e1ba3f69c5d620db0a044e9a5b6030fd9f1fd3b6d1ab4ae32",
+          "verified_at": "2026-07-12",
           "item_count": 75,
           "item_unit": "题"
         },
         {
           "source_id": "local_original",
           "path": "02.历年真题/2022年下半年-系统架构设计师-综合知识.md",
+          "content_sha256": "e4b16acae5df1c9c1b22eb9500149791e4222e768dd3c87b1d9b9ebb4e99aee4",
+          "verified_at": "2026-07-11",
           "item_count": 75,
           "item_unit": "题"
         },
         {
           "source_id": "local_supplement",
           "path": "02.历年真题(补充)/2022年下半年-系统架构设计师-综合知识.md",
+          "content_sha256": "8f02d6e64981ff7afb1f2ba47213e92696145727f23e0648250a65f4803e847f",
+          "verified_at": "2026-07-11",
           "item_count": 75,
           "item_unit": "题"
         }
       ],
-      "notes": "75 题；第 3、5、15、70 题缺图表，第 59 题解析引用的示意图未收录。"
+      "notes": "75 题；第 3、5、15、70 题图表和第 59 题解析效用树已据固定第三方 PDF 与 SEI 官方资料结构化恢复，题号、选项和答案未改；第 70 题固定 PDF 的 D 项为 5，本地首选稿为 12，已并列记录并待官方原卷裁决；第 59 题解析图与 SEI Figure 3 的术语差异已注明。"
     },
     {
       "id": "2023-h2-case-analysis",
@@ -729,10 +865,10 @@
       "subject": "案例分析",
       "item_count": 5,
       "item_unit": "大题",
-      "completeness": "needs_review",
-      "completeness_note": "5 题、14 个子问题；效用树及可靠性图表缺失，来源链不完整。",
+      "completeness": "complete_structural",
+      "completeness_note": "5 题、14 个子问题结构齐；试题一效用树以及试题三硬/软件可靠性表、恢复块图和恢复块/N 版本比较表已据固定或公开来源结构化恢复，答案区未改；效用树来源为可变非官方图，可靠性题与固定 2015 PDF 逐字对应而固定 2023 回忆版案例序列不同，且“即使不适用/不使用”异文未裁决，待官方原卷确认。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2023年下半年-系统架构设计师-案例分析.md",
       "alternatives": [
         "02.历年真题(补充)/2023年下半年-系统架构设计师-案例分析.md"
@@ -742,17 +878,21 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2023年下半年-系统架构设计师-案例分析.md",
+          "content_sha256": "88fd64bc6cc82e33822e0c4670bd41835527688340f87064723e3bc0aa8adfc3",
+          "verified_at": "2026-07-12",
           "item_count": 5,
           "item_unit": "大题"
         },
         {
           "source_id": "local_supplement",
           "path": "02.历年真题(补充)/2023年下半年-系统架构设计师-案例分析.md",
+          "content_sha256": "dd7d807b994e2cea6043642aeac09f839786f8d33a27612d4a22bbd3316f8535",
+          "verified_at": "2026-07-11",
           "item_count": 5,
           "item_unit": "大题"
         }
       ],
-      "notes": "5 题、14 个子问题；效用树及可靠性图表缺失，来源链不完整。"
+      "notes": "5 题、14 个子问题结构齐；试题一效用树以及试题三硬/软件可靠性表、恢复块图和恢复块/N 版本比较表已据固定或公开来源结构化恢复，答案区未改；效用树来源为可变非官方图，可靠性题与固定 2015 PDF 逐字对应而固定 2023 回忆版案例序列不同，且“即使不适用/不使用”异文未裁决，待官方原卷确认。"
     },
     {
       "id": "2023-h2-essay",
@@ -761,10 +901,10 @@
       "subject": "论文",
       "item_count": 4,
       "item_unit": "论题",
-      "completeness": "needs_review",
-      "completeness_note": "原始版 8 节实为 4 论题各重复一次；清洗版保留 4 个论题且无可用解析。",
-      "answer_confidence": "no_answer",
-      "clean_status": "cleaned_needs_review",
+      "completeness": "complete_structural",
+      "completeness_note": "原始版 8 节实为 4 个论题各重复一次；清洗版保留 4 个不重复论题，四个完整题面已由固定汇总页和四个固定单题页交叉确认，并保留非官方原创参考提纲；仍无官方原卷、范文或评分细则。",
+      "answer_confidence": "low_non_official",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2023年下半年-系统架构设计师-论文.md",
       "alternatives": [
         "02.历年真题/2023年下半年-系统架构设计师-论文.md",
@@ -775,23 +915,29 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2023年下半年-系统架构设计师-论文.md",
+          "content_sha256": "d1d2c73cb16dc0b2e8d32a1a949cbccdea73ffaedc2ffefabf852f63efe73503",
+          "verified_at": "2026-07-11",
           "item_count": 4,
           "item_unit": "论题"
         },
         {
           "source_id": "local_original",
           "path": "02.历年真题/2023年下半年-系统架构设计师-论文.md",
+          "content_sha256": "b8bf70fd11ab87cc7598f4685828fb6235cbee17afcb161782e55744c64019b8",
+          "verified_at": "2026-07-11",
           "item_count": 4,
           "item_unit": "逻辑论题"
         },
         {
           "source_id": "local_supplement",
           "path": "02.历年真题(补充)/2023年下半年-系统架构设计师-论文.md",
+          "content_sha256": "172b61baf44962d4c068e3637ad2a4784f8ce394d5ff2759ba820a70b4eb0479",
+          "verified_at": "2026-07-11",
           "item_count": 4,
           "item_unit": "逻辑论题"
         }
       ],
-      "notes": "原始版 8 节实为 4 论题各重复一次；清洗版保留 4 个论题且无可用解析。"
+      "notes": "原始版 8 节实为 4 个论题各重复一次；清洗版保留 4 个不重复论题，四个完整题面已由固定汇总页和四个固定单题页交叉确认，并保留非官方原创参考提纲；仍无官方原卷、范文或评分细则。"
     },
     {
       "id": "2023-h2-comprehensive",
@@ -800,10 +946,10 @@
       "subject": "综合知识",
       "item_count": 75,
       "item_unit": "题",
-      "completeness": "needs_review",
-      "completeness_note": "首选回忆版 B 为 75 题并经环球网校 paperId=338793 交叉核验；A65 是独立备选题序，严禁拼接或覆盖。",
-      "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "completeness": "complete_structural",
+      "completeness_note": "首选回忆版 B 的 75 题、300 个选项和四处表格已由环球网校固定 paperId=338793 接口逐项核验；75 个答案中 74 个一致，第 34 题按教材定义保留 C 并记录平台冲突。A65 是独立备选题序，严禁拼接或覆盖。",
+      "answer_confidence": "medium_non_official",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2023年下半年-系统架构设计师-综合知识.md",
       "alternatives": [
         "02.历年真题-清洗版/2023年下半年-系统架构设计师-综合知识-回忆版A-65题.md",
@@ -815,29 +961,37 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2023年下半年-系统架构设计师-综合知识.md",
+          "content_sha256": "c15cea2485352d0ce7d04565f38f66ffd6e03c1ecdeb896f66016989da8a9957",
+          "verified_at": "2026-07-25",
           "item_count": 75,
           "item_unit": "题"
         },
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2023年下半年-系统架构设计师-综合知识-回忆版A-65题.md",
+          "content_sha256": "8c7fa907058b3aee3e30f37334f8972164f0d44bf5e6aeceac4605ebdb6e91c3",
+          "verified_at": "2026-07-11",
           "item_count": 65,
           "item_unit": "题"
         },
         {
           "source_id": "local_original",
           "path": "02.历年真题/2023年下半年-系统架构设计师-综合知识.md",
+          "content_sha256": "a4568a8de19baf26d8ad7f3e3c70af1ae595342cab0f8aa808d64d19e85f7854",
+          "verified_at": "2026-07-11",
           "item_count": 65,
           "item_unit": "题"
         },
         {
           "source_id": "local_supplement",
           "path": "02.历年真题(补充)/2023年下半年-系统架构设计师-综合知识.md",
+          "content_sha256": "3b15a11f4429036c32e9637eb28e95e201c70d20d70178e4e4beff2bfbec5f6e",
+          "verified_at": "2026-07-11",
           "item_count": 75,
           "item_unit": "题"
         }
       ],
-      "notes": "首选回忆版 B 为 75 题并经环球网校 paperId=338793 交叉核验；A65 是独立备选题序，严禁拼接或覆盖。"
+      "notes": "首选回忆版 B 的 75 题、300 个选项和四处表格已由环球网校固定 paperId=338793 接口逐项核验；75 个答案中 74 个一致，第 34 题按教材定义保留 C 并记录平台冲突。A65 是独立备选题序，严禁拼接或覆盖。"
     },
     {
       "id": "2024-h1-case-analysis",
@@ -847,9 +1001,9 @@
       "item_count": 5,
       "item_unit": "大题",
       "completeness": "partial",
-      "completeness_note": "部分：5 个题号已重组，但试题一至三题干不完整，多张图表缺失，试题三问题 1 无答案。",
+      "completeness_note": "部分：5 题结构齐；试题一约车平台效用树、问题 2 六空及试题五 GIS 架构已据固定第三方 PDF 结构化恢复；固定 PDF 混入的 2015 年可靠性旧题已隔离。试题二已分别保留 2024-05-27 近时点 UML 回忆图与后期培训 PDF 结构/候选答案，两者在生命线、请求处理节点和消息编号上冲突。试题四通信图已按同日近时参考逐边纠正，AP 六空框图的 9 条箭头也已恢复；仍缺通信题具体六空位置、AP 原卷空号和官方答案。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2024年上半年-系统架构设计师-案例分析.md",
       "alternatives": [
         "02.历年真题/2024年上半年-系统架构设计师-案例分析.md",
@@ -860,23 +1014,29 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2024年上半年-系统架构设计师-案例分析.md",
+          "content_sha256": "7b42639e5ac8f28f9ee84bad9948a77cb1158f88acff382673233c81f6926b73",
+          "verified_at": "2026-07-12",
           "item_count": 5,
           "item_unit": "大题"
         },
         {
           "source_id": "local_original",
           "path": "02.历年真题/2024年上半年-系统架构设计师-案例分析.md",
+          "content_sha256": "100f3379fea4c3ae37a2bb47e5d6be8961f1996793a06e080f88f0ea70361a1e",
+          "verified_at": "2026-07-11",
           "item_count": 13,
           "item_unit": "片段"
         },
         {
           "source_id": "local_supplement",
           "path": "02.历年真题(补充)/2024年上半年-系统架构设计师-案例分析.md",
+          "content_sha256": "7516611cd87d5641f2a9f2068c952382de3afa2ed6aa6a831f42f26abcdf3e95",
+          "verified_at": "2026-07-11",
           "item_count": 5,
           "item_unit": "大题"
         }
       ],
-      "notes": "部分：5 个题号已重组，但试题一至三题干不完整，多张图表缺失，试题三问题 1 无答案。"
+      "notes": "部分：5 题结构齐；试题一约车平台效用树、问题 2 六空及试题五 GIS 架构已据固定第三方 PDF 结构化恢复；固定 PDF 混入的 2015 年可靠性旧题已隔离。试题二已分别保留 2024-05-27 近时点 UML 回忆图与后期培训 PDF 结构/候选答案，两者在生命线、请求处理节点和消息编号上冲突。试题四通信图已按同日近时参考逐边纠正，AP 六空框图的 9 条箭头也已恢复；仍缺通信题具体六空位置、AP 原卷空号和官方答案。"
     },
     {
       "id": "2024-h1-essay",
@@ -885,10 +1045,10 @@
       "subject": "论文",
       "item_count": 4,
       "item_unit": "论题",
-      "completeness": "needs_review",
-      "completeness_note": "4 个论题由冲突底稿重组；单元测试题无解析，其余提示仅覆盖部分写作要求。",
+      "completeness": "complete_structural",
+      "completeness_note": "固定第三方 PDF 第 11～12 物理页与 2024-05-25 近时回忆页共同支持四个完整题面；已校正大数据架构、模型驱动架构、单元测试方法及运用和云上自动化运维的标题、背景与三项要求，并将备考框架明确隔离为非原题补充。仍无官方范文或评分细则。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2024年上半年-系统架构设计师-论文.md",
       "alternatives": [
         "02.历年真题/2024年上半年-系统架构设计师-论文.md",
@@ -899,23 +1059,29 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2024年上半年-系统架构设计师-论文.md",
+          "content_sha256": "e645972da899a8868e72d30191bf1b8262d10eadc8887113abeb318d9826cb18",
+          "verified_at": "2026-07-12",
           "item_count": 4,
           "item_unit": "论题"
         },
         {
           "source_id": "local_original",
           "path": "02.历年真题/2024年上半年-系统架构设计师-论文.md",
+          "content_sha256": "32ec9b27ff514c5a3e3f9968709369a30bcc886221192b6c093abfa3a55f48fd",
+          "verified_at": "2026-07-11",
           "item_count": 4,
           "item_unit": "论题"
         },
         {
           "source_id": "local_supplement",
           "path": "02.历年真题(补充)/2024年上半年-系统架构设计师-论文.md",
+          "content_sha256": "6ea97f7ce65a5e00b14a8762da4ff09a1ed079f65f17d1867fd367c85eb8f815",
+          "verified_at": "2026-07-11",
           "item_count": 1,
           "item_unit": "论题"
         }
       ],
-      "notes": "4 个论题由冲突底稿重组；单元测试题无解析，其余提示仅覆盖部分写作要求。"
+      "notes": "固定第三方 PDF 第 11～12 物理页与 2024-05-25 近时回忆页共同支持四个完整题面；已校正大数据架构、模型驱动架构、单元测试方法及运用和云上自动化运维的标题、背景与三项要求，并将备考框架明确隔离为非原题补充。仍无官方范文或评分细则。"
     },
     {
       "id": "2024-h1-comprehensive",
@@ -924,10 +1090,10 @@
       "subject": "综合知识",
       "item_count": 75,
       "item_unit": "题",
-      "completeness": "needs_review",
-      "completeness_note": "75 题；部分题目缺原图/原表，题面与答案均为非官方回忆整理。",
-      "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "completeness": "complete_structural",
+      "completeness_note": "75 题连续完整；已补回真正的第 4 题并移除误混的 2012 下第 37 题，A～L 作业网络图现位于第 15 题，第 68、69 题两张表也已恢复和复算；75 位答案矩阵与固定第三方 PDF 完全一致。题面和答案仍为非官方整理。",
+      "answer_confidence": "medium_non_official",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2024年上半年-系统架构设计师-综合知识.md",
       "alternatives": [
         "02.历年真题/2024年上半年-系统架构设计师-综合知识.md",
@@ -938,23 +1104,29 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2024年上半年-系统架构设计师-综合知识.md",
+          "content_sha256": "1ea431d5bceea4bf3b5d9e1772e523c32bfabe25b2075ce9f23d634467fb008e",
+          "verified_at": "2026-07-12",
           "item_count": 75,
           "item_unit": "题"
         },
         {
           "source_id": "local_original",
           "path": "02.历年真题/2024年上半年-系统架构设计师-综合知识.md",
+          "content_sha256": "2a87fbc36ba3e8aa568a1387ac9098487e651d8483685ca52d89a849a2b16a72",
+          "verified_at": "2026-07-11",
           "item_count": 74,
           "item_unit": "题"
         },
         {
           "source_id": "local_supplement",
           "path": "02.历年真题(补充)/2024年上半年-系统架构设计师-综合知识.md",
+          "content_sha256": "0bc210f4df1d58a82258fdb3ef7b5418c81bf3a193e5bdbfaa8bd1a16454509c",
+          "verified_at": "2026-07-11",
           "item_count": 75,
           "item_unit": "题"
         }
       ],
-      "notes": "75 题；部分题目缺原图/原表，题面与答案均为非官方回忆整理。"
+      "notes": "75 题连续完整；已补回真正的第 4 题并移除误混的 2012 下第 37 题，A～L 作业网络图现位于第 15 题，第 68、69 题两张表也已恢复和复算；75 位答案矩阵与固定第三方 PDF 完全一致。题面和答案仍为非官方整理。"
     },
     {
       "id": "2024-h2-case-analysis",
@@ -964,9 +1136,9 @@
       "item_count": 5,
       "item_unit": "大题",
       "completeness": "partial",
-      "completeness_note": "部分且答案可信度极低：五题题干均残缺，多张图表缺失，试题五答案几乎全缺，且底稿含未核实的生成式 AI 讨论。",
-      "answer_confidence": "very_low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "completeness_note": "部分：5 题、14 个子问题结构齐；考试当天腾讯文档已裁定质量表 b 为预填可靠性，并固定 c=（1）、d=（2）、e=（3），其余四个空的精确格位仍不可裁决；Web 题的 Elasticsearch/微信小程序背景及 6/12/7 分值已恢复。ROS 内容—分值按近时顺序采用 12/8/5，RKPass 的 13/8/7 因合计 28 分而隔离。同日下午 17:57 数字化重构与 18:29 手绘重构分别支持（3）/（7）=Nginx，后期另有（8）模板，因此不指定唯一空号。",
+      "answer_confidence": "low_non_official",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2024年下半年-系统架构设计师-案例分析.md",
       "alternatives": [
         "02.历年真题/2024年下半年-系统架构设计师-案例分析.md",
@@ -977,23 +1149,29 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2024年下半年-系统架构设计师-案例分析.md",
+          "content_sha256": "15304d86caee341593d7ec09d49859ef3f0096866bb290f900b79d04e3b25d6a",
+          "verified_at": "2026-07-12",
           "item_count": 5,
           "item_unit": "大题"
         },
         {
           "source_id": "local_original",
           "path": "02.历年真题/2024年下半年-系统架构设计师-案例分析.md",
+          "content_sha256": "278e1d6600d666bf18ae37340a1bf8a45230e383bd9d0b70931e208dfea5f3b2",
+          "verified_at": "2026-07-11",
           "item_count": 5,
           "item_unit": "大题"
         },
         {
           "source_id": "local_supplement",
           "path": "02.历年真题(补充)/2024年下半年-系统架构设计师-案例分析.md",
+          "content_sha256": "a926f160ff658462d99f55647df6fca701f543a33caaefa0ecebf4f984ffac91",
+          "verified_at": "2026-07-11",
           "item_count": 4,
           "item_unit": "大题"
         }
       ],
-      "notes": "部分且答案可信度极低：五题题干均残缺，多张图表缺失，试题五答案几乎全缺，且底稿含未核实的生成式 AI 讨论。"
+      "notes": "部分：5 题、14 个子问题结构齐；考试当天腾讯文档已裁定质量表 b 为预填可靠性，并固定 c=（1）、d=（2）、e=（3），其余四个空的精确格位仍不可裁决；Web 题的 Elasticsearch/微信小程序背景及 6/12/7 分值已恢复。ROS 内容—分值按近时顺序采用 12/8/5，RKPass 的 13/8/7 因合计 28 分而隔离。同日下午 17:57 数字化重构与 18:29 手绘重构分别支持（3）/（7）=Nginx，后期另有（8）模板，因此不指定唯一空号。"
     },
     {
       "id": "2024-h2-essay",
@@ -1002,10 +1180,10 @@
       "subject": "论文",
       "item_count": 4,
       "item_unit": "论题",
-      "completeness": "needs_review",
-      "completeness_note": "4 个论题；仅保留非官方回忆题面，无答案、范文或评分细则。",
-      "answer_confidence": "no_answer",
-      "clean_status": "cleaned_needs_review",
+      "completeness": "complete_structural",
+      "completeness_note": "面向服务架构、软件维护、分布式事务和多源异构数据集成四个完整题面均有固定全卷页及单题页支持；不同非官方来源对第三、四题排序相反，题序冲突继续隔离。原创参考提纲不是官方范文或评分细则。",
+      "answer_confidence": "low_non_official",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2024年下半年-系统架构设计师-论文.md",
       "alternatives": [
         "02.历年真题/2024年下半年-系统架构设计师-论文.md",
@@ -1016,23 +1194,29 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2024年下半年-系统架构设计师-论文.md",
+          "content_sha256": "bf78397a31b2eab25d9265fc6911b5916fe4ac4c90a77e2a9b50480c91262980",
+          "verified_at": "2026-07-11",
           "item_count": 4,
           "item_unit": "论题"
         },
         {
           "source_id": "local_original",
           "path": "02.历年真题/2024年下半年-系统架构设计师-论文.md",
+          "content_sha256": "04e6b14255f315c496a17b6080fef4ee86c8df0b2f98c9cf116c8f55d1e3b969",
+          "verified_at": "2026-07-11",
           "item_count": 4,
           "item_unit": "论题"
         },
         {
           "source_id": "local_supplement",
           "path": "02.历年真题(补充)/2024年下半年-系统架构设计师-论文.md",
+          "content_sha256": "79b8e0fc0ce81e2a5cc2e3fff68ec09d796c8ff1bf8aa60e839592521ad0ccae",
+          "verified_at": "2026-07-11",
           "item_count": 1,
           "item_unit": "论题"
         }
       ],
-      "notes": "4 个论题；仅保留非官方回忆题面，无答案、范文或评分细则。"
+      "notes": "面向服务架构、软件维护、分布式事务和多源异构数据集成四个完整题面均有固定全卷页及单题页支持；不同非官方来源对第三、四题排序相反，题序冲突继续隔离。原创参考提纲不是官方范文或评分细则。"
     },
     {
       "id": "2024-h2-comprehensive",
@@ -1042,9 +1226,9 @@
       "item_count": 75,
       "item_unit": "题",
       "completeness": "partial",
-      "completeness_note": "已补为 75 题；第 67 题题面和第 73 题表格仍残缺，补题来源为非官方公开回忆资料。",
+      "completeness_note": "75 题结构齐；第 67 题的“合规性检查、用户权限、安全测试”联合短语由固定 GitHub/RKPass、考试当天腾讯修订和两份 2024-11-12 ProcessOn 回忆交叉支持为非官方回忆答案。ProcessOn 把“目标题”和该框架片段分列为两题，腾讯参与者又写明“还有一个不记得”，因此原卷 A～D、答案字母和官方答案仍未恢复。第 73 题完整表格、选项和答案已恢复并完成计算校核，另一公开版本的冲突已隔离。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2024年下半年-系统架构设计师-综合知识.md",
       "alternatives": [
         "02.历年真题/2024年下半年-系统架构设计师-综合知识.md",
@@ -1055,23 +1239,29 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2024年下半年-系统架构设计师-综合知识.md",
+          "content_sha256": "ca2ed74298dcb82675049058d6445f126c1035319d60ff9e39af42d11c6811ab",
+          "verified_at": "2026-07-12",
           "item_count": 75,
           "item_unit": "题"
         },
         {
           "source_id": "local_original",
           "path": "02.历年真题/2024年下半年-系统架构设计师-综合知识.md",
+          "content_sha256": "ad1229408d5862d80c4572ec271dc46a1ed2416df9ce9ebfa39b0ee3b6ac63fc",
+          "verified_at": "2026-07-11",
           "item_count": 71,
           "item_unit": "题"
         },
         {
           "source_id": "local_supplement",
           "path": "02.历年真题(补充)/2024年下半年-系统架构设计师-综合知识.md",
+          "content_sha256": "f20ae16806a13a4f3fb0ce25efbd71dab710d1f9f56fdc86bf601adbcb70a09e",
+          "verified_at": "2026-07-11",
           "item_count": 71,
           "item_unit": "题"
         }
       ],
-      "notes": "已补为 75 题；第 67 题题面和第 73 题表格仍残缺，补题来源为非官方公开回忆资料。"
+      "notes": "75 题结构齐；第 67 题的“合规性检查、用户权限、安全测试”联合短语由固定 GitHub/RKPass、考试当天腾讯修订和两份 2024-11-12 ProcessOn 回忆交叉支持为非官方回忆答案。ProcessOn 把“目标题”和该框架片段分列为两题，腾讯参与者又写明“还有一个不记得”，因此原卷 A～D、答案字母和官方答案仍未恢复。第 73 题完整表格、选项和答案已恢复并完成计算校核，另一公开版本的冲突已隔离。"
     },
     {
       "id": "2025-h1-case-analysis",
@@ -1080,10 +1270,10 @@
       "subject": "案例分析",
       "item_count": 5,
       "item_unit": "大题",
-      "completeness": "partial",
-      "completeness_note": "部分：5 个题号已整理，但多张关键图表缺失，试题三问题 3 只有题目、没有答案。",
+      "completeness": "complete_structural",
+      "completeness_note": "5 题、15 个子问题结构齐；解释器、知识图谱、Scrapy、资源池和 Redis 原图表未收录，已按固定公开回忆页转录为表格或文字流程，答案仍待官方材料复核。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2025年上半年-系统架构设计师-案例分析.md",
       "alternatives": [
         "02.历年真题(补充)/2025年上半年-系统架构设计师-案例分析.md"
@@ -1093,17 +1283,21 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2025年上半年-系统架构设计师-案例分析.md",
+          "content_sha256": "16f3b7a7cebb847e402952a51f98e3c3fe5388872e81711939c63ffbc062e2f3",
+          "verified_at": "2026-07-11",
           "item_count": 5,
           "item_unit": "大题"
         },
         {
           "source_id": "local_supplement",
           "path": "02.历年真题(补充)/2025年上半年-系统架构设计师-案例分析.md",
+          "content_sha256": "3f1e8fa0a84e86f489d2772d4f6f24ae1a162b7a5a1b20faf8b922dce88635e9",
+          "verified_at": "2026-07-11",
           "item_count": 5,
           "item_unit": "大题"
         }
       ],
-      "notes": "部分：5 个题号已整理，但多张关键图表缺失，试题三问题 3 只有题目、没有答案。"
+      "notes": "5 题、15 个子问题结构齐；解释器、知识图谱、Scrapy、资源池和 Redis 原图表未收录，已按固定公开回忆页转录为表格或文字流程，答案仍待官方材料复核。"
     },
     {
       "id": "2025-h1-essay",
@@ -1112,10 +1306,10 @@
       "subject": "论文",
       "item_count": 4,
       "item_unit": "论题",
-      "completeness": "needs_review",
-      "completeness_note": "4 个论题；原/补两版题序和部分题名冲突，当前提示均非官方。",
+      "completeness": "complete_structural",
+      "completeness_note": "四个固定单题页支持软件测试方法及应用、负载均衡技术、多模型数据库及应用和事件驱动架构的完整背景与三项要求；清洗稿按固定页采用相应题名，并纠正来源注把“多模型数据库”写成“多模态大模型”的错误。公开来源题序冲突继续隔离，备考提示仍为非官方。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2025年上半年-系统架构设计师-论文.md",
       "alternatives": [
         "02.历年真题/2025年上半年-系统架构设计师-论文.md",
@@ -1126,23 +1320,29 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2025年上半年-系统架构设计师-论文.md",
+          "content_sha256": "b6ce7ecc05696904e9a86b0ca638c38d38ba29fc20e097ae05022afff2d72433",
+          "verified_at": "2026-07-12",
           "item_count": 4,
           "item_unit": "论题"
         },
         {
           "source_id": "local_original",
           "path": "02.历年真题/2025年上半年-系统架构设计师-论文.md",
+          "content_sha256": "34378a76787045fbf164c97551e7968197eeff28cb49163f91cd344b92b43672",
+          "verified_at": "2026-07-11",
           "item_count": 4,
           "item_unit": "论题"
         },
         {
           "source_id": "local_supplement",
           "path": "02.历年真题(补充)/2025年上半年-系统架构设计师-论文.md",
+          "content_sha256": "23dc718c0c6752c501d5b52bc1241b66dd5d02b1f2d484b6035f0f0bd0c3de66",
+          "verified_at": "2026-07-11",
           "item_count": 4,
           "item_unit": "论题"
         }
       ],
-      "notes": "4 个论题；原/补两版题序和部分题名冲突，当前提示均非官方。"
+      "notes": "四个固定单题页支持软件测试方法及应用、负载均衡技术、多模型数据库及应用和事件驱动架构的完整背景与三项要求；清洗稿按固定页采用相应题名，并纠正来源注把“多模型数据库”写成“多模态大模型”的错误。公开来源题序冲突继续隔离，备考提示仍为非官方。"
     },
     {
       "id": "2025-h1-comprehensive",
@@ -1151,10 +1351,10 @@
       "subject": "综合知识",
       "item_count": 75,
       "item_unit": "题",
-      "completeness": "needs_review",
-      "completeness_note": "75 题；基于多份公开回忆/解析资料，外部资料并非官方且精确 URL 尚未逐条保存。",
+      "completeness": "complete_structural",
+      "completeness_note": "75 题结构齐；已保存腾讯云、希赛、BitX、huanshare 与软考之家固定 URL。第 43 题作业表已恢复并复算；69 个答案字母交叉比较记录 11 处冲突，仅第 5 题由 B 纠正为 A，其余按教材或技术来源保留。仍无官方原卷/答案。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2025年上半年-系统架构设计师-综合知识.md",
       "alternatives": [
         "02.历年真题/2025年上半年-系统架构设计师-综合知识.md",
@@ -1165,35 +1365,41 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2025年上半年-系统架构设计师-综合知识.md",
+          "content_sha256": "7e68219c4ae4907b46fbdc9bc1b966cbddee253bedbe74a4099d6e40aa9ca06b",
+          "verified_at": "2026-07-12",
           "item_count": 75,
           "item_unit": "题"
         },
         {
           "source_id": "local_original",
           "path": "02.历年真题/2025年上半年-系统架构设计师-综合知识.md",
+          "content_sha256": "19e9ebaf48dc253ff7ea583c559659008d2e76976146b3c4236393a59b92840c",
+          "verified_at": "2026-07-11",
           "item_count": 75,
           "item_unit": "题"
         },
         {
           "source_id": "local_supplement",
           "path": "02.历年真题(补充)/2025年上半年-系统架构设计师-综合知识.md",
+          "content_sha256": "9c70958a7f0eef38786db19a4e8d20d03db10377ef42a81f7c078d55da9fa82c",
+          "verified_at": "2026-07-11",
           "item_count": 75,
           "item_unit": "题"
         }
       ],
-      "notes": "75 题；基于多份公开回忆/解析资料，外部资料并非官方且精确 URL 尚未逐条保存。"
+      "notes": "75 题结构齐；已保存腾讯云、希赛、BitX、huanshare 与软考之家固定 URL。第 43 题作业表已恢复并复算；69 个答案字母交叉比较记录 11 处冲突，仅第 5 题由 B 纠正为 A，其余按教材或技术来源保留。仍无官方原卷/答案。"
     },
     {
       "id": "2025-h2-case-analysis",
       "year": 2025,
       "session": "下半年",
       "subject": "案例分析",
-      "item_count": 4,
+      "item_count": 5,
       "item_unit": "大题",
       "completeness": "partial",
-      "completeness_note": "部分：仅收录 4 题且不能证明原卷完整；缺选项（n）、答案（7）、两张流程图及试题四可能的后续 10 分题面。",
+      "completeness_note": "部分：5 题已由固定公开回忆页恢复；AIOS 第三问、缓存流程、试题四 11 空架构图、试题五表 1、完整货物接运 Petri 网及问题 3 表 2 已结构化恢复。问题 3 源页自身标注“缺03/此题不全”且答案为“无”；图 2 CDN 对象本身仅 489×229 像素，只能确认局部链。最后一份 CSDN PDF 候选的公开上游只列试题一至四；固定 Git 历史、网页归档和考后视频仍无完整网、题面或答案。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2025年下半年-系统架构设计师-案例分析.md",
       "alternatives": [
         "02.历年真题/2025年下半年-系统架构设计师-案例分析.md",
@@ -1204,23 +1410,29 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2025年下半年-系统架构设计师-案例分析.md",
-          "item_count": 4,
+          "content_sha256": "5daac42df48d0c14bee0ddb9979db4f8cc4528b24bef06e44830030fcf6833ef",
+          "verified_at": "2026-07-12",
+          "item_count": 5,
           "item_unit": "大题"
         },
         {
           "source_id": "local_original",
           "path": "02.历年真题/2025年下半年-系统架构设计师-案例分析.md",
+          "content_sha256": "5b1e00488e569533e3160ead10e6084afc56fe0d55caa81b300b972066332790",
+          "verified_at": "2026-07-11",
           "item_count": 1,
           "item_unit": "大题"
         },
         {
           "source_id": "local_supplement",
           "path": "02.历年真题(补充)/2025年下半年-系统架构设计师-案例分析.md",
+          "content_sha256": "2e65f7e7ca5ef28ebda6db20a3202e6e5c4cd807ca613f43ae581f779e3b1cbf",
+          "verified_at": "2026-07-11",
           "item_count": 4,
           "item_unit": "大题"
         }
       ],
-      "notes": "部分：仅收录 4 题且不能证明原卷完整；缺选项（n）、答案（7）、两张流程图及试题四可能的后续 10 分题面。"
+      "notes": "部分：5 题已由固定公开回忆页恢复；AIOS 第三问、缓存流程、试题四 11 空架构图、试题五表 1、完整货物接运 Petri 网及问题 3 表 2 已结构化恢复。问题 3 源页自身标注“缺03/此题不全”且答案为“无”；图 2 CDN 对象本身仅 489×229 像素，只能确认局部链。最后一份 CSDN PDF 候选的公开上游只列试题一至四；固定 Git 历史、网页归档和考后视频仍无完整网、题面或答案。"
     },
     {
       "id": "2025-h2-essay",
@@ -1229,10 +1441,10 @@
       "subject": "论文",
       "item_count": 4,
       "item_unit": "论题",
-      "completeness": "needs_review",
-      "completeness_note": "4 个论题；原/补两版题序冲突，当前仅有非官方回忆题面，无答案或评分细则。",
-      "answer_confidence": "no_answer",
-      "clean_status": "cleaned_needs_review",
+      "completeness": "complete_structural",
+      "completeness_note": "考试次日形成的固定第三方 PDF 保存 Serverless、云原生数据库、系统性能测试和秒杀技术方案四个完整题面及顺序；清洗稿已逐题校准，并保留非官方原创参考提纲。仍无考试主管机构原卷、官方范文、标准答案或评分细则。",
+      "answer_confidence": "low_non_official",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2025年下半年-系统架构设计师-论文.md",
       "alternatives": [
         "02.历年真题/2025年下半年-系统架构设计师-论文.md",
@@ -1243,23 +1455,29 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2025年下半年-系统架构设计师-论文.md",
+          "content_sha256": "a85f148d4191c8a8a2a0ecc133f45f3b885b9b86325ce9cfae85ae1fb9fa0bdc",
+          "verified_at": "2026-07-11",
           "item_count": 4,
           "item_unit": "论题"
         },
         {
           "source_id": "local_original",
           "path": "02.历年真题/2025年下半年-系统架构设计师-论文.md",
+          "content_sha256": "2ae46f58f12c09b0a9d183c2aa16516639344acc5c030f7a394fb498d12e779b",
+          "verified_at": "2026-07-11",
           "item_count": 4,
           "item_unit": "论题"
         },
         {
           "source_id": "local_supplement",
           "path": "02.历年真题(补充)/2025年下半年-系统架构设计师-论文.md",
+          "content_sha256": "dea483313be8000d0277c2c35e61e0f5f2303ddf0889278b46c819438da496e2",
+          "verified_at": "2026-07-11",
           "item_count": 1,
           "item_unit": "论题"
         }
       ],
-      "notes": "4 个论题；原/补两版题序冲突，当前仅有非官方回忆题面，无答案或评分细则。"
+      "notes": "考试次日形成的固定第三方 PDF 保存 Serverless、云原生数据库、系统性能测试和秒杀技术方案四个完整题面及顺序；清洗稿已逐题校准，并保留非官方原创参考提纲。仍无考试主管机构原卷、官方范文、标准答案或评分细则。"
     },
     {
       "id": "2025-h2-comprehensive",
@@ -1268,10 +1486,10 @@
       "subject": "综合知识",
       "item_count": 75,
       "item_unit": "题",
-      "completeness": "needs_review",
-      "completeness_note": "75 题；公开材料以考生回忆为主，个别整理取舍不等同于官方题面或标准答案。",
+      "completeness": "complete_structural",
+      "completeness_note": "75 个题目位置已整理齐；当前第 1～64 题有考后次日腾讯文档录屏及独立 64 题序列支持，2026-03-29 后期 73 题页（缺第 7、8 题）也以相同顺序连续保存第 65～75 题。但 Educity/HQWX 另一近时第 1～31 题序列从第 6 题起冲突，后期页多题异文且第 69 题缺 A～D；结构齐只指本稿载体，不代表当前题序或文字已获官方裁决。",
       "answer_confidence": "low_non_official",
-      "clean_status": "cleaned_needs_review",
+      "clean_status": "source_limited_reviewed",
       "preferred": "02.历年真题-清洗版/2025年下半年-系统架构设计师-综合知识.md",
       "alternatives": [
         "02.历年真题/2025年下半年-系统架构设计师-综合知识.md",
@@ -1282,23 +1500,29 @@
         {
           "source_id": "cleaned_crosschecked",
           "path": "02.历年真题-清洗版/2025年下半年-系统架构设计师-综合知识.md",
+          "content_sha256": "0f13b516aa1a174c0520ab1c8f185d93f7716a10720395274f7dcabcf4375e21",
+          "verified_at": "2026-07-11",
           "item_count": 75,
           "item_unit": "题"
         },
         {
           "source_id": "local_original",
           "path": "02.历年真题/2025年下半年-系统架构设计师-综合知识.md",
+          "content_sha256": "6800d06ad823096a6a9077f51983b227a8db7780a96553e314aff24db19e9b8d",
+          "verified_at": "2026-07-11",
           "item_count": 71,
           "item_unit": "题"
         },
         {
           "source_id": "local_supplement",
           "path": "02.历年真题(补充)/2025年下半年-系统架构设计师-综合知识.md",
+          "content_sha256": "8a4c81089e7f7763e5f80d5e3b3fbcc1b5177dc62e109c52b021f49edcb873d0",
+          "verified_at": "2026-07-11",
           "item_count": 75,
           "item_unit": "题"
         }
       ],
-      "notes": "75 题；公开材料以考生回忆为主，个别整理取舍不等同于官方题面或标准答案。"
+      "notes": "75 个题目位置已整理齐；当前第 1～64 题有考后次日腾讯文档录屏及独立 64 题序列支持，2026-03-29 后期 73 题页（缺第 7、8 题）也以相同顺序连续保存第 65～75 题。但 Educity/HQWX 另一近时第 1～31 题序列从第 6 题起冲突，后期页多题异文且第 69 题缺 A～D；结构齐只指本稿载体，不代表当前题序或文字已获官方裁决。"
     }
   ]
 }

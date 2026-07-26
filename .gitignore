@@ -25,3 +25,7 @@ node_modules/
 
 # Source PDFs (large binary files)
 教材相关/*.pdf
+本地pdf参考/
+
+# Local render and extraction scratch files
+tmp/

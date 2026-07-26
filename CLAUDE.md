@@ -55,3 +55,5 @@ python scripts/validate_knowledge_base.py
 ```
 
 该检查覆盖 UTF-8、索引覆盖、本地链接、标题层级、真题清单、题量与高风险 OCR 词。检查通过不替代人工逐页、逐题校对。
+
+教材图表或正文终校还应在合法持有源 PDF 的本地环境运行 `python scripts/audit_textbook_pdf.py <PDF路径>`，更新 `data/textbook_audit.json`，对全部正文页完成人工视觉/文本联合复核，并对风险页放大核验；真题图表点位变化应同步 `data/exam_asset_audit.json`。不得用“旧占位符为 0”代替页级、图号和表号完成性证明。
