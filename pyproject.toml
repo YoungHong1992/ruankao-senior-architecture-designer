@@ -1,0 +1,35 @@
+[project]
+name = "ruankao-senior-architecture-designer"
+version = "0.1.0"
+description = "系统架构设计师备考知识库的治理与校验工具链"
+requires-python = ">=3.13"
+dependencies = []
+
+[dependency-groups]
+# 仅 scripts/audit_textbook_pdf.py 需要。pypdf 的文本提取输出会随版本漂移，
+# 已提交的 data/textbook_audit.json 因此绑定到精确版本；改这里必须同步
+# scripts/audit_textbook_pdf.py 的 PYPDF_VERSION，校验器会断言两者一致。
+audit = ["pypdf==6.14.2"]
+# 代码风格工具。刻意不做默认组：主门禁必须能在没有任何第三方包的环境里跑。
+lint = ["ruff==0.16.4"]
+
+[tool.uv]
+# 本仓库是知识库而非可安装的 Python 包：不构建、不安装自身，
+# uv 只负责固定解释器版本与审计脚本的依赖。
+package = false
+# uv.lock 使用 revision 3 格式；低于此版本的 uv 无法复现本锁文件。
+# CI 的 astral-sh/setup-uv 也读取本字段决定安装哪个 uv。
+required-version = ">=0.11.7"
+
+[tool.ruff]
+# 120 是 validate_knowledge_base.py 既有的人工换行宽度，沿用它。
+line-length = 120
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "UP", "RUF"]
+# E501（行超长）刻意不启用：脚本里大量中文字符串字面量无法被拆行，
+# 启用只会产生无法修复的噪声。行宽由 ruff format 尽力保证。
+# RUF001/002/003（"易混淆的 Unicode 字符"）对中文项目是纯误报：全角标点
+# （，：（）"" 等）本来就是正文与注释的正常内容，共触发 305 次。
+ignore = ["RUF001", "RUF002", "RUF003"]

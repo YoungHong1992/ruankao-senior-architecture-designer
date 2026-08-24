@@ -1,0 +1,16 @@
+version: 2
+updates:
+  # 工作流按不可变 SHA 钉死 action，好处是可复现、不被上游改写，代价是永远不会
+  # 自动升级（包括安全修复）。dependabot 负责提 PR 同步 SHA 与版本注释。
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: chore
+    labels:
+      - dependencies
+
+  # 刻意不启用 pip/uv 生态：uv.lock 中的 pypdf==6.14.2 是故意冻结的，
+  # data/textbook_audit.json 只在该版本下可复现（见 pyproject.toml 与
+  # scripts/audit_textbook_pdf.py 的 PYPDF_VERSION）。自动升级会让账本失效。

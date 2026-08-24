@@ -1,4 +1,6 @@
 # Dependencies
+# uv 在项目内创建 .venv/；pyproject.toml、.python-version 和 uv.lock 才是
+# 需要入库的工具链声明，虚拟环境本身随时可由 `uv run` 重建。
 .venv/
 venv/
 __pycache__/

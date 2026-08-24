@@ -6,7 +6,10 @@ labels:
 body:
   - type: markdown
     attributes:
-      value: 请勿在公开 Issue 中上传身份证件、合同或其他敏感证明。可先提供内容位置和请求，再通过仓库所有者 GitHub 主页建立非公开联系渠道。
+      value: |
+        请勿在公开 Issue 中上传身份证件、合同或其他敏感证明。敏感材料请改用仓库的私密渠道：
+        [Security → Report a vulnerability](https://github.com/YoungHong1992/ruankao-senior-architecture-designer/security/advisories/new)（仅维护者可见，说明见 [SECURITY.md](https://github.com/YoungHong1992/ruankao-senior-architecture-designer/blob/main/SECURITY.md)）。
+        本表单只需填写内容位置与请求事项。完整流程见 [CONTENT_POLICY.md](https://github.com/YoungHong1992/ruankao-senior-architecture-designer/blob/main/CONTENT_POLICY.md) 第 6 节。
   - type: input
     id: content
     attributes:

@@ -25,15 +25,37 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
+      # uv 版本取自 pyproject.toml 的 tool.uv.required-version，
+      # Python 版本取自 .python-version（3.13）。
+      # 门禁只用标准库，uv 缓存常为空，因此允许 nothing-to-cache；
+      # 缓存 3.13 解释器本身，避免每次运行重新下载。
+      - name: Install uv
+        uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
+        with:
+          enable-cache: true
+          cache-python: true
+          ignore-nothing-to-cache: true
+
+      - name: Verify lockfile is up to date
+        run: uv lock --check
+
+      # 校验器只用标准库：不同步 audit 组，缺少 pypdf 也必须通过。
       - name: Validate knowledge base
-        run: python3 scripts/validate_knowledge_base.py
+        run: uv run --locked python scripts/validate_knowledge_base.py
 
       - name: Verify generated exam asset audit
-        run: python3 scripts/build_exam_asset_audit.py --check
+        run: uv run --locked python scripts/build_exam_asset_audit.py --check
 
       - name: Compile audit scripts
         run: >-
-          python3 -m py_compile
+          uv run --locked python -m py_compile
           scripts/validate_knowledge_base.py
           scripts/build_exam_asset_audit.py
           scripts/audit_textbook_pdf.py
+
+      # ruff 固定在 lint 依赖组中，与本地同一版本。
+      - name: Lint scripts
+        run: uv run --locked --group lint ruff check scripts/
+
+      - name: Check script formatting
+        run: uv run --locked --group lint ruff format --check scripts/

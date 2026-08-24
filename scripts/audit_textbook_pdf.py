@@ -4,10 +4,11 @@
 This helper is intentionally not part of CI because the copyrighted source PDF is
 not stored in the repository. It requires the pinned pypdf release declared in
 PYPDF_VERSION below, because pypdf's text extraction output (and therefore the
-committed n-gram coverage measurements) can change between releases.  Install
-the pinned release with:
+committed n-gram coverage measurements) can change between releases.  The pin
+lives in the ``audit`` dependency group of pyproject.toml, so run this script
+through uv, which resolves it from uv.lock:
 
-    uv pip install pypdf==6.14.2
+    uv run --group audit python scripts/audit_textbook_pdf.py <PDF> --manual-review-completed
 
 The script writes only measurements and source hashes, never extracted textbook
 text or scanned pages.
@@ -28,6 +29,8 @@ from pathlib import Path
 # The committed data/textbook_audit.json embeds pypdf extract_text() output, so
 # the generation toolchain is pinned.  Regenerating with any other pypdf release
 # is rejected up front instead of producing a silently divergent audit.
+# validate_knowledge_base.py asserts this constant equals the pyproject.toml
+# and uv.lock pins.
 PYPDF_VERSION = "6.14.2"
 
 try:
@@ -35,8 +38,8 @@ try:
     from pypdf import PdfReader
 except ImportError as exc:  # pragma: no cover - depends on the local audit runtime
     raise SystemExit(
-        f"pypdf {PYPDF_VERSION} is required: "
-        f"uv pip install pypdf=={PYPDF_VERSION}"
+        f"pypdf {PYPDF_VERSION} is required; run this script with "
+        "`uv run --group audit python scripts/audit_textbook_pdf.py ...`"
     ) from exc
 
 
@@ -182,12 +185,8 @@ NUMBER_PATTERNS = {
     "table": re.compile(r"表\s*(\d{1,2})\s*[-—]\s*(\d{1,2})"),
 }
 MARKDOWN_CARRIER_PATTERNS = {
-    "figure": re.compile(
-        r"^\s*>\s*(?:\*\*)?图\s*(\d{1,2})\s*[-—]\s*(\d{1,2})"
-    ),
-    "table": re.compile(
-        r"^\s*(?:>\s*)?(?:\*\*)?表\s*(\d{1,2})\s*[-—]\s*(\d{1,2})"
-    ),
+    "figure": re.compile(r"^\s*>\s*(?:\*\*)?图\s*(\d{1,2})\s*[-—]\s*(\d{1,2})"),
+    "table": re.compile(r"^\s*(?:>\s*)?(?:\*\*)?表\s*(\d{1,2})\s*[-—]\s*(\d{1,2})"),
 }
 HEADING_PATTERN = re.compile(r"^(#{1,6})\s+(.+?)\s*#*\s*$")
 
@@ -465,9 +464,7 @@ FULL_REVIEW_RENDER_METADATA: dict[str, object] = {
 }
 
 CHAPTER_FILES = {
-    int(match.group(1)): path
-    for path in CLEAN_DIR.glob("第*.md")
-    if (match := re.match(r"第(\d+)章-", path.name))
+    int(match.group(1)): path for path in CLEAN_DIR.glob("第*.md") if (match := re.match(r"第(\d+)章-", path.name))
 }
 
 
@@ -475,8 +472,7 @@ def run_git(*args: str) -> str:
     process = subprocess.run(
         ["git", *args],
         cwd=ROOT,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
+        capture_output=True,
         check=False,
     )
     if process.returncode:
@@ -554,9 +550,7 @@ def nearest_heading(lines: list[str], line_index: int) -> tuple[int | None, str]
     return None, "（无 Markdown 标题）"
 
 
-def nearest_asset(
-    lines: list[str], line_index: int, kind: str
-) -> tuple[str, int, str]:
+def nearest_asset(lines: list[str], line_index: int, kind: str) -> tuple[str, int, str]:
     pattern = MARKDOWN_CARRIER_PATTERNS[kind]
     for index in range(line_index - 1, -1, -1):
         match = pattern.match(lines[index])
@@ -581,10 +575,7 @@ def pdf_reference_pages(pages: list[str], kind: str) -> dict[str, list[int]]:
     for physical_page in range(13, 721):
         for match in pattern.finditer(pages[physical_page - 1]):
             occurrences[number_from_match(match)].add(physical_page)
-    return {
-        number: sorted(page_numbers)
-        for number, page_numbers in occurrences.items()
-    }
+    return {number: sorted(page_numbers) for number, page_numbers in occurrences.items()}
 
 
 def expand_table_status_numbers(line: str) -> tuple[list[str], str]:
@@ -613,22 +604,17 @@ def build_baseline_marker_records() -> list[dict[str, object]]:
             for occurrence, match in enumerate(re.finditer(r"原图未收录", line), start=1):
                 number, asset_line, asset_title = nearest_asset(lines, line_index, "figure")
                 if number_key(number)[0] != chapter:
-                    raise AssertionError(
-                        f"chapter {chapter} marker points to unexpected figure {number}"
-                    )
+                    raise AssertionError(f"chapter {chapter} marker points to unexpected figure {number}")
                 if "本段信息不完整" in line:
                     content_impact = "critical_content_incomplete"
                 elif "仅保留图题与正文说明" in line:
                     content_impact = "graphic_detail_only"
                 else:
-                    raise AssertionError(
-                        f"chapter {chapter} figure marker has unknown impact wording: {line}"
-                    )
+                    raise AssertionError(f"chapter {chapter} figure marker has unknown impact wording: {line}")
                 records.append(
                     {
                         "id": (
-                            f"textbook-ch{chapter:02d}-baseline-l{line_index + 1:04d}-"
-                            f"figure-{number}-{occurrence:02d}"
+                            f"textbook-ch{chapter:02d}-baseline-l{line_index + 1:04d}-figure-{number}-{occurrence:02d}"
                         ),
                         "kind": "figure",
                         "path": relative_path,
@@ -659,15 +645,10 @@ def build_baseline_marker_records() -> list[dict[str, object]]:
 
             for number in table_numbers:
                 if number_key(number)[0] != chapter:
-                    raise AssertionError(
-                        f"chapter {chapter} status points to unexpected table {number}"
-                    )
+                    raise AssertionError(f"chapter {chapter} status points to unexpected table {number}")
                 records.append(
                     {
-                        "id": (
-                            f"textbook-ch{chapter:02d}-baseline-l{line_index + 1:04d}-"
-                            f"table-{number}"
-                        ),
+                        "id": (f"textbook-ch{chapter:02d}-baseline-l{line_index + 1:04d}-table-{number}"),
                         "kind": "table",
                         "path": relative_path,
                         "baseline_line": line_index + 1,
@@ -686,18 +667,12 @@ def build_baseline_marker_records() -> list[dict[str, object]]:
     kind_counts = Counter(str(record["kind"]) for record in records)
     if kind_counts != {"figure": 272, "table": 8}:
         raise AssertionError(f"unexpected baseline marker counts: {dict(kind_counts)}")
-    figure_impact_counts = Counter(
-        str(record["content_impact"])
-        for record in records
-        if record["kind"] == "figure"
-    )
+    figure_impact_counts = Counter(str(record["content_impact"]) for record in records if record["kind"] == "figure")
     if figure_impact_counts != {
         "critical_content_incomplete": 174,
         "graphic_detail_only": 98,
     }:
-        raise AssertionError(
-            f"unexpected baseline figure impact counts: {dict(figure_impact_counts)}"
-        )
+        raise AssertionError(f"unexpected baseline figure impact counts: {dict(figure_impact_counts)}")
     ids = [str(record["id"]) for record in records]
     if len(ids) != len(set(ids)):
         raise AssertionError("baseline marker IDs are not unique")
@@ -768,34 +743,18 @@ def build_additional_unmarked_formulas() -> list[dict[str, object]]:
         needles = tuple(str(needle) for needle in spec["current_needles"])
         baseline_needles = tuple(str(needle) for needle in spec["baseline_needles"])
         matched_lines = {
-            needle: [
-                line_index + 1
-                for line_index, current_line in enumerate(current_lines)
-                if needle in current_line
-            ]
+            needle: [line_index + 1 for line_index, current_line in enumerate(current_lines) if needle in current_line]
             for needle in needles
         }
         baseline_matched_lines = {
             needle: [
-                line_index + 1
-                for line_index, baseline_line in enumerate(baseline_lines)
-                if needle in baseline_line
+                line_index + 1 for line_index, baseline_line in enumerate(baseline_lines) if needle in baseline_line
             ]
             for needle in baseline_needles
         }
-        carrier_lines = sorted(
-            {
-                line_number
-                for line_numbers in matched_lines.values()
-                for line_number in line_numbers
-            }
-        )
+        carrier_lines = sorted({line_number for line_numbers in matched_lines.values() for line_number in line_numbers})
         baseline_markdown_lines = sorted(
-            {
-                line_number
-                for line_numbers in baseline_matched_lines.values()
-                for line_number in line_numbers
-            }
+            {line_number for line_numbers in baseline_matched_lines.values() for line_number in line_numbers}
         )
         status = (
             "current_formula_carrier_present"
@@ -815,10 +774,7 @@ def build_additional_unmarked_formulas() -> list[dict[str, object]]:
             "baseline_needles": list(baseline_needles),
             "baseline_markdown_lines": baseline_markdown_lines,
             "baseline_context": clipped(
-                " | ".join(
-                    compact_line(baseline_lines[line_number - 1])
-                    for line_number in baseline_markdown_lines
-                ),
+                " | ".join(compact_line(baseline_lines[line_number - 1]) for line_number in baseline_markdown_lines),
                 600,
             ),
             "nearest_heading_line": heading_line,
@@ -875,11 +831,7 @@ def unique_numbers(texts: list[str], kind: str) -> set[str]:
     pattern = re.compile(rf"{kind}\s*(\d{{1,2}})\s*[-—]\s*(\d{{1,2}})")
     # Normalize with int() so zero-padded references (e.g. 图 2-04) match the
     # canonical "2-4" form used by number_from_match everywhere else.
-    return {
-        f"{int(left)}-{int(right)}"
-        for text in texts
-        for left, right in pattern.findall(text)
-    }
+    return {f"{int(left)}-{int(right)}" for text in texts for left, right in pattern.findall(text)}
 
 
 def independent_numbers(text: str, kind: str) -> set[str]:
@@ -904,9 +856,7 @@ def table_structure_risks(text: str) -> list[dict[str, object]]:
     table text.
     """
 
-    title_pattern = re.compile(
-        r"^\s*(?:>\s*)?(?:\*\*)?表\s*(\d{1,2})\s*[-—]\s*(\d{1,2})"
-    )
+    title_pattern = re.compile(r"^\s*(?:>\s*)?(?:\*\*)?表\s*(\d{1,2})\s*[-—]\s*(\d{1,2})")
     structured_pattern = re.compile(
         r"^\s*(?:>\s*)?(?:\|.*\|\s*|```|(?:[-*]|\d+[.)])\s+|<table\b)",
         re.IGNORECASE,
@@ -982,9 +932,7 @@ def link_baseline_records_to_inventory(
     tables: list[dict[str, object]],
 ) -> None:
     inventory = {
-        (kind, str(item["number"])): item
-        for kind, items in (("figure", figures), ("table", tables))
-        for item in items
+        (kind, str(item["number"])): item for kind, items in (("figure", figures), ("table", tables)) for item in items
     }
     for record in records:
         key = (str(record["kind"]), str(record["nearest_asset_number"]))
@@ -1011,9 +959,7 @@ def historical_spliced_table_investigation(
             "in this clone; fetch the full history (git fetch --unshallow or "
             "actions/checkout fetch-depth: 0) before running the audit"
         )
-    if not git_succeeds(
-        "merge-base", "--is-ancestor", HISTORICAL_COUNT_COMMIT, "HEAD"
-    ):
+    if not git_succeeds("merge-base", "--is-ancestor", HISTORICAL_COUNT_COMMIT, "HEAD"):
         raise SystemExit(
             f"historical count commit {HISTORICAL_COUNT_COMMIT} is not an "
             "ancestor of HEAD; the audit must run on a descendant checkout"
@@ -1043,9 +989,7 @@ def historical_spliced_table_investigation(
             f"expected seven separately counted baseline table issues, found {explicitly_named_shifted}"
         )
 
-    inventory_by_number = {
-        str(item["number"]): item for item in table_inventory
-    }
+    inventory_by_number = {str(item["number"]): item for item in table_inventory}
     reconstructed: list[dict[str, object]] = []
     for number, specification in HISTORICAL_SPLICED_TABLE_CANDIDATES.items():
         chapter = int(specification["chapter"])
@@ -1056,26 +1000,16 @@ def historical_spliced_table_investigation(
         baseline_lines = baseline_text(path).splitlines()
         title_line = int(specification["baseline_title_line"])
         title_index = title_line - 1
-        title_match = MARKDOWN_CARRIER_PATTERNS["table"].match(
-            baseline_lines[title_index]
-        )
+        title_match = MARKDOWN_CARRIER_PATTERNS["table"].match(baseline_lines[title_index])
         if title_match is None or number_from_match(title_match) != number:
             raise AssertionError(
-                f"baseline title mismatch for reconstructed table {number}: "
-                f"{baseline_lines[title_index]}"
+                f"baseline title mismatch for reconstructed table {number}: {baseline_lines[title_index]}"
             )
-        flattened_start, flattened_end = (
-            int(value) for value in specification["baseline_flattened_lines"]
-        )
-        flattened_text = " ".join(
-            compact_line(line)
-            for line in baseline_lines[flattened_start - 1 : flattened_end]
-        )
+        flattened_start, flattened_end = (int(value) for value in specification["baseline_flattened_lines"])
+        flattened_text = " ".join(compact_line(line) for line in baseline_lines[flattened_start - 1 : flattened_end])
         needles = tuple(str(value) for value in specification["baseline_needles"])
         if not all(needle in flattened_text for needle in needles):
-            raise AssertionError(
-                f"baseline flattened evidence changed for table {number}"
-            )
+            raise AssertionError(f"baseline flattened evidence changed for table {number}")
 
         inventory_item = inventory_by_number.get(number)
         if inventory_item is None:
@@ -1083,32 +1017,23 @@ def historical_spliced_table_investigation(
         expected_pages = list(specification["pdf_reference_pages"])
         if inventory_item["pdf_reference_pages"] != expected_pages:
             raise AssertionError(
-                f"PDF page inventory changed for table {number}: "
-                f"{inventory_item['pdf_reference_pages']}"
+                f"PDF page inventory changed for table {number}: {inventory_item['pdf_reference_pages']}"
             )
         if inventory_item["status"] != "current_structured_carrier_present":
-            raise AssertionError(
-                f"reconstructed table {number} has invalid status: {inventory_item['status']}"
-            )
+            raise AssertionError(f"reconstructed table {number} has invalid status: {inventory_item['status']}")
         current_lines = path.read_text(encoding="utf-8-sig").splitlines()
         carrier_lines = [int(value) for value in inventory_item["markdown_carrier_lines"]]
         if not carrier_lines or not any(
             any(
-                candidate.strip().startswith("|")
-                and candidate.strip().endswith("|")
+                candidate.strip().startswith("|") and candidate.strip().endswith("|")
                 for candidate in current_lines[carrier_line : carrier_line + 8]
             )
             for carrier_line in carrier_lines
         ):
-            raise AssertionError(
-                f"reconstructed table {number} lacks a current pipe-table carrier"
-            )
+            raise AssertionError(f"reconstructed table {number} lacks a current pipe-table carrier")
         reconstructed.append(
             {
-                "id": (
-                    f"textbook-ch{chapter:02d}-baseline-l{title_line:04d}-"
-                    f"spliced-table-{number}"
-                ),
+                "id": (f"textbook-ch{chapter:02d}-baseline-l{title_line:04d}-spliced-table-{number}"),
                 "number": number,
                 "chapter": chapter,
                 "path": relative_path,
@@ -1126,14 +1051,10 @@ def historical_spliced_table_investigation(
         )
     reconstructed.sort(key=lambda item: number_key(str(item["number"])))
     if len(reconstructed) != 15:
-        raise AssertionError(
-            f"expected 15 conservative reconstructed tables, found {len(reconstructed)}"
-        )
+        raise AssertionError(f"expected 15 conservative reconstructed tables, found {len(reconstructed)}")
     reconstructed_numbers = {str(item["number"]) for item in reconstructed}
     if reconstructed_numbers.intersection(explicitly_named_shifted):
-        raise AssertionError(
-            "conservative reconstructed tables overlap the separate baseline table category"
-        )
+        raise AssertionError("conservative reconstructed tables overlap the separate baseline table category")
     return {
         "reported_positions": 14,
         "mapping_status": "conservative_reconstruction_covers_reported_minimum",
@@ -1153,9 +1074,7 @@ def historical_spliced_table_investigation(
             "压平文本、PDF 表号页和现行管道表三重证据独立重建的保守集合，数量上覆盖"
             "“至少 14 张”下限，但不声称与原报告恰好选择的 14 张逐一相同。"
         ),
-        "baseline_explicit_shifted_table_numbers_in_separate_8_item_category": (
-            explicitly_named_shifted
-        ),
+        "baseline_explicit_shifted_table_numbers_in_separate_8_item_category": (explicitly_named_shifted),
         "conservatively_reconstructed_positions": len(reconstructed),
         "reported_minimum_covered": len(reconstructed) >= 14,
         "reconstructed_candidates": reconstructed,
@@ -1177,14 +1096,13 @@ def historical_spliced_table_investigation(
     }
 
 
-def build_audit(
-    pdf_path: Path, reviewed_at: str, width: int, manual_review_completed: bool
-) -> dict[str, object]:
+def build_audit(pdf_path: Path, reviewed_at: str, width: int, manual_review_completed: bool) -> dict[str, object]:
     if pypdf.__version__ != PYPDF_VERSION:
         raise SystemExit(
             f"ERROR: pypdf {PYPDF_VERSION} is required to reproduce the committed "
-            f"audit, but {pypdf.__version__} is installed; install the pinned "
-            f"release with: uv pip install pypdf=={PYPDF_VERSION}"
+            f"audit, but {pypdf.__version__} is installed; run the script through "
+            "`uv run --group audit python scripts/audit_textbook_pdf.py ...` so "
+            "uv.lock resolves the pinned release"
         )
     if len(CHAPTER_FILES) != 20:
         raise SystemExit(
@@ -1196,9 +1114,7 @@ def build_audit(
         raise SystemExit(f"unexpected baseline commit: {resolved_baseline}")
     sha256 = file_sha256(pdf_path)
     if sha256 != EXPECTED_SHA256:
-        raise SystemExit(
-            f"unexpected PDF SHA-256: {sha256}; expected {EXPECTED_SHA256}"
-        )
+        raise SystemExit(f"unexpected PDF SHA-256: {sha256}; expected {EXPECTED_SHA256}")
     reader = PdfReader(str(pdf_path))
     if len(reader.pages) != 721:
         raise SystemExit(f"unexpected page count: {len(reader.pages)}; expected 721")
@@ -1226,13 +1142,8 @@ def build_audit(
         clean_text = clean_path.read_text(encoding="utf-8-sig")
         clean_normalized = normalize(clean_text)
         normalized_pages = [normalize(text) for text in page_texts]
-        coverages = [
-            ngram_coverage(page_text, clean_normalized, width)
-            for page_text in normalized_pages
-        ]
-        for offset, (normalized_page, coverage) in enumerate(
-            zip(normalized_pages, coverages, strict=True)
-        ):
+        coverages = [ngram_coverage(page_text, clean_normalized, width) for page_text in normalized_pages]
+        for offset, (normalized_page, coverage) in enumerate(zip(normalized_pages, coverages, strict=True)):
             page_records.append(
                 {
                     "physical_page": start + offset,
@@ -1251,9 +1162,7 @@ def build_audit(
         chapter_table_lines = markdown_carrier_lines(clean_text, "table")
         for number, line_numbers in chapter_figure_lines.items():
             if number_key(number)[0] != chapter:
-                raise AssertionError(
-                    f"chapter {chapter} contains carrier for figure {number}"
-                )
+                raise AssertionError(f"chapter {chapter} contains carrier for figure {number}")
             all_md_figure_lines[number].extend(line_numbers)
         for number, line_numbers in chapter_table_lines.items():
             if number_key(number)[0] != chapter:
@@ -1261,9 +1170,7 @@ def build_audit(
             all_md_table_lines[number].extend(line_numbers)
         table_risks = table_structure_risks(clean_text)
         for risk in table_risks:
-            all_table_structure_risks.append(
-                {"path": clean_path.relative_to(ROOT).as_posix(), **risk}
-            )
+            all_table_structure_risks.append({"path": clean_path.relative_to(ROOT).as_posix(), **risk})
         all_pdf_figure_numbers.update(pdf_figures)
         all_pdf_table_numbers.update(pdf_tables)
         all_md_figure_numbers.update(md_figures)
@@ -1275,19 +1182,13 @@ def build_audit(
                 "physical_pages": {"start": start, "end": end, "count": end - start + 1},
                 "normalized_pdf_chars": sum(map(len, normalized_pages)),
                 "normalized_markdown_chars": len(clean_normalized),
-                "markdown_to_pdf_char_ratio": round(
-                    len(clean_normalized) / max(1, sum(map(len, normalized_pages))), 6
-                ),
+                "markdown_to_pdf_char_ratio": round(len(clean_normalized) / max(1, sum(map(len, normalized_pages))), 6),
                 "page_ngram_coverage": {
                     "width": width,
                     "mean": round(statistics.mean(coverages), 6),
                     "median": round(statistics.median(coverages), 6),
                     "minimum": round(min(coverages), 6),
-                    "below_0_35": [
-                        start + offset
-                        for offset, value in enumerate(coverages)
-                        if value < 0.35
-                    ],
+                    "below_0_35": [start + offset for offset, value in enumerate(coverages) if value < 0.35],
                 },
                 "assets": {
                     "pdf_figure_numbers": len(pdf_figures),
@@ -1311,8 +1212,7 @@ def build_audit(
         raise AssertionError("Markdown table carrier line inventory differs from title set")
     if len(pdf_figure_pages) != 284 or len(pdf_table_pages) != 59:
         raise AssertionError(
-            f"expected official inventory 284 figures/59 tables, found "
-            f"{len(pdf_figure_pages)}/{len(pdf_table_pages)}"
+            f"expected official inventory 284 figures/59 tables, found {len(pdf_figure_pages)}/{len(pdf_table_pages)}"
         )
     if set(all_md_figure_lines) != set(pdf_figure_pages):
         raise AssertionError("current Markdown figure carriers do not match official inventory")
@@ -1342,31 +1242,19 @@ def build_audit(
         baseline_records,
         all_table_structure_risks,
     )
-    link_baseline_records_to_inventory(
-        baseline_records, figure_inventory, table_inventory
-    )
+    link_baseline_records_to_inventory(baseline_records, figure_inventory, table_inventory)
 
     baseline_figure_numbers = {
-        str(record["nearest_asset_number"])
-        for record in baseline_records
-        if record["kind"] == "figure"
+        str(record["nearest_asset_number"]) for record in baseline_records if record["kind"] == "figure"
     }
-    baseline_table_records = [
-        record for record in baseline_records if record["kind"] == "table"
-    ]
+    baseline_table_records = [record for record in baseline_records if record["kind"] == "table"]
     if len(baseline_figure_numbers) != 272:
-        raise AssertionError(
-            f"expected 272 unique baseline figure numbers, found {len(baseline_figure_numbers)}"
-        )
+        raise AssertionError(f"expected 272 unique baseline figure numbers, found {len(baseline_figure_numbers)}")
     if not baseline_figure_numbers <= set(pdf_figure_pages):
         raise AssertionError("baseline figure numbers are not a subset of official inventory")
-    additional_numbers = sorted(
-        set(pdf_figure_pages) - baseline_figure_numbers, key=number_key
-    )
+    additional_numbers = sorted(set(pdf_figure_pages) - baseline_figure_numbers, key=number_key)
     if len(additional_numbers) != 12:
-        raise AssertionError(
-            f"expected 12 additional unmarked figures, found {additional_numbers}"
-        )
+        raise AssertionError(f"expected 12 additional unmarked figures, found {additional_numbers}")
     if set(additional_numbers) != set(ADDITIONAL_FIGURE_CONTENT_CLASSIFICATION):
         raise AssertionError("additional figure content classification is incomplete")
     figure_by_number = {str(item["number"]): item for item in figure_inventory}
@@ -1375,9 +1263,7 @@ def build_audit(
             "id": f"textbook-additional-unmarked-figure-{number}",
             **figure_by_number[number],
             **ADDITIONAL_FIGURE_CONTENT_CLASSIFICATION[number],
-            "reason": (
-                "官方 PDF 全量图号存在，但固定基线 272 个原图未收录标记中没有该图号。"
-            ),
+            "reason": ("官方 PDF 全量图号存在，但固定基线 272 个原图未收录标记中没有该图号。"),
             "proof_scope": INVENTORY_PROOF_SCOPE,
         }
         for number in additional_numbers
@@ -1385,25 +1271,15 @@ def build_audit(
     if any(item["baseline_marker_ids"] for item in additional_unmarked_figures):
         raise AssertionError("additional unmarked figure unexpectedly has a baseline marker")
 
-    low_coverage_pages = {
-        int(item["physical_page"])
-        for item in page_records
-        if float(item["ngram_coverage"]) < 0.35
-    }
+    low_coverage_pages = {int(item["physical_page"]) for item in page_records if float(item["ngram_coverage"]) < 0.35}
     additional_figure_pages = {
-        int(page)
-        for item in additional_unmarked_figures
-        for page in item["pdf_reference_pages"]
+        int(page) for item in additional_unmarked_figures for page in item["pdf_reference_pages"]
     }
     additional_formula_pages = {
-        int(page)
-        for item in additional_unmarked_formulas
-        for page in item["pdf_reference_pages"]
+        int(page) for item in additional_unmarked_formulas for page in item["pdf_reference_pages"]
     }
     full_chapter_review_pages = {
-        page
-        for chapter in (8, 10)
-        for page in range(CHAPTER_RANGES[chapter][0], CHAPTER_RANGES[chapter][1] + 1)
+        page for chapter in (8, 10) for page in range(CHAPTER_RANGES[chapter][0], CHAPTER_RANGES[chapter][1] + 1)
     }
     full_page_review_pages = set(range(13, 721))
     declared_manual_pages = set(full_page_review_pages)
@@ -1432,15 +1308,9 @@ def build_audit(
         len(phase_page_numbers) != len(set(phase_page_numbers))
         or sorted(phase_page_numbers) != list(range(13, 721))
         or sum(int(phase["page_count"]) for phase in FULL_REVIEW_PHASES) != 708
-        or sum(
-            int(phase["generated_contact_sheet_count"])
-            for phase in FULL_REVIEW_PHASES
-        )
+        or sum(int(phase["generated_contact_sheet_count"]) for phase in FULL_REVIEW_PHASES)
         != int(FULL_REVIEW_RENDER_METADATA["generated_contact_sheet_count"])
-        or sum(
-            int(phase["contact_sheets_used_for_review"])
-            for phase in FULL_REVIEW_PHASES
-        )
+        or sum(int(phase["contact_sheets_used_for_review"]) for phase in FULL_REVIEW_PHASES)
         != int(FULL_REVIEW_RENDER_METADATA["contact_sheets_used_for_current_full_review"])
     ):
         raise AssertionError("full-review batch/render metadata is inconsistent")
@@ -1469,23 +1339,17 @@ def build_audit(
     historical_spliced_tables = historical_spliced_table_investigation(
         baseline_table_records, all_table_structure_risks, table_inventory
     )
-    reconstructed_spliced_positions = int(
-        historical_spliced_tables["conservatively_reconstructed_positions"]
-    )
+    reconstructed_spliced_positions = int(historical_spliced_tables["conservatively_reconstructed_positions"])
     critical_figure_position_ids = [
         str(record["id"])
         for record in baseline_records
-        if record["kind"] == "figure"
-        and record["content_impact"] == "critical_content_incomplete"
+        if record["kind"] == "figure" and record["content_impact"] == "critical_content_incomplete"
     ]
     formula_position_ids = [str(item["id"]) for item in formula_status_items]
-    additional_formula_position_ids = [
-        str(item["id"]) for item in additional_unmarked_formulas
-    ]
+    additional_formula_position_ids = [str(item["id"]) for item in additional_unmarked_formulas]
     explicit_table_position_ids = [str(record["id"]) for record in baseline_table_records]
     conservative_spliced_table_position_ids = [
-        str(item["id"])
-        for item in historical_spliced_tables["reconstructed_candidates"]
+        str(item["id"]) for item in historical_spliced_tables["reconstructed_candidates"]
     ]
     additional_critical_figure_position_ids = [
         str(item["id"])
@@ -1493,9 +1357,7 @@ def build_audit(
         if item["content_impact"] == "critical_content_incomplete"
     ]
     additional_detail_only_figure_position_ids = [
-        str(item["id"])
-        for item in additional_unmarked_figures
-        if item["content_impact"] == "graphic_detail_only"
+        str(item["id"]) for item in additional_unmarked_figures if item["content_impact"] == "graphic_detail_only"
     ]
     historical_key_content_position_ids = [
         *critical_figure_position_ids,
@@ -1543,9 +1405,7 @@ def build_audit(
         "schema_version": 4,
         "reviewed_at": reviewed_at,
         "field_definitions": {
-            "baseline_marker_records": (
-                "固定提交中 272 个缺图标记与展开后的 8 个缺失/部分表位置。"
-            ),
+            "baseline_marker_records": ("固定提交中 272 个缺图标记与展开后的 8 个缺失/部分表位置。"),
             "nearest_asset_number": "标记之前最近的图号，或表格状态行明确列出的表号。",
             "baseline_table_numbers": (
                 "表格记录所在基线状态行展开覆盖的全部表号；共享同一状态行的多条记录"
@@ -1560,17 +1420,13 @@ def build_audit(
                 "graphic_detail_only 来自“仅保留图题与正文说明”标记。"
             ),
             "page_records": "物理页 13～720 的 708 条逐页文本覆盖与全页人工复核记录。",
-            "additional_unmarked_formulas": (
-                "全页复核补发现、但不属于固定基线两条公式状态标记的独立公式位置。"
-            ),
+            "additional_unmarked_formulas": ("全页复核补发现、但不属于固定基线两条公式状态标记的独立公式位置。"),
         },
         "source": {
             "path_hint": "本地pdf参考/1. 系统架构设计师教材（官方教程-）.pdf",
             "sha256": sha256,
             "pages": len(pages),
-            "chapter_content_pages": sum(
-                end - start + 1 for start, end in CHAPTER_RANGES.values()
-            ),
+            "chapter_content_pages": sum(end - start + 1 for start, end in CHAPTER_RANGES.values()),
             "excluded_pages": {
                 "1-12": "封面、版权、前言和目录；前言另有独立清洗稿",
                 "721": "封底考试宣传，按清洗标准排除",
@@ -1581,9 +1437,7 @@ def build_audit(
             "normalization": "remove known headers/watermark/punctuation; keep Han and alphanumerics",
             "page_coverage": f"sliding normalized {width}-character n-grams",
             "baseline_enumeration": f"git show {BASELINE_COMMIT}:<canonical chapter path>",
-            "asset_inventory": (
-                "official PDF number references joined to current Markdown independent carrier titles"
-            ),
+            "asset_inventory": ("official PDF number references joined to current Markdown independent carrier titles"),
             "limitation": "覆盖率用于定位风险页，不单独证明语义或版式正确；复杂图表另需渲染和目视核验。",
         },
         "manual_review": {
@@ -1607,8 +1461,7 @@ def build_audit(
             ],
             "render_review": dict(FULL_REVIEW_RENDER_METADATA),
             "chapter_content_pages": len(page_records),
-            "outside_declared_manual_scope_pages": len(page_records)
-            - len(declared_manual_pages),
+            "outside_declared_manual_scope_pages": len(page_records) - len(declared_manual_pages),
             "checks": [
                 "联系表以 original detail 逐页目视核对，并对疑似异常页单页放大",
                 "PDF 页序、章界、异常空白、裁切、错页及跨页连续性复核",
@@ -1666,26 +1519,16 @@ def build_audit(
                 "method": "逐项对照 PDF、现行载体及 FIGURE_POLICY A/B 的正文独立可读性测试。",
             },
             "critical_figure_position_ids": critical_figure_position_ids,
-            "additional_critical_figure_position_ids": (
-                additional_critical_figure_position_ids
-            ),
-            "additional_detail_only_figure_position_ids": (
-                additional_detail_only_figure_position_ids
-            ),
+            "additional_critical_figure_position_ids": (additional_critical_figure_position_ids),
+            "additional_detail_only_figure_position_ids": (additional_detail_only_figure_position_ids),
             "formula_position_ids": formula_position_ids,
             "additional_formula_position_ids": additional_formula_position_ids,
             "explicit_table_position_ids": explicit_table_position_ids,
-            "conservative_spliced_table_position_ids": (
-                conservative_spliced_table_position_ids
-            ),
-            "historical_conservative_reconstructed_positions": len(
-                historical_key_content_position_ids
-            ),
+            "conservative_spliced_table_position_ids": (conservative_spliced_table_position_ids),
+            "historical_conservative_reconstructed_positions": len(historical_key_content_position_ids),
             "historical_conservative_arithmetic": "174 + 2 + 8 + 15 = 199",
             "historical_position_ids": historical_key_content_position_ids,
-            "current_conservative_reconstructed_positions": len(
-                current_key_content_position_ids
-            ),
+            "current_conservative_reconstructed_positions": len(current_key_content_position_ids),
             "current_conservative_arithmetic": "174 + 4 + 7 + 8 + 15 = 208",
             "current_position_ids": current_key_content_position_ids,
             "proof_scope": (
@@ -1704,18 +1547,12 @@ def build_audit(
             "known_formula_positions": 7,
             "explicit_missing_or_partial_table_positions": len(baseline_table_records),
             "reported_spliced_table_positions": 14,
-            "conservatively_reconstructed_spliced_table_positions": (
-                reconstructed_spliced_positions
-            ),
+            "conservatively_reconstructed_spliced_table_positions": (reconstructed_spliced_positions),
             "itemized_proven_positions": itemized_proven_positions,
             "historical_unitemized_positions": 0,
             "key_content_historical_minimum": 198,
-            "key_content_historical_conservative_positions": len(
-                historical_key_content_position_ids
-            ),
-            "key_content_current_conservative_positions": len(
-                current_key_content_position_ids
-            ),
+            "key_content_historical_conservative_positions": len(historical_key_content_position_ids),
+            "key_content_current_conservative_positions": len(current_key_content_position_ids),
             "arithmetic": "272 + 12 + 7 + 8 + 15 = 314",
             "description": (
                 "逐项证据覆盖 272 个基线图、12 个新增图、2 个历史公式、5 个全页复核"
@@ -1731,22 +1568,14 @@ def build_audit(
             "itemized_proven_positions": itemized_proven_positions,
             "historical_unitemized_positions": 0,
             "key_content_historical_minimum": 198,
-            "key_content_historical_conservative_positions": len(
-                historical_key_content_position_ids
-            ),
-            "key_content_current_conservative_positions": len(
-                current_key_content_position_ids
-            ),
+            "key_content_historical_conservative_positions": len(historical_key_content_position_ids),
+            "key_content_current_conservative_positions": len(current_key_content_position_ids),
             "page_records": len(page_records),
             "declared_manual_review_pages": len(declared_manual_pages),
-            "conservatively_reconstructed_spliced_table_positions": (
-                reconstructed_spliced_positions
-            ),
+            "conservatively_reconstructed_spliced_table_positions": (reconstructed_spliced_positions),
             "pdf_unique_figure_numbers": len(all_pdf_figure_numbers),
             "markdown_unique_figure_carriers": len(all_md_figure_numbers),
-            "missing_figure_carriers": sorted(
-                all_pdf_figure_numbers - all_md_figure_numbers
-            ),
+            "missing_figure_carriers": sorted(all_pdf_figure_numbers - all_md_figure_numbers),
             "pdf_unique_table_numbers": len(all_pdf_table_numbers),
             "markdown_unique_table_titles": len(all_md_table_numbers),
             "missing_table_titles": sorted(all_pdf_table_numbers - all_md_table_numbers),
@@ -1786,11 +1615,7 @@ def main() -> int:
         return 1
     rendered = json.dumps(audit, ensure_ascii=False, indent=2) + "\n"
     if args.check:
-        current = (
-            args.output.read_text(encoding="utf-8-sig")
-            if args.output.is_file()
-            else ""
-        )
+        current = args.output.read_text(encoding="utf-8-sig") if args.output.is_file() else ""
         if current != rendered:
             print(f"ERROR: {args.output} is not reproducible", file=sys.stderr)
             return 1

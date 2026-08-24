@@ -1,5 +1,5 @@
 blank_issues_enabled: true
 contact_links:
-  - name: 非公开联系请求
-    url: https://github.com/YoungHong1992
-    about: 涉及敏感权利证明时，请先通过仓库所有者主页请求建立非公开联系渠道。
+  - name: 非公开联系请求（敏感材料请走这里）
+    url: https://github.com/YoungHong1992/ruankao-senior-architecture-designer/security/advisories/new
+    about: 涉及身份证明、授权文件、合同等敏感证据，或仓库脚本的安全问题时，请用 GitHub 私密上报，仅维护者可见；说明见 SECURITY.md。

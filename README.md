@@ -2,9 +2,27 @@
 
 > 全国计算机技术与软件专业技术资格（水平）考试 · 高级资格 · 系统架构设计师
 
+[![Knowledge Base Quality](https://github.com/YoungHong1992/ruankao-senior-architecture-designer/actions/workflows/knowledge-base-quality.yml/badge.svg)](https://github.com/YoungHong1992/ruankao-senior-architecture-designer/actions/workflows/knowledge-base-quality.yml)
+
 本仓库把考试大纲、教材 OCR 提取稿和历年试题整理为可检索的 Markdown，采用 **INDEX 索引 + 按需加载** 的方式，便于个人复习及 AI 辅助检索。
 
 本项目是非官方学习资料库，与考试主管机构、原作者及出版社不存在隶属或授权关系。仓库内容可能含 OCR 错误、回忆版差异和缺失图表，不能替代依法取得的原书、考试主管机构发布的信息或其他权威资料。
+
+## 快速开始
+
+**只想看资料**（无需安装任何东西）：直接在 GitHub 上浏览，或 `git clone` 后用任意 Markdown 阅读器打开。入口是三个目录的 `INDEX.md` 和 [02.历年真题总索引.md](02.历年真题总索引.md)——先读索引，再按需打开单章，详见[使用方式](#使用方式)。
+
+**想校对内容并提 PR**：需要装 [uv](https://docs.astral.sh/uv/)，然后
+
+```bash
+git clone https://github.com/YoungHong1992/ruankao-senior-architecture-designer.git
+cd ruankao-senior-architecture-designer
+uv run python scripts/validate_knowledge_base.py   # 应输出 PASSED: 0 errors
+```
+
+看到 `PASSED` 说明环境就绪。修改流程与红线见 [CONTRIBUTING.md](CONTRIBUTING.md)，完整命令见[质量检查](#质量检查)。
+
+**用 AI 辅助检索**：先让工具读 [AGENTS.md](AGENTS.md)（各家 AI 编码工具通用）或 [CLAUDE.md](CLAUDE.md)（Claude Code），里面写明了必须遵守的内容红线、索引优先的读取方式和不得自动合并的同名冲突。
 
 ## 当前内容与完成度
 
@@ -50,9 +68,17 @@ data/textbook_audit.json            # 教材逐页覆盖与图号/表号审计�
 scripts/validate_knowledge_base.py  # 知识库质量检查入口
 scripts/build_exam_asset_audit.py   # 从固定基线重建 120 个真题点位记录
 scripts/audit_textbook_pdf.py       # 使用本地合法持有 PDF 重建教材审计结果
+pyproject.toml                      # uv 工具链声明：Python 3.13 与审计依赖组
+.python-version                     # 固定解释器版本（3.13）
+uv.lock                             # 审计依赖的锁定版本
 .github/workflows/knowledge-base-quality.yml # 持续集成质量门禁
+AGENTS.md                           # AI 编码工具通用约定（内容红线、读取方式）
+CLAUDE.md                           # 面向 Claude Code 的完整项目规范与不变量清单
+CONTRIBUTING.md                     # 贡献流程与提交前必跑的检查
 CONTENT_POLICY.md                   # 内容权利边界、勘误与下架流程
 DATA_SOURCES.md                     # 出版信息、来源链与可追溯性限制
+SECURITY.md                         # 脚本安全问题与敏感材料的私密上报渠道
+LICENSE                             # 许可范围说明：代码 MIT，第三方内容未授权
 LICENSE-CODE                        # 仅适用于项目自有脚本和工作流的 MIT 许可证
 ```
 
@@ -86,7 +112,38 @@ LICENSE-CODE                        # 仅适用于项目自有脚本和工作流
 
 ## 质量检查
 
-本地运行 `python scripts/validate_knowledge_base.py` 可检查索引、链接、题号、UTF-8、标题层级、高风险 OCR 词、真题 manifest、120 条逐项记录、教材 708 条逐页记录与全页人工复核、199 项历史/208 项当前关键内容债保守清单、314 项完整资产审计及两份索引日期一致性。`python scripts/build_exam_asset_audit.py --check` 可验证真题账本能由固定基线重现；持有源 PDF 时可运行 `python scripts/audit_textbook_pdf.py <PDF路径> --manual-review-completed --check` 验证教材账本。`.github/workflows/knowledge-base-quality.yml` 执行不依赖源 PDF 的质量门禁；检查通过不等同于内容已获考试主管机构或出版社认证。
+### 安装 uv
+
+本仓库的检查脚本用 [uv](https://docs.astral.sh/uv/) 管理运行环境：解释器固定为 Python 3.13（见 `.python-version`），依赖锁定在 `uv.lock`。**只需安装 uv**，Python 与依赖都由它自动准备，不需要手动 `venv` 或 `pip install`。
+
+```bash
+# macOS / Linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
+# Windows（PowerShell）
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+# 或者用已有的 Python 工具链
+pipx install uv    # 亦可 pip install uv
+```
+
+### 运行检查
+
+在仓库根目录执行（首次运行会自动下载 Python 3.13 并创建 `.venv/`，约需一分钟；之后都是秒级）：
+
+```bash
+uv run python scripts/validate_knowledge_base.py        # 主质量门禁
+uv run python scripts/build_exam_asset_audit.py --check # 验证真题账本可由固定基线重现
+uv lock --check                                         # 验证 uv.lock 与 pyproject.toml 一致
+uv run --group lint ruff check scripts/                 # 脚本 lint
+uv run --group lint ruff format scripts/                # 脚本格式化（CI 用 --check）
+# 持有源 PDF 时（pypdf 由 audit 依赖组按需提供）：
+uv run --group audit python scripts/audit_textbook_pdf.py <PDF路径> --manual-review-completed --check
+```
+
+通过时主门禁输出 `PASSED: 0 errors`。脚本不联网、不修改正文，只读取仓库文件并打印结论；`validate_knowledge_base.py` 仅用标准库。
+
+`build_exam_asset_audit.py` 按固定基线提交读取历史，因此需要**完整克隆**：`git clone --depth 1` 或下载 ZIP 会缺少基线提交而失败，已浅克隆时执行 `git fetch --unshallow` 即可。
+
+`validate_knowledge_base.py` 检查索引、链接、题号、UTF-8、标题层级、高风险 OCR 词、真题 manifest、120 条逐项记录、教材 708 条逐页记录与全页人工复核、199 项历史/208 项当前关键内容债保守清单、314 项完整资产审计、两份索引日期一致性，以及 uv 工具链各处版本固定值是否互相一致。`.github/workflows/knowledge-base-quality.yml` 用同一套 uv 命令执行不依赖源 PDF 的质量门禁；检查通过不等同于内容已获考试主管机构或出版社认证。
 
 ## 勘误与反馈
 
