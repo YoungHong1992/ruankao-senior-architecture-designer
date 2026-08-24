@@ -14,7 +14,9 @@
 
 ## 验证
 
-- [ ] 已阅读 `CLAUDE.md`、内容政策和适用的清洗/图表规范
+- [ ] 已阅读 `CLAUDE.md`（或 `AGENTS.md`）、内容政策和适用的清洗/图表规范
 - [ ] 未提交无权公开的源文件、凭据或敏感信息
-- [ ] 已运行 `python scripts/validate_knowledge_base.py`
+- [ ] 已运行 `uv lock --check`
+- [ ] 已运行 `uv run python scripts/validate_knowledge_base.py`（输出 `PASSED: 0 errors`）
+- [ ] 已运行 `uv run python scripts/build_exam_asset_audit.py --check`
 - [ ] 自动检查通过

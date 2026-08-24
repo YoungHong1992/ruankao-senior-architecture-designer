@@ -59,7 +59,7 @@
 
 ## 6. 权利人联系与下架流程
 
-权利人或其授权代表如认为仓库内容侵犯其权利，可通过 [GitHub Issues](https://github.com/YoungHong1992/ruankao-senior-architecture-designer/issues) 提交标题为 `【版权/下架请求】内容标识` 的请求；如材料包含个人信息、合同或其他敏感证据，请不要公开上传，可先通过仓库所有者 [YoungHong1992 的 GitHub 主页](https://github.com/YoungHong1992) 请求建立非公开联系渠道。
+权利人或其授权代表如认为仓库内容侵犯其权利，可通过 [GitHub Issues](https://github.com/YoungHong1992/ruankao-senior-architecture-designer/issues) 提交标题为 `【版权/下架请求】内容标识` 的请求；如材料包含个人信息、合同或其他敏感证据，请不要公开上传，请改用仓库的私密上报渠道（[Security 页面](https://github.com/YoungHong1992/ruankao-senior-architecture-designer/security) → **Report a vulnerability**），该会话仅维护者可见，具体说明见 [SECURITY.md](SECURITY.md)。
 
 请求宜包含：
 

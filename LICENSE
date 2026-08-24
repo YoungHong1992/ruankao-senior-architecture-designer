@@ -1,0 +1,50 @@
+# 许可范围说明 / Licensing Scope Notice
+
+**本仓库不是统一授权的。** 请勿把任何单一许可证套用到全仓库。GitHub 侧边栏会把本仓库标记为
+“Other”，这是准确的：仓库同时包含项目自有代码与第三方内容，二者授权状态完全不同。
+
+**This repository is NOT under a single license.** Do not apply one license to the whole
+repository. GitHub reports it as "Other", which is the accurate signal.
+
+---
+
+## 一、项目自有代码：MIT
+
+适用范围仅限：
+
+- `scripts/` 下由本项目贡献者原创的校验与审计脚本；
+- `.github/workflows/` 下的 GitHub Actions 工作流。
+
+许可证全文见 [LICENSE-CODE](LICENSE-CODE)（MIT）。可自由复用这部分代码。
+
+## 二、第三方内容：未授予任何许可
+
+以下内容**不适用** MIT，本项目也**不主张**对其拥有版权，因此**无权**向他人授予许可：
+
+- `00.系统架构设计师考试大纲/`、`00.…-清洗版/` — 考试大纲；
+- `01.系统架构设计师教材/`、`01.…-清洗版/` — 《系统架构设计师教程》（2022 年 11 月第 2 版，
+  叶宏主编，清华大学出版社，ISBN 978-7-302-61992-5）的 OCR 提取稿与清洗稿；
+- `02.历年真题/`、`02.历年真题(补充)/`、`02.历年真题-清洗版/` — 历年试题、答案、解析及其
+  回忆版汇编；
+- 上述材料派生的一切 OCR 文本、清洗文本、转录表格、结构化重绘图示与索引摘要。
+
+这些材料可能仍受第三方著作权或其他权利保护。仓库仅出于个人学习与校对留存整理稿，
+**没有**获得原作者、出版社或考试主管机构的授权，也与它们不存在隶属关系。
+是否可以复制、再分发或商业使用，请自行取得权利人许可并自行承担责任。
+
+## 三、项目文档
+
+根目录的 `README.md`、`CLAUDE.md`、`AGENTS.md`、`CONTRIBUTING.md`、`CONTENT_POLICY.md`、
+`DATA_SOURCES.md`、`FIGURE_POLICY.md`、`教材Markdown清洗与校对标准.md` 及本文件为本项目原创，
+可按 MIT 条款使用，但其中引用的第三方书目信息、题号与页码仍受第二节约束。
+
+## 四、权利人请求
+
+权利人或其授权代表如需补充署名、限制展示或下架内容，请按 [CONTENT_POLICY.md](CONTENT_POLICY.md)
+第 6 节的流程处理；私下联系渠道见 [SECURITY.md](SECURITY.md)。请勿在公开 Issue 中提交
+身份证件、合同等敏感材料。
+
+---
+
+完整的权利边界、内容质量声明与来源要求见 [CONTENT_POLICY.md](CONTENT_POLICY.md)
+与 [DATA_SOURCES.md](DATA_SOURCES.md)。

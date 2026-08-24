@@ -16,7 +16,6 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_PATH = ROOT / "data" / "exam_asset_audit.json"
 BASELINE_COMMIT = "e02f60ca93e78217b3b6b9bdf7a6db964781741c"
@@ -25,9 +24,7 @@ REVIEWED_AT = "2026-07-12"
 
 MARKER_RE = re.compile(r"原图未收录|原表未收录")
 HEADING_RE = re.compile(r"^(#{1,6})\s+(.+?)\s*#*\s*$")
-QUESTION_TITLE_RE = re.compile(
-    r"^(?:第\s*\d+\s*题|试题\s*(?:[一二三四五六七八九十]+|\d+))"
-)
+QUESTION_TITLE_RE = re.compile(r"^(?:第\s*\d+\s*题|试题\s*(?:[一二三四五六七八九十]+|\d+))")
 EXAM_NAME_RE = re.compile(
     r"^(?P<year>\d{4})年(?P<session>上半年|下半年)-系统架构设计师-"
     r"(?P<subject>综合知识|案例分析|论文)\.md$"
@@ -58,15 +55,11 @@ EXPECTED_FILE_COUNTS = {
     "02.历年真题-清洗版/2025年下半年-系统架构设计师-案例分析.md": 3,
 }
 
-PATH_2018_H2_COMPREHENSIVE = (
-    "02.历年真题-清洗版/2018年下半年-系统架构设计师-综合知识.md"
-)
+PATH_2018_H2_COMPREHENSIVE = "02.历年真题-清洗版/2018年下半年-系统架构设计师-综合知识.md"
 PATH_2019_H2_ESSAY = "02.历年真题-清洗版/2019年下半年-系统架构设计师-论文.md"
 PATH_2020_H2_ESSAY = "02.历年真题-清洗版/2020年下半年-系统架构设计师-论文.md"
 PATH_2024_H1_CASE = "02.历年真题-清洗版/2024年上半年-系统架构设计师-案例分析.md"
-PATH_2024_H1_COMPREHENSIVE = (
-    "02.历年真题-清洗版/2024年上半年-系统架构设计师-综合知识.md"
-)
+PATH_2024_H1_COMPREHENSIVE = "02.历年真题-清洗版/2024年上半年-系统架构设计师-综合知识.md"
 PATH_2024_H2_CASE = "02.历年真题-清洗版/2024年下半年-系统架构设计师-案例分析.md"
 PATH_2025_H2_CASE = "02.历年真题-清洗版/2025年下半年-系统架构设计师-案例分析.md"
 
@@ -122,18 +115,11 @@ CURRENT_LOCATION_OVERRIDES = {
 }
 
 PROOF_SCOPES = {
-    "reviewed_current_carrier": (
-        "标记消失只证明载体已处理，语义证据见现行段落来源注，不单独证明官方性。"
-    ),
-    "source_limited": (
-        "仅证明现行载体已明确记录来源限制；不证明原卷几何、空号或答案已恢复。"
-    ),
-    "non_original_substitute": (
-        "仅证明现行载体有明确来源的学习性替代表；不证明其等同原解析图表或官方原表。"
-    ),
+    "reviewed_current_carrier": ("标记消失只证明载体已处理，语义证据见现行段落来源注，不单独证明官方性。"),
+    "source_limited": ("仅证明现行载体已明确记录来源限制；不证明原卷几何、空号或答案已恢复。"),
+    "non_original_substitute": ("仅证明现行载体有明确来源的学习性替代表；不证明其等同原解析图表或官方原表。"),
     "recovered_structural": (
-        "现行载体已完成结构化恢复；恢复范围与证据见现行题目来源注，"
-        "本记录不单独证明其为官方原卷。"
+        "现行载体已完成结构化恢复；恢复范围与证据见现行题目来源注，本记录不单独证明其为官方原卷。"
     ),
 }
 
@@ -154,13 +140,9 @@ SOURCE_LIMITED_VISUAL_ITEMS = [
         "path": PATH_2024_H1_CASE,
         "location": "试题四 DDS/SOME-IP 通信框图",
         "limitation": (
-            "近时回忆明确共有 6 个协议空，并提供已填技术参考图，但未保存原考试空白框图，"
-            "无法确定具体挖掉哪 6 条协议边。"
+            "近时回忆明确共有 6 个协议空，并提供已填技术参考图，但未保存原考试空白框图，无法确定具体挖掉哪 6 条协议边。"
         ),
-        "current_handling": (
-            "按 2024-05-27 参考图逐边恢复完整模块与 DDS/SOME-IP 标签，"
-            "并明确不反推官方六空位置。"
-        ),
+        "current_handling": ("按 2024-05-27 参考图逐边恢复完整模块与 DDS/SOME-IP 标签，并明确不反推官方六空位置。"),
     },
     {
         "id": "2024-h1-case-q4-ap-flow",
@@ -171,8 +153,7 @@ SOURCE_LIMITED_VISUAL_ITEMS = [
             "节点名称来自同页转载的旧技术答案图，仍非官方原卷。"
         ),
         "current_handling": (
-            "完整转录六个待填节点、已给高精地图及九条箭头，"
-            "继续保留原卷版式、空号分配和官方答案限制。"
+            "完整转录六个待填节点、已给高精地图及九条箭头，继续保留原卷版式、空号分配和官方答案限制。"
         ),
     },
     {
@@ -286,8 +267,7 @@ SOURCE_SEARCH_REFRESH = {
         "固定了三组公开检索终点，却仍未裁决六个来源受限视觉细节。"
     ),
     "proof_scope": (
-        "零结果只覆盖 GitHub 当时向该账户返回的代码索引，不证明互联网、私有仓库、"
-        "已删除历史或未索引二进制中不存在材料。"
+        "零结果只覆盖 GitHub 当时向该账户返回的代码索引，不证明互联网、私有仓库、已删除历史或未索引二进制中不存在材料。"
     ),
 }
 
@@ -297,8 +277,7 @@ NON_ORIGINAL_SUBSTITUTES = [
         "path": PATH_2019_H2_ESSAY,
         "location": "试题三数据湖与数据仓库对照",
         "description": (
-            "原解析图表未入库；当前表格是依据 AWS 与 Google Cloud 官方技术文档整理的"
-            "非官方学习对照，不冒充原解析表。"
+            "原解析图表未入库；当前表格是依据 AWS 与 Google Cloud 官方技术文档整理的非官方学习对照，不冒充原解析表。"
         ),
     }
 ]
@@ -344,10 +323,7 @@ ADDITIONAL_POSITIONS = [
         "marker": None,
         "nearest_question": "第73题",
         "nearest_heading": "第73题",
-        "context": (
-            "项目 A、B、C、D 四道工序的赶工题；现行载体已恢复完整六列表、选项、"
-            "答案和工程费用计算校核。"
-        ),
+        "context": ("项目 A、B、C、D 四道工序的赶工题；现行载体已恢复完整六列表、选项、答案和工程费用计算校核。"),
         "disposition": "recovered_structural",
         "proof_scope": PROOF_SCOPES["recovered_structural"],
         "description": "旧基线没有统一缺表标记；终审时发现并恢复六列表、选项、答案和计算校核。",
@@ -375,8 +351,7 @@ def run_git(*args: str) -> str:
     process = subprocess.run(
         ["git", *args],
         cwd=ROOT,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
+        capture_output=True,
         check=False,
     )
     if process.returncode:
@@ -479,10 +454,7 @@ def baseline_records() -> list[dict[str, object]]:
                 nearest_question, nearest_heading = headings_at(lines, line_index)
                 disposition, manual_item_id = disposition_for(relative_path, line_number)
                 record: dict[str, object] = {
-                    "id": (
-                        f"{exam_slug(relative_path)}-baseline-l{line_number:04d}-"
-                        f"{marker_slug}-{occurrence:02d}"
-                    ),
+                    "id": (f"{exam_slug(relative_path)}-baseline-l{line_number:04d}-{marker_slug}-{occurrence:02d}"),
                     "origin": "baseline_marker",
                     "path": relative_path,
                     "baseline_line": line_number,
@@ -495,9 +467,7 @@ def baseline_records() -> list[dict[str, object]]:
                 }
                 if manual_item_id:
                     record["manual_item_id"] = manual_item_id
-                current_location = CURRENT_LOCATION_OVERRIDES.get(
-                    (relative_path, line_number)
-                )
+                current_location = CURRENT_LOCATION_OVERRIDES.get((relative_path, line_number))
                 if current_location:
                     record["current_location"] = current_location
                 records.append(record)
@@ -523,9 +493,7 @@ def attach_manual_mappings(
         position_id = manual_to_position.get(str(item["id"]))
         item["baseline_position_id"] = position_id
         item["baseline_mapping"] = (
-            "mapped_to_fixed_baseline_marker"
-            if position_id
-            else "no_matching_legacy_marker_in_fixed_baseline"
+            "mapped_to_fixed_baseline_marker" if position_id else "no_matching_legacy_marker_in_fixed_baseline"
         )
         item["disposition"] = disposition
         item["proof_scope"] = PROOF_SCOPES[disposition]
@@ -553,8 +521,7 @@ def validate_records(
     observed = Counter(str(record["path"]) for record in baseline)
     if dict(observed) != EXPECTED_FILE_COUNTS:
         raise AssertionError(
-            "per-file baseline counts changed:\n"
-            + json.dumps(dict(observed), ensure_ascii=False, indent=2)
+            "per-file baseline counts changed:\n" + json.dumps(dict(observed), ensure_ascii=False, indent=2)
         )
     if any(int(item["current_legacy_marker_count"]) for item in files):
         raise AssertionError("current canonical files still contain legacy markers")
@@ -582,7 +549,18 @@ def validate_records(
 
 
 def build_audit() -> dict[str, object]:
-    resolved = run_git("rev-parse", f"{BASELINE_COMMIT}^{{commit}}").strip()
+    try:
+        resolved = run_git("rev-parse", f"{BASELINE_COMMIT}^{{commit}}").strip()
+    except RuntimeError as exc:
+        # A shallow clone (git clone --depth 1) is the usual cause: the fixed
+        # baseline commit is simply absent from the local history.
+        raise SystemExit(
+            f"ERROR: cannot resolve the fixed baseline commit {BASELINE_COMMIT}.\n"
+            "This script reads the baseline through `git show`, so it needs the "
+            "full history. If you used `git clone --depth ...`, run "
+            "`git fetch --unshallow` (CI checks out with fetch-depth: 0).\n"
+            f"Underlying error: {exc}"
+        ) from exc
     if resolved != BASELINE_COMMIT:
         raise AssertionError(f"baseline commit mismatch: {resolved}")
 
@@ -598,9 +576,7 @@ def build_audit() -> dict[str, object]:
     ]
     validate_records(baseline, positions, files)
 
-    source_limited = attach_manual_mappings(
-        SOURCE_LIMITED_VISUAL_ITEMS, baseline, "source_limited"
-    )
+    source_limited = attach_manual_mappings(SOURCE_LIMITED_VISUAL_ITEMS, baseline, "source_limited")
     if len(source_limited) != 6:
         raise AssertionError("expected six source-limited visual items after recovering 2018 Q1")
     if any(item["id"] == "2018-h2-comprehensive-q1-table" for item in source_limited):
@@ -608,9 +584,7 @@ def build_audit() -> dict[str, object]:
     if any(item["baseline_position_id"] is not None for item in source_limited):
         raise AssertionError("current manual limits must not be falsely mapped to legacy markers")
 
-    substitutes = attach_manual_mappings(
-        NON_ORIGINAL_SUBSTITUTES, baseline, "non_original_substitute"
-    )
+    substitutes = attach_manual_mappings(NON_ORIGINAL_SUBSTITUTES, baseline, "non_original_substitute")
     if substitutes[0]["baseline_position_id"] is None:
         raise AssertionError("2019 essay substitute must map to its baseline marker")
 
@@ -657,8 +631,7 @@ def build_audit() -> dict[str, object]:
             "marker_patterns": ["原图未收录", "原表未收录"],
             "explicit_positions": len(baseline),
             "description": (
-                "固定基线中 22 份 canonical 正文的显式图表缺失标记；"
-                "索引汇总标记不计入，逐项记录由 git show 直接生成。"
+                "固定基线中 22 份 canonical 正文的显式图表缺失标记；索引汇总标记不计入，逐项记录由 git show 直接生成。"
             ),
         },
         "additional_positions": [dict(item) for item in ADDITIONAL_POSITIONS],
@@ -667,9 +640,7 @@ def build_audit() -> dict[str, object]:
             "baseline_positions": len(baseline),
             "additional_positions": len(ADDITIONAL_POSITIONS),
             "files_with_baseline_positions": len(files),
-            "current_legacy_marker_count": sum(
-                int(item["current_legacy_marker_count"]) for item in files
-            ),
+            "current_legacy_marker_count": sum(int(item["current_legacy_marker_count"]) for item in files),
             "source_limited_visual_items": len(source_limited),
             "positions_by_disposition": disposition_summary,
             "conclusion": (
