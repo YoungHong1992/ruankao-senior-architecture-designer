@@ -53,8 +53,32 @@ EXAM_SOURCE_DIRS = ("02.历年真题", "02.历年真题(补充)")
 MANIFEST_PATH = ROOT / "data" / "exams.json"
 EXAM_ASSET_AUDIT_PATH = ROOT / "data" / "exam_asset_audit.json"
 TEXTBOOK_AUDIT_PATH = ROOT / "data" / "textbook_audit.json"
+OUTLINE_AUDIT_PATH = ROOT / "data" / "outline_audit.json"
 MASTER_INDEX_PATH = ROOT / "02.历年真题总索引.md"
 CLEAN_EXAM_INDEX_PATH = ROOT / "02.历年真题-清洗版" / "INDEX.md"
+
+# Outline (考试大纲) governance.  The outline had no content-level ledger at all
+# until data/outline_audit.json; these are the closed vocabularies and fixed
+# bibliographic values the ledger and the cleaned INDEX must agree on.
+OUTLINE_CLEAN_DIR = "00.系统架构设计师考试大纲-清洗版"
+OUTLINE_AUDIT_SCHEMA_VERSION = 1
+OUTLINE_ISBN = "978-7-302-62003-7"
+OUTLINE_VERDICTS = {
+    "consistent",
+    "cleaning_defect",
+    "source_faithful_but_outdated",
+    "source_conflict",
+    "unverifiable",
+}
+OUTLINE_DISPOSITIONS = {
+    "no_change",
+    "fixed_in_clean",
+    "annotated_currency",
+    "annotated_limitation",
+    "pending",
+    "escalated",
+}
+OUTLINE_FILE_STATES = {"source_verified", "pending_source_verification"}
 
 # uv toolchain pins.  The Python version, the pypdf pin and the lockfile are
 # declared in three separate files; the audit script carries its own copy of
@@ -314,17 +338,182 @@ class Validator:
                     self.error(path, "chapter filename must match 第XX章-标题.md")
 
     def check_clean_ocr(self) -> None:
-        directory = ROOT / "01.系统架构设计师教材-清洗版"
-        for path in sorted(directory.glob("*.md")):
-            text = self.read_text(path) or ""
-            for label, pattern in OCR_PATTERNS.items():
-                matches = list(pattern.finditer(text))
-                if matches:
-                    line_number = text.count("\n", 0, matches[0].start()) + 1
-                    self.error(
-                        path,
-                        f"high-risk OCR residue '{label}' ({len(matches)} occurrence(s), first at line {line_number})",
-                    )
+        # Every cleaned directory is scanned, not just the textbook: the outline
+        # clean-up went unscanned for its whole history because this check used
+        # to hardcode a single directory.
+        for name in CLEAN_DIRS:
+            directory = ROOT / name
+            for path in sorted(directory.glob("*.md")):
+                text = self.read_text(path) or ""
+                for label, pattern in OCR_PATTERNS.items():
+                    matches = list(pattern.finditer(text))
+                    if matches:
+                        line_number = text.count("\n", 0, matches[0].start()) + 1
+                        self.error(
+                            path,
+                            f"high-risk OCR residue '{label}' "
+                            f"({len(matches)} occurrence(s), first at line {line_number})",
+                        )
+
+    def check_markdown_encoding(self) -> None:
+        """All Markdown must be plain cross-platform UTF-8: no BOM, no stray CR.
+
+        A BOM is decoded away by utf-8-sig, so it silently survives every other
+        check while breaking line-start matching and some third-party tooling.
+        """
+        for path in self.markdown_files():
+            data = path.read_bytes()
+            if data.startswith(b"\xef\xbb\xbf"):
+                self.error(path, "Markdown must be UTF-8 without BOM")
+            if b"\r" in data.replace(b"\r\n", b""):
+                self.error(path, "Markdown must not contain bare CR characters")
+
+    def check_outline_audit(self) -> None:
+        if not OUTLINE_AUDIT_PATH.is_file():
+            self.error(OUTLINE_AUDIT_PATH, "outline audit ledger is missing")
+            return
+        try:
+            audit = json.loads(OUTLINE_AUDIT_PATH.read_text(encoding="utf-8-sig"))
+        except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+            self.error(OUTLINE_AUDIT_PATH, f"invalid JSON: {exc}")
+            return
+
+        required = {
+            "schema_version",
+            "reviewed_at",
+            "field_definitions",
+            "source",
+            "method",
+            "scope",
+            "page_map",
+            "reviewed_pages",
+            "files",
+            "findings",
+            "external_sources",
+            "asset_inventory",
+            "summary",
+        }
+        missing = required - set(audit)
+        if missing:
+            self.error(OUTLINE_AUDIT_PATH, f"missing top-level keys: {sorted(missing)}")
+            return
+        if audit["schema_version"] != OUTLINE_AUDIT_SCHEMA_VERSION:
+            self.error(
+                OUTLINE_AUDIT_PATH,
+                f"schema_version must be {OUTLINE_AUDIT_SCHEMA_VERSION}, found {audit['schema_version']}",
+            )
+        try:
+            date.fromisoformat(str(audit["reviewed_at"]))
+        except ValueError:
+            self.error(OUTLINE_AUDIT_PATH, "reviewed_at must be an ISO date (YYYY-MM-DD)")
+
+        source = audit["source"]
+        if not re.fullmatch(r"[0-9a-f]{64}", str(source.get("sha256", ""))):
+            self.error(OUTLINE_AUDIT_PATH, "source.sha256 must be a lowercase 64-hex digest")
+        if source.get("committed") is not False:
+            self.error(OUTLINE_AUDIT_PATH, "source.committed must be false: the scan must not enter the repository")
+        if source.get("isbn") != OUTLINE_ISBN:
+            self.error(OUTLINE_AUDIT_PATH, f"source.isbn must be {OUTLINE_ISBN}")
+
+        findings = audit["findings"]
+        seen_ids: set[str] = set()
+        for finding in findings:
+            finding_id = str(finding.get("id", ""))
+            if not finding_id or finding_id in seen_ids:
+                self.error(OUTLINE_AUDIT_PATH, f"duplicate or empty finding id: {finding_id!r}")
+                continue
+            seen_ids.add(finding_id)
+            if finding.get("verdict") not in OUTLINE_VERDICTS:
+                self.error(OUTLINE_AUDIT_PATH, f"{finding_id}: unknown verdict {finding.get('verdict')!r}")
+            if finding.get("disposition") not in OUTLINE_DISPOSITIONS:
+                self.error(OUTLINE_AUDIT_PATH, f"{finding_id}: unknown disposition {finding.get('disposition')!r}")
+            if not str(finding.get("proof_scope", "")).strip():
+                self.error(OUTLINE_AUDIT_PATH, f"{finding_id}: proof_scope must not be empty")
+            target = ROOT / str(finding.get("path", ""))
+            if not target.exists():
+                self.error(OUTLINE_AUDIT_PATH, f"{finding_id}: path does not exist: {finding.get('path')}")
+
+        # A finding may never claim more than the 正文 shows.  "Fixed" requires a
+        # visible errata/annotation, and anything still outdated or unverifiable
+        # must not be recorded as resolved.
+        for finding in findings:
+            target = ROOT / str(finding.get("path", ""))
+            if not target.is_file():
+                continue
+            body = self.read_text(target) or ""
+            marks = ("清洗勘误", "整理者注（非原文）", "转录范围", "已知限制")
+            if finding.get("disposition") == "fixed_in_clean" and not any(mark in body for mark in marks):
+                self.error(
+                    OUTLINE_AUDIT_PATH,
+                    f"{finding.get('id')}: disposition is fixed_in_clean but {finding.get('path')} carries no visible note",
+                )
+            if finding.get("verdict") == "source_faithful_but_outdated" and finding.get("disposition") == "no_change":
+                self.error(
+                    OUTLINE_AUDIT_PATH,
+                    f"{finding.get('id')}: outdated source text must be annotated, not left as no_change",
+                )
+
+        for record in audit["files"]:
+            path = ROOT / str(record.get("path", ""))
+            if not path.is_file():
+                self.error(OUTLINE_AUDIT_PATH, f"files[] entry missing on disk: {record.get('path')}")
+                continue
+            if record.get("verification_status") not in OUTLINE_FILE_STATES:
+                self.error(OUTLINE_AUDIT_PATH, f"{record.get('path')}: unknown verification_status")
+            digest = self.normalized_lf_sha256(path)
+            if record.get("content_sha256") != digest:
+                self.error(
+                    OUTLINE_AUDIT_PATH,
+                    f"{record.get('path')}: content_sha256 is stale; rerun scripts/build_outline_audit.py",
+                )
+
+        for asset in audit["asset_inventory"]:
+            asset_path = ROOT / str(asset.get("path", ""))
+            if not asset_path.is_file():
+                self.error(OUTLINE_AUDIT_PATH, f"asset_inventory entry missing: {asset.get('path')}")
+                continue
+            if not str(asset.get("redraw_declaration", "")).strip():
+                self.error(OUTLINE_AUDIT_PATH, f"{asset.get('path')}: redraw_declaration must not be empty")
+
+        # External evidence must be checkable: a source that is claimed to
+        # confirm or contradict something needs a digest behind it.
+        for entry in audit["external_sources"]:
+            if not str(entry.get("url", "")).startswith("https://"):
+                self.error(OUTLINE_AUDIT_PATH, f"{entry.get('id')}: external source url must be https")
+            if entry.get("agreement") in {"confirms", "contradicts"} and not entry.get("excerpt_sha256"):
+                self.error(
+                    OUTLINE_AUDIT_PATH,
+                    f"{entry.get('id')}: agreement={entry.get('agreement')} requires an excerpt_sha256",
+                )
+
+        summary = audit["summary"]
+        if summary.get("findings_total") != len(findings):
+            self.error(OUTLINE_AUDIT_PATH, "summary.findings_total does not match findings[]")
+        recomputed = Counter(str(item.get("verdict")) for item in findings)
+        if summary.get("findings_by_verdict") != dict(sorted(recomputed.items())):
+            self.error(OUTLINE_AUDIT_PATH, "summary.findings_by_verdict does not match findings[]")
+
+        scope = audit["scope"]
+        verified = sum(1 for item in audit["files"] if item.get("verification_status") == "source_verified")
+        if scope.get("files_source_verified") != verified:
+            self.error(OUTLINE_AUDIT_PATH, "scope.files_source_verified does not match files[]")
+        if scope.get("files_total") != len(audit["files"]):
+            self.error(OUTLINE_AUDIT_PATH, "scope.files_total does not match files[]")
+
+        index_path = ROOT / OUTLINE_CLEAN_DIR / "INDEX.md"
+        index_text = self.read_text(index_path) or ""
+        if OUTLINE_ISBN not in index_text:
+            self.error(index_path, f"cleaned outline INDEX must record the source ISBN {OUTLINE_ISBN}")
+        if str(source.get("sha256")) not in index_text:
+            self.error(index_path, "cleaned outline INDEX must record the source scan SHA-256")
+        stated = re.search(r"\*\*统计日期：\*\*\s*(\d{4}-\d{2}-\d{2})", index_text)
+        if not stated:
+            self.error(index_path, "cleaned outline INDEX must carry a 统计日期 line")
+        elif stated.group(1) != audit["reviewed_at"]:
+            self.error(
+                index_path,
+                f"统计日期 {stated.group(1)} does not match outline audit reviewed_at {audit['reviewed_at']}",
+            )
 
     @staticmethod
     def exam_key_from_name(path: Path) -> tuple[int, str, str] | None:
@@ -2415,7 +2604,9 @@ class Validator:
         for path in markdown_files:
             self.check_markdown_file(path)
         self.check_content_directories()
+        self.check_markdown_encoding()
         self.check_clean_ocr()
+        self.check_outline_audit()
         self.check_exam_manifest()
         self.check_clean_exam_counts()
         self.check_exam_asset_audit()
@@ -2425,7 +2616,7 @@ class Validator:
         print(
             f"Checked {len(markdown_files)} Markdown files, "
             f"{len(CONTENT_DIRS)} content directories, the exam manifest, "
-            "the exam/textbook asset audits and the uv toolchain pins."
+            "the outline/exam/textbook audits and the uv toolchain pins."
         )
         for warning in self.warnings:
             print(f"WARNING: {warning}")

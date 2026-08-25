@@ -26,6 +26,7 @@
    uv lock --check                                          # pyproject.toml 与 uv.lock 一致
    uv run python scripts/validate_knowledge_base.py         # 主门禁，应输出 PASSED: 0 errors
    uv run python scripts/build_exam_asset_audit.py --check   # 真题账本可由固定基线重现
+   uv run python scripts/build_outline_audit.py --check      # 大纲账本可重现；改过大纲正文要先去掉 --check 重建
    uv run --group lint ruff check scripts/                   # 仅在改了 scripts/ 时需要
    uv run --group lint ruff format scripts/                  # 同上；CI 用 --check 断言已格式化
    ```
@@ -35,7 +36,7 @@
 
 ## 修改脚本依赖
 
-- `validate_knowledge_base.py` 和 `build_exam_asset_audit.py` 只能使用 Python 标准库，以保证质量门禁不依赖任何第三方包。
+- `validate_knowledge_base.py`、`build_exam_asset_audit.py` 和 `build_outline_audit.py` 只能使用 Python 标准库，以保证质量门禁不依赖任何第三方包。
 - 只有 `audit_textbook_pdf.py` 允许第三方依赖，声明在 `pyproject.toml` 的 `audit` 依赖组中，运行时加 `--group audit`。
 - 代码风格由 ruff 统一（配置在 `pyproject.toml` 的 `[tool.ruff]`，行宽 120），ruff 本身固定在 `lint` 依赖组。`audit` 与 `lint` 都是非默认组，因此主门禁在无第三方包的环境里也必须通过。
 - pypdf 的版本在 `pyproject.toml`、`uv.lock` 和 `scripts/audit_textbook_pdf.py` 的 `PYPDF_VERSION` 三处必须一致（校验器会断言）；它决定 `data/textbook_audit.json` 能否复现，升级前须重新生成并复核该账本。

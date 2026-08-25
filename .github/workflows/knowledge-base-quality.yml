@@ -46,11 +46,16 @@ jobs:
       - name: Verify generated exam asset audit
         run: uv run --locked python scripts/build_exam_asset_audit.py --check
 
+      # 大纲账本不依赖源 PDF（扫描件不入库），因此可以在 CI 中复核。
+      - name: Verify generated outline audit
+        run: uv run --locked python scripts/build_outline_audit.py --check
+
       - name: Compile audit scripts
         run: >-
           uv run --locked python -m py_compile
           scripts/validate_knowledge_base.py
           scripts/build_exam_asset_audit.py
+          scripts/build_outline_audit.py
           scripts/audit_textbook_pdf.py
 
       # ruff 固定在 lint 依赖组中，与本地同一版本。
