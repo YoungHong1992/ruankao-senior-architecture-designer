@@ -26,8 +26,11 @@ node_modules/
 # intentionally tracked so the knowledge base can be reproduced and audited.
 
 # Source PDFs (large binary files)
+# 受版权保护的源文件一律不入库：仓库只保存书目信息、页码和 SHA-256 供持有者复核。
 教材相关/*.pdf
 本地pdf参考/
+PDF文档资料/
+*.pdf
 
 # Local render and extraction scratch files
 tmp/
