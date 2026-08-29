@@ -12,16 +12,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 | 资料 | 原始稿 | 清洗稿（首选阅读） | 规模 |
 |---|---|---|---|
-| 大纲 | `00.系统架构设计师考试大纲/` | `00.…-清洗版/` | 5 篇正文 + INDEX |
+| 大纲 | `00.系统架构设计师考试大纲/` | `00.…-清洗版/` | 前言 + 5 篇正文 + INDEX |
 | 教材 | `01.系统架构设计师教材/` | `01.…-清洗版/` | 《系统架构设计师教程》2022 第 2 版，前言 + 20 章 + INDEX |
 | 真题 | `02.历年真题/` + `02.历年真题(补充)/` | `02.历年真题-清洗版/` | 36 份唯一试卷 + INDEX |
 
-治理层把正文与三份机器可读账本绑定，校验脚本据此判定一致性：
+治理层把正文与四份机器可读账本绑定，校验脚本据此判定一致性：
 
 - `02.历年真题总索引.md` — 人工/AI 查询真题的统一入口，规定每卷的“首选文件”。
 - `data/exams.json`（schema 3）— 真题 manifest：36 份 canonical、90 份 source_versions、来源目录、SHA-256 完整性策略、快照归档策略、终审策略。每份 source_version 记 `content_sha256`，校验器会重算比对。
 - `data/exam_asset_audit.json`（schema 2）— 真题缺图/缺表的 120 个逐项点位（116 固定基线 + 4 续审）。
 - `data/textbook_audit.json`（schema 4）— 教材逐页（708 页）+ 图号/表号（284 图 / 59 表）审计账本。
+- `data/outline_audit.json`（schema 1）— 大纲核查账本：源扫描件 SHA-256、PDF 图像页↔印刷页映射、逐页视觉核对结论、逐项 findings（`verdict` 区分“清洗缺陷”与“忠于原书但已过时”）、外部证据哈希、落盘图表清单。
 
 数据流：**清洗稿正文** →（脚本按固定 Git 基线提交枚举缺失标记、按本地 PDF 统计覆盖率）→ **审计账本 JSON** →（`validate_knowledge_base.py` 断言账本、manifest、两份索引与正文彼此一致）→ **CI 门禁**。
 
@@ -37,6 +38,10 @@ uv run python scripts/validate_knowledge_base.py
 uv run python scripts/build_exam_asset_audit.py --check
 # 真题点位变化后重建账本：
 uv run python scripts/build_exam_asset_audit.py
+
+# 重建大纲核查账本（CI 必跑 --check；不依赖源 PDF，改了大纲正文后必须重建）
+uv run python scripts/build_outline_audit.py
+uv run python scripts/build_outline_audit.py --check
 
 # 重建教材审计账本（不在 CI；需合法持有源 PDF + 完整 Git 历史；pypdf 由 audit 组提供）
 uv run --group audit python scripts/audit_textbook_pdf.py <PDF路径> --manual-review-completed
@@ -69,6 +74,9 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 - 源 PDF SHA-256 固定为 `ee45900f…5135c2f8`；`build_*` 与 `audit_*` 依赖固定基线提交 `e02f60ca…`。
 - 工具链：`.python-version` = `3.13`、`pyproject.toml` 的 `requires-python` = `>=3.13`、`project.dependencies` 必须为空、`tool.uv.package` = `false`、`dependency-groups` 必须恰好是 `audit` 与 `lint` 两组、每组只含一条 `==` 精确 pin（分别是 `pypdf`、`ruff`）；pypdf 版本须与 `scripts/audit_textbook_pdf.py:PYPDF_VERSION` 及 `uv.lock` 中锁定的完全一致，`uv.lock` 的 `requires-python` 也须为 `>=3.13`。改任一处都要跑 `uv lock` 并提交锁文件。
 - “统计日期 / updated_at”三处必须一致（当前 `2026-07-12`）：`data/exams.json`、`02.历年真题总索引.md`、`02.历年真题-清洗版/INDEX.md`。
+- 大纲：`data/outline_audit.json` 的 `reviewed_at` 必须等于 `00.…考试大纲-清洗版/INDEX.md` 的 `**统计日期：**`（当前 `2026-08-25`，与真题那组日期相互独立）；该 INDEX 必须同时记录 ISBN `978-7-302-62003-7` 与源扫描件 SHA-256。账本中每个 `files[].content_sha256` 由校验器按 `utf8_bom_stripped_lf` 重算比对，**改动大纲任一正文后必须重跑 `build_outline_audit.py`**。
+- 大纲证据纪律（校验器强制）：`disposition = fixed_in_clean` 的 finding，其目标文件必须留有可见的 `清洗勘误` / `整理者注（非原文）` / `转录范围` / `已知限制` 标记；`verdict = source_faithful_but_outdated` 不得配 `disposition = no_change`；`agreement` 为 `confirms`/`contradicts` 的外部证据必须带 `excerpt_sha256`。
+- 全部 Markdown 必须是**标准 UTF-8（无 BOM）+ CRLF**，不得含裸 CR；校验器逐字节检查。去 BOM 不影响 `data/exams.json` 的哈希（其口径本就是 `utf8_bom_stripped_lf`）。
 
 ## 懒加载与阅读约定
 
@@ -95,5 +103,5 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 ## 提交与协作
 
 - 流程见 [CONTRIBUTING.md](CONTRIBUTING.md)：改动 → 更新来源与账本 → 跑 `uv run python scripts/validate_knowledge_base.py` → 经 PR 合并；**不要直接推送受保护的 `main`**。PR 用 `.github/pull_request_template.md`，勘误/下架走 `.github/ISSUE_TEMPLATE/`。
-- 换行符：`.md` 用 **CRLF**，`.py`/`.json`/`.yml`/`.yaml`/`.toml`/`uv.lock`/`.python-version` 用 **LF**（见 `.gitattributes`、`.editorconfig`）；校验器以 `utf-8-sig` 读取并归一，但提交前别改错行尾，否则 manifest 哈希会漂移。
+- 换行符：`.md` 用 **CRLF**，`.py`/`.json`/`.yml`/`.yaml`/`.toml`/`uv.lock`/`.python-version` 用 **LF**（见 `.gitattributes`、`.editorconfig`）；**所有文本文件统一为标准 UTF-8，不加 BOM**。校验器以 `utf-8-sig` 读取并归一，但提交前别改错行尾，否则 manifest 哈希会漂移。
 - 不入库：源 PDF（`本地pdf参考/`、`教材相关/*.pdf`）、渲染/提取草稿（`tmp/`）、虚拟环境（`.venv/`）、`.claude/`。**`uv.lock` 必须入库。**

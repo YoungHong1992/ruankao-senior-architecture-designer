@@ -19,4 +19,5 @@
 - [ ] 已运行 `uv lock --check`
 - [ ] 已运行 `uv run python scripts/validate_knowledge_base.py`（输出 `PASSED: 0 errors`）
 - [ ] 已运行 `uv run python scripts/build_exam_asset_audit.py --check`
+- [ ] 已运行 `uv run python scripts/build_outline_audit.py --check`（改过大纲正文时先去掉 `--check` 重建并提交账本）
 - [ ] 自动检查通过

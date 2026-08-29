@@ -31,7 +31,7 @@ uv run python scripts/validate_knowledge_base.py   # 应输出 PASSED: 0 errors
 | 目录 | 当前内容 | 状态 |
 |---|---:|---|
 | [`00.系统架构设计师考试大纲`](00.系统架构设计师考试大纲/) | 5 篇正文 + 1 个索引 | OCR/原始整理稿已纳入 |
-| [`00.系统架构设计师考试大纲-清洗版`](00.系统架构设计师考试大纲-清洗版/) | 5 篇正文 + 1 个索引 | 已形成首轮清洗稿，仍需持续校对 |
+| [`00.系统架构设计师考试大纲-清洗版`](00.系统架构设计师考试大纲-清洗版/) | 前言 + 5 篇正文 + 1 个索引 | 前言与第02章已完成逐页视觉核对并修订 7 项清洗缺陷；第01、03、04、05 章待核对 |
 | [`01.系统架构设计师教材`](01.系统架构设计师教材/) | 前言 + 20 章 + 1 个索引 | 2022 年第 2 版、721 页源记录的 OCR 提取稿；保留较多 OCR 噪声 |
 | [`01.系统架构设计师教材-清洗版`](01.系统架构设计师教材-清洗版/) | 前言 + 20 章 + 1 个索引 | 20 章、708 个正文物理页均有逐页文本覆盖记录，并已完成全页视觉/文本联合终校；284 个唯一图号和 59 个唯一表号均有独立 Markdown 载体；仍非出版社校正版 |
 | [`02.历年真题`](02.历年真题/) | 33 份试题文件 | 本地原始材料；质量、题量和答案来源不一 |
@@ -65,8 +65,11 @@ uv run python scripts/validate_knowledge_base.py   # 应输出 PASSED: 0 errors
 data/exams.json                     # 真题机器可读清单
 data/exam_asset_audit.json          # 120 个真题图表公式点位审计账本
 data/textbook_audit.json            # 教材逐页覆盖与图号/表号审计结果
+data/outline_audit.json             # 大纲逐页视觉核对与逐项核查结论账本
+assets/figures/                     # 项目自制的结构化重绘 SVG（非原书图片）
 scripts/validate_knowledge_base.py  # 知识库质量检查入口
 scripts/build_exam_asset_audit.py   # 从固定基线重建 120 个真题点位记录
+scripts/build_outline_audit.py      # 重建大纲核查账本（不依赖源 PDF）
 scripts/audit_textbook_pdf.py       # 使用本地合法持有 PDF 重建教材审计结果
 pyproject.toml                      # uv 工具链声明：Python 3.13 与审计依赖组
 .python-version                     # 固定解释器版本（3.13）
@@ -132,6 +135,7 @@ pipx install uv    # 亦可 pip install uv
 ```bash
 uv run python scripts/validate_knowledge_base.py        # 主质量门禁
 uv run python scripts/build_exam_asset_audit.py --check # 验证真题账本可由固定基线重现
+uv run python scripts/build_outline_audit.py --check    # 验证大纲账本可重现（改大纲后先去掉 --check 重建）
 uv lock --check                                         # 验证 uv.lock 与 pyproject.toml 一致
 uv run --group lint ruff check scripts/                 # 脚本 lint
 uv run --group lint ruff format scripts/                # 脚本格式化（CI 用 --check）

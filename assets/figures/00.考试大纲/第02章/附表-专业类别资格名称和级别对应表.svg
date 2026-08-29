@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 620" width="1180" height="620" role="img" aria-labelledby="t d" style="max-width:100%;height:auto;font-family:'Microsoft YaHei','Noto Sans CJK SC',sans-serif">
+  <title id="t">计算机技术与软件专业技术资格（水平）考试专业类别、资格名称和级别对应表</title>
+  <desc id="d">结构化重绘，不是原书图片。5 个专业类别（计算机软件、计算机网络、计算机应用技术、信息系统、信息服务）为列，3 个级别层次（高级资格、中级资格、初级资格）为行，共 27 项资格名称。高级资格一行在原表中跨全部 5 个专业类别合并。原表表头以斜线分为“资格名称”“专业类别”“级别层次”三段，此处改为文字标注；列宽、斜线分区与绝对尺寸未复刻。</desc>
+  <style>
+    .b{fill:none;stroke:#4a4a4a;stroke-width:1.4}
+    .hd{fill:#e8f4f8;stroke:#4a4a4a;stroke-width:1.4}
+    .rh{fill:#f4f9fb;stroke:#4a4a4a;stroke-width:1.4}
+    .ht{font-size:16px;font-weight:600;fill:#1a1a1a;text-anchor:middle}
+    .rt{font-size:16px;font-weight:600;fill:#1a1a1a;text-anchor:middle}
+    .ct{font-size:14px;fill:#222}
+    .cap{font-size:18px;font-weight:600;fill:#1a1a1a;text-anchor:middle}
+    .note{font-size:12px;fill:#666;text-anchor:middle;font-style:italic}
+  </style>
+
+  <text class="cap" x="590" y="26">计算机技术与软件专业技术资格（水平）考试</text>
+  <text class="cap" x="590" y="50">专业类别、资格名称和级别对应表</text>
+
+  <!-- header row -->
+  <rect class="hd" x="20" y="66" width="150" height="56"/>
+  <text class="ht" x="95" y="88" style="font-size:13px">级别层次 ＼</text>
+  <text class="ht" x="95" y="108" style="font-size:13px">专业类别 · 资格名称</text>
+
+  <rect class="hd" x="170" y="66" width="182" height="56"/><text class="ht" x="261" y="100">计算机软件</text>
+  <rect class="hd" x="352" y="66" width="152" height="56"/><text class="ht" x="428" y="100">计算机网络</text>
+  <rect class="hd" x="504" y="66" width="196" height="56"/><text class="ht" x="602" y="100">计算机应用技术</text>
+  <rect class="hd" x="700" y="66" width="238" height="56"/><text class="ht" x="819" y="100">信息系统</text>
+  <rect class="hd" x="938" y="66" width="222" height="56"/><text class="ht" x="1049" y="100">信息服务</text>
+
+  <!-- 高级资格: merged across all five categories -->
+  <rect class="rh" x="20" y="122" width="150" height="96"/><text class="rt" x="95" y="176">高级资格</text>
+  <rect class="b" x="170" y="122" width="990" height="96"/>
+  <text class="ct" x="200" y="150">· 信息系统项目管理师　　· 系统分析师　　· 系统架构设计师</text>
+  <text class="ct" x="200" y="176">· 网络规划设计师　　· 系统规划与管理师</text>
+  <text class="note" x="665" y="204">（原表此行跨 5 个专业类别合并）</text>
+
+  <!-- 中级资格 -->
+  <rect class="rh" x="20" y="218" width="150" height="242"/><text class="rt" x="95" y="345">中级资格</text>
+  <rect class="b" x="170" y="218" width="182" height="242"/>
+  <text class="ct" x="182" y="246">· 软件评测师</text>
+  <text class="ct" x="182" y="272">· 软件设计师</text>
+  <text class="ct" x="182" y="298">· 软件过程能力</text>
+  <text class="ct" x="196" y="322">评估师</text>
+  <rect class="b" x="352" y="218" width="152" height="242"/>
+  <text class="ct" x="364" y="246">· 网络工程师</text>
+  <rect class="b" x="504" y="218" width="196" height="242"/>
+  <text class="ct" x="516" y="246">· 多媒体应用设计师</text>
+  <text class="ct" x="516" y="272">· 嵌入式系统设计师</text>
+  <text class="ct" x="516" y="298">· 计算机辅助设计师</text>
+  <text class="ct" x="516" y="324">· 电子商务设计师</text>
+  <rect class="b" x="700" y="218" width="238" height="242"/>
+  <text class="ct" x="712" y="246">· 系统集成项目管理工程师</text>
+  <text class="ct" x="712" y="272">· 信息系统监理师</text>
+  <text class="ct" x="712" y="298">· 信息安全工程师</text>
+  <text class="ct" x="712" y="324">· 数据库系统工程师</text>
+  <text class="ct" x="712" y="350">· 信息系统管理工程师</text>
+  <rect class="b" x="938" y="218" width="222" height="242"/>
+  <text class="ct" x="950" y="246">· 计算机硬件工程师</text>
+  <text class="ct" x="950" y="272">· 信息技术支持工程师</text>
+
+  <!-- 初级资格 -->
+  <rect class="rh" x="20" y="460" width="150" height="110"/><text class="rt" x="95" y="521">初级资格</text>
+  <rect class="b" x="170" y="460" width="182" height="110"/>
+  <text class="ct" x="182" y="488">· 程序员</text>
+  <rect class="b" x="352" y="460" width="152" height="110"/>
+  <text class="ct" x="364" y="488">· 网络管理员</text>
+  <rect class="b" x="504" y="460" width="196" height="110"/>
+  <text class="ct" x="516" y="488">· 多媒体应用制作</text>
+  <text class="ct" x="530" y="512">技术员</text>
+  <text class="ct" x="516" y="538">· 电子商务技术员</text>
+  <rect class="b" x="700" y="460" width="238" height="110"/>
+  <text class="ct" x="712" y="488">· 信息系统运行管理员</text>
+  <rect class="b" x="938" y="460" width="222" height="110"/>
+  <text class="ct" x="950" y="488">· 网页制作员</text>
+  <text class="ct" x="950" y="514">· 信息处理技术员</text>
+
+  <text class="note" x="590" y="596">结构化重绘（不是原书图片）· 依据原书印刷页 10 逐格转录 · 共 5 个专业类别 / 3 个级别层次 / 27 项资格</text>
+</svg>

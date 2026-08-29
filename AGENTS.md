@@ -9,6 +9,7 @@
 ```bash
 uv run python scripts/validate_knowledge_base.py         # 主门禁，交付前必跑
 uv run python scripts/build_exam_asset_audit.py --check   # 需要完整 git 历史
+uv run python scripts/build_outline_audit.py --check      # 改了大纲正文要先重建（去掉 --check）
 uv lock --check                                          # 改了 pyproject.toml 后必跑
 ```
 
@@ -32,6 +33,8 @@ uv lock --check                                          # 改了 pyproject.toml
 ## 换行符
 
 `.md` 用 **CRLF**；`.py`/`.json`/`.yml`/`.yaml`/`.toml`/`uv.lock`/`.python-version` 用 **LF**（见 `.gitattributes`）。改错行尾会让 `data/exams.json` 的 `content_sha256` 漂移，CI 会失败。
+
+**所有文本文件必须是标准 UTF-8，不得加 BOM**，也不得含裸 CR——校验器逐字节检查全部 Markdown。
 
 ## 提交
 
