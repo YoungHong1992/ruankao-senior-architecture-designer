@@ -74,7 +74,7 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 - 源 PDF SHA-256 固定为 `ee45900f…5135c2f8`；`build_*` 与 `audit_*` 依赖固定基线提交 `e02f60ca…`。
 - 工具链：`.python-version` = `3.13`、`pyproject.toml` 的 `requires-python` = `>=3.13`、`project.dependencies` 必须为空、`tool.uv.package` = `false`、`dependency-groups` 必须恰好是 `audit` 与 `lint` 两组、每组只含一条 `==` 精确 pin（分别是 `pypdf`、`ruff`）；pypdf 版本须与 `scripts/audit_textbook_pdf.py:PYPDF_VERSION` 及 `uv.lock` 中锁定的完全一致，`uv.lock` 的 `requires-python` 也须为 `>=3.13`。改任一处都要跑 `uv lock` 并提交锁文件。
 - “统计日期 / updated_at”三处必须一致（当前 `2026-07-12`）：`data/exams.json`、`02.历年真题总索引.md`、`02.历年真题-清洗版/INDEX.md`。
-- 大纲：`data/outline_audit.json` 的 `reviewed_at` 必须等于 `00.…考试大纲-清洗版/INDEX.md` 的 `**统计日期：**`（当前 `2026-08-25`，与真题那组日期相互独立）；该 INDEX 必须同时记录 ISBN `978-7-302-62003-7` 与源扫描件 SHA-256。账本中每个 `files[].content_sha256` 由校验器按 `utf8_bom_stripped_lf` 重算比对，**改动大纲任一正文后必须重跑 `build_outline_audit.py`**。
+- 大纲：`data/outline_audit.json` 的 `reviewed_at` 必须等于 `00.…考试大纲-清洗版/INDEX.md` 的 `**统计日期：**`（当前 `2026-09-01`，与真题那组日期相互独立）；该 INDEX 必须同时记录 ISBN `978-7-302-62003-7` 与源扫描件 SHA-256。账本中每个 `files[].content_sha256` 由校验器按 `utf8_bom_stripped_lf` 重算比对，**改动大纲任一正文后必须重跑 `build_outline_audit.py`**。
 - 大纲证据纪律（校验器强制）：`disposition = fixed_in_clean` 的 finding，其目标文件必须留有可见的 `清洗勘误` / `整理者注（非原文）` / `转录范围` / `已知限制` 标记；`verdict = source_faithful_but_outdated` 不得配 `disposition = no_change`；`agreement` 为 `confirms`/`contradicts` 的外部证据必须带 `excerpt_sha256`。
 - 全部 Markdown 必须是**标准 UTF-8（无 BOM）+ CRLF**，不得含裸 CR；校验器逐字节检查。去 BOM 不影响 `data/exams.json` 的哈希（其口径本就是 `utf8_bom_stripped_lf`）。
 
