@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "reviewed_at": "2026-09-01",
+  "reviewed_at": "2026-09-06",
   "field_definitions": {
     "source": "原书书目信息与本地扫描件校验值；扫描件不入库。",
     "page_map": "PDF 图像页 -> 印刷页；扫描含重复拍摄，故不存在算术映射。",
@@ -715,7 +715,7 @@
         60,
         61
       ],
-      "content_sha256": "fcea6e5fa5b98cb453b387afe14f041efb9a08444889eefb9cc19000c9275e15",
+      "content_sha256": "c78a2d69676dd6c51205a7f4ca4562ef6446c09b919593d1996bd6fe60ace74e",
       "lines": 1016,
       "headings": 273,
       "tables": 0,
@@ -755,7 +755,7 @@
         73,
         74
       ],
-      "content_sha256": "1345fb6b0149717c171911a8299a6e3ef16dc42d1cf93de486eb40533aaf421d",
+      "content_sha256": "7df401c42b7493b3c65d5dbc8da22b19e3a42495f5380237668cafaacfe9bbc4",
       "lines": 102,
       "headings": 13,
       "tables": 0,
@@ -1449,7 +1449,7 @@
       "verdict": "cleaning_defect",
       "disposition": "fixed_in_clean",
       "summary": "论述问题 2 开头‘就你所下过功夫的地方’被误作‘结合你所下过功夫的地方’。",
-      "detail": "原书印刷页 64 为‘就你所下过功夫的地方进行叙述’，二轮放大确认后按源修正；本章其余部分经二次逐段对照无差异。",
+      "detail": "原书印刷页 64 为‘就你所下过功夫的地方进行叙述’，二轮放大确认后按源修正；三轮独立复核（2026-09-06）在同页第 1 问发现‘叙述’被误作‘概述’，已另立 finding 修正。",
       "proof_scope": "证明该句与印刷页 64 一致；不补写原书未提供的参考答案。"
     },
     {
@@ -1465,6 +1465,48 @@
       "summary": "暂行规定第十二、十三条仍按原书照录；相关证书登记和继续教育配套文件已废止，正文已加时效性注。",
       "detail": "第十二条“每 3 年登记一次”、第十三条登记条件与再次登记的继续教育证明要求，经与原书印刷页 5 核对属逐字忠实转录，不是清洗缺陷。工信厅人〔2019〕50 号明确废止信办人〔2004〕47 号证书登记通知、信办人〔2004〕48 号继续教育通知及两份配套文件。本轮保留原条文，并用整理者注说明证据边界和现行办理要求须以主管机构最新公告为准。",
       "proof_scope": "确认原条文转录忠实且四份配套文件已被通知废止；不单独裁定《暂行规定》其他条款或现行证书管理制度。"
+    },
+    {
+      "id": "outline-ch03-sasd-ns-wording",
+      "chapter": "第03章",
+      "path": "00.系统架构设计师考试大纲-清洗版/第03章-考试科目1-综合知识.md",
+      "unit_type": "outline_entries",
+      "source_pages": [
+        "33"
+      ],
+      "verdict": "cleaning_defect",
+      "disposition": "fixed_in_clean",
+      "summary": "4.3.1 结构化设计条目把源文的‘NS’误统一为‘NS 图’。",
+      "detail": "印刷页 33 的结构化设计条目为‘……PAD、NS 和 PDL’，与上一条结构化分析条目中的‘NS 图’写法不同；清洗稿把两条统一成了‘NS 图’。三轮独立复核（2026-09-06）以五倍放大确认后按源修正，保留原书两条写法差异。",
+      "proof_scope": "证明该条目与印刷页 33 一致；不裁定原书两条写法不一致是否有意。"
+    },
+    {
+      "id": "outline-ch03-db-requirement-sa",
+      "chapter": "第03章",
+      "path": "00.系统架构设计师考试大纲-清洗版/第03章-考试科目1-综合知识.md",
+      "unit_type": "outline_entries",
+      "source_pages": [
+        "38"
+      ],
+      "verdict": "cleaning_defect",
+      "disposition": "fixed_in_clean",
+      "summary": "5.3.2 第三条漏录源文内层‘（SA）’。",
+      "detail": "印刷页 38 为‘分析和表达用户需求的方法（结构化分析方法（SA））’，清洗稿漏掉内层‘（SA）’。三轮独立复核（2026-09-06）以五倍放大确认后按源补录。",
+      "proof_scope": "证明该条目与印刷页 38 一致；不为源文补充缩写以外的解释。"
+    },
+    {
+      "id": "outline-ch05-essay-q1-wording",
+      "chapter": "第05章",
+      "path": "00.系统架构设计师考试大纲-清洗版/第05章-考试科目3-论文与题型举例.md",
+      "unit_type": "question_text",
+      "source_pages": [
+        "64"
+      ],
+      "verdict": "cleaning_defect",
+      "disposition": "fixed_in_clean",
+      "summary": "论文题第 1 问开头‘叙述’被误作‘概述’。",
+      "detail": "原书印刷页 64 第 1 问为‘叙述你参与的开发工程的概要’，清洗稿误作‘概述’。三轮独立复核（2026-09-06）以程序化重复页聚类、页脚放大交叉验证页码映射后，再以五倍放大确认该句并按源修正；同轮复核确认第02章附表 SVG、前言与第01章逐句一致。",
+      "proof_scope": "证明该句与印刷页 64 一致；不补写原书未提供的参考答案。"
     }
   ],
   "external_sources": [
@@ -1507,23 +1549,23 @@
       "carried_in": "00.系统架构设计师考试大纲-清洗版/第02章-相关文件.md",
       "source_basis": "原书印刷页 10（PDF 图像页 20）",
       "redraw_declaration": "结构化重绘，不是原书图片；斜线分区、列宽与绝对尺寸未复刻。",
-      "renders_checked_at": "2026-09-01"
+      "renders_checked_at": "2026-09-06"
     }
   ],
   "summary": {
-    "findings_total": 48,
+    "findings_total": 51,
     "findings_by_verdict": {
-      "cleaning_defect": 47,
+      "cleaning_defect": 50,
       "source_faithful_but_outdated": 1
     },
     "findings_by_disposition": {
       "annotated_currency": 1,
       "annotated_limitation": 1,
-      "fixed_in_clean": 46
+      "fixed_in_clean": 49
     },
     "external_sources": 2,
     "assets": 1,
-    "conclusion": "前言及第01—05章已完成本轮所列源页的逐页视觉核对，共记录 48 项 findings；其中清洗稿与页码治理问题已修正并留有可见说明，另有 1 项忠于原书但已过时的登记制度条文已保留原文并补充时效性注。本结论不等同于出版社或考试主管机构认证。",
+    "conclusion": "前言及第01—05章已完成本轮所列源页的逐页视觉核对，共记录 51 项 findings；其中清洗稿与页码治理问题已修正并留有可见说明，另有 1 项忠于原书但已过时的登记制度条文已保留原文并补充时效性注。本结论不等同于出版社或考试主管机构认证。",
     "proof_scope": "本账本只证明所列印刷页已被逐页视觉核对且结论已落到正文；不证明未列章节的正确性，也不冒充出版社或考试主管机构的认证。"
   }
 }

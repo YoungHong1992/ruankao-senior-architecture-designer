@@ -36,7 +36,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_PATH = ROOT / "data" / "outline_audit.json"
 CLEAN_DIR = "00.系统架构设计师考试大纲-清洗版"
 RAW_DIR = "00.系统架构设计师考试大纲"
-REVIEWED_AT = "2026-09-01"
+REVIEWED_AT = "2026-09-06"
 
 # The source scan is held locally by the maintainer and deliberately not
 # committed (CONTENT_POLICY.md, DATA_SOURCES.md).  Recording the hash lets a
@@ -909,7 +909,7 @@ FINDINGS = [
         "verdict": "cleaning_defect",
         "disposition": "fixed_in_clean",
         "summary": "论述问题 2 开头‘就你所下过功夫的地方’被误作‘结合你所下过功夫的地方’。",
-        "detail": "原书印刷页 64 为‘就你所下过功夫的地方进行叙述’，二轮放大确认后按源修正；本章其余部分经二次逐段对照无差异。",
+        "detail": "原书印刷页 64 为‘就你所下过功夫的地方进行叙述’，二轮放大确认后按源修正；三轮独立复核（2026-09-06）在同页第 1 问发现‘叙述’被误作‘概述’，已另立 finding 修正。",
         "proof_scope": "证明该句与印刷页 64 一致；不补写原书未提供的参考答案。",
     },
     {
@@ -929,6 +929,53 @@ FINDINGS = [
             "本轮保留原条文，并用整理者注说明证据边界和现行办理要求须以主管机构最新公告为准。"
         ),
         "proof_scope": "确认原条文转录忠实且四份配套文件已被通知废止；不单独裁定《暂行规定》其他条款或现行证书管理制度。",
+    },
+    {
+        "id": "outline-ch03-sasd-ns-wording",
+        "chapter": "第03章",
+        "path": f"{CLEAN_DIR}/第03章-考试科目1-综合知识.md",
+        "unit_type": "outline_entries",
+        "source_pages": ["33"],
+        "verdict": "cleaning_defect",
+        "disposition": "fixed_in_clean",
+        "summary": "4.3.1 结构化设计条目把源文的‘NS’误统一为‘NS 图’。",
+        "detail": (
+            "印刷页 33 的结构化设计条目为‘……PAD、NS 和 PDL’，与上一条结构化分析条目中的‘NS 图’写法不同；"
+            "清洗稿把两条统一成了‘NS 图’。三轮独立复核（2026-09-06）以五倍放大确认后按源修正，"
+            "保留原书两条写法差异。"
+        ),
+        "proof_scope": "证明该条目与印刷页 33 一致；不裁定原书两条写法不一致是否有意。",
+    },
+    {
+        "id": "outline-ch03-db-requirement-sa",
+        "chapter": "第03章",
+        "path": f"{CLEAN_DIR}/第03章-考试科目1-综合知识.md",
+        "unit_type": "outline_entries",
+        "source_pages": ["38"],
+        "verdict": "cleaning_defect",
+        "disposition": "fixed_in_clean",
+        "summary": "5.3.2 第三条漏录源文内层‘（SA）’。",
+        "detail": (
+            "印刷页 38 为‘分析和表达用户需求的方法（结构化分析方法（SA））’，清洗稿漏掉内层‘（SA）’。"
+            "三轮独立复核（2026-09-06）以五倍放大确认后按源补录。"
+        ),
+        "proof_scope": "证明该条目与印刷页 38 一致；不为源文补充缩写以外的解释。",
+    },
+    {
+        "id": "outline-ch05-essay-q1-wording",
+        "chapter": "第05章",
+        "path": f"{CLEAN_DIR}/第05章-考试科目3-论文与题型举例.md",
+        "unit_type": "question_text",
+        "source_pages": ["64"],
+        "verdict": "cleaning_defect",
+        "disposition": "fixed_in_clean",
+        "summary": "论文题第 1 问开头‘叙述’被误作‘概述’。",
+        "detail": (
+            "原书印刷页 64 第 1 问为‘叙述你参与的开发工程的概要’，清洗稿误作‘概述’。"
+            "三轮独立复核（2026-09-06）以程序化重复页聚类、页脚放大交叉验证页码映射后，"
+            "再以五倍放大确认该句并按源修正；同轮复核确认第02章附表 SVG、前言与第01章逐句一致。"
+        ),
+        "proof_scope": "证明该句与印刷页 64 一致；不补写原书未提供的参考答案。",
     },
 ]
 
