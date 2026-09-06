@@ -356,10 +356,12 @@ class Validator:
                         )
 
     def check_markdown_encoding(self) -> None:
-        """All Markdown must be plain cross-platform UTF-8: no BOM, no stray CR.
+        """All Markdown must be UTF-8 without BOM and use CRLF line endings.
 
         A BOM is decoded away by utf-8-sig, so it silently survives every other
         check while breaking line-start matching and some third-party tooling.
+        Git attributes require CRLF for Markdown; enforce it byte-for-byte so
+        mixed LF/CRLF files cannot pass locally and then churn on checkout.
         """
         for path in self.markdown_files():
             data = path.read_bytes()
@@ -367,6 +369,8 @@ class Validator:
                 self.error(path, "Markdown must be UTF-8 without BOM")
             if b"\r" in data.replace(b"\r\n", b""):
                 self.error(path, "Markdown must not contain bare CR characters")
+            if b"\n" in data.replace(b"\r\n", b""):
+                self.error(path, "Markdown must use CRLF line endings")
 
     def check_outline_audit(self) -> None:
         if not OUTLINE_AUDIT_PATH.is_file():
@@ -407,6 +411,25 @@ class Validator:
         except ValueError:
             self.error(OUTLINE_AUDIT_PATH, "reviewed_at must be an ISO date (YYYY-MM-DD)")
 
+        container_types = {
+            "source": dict,
+            "scope": dict,
+            "page_map": dict,
+            "reviewed_pages": list,
+            "files": list,
+            "findings": list,
+            "external_sources": list,
+            "asset_inventory": list,
+            "summary": dict,
+        }
+        invalid_container = False
+        for field, expected_type in container_types.items():
+            if not isinstance(audit.get(field), expected_type):
+                self.error(OUTLINE_AUDIT_PATH, f"{field} must be a {expected_type.__name__}")
+                invalid_container = True
+        if invalid_container:
+            return
+
         source = audit["source"]
         if not re.fullmatch(r"[0-9a-f]{64}", str(source.get("sha256", ""))):
             self.error(OUTLINE_AUDIT_PATH, "source.sha256 must be a lowercase 64-hex digest")
@@ -415,9 +438,128 @@ class Validator:
         if source.get("isbn") != OUTLINE_ISBN:
             self.error(OUTLINE_AUDIT_PATH, f"source.isbn must be {OUTLINE_ISBN}")
 
+        # The page map is evidence, not decorative metadata.  Require a
+        # complete one-to-one key set and make the duplicate-page accounting
+        # agree with the labels.  This catches stale hard-coded maps where a
+        # unique content page was accidentally classified as a duplicate.
+        raw_pdf_pages = source.get("pdf_pages")
+        if not isinstance(raw_pdf_pages, int) or isinstance(raw_pdf_pages, bool):
+            self.error(OUTLINE_AUDIT_PATH, "source.pdf_pages must be an integer")
+            pdf_pages = 0
+        else:
+            pdf_pages = raw_pdf_pages
+        page_map: dict[str, object] = audit["page_map"]
+        expected_page_keys = {str(page) for page in range(1, pdf_pages + 1)}
+        actual_page_keys = set(page_map)
+        if actual_page_keys != expected_page_keys:
+            self.error(
+                OUTLINE_AUDIT_PATH,
+                f"page_map must cover PDF pages 1..{pdf_pages} exactly "
+                f"(missing={sorted(expected_page_keys - actual_page_keys)}, "
+                f"extra={sorted(actual_page_keys - expected_page_keys)})",
+            )
+        scope = audit["scope"]
+        scope_count_fields = (
+            "files_total",
+            "files_source_verified",
+            "files_pending",
+            "pdf_pages",
+            "unique_scan_pages",
+            "pages_reviewed_this_round",
+            "review_records",
+        )
+        for field in scope_count_fields:
+            value = scope.get(field)
+            if not isinstance(value, int) or isinstance(value, bool):
+                self.error(OUTLINE_AUDIT_PATH, f"scope.{field} must be an integer")
+        if scope.get("pdf_pages") != pdf_pages:
+            self.error(OUTLINE_AUDIT_PATH, "scope.pdf_pages must match source.pdf_pages")
+        declared_duplicates = scope.get("duplicate_scan_pages")
+        if not isinstance(declared_duplicates, list) or not all(
+            isinstance(page, int) and not isinstance(page, bool) for page in declared_duplicates
+        ):
+            self.error(OUTLINE_AUDIT_PATH, "scope.duplicate_scan_pages must be a list of integers")
+            declared_duplicates = []
+        elif len(declared_duplicates) != len(set(declared_duplicates)):
+            self.error(OUTLINE_AUDIT_PATH, "scope.duplicate_scan_pages must not contain duplicates")
+        mapped_duplicates = []
+        for key, label in page_map.items():
+            if "重复扫描" in str(label):
+                try:
+                    mapped_duplicates.append(int(key))
+                except (TypeError, ValueError):
+                    self.error(OUTLINE_AUDIT_PATH, f"page_map duplicate key is not an integer: {key!r}")
+        if sorted(mapped_duplicates) != sorted(declared_duplicates):
+            self.error(
+                OUTLINE_AUDIT_PATH,
+                "scope.duplicate_scan_pages disagrees with page_map labels",
+            )
+        expected_unique = pdf_pages - len(declared_duplicates) if pdf_pages else 0
+        if scope.get("unique_scan_pages") != expected_unique:
+            self.error(
+                OUTLINE_AUDIT_PATH,
+                f"scope.unique_scan_pages must be {expected_unique}",
+            )
+
+        known_file_paths = {str(record.get("path", "")) for record in audit["files"] if isinstance(record, dict)}
+        reviewed_by_file: dict[str, set[int]] = {}
+        reviewed_keys: set[tuple[int, str]] = set()
+        for entry in audit["reviewed_pages"]:
+            if not isinstance(entry, dict):
+                self.error(OUTLINE_AUDIT_PATH, "reviewed_pages entries must be objects")
+                continue
+            raw_pdf_page = entry.get("pdf_page")
+            if not isinstance(raw_pdf_page, int) or isinstance(raw_pdf_page, bool):
+                self.error(OUTLINE_AUDIT_PATH, f"reviewed_pages has invalid pdf_page: {entry.get('pdf_page')!r}")
+                continue
+            pdf_page = raw_pdf_page
+            path = str(entry.get("path", ""))
+            if path not in known_file_paths:
+                self.error(OUTLINE_AUDIT_PATH, f"reviewed_pages references unknown file: {path!r}")
+            key = (pdf_page, path)
+            if key in reviewed_keys:
+                self.error(OUTLINE_AUDIT_PATH, f"duplicate reviewed_pages entry: {key!r}")
+            reviewed_keys.add(key)
+            if str(pdf_page) not in page_map:
+                self.error(OUTLINE_AUDIT_PATH, f"reviewed_pages references unmapped PDF page {pdf_page}")
+                continue
+            expected_printed = str(page_map[str(pdf_page)]).replace("（重复扫描）", "")
+            if str(entry.get("printed_page", "")) != expected_printed:
+                self.error(
+                    OUTLINE_AUDIT_PATH,
+                    f"reviewed_pages PDF {pdf_page} printed_page disagrees with page_map",
+                )
+            reviewed_by_file.setdefault(path, set()).add(pdf_page)
+        unique_reviewed_pages = {pdf_page for pdf_page, _path in reviewed_keys}
+        if scope.get("pages_reviewed_this_round") != len(unique_reviewed_pages):
+            self.error(
+                OUTLINE_AUDIT_PATH,
+                "scope.pages_reviewed_this_round must count unique reviewed PDF pages",
+            )
+        if scope.get("review_records") != len(audit["reviewed_pages"]):
+            self.error(OUTLINE_AUDIT_PATH, "scope.review_records must match reviewed_pages[]")
+        expected_printed_pages: list[str] = []
+        seen_printed_pages: set[str] = set()
+        for entry in audit["reviewed_pages"]:
+            if not isinstance(entry, dict):
+                continue
+            printed_page = str(entry.get("printed_page", ""))
+            if printed_page in seen_printed_pages:
+                continue
+            seen_printed_pages.add(printed_page)
+            expected_printed_pages.append(printed_page)
+        if scope.get("printed_pages_reviewed") != expected_printed_pages:
+            self.error(
+                OUTLINE_AUDIT_PATH,
+                "scope.printed_pages_reviewed must preserve first-reviewed page order",
+            )
+
         findings = audit["findings"]
         seen_ids: set[str] = set()
         for finding in findings:
+            if not isinstance(finding, dict):
+                self.error(OUTLINE_AUDIT_PATH, "findings entries must be objects")
+                continue
             finding_id = str(finding.get("id", ""))
             if not finding_id or finding_id in seen_ids:
                 self.error(OUTLINE_AUDIT_PATH, f"duplicate or empty finding id: {finding_id!r}")
@@ -437,6 +579,8 @@ class Validator:
         # visible errata/annotation, and anything still outdated or unverifiable
         # must not be recorded as resolved.
         for finding in findings:
+            if not isinstance(finding, dict):
+                continue
             target = ROOT / str(finding.get("path", ""))
             if not target.is_file():
                 continue
@@ -454,6 +598,9 @@ class Validator:
                 )
 
         for record in audit["files"]:
+            if not isinstance(record, dict):
+                self.error(OUTLINE_AUDIT_PATH, "files entries must be objects")
+                continue
             path = ROOT / str(record.get("path", ""))
             if not path.is_file():
                 self.error(OUTLINE_AUDIT_PATH, f"files[] entry missing on disk: {record.get('path')}")
@@ -468,6 +615,9 @@ class Validator:
                 )
 
         for asset in audit["asset_inventory"]:
+            if not isinstance(asset, dict):
+                self.error(OUTLINE_AUDIT_PATH, "asset_inventory entries must be objects")
+                continue
             asset_path = ROOT / str(asset.get("path", ""))
             if not asset_path.is_file():
                 self.error(OUTLINE_AUDIT_PATH, f"asset_inventory entry missing: {asset.get('path')}")
@@ -478,6 +628,9 @@ class Validator:
         # External evidence must be checkable: a source that is claimed to
         # confirm or contradict something needs a digest behind it.
         for entry in audit["external_sources"]:
+            if not isinstance(entry, dict):
+                self.error(OUTLINE_AUDIT_PATH, "external_sources entries must be objects")
+                continue
             if not str(entry.get("url", "")).startswith("https://"):
                 self.error(OUTLINE_AUDIT_PATH, f"{entry.get('id')}: external source url must be https")
             if entry.get("agreement") in {"confirms", "contradicts"} and not entry.get("excerpt_sha256"):
@@ -489,16 +642,52 @@ class Validator:
         summary = audit["summary"]
         if summary.get("findings_total") != len(findings):
             self.error(OUTLINE_AUDIT_PATH, "summary.findings_total does not match findings[]")
-        recomputed = Counter(str(item.get("verdict")) for item in findings)
+        recomputed = Counter(str(item.get("verdict")) for item in findings if isinstance(item, dict))
         if summary.get("findings_by_verdict") != dict(sorted(recomputed.items())):
             self.error(OUTLINE_AUDIT_PATH, "summary.findings_by_verdict does not match findings[]")
+        recomputed_dispositions = Counter(str(item.get("disposition")) for item in findings if isinstance(item, dict))
+        if summary.get("findings_by_disposition") != dict(sorted(recomputed_dispositions.items())):
+            self.error(OUTLINE_AUDIT_PATH, "summary.findings_by_disposition does not match findings[]")
 
-        scope = audit["scope"]
-        verified = sum(1 for item in audit["files"] if item.get("verification_status") == "source_verified")
+        verified = sum(
+            1
+            for item in audit["files"]
+            if isinstance(item, dict) and item.get("verification_status") == "source_verified"
+        )
         if scope.get("files_source_verified") != verified:
             self.error(OUTLINE_AUDIT_PATH, "scope.files_source_verified does not match files[]")
         if scope.get("files_total") != len(audit["files"]):
             self.error(OUTLINE_AUDIT_PATH, "scope.files_total does not match files[]")
+        if scope.get("files_pending") != len(audit["files"]) - verified:
+            self.error(OUTLINE_AUDIT_PATH, "scope.files_pending does not match files[]")
+        for record in audit["files"]:
+            if not isinstance(record, dict):
+                continue
+            if record.get("verification_status") != "source_verified":
+                continue
+            path = str(record.get("path", ""))
+            expected_pages = record.get("source_pdf_pages")
+            if not isinstance(expected_pages, list) or not expected_pages:
+                self.error(OUTLINE_AUDIT_PATH, f"{path}: source_verified requires source_pdf_pages")
+                continue
+            if not all(isinstance(page, int) and not isinstance(page, bool) for page in expected_pages):
+                self.error(OUTLINE_AUDIT_PATH, f"{path}: source_pdf_pages must contain integers")
+                continue
+            if len(expected_pages) != len(set(expected_pages)):
+                self.error(OUTLINE_AUDIT_PATH, f"{path}: source_pdf_pages must not contain duplicates")
+            expected_set = set(expected_pages)
+            unknown_pages = sorted(page for page in expected_set if str(page) not in page_map)
+            if unknown_pages:
+                self.error(OUTLINE_AUDIT_PATH, f"{path}: source_pdf_pages contains unmapped pages {unknown_pages}")
+            actual_set = reviewed_by_file.get(path, set())
+            if actual_set != expected_set:
+                missing_review = sorted(expected_set - actual_set)
+                extra_review = sorted(actual_set - expected_set)
+                self.error(
+                    OUTLINE_AUDIT_PATH,
+                    f"{path}: source_verified page set mismatch; "
+                    f"missing PDF pages {missing_review}, extra PDF pages {extra_review}",
+                )
 
         index_path = ROOT / OUTLINE_CLEAN_DIR / "INDEX.md"
         index_text = self.read_text(index_path) or ""
