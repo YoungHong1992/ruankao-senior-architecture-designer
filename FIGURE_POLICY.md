@@ -33,7 +33,7 @@
 5. 如确有权纳入原始图片，应放入 `assets/figures/<资料>/<章节>/`，使用原图号命名并移除无关水印或个人信息；大批量图片引入前评估 Git LFS 和再分发权利。
 6. **项目自制的矢量图应作为独立 `.svg` 文件落盘**在同一 `assets/figures/<资料>/<章节>/` 下，由 Markdown 用标准图片语法（叹号 + 方括号图题 + 圆括号相对路径）引用该文件，不再内联进正文。理由有两条：GitHub 的 Markdown 消毒器会剥掉内联 `<svg>`，内联图在网页上不显示；独立文件才能被逐个记录 SHA-256、来源与重绘声明。每个落盘资产必须在对应账本的 `asset_inventory[]` 中登记 `kind`、`source_basis`、`redraw_declaration` 和渲染检查日期（大纲侧见 `data/outline_audit.json`，校验器强制 `redraw_declaration` 非空）。SVG 必须自身格式良好、无 BOM，并带 `<title>`/`<desc>` 无障碍标注，`<desc>` 中写明未复刻的版式要素。
 7. 内容修改优先由另一名维护者复核；单人维护时应完成逐项来源核对、渲染检查和自动验证，并记录验证结果。
-8. 删除旧缺图标记不等于资产恢复完成。教材修改后应使用 `uv run --group audit python scripts/audit_textbook_pdf.py` 对本地合法持有的 PDF 重新生成 `data/textbook_audit.json`，核对 PDF 图号/表号与 Markdown 独立载体；真题点位变化应同步 `data/exam_asset_audit.json`；大纲正文或资产变化应重跑 `uv run python scripts/build_outline_audit.py`。这些账本都必须保留来源受限项，不能为了让计数归零而删除限制说明。
+8. 删除旧缺图标记不等于资产恢复完成。教材修改后，先运行 `uv run python scripts/build_textbook_markdown_view.py` 重算 `data/textbook_audit.json` 的 Markdown 侧字段（图/表载体行号与状态，无需源 PDF，CI 也会复核）；若本地合法持有 PDF，再用 `uv run --group audit python scripts/audit_textbook_pdf.py` 重建 PDF 侧字段，并核对 PDF 图号/表号与 Markdown 独立载体。真题点位变化应同步 `data/exam_asset_audit.json`；大纲正文或资产变化应重跑 `uv run python scripts/build_outline_audit.py`。这些账本都必须保留来源受限项，不能为了让计数归零而删除限制说明。
 
 ## 真题特别规则
 

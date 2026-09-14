@@ -10,10 +10,11 @@
 uv run python scripts/validate_knowledge_base.py         # 主门禁，交付前必跑
 uv run python scripts/build_exam_asset_audit.py --check   # 需要完整 git 历史
 uv run python scripts/build_outline_audit.py --check      # 改了大纲正文要先重建（去掉 --check）
+uv run python scripts/build_textbook_markdown_view.py --check  # 改了教材正文要先重建（去掉 --check）
 uv lock --check                                          # 改了 pyproject.toml 后必跑
 ```
 
-主门禁只依赖标准库，**不要给它加第三方依赖**。第三方依赖只允许出现在 `audit` 依赖组（仅 `scripts/audit_textbook_pdf.py` 用，运行时加 `--group audit`）。
+主门禁只依赖标准库，**不要给它加第三方依赖**。第三方依赖只允许出现在 `audit` 依赖组（仅 `scripts/audit_textbook_pdf.py` 用，运行时加 `--group audit`）。教材账本的 Markdown 侧由 `build_textbook_markdown_view.py` 从现行正文重算；PDF 侧字段冻结在固定基线提交与不入库的源 PDF 上，不得用作对现行正文的实时结论。
 
 ## 内容红线
 

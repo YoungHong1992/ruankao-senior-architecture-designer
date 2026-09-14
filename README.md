@@ -70,6 +70,7 @@ assets/figures/                     # 项目自制的结构化重绘 SVG（非�
 scripts/validate_knowledge_base.py  # 知识库质量检查入口
 scripts/build_exam_asset_audit.py   # 从固定基线重建 120 个真题点位记录
 scripts/build_outline_audit.py      # 重建大纲核查账本（不依赖源 PDF）
+scripts/build_textbook_markdown_view.py # 重算教材账本的 Markdown 侧字段（不依赖源 PDF）
 scripts/audit_textbook_pdf.py       # 使用本地合法持有 PDF 重建教材审计结果
 pyproject.toml                      # uv 工具链声明：Python 3.13 与审计依赖组
 .python-version                     # 固定解释器版本（3.13）
@@ -136,6 +137,7 @@ pipx install uv    # 亦可 pip install uv
 uv run python scripts/validate_knowledge_base.py        # 主质量门禁
 uv run python scripts/build_exam_asset_audit.py --check # 验证真题账本可由固定基线重现
 uv run python scripts/build_outline_audit.py --check    # 验证大纲账本可重现（改大纲后先去掉 --check 重建）
+uv run python scripts/build_textbook_markdown_view.py --check # 验证教材账本 Markdown 侧可重现（改教材后先去掉 --check 重建）
 uv lock --check                                         # 验证 uv.lock 与 pyproject.toml 一致
 uv run --group lint ruff check scripts/                 # 脚本 lint
 uv run --group lint ruff format scripts/                # 脚本格式化（CI 用 --check）
@@ -147,7 +149,7 @@ uv run --group audit python scripts/audit_textbook_pdf.py <PDF路径> --manual-r
 
 `build_exam_asset_audit.py` 按固定基线提交读取历史，因此需要**完整克隆**：`git clone --depth 1` 或下载 ZIP 会缺少基线提交而失败，已浅克隆时执行 `git fetch --unshallow` 即可。
 
-`validate_knowledge_base.py` 检查索引、链接、题号、UTF-8、标题层级、高风险 OCR 词、真题 manifest、120 条逐项记录、教材 708 条逐页记录与全页人工复核、199 项历史/208 项当前关键内容债保守清单、314 项完整资产审计、两份索引日期一致性，以及 uv 工具链各处版本固定值是否互相一致。`.github/workflows/knowledge-base-quality.yml` 用同一套 uv 命令执行不依赖源 PDF 的质量门禁；检查通过不等同于内容已获考试主管机构或出版社认证。
+`validate_knowledge_base.py` 检查索引、链接、题号、UTF-8、标题层级、高风险 OCR 词、真题 manifest、120 条逐项记录、教材 708 条逐页记录与全页人工复核、199 项历史/208 项当前关键内容债保守清单、314 项完整资产审计、两份索引日期一致性，以及 uv 工具链各处版本固定值是否互相一致。`.github/workflows/knowledge-base-quality.yml` 用同一套 uv 命令执行不依赖源 PDF 的质量门禁；教材账本中可从仓内正文重算的 Markdown 侧字段（图/表载体行号与状态、公式载体、summary 计数）由 `build_textbook_markdown_view.py --check` 强制，而 PDF 侧字段（页覆盖率、`pdf_*` 编号、固定基线证据）只能靠本地合法持有源 PDF 重建，见账本 `method.markdown_view` 的边界声明。检查通过不等同于内容已获考试主管机构或出版社认证。
 
 ## 勘误与反馈
 

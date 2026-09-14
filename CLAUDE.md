@@ -21,7 +21,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `02.历年真题总索引.md` — 人工/AI 查询真题的统一入口，规定每卷的“首选文件”。
 - `data/exams.json`（schema 3）— 真题 manifest：36 份 canonical、90 份 source_versions、来源目录、SHA-256 完整性策略、快照归档策略、终审策略。每份 source_version 记 `content_sha256`，校验器会重算比对。
 - `data/exam_asset_audit.json`（schema 2）— 真题缺图/缺表的 120 个逐项点位（116 固定基线 + 4 续审）。
-- `data/textbook_audit.json`（schema 4）— 教材逐页（708 页）+ 图号/表号（284 图 / 59 表）审计账本。
+- `data/textbook_audit.json`（schema 5）— 教材逐页（708 页）+ 图号/表号（284 图 / 59 表）审计账本。Markdown 侧字段（图/表载体行号与状态、公式载体、summary 计数）由 `scripts/build_textbook_markdown_view.py` 从仓内正文重算并在 CI 强制；PDF 侧字段（页覆盖率、`pdf_*` 编号、`baseline_*` 证据、`key_content_debt`）冻结在固定基线提交与不入库的源 PDF 上，见 `method.markdown_view`。
 - `data/outline_audit.json`（schema 1）— 大纲核查账本：源扫描件 SHA-256、PDF 图像页↔印刷页映射、逐页视觉核对结论、逐项 findings（`verdict` 区分“清洗缺陷”与“忠于原书但已过时”）、外部证据哈希、落盘图表清单。
 
 数据流：**清洗稿正文** →（脚本按固定 Git 基线提交枚举缺失标记、按本地 PDF 统计覆盖率）→ **审计账本 JSON** →（`validate_knowledge_base.py` 断言账本、manifest、两份索引与正文彼此一致）→ **CI 门禁**。
@@ -43,6 +43,10 @@ uv run python scripts/build_exam_asset_audit.py
 uv run python scripts/build_outline_audit.py
 uv run python scripts/build_outline_audit.py --check
 
+# 重算教材账本的 Markdown 侧字段（CI 必跑 --check；不依赖源 PDF）
+uv run python scripts/build_textbook_markdown_view.py
+uv run python scripts/build_textbook_markdown_view.py --check
+
 # 重建教材审计账本（不在 CI；需合法持有源 PDF + 完整 Git 历史；pypdf 由 audit 组提供）
 uv run --group audit python scripts/audit_textbook_pdf.py <PDF路径> --manual-review-completed
 uv run --group audit python scripts/audit_textbook_pdf.py <PDF路径> --manual-review-completed --check
@@ -60,7 +64,7 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 - `validate_knowledge_base.py` 与 `build_exam_asset_audit.py` 只依赖标准库，**不要**给它们加第三方依赖；`audit` 与 `lint` 都是非默认组（`--group` 按需同步），因此主门禁在没有任何第三方包的环境里也必须通过。两个 audit 脚本依赖 `git`。
 - ruff 配置刻意不启用 `E501`（中文字符串无法拆行）和 `RUF001/002/003`（全角标点对中文项目是纯误报，会触发 305 次）。
 - pypdf 版本必须精确匹配，否则 OCR 文本层输出漂移、账本无法复现；该版本号同时写在 `pyproject.toml`、`uv.lock` 和 `scripts/audit_textbook_pdf.py:PYPDF_VERSION` 中，校验器断言三者一致。
-- CI（`.github/workflows/knowledge-base-quality.yml`）以 `fetch-depth: 0` 检出（基线提交祖先校验需要完整历史），用 `astral-sh/setup-uv`（按 SHA 固定）装 uv，再跑 `uv lock --check` + 前两条命令 + `py_compile` + `ruff check` + `ruff format --check`；`uv run --locked` 保证 CI 不会偷偷改锁文件。**教材 PDF 不入库，故教材账本不在 CI 复核**；改动教材图表后须在本地跑 `audit_textbook_pdf.py` 并提交更新后的 `data/textbook_audit.json`。
+- CI（`.github/workflows/knowledge-base-quality.yml`）以 `fetch-depth: 0` 检出（基线提交祖先校验需要完整历史），用 `astral-sh/setup-uv`（按 SHA 固定）装 uv，再跑 `uv lock --check` + 前三条 `--check` 命令 + `py_compile` + `ruff check` + `ruff format --check`；`uv run --locked` 保证 CI 不会偷偷改锁文件。**教材 PDF 不入库，故 `audit_textbook_pdf.py` 不在 CI 运行**：该脚本产出的 PDF 侧字段只能靠本地合法持有 PDF 重建，而 Markdown 侧字段由 `build_textbook_markdown_view.py --check` 在 CI 强制；改动教材图表后须在本地依次跑 `build_textbook_markdown_view.py`（无 PDF 也能跑）与 `audit_textbook_pdf.py`（有 PDF 时）并提交更新后的 `data/textbook_audit.json`。
 - 无测试框架：`validate_knowledge_base.py` 是单文件顺序执行的 `Validator` 类，校验器本身即“测试”。改脚本后整跑即可，没有单测可单独运行。
 - 不带 `--manual-review-completed` 重新生成教材账本，会把人工复核状态写回 `pending`，校验器随即拒绝。
 
@@ -70,7 +74,7 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 - 真题：36 份 canonical、17 组同名冲突、90 份 source_versions；每份 source_version 的 `content_sha256` 必须等于文件按 `utf8_bom_stripped_lf` 归一后的哈希。
 - 真题资产：22 个受审文件、116 固定基线 + 4 续审 = 120 点位、6 项来源受限视觉项、1 项非原版替代；处置计数 111 已复核 / 8 结构恢复 / 1 非原版替代（列在 `positions[]` 的 120 项中）。
-- 教材：物理页 13–720 共 708 个正文页、PDF 721 页、284 图、59 表、272 图标记 + 8 表 = 280 基线记录；资产债下限 296→314、关键内容债 198/199/208。
+- 教材：物理页 13–720 共 708 个正文页、PDF 721 页、284 图、59 表、272 图标记 + 8 表 = 280 基线记录；资产债下限 296→314、关键内容债 198/199/208。账本的 Markdown 侧（20 章字符数、284 图 + 59 表 + 12 补发现图 + 7 条公式的载体行号与状态、summary 计数）必须能由 `scripts/build_textbook_markdown_view.py --check` 从现行正文逐字节重算；改动教材正文后必须重跑该脚本并提交账本。其 PDF 侧字段在源 PDF 不入库的前提下无法重算，只能作为固定基线证据，`method.markdown_view` 明确列出两侧边界且校验器强制两侧不重叠。
 - 源 PDF SHA-256 固定为 `ee45900f…5135c2f8`；`build_*` 与 `audit_*` 依赖固定基线提交 `e02f60ca…`。
 - 工具链：`.python-version` = `3.13`、`pyproject.toml` 的 `requires-python` = `>=3.13`、`project.dependencies` 必须为空、`tool.uv.package` = `false`、`dependency-groups` 必须恰好是 `audit` 与 `lint` 两组、每组只含一条 `==` 精确 pin（分别是 `pypdf`、`ruff`）；pypdf 版本须与 `scripts/audit_textbook_pdf.py:PYPDF_VERSION` 及 `uv.lock` 中锁定的完全一致，`uv.lock` 的 `requires-python` 也须为 `>=3.13`。改任一处都要跑 `uv lock` 并提交锁文件。
 - “统计日期 / updated_at”三处必须一致（当前 `2026-07-12`）：`data/exams.json`、`02.历年真题总索引.md`、`02.历年真题-清洗版/INDEX.md`。
