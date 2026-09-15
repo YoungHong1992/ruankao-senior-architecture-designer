@@ -6,16 +6,12 @@ requires-python = ">=3.13"
 dependencies = []
 
 [dependency-groups]
-# 仅 scripts/audit_textbook_pdf.py 需要。pypdf 的文本提取输出会随版本漂移，
-# 已提交的 data/textbook_audit.json 因此绑定到精确版本；改这里必须同步
-# scripts/audit_textbook_pdf.py 的 PYPDF_VERSION，校验器会断言两者一致。
-audit = ["pypdf==6.14.2"]
 # 代码风格工具。刻意不做默认组：主门禁必须能在没有任何第三方包的环境里跑。
 lint = ["ruff==0.16.4"]
 
 [tool.uv]
 # 本仓库是知识库而非可安装的 Python 包：不构建、不安装自身，
-# uv 只负责固定解释器版本与审计脚本的依赖。
+# uv 只负责固定解释器版本与脚本工具链的依赖。
 package = false
 # uv.lock 使用 revision 3 格式；低于此版本的 uv 无法复现本锁文件。
 # CI 的 astral-sh/setup-uv 也读取本字段决定安装哪个 uv。

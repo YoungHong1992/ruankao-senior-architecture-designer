@@ -8,12 +8,10 @@
 
 ```bash
 uv run python scripts/validate_knowledge_base.py         # 主门禁，交付前必跑
-uv run python scripts/build_exam_asset_audit.py --check   # 需要完整 git 历史
-uv run python scripts/build_outline_audit.py --check      # 改了大纲正文要先重建（去掉 --check）
 uv lock --check                                          # 改了 pyproject.toml 后必跑
 ```
 
-主门禁只依赖标准库，**不要给它加第三方依赖**。第三方依赖只允许出现在 `audit` 依赖组（仅 `scripts/audit_textbook_pdf.py` 用，运行时加 `--group audit`）。
+主门禁只依赖标准库，**不要给它加第三方依赖**。第三方依赖只允许出现在非默认的 `lint` 依赖组（ruff，仅脚本风格检查用，运行时加 `--group lint`）。
 
 ## 内容红线
 
@@ -26,13 +24,13 @@ uv lock --check                                          # 改了 pyproject.toml
 
 每个内容目录都有 `INDEX.md`；真题的统一入口是 [02.历年真题总索引.md](02.历年真题总索引.md)（机器可读版 `data/exams.json`）。**先读索引，再只打开需要的单章/单卷**，不要一次性载入全部 159 个 Markdown 文件。查真题只用索引标注的“首选文件”。
 
-## 改内容必须同步账本
+## 改内容必须同步清单与索引
 
-正文、`data/*.json` 三份账本、两份索引与校验脚本中的数字必须同时成立，否则 CI 必红。具体不变量清单见 [CLAUDE.md](CLAUDE.md#关键不变量改内容必须同步更新)。
+正文、`data/exams.json`、两份真题索引与校验脚本中的数字必须同时成立，否则 CI 必红。具体不变量清单见 [CLAUDE.md](CLAUDE.md#关键不变量改内容必须同步更新)。
 
 ## 换行符
 
-`.md` 用 **CRLF**；`.py`/`.json`/`.yml`/`.yaml`/`.toml`/`uv.lock`/`.python-version` 用 **LF**（见 `.gitattributes`）。改错行尾会让 `data/exams.json` 的 `content_sha256` 漂移，CI 会失败。
+`.md` 用 **CRLF**；`.py`/`.json`/`.yml`/`.yaml`/`.toml`/`uv.lock`/`.python-version` 用 **LF**（见 `.gitattributes`）。改错行尾会让校验器的字节检查失败，CI 会红。
 
 **所有文本文件必须是标准 UTF-8，不得加 BOM**，也不得含裸 CR——校验器逐字节检查全部 Markdown。
 
