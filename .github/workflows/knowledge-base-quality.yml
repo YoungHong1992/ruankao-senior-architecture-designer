@@ -50,12 +50,17 @@ jobs:
       - name: Verify generated outline audit
         run: uv run --locked python scripts/build_outline_audit.py --check
 
+      # 教材账本的 Markdown 侧同样不依赖源 PDF：从仓内正文重算并在 CI 中强制。
+      - name: Verify textbook ledger Markdown view
+        run: uv run --locked python scripts/build_textbook_markdown_view.py --check
+
       - name: Compile audit scripts
         run: >-
           uv run --locked python -m py_compile
           scripts/validate_knowledge_base.py
           scripts/build_exam_asset_audit.py
           scripts/build_outline_audit.py
+          scripts/build_textbook_markdown_view.py
           scripts/audit_textbook_pdf.py
 
       # ruff 固定在 lint 依赖组中，与本地同一版本。

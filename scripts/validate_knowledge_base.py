@@ -1658,8 +1658,8 @@ class Validator:
                 f"missing top-level fields: {sorted(missing)}",
             )
             return
-        if audit.get("schema_version") != 4:
-            self.error(TEXTBOOK_AUDIT_PATH, "schema_version must be 4")
+        if audit.get("schema_version") != 5:
+            self.error(TEXTBOOK_AUDIT_PATH, "schema_version must be 5")
         try:
             date.fromisoformat(str(audit.get("reviewed_at")))
         except ValueError:
@@ -1678,6 +1678,68 @@ class Validator:
                     self.error(
                         TEXTBOOK_AUDIT_PATH,
                         f"source.{field} must be {expected}",
+                    )
+        field_definitions = audit.get("field_definitions")
+        if not isinstance(field_definitions, dict):
+            self.error(TEXTBOOK_AUDIT_PATH, "field_definitions must be an object")
+        else:
+            for field in ("current_needles", "markdown_view"):
+                if not isinstance(field_definitions.get(field), str) or not field_definitions[field].strip():
+                    self.error(
+                        TEXTBOOK_AUDIT_PATH,
+                        f"field_definitions.{field} must be a non-empty string",
+                    )
+        method = audit.get("method")
+        if not isinstance(method, dict):
+            self.error(TEXTBOOK_AUDIT_PATH, "method must be an object")
+        else:
+            markdown_view = method.get("markdown_view")
+            if not isinstance(markdown_view, dict):
+                self.error(
+                    TEXTBOOK_AUDIT_PATH,
+                    "method.markdown_view must be an object",
+                )
+            else:
+                expected_markdown_view = {
+                    "status": "enforced",
+                    "recomputer": "scripts/build_textbook_markdown_view.py",
+                    "command": "uv run python scripts/build_textbook_markdown_view.py --check",
+                }
+                for field, expected_value in expected_markdown_view.items():
+                    if markdown_view.get(field) != expected_value:
+                        self.error(
+                            TEXTBOOK_AUDIT_PATH,
+                            f"method.markdown_view.{field} must be {expected_value!r}",
+                        )
+                scopes: dict[str, list[str]] = {}
+                for field in ("recompute_scope", "frozen_scope"):
+                    scope = markdown_view.get(field)
+                    if (
+                        not isinstance(scope, list)
+                        or not scope
+                        or not all(isinstance(item, str) and item.strip() for item in scope)
+                    ):
+                        self.error(
+                            TEXTBOOK_AUDIT_PATH,
+                            f"method.markdown_view.{field} must contain non-empty strings",
+                        )
+                    elif len(scope) != len(set(scope)):
+                        self.error(
+                            TEXTBOOK_AUDIT_PATH,
+                            f"method.markdown_view.{field} must not contain duplicates",
+                        )
+                    else:
+                        scopes[field] = scope
+                if len(scopes) == 2 and set(scopes["recompute_scope"]) & set(scopes["frozen_scope"]):
+                    self.error(
+                        TEXTBOOK_AUDIT_PATH,
+                        "method.markdown_view scopes must not overlap",
+                    )
+                limitation = markdown_view.get("limitation")
+                if not isinstance(limitation, str) or not limitation.strip():
+                    self.error(
+                        TEXTBOOK_AUDIT_PATH,
+                        "method.markdown_view.limitation must be a non-empty string",
                     )
         manual_review = audit.get("manual_review")
         declared_manual_pages: set[int] = set()
@@ -2248,6 +2310,16 @@ class Validator:
                         TEXTBOOK_AUDIT_PATH,
                         f"{label}.baseline_context must be a non-empty string",
                     )
+                current_needles = item.get("current_needles")
+                if (
+                    not isinstance(current_needles, list)
+                    or not current_needles
+                    or not all(isinstance(needle, str) and needle.strip() for needle in current_needles)
+                ):
+                    self.error(
+                        TEXTBOOK_AUDIT_PATH,
+                        f"{label}.current_needles must contain non-empty strings",
+                    )
                 if position == 1:
                     supporting_evidence = item.get("supporting_evidence")
                     expected_supporting_evidence = {
@@ -2289,6 +2361,28 @@ class Validator:
             if topics != ["natural_join", "random_walk"]:
                 self.error(TEXTBOOK_AUDIT_PATH, "formula_status_items topics are invalid")
             for position, item in enumerate(formula_items, start=1):
+                if isinstance(item, dict):
+                    current_needles = item.get("current_needles")
+                    if (
+                        not isinstance(current_needles, list)
+                        or not current_needles
+                        or not all(isinstance(needle, str) and needle.strip() for needle in current_needles)
+                    ):
+                        self.error(
+                            TEXTBOOK_AUDIT_PATH,
+                            f"formula_status_items #{position}.current_needles must contain non-empty strings",
+                        )
+                    carrier_lines = item.get("markdown_carrier_lines")
+                    if (
+                        not isinstance(carrier_lines, list)
+                        or not carrier_lines
+                        or not all(type(line) is int and line > 0 for line in carrier_lines)
+                        or carrier_lines != sorted(set(carrier_lines))
+                    ):
+                        self.error(
+                            TEXTBOOK_AUDIT_PATH,
+                            f"formula_status_items #{position}.markdown_carrier_lines must contain unique positive integers",
+                        )
                 if not isinstance(item, dict) or item.get("status") != "current_formula_carrier_present":
                     self.error(
                         TEXTBOOK_AUDIT_PATH,
