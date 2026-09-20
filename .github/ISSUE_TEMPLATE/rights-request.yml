@@ -9,7 +9,7 @@ body:
       value: |
         请勿在公开 Issue 中上传身份证件、合同或其他敏感证明。敏感材料请改用仓库的私密渠道：
         [Security → Report a vulnerability](https://github.com/YoungHong1992/ruankao-senior-architecture-designer/security/advisories/new)（仅维护者可见，说明见 [SECURITY.md](https://github.com/YoungHong1992/ruankao-senior-architecture-designer/blob/main/SECURITY.md)）。
-        本表单只需填写内容位置与请求事项。完整流程见 [CONTENT_POLICY.md](https://github.com/YoungHong1992/ruankao-senior-architecture-designer/blob/main/CONTENT_POLICY.md) 第 6 节。
+        本表单只需填写内容位置与请求事项。完整流程见 [AGENTS.md 的「内容与权利政策」](https://github.com/YoungHong1992/ruankao-senior-architecture-designer/blob/main/AGENTS.md) 第 6 节。
   - type: input
     id: content
     attributes:

@@ -21,10 +21,10 @@ repository. GitHub reports it as "Other", which is the accurate signal.
 
 以下内容**不适用** MIT，本项目也**不主张**对其拥有版权，因此**无权**向他人授予许可：
 
-- `00.系统架构设计师考试大纲/`、`00.…-清洗版/` — 考试大纲；
-- `01.系统架构设计师教材/`、`01.…-清洗版/` — 《系统架构设计师教程》（2022 年 11 月第 2 版，
+- `data/00.系统架构设计师考试大纲/`、`00.…-清洗版/` — 考试大纲；
+- `data/01.系统架构设计师教材/`、`01.…-清洗版/` — 《系统架构设计师教程》（2022 年 11 月第 2 版，
   叶宏主编，清华大学出版社，ISBN 978-7-302-61992-5）的 OCR 提取稿与清洗稿；
-- `02.历年真题/`、`02.历年真题(补充)/`、`02.历年真题-清洗版/` — 历年试题、答案、解析及其
+- `data/02.历年真题/`、`data/02.历年真题(补充)/`、`02.历年真题-清洗版/` — 历年试题、答案、解析及其
   回忆版汇编；
 - 上述材料派生的一切 OCR 文本、清洗文本、转录表格、结构化重绘图示与索引摘要。
 
@@ -34,17 +34,17 @@ repository. GitHub reports it as "Other", which is the accurate signal.
 
 ## 三、项目文档
 
-根目录的 `README.md`、`CLAUDE.md`、`AGENTS.md`、`CONTRIBUTING.md`、`CONTENT_POLICY.md`、
-`DATA_SOURCES.md`、`FIGURE_POLICY.md`、`教材Markdown清洗与校对标准.md` 及本文件为本项目原创，
+根目录的 `README.md`、`AGENTS.md`（含其收编的清洗标准、图表策略、内容权利政策与贡献流程）、
+`DATA_SOURCES.md`、`SECURITY.md` 及本文件为本项目原创，
 可按 MIT 条款使用，但其中引用的第三方书目信息、题号与页码仍受第二节约束。
 
 ## 四、权利人请求
 
-权利人或其授权代表如需补充署名、限制展示或下架内容，请按 [CONTENT_POLICY.md](CONTENT_POLICY.md)
-第 6 节的流程处理；私下联系渠道见 [SECURITY.md](SECURITY.md)。请勿在公开 Issue 中提交
+权利人或其授权代表如需补充署名、限制展示或下架内容，请按 [AGENTS.md](AGENTS.md) 的
+「内容与权利政策」第 6 节的流程处理；私下联系渠道见 [SECURITY.md](SECURITY.md)。请勿在公开 Issue 中提交
 身份证件、合同等敏感材料。
 
 ---
 
-完整的权利边界、内容质量声明与来源要求见 [CONTENT_POLICY.md](CONTENT_POLICY.md)
+完整的权利边界、内容质量声明与来源要求见 [AGENTS.md](AGENTS.md#内容与权利政策)
 与 [DATA_SOURCES.md](DATA_SOURCES.md)。

@@ -23,4 +23,5 @@ SOFTWARE.
 Scope notice: this license applies only to original project code in `scripts/`
 and `.github/workflows/`. It does not apply to third-party publications, exam
 materials, answers, explanations, OCR/cleaned text, images, tables, or other
-content stored in this repository. See `CONTENT_POLICY.md`.
+content stored in this repository. See the "内容与权利政策" (Content and
+Rights Policy) section of `AGENTS.md`.

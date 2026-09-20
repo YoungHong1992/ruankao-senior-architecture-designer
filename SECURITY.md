@@ -27,7 +27,7 @@
 **内容权利问题。** 权利人或其授权代表如需提交身份证明、授权文件、合同等敏感材料，
 请用上面的私密渠道，而不是公开 Issue。公开的下架请求模板见
 [版权/下架请求](https://github.com/YoungHong1992/ruankao-senior-architecture-designer/issues/new?template=rights-request.yml)，
-完整流程见 [CONTENT_POLICY.md](CONTENT_POLICY.md) 第 6 节。
+完整流程见 [AGENTS.md 的「内容与权利政策」](AGENTS.md#内容与权利政策)第 6 节。
 
 **不属于本渠道的问题。** OCR 错字、题面缺失、答案争议等内容勘误请走公开的
 [内容勘误](https://github.com/YoungHong1992/ruankao-senior-architecture-designer/issues/new?template=correction.yml)
