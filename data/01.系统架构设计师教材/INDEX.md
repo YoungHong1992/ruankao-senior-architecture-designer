@@ -42,4 +42,4 @@
 3. 不要一次性加载所有章节文件。
 4. 涉及图表、公式或疑似 OCR 错误时，应回到依法取得的原书核对。
 
-来源与权利边界见 [DATA_SOURCES.md](../DATA_SOURCES.md) 和 [AGENTS.md 的「内容与权利政策」](../AGENTS.md#内容与权利政策)。
+来源与权利边界见 [DATA_SOURCES.md](../../DATA_SOURCES.md) 和 [AGENTS.md 的「内容与权利政策」](../../AGENTS.md#内容与权利政策)。

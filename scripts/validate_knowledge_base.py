@@ -35,18 +35,21 @@ if sys.version_info < REQUIRED_PYTHON:
 import tomllib  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
+DATA_DIR = ROOT / "data"
+# Raw (pre-clean) archives live under data/; the cleaned versions stay at the
+# repository root.
 CONTENT_DIRS = (
-    "00.系统架构设计师考试大纲",
-    "00.系统架构设计师考试大纲-清洗版",
-    "01.系统架构设计师教材",
-    "01.系统架构设计师教材-清洗版",
-    "02.历年真题",
-    "02.历年真题-清洗版",
-    "02.历年真题(补充)",
+    DATA_DIR / "00.系统架构设计师考试大纲",
+    ROOT / "00.系统架构设计师考试大纲-清洗版",
+    DATA_DIR / "01.系统架构设计师教材",
+    ROOT / "01.系统架构设计师教材-清洗版",
+    DATA_DIR / "02.历年真题",
+    ROOT / "02.历年真题-清洗版",
+    DATA_DIR / "02.历年真题(补充)",
 )
-CLEAN_DIRS = tuple(name for name in CONTENT_DIRS if name.endswith("-清洗版"))
+CLEAN_DIRS = tuple(path for path in CONTENT_DIRS if path.name.endswith("-清洗版"))
 CHAPTER_DIRS = CONTENT_DIRS[:4]
-EXAM_SOURCE_DIRS = ("02.历年真题", "02.历年真题(补充)")
+EXAM_SOURCE_DIRS = (DATA_DIR / "02.历年真题", DATA_DIR / "02.历年真题(补充)")
 MANIFEST_PATH = ROOT / "data" / "exams.json"
 MASTER_INDEX_PATH = ROOT / "02.历年真题总索引.md"
 CLEAN_EXAM_INDEX_PATH = ROOT / "02.历年真题-清洗版" / "INDEX.md"
@@ -63,7 +66,7 @@ REQUIRES_PYTHON = ">=3.13"
 DEPENDENCY_GROUPS = {"lint": "ruff"}
 
 # Unbracketed link targets may contain one level of balanced parentheses so
-# that paths like ../02.历年真题(补充)/x.md parse without angle brackets;
+# that paths like ../data/02.历年真题(补充)/x.md parse without angle brackets;
 # unbalanced parentheses still fail to match and surface as broken links.
 LINK_RE = re.compile(
     r"!?\[[^\]]*\]\((?P<target><[^>]+>|[^\s()]+(?:\([^\s()]*\)[^\s()]*)*)"
@@ -199,7 +202,7 @@ class Validator:
         # legitimately start at H2); anything deeper is a jump from the
         # implicit document root.
         previous_level = 1
-        check_heading_jumps = any(path.is_relative_to(ROOT / directory) for directory in CLEAN_DIRS)
+        check_heading_jumps = any(path.is_relative_to(directory) for directory in CLEAN_DIRS)
         for line_number, line in enumerate(lines, start=1):
             fence_match = FENCE_RE.match(line)
             if fence_match:
@@ -249,10 +252,9 @@ class Validator:
         return targets
 
     def check_content_directories(self) -> None:
-        for directory_name in CONTENT_DIRS:
-            directory = ROOT / directory_name
+        for directory in CONTENT_DIRS:
             if not directory.is_dir():
-                self.error(directory_name, "content directory is missing")
+                self.error(directory, "content directory is missing")
                 continue
             index = directory / "INDEX.md"
             if not index.is_file():
@@ -267,8 +269,7 @@ class Validator:
             if missing:
                 self.error(index, f"unindexed Markdown files: {', '.join(missing)}")
 
-        for directory_name in CHAPTER_DIRS:
-            directory = ROOT / directory_name
+        for directory in CHAPTER_DIRS:
             for path in directory.glob("*.md"):
                 if path.name in {"INDEX.md", "前言.md"}:
                     continue
@@ -279,8 +280,7 @@ class Validator:
         # Every cleaned directory is scanned, not just the textbook: the outline
         # clean-up went unscanned for its whole history because this check used
         # to hardcode a single directory.
-        for name in CLEAN_DIRS:
-            directory = ROOT / name
+        for directory in CLEAN_DIRS:
             for path in sorted(directory.glob("*.md")):
                 text = self.read_text(path) or ""
                 for label, pattern in OCR_PATTERNS.items():
@@ -483,8 +483,8 @@ class Validator:
 
         source_keys: set[tuple[int, str, str]] = set()
         source_paths: set[str] = set()
-        for directory_name in EXAM_SOURCE_DIRS:
-            for path in (ROOT / directory_name).glob("*.md"):
+        for directory in EXAM_SOURCE_DIRS:
+            for path in directory.glob("*.md"):
                 if path.name == "INDEX.md":
                     continue
                 key = self.exam_key_from_name(path)
