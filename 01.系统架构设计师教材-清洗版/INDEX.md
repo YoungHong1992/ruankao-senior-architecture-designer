@@ -40,6 +40,6 @@
 1. 先浏览本索引，定位目标章节，再按需打开文件。
 2. 发现断句、术语、表格、代码或标题层级可疑时，对照[原始提取稿](../01.系统架构设计师教材/)和依法取得的原书。
 3. 图题存在但图片缺失时，不要根据 OCR 残片臆测图中关系；应标注“原图缺失”并等待可验证来源。
-4. 清洗与校对应遵循 [教材 Markdown 清洗与校对标准](../教材Markdown清洗与校对标准.md)。
+4. 清洗与校对应遵循 [AGENTS.md 的「教材 Markdown 清洗与校对标准」](../AGENTS.md#教材-markdown-清洗与校对标准)。
 
-来源与权利边界见 [DATA_SOURCES.md](../DATA_SOURCES.md) 和 [CONTENT_POLICY.md](../CONTENT_POLICY.md)。
+来源与权利边界见 [DATA_SOURCES.md](../DATA_SOURCES.md) 和 [AGENTS.md 的「内容与权利政策」](../AGENTS.md#内容与权利政策)。

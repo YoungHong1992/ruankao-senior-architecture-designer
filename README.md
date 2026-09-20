@@ -20,9 +20,9 @@ cd ruankao-senior-architecture-designer
 uv run python scripts/validate_knowledge_base.py   # 应输出 PASSED: 0 errors
 ```
 
-看到 `PASSED` 说明环境就绪。修改流程与红线见 [CONTRIBUTING.md](CONTRIBUTING.md)，完整命令见[质量检查](#质量检查)。
+看到 `PASSED` 说明环境就绪。修改流程与红线见 [AGENTS.md](AGENTS.md)（含 RULES 规则章节），完整命令见[质量检查](#质量检查)。
 
-**用 AI 辅助检索**：先让工具读 [AGENTS.md](AGENTS.md)（各家 AI 编码工具通用）或 [CLAUDE.md](CLAUDE.md)（Claude Code），里面写明了必须遵守的内容红线、索引优先的读取方式和不得自动合并的同名冲突。
+**用 AI 辅助检索**：先让工具读 [AGENTS.md](AGENTS.md)（Claude Code 等各家 AI 编码工具通用），里面写明了必须遵守的内容红线、索引优先的读取方式和不得自动合并的同名冲突。
 
 ## 当前内容与完成度
 
@@ -69,10 +69,7 @@ pyproject.toml                      # uv 工具链声明：Python 3.13 与 lint 
 .python-version                     # 固定解释器版本（3.13）
 uv.lock                             # 锁定依赖版本
 .github/workflows/knowledge-base-quality.yml # 持续集成质量门禁
-AGENTS.md                           # AI 编码工具通用约定（内容红线、读取方式）
-CLAUDE.md                           # 面向 Claude Code 的完整项目规范与不变量清单
-CONTRIBUTING.md                     # 贡献流程与提交前必跑的检查
-CONTENT_POLICY.md                   # 内容权利边界、勘误与下架流程
+AGENTS.md                           # 唯一治理文件：项目规范 + RULES 规则章节（清洗标准、图表策略、权利边界、贡献流程）
 DATA_SOURCES.md                     # 出版信息、来源链与可追溯性限制
 SECURITY.md                         # 脚本安全问题与敏感材料的私密上报渠道
 LICENSE                             # 许可范围说明：代码 MIT，第三方内容未授权
@@ -98,14 +95,14 @@ LICENSE-CODE                        # 仅适用于项目自有脚本和工作流
 - 清洗稿仍可能含错字、断句、拼栏、标题层级错误或未经确认的答案。
 - 教材源 PDF 未纳入版本库，已归档到维护者私有仓库（见 [DATA_SOURCES.md](DATA_SOURCES.md)）；仓库保存其书目信息、页码和 SHA-256 以便持有该文件的用户复核，但仅凭版本库仍不能完整复现 OCR 提取过程。
 
-图题保留、缺图标记、可重建示意图和未来图表资产的处理规则见 [FIGURE_POLICY.md](FIGURE_POLICY.md)。
+图题保留、缺图标记、可重建示意图和未来图表资产的处理规则见 [AGENTS.md 的「图表与公式资产策略」](AGENTS.md#图表与公式资产策略)。
 
 ## 数据来源与内容政策
 
 - 教材、大纲、试题、答案及其 OCR/清洗派生文本仍可能受第三方著作权或其他权利保护；本仓库不主张拥有这些第三方内容的版权。
 - 仓库内试题包括公开回忆版和解析资料的汇编，并非全部来自官方发布，答案也并非官方标准答案。
 - 只有项目原创的脚本和 GitHub Actions 工作流适用 [LICENSE-CODE](LICENSE-CODE) 中的 MIT 许可证；该许可不覆盖任何第三方内容、OCR 文本、试题、答案、图片或出版物版式。
-- 详细边界、贡献要求、勘误和权利人下架流程见 [CONTENT_POLICY.md](CONTENT_POLICY.md)。
+- 详细边界、贡献要求、勘误和权利人下架流程见 [AGENTS.md 的「内容与权利政策」](AGENTS.md#内容与权利政策)。
 
 ## 质量检查
 
@@ -139,4 +136,4 @@ uv run --group lint ruff format scripts/                # 脚本格式化（CI �
 
 ## 勘误与反馈
 
-发现 OCR 错误、内容缺失、来源标注问题或答案争议时，请在 [GitHub Issues](https://github.com/YoungHong1992/ruankao-senior-architecture-designer/issues) 提交可复核证据，并写明文件路径和位置。权利人或其授权代表提出下架、署名或许可相关请求时，请按 [CONTENT_POLICY.md](CONTENT_POLICY.md) 中的流程联系维护者；不要在公开 Issue 中提交身份证件、合同等敏感材料。
+发现 OCR 错误、内容缺失、来源标注问题或答案争议时，请在 [GitHub Issues](https://github.com/YoungHong1992/ruankao-senior-architecture-designer/issues) 提交可复核证据，并写明文件路径和位置。权利人或其授权代表提出下架、署名或许可相关请求时，请按 [AGENTS.md 的「内容与权利政策」](AGENTS.md#内容与权利政策)中的流程联系维护者；不要在公开 Issue 中提交身份证件、合同等敏感材料。

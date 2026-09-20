@@ -29,4 +29,4 @@
 
 - [assets/figures/00.考试大纲/第02章/附表-专业类别资格名称和级别对应表.svg](../assets/figures/00.考试大纲/第02章/附表-专业类别资格名称和级别对应表.svg)
 
-重绘规则见 [FIGURE_POLICY.md](../FIGURE_POLICY.md)：结构化重绘不是原版式复制。
+重绘规则见 [AGENTS.md 的「图表与公式资产策略」](../AGENTS.md#图表与公式资产策略)：结构化重绘不是原版式复制。
