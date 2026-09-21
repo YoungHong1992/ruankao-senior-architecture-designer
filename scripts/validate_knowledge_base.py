@@ -39,20 +39,20 @@ DATA_DIR = ROOT / "data"
 # Raw (pre-clean) archives live under data/; the cleaned versions stay at the
 # repository root.
 CONTENT_DIRS = (
-    DATA_DIR / "00.系统架构设计师考试大纲",
-    ROOT / "00.系统架构设计师考试大纲-清洗版",
-    DATA_DIR / "01.系统架构设计师教材",
-    ROOT / "01.系统架构设计师教材-清洗版",
-    DATA_DIR / "02.历年真题",
-    ROOT / "02.历年真题-清洗版",
-    DATA_DIR / "02.历年真题(补充)",
+    DATA_DIR / "00-系统架构设计师考试大纲",
+    ROOT / "00-系统架构设计师考试大纲-清洗版",
+    DATA_DIR / "01-系统架构设计师教材",
+    ROOT / "01-系统架构设计师教材-清洗版",
+    DATA_DIR / "02-历年真题",
+    ROOT / "02-历年真题-清洗版",
+    DATA_DIR / "02-历年真题(补充)",
 )
 CLEAN_DIRS = tuple(path for path in CONTENT_DIRS if path.name.endswith("-清洗版"))
 CHAPTER_DIRS = CONTENT_DIRS[:4]
-EXAM_SOURCE_DIRS = (DATA_DIR / "02.历年真题", DATA_DIR / "02.历年真题(补充)")
+EXAM_SOURCE_DIRS = (DATA_DIR / "02-历年真题", DATA_DIR / "02-历年真题(补充)")
 MANIFEST_PATH = ROOT / "data" / "exams.json"
-MASTER_INDEX_PATH = ROOT / "02.历年真题总索引.md"
-CLEAN_EXAM_INDEX_PATH = ROOT / "02.历年真题-清洗版" / "INDEX.md"
+MASTER_INDEX_PATH = ROOT / "02-历年真题总索引.md"
+CLEAN_EXAM_INDEX_PATH = ROOT / "02-历年真题-清洗版" / "INDEX.md"
 
 # uv toolchain pins.  The Python version and the lockfile are declared in
 # separate files; these checks keep the copies from drifting.
@@ -66,7 +66,7 @@ REQUIRES_PYTHON = ">=3.13"
 DEPENDENCY_GROUPS = {"lint": "ruff"}
 
 # Unbracketed link targets may contain one level of balanced parentheses so
-# that paths like ../data/02.历年真题(补充)/x.md parse without angle brackets;
+# that paths like ../data/02-历年真题(补充)/x.md parse without angle brackets;
 # unbalanced parentheses still fail to match and surface as broken links.
 LINK_RE = re.compile(
     r"!?\[[^\]]*\]\((?P<target><[^>]+>|[^\s()]+(?:\([^\s()]*\)[^\s()]*)*)"
@@ -137,6 +137,7 @@ EXCLUDED_DIR_NAMES = frozenset(
         "node_modules",
         "tmp",
         "__pycache__",
+        ".ruff_cache",
         ".idea",
         ".vscode",
         ".claude",
@@ -298,6 +299,25 @@ class Validator:
                 self.error(path, "Markdown must not contain bare CR characters")
             if b"\n" in data.replace(b"\r\n", b""):
                 self.error(path, "Markdown must use CRLF line endings")
+
+    def check_path_naming(self) -> None:
+        """File and directory names must separate segments with '-', never '.'.
+
+        Dots inside names make paths ambiguous for tooling that splits on the
+        extension separator, so the only dot allowed in a file name is the one
+        introducing its suffix.  Dot-prefixed names such as .github or
+        .python-version are fixed ecosystem conventions and are exempt.
+        """
+        for path in sorted(ROOT.rglob("*")):
+            if not EXCLUDED_DIR_NAMES.isdisjoint(path.parts):
+                continue
+            name = path.name
+            if name.startswith("."):
+                continue
+            stem = name.rsplit(".", 1)[0] if path.is_file() else name
+            if "." in stem:
+                kind = "File" if path.is_file() else "Directory"
+                self.error(path, f"{kind} name must not contain '.'; use '-' to separate segments")
 
     @staticmethod
     def exam_key_from_name(path: Path) -> tuple[int, str, str] | None:
@@ -596,7 +616,7 @@ class Validator:
             self.error(MANIFEST_PATH, f"{exam_id}: invalid clean-exam metadata ({exc})")
             return
 
-        clean_relative = f"02.历年真题-清洗版/{year}年{session}-系统架构设计师-{subject}.md"
+        clean_relative = f"02-历年真题-清洗版/{year}年{session}-系统架构设计师-{subject}.md"
         clean_path = ROOT / clean_relative
         if not clean_path.is_file():
             self.error(clean_path, f"canonical clean file for {exam_id} is missing")
@@ -640,7 +660,7 @@ class Validator:
             )
 
     def check_clean_exam_counts(self) -> None:
-        directory = ROOT / "02.历年真题-清洗版"
+        directory = ROOT / "02-历年真题-清洗版"
         for path in sorted(directory.glob("*综合知识*.md")):
             text = self.read_text(path) or ""
             total_match = EXAM_COUNT_RE.search(text)
@@ -738,6 +758,7 @@ class Validator:
             self.check_markdown_file(path)
         self.check_content_directories()
         self.check_markdown_encoding()
+        self.check_path_naming()
         self.check_clean_ocr()
         self.check_exam_manifest()
         self.check_clean_exam_counts()

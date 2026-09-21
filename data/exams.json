@@ -4,19 +4,19 @@
   "source_catalog": {
     "local_original": {
       "label": "本地原始版",
-      "root": "data/02.历年真题",
+      "root": "data/02-历年真题",
       "official": false,
       "description": "早期纳入的本地题面与解析材料；文件级原始 URL 和取得日期大多未记录。"
     },
     "local_supplement": {
       "label": "本地补充版",
-      "root": "data/02.历年真题(补充)",
+      "root": "data/02-历年真题(补充)",
       "official": false,
       "description": "后续纳入的补充材料；与原始版的同名文件可能题序、题量、题面或解析不同。"
     },
     "cleaned_crosschecked": {
       "label": "清洗交叉校对版",
-      "root": "02.历年真题-清洗版",
+      "root": "02-历年真题-清洗版",
       "official": false,
       "description": "对两个来源目录逐卷清洗、去重并统一结构后的正文；36 份唯一试卷各有一份标准名首选稿，另保留 2023 年下半年综合知识 A65 独立备选。"
     }
@@ -29,21 +29,21 @@
       "subject": "案例分析",
       "item_count": 5,
       "item_unit": "大题",
-      "preferred": "02.历年真题-清洗版/2016年下半年-系统架构设计师-案例分析.md",
+      "preferred": "02-历年真题-清洗版/2016年下半年-系统架构设计师-案例分析.md",
       "alternatives": [
-        "data/02.历年真题/2016年下半年-系统架构设计师-案例分析.md"
+        "data/02-历年真题/2016年下半年-系统架构设计师-案例分析.md"
       ],
       "same_name_conflict": false,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2016年下半年-系统架构设计师-案例分析.md",
+          "path": "02-历年真题-清洗版/2016年下半年-系统架构设计师-案例分析.md",
           "item_count": 5,
           "item_unit": "大题"
         },
         {
           "source_id": "local_original",
-          "path": "data/02.历年真题/2016年下半年-系统架构设计师-案例分析.md",
+          "path": "data/02-历年真题/2016年下半年-系统架构设计师-案例分析.md",
           "item_count": 5,
           "item_unit": "大题"
         }
@@ -57,21 +57,21 @@
       "subject": "论文",
       "item_count": 4,
       "item_unit": "论题",
-      "preferred": "02.历年真题-清洗版/2016年下半年-系统架构设计师-论文.md",
+      "preferred": "02-历年真题-清洗版/2016年下半年-系统架构设计师-论文.md",
       "alternatives": [
-        "data/02.历年真题/2016年下半年-系统架构设计师-论文.md"
+        "data/02-历年真题/2016年下半年-系统架构设计师-论文.md"
       ],
       "same_name_conflict": false,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2016年下半年-系统架构设计师-论文.md",
+          "path": "02-历年真题-清洗版/2016年下半年-系统架构设计师-论文.md",
           "item_count": 4,
           "item_unit": "论题"
         },
         {
           "source_id": "local_original",
-          "path": "data/02.历年真题/2016年下半年-系统架构设计师-论文.md",
+          "path": "data/02-历年真题/2016年下半年-系统架构设计师-论文.md",
           "item_count": 4,
           "item_unit": "论题"
         }
@@ -85,21 +85,21 @@
       "subject": "综合知识",
       "item_count": 75,
       "item_unit": "题",
-      "preferred": "02.历年真题-清洗版/2016年下半年-系统架构设计师-综合知识.md",
+      "preferred": "02-历年真题-清洗版/2016年下半年-系统架构设计师-综合知识.md",
       "alternatives": [
-        "data/02.历年真题/2016年下半年-系统架构设计师-综合知识.md"
+        "data/02-历年真题/2016年下半年-系统架构设计师-综合知识.md"
       ],
       "same_name_conflict": false,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2016年下半年-系统架构设计师-综合知识.md",
+          "path": "02-历年真题-清洗版/2016年下半年-系统架构设计师-综合知识.md",
           "item_count": 75,
           "item_unit": "题"
         },
         {
           "source_id": "local_original",
-          "path": "data/02.历年真题/2016年下半年-系统架构设计师-综合知识.md",
+          "path": "data/02-历年真题/2016年下半年-系统架构设计师-综合知识.md",
           "item_count": 75,
           "item_unit": "题"
         }
@@ -113,21 +113,21 @@
       "subject": "案例分析",
       "item_count": 5,
       "item_unit": "大题",
-      "preferred": "02.历年真题-清洗版/2017年下半年-系统架构设计师-案例分析.md",
+      "preferred": "02-历年真题-清洗版/2017年下半年-系统架构设计师-案例分析.md",
       "alternatives": [
-        "data/02.历年真题/2017年下半年-系统架构设计师-案例分析.md"
+        "data/02-历年真题/2017年下半年-系统架构设计师-案例分析.md"
       ],
       "same_name_conflict": false,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2017年下半年-系统架构设计师-案例分析.md",
+          "path": "02-历年真题-清洗版/2017年下半年-系统架构设计师-案例分析.md",
           "item_count": 5,
           "item_unit": "大题"
         },
         {
           "source_id": "local_original",
-          "path": "data/02.历年真题/2017年下半年-系统架构设计师-案例分析.md",
+          "path": "data/02-历年真题/2017年下半年-系统架构设计师-案例分析.md",
           "item_count": 5,
           "item_unit": "大题"
         }
@@ -141,21 +141,21 @@
       "subject": "论文",
       "item_count": 4,
       "item_unit": "论题",
-      "preferred": "02.历年真题-清洗版/2017年下半年-系统架构设计师-论文.md",
+      "preferred": "02-历年真题-清洗版/2017年下半年-系统架构设计师-论文.md",
       "alternatives": [
-        "data/02.历年真题/2017年下半年-系统架构设计师-论文.md"
+        "data/02-历年真题/2017年下半年-系统架构设计师-论文.md"
       ],
       "same_name_conflict": false,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2017年下半年-系统架构设计师-论文.md",
+          "path": "02-历年真题-清洗版/2017年下半年-系统架构设计师-论文.md",
           "item_count": 4,
           "item_unit": "论题"
         },
         {
           "source_id": "local_original",
-          "path": "data/02.历年真题/2017年下半年-系统架构设计师-论文.md",
+          "path": "data/02-历年真题/2017年下半年-系统架构设计师-论文.md",
           "item_count": 4,
           "item_unit": "论题"
         }
@@ -169,21 +169,21 @@
       "subject": "综合知识",
       "item_count": 75,
       "item_unit": "题",
-      "preferred": "02.历年真题-清洗版/2017年下半年-系统架构设计师-综合知识.md",
+      "preferred": "02-历年真题-清洗版/2017年下半年-系统架构设计师-综合知识.md",
       "alternatives": [
-        "data/02.历年真题/2017年下半年-系统架构设计师-综合知识.md"
+        "data/02-历年真题/2017年下半年-系统架构设计师-综合知识.md"
       ],
       "same_name_conflict": false,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2017年下半年-系统架构设计师-综合知识.md",
+          "path": "02-历年真题-清洗版/2017年下半年-系统架构设计师-综合知识.md",
           "item_count": 75,
           "item_unit": "题"
         },
         {
           "source_id": "local_original",
-          "path": "data/02.历年真题/2017年下半年-系统架构设计师-综合知识.md",
+          "path": "data/02-历年真题/2017年下半年-系统架构设计师-综合知识.md",
           "item_count": 75,
           "item_unit": "题"
         }
@@ -197,21 +197,21 @@
       "subject": "案例分析",
       "item_count": 5,
       "item_unit": "大题",
-      "preferred": "02.历年真题-清洗版/2018年下半年-系统架构设计师-案例分析.md",
+      "preferred": "02-历年真题-清洗版/2018年下半年-系统架构设计师-案例分析.md",
       "alternatives": [
-        "data/02.历年真题/2018年下半年-系统架构设计师-案例分析.md"
+        "data/02-历年真题/2018年下半年-系统架构设计师-案例分析.md"
       ],
       "same_name_conflict": false,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2018年下半年-系统架构设计师-案例分析.md",
+          "path": "02-历年真题-清洗版/2018年下半年-系统架构设计师-案例分析.md",
           "item_count": 5,
           "item_unit": "大题"
         },
         {
           "source_id": "local_original",
-          "path": "data/02.历年真题/2018年下半年-系统架构设计师-案例分析.md",
+          "path": "data/02-历年真题/2018年下半年-系统架构设计师-案例分析.md",
           "item_count": 5,
           "item_unit": "大题"
         }
@@ -225,21 +225,21 @@
       "subject": "论文",
       "item_count": 4,
       "item_unit": "论题",
-      "preferred": "02.历年真题-清洗版/2018年下半年-系统架构设计师-论文.md",
+      "preferred": "02-历年真题-清洗版/2018年下半年-系统架构设计师-论文.md",
       "alternatives": [
-        "data/02.历年真题/2018年下半年-系统架构设计师-论文.md"
+        "data/02-历年真题/2018年下半年-系统架构设计师-论文.md"
       ],
       "same_name_conflict": false,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2018年下半年-系统架构设计师-论文.md",
+          "path": "02-历年真题-清洗版/2018年下半年-系统架构设计师-论文.md",
           "item_count": 4,
           "item_unit": "论题"
         },
         {
           "source_id": "local_original",
-          "path": "data/02.历年真题/2018年下半年-系统架构设计师-论文.md",
+          "path": "data/02-历年真题/2018年下半年-系统架构设计师-论文.md",
           "item_count": 4,
           "item_unit": "论题"
         }
@@ -253,21 +253,21 @@
       "subject": "综合知识",
       "item_count": 75,
       "item_unit": "题",
-      "preferred": "02.历年真题-清洗版/2018年下半年-系统架构设计师-综合知识.md",
+      "preferred": "02-历年真题-清洗版/2018年下半年-系统架构设计师-综合知识.md",
       "alternatives": [
-        "data/02.历年真题/2018年下半年-系统架构设计师-综合知识.md"
+        "data/02-历年真题/2018年下半年-系统架构设计师-综合知识.md"
       ],
       "same_name_conflict": false,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2018年下半年-系统架构设计师-综合知识.md",
+          "path": "02-历年真题-清洗版/2018年下半年-系统架构设计师-综合知识.md",
           "item_count": 75,
           "item_unit": "题"
         },
         {
           "source_id": "local_original",
-          "path": "data/02.历年真题/2018年下半年-系统架构设计师-综合知识.md",
+          "path": "data/02-历年真题/2018年下半年-系统架构设计师-综合知识.md",
           "item_count": 75,
           "item_unit": "题"
         }
@@ -281,21 +281,21 @@
       "subject": "案例分析",
       "item_count": 5,
       "item_unit": "大题",
-      "preferred": "02.历年真题-清洗版/2019年下半年-系统架构设计师-案例分析.md",
+      "preferred": "02-历年真题-清洗版/2019年下半年-系统架构设计师-案例分析.md",
       "alternatives": [
-        "data/02.历年真题/2019年下半年-系统架构设计师-案例分析.md"
+        "data/02-历年真题/2019年下半年-系统架构设计师-案例分析.md"
       ],
       "same_name_conflict": false,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2019年下半年-系统架构设计师-案例分析.md",
+          "path": "02-历年真题-清洗版/2019年下半年-系统架构设计师-案例分析.md",
           "item_count": 5,
           "item_unit": "大题"
         },
         {
           "source_id": "local_original",
-          "path": "data/02.历年真题/2019年下半年-系统架构设计师-案例分析.md",
+          "path": "data/02-历年真题/2019年下半年-系统架构设计师-案例分析.md",
           "item_count": 5,
           "item_unit": "逻辑大题"
         }
@@ -309,21 +309,21 @@
       "subject": "论文",
       "item_count": 4,
       "item_unit": "论题",
-      "preferred": "02.历年真题-清洗版/2019年下半年-系统架构设计师-论文.md",
+      "preferred": "02-历年真题-清洗版/2019年下半年-系统架构设计师-论文.md",
       "alternatives": [
-        "data/02.历年真题/2019年下半年-系统架构设计师-论文.md"
+        "data/02-历年真题/2019年下半年-系统架构设计师-论文.md"
       ],
       "same_name_conflict": false,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2019年下半年-系统架构设计师-论文.md",
+          "path": "02-历年真题-清洗版/2019年下半年-系统架构设计师-论文.md",
           "item_count": 4,
           "item_unit": "论题"
         },
         {
           "source_id": "local_original",
-          "path": "data/02.历年真题/2019年下半年-系统架构设计师-论文.md",
+          "path": "data/02-历年真题/2019年下半年-系统架构设计师-论文.md",
           "item_count": 4,
           "item_unit": "论题"
         }
@@ -337,21 +337,21 @@
       "subject": "综合知识",
       "item_count": 75,
       "item_unit": "题",
-      "preferred": "02.历年真题-清洗版/2019年下半年-系统架构设计师-综合知识.md",
+      "preferred": "02-历年真题-清洗版/2019年下半年-系统架构设计师-综合知识.md",
       "alternatives": [
-        "data/02.历年真题/2019年下半年-系统架构设计师-综合知识.md"
+        "data/02-历年真题/2019年下半年-系统架构设计师-综合知识.md"
       ],
       "same_name_conflict": false,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2019年下半年-系统架构设计师-综合知识.md",
+          "path": "02-历年真题-清洗版/2019年下半年-系统架构设计师-综合知识.md",
           "item_count": 75,
           "item_unit": "题"
         },
         {
           "source_id": "local_original",
-          "path": "data/02.历年真题/2019年下半年-系统架构设计师-综合知识.md",
+          "path": "data/02-历年真题/2019年下半年-系统架构设计师-综合知识.md",
           "item_count": 74,
           "item_unit": "题"
         }
@@ -365,21 +365,21 @@
       "subject": "案例分析",
       "item_count": 5,
       "item_unit": "大题",
-      "preferred": "02.历年真题-清洗版/2020年下半年-系统架构设计师-案例分析.md",
+      "preferred": "02-历年真题-清洗版/2020年下半年-系统架构设计师-案例分析.md",
       "alternatives": [
-        "data/02.历年真题/2020年下半年-系统架构设计师-案例分析.md"
+        "data/02-历年真题/2020年下半年-系统架构设计师-案例分析.md"
       ],
       "same_name_conflict": false,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2020年下半年-系统架构设计师-案例分析.md",
+          "path": "02-历年真题-清洗版/2020年下半年-系统架构设计师-案例分析.md",
           "item_count": 5,
           "item_unit": "大题"
         },
         {
           "source_id": "local_original",
-          "path": "data/02.历年真题/2020年下半年-系统架构设计师-案例分析.md",
+          "path": "data/02-历年真题/2020年下半年-系统架构设计师-案例分析.md",
           "item_count": 5,
           "item_unit": "大题"
         }
@@ -393,21 +393,21 @@
       "subject": "论文",
       "item_count": 4,
       "item_unit": "论题",
-      "preferred": "02.历年真题-清洗版/2020年下半年-系统架构设计师-论文.md",
+      "preferred": "02-历年真题-清洗版/2020年下半年-系统架构设计师-论文.md",
       "alternatives": [
-        "data/02.历年真题/2020年下半年-系统架构设计师-论文.md"
+        "data/02-历年真题/2020年下半年-系统架构设计师-论文.md"
       ],
       "same_name_conflict": false,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2020年下半年-系统架构设计师-论文.md",
+          "path": "02-历年真题-清洗版/2020年下半年-系统架构设计师-论文.md",
           "item_count": 4,
           "item_unit": "论题"
         },
         {
           "source_id": "local_original",
-          "path": "data/02.历年真题/2020年下半年-系统架构设计师-论文.md",
+          "path": "data/02-历年真题/2020年下半年-系统架构设计师-论文.md",
           "item_count": 4,
           "item_unit": "论题"
         }
@@ -421,21 +421,21 @@
       "subject": "综合知识",
       "item_count": 75,
       "item_unit": "题",
-      "preferred": "02.历年真题-清洗版/2020年下半年-系统架构设计师-综合知识.md",
+      "preferred": "02-历年真题-清洗版/2020年下半年-系统架构设计师-综合知识.md",
       "alternatives": [
-        "data/02.历年真题/2020年下半年-系统架构设计师-综合知识.md"
+        "data/02-历年真题/2020年下半年-系统架构设计师-综合知识.md"
       ],
       "same_name_conflict": false,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2020年下半年-系统架构设计师-综合知识.md",
+          "path": "02-历年真题-清洗版/2020年下半年-系统架构设计师-综合知识.md",
           "item_count": 75,
           "item_unit": "题"
         },
         {
           "source_id": "local_original",
-          "path": "data/02.历年真题/2020年下半年-系统架构设计师-综合知识.md",
+          "path": "data/02-历年真题/2020年下半年-系统架构设计师-综合知识.md",
           "item_count": 75,
           "item_unit": "题"
         }
@@ -449,28 +449,28 @@
       "subject": "案例分析",
       "item_count": 5,
       "item_unit": "大题",
-      "preferred": "02.历年真题-清洗版/2021年下半年-系统架构设计师-案例分析.md",
+      "preferred": "02-历年真题-清洗版/2021年下半年-系统架构设计师-案例分析.md",
       "alternatives": [
-        "data/02.历年真题/2021年下半年-系统架构设计师-案例分析.md",
-        "data/02.历年真题(补充)/2021年下半年-系统架构设计师-案例分析.md"
+        "data/02-历年真题/2021年下半年-系统架构设计师-案例分析.md",
+        "data/02-历年真题(补充)/2021年下半年-系统架构设计师-案例分析.md"
       ],
       "same_name_conflict": true,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2021年下半年-系统架构设计师-案例分析.md",
+          "path": "02-历年真题-清洗版/2021年下半年-系统架构设计师-案例分析.md",
           "item_count": 5,
           "item_unit": "大题"
         },
         {
           "source_id": "local_original",
-          "path": "data/02.历年真题/2021年下半年-系统架构设计师-案例分析.md",
+          "path": "data/02-历年真题/2021年下半年-系统架构设计师-案例分析.md",
           "item_count": 4,
           "item_unit": "大题"
         },
         {
           "source_id": "local_supplement",
-          "path": "data/02.历年真题(补充)/2021年下半年-系统架构设计师-案例分析.md",
+          "path": "data/02-历年真题(补充)/2021年下半年-系统架构设计师-案例分析.md",
           "item_count": 4,
           "item_unit": "大题"
         }
@@ -484,28 +484,28 @@
       "subject": "论文",
       "item_count": 4,
       "item_unit": "论题",
-      "preferred": "02.历年真题-清洗版/2021年下半年-系统架构设计师-论文.md",
+      "preferred": "02-历年真题-清洗版/2021年下半年-系统架构设计师-论文.md",
       "alternatives": [
-        "data/02.历年真题/2021年下半年-系统架构设计师-论文.md",
-        "data/02.历年真题(补充)/2021年下半年-系统架构设计师-论文.md"
+        "data/02-历年真题/2021年下半年-系统架构设计师-论文.md",
+        "data/02-历年真题(补充)/2021年下半年-系统架构设计师-论文.md"
       ],
       "same_name_conflict": true,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2021年下半年-系统架构设计师-论文.md",
+          "path": "02-历年真题-清洗版/2021年下半年-系统架构设计师-论文.md",
           "item_count": 4,
           "item_unit": "论题"
         },
         {
           "source_id": "local_original",
-          "path": "data/02.历年真题/2021年下半年-系统架构设计师-论文.md",
+          "path": "data/02-历年真题/2021年下半年-系统架构设计师-论文.md",
           "item_count": 4,
           "item_unit": "论题"
         },
         {
           "source_id": "local_supplement",
-          "path": "data/02.历年真题(补充)/2021年下半年-系统架构设计师-论文.md",
+          "path": "data/02-历年真题(补充)/2021年下半年-系统架构设计师-论文.md",
           "item_count": 4,
           "item_unit": "论题"
         }
@@ -519,21 +519,21 @@
       "subject": "综合知识",
       "item_count": 75,
       "item_unit": "题",
-      "preferred": "02.历年真题-清洗版/2021年下半年-系统架构设计师-综合知识.md",
+      "preferred": "02-历年真题-清洗版/2021年下半年-系统架构设计师-综合知识.md",
       "alternatives": [
-        "data/02.历年真题/2021年下半年-系统架构设计师-综合知识.md"
+        "data/02-历年真题/2021年下半年-系统架构设计师-综合知识.md"
       ],
       "same_name_conflict": false,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2021年下半年-系统架构设计师-综合知识.md",
+          "path": "02-历年真题-清洗版/2021年下半年-系统架构设计师-综合知识.md",
           "item_count": 75,
           "item_unit": "题"
         },
         {
           "source_id": "local_original",
-          "path": "data/02.历年真题/2021年下半年-系统架构设计师-综合知识.md",
+          "path": "data/02-历年真题/2021年下半年-系统架构设计师-综合知识.md",
           "item_count": 75,
           "item_unit": "题"
         }
@@ -547,21 +547,21 @@
       "subject": "案例分析",
       "item_count": 5,
       "item_unit": "大题",
-      "preferred": "02.历年真题-清洗版/2022年下半年-系统架构设计师-案例分析.md",
+      "preferred": "02-历年真题-清洗版/2022年下半年-系统架构设计师-案例分析.md",
       "alternatives": [
-        "data/02.历年真题(补充)/2022年下半年-系统架构设计师-案例分析.md"
+        "data/02-历年真题(补充)/2022年下半年-系统架构设计师-案例分析.md"
       ],
       "same_name_conflict": false,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2022年下半年-系统架构设计师-案例分析.md",
+          "path": "02-历年真题-清洗版/2022年下半年-系统架构设计师-案例分析.md",
           "item_count": 5,
           "item_unit": "大题"
         },
         {
           "source_id": "local_supplement",
-          "path": "data/02.历年真题(补充)/2022年下半年-系统架构设计师-案例分析.md",
+          "path": "data/02-历年真题(补充)/2022年下半年-系统架构设计师-案例分析.md",
           "item_count": 5,
           "item_unit": "大题"
         }
@@ -575,28 +575,28 @@
       "subject": "论文",
       "item_count": 4,
       "item_unit": "论题",
-      "preferred": "02.历年真题-清洗版/2022年下半年-系统架构设计师-论文.md",
+      "preferred": "02-历年真题-清洗版/2022年下半年-系统架构设计师-论文.md",
       "alternatives": [
-        "data/02.历年真题/2022年下半年-系统架构设计师-论文.md",
-        "data/02.历年真题(补充)/2022年下半年-系统架构设计师-论文.md"
+        "data/02-历年真题/2022年下半年-系统架构设计师-论文.md",
+        "data/02-历年真题(补充)/2022年下半年-系统架构设计师-论文.md"
       ],
       "same_name_conflict": true,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2022年下半年-系统架构设计师-论文.md",
+          "path": "02-历年真题-清洗版/2022年下半年-系统架构设计师-论文.md",
           "item_count": 4,
           "item_unit": "论题"
         },
         {
           "source_id": "local_original",
-          "path": "data/02.历年真题/2022年下半年-系统架构设计师-论文.md",
+          "path": "data/02-历年真题/2022年下半年-系统架构设计师-论文.md",
           "item_count": 4,
           "item_unit": "逻辑论题"
         },
         {
           "source_id": "local_supplement",
-          "path": "data/02.历年真题(补充)/2022年下半年-系统架构设计师-论文.md",
+          "path": "data/02-历年真题(补充)/2022年下半年-系统架构设计师-论文.md",
           "item_count": 4,
           "item_unit": "逻辑论题"
         }
@@ -610,28 +610,28 @@
       "subject": "综合知识",
       "item_count": 75,
       "item_unit": "题",
-      "preferred": "02.历年真题-清洗版/2022年下半年-系统架构设计师-综合知识.md",
+      "preferred": "02-历年真题-清洗版/2022年下半年-系统架构设计师-综合知识.md",
       "alternatives": [
-        "data/02.历年真题/2022年下半年-系统架构设计师-综合知识.md",
-        "data/02.历年真题(补充)/2022年下半年-系统架构设计师-综合知识.md"
+        "data/02-历年真题/2022年下半年-系统架构设计师-综合知识.md",
+        "data/02-历年真题(补充)/2022年下半年-系统架构设计师-综合知识.md"
       ],
       "same_name_conflict": true,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2022年下半年-系统架构设计师-综合知识.md",
+          "path": "02-历年真题-清洗版/2022年下半年-系统架构设计师-综合知识.md",
           "item_count": 75,
           "item_unit": "题"
         },
         {
           "source_id": "local_original",
-          "path": "data/02.历年真题/2022年下半年-系统架构设计师-综合知识.md",
+          "path": "data/02-历年真题/2022年下半年-系统架构设计师-综合知识.md",
           "item_count": 75,
           "item_unit": "题"
         },
         {
           "source_id": "local_supplement",
-          "path": "data/02.历年真题(补充)/2022年下半年-系统架构设计师-综合知识.md",
+          "path": "data/02-历年真题(补充)/2022年下半年-系统架构设计师-综合知识.md",
           "item_count": 75,
           "item_unit": "题"
         }
@@ -645,21 +645,21 @@
       "subject": "案例分析",
       "item_count": 5,
       "item_unit": "大题",
-      "preferred": "02.历年真题-清洗版/2023年下半年-系统架构设计师-案例分析.md",
+      "preferred": "02-历年真题-清洗版/2023年下半年-系统架构设计师-案例分析.md",
       "alternatives": [
-        "data/02.历年真题(补充)/2023年下半年-系统架构设计师-案例分析.md"
+        "data/02-历年真题(补充)/2023年下半年-系统架构设计师-案例分析.md"
       ],
       "same_name_conflict": false,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2023年下半年-系统架构设计师-案例分析.md",
+          "path": "02-历年真题-清洗版/2023年下半年-系统架构设计师-案例分析.md",
           "item_count": 5,
           "item_unit": "大题"
         },
         {
           "source_id": "local_supplement",
-          "path": "data/02.历年真题(补充)/2023年下半年-系统架构设计师-案例分析.md",
+          "path": "data/02-历年真题(补充)/2023年下半年-系统架构设计师-案例分析.md",
           "item_count": 5,
           "item_unit": "大题"
         }
@@ -673,28 +673,28 @@
       "subject": "论文",
       "item_count": 4,
       "item_unit": "论题",
-      "preferred": "02.历年真题-清洗版/2023年下半年-系统架构设计师-论文.md",
+      "preferred": "02-历年真题-清洗版/2023年下半年-系统架构设计师-论文.md",
       "alternatives": [
-        "data/02.历年真题/2023年下半年-系统架构设计师-论文.md",
-        "data/02.历年真题(补充)/2023年下半年-系统架构设计师-论文.md"
+        "data/02-历年真题/2023年下半年-系统架构设计师-论文.md",
+        "data/02-历年真题(补充)/2023年下半年-系统架构设计师-论文.md"
       ],
       "same_name_conflict": true,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2023年下半年-系统架构设计师-论文.md",
+          "path": "02-历年真题-清洗版/2023年下半年-系统架构设计师-论文.md",
           "item_count": 4,
           "item_unit": "论题"
         },
         {
           "source_id": "local_original",
-          "path": "data/02.历年真题/2023年下半年-系统架构设计师-论文.md",
+          "path": "data/02-历年真题/2023年下半年-系统架构设计师-论文.md",
           "item_count": 4,
           "item_unit": "逻辑论题"
         },
         {
           "source_id": "local_supplement",
-          "path": "data/02.历年真题(补充)/2023年下半年-系统架构设计师-论文.md",
+          "path": "data/02-历年真题(补充)/2023年下半年-系统架构设计师-论文.md",
           "item_count": 4,
           "item_unit": "逻辑论题"
         }
@@ -708,35 +708,35 @@
       "subject": "综合知识",
       "item_count": 75,
       "item_unit": "题",
-      "preferred": "02.历年真题-清洗版/2023年下半年-系统架构设计师-综合知识.md",
+      "preferred": "02-历年真题-清洗版/2023年下半年-系统架构设计师-综合知识.md",
       "alternatives": [
-        "02.历年真题-清洗版/2023年下半年-系统架构设计师-综合知识-回忆版A-65题.md",
-        "data/02.历年真题/2023年下半年-系统架构设计师-综合知识.md",
-        "data/02.历年真题(补充)/2023年下半年-系统架构设计师-综合知识.md"
+        "02-历年真题-清洗版/2023年下半年-系统架构设计师-综合知识-回忆版A-65题.md",
+        "data/02-历年真题/2023年下半年-系统架构设计师-综合知识.md",
+        "data/02-历年真题(补充)/2023年下半年-系统架构设计师-综合知识.md"
       ],
       "same_name_conflict": true,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2023年下半年-系统架构设计师-综合知识.md",
+          "path": "02-历年真题-清洗版/2023年下半年-系统架构设计师-综合知识.md",
           "item_count": 75,
           "item_unit": "题"
         },
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2023年下半年-系统架构设计师-综合知识-回忆版A-65题.md",
+          "path": "02-历年真题-清洗版/2023年下半年-系统架构设计师-综合知识-回忆版A-65题.md",
           "item_count": 65,
           "item_unit": "题"
         },
         {
           "source_id": "local_original",
-          "path": "data/02.历年真题/2023年下半年-系统架构设计师-综合知识.md",
+          "path": "data/02-历年真题/2023年下半年-系统架构设计师-综合知识.md",
           "item_count": 65,
           "item_unit": "题"
         },
         {
           "source_id": "local_supplement",
-          "path": "data/02.历年真题(补充)/2023年下半年-系统架构设计师-综合知识.md",
+          "path": "data/02-历年真题(补充)/2023年下半年-系统架构设计师-综合知识.md",
           "item_count": 75,
           "item_unit": "题"
         }
@@ -750,28 +750,28 @@
       "subject": "案例分析",
       "item_count": 5,
       "item_unit": "大题",
-      "preferred": "02.历年真题-清洗版/2024年上半年-系统架构设计师-案例分析.md",
+      "preferred": "02-历年真题-清洗版/2024年上半年-系统架构设计师-案例分析.md",
       "alternatives": [
-        "data/02.历年真题/2024年上半年-系统架构设计师-案例分析.md",
-        "data/02.历年真题(补充)/2024年上半年-系统架构设计师-案例分析.md"
+        "data/02-历年真题/2024年上半年-系统架构设计师-案例分析.md",
+        "data/02-历年真题(补充)/2024年上半年-系统架构设计师-案例分析.md"
       ],
       "same_name_conflict": true,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2024年上半年-系统架构设计师-案例分析.md",
+          "path": "02-历年真题-清洗版/2024年上半年-系统架构设计师-案例分析.md",
           "item_count": 5,
           "item_unit": "大题"
         },
         {
           "source_id": "local_original",
-          "path": "data/02.历年真题/2024年上半年-系统架构设计师-案例分析.md",
+          "path": "data/02-历年真题/2024年上半年-系统架构设计师-案例分析.md",
           "item_count": 13,
           "item_unit": "片段"
         },
         {
           "source_id": "local_supplement",
-          "path": "data/02.历年真题(补充)/2024年上半年-系统架构设计师-案例分析.md",
+          "path": "data/02-历年真题(补充)/2024年上半年-系统架构设计师-案例分析.md",
           "item_count": 5,
           "item_unit": "大题"
         }
@@ -785,28 +785,28 @@
       "subject": "论文",
       "item_count": 4,
       "item_unit": "论题",
-      "preferred": "02.历年真题-清洗版/2024年上半年-系统架构设计师-论文.md",
+      "preferred": "02-历年真题-清洗版/2024年上半年-系统架构设计师-论文.md",
       "alternatives": [
-        "data/02.历年真题/2024年上半年-系统架构设计师-论文.md",
-        "data/02.历年真题(补充)/2024年上半年-系统架构设计师-论文.md"
+        "data/02-历年真题/2024年上半年-系统架构设计师-论文.md",
+        "data/02-历年真题(补充)/2024年上半年-系统架构设计师-论文.md"
       ],
       "same_name_conflict": true,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2024年上半年-系统架构设计师-论文.md",
+          "path": "02-历年真题-清洗版/2024年上半年-系统架构设计师-论文.md",
           "item_count": 4,
           "item_unit": "论题"
         },
         {
           "source_id": "local_original",
-          "path": "data/02.历年真题/2024年上半年-系统架构设计师-论文.md",
+          "path": "data/02-历年真题/2024年上半年-系统架构设计师-论文.md",
           "item_count": 4,
           "item_unit": "论题"
         },
         {
           "source_id": "local_supplement",
-          "path": "data/02.历年真题(补充)/2024年上半年-系统架构设计师-论文.md",
+          "path": "data/02-历年真题(补充)/2024年上半年-系统架构设计师-论文.md",
           "item_count": 1,
           "item_unit": "论题"
         }
@@ -820,28 +820,28 @@
       "subject": "综合知识",
       "item_count": 75,
       "item_unit": "题",
-      "preferred": "02.历年真题-清洗版/2024年上半年-系统架构设计师-综合知识.md",
+      "preferred": "02-历年真题-清洗版/2024年上半年-系统架构设计师-综合知识.md",
       "alternatives": [
-        "data/02.历年真题/2024年上半年-系统架构设计师-综合知识.md",
-        "data/02.历年真题(补充)/2024年上半年-系统架构设计师-综合知识.md"
+        "data/02-历年真题/2024年上半年-系统架构设计师-综合知识.md",
+        "data/02-历年真题(补充)/2024年上半年-系统架构设计师-综合知识.md"
       ],
       "same_name_conflict": true,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2024年上半年-系统架构设计师-综合知识.md",
+          "path": "02-历年真题-清洗版/2024年上半年-系统架构设计师-综合知识.md",
           "item_count": 75,
           "item_unit": "题"
         },
         {
           "source_id": "local_original",
-          "path": "data/02.历年真题/2024年上半年-系统架构设计师-综合知识.md",
+          "path": "data/02-历年真题/2024年上半年-系统架构设计师-综合知识.md",
           "item_count": 74,
           "item_unit": "题"
         },
         {
           "source_id": "local_supplement",
-          "path": "data/02.历年真题(补充)/2024年上半年-系统架构设计师-综合知识.md",
+          "path": "data/02-历年真题(补充)/2024年上半年-系统架构设计师-综合知识.md",
           "item_count": 75,
           "item_unit": "题"
         }
@@ -855,28 +855,28 @@
       "subject": "案例分析",
       "item_count": 5,
       "item_unit": "大题",
-      "preferred": "02.历年真题-清洗版/2024年下半年-系统架构设计师-案例分析.md",
+      "preferred": "02-历年真题-清洗版/2024年下半年-系统架构设计师-案例分析.md",
       "alternatives": [
-        "data/02.历年真题/2024年下半年-系统架构设计师-案例分析.md",
-        "data/02.历年真题(补充)/2024年下半年-系统架构设计师-案例分析.md"
+        "data/02-历年真题/2024年下半年-系统架构设计师-案例分析.md",
+        "data/02-历年真题(补充)/2024年下半年-系统架构设计师-案例分析.md"
       ],
       "same_name_conflict": true,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2024年下半年-系统架构设计师-案例分析.md",
+          "path": "02-历年真题-清洗版/2024年下半年-系统架构设计师-案例分析.md",
           "item_count": 5,
           "item_unit": "大题"
         },
         {
           "source_id": "local_original",
-          "path": "data/02.历年真题/2024年下半年-系统架构设计师-案例分析.md",
+          "path": "data/02-历年真题/2024年下半年-系统架构设计师-案例分析.md",
           "item_count": 5,
           "item_unit": "大题"
         },
         {
           "source_id": "local_supplement",
-          "path": "data/02.历年真题(补充)/2024年下半年-系统架构设计师-案例分析.md",
+          "path": "data/02-历年真题(补充)/2024年下半年-系统架构设计师-案例分析.md",
           "item_count": 4,
           "item_unit": "大题"
         }
@@ -890,28 +890,28 @@
       "subject": "论文",
       "item_count": 4,
       "item_unit": "论题",
-      "preferred": "02.历年真题-清洗版/2024年下半年-系统架构设计师-论文.md",
+      "preferred": "02-历年真题-清洗版/2024年下半年-系统架构设计师-论文.md",
       "alternatives": [
-        "data/02.历年真题/2024年下半年-系统架构设计师-论文.md",
-        "data/02.历年真题(补充)/2024年下半年-系统架构设计师-论文.md"
+        "data/02-历年真题/2024年下半年-系统架构设计师-论文.md",
+        "data/02-历年真题(补充)/2024年下半年-系统架构设计师-论文.md"
       ],
       "same_name_conflict": true,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2024年下半年-系统架构设计师-论文.md",
+          "path": "02-历年真题-清洗版/2024年下半年-系统架构设计师-论文.md",
           "item_count": 4,
           "item_unit": "论题"
         },
         {
           "source_id": "local_original",
-          "path": "data/02.历年真题/2024年下半年-系统架构设计师-论文.md",
+          "path": "data/02-历年真题/2024年下半年-系统架构设计师-论文.md",
           "item_count": 4,
           "item_unit": "论题"
         },
         {
           "source_id": "local_supplement",
-          "path": "data/02.历年真题(补充)/2024年下半年-系统架构设计师-论文.md",
+          "path": "data/02-历年真题(补充)/2024年下半年-系统架构设计师-论文.md",
           "item_count": 1,
           "item_unit": "论题"
         }
@@ -925,28 +925,28 @@
       "subject": "综合知识",
       "item_count": 75,
       "item_unit": "题",
-      "preferred": "02.历年真题-清洗版/2024年下半年-系统架构设计师-综合知识.md",
+      "preferred": "02-历年真题-清洗版/2024年下半年-系统架构设计师-综合知识.md",
       "alternatives": [
-        "data/02.历年真题/2024年下半年-系统架构设计师-综合知识.md",
-        "data/02.历年真题(补充)/2024年下半年-系统架构设计师-综合知识.md"
+        "data/02-历年真题/2024年下半年-系统架构设计师-综合知识.md",
+        "data/02-历年真题(补充)/2024年下半年-系统架构设计师-综合知识.md"
       ],
       "same_name_conflict": true,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2024年下半年-系统架构设计师-综合知识.md",
+          "path": "02-历年真题-清洗版/2024年下半年-系统架构设计师-综合知识.md",
           "item_count": 75,
           "item_unit": "题"
         },
         {
           "source_id": "local_original",
-          "path": "data/02.历年真题/2024年下半年-系统架构设计师-综合知识.md",
+          "path": "data/02-历年真题/2024年下半年-系统架构设计师-综合知识.md",
           "item_count": 71,
           "item_unit": "题"
         },
         {
           "source_id": "local_supplement",
-          "path": "data/02.历年真题(补充)/2024年下半年-系统架构设计师-综合知识.md",
+          "path": "data/02-历年真题(补充)/2024年下半年-系统架构设计师-综合知识.md",
           "item_count": 71,
           "item_unit": "题"
         }
@@ -960,21 +960,21 @@
       "subject": "案例分析",
       "item_count": 5,
       "item_unit": "大题",
-      "preferred": "02.历年真题-清洗版/2025年上半年-系统架构设计师-案例分析.md",
+      "preferred": "02-历年真题-清洗版/2025年上半年-系统架构设计师-案例分析.md",
       "alternatives": [
-        "data/02.历年真题(补充)/2025年上半年-系统架构设计师-案例分析.md"
+        "data/02-历年真题(补充)/2025年上半年-系统架构设计师-案例分析.md"
       ],
       "same_name_conflict": false,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2025年上半年-系统架构设计师-案例分析.md",
+          "path": "02-历年真题-清洗版/2025年上半年-系统架构设计师-案例分析.md",
           "item_count": 5,
           "item_unit": "大题"
         },
         {
           "source_id": "local_supplement",
-          "path": "data/02.历年真题(补充)/2025年上半年-系统架构设计师-案例分析.md",
+          "path": "data/02-历年真题(补充)/2025年上半年-系统架构设计师-案例分析.md",
           "item_count": 5,
           "item_unit": "大题"
         }
@@ -988,28 +988,28 @@
       "subject": "论文",
       "item_count": 4,
       "item_unit": "论题",
-      "preferred": "02.历年真题-清洗版/2025年上半年-系统架构设计师-论文.md",
+      "preferred": "02-历年真题-清洗版/2025年上半年-系统架构设计师-论文.md",
       "alternatives": [
-        "data/02.历年真题/2025年上半年-系统架构设计师-论文.md",
-        "data/02.历年真题(补充)/2025年上半年-系统架构设计师-论文.md"
+        "data/02-历年真题/2025年上半年-系统架构设计师-论文.md",
+        "data/02-历年真题(补充)/2025年上半年-系统架构设计师-论文.md"
       ],
       "same_name_conflict": true,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2025年上半年-系统架构设计师-论文.md",
+          "path": "02-历年真题-清洗版/2025年上半年-系统架构设计师-论文.md",
           "item_count": 4,
           "item_unit": "论题"
         },
         {
           "source_id": "local_original",
-          "path": "data/02.历年真题/2025年上半年-系统架构设计师-论文.md",
+          "path": "data/02-历年真题/2025年上半年-系统架构设计师-论文.md",
           "item_count": 4,
           "item_unit": "论题"
         },
         {
           "source_id": "local_supplement",
-          "path": "data/02.历年真题(补充)/2025年上半年-系统架构设计师-论文.md",
+          "path": "data/02-历年真题(补充)/2025年上半年-系统架构设计师-论文.md",
           "item_count": 4,
           "item_unit": "论题"
         }
@@ -1023,28 +1023,28 @@
       "subject": "综合知识",
       "item_count": 75,
       "item_unit": "题",
-      "preferred": "02.历年真题-清洗版/2025年上半年-系统架构设计师-综合知识.md",
+      "preferred": "02-历年真题-清洗版/2025年上半年-系统架构设计师-综合知识.md",
       "alternatives": [
-        "data/02.历年真题/2025年上半年-系统架构设计师-综合知识.md",
-        "data/02.历年真题(补充)/2025年上半年-系统架构设计师-综合知识.md"
+        "data/02-历年真题/2025年上半年-系统架构设计师-综合知识.md",
+        "data/02-历年真题(补充)/2025年上半年-系统架构设计师-综合知识.md"
       ],
       "same_name_conflict": true,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2025年上半年-系统架构设计师-综合知识.md",
+          "path": "02-历年真题-清洗版/2025年上半年-系统架构设计师-综合知识.md",
           "item_count": 75,
           "item_unit": "题"
         },
         {
           "source_id": "local_original",
-          "path": "data/02.历年真题/2025年上半年-系统架构设计师-综合知识.md",
+          "path": "data/02-历年真题/2025年上半年-系统架构设计师-综合知识.md",
           "item_count": 75,
           "item_unit": "题"
         },
         {
           "source_id": "local_supplement",
-          "path": "data/02.历年真题(补充)/2025年上半年-系统架构设计师-综合知识.md",
+          "path": "data/02-历年真题(补充)/2025年上半年-系统架构设计师-综合知识.md",
           "item_count": 75,
           "item_unit": "题"
         }
@@ -1058,28 +1058,28 @@
       "subject": "案例分析",
       "item_count": 5,
       "item_unit": "大题",
-      "preferred": "02.历年真题-清洗版/2025年下半年-系统架构设计师-案例分析.md",
+      "preferred": "02-历年真题-清洗版/2025年下半年-系统架构设计师-案例分析.md",
       "alternatives": [
-        "data/02.历年真题/2025年下半年-系统架构设计师-案例分析.md",
-        "data/02.历年真题(补充)/2025年下半年-系统架构设计师-案例分析.md"
+        "data/02-历年真题/2025年下半年-系统架构设计师-案例分析.md",
+        "data/02-历年真题(补充)/2025年下半年-系统架构设计师-案例分析.md"
       ],
       "same_name_conflict": true,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2025年下半年-系统架构设计师-案例分析.md",
+          "path": "02-历年真题-清洗版/2025年下半年-系统架构设计师-案例分析.md",
           "item_count": 5,
           "item_unit": "大题"
         },
         {
           "source_id": "local_original",
-          "path": "data/02.历年真题/2025年下半年-系统架构设计师-案例分析.md",
+          "path": "data/02-历年真题/2025年下半年-系统架构设计师-案例分析.md",
           "item_count": 1,
           "item_unit": "大题"
         },
         {
           "source_id": "local_supplement",
-          "path": "data/02.历年真题(补充)/2025年下半年-系统架构设计师-案例分析.md",
+          "path": "data/02-历年真题(补充)/2025年下半年-系统架构设计师-案例分析.md",
           "item_count": 4,
           "item_unit": "大题"
         }
@@ -1093,28 +1093,28 @@
       "subject": "论文",
       "item_count": 4,
       "item_unit": "论题",
-      "preferred": "02.历年真题-清洗版/2025年下半年-系统架构设计师-论文.md",
+      "preferred": "02-历年真题-清洗版/2025年下半年-系统架构设计师-论文.md",
       "alternatives": [
-        "data/02.历年真题/2025年下半年-系统架构设计师-论文.md",
-        "data/02.历年真题(补充)/2025年下半年-系统架构设计师-论文.md"
+        "data/02-历年真题/2025年下半年-系统架构设计师-论文.md",
+        "data/02-历年真题(补充)/2025年下半年-系统架构设计师-论文.md"
       ],
       "same_name_conflict": true,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2025年下半年-系统架构设计师-论文.md",
+          "path": "02-历年真题-清洗版/2025年下半年-系统架构设计师-论文.md",
           "item_count": 4,
           "item_unit": "论题"
         },
         {
           "source_id": "local_original",
-          "path": "data/02.历年真题/2025年下半年-系统架构设计师-论文.md",
+          "path": "data/02-历年真题/2025年下半年-系统架构设计师-论文.md",
           "item_count": 4,
           "item_unit": "论题"
         },
         {
           "source_id": "local_supplement",
-          "path": "data/02.历年真题(补充)/2025年下半年-系统架构设计师-论文.md",
+          "path": "data/02-历年真题(补充)/2025年下半年-系统架构设计师-论文.md",
           "item_count": 1,
           "item_unit": "论题"
         }
@@ -1128,28 +1128,28 @@
       "subject": "综合知识",
       "item_count": 75,
       "item_unit": "题",
-      "preferred": "02.历年真题-清洗版/2025年下半年-系统架构设计师-综合知识.md",
+      "preferred": "02-历年真题-清洗版/2025年下半年-系统架构设计师-综合知识.md",
       "alternatives": [
-        "data/02.历年真题/2025年下半年-系统架构设计师-综合知识.md",
-        "data/02.历年真题(补充)/2025年下半年-系统架构设计师-综合知识.md"
+        "data/02-历年真题/2025年下半年-系统架构设计师-综合知识.md",
+        "data/02-历年真题(补充)/2025年下半年-系统架构设计师-综合知识.md"
       ],
       "same_name_conflict": true,
       "source_versions": [
         {
           "source_id": "cleaned_crosschecked",
-          "path": "02.历年真题-清洗版/2025年下半年-系统架构设计师-综合知识.md",
+          "path": "02-历年真题-清洗版/2025年下半年-系统架构设计师-综合知识.md",
           "item_count": 75,
           "item_unit": "题"
         },
         {
           "source_id": "local_original",
-          "path": "data/02.历年真题/2025年下半年-系统架构设计师-综合知识.md",
+          "path": "data/02-历年真题/2025年下半年-系统架构设计师-综合知识.md",
           "item_count": 71,
           "item_unit": "题"
         },
         {
           "source_id": "local_supplement",
-          "path": "data/02.历年真题(补充)/2025年下半年-系统架构设计师-综合知识.md",
+          "path": "data/02-历年真题(补充)/2025年下半年-系统架构设计师-综合知识.md",
           "item_count": 75,
           "item_unit": "题"
         }
