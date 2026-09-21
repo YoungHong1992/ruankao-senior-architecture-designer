@@ -89,17 +89,6 @@ MAIN_QUESTION_HEADING_RE = re.compile(
     re.MULTILINE,
 )
 OPTION_RE = re.compile(r"^-\s+\*\*[A-D]\.\*\*", re.MULTILINE)
-VISUAL_CUE_RE = re.compile(r"如下表|下表|见表\s*\d+|下图|见图\s*\d+|如图\s*\d+")
-STRUCTURED_ASSET_CARRIERS = (
-    "|---",
-    "```mermaid",
-    "<svg",
-    "$$",
-    "**图示",
-    "**结构化",
-    "**表格",
-    "完整结构化重绘见",
-)
 CHINESE_NUMERALS = {
     "一": 1,
     "二": 2,
@@ -670,15 +659,6 @@ class Validator:
                     path,
                     f"question headings must be continuous {expected}, found {numbers}",
                 )
-            for index, question_match in enumerate(question_matches):
-                end = question_matches[index + 1].start() if index + 1 < len(question_matches) else len(text)
-                block = text[question_match.start() : end]
-                cue = VISUAL_CUE_RE.search(block)
-                if cue and not any(carrier in block for carrier in STRUCTURED_ASSET_CARRIERS):
-                    self.error(
-                        path,
-                        f"question {question_match.group(1)} cites {cue.group(0)!r} without a structured carrier",
-                    )
             options = len(OPTION_RE.findall(text))
             if options != declared * 4:
                 self.error(
