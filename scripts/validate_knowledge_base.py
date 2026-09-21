@@ -157,6 +157,7 @@ FRONT_MATTER_KINDS = {
     "master-index",
     "preface",
     "chapter",
+    "section",
     "exam",
     "exam-variant",
 }
@@ -164,6 +165,7 @@ FRONT_MATTER_KINDS = {
 FRONT_MATTER_EXTRA_KEYS = {
     "preface": ("order",),
     "chapter": ("order",),
+    "section": ("order", "parent", "source_pages"),
     "exam": ("year", "session", "subject"),
     "exam-variant": ("year", "session", "subject"),
 }
@@ -353,20 +355,41 @@ class Validator:
                 line_number = text.count("\n", 0, match.start()) + 1
                 self.error(path, f"broken local link at line {line_number}: {raw_target}")
 
-    def extract_local_links(self, path: Path) -> set[str]:
+    def extract_local_links(self, path: Path) -> set[Path]:
+        """Resolved targets of every local link in a file.
+
+        Targets resolve to absolute paths rather than bare file names: a
+        two-level index links many files that are all called INDEX.md, and
+        comparing names alone would let any one of them stand in for the rest.
+        """
         text = self.read_text(path) or ""
-        targets: set[str] = set()
+        targets: set[Path] = set()
         for match in LINK_RE.finditer(text):
             target = unquote(match.group("target").strip("<>").split("#", 1)[0])
             if target and not target.startswith(("http://", "https://", "mailto:")):
-                targets.add(Path(target).name)
+                targets.add((path.parent / target).resolve())
         return targets
+
+    def indexed_directories(self) -> list[Path]:
+        """Every directory that holds knowledge-base Markdown and must index it.
+
+        Textbook chapters are directories of section files, so the set cannot
+        be a fixed tuple any more; it is derived from where the Markdown
+        actually sits.
+        """
+        directories = {directory for directory in CONTENT_DIRS if directory.is_dir()}
+        for directory in CONTENT_DIRS:
+            if not directory.is_dir():
+                continue
+            directories.update(child for child in directory.iterdir() if child.is_dir() and any(child.glob("*.md")))
+        return sorted(directories)
 
     def check_content_directories(self) -> None:
         for directory in CONTENT_DIRS:
             if not directory.is_dir():
                 self.error(directory, "content directory is missing")
-                continue
+
+        for directory in self.indexed_directories():
             index = directory / "INDEX.md"
             if not index.is_file():
                 self.error(index, "required INDEX.md is missing")
@@ -374,9 +397,16 @@ class Validator:
             index_text = self.read_text(index)
             if index_text is not None and len(index_text.splitlines()) > 200:
                 self.error(index, "INDEX.md exceeds 200 lines")
-            linked_names = self.extract_local_links(index)
-            content_names = {path.name for path in directory.glob("*.md") if path.name != "INDEX.md"}
-            missing = sorted(content_names - linked_names)
+            linked = self.extract_local_links(index)
+            # A directory is indexed when the index links its Markdown files and
+            # the entry document of every sub-directory hanging off it.
+            expected = {path.resolve() for path in directory.glob("*.md") if path.name != "INDEX.md"}
+            expected.update(
+                (child / "INDEX.md").resolve()
+                for child in directory.iterdir()
+                if child.is_dir() and (child / "INDEX.md").is_file()
+            )
+            missing = sorted(self.relative(path) for path in expected - linked)
             if missing:
                 self.error(index, f"unindexed Markdown files: {', '.join(missing)}")
 
@@ -386,6 +416,18 @@ class Validator:
                     continue
                 if not re.fullmatch(r"第\d{2}章-.+\.md", path.name):
                     self.error(path, "chapter filename must match 第XX章-标题.md")
+            # Chapters split into sections become directories; the sections
+            # inside them are numbered within the chapter.
+            for child in directory.iterdir():
+                if not child.is_dir():
+                    continue
+                if not re.fullmatch(r"第\d{2}章-.+", child.name):
+                    self.error(child, "chapter directory must match 第XX章-标题")
+                for path in child.glob("*.md"):
+                    if path.name == "INDEX.md":
+                        continue
+                    if not re.fullmatch(r"第\d{2}节-.+\.md", path.name):
+                        self.error(path, "section filename must match 第XX节-标题.md")
 
     def check_layer_layout(self) -> None:
         """The four top-level layers must exist and describe themselves.
@@ -561,6 +603,9 @@ class Validator:
         counts: dict[tuple[str, str], int] = {}
         seen_ids: dict[str, Path] = {}
         seen_slugs: dict[tuple[str, str], Path] = {}
+        section_parents: dict[str, tuple[Path, str]] = {}
+        section_pages: dict[str, str] = {}
+        chapter_pages: dict[str, str] = {}
         self.exam_front_matter_ids = set()
         for path in sorted(CONTENT_ROOT.rglob("*.md")):
             fields = self.parse_front_matter(path)
@@ -610,12 +655,20 @@ class Validator:
             for key in FRONT_MATTER_EXTRA_KEYS.get(kind, ()):
                 if key not in values:
                     self.error(path, f"kind '{kind}' requires front matter key '{key}'")
-            if kind == "chapter" and corpus == "textbook":
+            if corpus == "textbook" and kind in {"chapter", "section"}:
                 pages = values.get("source_pages")
                 if pages is None:
-                    self.error(path, "textbook chapters must record source_pages")
+                    self.error(path, f"textbook {kind}s must record source_pages")
                 elif not SOURCE_PAGES_RE.fullmatch(str(pages)):
                     self.error(path, f"source_pages must look like '248-270': {pages!r}")
+            if kind == "section":
+                parent = str(values.get("parent", ""))
+                section_parents[document_id] = (path, parent)
+                # A section's pages must sit inside its chapter's range, which
+                # is how a mis-filed section or a stale page range shows up.
+                section_pages[document_id] = str(values.get("source_pages", ""))
+            if kind == "chapter":
+                chapter_pages[document_id] = str(values.get("source_pages", ""))
             if kind in {"exam", "exam-variant"}:
                 if str(values.get("session")) not in EXAM_SESSIONS:
                     self.error(path, f"session must be one of {sorted(EXAM_SESSIONS)}")
@@ -624,6 +677,24 @@ class Validator:
             if kind == "exam":
                 self.exam_front_matter_ids.add(document_id)
             counts[(corpus, kind)] = counts.get((corpus, kind), 0) + 1
+
+        for section_id, (path, parent) in sorted(section_parents.items()):
+            if parent not in chapter_pages:
+                self.error(path, f"parent '{parent}' is not the id of a chapter")
+                continue
+            if section_id != f"{parent}-s{str(section_id).rsplit('-s', 1)[-1]}":
+                self.error(path, f"section id must extend its parent id: {section_id} vs {parent}")
+            own = SOURCE_PAGES_RE.fullmatch(section_pages.get(section_id, ""))
+            chapter = SOURCE_PAGES_RE.fullmatch(chapter_pages[parent])
+            if not own or not chapter:
+                continue
+            first, last = (int(part) for part in own.string.split("-"))
+            chapter_first, chapter_last = (int(part) for part in chapter.string.split("-"))
+            if first < chapter_first or last > chapter_last:
+                self.error(
+                    path,
+                    f"source_pages {own.string} falls outside its chapter's {chapter.string}",
+                )
 
         for corpus_id, entry in sorted(self.corpus_entries().items()):
             expected = entry.get("expected_documents")
@@ -642,7 +713,9 @@ class Validator:
         # clean-up went unscanned for its whole history because this check used
         # to hardcode a single directory.
         for directory in CLEAN_DIRS:
-            for path in sorted(directory.glob("*.md")):
+            # rglob, not glob: textbook chapters are directories of section
+            # files, and a top-level scan would skip every one of them.
+            for path in sorted(directory.rglob("*.md")):
                 text = self.read_text(path) or ""
                 for label, pattern in OCR_PATTERNS.items():
                     matches = list(pattern.finditer(text))

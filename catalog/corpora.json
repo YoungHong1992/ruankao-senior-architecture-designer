@@ -51,7 +51,8 @@
       "expected_documents": {
         "index": 1,
         "preface": 1,
-        "chapter": 20
+        "chapter": 20,
+        "section": 119
       },
       "source": {
         "kind": "pdf",

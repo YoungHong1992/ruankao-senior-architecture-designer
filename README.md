@@ -64,7 +64,7 @@ uv run python scripts/validate_knowledge_base.py   # 应输出 PASSED: 0 errors
 
 | [`content/00-系统架构设计师考试大纲-清洗版`](content/00-系统架构设计师考试大纲-清洗版/) | 前言 + 5 篇正文 + 1 个索引 | 大纲首轮清洗稿 |
 
-| [`content/01-系统架构设计师教材-清洗版`](content/01-系统架构设计师教材-清洗版/) | 前言 + 20 章 + 1 个索引 | 教材首轮清洗稿；原图未收录处只保留图题；仍非出版社校正版 |
+| [`content/01-系统架构设计师教材-清洗版`](content/01-系统架构设计师教材-清洗版/) | 前言 + 20 章 / 119 节 + 索引 | 教材首轮清洗稿；每章一个目录，正文按原书“节”拆分；原图未收录处只保留图题；仍非出版社校正版 |
 
 | [`content/02-历年真题-清洗版`](content/02-历年真题-清洗版/) | 37 份试题正文 + 1 个索引 | 36 份标准名首选稿 + 1 份独立备选；均为非官方整理，不代表官方认证 |
 
@@ -211,6 +211,36 @@ source_pages: "248-270"
 
 
 `slug` 是纯 ASCII 短名，用来生成不含中文的网址；`id` 全仓库唯一，真题的 `id` 与 `catalog/exams.json` 逐条对应。取值范围由 `catalog/corpora.json` 约束，并由质量门禁逐项校验。新增正文文件时必须一并补齐，否则检查不通过。
+
+
+
+教材的正文再细一层：每章是一个目录 `第XX章-标题/`，其中 `INDEX.md` 为章入口（上例即章的标签），各节为 `第NN节-标题.md`，标签形如：
+
+
+
+```yaml
+
+---
+
+id: "textbook-ch07-s01"
+
+corpus: "textbook"
+
+slug: "ch07-01-software-architecture-concepts"
+
+title: "软件架构概念"
+
+kind: "section"
+
+order: 1
+
+parent: "textbook-ch07"
+
+source_pages: "248-254"
+
+---
+
+```
 
 
 

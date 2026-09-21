@@ -48,7 +48,7 @@
 
 | 大纲 | `sources/00-系统架构设计师考试大纲/`（69 页扫描件，无文本层，不入库） | `content/00-…-清洗版/` | 前言 + 5 篇正文 + INDEX |
 
-| 教材 | `sources/01-系统架构设计师教材/`（720 页扫描件，含 OCR 文本层，不入库） | `content/01-…-清洗版/` | 《系统架构设计师教程》2022 第 2 版，前言 + 20 章 + INDEX |
+| 教材 | `sources/01-系统架构设计师教材/`（720 页扫描件，含 OCR 文本层，不入库） | `content/01-…-清洗版/` | 《系统架构设计师教程》2022 第 2 版，前言 + 20 章（每章一个目录，共 119 节）+ INDEX |
 
 | 真题 | `sources/02-历年真题/` + `sources/02-历年真题(补充)/` | `content/02-历年真题-清洗版/` | 36 份唯一试卷 + 1 份独立备选 + INDEX |
 
@@ -120,11 +120,13 @@ source_pages: "248-270"
 
 | `title` | 全部 | 中文标题，非空 |
 
-| `kind` | 全部 | `root-index` / `index` / `master-index` / `preface` / `chapter` / `exam` / `exam-variant` |
+| `kind` | 全部 | `root-index` / `index` / `master-index` / `preface` / `chapter` / `section` / `exam` / `exam-variant` |
 
-| `order` | `preface`、`chapter` | 整数，前言为 0 |
+| `order` | `preface`、`chapter`、`section` | 整数，前言为 0；`section` 为该节在本章内的序号 |
 
-| `source_pages` | 教材 `chapter` | 原书印刷页范围，形如 `"248-270"` |
+| `parent` | `section` | 所属章的 `id`；节的 `id` 必须是它加 `-sNN` 后缀 |
+
+| `source_pages` | 教材 `chapter`、`section` | 原书印刷页范围，形如 `"248-270"`；节的范围必须落在所属章范围之内 |
 
 | `year` / `session` / `subject` | `exam`、`exam-variant` | 整数年份；`h1`/`h2`；`comprehensive`/`case-analysis`/`essay` |
 
@@ -198,6 +200,8 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 - frontmatter：`content/` 下每个 md 都要有；必填字段齐全；`id` 全仓库唯一；`slug` 语料内唯一且为小写 ASCII；按 `(corpus, kind)` 统计的文档数必须等于 `expected_documents`；`kind=exam` 的 `id` 集合必须等于 `catalog/exams.json` 的 `id` 集合。
 
+- 教材章节：章目录名须匹配 `第XX章-标题`，节文件名须匹配 `第XX节-标题.md`；每个 `kind: "section"` 的 `parent` 必须是某个真实存在的章 `id`，`id` 必须是 `<章id>-sNN`，`source_pages` 必须落在所属章的范围内。
+
 - 真题：36 份 canonical、17 组同名冲突、90 份 source_versions、53 份来源正文（值取自 `corpora.json` 的 `invariants`）；每份 source_version 的 `path` 必须真实存在、落在 `source_catalog` 对应根目录下，且与该卷的 `preferred`/`alternatives` 完全对应；canonical 集合必须与两个来源目录中的试卷文件一一对应，无遗漏、无多余。
 
 - 真题清洗稿结构：`题目数量/主试题数量` 声明必须与 manifest 的 `item_count` 一致；综合知识须有连续 `第N题` 标题、等量 `**正确答案：` 和 4×题量个 A–D 选项；案例分析/论文的主试题标题须唯一升序且数量一致。
@@ -206,7 +210,7 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 - 工具链：`.python-version` = `3.13`、`pyproject.toml` 的 `requires-python` = `>=3.13`、`project.dependencies` 必须为空、`tool.uv.package` = `false`、`dependency-groups` 必须恰好是 `lint` 一组且只含一条 `==` 精确 pin（ruff）；`uv.lock` 的 `requires-python` 也须为 `>=3.13`。改任一处都要跑 `uv lock` 并提交锁文件。
 
-- 全部 Markdown 必须是**标准 UTF-8（无 BOM）+ CRLF**，不得含裸 CR；校验器逐字节检查。每个内容目录的 `INDEX.md` 不得超过 200 行且必须收录目录内全部章节文件；清洗目录内标题不得跳级；三个清洗目录强制扫描 `兰亭图书阁`、`Outer Jion` 等高风险 OCR 残留词。
+- 全部 Markdown 必须是**标准 UTF-8（无 BOM）+ CRLF**，不得含裸 CR；校验器逐字节检查。每个存放正文的目录（含教材的每个章目录）都要有 `INDEX.md`，不得超过 200 行，且必须收录本目录下全部 Markdown 与各子目录的 `INDEX.md`；清洗目录内标题不得跳级；三个清洗目录**递归**扫描 `兰亭图书阁`、`Outer Jion` 等高风险 OCR 残留词。
 - **路径命名不得含小数点**：文件名与目录名中除扩展名分隔符外不得出现 `.`，序号与标题一律用 `-` 连接（`02-历年真题-清洗版/`，不是 `02.历年真题-清洗版/`）。只有 `.github/`、`.gitignore`、`.python-version` 这类以点开头的约定名例外。校验器逐条扫描已跟踪路径。
 
 
@@ -217,7 +221,11 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 - 先读 `content/INDEX.md` 定位语料，再读该语料的 `INDEX.md`（≤ 200 行）：章节编号、标题、文件路径，可含摘要与页码范围。**先读 INDEX，再按需打开单章**，不要一次性载入全部章节。
 
-- 章节文件名固定 `第XX章-标题.md`（两位编号），每文件在 frontmatter 之后带章节标题层级，保留原文标题/表格/列表结构。
+- 大纲章节是单文件，文件名固定 `第XX章-标题.md`（两位编号）。**教材的每一章是一个目录** `第XX章-标题/`：目录里的 `INDEX.md` 是该章入口（frontmatter `kind: "chapter"`，含章导语与本章各节一览），正文按原书的“节”拆成 `第NN节-标题.md`（`kind: "section"`），每节一个文件。读教材时**先读章 `INDEX.md` 定位到节，再打开单节文件**，不要整章载入。
+
+- 节文件的标题层级整体上提一级：原书的 `## N.M` 成为节文件的 `#`，其下的 `###`/`####` 相应变为 `##`/`###`，正文逐字未改。
+
+- 每文件在 frontmatter 之后带章节标题层级，保留原文标题/表格/列表结构。
 - 目录与文件名用 `-` 分段，名称内不出现小数点（见[关键不变量](#关键不变量改内容必须同步更新)）。
 
 - 跨章问题分别读取相关章节后综合回答。
@@ -374,7 +382,7 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 
 
-- 文件名格式统一为：`第XX章-标题.md`。
+- 大纲章节文件名格式统一为：`第XX章-标题.md`。教材每章是目录 `第XX章-标题/`，章入口为其中的 `INDEX.md`，各节为 `第NN节-标题.md`。
 
 - 每个章节文件开头必须有明确的章节标题。
 
