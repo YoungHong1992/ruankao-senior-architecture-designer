@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-09-21",
+  "layers": {
+    "content": "content",
+    "sources": "sources",
+    "catalog": "catalog",
+    "assets": "assets",
+    "verification": "verification"
+  },
+  "root_index": {
+    "id": "content-index",
+    "path": "content/INDEX.md"
+  },
+  "corpora": [
+    {
+      "id": "outline",
+      "label": "系统架构设计师考试大纲",
+      "content_root": "content/00-系统架构设计师考试大纲-清洗版",
+      "source_roots": [
+        "sources/00-系统架构设计师考试大纲"
+      ],
+      "derivation": "ocr-cleaned",
+      "rights": "third-party",
+      "expected_documents": {
+        "index": 1,
+        "preface": 1,
+        "chapter": 5
+      },
+      "source": {
+        "kind": "pdf",
+        "committed": false,
+        "file": "系统架构设计师考试大纲.pdf",
+        "bytes": 10346226,
+        "sha256": "3a25e4530acd65fe12963985b4c09e61b5fb6db53c81dc3d766d1abe3b51d5ca",
+        "pdf_pages": 69,
+        "text_layer": false,
+        "note": "整页扫描图像，无文本层。当前清洗稿来自更早一份 75 页扫描件的 OCR，两者页数不同，逐页对照关系未建立。"
+      }
+    },
+    {
+      "id": "textbook",
+      "label": "系统架构设计师教程（2022 年第 2 版）",
+      "content_root": "content/01-系统架构设计师教材-清洗版",
+      "source_roots": [
+        "sources/01-系统架构设计师教材"
+      ],
+      "derivation": "ocr-cleaned",
+      "rights": "third-party",
+      "expected_documents": {
+        "index": 1,
+        "preface": 1,
+        "chapter": 20
+      },
+      "source": {
+        "kind": "pdf",
+        "committed": false,
+        "file": "系统架构设计师教程(第2版).pdf",
+        "bytes": 10838527,
+        "sha256": "0f626f487a7a171161dcef4aa48af0bf6c7e6e02f385dcf03222a98b91fc02f5",
+        "pdf_pages": 720,
+        "text_layer": true,
+        "printed_pages": "3-712",
+        "missing_printed_pages": "403-404",
+        "missing_pages_assessment": "缺口落在上篇末（第11章止于402）与下篇首章（第12章始于405）之间，位置与下篇分隔页及其背面空白页吻合；判断不涉及正文缺失，属结构推断而非核实结论。",
+        "note": "整页扫描图像 + OCR 文本层。章起始页由页眉推导并与书内目录逐条核对一致。"
+      }
+    },
+    {
+      "id": "exams",
+      "label": "历年真题",
+      "content_root": "content/02-历年真题-清洗版",
+      "source_roots": [
+        "sources/02-历年真题",
+        "sources/02-历年真题(补充)"
+      ],
+      "manifest": "catalog/exams.json",
+      "derivation": "compiled-cleaned",
+      "rights": "third-party",
+      "expected_documents": {
+        "index": 1,
+        "master-index": 1,
+        "exam": 36,
+        "exam-variant": 1
+      },
+      "invariants": {
+        "canonical_exams": 36,
+        "same_name_conflicts": 17,
+        "source_versions": 90,
+        "source_documents": 53
+      },
+      "source": {
+        "kind": "markdown",
+        "committed": true,
+        "note": "来源层本身就是 Markdown（回忆版、公开解析版、原始整理版），不是官方题库，也没有统一的源文件。"
+      }
+    }
+  ]
+}

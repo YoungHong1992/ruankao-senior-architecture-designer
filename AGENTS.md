@@ -18,33 +18,119 @@
 
 
 
-三类资料各有“原始稿 → 清洗稿”两层，真题另有补充来源：
+仓库按**职责**分四层，而不是按资料堆放。这一点是后续所有工作的前提：
 
 
 
-| 资料 | 原始稿 | 清洗稿（首选阅读） | 规模 |
+| 层 | 目录 | 职责 | 是否纳入内容门禁 |
 
 |---|---|---|---|
 
-| 大纲 | `data/00-系统架构设计师考试大纲/` | `00-…-清洗版/` | 前言 + 5 篇正文 + INDEX |
+| 正文层 | `content/` | 唯一可读正文，网页展示与 RAG 索引的取数根目录 | 是（全部规则） |
 
-| 教材 | `data/01-系统架构设计师教材/` | `01-…-清洗版/` | 《系统架构设计师教程》2022 第 2 版，前言 + 20 章 + INDEX |
+| 来源层 | `sources/` | 第三方原始材料与其书目事实；扫描件本身不入库 | 部分（真题来源目录参与 manifest 一致性） |
 
-| 真题 | `data/02-历年真题/` + `data/02-历年真题(补充)/` | `02-历年真题-清洗版/` | 36 份唯一试卷 + INDEX |
+| 清单层 | `catalog/` | 结构与数量的唯一真相，机器可读 | 是 |
 
+| 资产层 | `assets/` | 依法取得并逐一对照后落盘的图片与矢量图 | 是（存在时） |
 
-
-治理层把正文与真题机器清单绑定，校验脚本据此判定一致性：
-
-
-
-- `02-历年真题总索引.md` — 人工/AI 查询真题的统一入口，规定每卷的“首选文件”。
-
-- `data/exams.json`（schema 4）— 真题 manifest：36 份 canonical、90 份 source_versions 路径、来源目录与同名冲突映射。校验器断言 manifest、两份索引与正文彼此一致。
+| 旁路 | `verification/` | 证据、出处、裁决与待复核记录 | 否（只查编码与换行） |
 
 
 
-数据流：**正文与清单** →（`validate_knowledge_base.py` 断言 manifest、两份索引与正文彼此一致，并做编码与结构检查）→ **CI 门禁**。
+三套语料在正文层与来源层的对应关系：
+
+
+
+| 语料 | 来源层 | 正文层（唯一可读稿） | 规模 |
+
+|---|---|---|---|
+
+| 大纲 | `sources/00-系统架构设计师考试大纲/`（69 页扫描件，无文本层，不入库） | `content/00-…-清洗版/` | 前言 + 5 篇正文 + INDEX |
+
+| 教材 | `sources/01-系统架构设计师教材/`（720 页扫描件，含 OCR 文本层，不入库） | `content/01-…-清洗版/` | 《系统架构设计师教程》2022 第 2 版，前言 + 20 章 + INDEX |
+
+| 真题 | `sources/02-历年真题/` + `sources/02-历年真题(补充)/` | `content/02-历年真题-清洗版/` | 36 份唯一试卷 + 1 份独立备选 + INDEX |
+
+
+
+大纲与教材的 OCR 提取稿已从版本库移除：**清洗稿是唯一正文层**，复核时直接对照 `sources/` 下登记的扫描件，不要重建提取稿目录。
+
+
+
+治理层把正文与机器清单绑定，校验脚本据此判定一致性：
+
+
+
+- `content/INDEX.md` — 正文层根导航，链接三套语料的 `INDEX.md` 与真题总索引。
+
+- `content/02-历年真题总索引.md` — 人工/AI 查询真题的统一入口，规定每卷的“首选文件”。
+
+- `catalog/corpora.json`（schema 1）— 语料总清单：层根、三套语料的 content_root/source_roots、各 `kind` 的期望文档数、真题不变量（36/17/90/53）、源扫描件的字节数与 SHA-256。**数量类断言一律从这里读，不再散落在脚本和正文里。**
+
+- `catalog/exams.json`（schema 4）— 真题 manifest：36 份 canonical、90 份 source_versions 路径、来源目录与同名冲突映射。校验器断言 manifest、两份索引、正文与 frontmatter 的 `id` 彼此一致。
+
+
+
+数据流：**正文与清单** →（`validate_knowledge_base.py` 断言四层结构、frontmatter、manifest、两份索引与正文彼此一致，并做编码与结构检查）→ **CI 门禁**。
+
+
+
+## 正文文件头标签（frontmatter）
+
+
+
+`content/` 下**每个** Markdown 必须以一段扁平 YAML 开头，供网页路由与知识库索引使用。格式刻意受限——**不嵌套、不用列表、每行 `key: value`、字符串加双引号、整数不加**——因为校验器只用标准库解析，不能引 PyYAML：
+
+
+
+```yaml
+
+---
+
+id: "textbook-ch07"
+
+corpus: "textbook"
+
+slug: "ch07-architecture-design-fundamentals"
+
+title: "系统架构设计基础知识"
+
+kind: "chapter"
+
+order: 7
+
+source_pages: "248-270"
+
+---
+
+```
+
+
+
+| 字段 | 必填范围 | 取值 |
+
+|---|---|---|
+
+| `id` | 全部 | 全仓库唯一；真题的 `id` 必须与 `catalog/exams.json` 的 `id` 集合完全相等 |
+
+| `corpus` | 全部 | `root` / `outline` / `textbook` / `exams` |
+
+| `slug` | 全部 | 纯小写 ASCII，用 `-` 连接；同一语料内唯一；网址由它生成，中文文件名不参与路由 |
+
+| `title` | 全部 | 中文标题，非空 |
+
+| `kind` | 全部 | `root-index` / `index` / `master-index` / `preface` / `chapter` / `exam` / `exam-variant` |
+
+| `order` | `preface`、`chapter` | 整数，前言为 0 |
+
+| `source_pages` | 教材 `chapter` | 原书印刷页范围，形如 `"248-270"` |
+
+| `year` / `session` / `subject` | `exam`、`exam-variant` | 整数年份；`h1`/`h2`；`comprehensive`/`case-analysis`/`essay` |
+
+
+
+新增或删除正文文件时，必须同步改 `catalog/corpora.json` 的 `expected_documents`，否则门禁会报数量不符。
 
 
 
@@ -102,11 +188,17 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 
 
-校验器把一批“魔数”硬编码为断言，且这些数字同时出现在清单、两份索引和 README 中。改动任何正文/题目时，必须让下列数字在**脚本 + JSON + 索引**里同时成立，否则校验必红：
+数量类断言统一存放在 `catalog/corpora.json`，校验器从那里读取，不再硬编码。改动任何正文/题目时，必须让下列约束在**清单 JSON + frontmatter + 索引 + 正文**里同时成立，否则校验必红：
 
 
 
-- 真题：36 份 canonical、17 组同名冲突、90 份 source_versions；每份 source_version 的 `path` 必须真实存在、落在 `source_catalog` 对应根目录下，且与该卷的 `preferred`/`alternatives` 完全对应；canonical 集合必须与两个来源目录中的试卷文件一一对应，无遗漏、无多余。
+- 四层结构：`content/INDEX.md`、`sources/README.md`、`catalog/README.md`、`assets/README.md` 必须存在；`sources/00-…`、`sources/01-…` 各须有 README 说明期望的本地文件；`.gitignore` 必须保留 `*.pdf` 规则。
+
+- `catalog/corpora.json`（schema 1）：`layers` 中每个路径必须是真实目录；`root_index.path` 必须是 `content/INDEX.md`；`corpora` 必须恰好是 `outline`/`textbook`/`exams`；每个 `sha256` 必须是 64 位小写十六进制**且同时出现在 `DATA_SOURCES.md`**（防两处漂移）；扫描件不得标 `committed: true`。
+
+- frontmatter：`content/` 下每个 md 都要有；必填字段齐全；`id` 全仓库唯一；`slug` 语料内唯一且为小写 ASCII；按 `(corpus, kind)` 统计的文档数必须等于 `expected_documents`；`kind=exam` 的 `id` 集合必须等于 `catalog/exams.json` 的 `id` 集合。
+
+- 真题：36 份 canonical、17 组同名冲突、90 份 source_versions、53 份来源正文（值取自 `corpora.json` 的 `invariants`）；每份 source_version 的 `path` 必须真实存在、落在 `source_catalog` 对应根目录下，且与该卷的 `preferred`/`alternatives` 完全对应；canonical 集合必须与两个来源目录中的试卷文件一一对应，无遗漏、无多余。
 
 - 真题清洗稿结构：`题目数量/主试题数量` 声明必须与 manifest 的 `item_count` 一致；综合知识须有连续 `第N题` 标题、等量 `**正确答案：` 和 4×题量个 A–D 选项；案例分析/论文的主试题标题须唯一升序且数量一致。
 
@@ -114,7 +206,7 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 - 工具链：`.python-version` = `3.13`、`pyproject.toml` 的 `requires-python` = `>=3.13`、`project.dependencies` 必须为空、`tool.uv.package` = `false`、`dependency-groups` 必须恰好是 `lint` 一组且只含一条 `==` 精确 pin（ruff）；`uv.lock` 的 `requires-python` 也须为 `>=3.13`。改任一处都要跑 `uv lock` 并提交锁文件。
 
-- 全部 Markdown 必须是**标准 UTF-8（无 BOM）+ CRLF**，不得含裸 CR；校验器逐字节检查。每个内容目录的 `INDEX.md` 不得超过 200 行且必须收录目录内全部章节文件；清洗目录内标题不得跳级；`01-…教材-清洗版` 强制扫描 `兰亭图书阁`、`Outer Jion` 等高风险 OCR 残留词。
+- 全部 Markdown 必须是**标准 UTF-8（无 BOM）+ CRLF**，不得含裸 CR；校验器逐字节检查。每个内容目录的 `INDEX.md` 不得超过 200 行且必须收录目录内全部章节文件；清洗目录内标题不得跳级；三个清洗目录强制扫描 `兰亭图书阁`、`Outer Jion` 等高风险 OCR 残留词。
 - **路径命名不得含小数点**：文件名与目录名中除扩展名分隔符外不得出现 `.`，序号与标题一律用 `-` 连接（`02-历年真题-清洗版/`，不是 `02.历年真题-清洗版/`）。只有 `.github/`、`.gitignore`、`.python-version` 这类以点开头的约定名例外。校验器逐条扫描已跟踪路径。
 
 
@@ -123,12 +215,14 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 
 
-- 每个内容目录都有 `INDEX.md`（≤ 200 行）：章节编号、标题、文件路径，可含摘要与页码范围。**先读 INDEX，再按需打开单章**，不要一次性载入全部章节。
+- 先读 `content/INDEX.md` 定位语料，再读该语料的 `INDEX.md`（≤ 200 行）：章节编号、标题、文件路径，可含摘要与页码范围。**先读 INDEX，再按需打开单章**，不要一次性载入全部章节。
 
-- 章节文件名固定 `第XX章-标题.md`（两位编号），每文件开头带章节标题层级，保留原文标题/表格/列表结构。
+- 章节文件名固定 `第XX章-标题.md`（两位编号），每文件在 frontmatter 之后带章节标题层级，保留原文标题/表格/列表结构。
 - 目录与文件名用 `-` 分段，名称内不出现小数点（见[关键不变量](#关键不变量改内容必须同步更新)）。
 
 - 跨章问题分别读取相关章节后综合回答。
+
+- 需要按主题、年份或科目批量筛选时，先读 frontmatter 标签，不要靠猜文件名。
 
 
 
@@ -136,9 +230,9 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 
 
-- 查真题先读 `02-历年真题总索引.md`（自动化读 `data/exams.json`），只用索引标注的“首选文件”；36 个首选均为清洗目录标准名文件。
+- 查真题先读 `content/02-历年真题总索引.md`（自动化读 `catalog/exams.json`），只用索引标注的“首选文件”；36 个首选均为清洗目录标准名文件。
 
-- `data/02-历年真题` 与 `data/02-历年真题(补充)` 中的同名文件内容可能不同：**17 组同名冲突禁止随机选择、自动拼接、覆盖或去重合并**，差异只能人工逐项吸收。
+- `sources/02-历年真题` 与 `sources/02-历年真题(补充)` 中的同名文件内容可能不同：**17 组同名冲突禁止随机选择、自动拼接、覆盖或去重合并**，差异只能人工逐项吸收。
 
 - 2023 下综合知识有 B75（首选）与 A65（独立备选）两套题序，同样禁止拼接。
 
@@ -160,7 +254,9 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 - **不造假**：无法确认的题面、选项、空号、连线、答案不得凭空补写，也不得写成已经确认；宁可缺失，不可编造。
 
-- **正文只放正文**：清洗稿正文只保留题面/课文、图表题注、共用题干、作答规则与题量声明；过程记录、来源清单、核验结论不写进正文，改放 [verification/](verification/)。
+- **正文只放正文**：清洗稿正文只保留题面/课文、图表题注、共用题干、作答规则与题量声明；过程记录、来源清单、核验结论不写进正文，改放 [verification/](verification/)。正文层的元数据只能以 frontmatter 形式出现，不要在正文段落里另写一份数量或来源说明。
+
+- **数字只有一处真相**：份数、章节数、冲突组数一律写进 `catalog/corpora.json`，正文和 README 只做人类可读的转述；校验器以清单为准。
 
 - **权利边界**：教材/大纲/真题/答案及其 OCR/清洗派生文本均为第三方内容，仓库不主张版权；仅 `scripts/` 与 `.github/workflows/` 适用 [LICENSE-CODE](LICENSE-CODE)（MIT）。边界与来源见 [内容与权利政策](#内容与权利政策)、[DATA_SOURCES.md](DATA_SOURCES.md)。不得提交盗版 PDF、下载链接或访问凭据。
 
@@ -174,7 +270,7 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 - 换行符：`.md` 用 **CRLF**，`.py`/`.json`/`.yml`/`.yaml`/`.toml`/`uv.lock`/`.python-version` 用 **LF**（见 `.gitattributes`、`.editorconfig`）；**所有文本文件统一为标准 UTF-8，不加 BOM**。
 
-- 不入库：源 PDF（`教材相关/*.pdf`、`本地pdf参考/`、`PDF文档资料/`）、渲染/提取草稿（`tmp/`）、虚拟环境（`.venv/`）、`.claude/`。**`uv.lock` 必须入库。**
+- 不入库：源 PDF 与扫描图（`*.pdf`、`sources/**` 下的图片格式，本地文件放在 `sources/00-…`、`sources/01-…`，只登记书目信息与校验值）、渲染/提取草稿（`tmp/`）、虚拟环境（`.venv/`）、`.claude/`。**`uv.lock` 必须入库。**
 
 
 
@@ -198,9 +294,13 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 
 
-- `data/01-系统架构设计师教材`
+- `content/01-系统架构设计师教材-清洗版`
 
-- `01-系统架构设计师教材-清洗版`
+- `content/00-系统架构设计师考试大纲-清洗版`
+
+
+
+两者的源扫描件登记在 `sources/01-系统架构设计师教材`、`sources/00-系统架构设计师考试大纲`。
 
 
 
@@ -236,7 +336,7 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 
 
-- 以原始提取稿或原始教材内容为准。
+- 以 `sources/` 中登记的源扫描件或原始教材内容为准。
 
 - 允许修正 OCR 错字、断句、粘连、误判标题。
 
@@ -520,7 +620,7 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 1. 阅读清洗版当前文件。
 
-2. 对照原始提取稿或原始章节文件。
+2. 对照 `sources/` 中登记的源扫描件对应页（教材章节的印刷页范围写在该文件的 `source_pages` 标签里）。
 
 3. 先修内容缺失和结构错误。
 
@@ -648,7 +748,7 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 
 
-本仓库以纯文本 Markdown 为主，原始教材和真题中的图片未随仓库收录（`data/` 下只有 OCR 文本，没有任何图片文件）。**图题存在不代表原图可用。**
+本仓库以纯文本 Markdown 为主，原始教材和真题中的图片未随仓库收录（`content/` 下只有文本，`assets/` 仍为空）。**图题存在不代表原图可用。**
 
 
 
@@ -712,7 +812,7 @@ SVG 必须作为独立文件落盘并以 Markdown 图片语法引用——**GitH
 
 - 公式优先用 KaTeX（`$`/`$$`）表达；无法可靠恢复的公式保留原文文字描述，不臆造推导。
 
-- 如确有权纳入原始图片，放入 `assets/figures/<资料>/<章节>/`，使用原图号命名并移除无关水印或个人信息；大批量图片引入前评估 Git LFS 和再分发权利。
+- 如确有权纳入原始图片，放入 `assets/figures/<语料 id>/<章节 slug>/`（例：`assets/figures/textbook/ch07-architecture-design-fundamentals/figure-7-3.svg`），使用原图号命名并移除无关水印或个人信息；命名细则见 [assets/README.md](assets/README.md)，大批量图片引入前评估 Git LFS 和再分发权利。
 
 
 
@@ -744,11 +844,11 @@ SVG 必须作为独立文件落盘并以 Markdown 图片语法引用——**GitH
 
 
 
-- `data/00-系统架构设计师考试大纲/` 与 `00-系统架构设计师考试大纲-清洗版/` 中的考试大纲及其 OCR/清洗派生文本；
+- `sources/00-系统架构设计师考试大纲/` 登记的考试大纲与 `content/00-系统架构设计师考试大纲-清洗版/` 中的 OCR/清洗派生文本；
 
-- `data/01-系统架构设计师教材/` 与 `01-系统架构设计师教材-清洗版/` 中的教材及其 OCR/清洗派生文本；
+- `sources/01-系统架构设计师教材/` 登记的教材与 `content/01-系统架构设计师教材-清洗版/` 中的 OCR/清洗派生文本；
 
-- `data/02-历年真题/`、`data/02-历年真题(补充)/` 与 `02-历年真题-清洗版/` 中的试题、题面、答案、解析和公开回忆版内容；
+- `sources/02-历年真题/`、`sources/02-历年真题(补充)/` 与 `content/02-历年真题-清洗版/` 中的试题、题面、答案、解析和公开回忆版内容；
 
 - 从出版物或外部网站恢复的图片、表格、版式、引用和其他素材。
 
@@ -900,9 +1000,9 @@ SVG 必须作为独立文件落盘并以 Markdown 图片语法引用——**GitH
 
 0. 安装 [uv](https://docs.astral.sh/uv/getting-started/installation/)（macOS/Linux：`curl -LsSf https://astral.sh/uv/install.sh | sh`；Windows PowerShell：`powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"`）。本仓库脚本的解释器（Python 3.13）与依赖均由 uv 管理，一律用 `uv run ...` 执行，不要直接调用系统 `python`；首次运行会自动准备虚拟环境，无需手动 `pip install`。
 
-1. 先读目标目录的 `INDEX.md`；真题先读 `02-历年真题总索引.md`。
+1. 先读 `content/INDEX.md`，再读目标语料的 `INDEX.md`；真题先读 `content/02-历年真题总索引.md`。
 
-2. 教材清洗应同时对照原始提取稿和依法取得的原资料，优先做最小、可验证的修正。
+2. 教材清洗应同时对照 `sources/` 登记的源扫描件和依法取得的原资料，优先做最小、可验证的修正。
 
 3. 在 `DATA_SOURCES.md` 中记录来源、版本和派生关系；历史 URL 不可追溯时，不得猜测。
 
