@@ -26,7 +26,7 @@ ISBN `978-7-302-61992-5`）的**源 PDF**。该文件不入库，只在维护者
   是那份 721 页文件；因 `source_pages` 记的是**印刷页**而非 PDF 物理页，删页不影响页码映射。
 - 本文件已归档到维护者私有仓库
   [ruankao-senior-architecture-designer-sources](https://github.com/YoungHong1992/ruankao-senior-architecture-designer-sources)
-  的 `01、[官方]系统架构设计师教程(第2版).pdf`，固定提交号见 DATA_SOURCES.md 的「源 PDF 私有归档清单」。
+  的 `01-系统架构设计师教程(第2版).pdf`，固定提交号见 DATA_SOURCES.md 的「源 PDF 私有归档清单」。
 - 页内插图以整页图像形式存在，可按页裁切；补画图表的前置条件见
   [AGENTS.md 的「图表与公式处理」](../../AGENTS.md#图表与公式处理)与
   [verification/待重画图表清单.md](../../verification/待重画图表清单.md)。
