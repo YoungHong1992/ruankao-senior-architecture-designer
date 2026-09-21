@@ -14,9 +14,14 @@
 
 - 共 **69 页**，整页扫描图像，**没有文本层**：无法直接抽取文字，任何正文都必须经 OCR。
 - 现有清洗稿 [`content/00-系统架构设计师考试大纲-清洗版/`](../../content/00-系统架构设计师考试大纲-清洗版/INDEX.md)
-  来自更早的一份 **75 页**扫描件（`/Creator: vFlat`）的 OCR 结果，与本 PDF 页数不同，
-  **逐页对照关系尚未建立**，因此清洗稿的 frontmatter 不标注 `source_pages`。
+  来自更早的一份 **75 页**扫描件（`/Creator: vFlat`）的 OCR 结果。本 PDF 是那份文件
+  **删除冗余页与重复页后的修订版**（正文页无删减），但两版的 PDF 页序已偏移、
+  **逐页对照关系未建立**，因此清洗稿的 frontmatter 不标注 `source_pages`。
 - 该 PDF 由 pdf-lib 重新导出，不是出版社电子版。
+- 本文件已归档到维护者私有仓库
+  [ruankao-senior-architecture-designer-sources](https://github.com/YoungHong1992/ruankao-senior-architecture-designer-sources)
+  的 `00、[官方]系统架构设计师考试大纲.pdf`，固定提交号见
+  [DATA_SOURCES.md](../../DATA_SOURCES.md) 的「源 PDF 私有归档清单」。
 
 ## 使用方式
 

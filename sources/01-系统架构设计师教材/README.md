@@ -21,8 +21,12 @@ ISBN `978-7-302-61992-5`）的**源 PDF**。该文件不入库，只在维护者
   这是结构推断而非核实结论，故仍如实登记。
 - 各章起始印刷页由页眉推导，并与书内目录逐条核对一致；结果写入清洗稿 frontmatter 的
   `source_pages` 字段，见 [`content/01-系统架构设计师教材-清洗版/`](../../content/01-系统架构设计师教材-清洗版/INDEX.md)。
-- 该 PDF 由 pdf-lib 重新导出，与 [DATA_SOURCES.md](../../DATA_SOURCES.md) 中记录的早期 721 页本地文件
-  校验值不同，属于另一次导出，不是出版社电子版。
+- 该 PDF 由 pdf-lib 重新导出，是 [DATA_SOURCES.md](../../DATA_SOURCES.md) 中记录的早期 **721 页**
+  本地文件删除冗余页与重复页后的修订版（正文页无删减），不是出版社电子版。清洗稿的 OCR 依据
+  是那份 721 页文件；因 `source_pages` 记的是**印刷页**而非 PDF 物理页，删页不影响页码映射。
+- 本文件已归档到维护者私有仓库
+  [ruankao-senior-architecture-designer-sources](https://github.com/YoungHong1992/ruankao-senior-architecture-designer-sources)
+  的 `01、[官方]系统架构设计师教程(第2版).pdf`，固定提交号见 DATA_SOURCES.md 的「源 PDF 私有归档清单」。
 - 页内插图以整页图像形式存在，可按页裁切；补画图表的前置条件见
   [AGENTS.md 的「图表与公式处理」](../../AGENTS.md#图表与公式处理)与
   [verification/待重画图表清单.md](../../verification/待重画图表清单.md)。
