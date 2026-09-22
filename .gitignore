@@ -19,6 +19,7 @@ Thumbs.db
 
 # Project internals
 .claude/
+.codex
 
 # Local extraction dependencies and uncommitted source material
 node_modules/
