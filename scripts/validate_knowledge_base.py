@@ -4,7 +4,7 @@
 This script intentionally uses only the Python standard library so the same
 checks run locally and in GitHub Actions without installing dependencies.
 It is executed through uv (``uv run python scripts/validate_knowledge_base.py``),
-which pins the interpreter to the version in ``.python-version``.
+which prepares an interpreter satisfying ``requires-python`` in pyproject.toml.
 """
 
 from __future__ import annotations
@@ -16,16 +16,17 @@ from datetime import date
 from pathlib import Path
 from urllib.parse import unquote
 
-# The pinned interpreter is declared in .python-version.  Running the validator
-# with an older system Python would otherwise fail deep inside the script (for
-# example on tomllib, which is 3.11+); fail fast with an actionable message
-# instead.
+# The floor is declared once, in pyproject.toml's requires-python.  Running the
+# validator with an older system Python would otherwise fail deep inside the
+# script (for example on tomllib, which is 3.11+); fail fast with an actionable
+# message instead.
 REQUIRED_PYTHON = (3, 13)
 if sys.version_info < REQUIRED_PYTHON:
     raise SystemExit(
-        "ERROR: this repository pins Python "
-        f"{'.'.join(map(str, REQUIRED_PYTHON))} (see .python-version), but this "
-        f"is Python {'.'.join(map(str, sys.version_info[:3]))}. Run the script "
+        "ERROR: this repository requires Python "
+        f"{'.'.join(map(str, REQUIRED_PYTHON))}+ (see requires-python in "
+        "pyproject.toml), but this is Python "
+        f"{'.'.join(map(str, sys.version_info[:3]))}. Run the script "
         "through uv instead: `uv run python scripts/validate_knowledge_base.py`. "
         "Install uv from https://docs.astral.sh/uv/getting-started/installation/"
     )
@@ -70,12 +71,10 @@ LAYER_READMES = (
     ASSETS_ROOT / "README.md",
 )
 
-# uv toolchain pins.  The Python version and the lockfile are declared in
-# separate files; these checks keep the copies from drifting.
+# uv toolchain pins.  requires-python is repeated in pyproject.toml and
+# uv.lock; these checks keep the two copies from drifting.
 PYPROJECT_PATH = ROOT / "pyproject.toml"
-PYTHON_VERSION_PATH = ROOT / ".python-version"
 UV_LOCK_PATH = ROOT / "uv.lock"
-PYTHON_VERSION = "3.13"
 REQUIRES_PYTHON = ">=3.13"
 # Non-default dependency group, pinning exactly one package.  It is not
 # installed for the main gate, which must keep running on the standard library.
@@ -750,7 +749,7 @@ class Validator:
         Dots inside names make paths ambiguous for tooling that splits on the
         extension separator, so the only dot allowed in a file name is the one
         introducing its suffix.  Dot-prefixed names such as .github or
-        .python-version are fixed ecosystem conventions and are exempt.
+        .gitignore are fixed ecosystem conventions and are exempt.
         """
         for path in sorted(ROOT.rglob("*")):
             if not EXCLUDED_DIR_NAMES.isdisjoint(path.parts):
@@ -1155,13 +1154,6 @@ class Validator:
 
     def check_python_toolchain(self) -> None:
         """Assert the uv toolchain pins agree across all files that repeat them."""
-        pinned = PYTHON_VERSION_PATH.read_text(encoding="utf-8-sig").strip()
-        if pinned != PYTHON_VERSION:
-            self.error(
-                PYTHON_VERSION_PATH,
-                f"pinned Python must be {PYTHON_VERSION}, found {pinned!r}",
-            )
-
         try:
             pyproject = tomllib.loads(PYPROJECT_PATH.read_text(encoding="utf-8-sig"))
         except tomllib.TOMLDecodeError as exc:
