@@ -154,8 +154,6 @@ scripts/validate_knowledge_base.py   # 知识库质量检查入口
 
 pyproject.toml                       # uv 工具链声明：Python 3.13 与 lint 依赖组
 
-.python-version                      # 固定解释器版本（3.13）
-
 uv.lock                              # 锁定依赖版本
 
 .github/workflows/knowledge-base-quality.yml # 持续集成质量门禁
@@ -304,7 +302,7 @@ source_pages: "248-254"
 
 
 
-本仓库的检查脚本用 [uv](https://docs.astral.sh/uv/) 管理运行环境：解释器固定为 Python 3.13（见 `.python-version`），依赖锁定在 `uv.lock`。**只需安装 uv**，Python 与依赖都由它自动准备，不需要手动 `venv` 或 `pip install`。
+本仓库的检查脚本用 [uv](https://docs.astral.sh/uv/) 管理运行环境：解释器要求 Python 3.13 及以上（见 `pyproject.toml` 的 `requires-python`），依赖锁定在 `uv.lock`。**只需安装 uv**，Python 与依赖都由它自动准备，不需要手动 `venv` 或 `pip install`。
 
 
 
@@ -330,7 +328,7 @@ pipx install uv    # 亦可 pip install uv
 
 
 
-在仓库根目录执行（首次运行会自动下载 Python 3.13 并创建 `.venv/`，约需一分钟；之后都是秒级）：
+在仓库根目录执行（本机没有 3.13+ 时 uv 会自动下载一个并创建 `.venv/`，约需一分钟；之后都是秒级）：
 
 
 

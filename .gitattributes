@@ -7,4 +7,3 @@
 *.toml text eol=lf
 *.svg text eol=lf
 uv.lock text eol=lf
-.python-version text eol=lf

@@ -144,7 +144,7 @@ source_pages: "248-270"
 
 
 
-环境由 **uv** 管理，解释器固定 **Python 3.13**（`.python-version`），依赖锁定在 `uv.lock`。**所有脚本必须经 `uv run` 执行**，不要直接调用系统 `python`/`python3`。首次运行时 uv 会自动下载 3.13 并在项目内创建 `.venv/`（已被 `.gitignore` 忽略），无需手动 `venv`/`pip`。
+环境由 **uv** 管理，解释器由 uv 按 `requires-python = ">=3.13"` 自动选择（优先复用本机已装的 3.13+），依赖锁定在 `uv.lock`。**所有脚本必须经 `uv run` 执行**，不要直接调用系统 `python`/`python3`。本机没有可用解释器时 uv 才会自动下载，并在项目内创建 `.venv/`（已被 `.gitignore` 忽略），无需手动 `venv`/`pip`。
 
 
 
@@ -174,7 +174,7 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 
 
-- 工具链文件：`pyproject.toml`（`requires-python = ">=3.13"`、`[tool.uv] package = false` + `required-version = ">=0.11.7"`、`[dependency-groups]` 仅 `lint = ["ruff==0.16.4"]`、`[tool.ruff]` 行宽 120）、`.python-version`（`3.13`）、`uv.lock`（必须入库）。本仓库不是可安装的包，uv 只负责固定解释器与按需依赖。
+- 工具链文件：`pyproject.toml`（`requires-python = ">=3.13"`、`[tool.uv] package = false` + `required-version = ">=0.10"`、`[dependency-groups]` 仅 `lint = ["ruff==0.16.4"]`、`[tool.ruff]` 行宽 120）、`uv.lock`（必须入库）。本仓库不是可安装的包，uv 只负责按 `requires-python` 准备解释器与按需依赖。
 
 - `validate_knowledge_base.py` 只依赖标准库，**不要**给它加第三方依赖；`lint` 是非默认组（`--group` 按需同步），因此主门禁在没有任何第三方包的环境里也必须通过。
 
@@ -208,10 +208,10 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 - manifest（schema 4）：顶层仅有 `schema_version`、`updated_at`、`source_catalog`、`exams`；每卷 `notes` 非空且与两份索引的说明列逐字一致（总索引中同名冲突卷的说明带 `**同名冲突，禁止自动混并。**` 前缀）。
 
-- 工具链：`.python-version` = `3.13`、`pyproject.toml` 的 `requires-python` = `>=3.13`、`project.dependencies` 必须为空、`tool.uv.package` = `false`、`dependency-groups` 必须恰好是 `lint` 一组且只含一条 `==` 精确 pin（ruff）；`uv.lock` 的 `requires-python` 也须为 `>=3.13`。改任一处都要跑 `uv lock` 并提交锁文件。
+- 工具链：`pyproject.toml` 的 `requires-python` = `>=3.13`、`project.dependencies` 必须为空、`tool.uv.package` = `false`、`dependency-groups` 必须恰好是 `lint` 一组且只含一条 `==` 精确 pin（ruff）；`uv.lock` 的 `requires-python` 也须为 `>=3.13`。改任一处都要跑 `uv lock` 并提交锁文件。
 
 - 全部 Markdown 必须是**标准 UTF-8（无 BOM）+ CRLF**，不得含裸 CR；校验器逐字节检查。每个存放正文的目录（含教材的每个章目录）都要有 `INDEX.md`，不得超过 200 行，且必须收录本目录下全部 Markdown 与各子目录的 `INDEX.md`；清洗目录内标题不得跳级；三个清洗目录**递归**扫描 `兰亭图书阁`、`Outer Jion` 等高风险 OCR 残留词。
-- **路径命名不得含小数点**：文件名与目录名中除扩展名分隔符外不得出现 `.`，序号与标题一律用 `-` 连接（`02-历年真题-清洗版/`，不是 `02.历年真题-清洗版/`）。只有 `.github/`、`.gitignore`、`.python-version` 这类以点开头的约定名例外。校验器逐条扫描已跟踪路径。
+- **路径命名不得含小数点**：文件名与目录名中除扩展名分隔符外不得出现 `.`，序号与标题一律用 `-` 连接（`02-历年真题-清洗版/`，不是 `02.历年真题-清洗版/`）。只有 `.github/`、`.gitignore`、`.gitattributes` 这类以点开头的约定名例外。校验器逐条扫描已跟踪路径。
 
 
 
@@ -276,7 +276,7 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 - 流程见 [贡献流程](#贡献流程)：改动 → 更新来源与清单 → 跑 `uv run python scripts/validate_knowledge_base.py` → 经 PR 合并；**不要直接推送受保护的 `main`**。commit message 中不要添加任何 AI 工具署名或 `Co-Authored-By` 之类的尾注。PR 用 `.github/pull_request_template.md`，勘误/下架走 `.github/ISSUE_TEMPLATE/`。
 
-- 换行符：`.md` 用 **CRLF**，`.py`/`.json`/`.yml`/`.yaml`/`.toml`/`uv.lock`/`.python-version` 用 **LF**（见 `.gitattributes`、`.editorconfig`）；**所有文本文件统一为标准 UTF-8，不加 BOM**。
+- 换行符：`.md` 用 **CRLF**，`.py`/`.json`/`.yml`/`.yaml`/`.toml`/`uv.lock` 用 **LF**（见 `.gitattributes`、`.editorconfig`）；**所有文本文件统一为标准 UTF-8，不加 BOM**。
 
 - 不入库：源 PDF 与扫描图（`*.pdf`、`sources/**` 下的图片格式，本地文件放在 `sources/00-…`、`sources/01-…`，只登记书目信息与校验值）、渲染/提取草稿（`tmp/`）、虚拟环境（`.venv/`）、`.claude/`。**`uv.lock` 必须入库。**
 

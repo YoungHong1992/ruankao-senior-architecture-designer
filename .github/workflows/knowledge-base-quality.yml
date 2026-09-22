@@ -24,13 +24,15 @@ jobs:
         with:
           persist-credentials: false
 
-      # uv 版本取自 pyproject.toml 的 tool.uv.required-version，
-      # Python 版本取自 .python-version（3.13）。
+      # uv 版本取自 pyproject.toml 的 tool.uv.required-version（>=0.10，装最新）。
+      # 仓库不再用 .python-version 钉死解释器：本地由 uv 按 requires-python 自行
+      # 挑选本机已有的 3.13+，CI 则显式指定 3.13，保证门禁始终跑在声明的下限上。
       # 门禁只用标准库，uv 缓存常为空，因此允许 nothing-to-cache；
       # 缓存 3.13 解释器本身，避免每次运行重新下载。
       - name: Install uv
         uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
         with:
+          python-version: "3.13"
           enable-cache: true
           cache-python: true
           ignore-nothing-to-cache: true

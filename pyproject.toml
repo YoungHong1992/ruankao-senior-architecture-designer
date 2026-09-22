@@ -11,11 +11,13 @@ lint = ["ruff==0.16.4"]
 
 [tool.uv]
 # 本仓库是知识库而非可安装的 Python 包：不构建、不安装自身，
-# uv 只负责固定解释器版本与脚本工具链的依赖。
+# uv 只负责按 requires-python 准备解释器与脚本工具链的依赖。
 package = false
-# uv.lock 使用 revision 3 格式；低于此版本的 uv 无法复现本锁文件。
+# 锁文件的兼容判据是 version（本仓库为 1），不是 revision：uv 仅在 version
+# 不受支持时拒绝加载锁文件，revision 不参与该判断。因此这里不跟着 revision
+# 抬高门槛，>=0.10 是实测能读本锁文件的下限，给贡献者留足余地。
 # CI 的 astral-sh/setup-uv 也读取本字段决定安装哪个 uv。
-required-version = ">=0.11.7"
+required-version = ">=0.10"
 
 [tool.ruff]
 # 120 是 validate_knowledge_base.py 既有的人工换行宽度，沿用它。
