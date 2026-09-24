@@ -410,11 +410,20 @@ class Validator:
                 self.error(index, f"unindexed Markdown files: {', '.join(missing)}")
 
         for directory in CHAPTER_DIRS:
+            # The outline is not organised into numbered chapters: its parts are
+            # the front matter, the exam overview, the three exam subjects and
+            # the question-type samples.  Numbering them 第XX章 would assert a
+            # chapter structure the scanned book does not have, so the outline
+            # files only carry a two-digit reading-order prefix.
+            if directory == OUTLINE_DIR:
+                filename_re, filename_hint = r"\d{2}-.+\.md", "NN-标题.md"
+            else:
+                filename_re, filename_hint = r"第\d{2}章-.+\.md", "第XX章-标题.md"
             for path in directory.glob("*.md"):
                 if path.name in {"INDEX.md", "前言.md"}:
                     continue
-                if not re.fullmatch(r"第\d{2}章-.+\.md", path.name):
-                    self.error(path, "chapter filename must match 第XX章-标题.md")
+                if not re.fullmatch(filename_re, path.name):
+                    self.error(path, f"chapter filename must match {filename_hint}")
             # Chapters split into sections become directories; the sections
             # inside them are numbered within the chapter.
             for child in directory.iterdir():
