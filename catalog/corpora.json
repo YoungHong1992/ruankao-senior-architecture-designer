@@ -25,7 +25,7 @@
       "expected_documents": {
         "index": 1,
         "preface": 1,
-        "chapter": 5
+        "chapter": 6
       },
       "source": {
         "kind": "pdf",
