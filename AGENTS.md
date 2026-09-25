@@ -28,7 +28,7 @@
 
 | 正文层 | `content/` | 唯一可读正文，网页展示与 RAG 索引的取数根目录 | 是（全部规则） |
 
-| 来源层 | `sources/` | 第三方原始材料与其书目事实；扫描件本身不入库 | 部分（真题来源目录参与 manifest 一致性） |
+| 来源层 | `sources/` | 第三方原始材料与其书目事实；两份已登记源扫描件按 2026-09 治理决定入库 | 是（扫描件字节数与 SHA-256 参与门禁；真题来源目录参与 manifest 一致性） |
 
 | 清单层 | `catalog/` | 结构与数量的唯一真相，机器可读 | 是 |
 
@@ -46,15 +46,15 @@
 
 |---|---|---|---|
 
-| 大纲 | `sources/00-系统架构设计师考试大纲/`（69 页扫描件，无文本层，不入库） | `content/00-…-清洗版/` | 前言 + 卷首文件材料 + 考试说明 + 3 个考试范围科目 + 题型举例 + INDEX |
+| 大纲 | `sources/00-系统架构设计师考试大纲/`（69 页扫描件，无文本层，已入库） | `content/00-…-清洗版/` | 前言 + 卷首文件材料 + 考试说明 + 3 个考试范围科目 + 题型举例 + INDEX |
 
-| 教材 | `sources/01-系统架构设计师教材/`（720 页扫描件，含 OCR 文本层，不入库） | `content/01-…-清洗版/` | 《系统架构设计师教程》2022 第 2 版，前言 + 20 章（每章一个目录，共 119 节）+ INDEX |
+| 教材 | `sources/01-系统架构设计师教材/`（720 页扫描件，含 OCR 文本层，已入库） | `content/01-…-清洗版/` | 《系统架构设计师教程》2022 第 2 版，前言 + 20 章（每章一个目录，共 119 节）+ INDEX |
 
 | 真题 | `sources/02-历年真题/` + `sources/02-历年真题(补充)/` | `content/02-历年真题-清洗版/` | 36 份唯一试卷 + 1 份独立备选 + INDEX |
 
 
 
-大纲与教材的 OCR 提取稿已从版本库移除：**清洗稿是唯一正文层**，复核时直接对照 `sources/` 下登记的扫描件，不要重建提取稿目录。
+大纲与教材的 OCR 提取稿已从版本库移除：**清洗稿是唯一正文层**，不要重建提取稿目录。两份源扫描件已按 2026-09 治理决定入库（`sources/00-…`、`sources/01-…`，登记见 `catalog/corpora.json`），复核时直接对照它们。
 
 
 
@@ -66,7 +66,7 @@
 
 - `content/02-历年真题总索引.md` — 人工/AI 查询真题的统一入口，规定每卷的“首选文件”。
 
-- `catalog/corpora.json`（schema 1）— 语料总清单：层根、三套语料的 content_root/source_roots、各 `kind` 的期望文档数、真题不变量（36/17/90/53）、源扫描件的字节数与 SHA-256。**数量类断言一律从这里读，不再散落在脚本和正文里。**
+- `catalog/corpora.json`（schema 1）— 语料总清单：层根、三套语料的 content_root/source_roots、各 `kind` 的期望文档数、真题不变量（36/17/90/53）、已入库源扫描件的路径、字节数与 SHA-256。**数量类断言一律从这里读，不再散落在脚本和正文里。**
 
 - `catalog/exams.json`（schema 4）— 真题 manifest：36 份 canonical、90 份 source_versions 路径、来源目录与同名冲突映射。校验器断言 manifest、两份索引、正文与 frontmatter 的 `id` 彼此一致。
 
@@ -194,9 +194,9 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 
 
-- 四层结构：`content/INDEX.md`、`sources/README.md`、`catalog/README.md`、`assets/README.md` 必须存在；`sources/00-…`、`sources/01-…` 各须有 README 说明期望的本地文件；`.gitignore` 必须保留 `*.pdf` 规则。
+- 四层结构：`content/INDEX.md`、`sources/README.md`、`catalog/README.md`、`assets/README.md` 必须存在；`sources/00-…`、`sources/01-…` 各须有 README 说明已入库的源扫描件；`.gitignore` 必须保留 `*.pdf` 默认忽略规则，并通过 `!` 反选放行 `corpora.json` 登记的扫描件。
 
-- `catalog/corpora.json`（schema 1）：`layers` 中每个路径必须是真实目录；`root_index.path` 必须是 `content/INDEX.md`；`corpora` 必须恰好是 `outline`/`textbook`/`exams`；每个 `sha256` 必须是 64 位小写十六进制**且同时出现在 `DATA_SOURCES.md`**（防两处漂移）；扫描件不得标 `committed: true`。
+- `catalog/corpora.json`（schema 1）：`layers` 中每个路径必须是真实目录；`root_index.path` 必须是 `content/INDEX.md`；`corpora` 必须恰好是 `outline`/`textbook`/`exams`；每个 `sha256` 必须是 64 位小写十六进制**且同时出现在 `DATA_SOURCES.md`**（防两处漂移）；`kind: "pdf"` 的 source 必须标 `committed: true`，其文件必须被 git 跟踪且字节数、SHA-256 与入库文件逐字节一致，`.gitignore` 须有对应 `!` 反选行（校验器双向核对 git 跟踪的 PDF 集合与登记清单）。
 
 - frontmatter：`content/` 下每个 md 都要有；必填字段齐全；`id` 全仓库唯一；`slug` 语料内唯一且为小写 ASCII；按 `(corpus, kind)` 统计的文档数必须等于 `expected_documents`；`kind=exam` 的 `id` 集合必须等于 `catalog/exams.json` 的 `id` 集合。
 
@@ -268,7 +268,7 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 - **数字只有一处真相**：份数、章节数、冲突组数一律写进 `catalog/corpora.json`，正文和 README 只做人类可读的转述；校验器以清单为准。
 
-- **权利边界**：教材/大纲/真题/答案及其 OCR/清洗派生文本均为第三方内容，仓库不主张版权；仅 `scripts/` 与 `.github/workflows/` 适用 [LICENSE-CODE](LICENSE-CODE)（MIT）。边界与来源见 [内容与权利政策](#内容与权利政策)、[DATA_SOURCES.md](DATA_SOURCES.md)。不得提交盗版 PDF、下载链接或访问凭据。
+- **权利边界**：教材/大纲/真题/答案及其 OCR/清洗派生文本均为第三方内容，仓库不主张版权；仅 `scripts/` 与 `.github/workflows/` 适用 [LICENSE-CODE](LICENSE-CODE)（MIT）。边界与来源见 [内容与权利政策](#内容与权利政策)、[DATA_SOURCES.md](DATA_SOURCES.md)。两份已登记源扫描件按治理决定入库；除此之外不得提交任何未登记的源 PDF/扫描件、盗版 PDF、下载链接或访问凭据。
 
 
 
@@ -280,7 +280,7 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 - 换行符：`.md` 用 **CRLF**，`.py`/`.json`/`.yml`/`.yaml`/`.toml`/`uv.lock` 用 **LF**（见 `.gitattributes`、`.editorconfig`）；**所有文本文件统一为标准 UTF-8，不加 BOM**。
 
-- 不入库：源 PDF 与扫描图（`*.pdf`、`sources/**` 下的图片格式，本地文件放在 `sources/00-…`、`sources/01-…`，只登记书目信息与校验值）、渲染/提取草稿（`tmp/`）、虚拟环境（`.venv/`）、`.claude/`。**`uv.lock` 必须入库。**
+- 不入库：未登记的 PDF 与扫描图（`*.pdf` 默认忽略，仅 `catalog/corpora.json` 登记为 `committed: true` 的两份源扫描件通过 `!` 反选入库；`sources/**` 下的图片格式仍一律忽略）、渲染/提取草稿（`tmp/`）、虚拟环境（`.venv/`）、`.claude/`。**`uv.lock` 必须入库。**
 
 
 
@@ -758,7 +758,7 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 
 
-本仓库以纯文本 Markdown 为主，原始教材和真题中的图片未随仓库收录（`content/` 下只有文本，`assets/` 仍为空）。**图题存在不代表原图可用。**
+本仓库以纯文本 Markdown 为主。仓库中只入了库两份**整页扫描 PDF**（见 `sources/00-…`、`sources/01-…`）；原书单幅插图未从扫描件抽取，`content/` 下只有文本，`assets/` 仍为空。**图题存在不代表原图可用。**
 
 
 
@@ -854,9 +854,9 @@ SVG 必须作为独立文件落盘并以 Markdown 图片语法引用——**GitH
 
 
 
-- `sources/00-系统架构设计师考试大纲/` 登记的考试大纲与 `content/00-系统架构设计师考试大纲-清洗版/` 中的 OCR/清洗派生文本；
+- `sources/00-系统架构设计师考试大纲/` 登记的考试大纲（含已入库的源扫描 PDF）与 `content/00-系统架构设计师考试大纲-清洗版/` 中的 OCR/清洗派生文本；
 
-- `sources/01-系统架构设计师教材/` 登记的教材与 `content/01-系统架构设计师教材-清洗版/` 中的 OCR/清洗派生文本；
+- `sources/01-系统架构设计师教材/` 登记的教材（含已入库的源扫描 PDF）与 `content/01-系统架构设计师教材-清洗版/` 中的 OCR/清洗派生文本；
 
 - `sources/02-历年真题/`、`sources/02-历年真题(补充)/` 与 `content/02-历年真题-清洗版/` 中的试题、题面、答案、解析和公开回忆版内容；
 
@@ -918,7 +918,7 @@ SVG 必须作为独立文件落盘并以 Markdown 图片语法引用——**GitH
 
 
 
-请勿提交盗版文件下载链接、访问凭据、绕过付费或技术保护的说明，或无权公开的源 PDF/扫描件。
+请勿提交盗版文件下载链接、访问凭据或绕过付费、技术保护的说明。源 PDF/扫描件仅限 `catalog/corpora.json` 登记为 `committed: true` 的两份已入库文件；新增源文件须先更新 `catalog/corpora.json`、`DATA_SOURCES.md` 与对应 README 并说明权利依据，再随内容一并提交。
 
 
 
@@ -1000,7 +1000,7 @@ SVG 必须作为独立文件落盘并以 Markdown 图片语法引用——**GitH
 
 
 
-不要提交未获授权的源 PDF/扫描件、盗版下载链接、访问凭据、付费内容绕过方法，或把 AI 推测内容标成原文、原图、官方题面或官方答案。
+除 `catalog/corpora.json` 登记的两份已入库源扫描件外，不要提交其他源 PDF/扫描件；不要提交盗版下载链接、访问凭据、付费内容绕过方法，或把 AI 推测内容标成原文、原图、官方题面或官方答案。
 
 
 
