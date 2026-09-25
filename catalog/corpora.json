@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-21",
+  "updated_at": "2026-09-25",
   "layers": {
     "content": "content",
     "sources": "sources",
@@ -29,7 +29,7 @@
       },
       "source": {
         "kind": "pdf",
-        "committed": false,
+        "committed": true,
         "file": "系统架构设计师考试大纲.pdf",
         "bytes": 10346226,
         "sha256": "3a25e4530acd65fe12963985b4c09e61b5fb6db53c81dc3d766d1abe3b51d5ca",
@@ -56,7 +56,7 @@
       },
       "source": {
         "kind": "pdf",
-        "committed": false,
+        "committed": true,
         "file": "系统架构设计师教程(第2版).pdf",
         "bytes": 10838527,
         "sha256": "0f626f487a7a171161dcef4aa48af0bf6c7e6e02f385dcf03222a98b91fc02f5",

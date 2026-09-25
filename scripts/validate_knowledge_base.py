@@ -9,8 +9,10 @@ which prepares an interpreter satisfying ``requires-python`` in pyproject.toml.
 
 from __future__ import annotations
 
+import hashlib
 import json
 import re
+import subprocess
 import sys
 from datetime import date
 from pathlib import Path
@@ -52,8 +54,9 @@ EXAM_SOURCE_DIRS = (
 CONTENT_DIRS = (CONTENT_ROOT, OUTLINE_DIR, TEXTBOOK_DIR, CLEAN_EXAM_DIR, *EXAM_SOURCE_DIRS)
 CLEAN_DIRS = (OUTLINE_DIR, TEXTBOOK_DIR, CLEAN_EXAM_DIR)
 CHAPTER_DIRS = (OUTLINE_DIR, TEXTBOOK_DIR)
-# Scanned books are not redistributable, so these directories only carry a
-# README describing the expected local file and its checksum.
+# The registered scans are committed to the repository since 2026-09 (see
+# catalog/corpora.json "committed"); each of these directories must document
+# its committed file and its checksum.
 SOURCE_PDF_DIRS = (
     SOURCES_ROOT / "00-系统架构设计师考试大纲",
     SOURCES_ROOT / "01-系统架构设计师教材",
@@ -455,14 +458,18 @@ class Validator:
                 continue
             readme = directory / "README.md"
             if not readme.is_file():
-                self.error(readme, "source directory must document its expected local file")
+                self.error(readme, "source directory must document its committed source file")
 
-        # Scanned books are third-party material: the repository records only
-        # the bibliographic facts, so the ignore rule that keeps the binaries
-        # out must stay in place.
+        # Source scans are committed since 2026-09, but only through explicit
+        # negation lines cross-checked against catalog/corpora.json; the
+        # default *.pdf deny stays so unregistered PDFs cannot be added by
+        # accident.
         gitignore_text = self.read_text(ROOT / ".gitignore") or ""
         if "*.pdf" not in gitignore_text.splitlines():
-            self.error(ROOT / ".gitignore", "must keep the '*.pdf' rule so source scans stay out of the repository")
+            self.error(
+                ROOT / ".gitignore",
+                "must keep the '*.pdf' default-deny rule; committed scans are re-included with explicit '!' lines",
+            )
 
     def check_corpora_catalog(self) -> None:
         data = self.load_corpora()
@@ -502,6 +509,7 @@ class Validator:
             return
         expected_ids = {"outline", "textbook", "exams"}
         seen_ids: set[str] = set()
+        committed_pdfs: set[str] = set()
         data_sources_text = self.read_text(DATA_SOURCES_PATH) or ""
         for position, entry in enumerate(entries, start=1):
             if not isinstance(entry, dict):
@@ -542,12 +550,15 @@ class Validator:
                     self.error(CORPORA_PATH, f"{corpus_id}: sha256 must be 64 lowercase hex characters")
                 elif str(checksum) not in data_sources_text:
                     self.error(CORPORA_PATH, f"{corpus_id}: sha256 is not recorded in DATA_SOURCES.md")
-            if source.get("committed") is True and corpus_id != "exams":
-                self.error(CORPORA_PATH, f"{corpus_id}: scanned sources must not be marked as committed")
             if source.get("kind") == "pdf":
-                self.check_local_source_pdf(corpus_id, entry, source)
+                if source.get("committed") is not True:
+                    self.error(CORPORA_PATH, f"{corpus_id}: pdf sources must be marked as committed: true")
+                committed_pdfs.add(f"{entry['source_roots'][0]}/{source.get('file')}")
+                self.check_committed_source_pdf(corpus_id, entry, source)
         if seen_ids != expected_ids:
             self.error(CORPORA_PATH, f"corpora ids must be {sorted(expected_ids)}, found {sorted(seen_ids)}")
+
+        self.check_tracked_pdfs(committed_pdfs)
 
         exam_invariants = self.exam_invariants()
         source_documents = exam_invariants.get("source_documents")
@@ -561,40 +572,91 @@ class Validator:
                     f"exams: expected {source_documents} source documents, found {actual}",
                 )
 
-    def check_local_source_pdf(
+    def check_committed_source_pdf(
         self,
         corpus_id: str,
         entry: dict[str, object],
         source: dict[str, object],
     ) -> None:
-        """Compare a locally held scan against the facts recorded for it.
+        """Verify a committed scan matches the facts recorded for it.
 
-        The scan itself is never committed, so CI simply finds nothing here.
-        A maintainer who does hold the file gets told when it is not the one
-        the repository documents, which is how page numbers and ``source_pages``
-        quietly stop meaning anything.
+        Since 2026-09 the two registered scans are deliberately part of the
+        repository, so these are hard gates rather than a courtesy check for
+        maintainers: a re-scanned or edited PDF must land together with
+        updated byte counts and SHA-256 in catalog/corpora.json and
+        DATA_SOURCES.md, otherwise every page number recorded across the
+        knowledge base quietly stops meaning anything.
         """
         file_name = source.get("file")
         expected_bytes = source.get("bytes")
+        checksum = source.get("sha256")
         if not isinstance(file_name, str) or not file_name:
             self.error(CORPORA_PATH, f"{corpus_id}: pdf source must name its file")
             return
         if not isinstance(expected_bytes, int) or expected_bytes <= 0:
             self.error(CORPORA_PATH, f"{corpus_id}: pdf source must record a positive byte count")
             return
+        if not isinstance(checksum, str) or not SHA256_RE.fullmatch(checksum):
+            self.error(CORPORA_PATH, f"{corpus_id}: committed pdf source must record a 64-hex sha256")
+            return
         source_roots = entry.get("source_roots")
         if not isinstance(source_roots, list) or not source_roots:
             return
         local_path = ROOT / str(source_roots[0]) / file_name
         if not local_path.is_file():
+            self.error(local_path, "committed scan is missing from the checkout")
             return
         actual_bytes = local_path.stat().st_size
         if actual_bytes != expected_bytes:
-            self.warn(
+            self.error(
                 local_path,
-                f"local scan is {actual_bytes} bytes but catalog/corpora.json records {expected_bytes}; "
-                "recompute the checksum and update catalog/corpora.json and DATA_SOURCES.md",
+                f"committed scan is {actual_bytes} bytes but catalog/corpora.json records {expected_bytes}",
             )
+        actual_checksum = hashlib.sha256(local_path.read_bytes()).hexdigest()
+        if actual_checksum != checksum:
+            self.error(
+                local_path,
+                "committed scan does not match the sha256 recorded in catalog/corpora.json; "
+                "recompute it and update catalog/corpora.json and DATA_SOURCES.md together",
+            )
+        negation = f"!{local_path.relative_to(ROOT).as_posix()}"
+        gitignore_lines = (self.read_text(ROOT / ".gitignore") or "").splitlines()
+        if negation not in gitignore_lines:
+            self.error(
+                ROOT / ".gitignore",
+                f"must re-include the committed scan with the explicit line '{negation}' "
+                "so the default '*.pdf' deny does not swallow it",
+            )
+
+    def check_tracked_pdfs(self, expected: set[str]) -> None:
+        """Git-tracked PDFs must equal the scans registered in catalog/corpora.json.
+
+        The default ``*.pdf`` deny in .gitignore only stops *untracked* files;
+        a force-added PDF bypasses it silently.  Comparing ``git ls-files``
+        output against the committed-source list closes that gap in both
+        directions: no unregistered scan sneaks into the repository, and no
+        registered scan is dropped from the checkout.
+        """
+        if not (ROOT / ".git").exists():
+            return
+        try:
+            completed = subprocess.run(
+                ["git", "ls-files", "-z", "--", "*.pdf"],
+                cwd=ROOT,
+                capture_output=True,
+                check=True,
+            )
+        except (OSError, subprocess.CalledProcessError) as exc:
+            self.warn(ROOT / ".git", f"could not list tracked PDFs via git: {exc}")
+            return
+        tracked = {name.decode("utf-8", "replace").replace("\\", "/") for name in completed.stdout.split(b"\0") if name}
+        for path in sorted(tracked - expected):
+            self.error(
+                ROOT / path,
+                "unregistered PDF is tracked by git; registered scans live in catalog/corpora.json",
+            )
+        for path in sorted(expected - tracked):
+            self.error(ROOT / path, "committed scan is registered in catalog/corpora.json but not tracked by git")
 
     def exam_invariants(self) -> dict[str, object]:
         entry = self.corpus_entries().get("exams", {})
