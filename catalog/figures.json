@@ -254,6 +254,20 @@
       "printed_page": 44,
       "record": "verification/教材首轮核查-第02章-计算机系统基础知识.md",
       "note": "线性四步流程：设计构件组装→建立构件库→构建应用软件→测试与发布。"
+    },
+    {
+      "id": "tb-fig-0019",
+      "corpus": "textbook",
+      "file": "content/01-系统架构设计师教材-清洗版/第02章-计算机系统基础知识/第04节-嵌入式系统及软件.md",
+      "figure": "图 2-10",
+      "title": "嵌入式系统的基本工作原理",
+      "kind": "svg",
+      "anchor": "> 图 2-10 嵌入式系统的基本工作原理",
+      "asset": "assets/figures/textbook/ch02-computer-system-fundamentals/figure-2-10.svg",
+      "physical_page": 56,
+      "printed_page": 47,
+      "record": "verification/教材首轮核查-第02章-计算机系统基础知识.md",
+      "note": "操作者经人机接口与嵌入式计算机双向交互；嵌入式计算机经数字/模拟接口与受控对象双向交互。"
     }
   ]
 }

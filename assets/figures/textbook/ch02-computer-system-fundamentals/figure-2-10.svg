@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="260" viewBox="0 0 900 260" font-family="sans-serif">
+  <title>图 2-10 嵌入式系统的基本工作原理</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 47（物理页 56）插图。操作者经人机接口与嵌入式计算机双向交互，嵌入式计算机经数字/模拟接口与受控对象双向交互。</desc>
+  <rect width="900" height="260" fill="#ffffff"/>
+  <defs>
+    <marker id="a210" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#4a5568"/>
+    </marker>
+  </defs>
+  <g fill="#eef3fb" stroke="#7d8da5" stroke-width="2">
+    <rect x="40" y="110" width="155" height="55"/>
+    <rect x="360" y="103" width="155" height="68"/>
+    <rect x="710" y="110" width="155" height="55"/>
+  </g>
+  <g font-size="18" fill="#1f2937">
+    <text x="117" y="144" text-anchor="middle">操作者</text>
+    <text x="437" y="131" text-anchor="middle">嵌入式</text>
+    <text x="437" y="156" text-anchor="middle">计算机</text>
+    <text x="787" y="144" text-anchor="middle">受控对象</text>
+    <text x="272" y="128" text-anchor="middle">人机接口</text>
+    <text x="608" y="128" text-anchor="middle">数字/模拟接口</text>
+  </g>
+  <g stroke="#4a5568" stroke-width="2.2">
+    <line x1="199" y1="135" x2="356" y2="135" marker-end="url(#a210)"/>
+    <line x1="356" y1="152" x2="199" y2="152" marker-end="url(#a210)"/>
+    <line x1="519" y1="135" x2="706" y2="135" marker-end="url(#a210)"/>
+    <line x1="706" y1="152" x2="519" y2="152" marker-end="url(#a210)"/>
+  </g>
+</svg>
