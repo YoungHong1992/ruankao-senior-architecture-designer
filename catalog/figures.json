@@ -466,6 +466,20 @@
       "note": "阶梯时间线：Booch方法、OMT、OOSE 汇入 Unified Method 0.8（1995），依次 0.9（1996）、1.0（1997年1月最初提交给OMG）、1.1（1997年9月最后提交给OMG）、1.2（1998）、1.3（1999）、1.4（2001）、2.0（2001）。"
     },
     {
+      "id": "tb-fig-0025b",
+      "corpus": "textbook",
+      "file": "content/01-系统架构设计师教材-清洗版/第02章-计算机系统基础知识/第06节-计算机语言.md",
+      "figure": "图 2-25",
+      "title": "结构事物的图形表示",
+      "kind": "svg",
+      "anchor": "> 图 2-25 结构事物的图形表示",
+      "asset": "assets/figures/textbook/ch02-computer-system-fundamentals/figure-2-25.svg",
+      "physical_page": 90,
+      "printed_page": 81,
+      "record": "verification/教材首轮核查-第02章-计算机系统基础知识.md",
+      "note": "两行八种结构事物记法：类（名称/-属性/+方法() 三格框）、接口（棒糖圆圈与分格框两种）、协作（协作名虚线椭圆）、用例（用例名实线椭圆）、主动类（粗边框三格框）、构件（component 构件名带图标）、制品（artifact 制品名带文档图标）、结点（结点名三维立方体）。"
+    },
+    {
       "id": "tb-fig-0034",
       "corpus": "textbook",
       "file": "content/01-系统架构设计师教材-清洗版/第02章-计算机系统基础知识/第06节-计算机语言.md",
