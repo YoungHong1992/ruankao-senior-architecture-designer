@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="480" viewBox="0 0 960 480" font-family="sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" font-family="sans-serif">
   <title>表 2-6 ISO/OSI模型与TCP/IP模型的对比</title>
-  <desc>复原自《系统架构设计师教程（第2版）》印刷页 72-73（物理页 81-82）表格，跨页续印，含合并单元格。三列：ISO/OSI 模型、TCP/IP 协议、TCP/IP 模型。应用/表示/会话层（左合并）对应 FTP、Telnet、SMTP、NFS、SNMP 与应用层；传输层 TCP、UDP；网络层 IP、ICMP、ARP、RARP 对网际层；数据链路层与物理层行对应 Enternet IEEE 802.3〔原书如此〕、FDDI、Token-Ring/IEEE 802.3 硬件层、ARCnet、PPP/SLIP，右列网络接口层与硬件层。</desc>
-  <rect width="960" height="480" fill="#ffffff"/>
-  <rect x="30" y="30" width="900" height="420" fill="#f6f9fd" stroke="#556070" stroke-width="1.8"/>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 72-73（物理页 81-82）表格，跨页续印，含合并单元格。左列应用层/表示层/会话层为三个独立行，五个协议格与右列应用层纵跨此三行；传输层 TCP/UDP；网络层 IP、ICMP 与 ARP RARP 同格，对应网际层；数据链路层与物理层两行上，Enternet IEEE 802.3（原书如此，疑为 Ethernet）、FDDI、Token-Ring/IEEE 802.3 硬件层、ARCnet 四格纵跨两行且中间无横线，PPP/SLIP 窄格切入右列下方，右列对应网络接口层与硬件层两行。</desc>
+  <rect width="960" height="560" fill="#ffffff"/>
+  <rect x="30" y="30" width="900" height="480" fill="#f6f9fd" stroke="#556070" stroke-width="1.8"/>
   <g fill="#dce6f3" stroke="#556070" stroke-width="1.8">
     <rect x="30" y="30" width="150" height="55"/>
     <rect x="180" y="30" width="545" height="55"/>
@@ -13,85 +13,90 @@
     <text x="452" y="64" font-weight="bold">TCP/IP 协议</text>
     <text x="827" y="64" font-weight="bold">TCP/IP 模型</text>
   </g>
-  <!-- 行分隔 -->
+
+  <!-- 行分隔：左列应用/表示/会话三行独立 -->
   <g stroke="#556070" stroke-width="1.3">
-    <line x1="30" y1="180" x2="930" y2="180"/>
-    <line x1="30" y1="255" x2="930" y2="255"/>
-    <line x1="30" y1="315" x2="930" y2="315"/>
-    <line x1="30" y1="380" x2="930" y2="380"/>
+    <line x1="30" y1="128" x2="180" y2="128"/>
+    <line x1="30" y1="172" x2="180" y2="172"/>
+    <line x1="30" y1="215" x2="930" y2="215"/>
+    <line x1="30" y1="285" x2="930" y2="285"/>
+    <line x1="30" y1="355" x2="930" y2="355"/>
+    <line x1="30" y1="432" x2="180" y2="432"/>
+    <line x1="781" y1="432" x2="930" y2="432"/>
   </g>
-  <!-- 竖线 -->
+  <!-- 列分隔 -->
   <g stroke="#556070" stroke-width="1.5">
-    <line x1="180" y1="85" x2="180" y2="450"/>
-    <line x1="725" y1="85" x2="725" y2="450"/>
+    <line x1="180" y1="30" x2="180" y2="510"/>
+    <line x1="725" y1="30" x2="725" y2="355"/>
+    <line x1="725" y1="355" x2="725" y2="510"/>
   </g>
-  <g font-size="16" fill="#1f2937">
-    <text x="105" y="122" text-anchor="middle">应用层</text>
-    <text x="105" y="150" text-anchor="middle">表示层</text>
-    <text x="105" y="172" text-anchor="middle">会话层</text>
-    <text x="105" y="222" text-anchor="middle">传输层</text>
-    <text x="105" y="290" text-anchor="middle">网络层</text>
-    <text x="105" y="352" text-anchor="middle">数据链路层</text>
-    <text x="105" y="420" text-anchor="middle">物理层</text>
-  </g>
-  <!-- 上部应用层协议格（五分格） -->
+  <!-- 协议格分隔 -->
   <g stroke="#556070" stroke-width="1.3">
-    <line x1="180" y1="180" x2="725" y2="180"/>
-    <line x1="295" y1="85" x2="295" y2="180"/>
-    <line x1="420" y1="85" x2="420" y2="180"/>
-    <line x1="540" y1="85" x2="540" y2="180"/>
-    <line x1="650" y1="85" x2="650" y2="180"/>
+    <line x1="281" y1="85" x2="281" y2="215"/>
+    <line x1="386" y1="85" x2="386" y2="215"/>
+    <line x1="470" y1="85" x2="470" y2="215"/>
+    <line x1="624" y1="85" x2="624" y2="215"/>
+    <line x1="409" y1="215" x2="409" y2="355"/>
+    <line x1="600" y1="285" x2="600" y2="355"/>
+    <line x1="288" y1="355" x2="288" y2="510"/>
+    <line x1="402" y1="355" x2="402" y2="510"/>
+    <line x1="619" y1="355" x2="619" y2="510"/>
+    <line x1="781" y1="355" x2="781" y2="510"/>
   </g>
+
+  <!-- 左列标签 -->
+  <g font-size="16" fill="#1f2937" text-anchor="middle">
+    <text x="105" y="112">应用层</text>
+    <text x="105" y="155">表示层</text>
+    <text x="105" y="198">会话层</text>
+    <text x="105" y="255">传输层</text>
+    <text x="105" y="325">网络层</text>
+    <text x="105" y="398">数据链路层</text>
+    <text x="105" y="476">物理层</text>
+  </g>
+
+  <!-- 应用层协议格（纵跨三行） -->
   <g font-size="15" fill="#1f2937" text-anchor="middle">
-    <text x="237" y="125">文件传输</text>
-    <text x="237" y="148">协议FTP</text>
-    <text x="357" y="125">远程登录协</text>
-    <text x="357" y="148">议 Telnet</text>
-    <text x="480" y="125">电子邮</text>
-    <text x="480" y="148">件协议</text>
-    <text x="480" y="171">SMTP</text>
-    <text x="595" y="118">网络文件服</text>
-    <text x="595" y="140">务协议NFS</text>
-    <text x="687" y="118" font-size="14">网络管理</text>
-    <text x="687" y="140" font-size="14">协议SNMP</text>
-    <text x="827" y="140">应用层</text>
+    <text x="230" y="140">文件传输</text>
+    <text x="230" y="166">协议FTP</text>
+    <text x="333" y="140">远程登录协</text>
+    <text x="333" y="166">议 Telnet</text>
+    <text x="428" y="128">电子邮</text>
+    <text x="428" y="152">件协议</text>
+    <text x="428" y="178">SMTP</text>
+    <text x="547" y="140">网络文件服务协</text>
+    <text x="547" y="166">议NFS</text>
+    <text x="674" y="140">网络管理协</text>
+    <text x="674" y="166">议SNMP</text>
+    <text x="827" y="155">应用层</text>
   </g>
+
   <!-- 传输层 -->
   <g font-size="15" fill="#1f2937" text-anchor="middle">
-    <text x="335" y="222">TCP</text>
-    <text x="560" y="222">UDP</text>
-    <text x="827" y="222">传输层</text>
+    <text x="294" y="255">TCP</text>
+    <text x="567" y="255">UDP</text>
+    <text x="827" y="255">传输层</text>
   </g>
-  <line x1="450" y1="180" x2="450" y2="255" stroke="#556070" stroke-width="1.3"/>
-  <!-- 网络层 -->
+
+  <!-- 网络层（ARP 与 RARP 同格） -->
   <g font-size="15" fill="#1f2937" text-anchor="middle">
-    <text x="335" y="290">IP</text>
-    <text x="575" y="290">ICMP</text>
-    <text x="668" y="290">ARP</text>
-    <text x="680" y="290"> </text>
-    <text x="827" y="290">网际层</text>
+    <text x="294" y="325">IP</text>
+    <text x="504" y="325">ICMP</text>
+    <text x="662" y="325">ARP&#160;&#160;&#160;RARP</text>
+    <text x="827" y="325">网际层</text>
   </g>
-  <line x1="500" y1="255" x2="500" y2="315" stroke="#556070" stroke-width="1.3"/>
-  <line x1="645" y1="255" x2="645" y2="315" stroke="#556070" stroke-width="1.3"/>
-  <text x="712" y="290" font-size="15" fill="#1f2937">RARP</text>
-  <!-- 数据链路层/物理层（合并跨行） -->
+
+  <!-- 数据链路层/物理层（四格纵跨两行，PPP/SLIP 切入右列） -->
   <g font-size="15" fill="#1f2937" text-anchor="middle">
-    <text x="280" y="352">Enternet</text>
-    <text x="280" y="375">IEEE 802.3</text>
-    <text x="415" y="363">FDDI</text>
-    <text x="560" y="352">Token-Ring/IEEE 802.3</text>
-    <text x="560" y="375">硬件层</text>
-    <text x="660" y="363">ARCnet</text>
-    <text x="782" y="352">PPP/</text>
-    <text x="782" y="375">SLIP</text>
-    <text x="855" y="352">网络接口层</text>
-    <text x="855" y="412">硬件层</text>
-  </g>
-  <g stroke="#556070" stroke-width="1.3">
-    <line x1="352" y1="315" x2="352" y2="450"/>
-    <line x1="478" y1="315" x2="478" y2="450"/>
-    <line x1="735" y1="315" x2="735" y2="450"/>
-    <line x1="800" y1="380" x2="930" y2="380"/>
-    <line x1="800" y1="315" x2="800" y2="450"/>
+    <text x="234" y="422">Enternet</text>
+    <text x="234" y="448">IEEE 802.3</text>
+    <text x="345" y="438">FDDI</text>
+    <text x="510" y="422">Token-Ring/IEEE 802.3</text>
+    <text x="510" y="448">硬件层</text>
+    <text x="672" y="438">ARCnet</text>
+    <text x="753" y="422">PPP/</text>
+    <text x="753" y="448">SLIP</text>
+    <text x="855" y="398">网络接口层</text>
+    <text x="855" y="476">硬件层</text>
   </g>
 </svg>

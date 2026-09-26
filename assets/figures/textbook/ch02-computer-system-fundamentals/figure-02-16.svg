@@ -1,171 +1,218 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1010" height="1150" viewBox="0 0 1010 1150" font-family="sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="1010" height="990" viewBox="0 0 1010 990" font-family="sans-serif">
   <title>图 2-16 软件生命周期过程、活动关系图</title>
-  <desc>复原自《系统架构设计师教程（第2版）》印刷页 55（物理页 64）插图。顶部为系统生命周期框；其下虚线层界标注"系统需求/软件级别"。主体四条泳道：开发进程泳道（软件需求进程→软件需求数据→软件设计进程→软件设计描述→软件编码进程→源代码〔原书印作"源代术码"〕→集成进程→目标代码，左侧依次有软件需求标准/软件开发计划、软件设计标准、软件编码标准、软件开发计划输入）；验证泳道（软件需求验证、软件设计验证、软件编码验证、集成进程验证，输入软件需求标准/软件设计标准/软件编码标准等，各经验证活动输出测试用例/测试结果）；分析泳道（需求覆盖率分析×2、结构覆盖率分析、测试结果分析，输出分析报告，另有源/目标代码追踪）；底部三个横向长条为软件配置管理进程、软件质量保证进程、审定联络进程，左侧软件计划进程纵列以软件验证计划、软件配置管理计划、软件质量保证计划、软件审定计划输入。原书个别退化字（源代术码、口目标代码）照录。</desc>
-  <rect width="1010" height="1150" fill="#ffffff"/>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 55（物理页 64）插图。顶部系统生命周期框，其下虚线层界标注「系纳需录/软件级别」（原书如此，当为系统需求）；三处列顶标注：系统需求（软件开发进程列）、系统需求（验证列，悬于容器上方无箭头）、软件需求数据（分析列）。左侧软件计划进程纵箱纵贯全图。软件开发进程容器内竖直顺序链：软件需求进程→(软件需求数据)→软件设计进程→(软件设计描述)→软件编码进程→(源代术码，原书如此)→集成进程→(目标代码)，容器底标注软件开发进程。验证容器内：软件需求标准/软件需求验证→(软件需求数据/软件设计标准)→软件设计验证→(软件设计描述/软件编码标准)→软件编码验证→(源代码)→集成进程验证→(口目标代码/测试用列/过程，原书如此)→测试，容器底标注验证活动，由软件验证计划驱动（箭头指向容器左缘）。分析容器内：需求覆盖率分析→(软件设计描述)→需求覆盖率分析→(测试用例/源代码目标代码)→结构覆盖率分析→(源代码/目标代码)→源/目标代码追踪→(测试用例/测试过程)→测试结果分析，容器底标注验证的验证；各分析框向右输出分析报告。开发列四项数据（软件需求数据、软件设计描述、源代码、目标代码）横向流入验证列，验证列输出测试用例×2 与测试结果。验证容器旁注走查分析报告/测试用例/过程；底部软件配置管理进程、软件质量保证进程、审定联络进程分别由软件配置管理计划、软件质量保证计划、软件审定计划驱动。原书个别退化字照录。</desc>
+  <rect width="1010" height="990" fill="#ffffff"/>
   <defs>
     <marker id="c16" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
       <path d="M 0 0 L 10 5 L 0 10 Z" fill="#556070"/>
     </marker>
   </defs>
-  <rect width="1010" height="1150" fill="#ffffff"/>
 
-  <rect x="30" y="30" width="920" height="52" fill="#f2f6fc" stroke="#7d8da5" stroke-width="2"/>
-  <text x="490" y="63" text-anchor="middle" font-size="18" fill="#1f2937">系统生命周期</text>
-  <line x1="30" y1="112" x2="950" y2="112" stroke="#8a99ad" stroke-width="1.5" stroke-dasharray="7 5"/>
-  <text x="45" y="140" font-size="15" fill="#1f2937">系统需求</text>
-  <text x="45" y="161" font-size="15" fill="#1f2937">软件级别</text>
-  <line x1="350" y1="82" x2="350" y2="160" stroke="#556070" stroke-width="2" marker-end="url(#c16)"/>
+  <!-- 顶部系统生命周期与层界 -->
+  <rect x="30" y="30" width="950" height="52" fill="#f2f6fc" stroke="#7d8da5" stroke-width="2"/>
+  <text x="505" y="63" text-anchor="middle" font-size="18" fill="#1f2937">系统生命周期</text>
+  <line x1="30" y1="112" x2="980" y2="112" stroke="#8a99ad" stroke-width="1.5" stroke-dasharray="7 5"/>
+  <text x="45" y="136" font-size="14" fill="#1f2937">系纳需录</text>
+  <text x="45" y="157" font-size="14" fill="#1f2937">软件级别</text>
 
-  <!-- 泳道外框 -->
-  <rect x="115" y="175" width="230" height="620" fill="none" stroke="#9aa7b8" stroke-width="1.5"/>
-  <rect x="375" y="175" width="175" height="620" fill="none" stroke="#9aa7b8" stroke-width="1.5"/>
-  <rect x="585" y="175" width="215" height="500" fill="none" stroke="#9aa7b8" stroke-width="1.5"/>
-  <rect x="835" y="175" width="115" height="500" fill="none" stroke="#9aa7b8" stroke-width="1.5"/>
+  <!-- 列顶标注与竖直输入 -->
+  <text x="425" y="140" font-size="14" font-weight="bold" fill="#1f2937">系统需求</text>
+  <text x="660" y="140" text-anchor="middle" font-size="14" font-weight="bold" fill="#1f2937">系统需求</text>
+  <text x="887" y="140" text-anchor="middle" font-size="14" font-weight="bold" fill="#1f2937">软件需求数据</text>
+  <line x1="415" y1="82" x2="415" y2="182" stroke="#556070" stroke-width="2" marker-end="url(#c16)"/>
+  <line x1="887" y1="148" x2="887" y2="184" stroke="#556070" stroke-width="2" marker-end="url(#c16)"/>
 
+  <!-- 容器框 -->
+  <g fill="none" stroke="#9aa7b8" stroke-width="1.5">
+    <rect x="30" y="175" width="85" height="785"/>
+    <rect x="330" y="175" width="170" height="497"/>
+    <rect x="575" y="175" width="170" height="560"/>
+    <rect x="820" y="175" width="135" height="497"/>
+  </g>
+  <text x="72" y="585" text-anchor="middle" font-size="13" fill="#1f2937">软件计划进程</text>
+  <text x="415" y="665" text-anchor="middle" font-size="14" fill="#1f2937">软件开发进程</text>
+  <text x="887" y="665" text-anchor="middle" font-size="14" fill="#1f2937">验证的验证</text>
+
+  <!-- 开发列 -->
   <g fill="#eef3fb" stroke="#7d8da5" stroke-width="1.8">
-    <rect x="125" y="195" width="210" height="46"/>
-    <rect x="385" y="195" width="155" height="46"/>
-    <rect x="600" y="192" width="190" height="46"/>
-    <rect x="845" y="192" width="95" height="46"/>
-    <rect x="125" y="290" width="210" height="46"/>
-    <rect x="385" y="290" width="155" height="46"/>
-    <rect x="600" y="287" width="190" height="46"/>
-    <rect x="845" y="287" width="95" height="46"/>
-    <rect x="125" y="385" width="210" height="46"/>
-    <rect x="385" y="385" width="155" height="46"/>
-    <rect x="600" y="382" width="190" height="46"/>
-    <rect x="845" y="382" width="95" height="46"/>
-    <rect x="125" y="480" width="210" height="46"/>
-    <rect x="385" y="480" width="155" height="46"/>
-    <rect x="600" y="477" width="190" height="46"/>
-    <rect x="845" y="477" width="95" height="46"/>
-    <rect x="600" y="572" width="190" height="46"/>
-    <rect x="845" y="572" width="95" height="46"/>
+    <rect x="340" y="190" width="150" height="46"/>
+    <rect x="340" y="285" width="150" height="46"/>
+    <rect x="340" y="380" width="150" height="46"/>
+    <rect x="340" y="475" width="150" height="46"/>
   </g>
   <g font-size="15" fill="#1f2937" text-anchor="middle">
-    <text x="230" y="224">软件需求进程</text>
-    <text x="462" y="224">软件需求数据</text>
-    <text x="695" y="212">软件需求标准</text>
-    <text x="695" y="231">软件需求验证</text>
-    <text x="892" y="215">测试用例</text>
-    <text x="892" y="234">→</text>
-    <text x="892" y="253">需求覆盖率分析</text>
-    <text x="230" y="319">软件设计进程</text>
-    <text x="462" y="319">软件设计描述</text>
-    <text x="695" y="307">软件需求数据</text>
-    <text x="695" y="326">软件设计标准</text>
-    <text x="695" y="345" font-size="14">软件设计验证</text>
-    <text x="892" y="310">测试用例</text>
-    <text x="892" y="329">→</text>
-    <text x="892" y="348">需求覆盖率分析</text>
-    <text x="230" y="414">软件编码进程</text>
-    <text x="462" y="414">源代码</text>
-    <text x="695" y="402">软件设计描述</text>
-    <text x="695" y="421">软件 编码标准</text>
-    <text x="695" y="440" font-size="14">软件编码验证</text>
-    <text x="892" y="400">测试用例</text>
-    <text x="892" y="419">源代码/目标代码</text>
-    <text x="892" y="438">结构覆盖率分析</text>
-    <text x="230" y="509">集成进程</text>
-    <text x="462" y="509">目标代码</text>
-    <text x="695" y="497">源代码</text>
-    <text x="695" y="516">集成进程验证</text>
-    <text x="892" y="500">源代码</text>
-    <text x="892" y="519">目标代码</text>
-    <text x="892" y="538">源/目标代码追踪</text>
-    <text x="695" y="598">测试</text>
-    <text x="892" y="592">测试用例</text>
-    <text x="892" y="611">测试过程</text>
-    <text x="892" y="630">测试结果分析</text>
+    <text x="415" y="219">软件需求进程</text>
+    <text x="415" y="314">软件设计进程</text>
+    <text x="415" y="409">软件编码进程</text>
+    <text x="415" y="504">集成进程</text>
   </g>
-  <!-- 各阶段间箭头 -->
-  <g stroke="#556070" stroke-width="1.8" fill="none">
-    <line x1="335" y1="218" x2="381" y2="218" marker-end="url(#c16)"/>
-    <line x1="540" y1="218" x2="596" y2="218" marker-end="url(#c16)"/>
-    <line x1="790" y1="215" x2="841" y2="215" marker-end="url(#c16)"/>
-    <line x1="335" y1="313" x2="381" y2="313" marker-end="url(#c16)"/>
-    <line x1="540" y1="313" x2="596" y2="313" marker-end="url(#c16)"/>
-    <line x1="790" y1="310" x2="841" y2="310" marker-end="url(#c16)"/>
-    <line x1="335" y1="408" x2="381" y2="408" marker-end="url(#c16)"/>
-    <line x1="540" y1="408" x2="596" y2="408" marker-end="url(#c16)"/>
-    <line x1="790" y1="405" x2="841" y2="405" marker-end="url(#c16)"/>
-    <line x1="335" y1="503" x2="381" y2="503" marker-end="url(#c16)"/>
-    <line x1="540" y1="503" x2="596" y2="503" marker-end="url(#c16)"/>
-    <line x1="790" y1="500" x2="841" y2="500" marker-end="url(#c16)"/>
-    <line x1="695" y1="523" x2="695" y2="568" marker-end="url(#c16)"/>
-    <line x1="790" y1="595" x2="841" y2="595" marker-end="url(#c16)"/>
-    <line x1="830" y1="253" x2="830" y2="283" stroke="none"/>
-    <!-- 右缘分析报告输出 -->
-    <line x1="940" y1="215" x2="965" y2="215" marker-end="url(#c16)"/>
-    <line x1="940" y1="310" x2="965" y2="310" marker-end="url(#c16)"/>
-    <line x1="940" y1="405" x2="965" y2="405" marker-end="url(#c16)"/>
-    <line x1="940" y1="500" x2="965" y2="500" marker-end="url(#c16)"/>
-    <line x1="940" y1="595" x2="965" y2="595" marker-end="url(#c16)"/>
+  <g stroke="#556070" stroke-width="1.6" fill="none">
+    <line x1="415" y1="236" x2="415" y2="252"/>
+    <line x1="415" y1="276" x2="415" y2="281" marker-end="url(#c16)"/>
+    <line x1="415" y1="331" x2="415" y2="347"/>
+    <line x1="415" y1="367" x2="415" y2="376" marker-end="url(#c16)"/>
+    <line x1="415" y1="426" x2="415" y2="442"/>
+    <line x1="415" y1="462" x2="415" y2="471" marker-end="url(#c16)"/>
+    <line x1="415" y1="521" x2="415" y2="556"/>
+    <line x1="415" y1="576" x2="415" y2="596" marker-end="url(#c16)"/>
   </g>
-  <g font-size="14" fill="#1f2937">
-    <text x="948" y="205">分析报告</text>
-    <text x="948" y="300">分析报告</text>
-    <text x="948" y="395">分析报告</text>
-    <text x="948" y="490">分析报告</text>
-    <text x="948" y="585">分析报告</text>
-    <!-- 阶段内数据竖箭头 -->
-    <text x="462" y="253" text-anchor="middle">↓ 软件需求数据</text>
-    <text x="462" y="348" text-anchor="middle">↓ 软件设计描述</text>
-    <text x="462" y="443" text-anchor="middle">↓ 源代码</text>
-    <text x="462" y="538" text-anchor="middle">↓ 目标代码</text>
-    <text x="695" y="256" text-anchor="middle">↓</text>
-    <text x="695" y="351" text-anchor="middle">↓</text>
-    <text x="695" y="446" text-anchor="middle">↓</text>
-    <text x="695" y="541" text-anchor="middle">↓ 源代码</text>
+  <g font-size="13" fill="#1f2937" text-anchor="middle">
+    <text x="415" y="270">软件需求数据</text>
+    <text x="415" y="361">软件设计描述</text>
+    <text x="415" y="456">源代术码</text>
+    <text x="415" y="571">目标代码</text>
   </g>
 
-  <!-- 左侧计划进程纵列 -->
-  <rect x="30" y="175" width="75" height="620" fill="#f2f6fc" stroke="#9aa7b8" stroke-width="1.5"/>
-  <text x="67" y="470" text-anchor="middle" font-size="15" fill="#1f2937">软件计划进程</text>
-
-  <!-- 左侧输入标注 -->
-  <g font-size="14" fill="#1f2937">
-    <text x="122" y="262">软件需求标准</text>
-    <text x="122" y="281">软件开发计划</text>
-    <text x="122" y="357">软件设计标准</text>
-    <text x="122" y="376">软件开发计划</text>
-    <text x="122" y="452">软件编码标准</text>
-    <text x="122" y="471">软件开发计划</text>
+  <!-- 验证列 -->
+  <g fill="#eef3fb" stroke="#7d8da5" stroke-width="1.8">
+    <rect x="590" y="190" width="140" height="50"/>
+    <rect x="590" y="285" width="140" height="46"/>
+    <rect x="590" y="376" width="140" height="46"/>
+    <rect x="590" y="467" width="140" height="46"/>
+    <rect x="590" y="580" width="140" height="46"/>
+  </g>
+  <g font-size="13" fill="#1f2937" text-anchor="middle">
+    <text x="660" y="210">软件需求标准</text>
+    <text x="660" y="231">软件需求验证</text>
+    <text x="660" y="313" font-size="14">软件设计验证</text>
+    <text x="660" y="404" font-size="14">软件编码验证</text>
+    <text x="660" y="495" font-size="14">集成进程验证</text>
+    <text x="660" y="609" font-size="14">测试</text>
+  </g>
+  <g stroke="#556070" stroke-width="1.6" fill="none">
+    <line x1="660" y1="240" x2="660" y2="246"/>
+    <line x1="660" y1="278" x2="660" y2="281" marker-end="url(#c16)"/>
+    <line x1="660" y1="331" x2="660" y2="340"/>
+    <line x1="660" y1="369" x2="660" y2="372" marker-end="url(#c16)"/>
+    <line x1="660" y1="422" x2="660" y2="437"/>
+    <line x1="660" y1="458" x2="660" y2="463" marker-end="url(#c16)"/>
+    <line x1="660" y1="513" x2="660" y2="522"/>
+    <line x1="660" y1="566" x2="660" y2="576" marker-end="url(#c16)"/>
+  </g>
+  <g font-size="12.5" fill="#1f2937" text-anchor="middle">
+    <text x="660" y="257">软件需求数据</text>
+    <text x="660" y="273">软件设计标准</text>
+    <text x="660" y="348">软件设计描述</text>
+    <text x="660" y="364">软件编码标准</text>
+    <text x="660" y="449">源代码</text>
+    <text x="660" y="536">口目标代码</text>
+    <text x="660" y="557">测试用列/过程</text>
   </g>
 
-  <!-- 验证活动框 -->
-  <rect x="560" y="655" width="240" height="50" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.8"/>
-  <text x="680" y="686" text-anchor="middle" font-size="15" fill="#1f2937">验证活动</text>
-  <g font-size="14" fill="#1f2937">
-    <text x="760" y="668">走查分析报告</text>
-    <text x="760" y="687">测试用例/过程</text>
+  <!-- 分析列 -->
+  <g fill="#eef3fb" stroke="#7d8da5" stroke-width="1.8">
+    <rect x="830" y="190" width="115" height="46"/>
+    <rect x="830" y="285" width="115" height="46"/>
+    <rect x="830" y="380" width="115" height="46"/>
+    <rect x="830" y="490" width="115" height="46"/>
+    <rect x="830" y="600" width="115" height="46"/>
   </g>
+  <g font-size="12.5" fill="#1f2937" text-anchor="middle">
+    <text x="887" y="217">需求覆盖率分析</text>
+    <text x="887" y="312">需求覆盖率分析</text>
+    <text x="887" y="407">结构覆盖率分析</text>
+    <text x="887" y="517">源/目标代码追踪</text>
+    <text x="887" y="627">测试结果分析</text>
+  </g>
+  <g stroke="#556070" stroke-width="1.6" fill="none">
+    <line x1="887" y1="236" x2="887" y2="252"/>
+    <line x1="887" y1="276" x2="887" y2="281" marker-end="url(#c16)"/>
+    <line x1="887" y1="331" x2="887" y2="344"/>
+    <line x1="887" y1="369" x2="887" y2="376" marker-end="url(#c16)"/>
+    <line x1="887" y1="426" x2="887" y2="439"/>
+    <line x1="887" y1="478" x2="887" y2="486" marker-end="url(#c16)"/>
+    <line x1="887" y1="536" x2="887" y2="549"/>
+    <line x1="887" y1="588" x2="887" y2="596" marker-end="url(#c16)"/>
+  </g>
+  <g font-size="12" fill="#1f2937" text-anchor="middle">
+    <text x="887" y="270">软件设计描述</text>
+    <text x="887" y="348">测试用例</text>
+    <text x="887" y="364">源代码目标代码</text>
+    <text x="887" y="450">源代码</text>
+    <text x="887" y="470">目标代码</text>
+    <text x="887" y="562">测试用例</text>
+    <text x="887" y="582">测试过程</text>
+  </g>
+
+  <!-- 开发列 → 验证列 -->
+  <g stroke="#556070" stroke-width="1.6" fill="none">
+    <line x1="492" y1="213" x2="584" y2="213" marker-end="url(#c16)"/>
+    <line x1="492" y1="308" x2="584" y2="308" marker-end="url(#c16)"/>
+    <line x1="492" y1="403" x2="584" y2="403" marker-end="url(#c16)"/>
+    <line x1="492" y1="498" x2="584" y2="498" marker-end="url(#c16)"/>
+  </g>
+  <g font-size="12" fill="#1f2937" text-anchor="middle">
+    <text x="537" y="206">软件需求数据</text>
+    <text x="537" y="301">软件设计描述</text>
+    <text x="537" y="396">源代码</text>
+    <text x="537" y="491">目标代码</text>
+  </g>
+
+  <!-- 验证列 → 分析列 -->
+  <g stroke="#556070" stroke-width="1.6" fill="none">
+    <line x1="732" y1="213" x2="824" y2="213" marker-end="url(#c16)"/>
+    <line x1="732" y1="308" x2="824" y2="308" marker-end="url(#c16)"/>
+    <line x1="732" y1="613" x2="824" y2="613" marker-end="url(#c16)"/>
+  </g>
+  <g font-size="12" fill="#1f2937" text-anchor="middle">
+    <text x="781" y="206">测试用例</text>
+    <text x="781" y="301">测试用例</text>
+    <text x="781" y="606">测试结果</text>
+  </g>
+
+  <!-- 分析报告输出 -->
+  <g stroke="#556070" stroke-width="1.6" fill="none">
+    <line x1="947" y1="213" x2="985" y2="213" marker-end="url(#c16)"/>
+    <line x1="947" y1="308" x2="985" y2="308" marker-end="url(#c16)"/>
+    <line x1="947" y1="403" x2="985" y2="403" marker-end="url(#c16)"/>
+    <line x1="947" y1="513" x2="985" y2="513" marker-end="url(#c16)"/>
+    <line x1="947" y1="623" x2="985" y2="623" marker-end="url(#c16)"/>
+  </g>
+  <g font-size="12.5" fill="#1f2937">
+    <text x="950" y="205">分析报告</text>
+    <text x="950" y="300">分析报告</text>
+    <text x="950" y="395">分析报告</text>
+    <text x="950" y="505">分析报告</text>
+    <text x="950" y="615">分析报告</text>
+  </g>
+
+  <!-- 验证活动（验证容器底部标注） -->
+  <text x="660" y="712" text-anchor="middle" font-size="14" fill="#1f2937">验证活动</text>
+  <line x1="119" y1="700" x2="571" y2="700" stroke="#556070" stroke-width="1.6" marker-end="url(#c16)"/>
+  <text x="255" y="692" font-size="13.5" fill="#1f2937">软件验证计划</text>
+  <text x="755" y="695" font-size="12" fill="#1f2937">走查分析报告</text>
+  <text x="755" y="714" font-size="12" fill="#1f2937">测试用例/过程</text>
 
   <!-- 底部三条横向进程 -->
-  <g stroke="#556070" stroke-width="1.8" fill="none">
-    <line x1="105" y1="500" x2="330" y2="745" stroke="none"/>
-    <line x1="330" y1="748" x2="556" y2="675" marker-end="url(#c16)"/>
-    <line x1="330" y1="800" x2="556" y2="800" marker-end="url(#c16)"/>
-    <line x1="330" y1="855" x2="556" y2="855" marker-end="url(#c16)"/>
-    <line x1="330" y1="910" x2="556" y2="910" marker-end="url(#c16)"/>
-  </g>
-  <g font-size="14" fill="#1f2937">
-    <text x="338" y="740">软件验证计划</text>
-    <text x="338" y="794">软件配置管理计划</text>
-    <text x="338" y="849">软件质量保证计划</text>
-    <text x="338" y="904">软件审定计划</text>
-  </g>
   <g fill="#eef3fb" stroke="#7d8da5" stroke-width="1.8">
-    <rect x="560" y="775" width="390" height="50"/>
-    <rect x="560" y="830" width="390" height="50"/>
-    <rect x="560" y="885" width="390" height="50"/>
+    <rect x="330" y="760" width="625" height="50"/>
+    <rect x="330" y="835" width="625" height="50"/>
+    <rect x="330" y="910" width="625" height="50"/>
   </g>
-  <g font-size="15" fill="#1f2937" text-anchor="middle">
-    <text x="755" y="806">软件配置管理进程</text>
-    <text x="755" y="861">软件质量保证进程</text>
-    <text x="755" y="916">审定联络进程</text>
+  <g font-size="14.5" fill="#1f2937" text-anchor="middle">
+    <text x="642" y="791">软件配置管理进程</text>
+    <text x="642" y="866">软件质量保证进程</text>
+    <text x="642" y="941">审定联络进程</text>
+  </g>
+  <g stroke="#556070" stroke-width="1.6" fill="none">
+    <line x1="119" y1="785" x2="324" y2="785" marker-end="url(#c16)"/>
+    <line x1="119" y1="860" x2="324" y2="860" marker-end="url(#c16)"/>
+    <line x1="119" y1="935" x2="324" y2="935" marker-end="url(#c16)"/>
+  </g>
+  <g font-size="13" fill="#1f2937">
+    <text x="135" y="777">软件配置管理计划</text>
+    <text x="135" y="852">软件质量保证计划</text>
+    <text x="135" y="927">软件审定计划</text>
   </g>
 
-  <!-- 底部说明 -->
-  <text x="490" y="990" text-anchor="middle" font-size="16" fill="#6b7280">（图 2-16 软件生命周期过程、活动关系图）</text>
+  <!-- 左侧计划输入标注 -->
+  <g font-size="13" fill="#1f2937">
+    <text x="125" y="208">软件需求标准</text>
+    <text x="125" y="227">软件开发计划</text>
+    <text x="125" y="303">软件设计标准</text>
+    <text x="125" y="322">软件开发计划</text>
+    <text x="125" y="398">软件编码标准</text>
+    <text x="125" y="417">软件开发计划</text>
+    <text x="125" y="494">软件开发计划</text>
+  </g>
 </svg>

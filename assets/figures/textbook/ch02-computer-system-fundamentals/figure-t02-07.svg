@@ -1,28 +1,48 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="940" height="560" viewBox="0 0 940 560" font-family="sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="590" viewBox="0 0 1000 590" font-family="sans-serif">
   <title>表 2-7 VR/AR技术分类</title>
-  <desc>复原自《系统架构设计师教程（第2版）》印刷页 91（物理页 100）表格。三列：名称、定义、特点；四行：桌面式VR、分布式VR、沉浸式VR、增强式VR（AR）。单元格内容经扫描件逐格核对。</desc>
-  <rect width="940" height="560" fill="#ffffff"/>
-  <rect x="30" y="30" width="870" height="440" fill="#f6f9fd" stroke="#556070" stroke-width="1.5"/>
-  <rect x="30" y="30" width="870" height="40" fill="#dce6f3" stroke="#556070" stroke-width="1.5"/>
-  <line x1="30" y1="70" x2="900" y2="70" stroke="#556070" stroke-width="1"/>
-  <line x1="30" y1="170" x2="900" y2="170" stroke="#556070" stroke-width="1"/>
-  <line x1="30" y1="270" x2="900" y2="270" stroke="#556070" stroke-width="1"/>
-  <line x1="30" y1="370" x2="900" y2="370" stroke="#556070" stroke-width="1"/>
-  <line x1="180" y1="30" x2="180" y2="470" stroke="#556070" stroke-width="1"/>
-  <line x1="540" y1="30" x2="540" y2="470" stroke="#556070" stroke-width="1"/>
-  <text x="105" y="55" text-anchor="middle" font-size="15" font-weight="bold" fill="#1f2937">名称</text>
-  <text x="190" y="55" text-anchor="start" font-size="15" font-weight="bold" fill="#1f2937">定义</text>
-  <text x="550" y="55" text-anchor="start" font-size="15" font-weight="bold" fill="#1f2937">特点</text>
-  <text x="105" y="125" text-anchor="middle" font-size="15" fill="#1f2937">桌面式VR</text>
-  <text x="190" y="125" text-anchor="start" font-size="15" fill="#1f2937">利用计算机形成三维交互场景，通过鼠标、力矩球等输入设备交互，由屏幕呈现出虚拟环境</text>
-  <text x="550" y="125" text-anchor="start" font-size="15" fill="#1f2937">易实现、应用广泛、成本较低，但因会受到环境干扰而缺乏体验感</text>
-  <text x="105" y="225" text-anchor="middle" font-size="15" fill="#1f2937">分布式VR</text>
-  <text x="190" y="225" text-anchor="start" font-size="15" fill="#1f2937">将VR与网络技术相融合，在同一VR环境下，多用户之间可以相互共享任何信息</text>
-  <text x="550" y="225" text-anchor="start" font-size="15" fill="#1f2937">忽略地域限制因素，共享度高，同时研发成本极高，适合专业领域</text>
-  <text x="105" y="325" text-anchor="middle" font-size="15" fill="#1f2937">沉浸式VR</text>
-  <text x="190" y="325" text-anchor="start" font-size="15" fill="#1f2937">借助各类型输入设备与输出设备，给予用户一个可完全沉浸、全身心参与的环境</text>
-  <text x="550" y="325" text-anchor="start" font-size="15" fill="#1f2937">良好的实时交互性和体验感，但对硬件配置、混合技术要求较高，开发成本高</text>
-  <text x="105" y="425" text-anchor="middle" font-size="15" fill="#1f2937">增强式VR（AR）</text>
-  <text x="190" y="425" text-anchor="start" font-size="15" fill="#1f2937">将虚拟现实模拟仿真的世界与现实世界叠加到一起，用户无须脱离真实世界即可提高感知</text>
-  <text x="550" y="425" text-anchor="start" font-size="15" fill="#1f2937">体验更完美，但对混合技术要求更高，开发成本高，起步晚</text>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 91（物理页 100）表格。三列：名称、定义、特点；四行：桌面式VR、分布式VR、沉浸式VR、增强式VR（AR）。单元格内容经扫描件逐格核对，长句按原书换行手工排布。</desc>
+  <rect width="1000" height="590" fill="#ffffff"/>
+
+  <g fill="none" stroke="#7d8da5" stroke-width="2">
+    <rect x="30" y="30" width="940" height="530"/>
+    <line x1="30" y1="75" x2="970" y2="75"/>
+    <line x1="30" y1="190" x2="970" y2="190"/>
+    <line x1="30" y1="305" x2="970" y2="305"/>
+    <line x1="30" y1="420" x2="970" y2="420"/>
+    <line x1="230" y1="30" x2="230" y2="560"/>
+    <line x1="690" y1="30" x2="690" y2="560"/>
+  </g>
+  <rect x="30" y="30" width="940" height="45" fill="#eef3fb"/>
+
+  <g font-size="16" font-weight="bold" fill="#1f2937" text-anchor="middle">
+    <text x="130" y="59">名称</text>
+    <text x="460" y="59">定义</text>
+    <text x="830" y="59">特点</text>
+  </g>
+
+  <g font-size="16" fill="#1f2937" text-anchor="middle">
+    <text x="130" y="138">桌面式VR</text>
+    <text x="130" y="253">分布式VR</text>
+    <text x="130" y="368">沉浸式VR</text>
+    <text x="130" y="496">增强式VR（AR）</text>
+  </g>
+
+  <g font-size="15" fill="#1f2937">
+    <text x="242" y="113">利用计算机形成三维交互场景，通过鼠标、力</text>
+    <text x="242" y="141">矩球等输入设备交互，由屏幕呈现出虚拟环境</text>
+    <text x="242" y="228">将VR与网络技术相融合，在同一VR环境下，</text>
+    <text x="242" y="256">多用户之间可以相互共享任何信息</text>
+    <text x="242" y="343">借助各类型输入设备与输出设备，给予用户一</text>
+    <text x="242" y="371">个可完全沉浸、全身心参与的环境</text>
+    <text x="242" y="470">将虚拟现实模拟仿真的世界与现实世界叠加到</text>
+    <text x="242" y="498">一起，用户无须脱离真实世界即可提高感知</text>
+    <text x="702" y="113">易实现、应用广泛、成本较低，但因会</text>
+    <text x="702" y="141">受到环境干扰而缺乏体验感</text>
+    <text x="702" y="228">忽略地域限制因素，共享度高，同时研</text>
+    <text x="702" y="256">发成本极高，适合专业领域</text>
+    <text x="702" y="343">良好的实时交互性和体验感，但对硬件</text>
+    <text x="702" y="371">配置、混合技术要求较高，开发成本高</text>
+    <text x="702" y="470">体验更完美，但对混合技术要求更高，</text>
+    <text x="702" y="498">开发成本高，起步晚</text>
+  </g>
 </svg>

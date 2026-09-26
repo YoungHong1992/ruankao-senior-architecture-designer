@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="920" height="620" viewBox="0 0 920 620" font-family="sans-serif">
   <title>图 2-15 软件生存周期与系统生存周期的关系</title>
-  <desc>复原自《系统架构设计师教程（第2版）》印刷页 54（物理页 63）插图。系统需求、高层需求、软件架构、底层需求、源程序代码、可执行目标代码六个要素间以大量双向曲线箭头相互连接（相邻层正向派生与反向验证均有）；软件架构与底层需求同处一个容器框（软件生存周期过程）。曲线按原图主要走向转录，个别曲线端点因扫描弱化未逐一区分。</desc>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 54（物理页 63）插图。中央竖直主线：系统需求→高层需求→（向下进入软件生存周期过程大框）→源程序代码，前三段为单向下箭头；此外系统需求、高层需求、软件架构、底层需求、源程序代码、可执行目标代码各要素间以大量双向曲线箭头相互连接：两条右侧长弧分别为系统需求⇄可执行目标代码（最外侧）与高层需求⇄可执行目标代码（沿大框右壁内侧走廊下行），相邻层正向派生与反向验证均有；软件架构与底层需求之间无直接连线，两者同处一个大框（软件生存周期过程）。曲线按原图主要走向转录，个别曲线端点因扫描弱化未逐一区分。</desc>
   <rect width="920" height="620" fill="#ffffff"/>
   <defs>
     <marker id="c15" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
@@ -29,16 +29,15 @@
     <text x="460" y="552" text-anchor="middle">可执行目标代码</text>
   </g>
   <g stroke="#9aa7b8" stroke-width="2" fill="none">
-    <path d="M435 105 Q415 130 425 151" marker-end="url(#c15)" marker-start="url(#c15s)"/>
+    <line x1="460" y1="105" x2="460" y2="149" marker-end="url(#c15)"/>
+    <line x1="460" y1="205" x2="460" y2="251" marker-end="url(#c15)"/>
+    <line x1="460" y1="255" x2="460" y2="424" marker-end="url(#c15)"/>
     <path d="M400 205 Q310 240 320 288" marker-end="url(#c15)" marker-start="url(#c15s)"/>
     <path d="M530 205 Q590 240 575 288" marker-end="url(#c15)" marker-start="url(#c15s)"/>
-    <path d="M425 330 H491" marker-end="url(#c15)" marker-start="url(#c15s)"/>
     <path d="M310 342 Q300 420 351 448" marker-end="url(#c15)" marker-start="url(#c15s)"/>
     <path d="M600 342 Q615 420 569 448" marker-end="url(#c15)" marker-start="url(#c15s)"/>
     <line x1="460" y1="480" x2="460" y2="516" marker-end="url(#c15)" marker-start="url(#c15s)"/>
-    <path d="M430 205 Q380 340 415 426" marker-end="url(#c15)" marker-start="url(#c15s)"/>
-    <path d="M565 187 Q800 260 590 530" marker-end="url(#c15)" marker-start="url(#c15s)"/>
-    <path d="M665 335 Q760 430 569 540" marker-end="url(#c15)" marker-start="url(#c15s)"/>
-    <path d="M550 75 Q850 90 665 305" marker-end="url(#c15)" marker-start="url(#c15s)"/>
+    <path d="M565 187 Q685 240 677 315 Q673 430 545 516" marker-end="url(#c15)" marker-start="url(#c15s)"/>
+    <path d="M550 75 Q890 130 720 400 Q660 530 569 545" marker-end="url(#c15)" marker-start="url(#c15s)"/>
   </g>
 </svg>

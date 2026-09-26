@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="940" height="620" viewBox="0 0 940 620" font-family="sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="680" viewBox="0 0 940 680" font-family="sans-serif">
   <title>表 2-5 OSI协议集</title>
-  <desc>复原自《系统架构设计师教程（第2版）》印刷页 72-73（物理页 81-82）表格，含合并单元格：网络分层列（应用层～物理层）与协议集列。应用层行为 VT/DS/FTMA/CNIP-CMIS/MHS 标签与 ACSE,RTSE,ROSE,CCR 行，ANS.1 竖跨多行；网络层行为 ES-IS,IS-IS 与 X.25 PLP/CLNP 两行；物理层行跨页续印。原书排印 FTMA、ANS.1、TPO 照录（疑为 FTAM/ASN.1/TP0）。</desc>
-  <rect width="940" height="620" fill="#ffffff"/>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 72（物理页 81）表格，含合并单元格：应用层行含 VT/DS/FTMA/CNIP-CMIS/MHS 标签行与 ACSE,RTSE,ROSE,CCR 子行；ANS.1 独立列纵跨应用层至会话层；网络层含 ES-IS,IS-IS 与 X.25 PLP/CLNP 两子行；数据链路层行为 IEEE 802.2/HDLC PAP-B；物理层行为 802.3 802.4 802.5 FDDI／RS-232 RS-449 X-21 V.35 ISDN。原书排印 FTMA、ANS.1、TPO 照录（疑为 FTAM/ASN.1/TP0）。</desc>
+  <rect width="940" height="680" fill="#ffffff"/>
   <g fill="#f6f9fd" stroke="#556070" stroke-width="1.8">
-    <rect x="40" y="30" width="860" height="560"/>
+    <rect x="40" y="30" width="860" height="615"/>
   </g>
   <g fill="#dce6f3" stroke="#556070" stroke-width="1.8">
     <rect x="40" y="30" width="190" height="60"/>
@@ -19,21 +19,24 @@
     <text x="135" y="245">表示层</text>
     <text x="135" y="325">会话层</text>
     <text x="135" y="400">传输层</text>
-    <text x="135" y="470">网络层</text>
-    <text x="135" y="535">数据链路层</text>
-    <text x="135" y="578">物理层</text>
+    <text x="135" y="500">网络层</text>
+    <text x="135" y="583">数据链路层</text>
+    <text x="135" y="628">物理层</text>
   </g>
-  <!-- 行分隔线 -->
+  <!-- 行分隔线（y505 为网络层内部子行线，不穿分层列） -->
   <g stroke="#556070" stroke-width="1.3">
     <line x1="40" y1="200" x2="900" y2="200"/>
     <line x1="40" y1="285" x2="900" y2="285"/>
     <line x1="40" y1="365" x2="900" y2="365"/>
     <line x1="40" y1="435" x2="900" y2="435"/>
-    <line x1="40" y1="505" x2="900" y2="505"/>
+    <line x1="230" y1="505" x2="900" y2="505"/>
     <line x1="40" y1="555" x2="900" y2="555"/>
+    <line x1="40" y1="600" x2="900" y2="600"/>
   </g>
   <!-- 竖线：分层列与协议集列之间 -->
-  <line x1="230" y1="90" x2="230" y2="590" stroke="#556070" stroke-width="1.5"/>
+  <line x1="230" y1="90" x2="230" y2="645" stroke="#556070" stroke-width="1.5"/>
+  <!-- ANS.1 列分隔线（纵跨应用层至会话层） -->
+  <line x1="830" y1="90" x2="830" y2="365" stroke="#556070" stroke-width="1.3"/>
   <!-- 应用层协议集：五标签一行 + ACSE 行 -->
   <g stroke="#556070" stroke-width="1.3">
     <line x1="230" y1="145" x2="830" y2="145"/>
@@ -41,7 +44,6 @@
     <line x1="452" y1="90" x2="452" y2="145"/>
     <line x1="582" y1="90" x2="582" y2="145"/>
     <line x1="716" y1="90" x2="716" y2="145"/>
-    <line x1="830" y1="90" x2="830" y2="200"/>
   </g>
   <g font-size="15" fill="#1f2937" text-anchor="middle">
     <text x="289" y="123">VT</text>
@@ -51,21 +53,17 @@
     <text x="773" y="123">MHS</text>
     <text x="865" y="145">ANS.1</text>
     <text x="530" y="178">ACSE,RTSE,ROSE,CCR</text>
-    <text x="565" y="247">OSI 表示层协议</text>
-    <text x="565" y="327">OSI 会话层协议</text>
+    <text x="530" y="247">OSI 表示层协议</text>
+    <text x="530" y="327">OSI 会话层协议</text>
     <text x="565" y="403">TPO,TP1,TP2,TP3,TP4</text>
     <text x="565" y="473">ES-IS,IS-IS</text>
-    <text x="425" y="533">X.25 PLP</text>
-    <text x="720" y="533">CLNP</text>
-    <text x="330" y="578">IEEE 802.2</text>
-    <text x="700" y="578">HDLC PAP-B</text>
+    <text x="405" y="533">X.25 PLP</text>
+    <text x="740" y="533">CLNP</text>
+    <text x="405" y="583">IEEE 802.2</text>
+    <text x="740" y="583">HDLC PAP-B</text>
+    <text x="405" y="628">802.3 802.4 802.5 FDDI</text>
+    <text x="740" y="628">RS-232 RS-449 X-21 V.35 ISDN</text>
   </g>
-  <!-- 网络层与数据链路层行内的分格竖线 -->
-  <g stroke="#556070" stroke-width="1.3">
-    <line x1="230" y1="435" x2="230" y2="505"/>
-    <line x1="230" y1="505" x2="230" y2="555"/>
-    <line x1="620" y1="505" x2="620" y2="555"/>
-    <line x1="450" y1="555" x2="450" y2="590"/>
-    <line x1="900" y1="145" x2="900" y2="505"/>
-  </g>
+  <!-- 网络层以下三行的同位分栏竖线 -->
+  <line x1="580" y1="505" x2="580" y2="645" stroke="#556070" stroke-width="1.3"/>
 </svg>

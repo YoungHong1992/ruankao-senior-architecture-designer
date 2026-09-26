@@ -64,27 +64,32 @@
     <text x="360" y="300">构件名</text>
   </g>
   <g fill="none" stroke="#556070" stroke-width="2">
-    <rect x="450" y="248" width="32" height="36"/>
-    <rect x="444" y="256" width="32" height="36" fill="#ffffff"/>
+    <rect x="452" y="248" width="30" height="40"/>
+    <rect x="444" y="254" width="8" height="9" fill="#ffffff"/>
+    <rect x="444" y="273" width="8" height="9" fill="#ffffff"/>
   </g>
   <text x="397" y="406" text-anchor="middle" font-size="16" fill="#1f2937">构件</text>
 
   <!-- 制品 -->
   <g fill="#ffffff" stroke="#556070" stroke-width="2">
-    <path d="M560 250 H725 V330 L705 350 H540 V270 Z"/>
-    <path d="M725 330 L745 310 L745 268 L725 250 M705 330 L705 350"/>
+    <rect x="555" y="245" width="180" height="105"/>
   </g>
   <g font-size="16" fill="#1f2937">
-    <text x="580" y="282">&lt;&lt;artifact&gt;&gt;[</text>
-    <text x="610" y="312">制品名</text>
+    <text x="575" y="282">&lt;&lt;artifact&gt;&gt;[</text>
+    <text x="605" y="312">制品名</text>
+  </g>
+  <g fill="#ffffff" stroke="#556070" stroke-width="2">
+    <path d="M698 300 V253 h22 l9 9 V300 Z"/>
+    <path d="M720 253 v9 h9"/>
   </g>
   <text x="640" y="406" text-anchor="middle" font-size="16" fill="#1f2937">制品</text>
 
   <!-- 结点（立方体） -->
   <g fill="#ffffff" stroke="#556070" stroke-width="2">
-    <path d="M790 265 L870 265 L910 235 L910 345 L830 345 L790 310 Z"/>
-    <path d="M870 265 L870 315 L830 345 M870 265 L910 235"/>
+    <path d="M790 265 H870 V345 H790 Z"/>
+    <path d="M790 265 L830 235 H910 L870 265 Z"/>
+    <path d="M870 265 L910 235 V315 L870 345"/>
   </g>
-  <text x="836" y="300" text-anchor="middle" font-size="16" fill="#1f2937">结点名</text>
+  <text x="830" y="311" text-anchor="middle" font-size="16" fill="#1f2937">结点名</text>
   <text x="850" y="406" text-anchor="middle" font-size="16" fill="#1f2937">结点</text>
 </svg>
