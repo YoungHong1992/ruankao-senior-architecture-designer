@@ -212,6 +212,20 @@
       "printed_page": 35,
       "record": "verification/教材首轮核查-第02章-计算机系统基础知识.md",
       "note": "四层结构：全局外层（三个全局视图，两侧以斜线汇入）→全局概念层（全局概念模式、分片模式、分配模式，中央垂直连线贯通）→局部概念层（三个局部概念模式）→局部内层（三个局部内模式，各自下接局部数据库圆柱）；层间以虚线分界。"
+    },
+    {
+      "id": "tb-fig-0016",
+      "corpus": "textbook",
+      "file": "content/01-系统架构设计师教材-清洗版/第02章-计算机系统基础知识/第03节-计算机软件.md",
+      "figure": "图 2-7",
+      "title": "位示图例",
+      "kind": "svg",
+      "anchor": "> 图 2-7 位示图例",
+      "asset": "assets/figures/textbook/ch02-computer-system-fundamentals/figure-2-7.svg",
+      "physical_page": 48,
+      "printed_page": 39,
+      "record": "verification/教材首轮核查-第02章-计算机系统基础知识.md",
+      "note": "位示图位串网格：第0字至第3字与第n-1字共五行，每行九格（含省略号格），行间为省略行。位串逐格与扫描件核对一致。此前正文中的 Markdown 转写表与推导列表（含原书没有的\"32(n-1)～32n-1\"推算列）已删除。"
     }
   ]
 }
