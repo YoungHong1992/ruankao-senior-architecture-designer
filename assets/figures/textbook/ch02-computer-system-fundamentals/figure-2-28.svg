@@ -1,9 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="300" height="180" viewBox="0 0 300 180" font-family="sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="300" viewBox="0 0 380 300" font-family="sans-serif">
   <title>图 2-28 注解</title>
-  <desc>复原自《系统架构设计师教程（第2版）》印刷页 82（物理页 91）插图。注解记法：右上角折角的矩形。</desc>
-  <rect width="300" height="180" fill="#ffffff"/>
-  <g fill="#ffffff" stroke="#556070" stroke-width="2">
-    <path d="M70 40 H210 V80 L230 100 V150 H70 Z"/>
-    <path d="M210 80 H230 L210 100"/>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 82（物理页 91）插图。注解记法：右上角折角的矩形（便签形），主体内含原文标注 Return value。</desc>
+  <rect width="380" height="300" fill="#ffffff"/>
+  <g fill="#ffffff" stroke="#7d8da5" stroke-width="2.5">
+    <path d="M85 65 H255 V105 L285 135 V245 H85 Z"/>
+    <path d="M255 105 L285 135 H255 Z"/>
   </g>
+  <text x="185" y="165" text-anchor="middle" font-size="26" fill="#1f2937">Return value</text>
 </svg>
