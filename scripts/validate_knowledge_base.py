@@ -126,7 +126,8 @@ OCR_PATTERNS = {
     "Outer Jion": re.compile(r"Outer Jion", re.IGNORECASE),
     "broken Information": re.compile(r"Infor-mation"),
     "broken Key-Value": re.compile(r"Key-Valuc"),
-    "broken Recommended": re.compile(r"Recommand Practice"),
+    # "Recommand Practice" 不设绊线：原书即印作 "IEEE's Recommand Practice"（7×
+    # 放大图像证实，见 verification/教材首轮核查-第01章-绪论.md），忠实照录会永久命中。
     "broken NB-IoT": re.compile(r"NB-loT"),
     "broken BaseManager": re.compile(r"BascManagcr"),
     "broken Federation": re.compile(r"Federetion Wait"),
