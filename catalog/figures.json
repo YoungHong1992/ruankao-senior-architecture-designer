@@ -170,6 +170,20 @@
       "printed_page": 26,
       "record": "verification/教材首轮核查-第02章-计算机系统基础知识.md",
       "note": "指令部件三路分发至运算部件/寄存器组/存取部件；运算↔寄存器↔存取双向互连；结果汇流线入完成部件；完成部件左反馈、MMU 右反馈回指令部件；存取部件→MMU 部件；Cache 部件↔MMU 部件并双向挂接地址总线与数据总线。原图寄存器组框带下划线装饰、部分连线端点被扫描弱化，按可见拓扑转录。"
+    },
+    {
+      "id": "tb-fig-0013",
+      "corpus": "textbook",
+      "file": "content/01-系统架构设计师教材-清洗版/第02章-计算机系统基础知识/第03节-计算机软件.md",
+      "figure": "图 2-4",
+      "title": "二维表表示",
+      "kind": "svg",
+      "anchor": "> 图 2-4 二维表表示",
+      "asset": "assets/figures/textbook/ch02-computer-system-fundamentals/figure-2-4.svg",
+      "physical_page": 42,
+      "printed_page": 33,
+      "record": "verification/教材首轮核查-第02章-计算机系统基础知识.md",
+      "note": "三张关系表：(a) 学生关系（S1-S4，姓名/年龄/系别）、(b) 课程关系（C1-C4，课程名/学分）、(c) 选课关系（10 行，含原书印刷值 S4|C1|\"8\"）。单元格内容经与扫描件逐格核对一致；原书排布为 (a)(b) 左列、(c) 右列，子图题 (a)(b)(c)。此前正文中的 Markdown 转写表由本 SVG 取代。"
     }
   ]
 }
