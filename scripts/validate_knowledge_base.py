@@ -63,6 +63,7 @@ SOURCE_PDF_DIRS = (
 )
 CORPORA_PATH = CATALOG_ROOT / "corpora.json"
 MANIFEST_PATH = CATALOG_ROOT / "exams.json"
+ERRATA_PATH = CATALOG_ROOT / "errata.json"
 MASTER_INDEX_PATH = CONTENT_ROOT / "02-历年真题总索引.md"
 CLEAN_EXAM_INDEX_PATH = CLEAN_EXAM_DIR / "INDEX.md"
 DATA_SOURCES_PATH = ROOT / "DATA_SOURCES.md"
@@ -126,8 +127,8 @@ OCR_PATTERNS = {
     "Outer Jion": re.compile(r"Outer Jion", re.IGNORECASE),
     "broken Information": re.compile(r"Infor-mation"),
     "broken Key-Value": re.compile(r"Key-Valuc"),
-    # "Recommand Practice" 不设绊线：原书即印作 "IEEE's Recommand Practice"（7×
-    # 放大图像证实，见 verification/教材首轮核查-第01章-绪论.md），忠实照录会永久命中。
+    # 「Recommand Practice」不设绊线：该串按勘误口径管理（catalog/errata.json
+    # tb-0001，原书笔误已在正文勘正），锚点一致性由勘误登记簿检查负责。
     "broken NB-IoT": re.compile(r"NB-loT"),
     "broken BaseManager": re.compile(r"BascManagcr"),
     "broken Federation": re.compile(r"Federetion Wait"),
@@ -259,6 +260,100 @@ class Validator:
         if not isinstance(entries, list):
             return {}
         return {str(entry["id"]): entry for entry in entries if isinstance(entry, dict) and "id" in entry}
+
+    def check_errata_catalog(self) -> None:
+        """Check catalog/errata.json: every entry must match the current content.
+
+        The errata catalog records where the cleaned text deliberately differs
+        from the scan (original-book typos corrected in place, uncertain spots
+        left as printed). Anchoring on the *current* text makes the catalog a
+        drift tripwire: any edit that touches an erratum location must
+        reconcile the entry. No count or coverage targets by design.
+        """
+        if not ERRATA_PATH.is_file():
+            self.error(ERRATA_PATH, "errata catalog is missing")
+            return
+        try:
+            data = json.loads(ERRATA_PATH.read_text(encoding="utf-8-sig"))
+        except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+            self.error(ERRATA_PATH, f"invalid JSON: {exc}")
+            return
+        if not isinstance(data, dict):
+            self.error(ERRATA_PATH, "errata catalog must be an object")
+            return
+        if data.get("schema_version") != 1:
+            self.error(ERRATA_PATH, "schema_version must be 1")
+        try:
+            date.fromisoformat(str(data.get("updated_at")))
+        except ValueError:
+            self.error(ERRATA_PATH, "updated_at must be an ISO date (YYYY-MM-DD)")
+        entries = data.get("entries")
+        if not isinstance(entries, list):
+            self.error(ERRATA_PATH, "entries must be a list")
+            return
+        corpora = self.corpus_entries()
+        seen_ids: set[str] = set()
+        for index, entry in enumerate(entries):
+            label = f"entries[{index}]"
+            if not isinstance(entry, dict):
+                self.error(ERRATA_PATH, f"{label} must be an object")
+                continue
+            entry_id = entry.get("id")
+            if not isinstance(entry_id, str) or not entry_id:
+                self.error(ERRATA_PATH, f"{label} is missing a non-empty id")
+            elif entry_id in seen_ids:
+                self.error(ERRATA_PATH, f"duplicate id: {entry_id}")
+            else:
+                seen_ids.add(entry_id)
+            corpus = corpora.get(str(entry.get("corpus")))
+            if corpus is None:
+                self.error(ERRATA_PATH, f"{label} references unknown corpus: {entry.get('corpus')!r}")
+                continue
+            kind = entry.get("kind")
+            if kind not in {"typo", "noted"}:
+                self.error(ERRATA_PATH, f"{label} kind must be 'typo' or 'noted'")
+            file_value = entry.get("file")
+            if not isinstance(file_value, str) or not file_value:
+                self.error(ERRATA_PATH, f"{label} is missing file")
+                continue
+            path = ROOT / file_value
+            content_root = ROOT / str(corpus.get("content_root", ""))
+            if not path.is_file() or content_root not in path.parents:
+                self.error(
+                    ERRATA_PATH,
+                    f"{label} file is missing or outside the corpus content root: {file_value}",
+                )
+                continue
+            text = self.read_text(path)
+            if text is None:
+                continue
+            anchor = entry.get("anchor")
+            if not isinstance(anchor, str) or not anchor:
+                self.error(ERRATA_PATH, f"{label} is missing anchor")
+            else:
+                count = text.count(anchor)
+                if count != 1:
+                    self.error(
+                        ERRATA_PATH,
+                        f"{label} anchor must appear exactly once in {file_value} (found {count})",
+                    )
+            original = entry.get("original")
+            if not isinstance(original, str) or not original:
+                self.error(ERRATA_PATH, f"{label} is missing original")
+            if kind == "typo":
+                corrected = entry.get("corrected")
+                if not isinstance(corrected, str) or not corrected:
+                    self.error(ERRATA_PATH, f"{label} kind 'typo' requires corrected")
+                elif original is not None and corrected == original:
+                    self.error(ERRATA_PATH, f"{label} corrected must differ from original")
+                elif isinstance(anchor, str) and anchor and corrected not in anchor:
+                    self.error(ERRATA_PATH, f"{label} corrected must be contained in anchor")
+            physical_page = entry.get("physical_page")
+            if isinstance(physical_page, bool) or not isinstance(physical_page, int) or physical_page <= 0:
+                self.error(ERRATA_PATH, f"{label} physical_page must be a positive integer")
+            record = entry.get("record")
+            if not isinstance(record, str) or not record or not (ROOT / record).is_file():
+                self.error(ERRATA_PATH, f"{label} record does not exist: {record!r}")
 
     def parse_front_matter(self, path: Path) -> dict[str, str] | None:
         """Parse the flat ``key: value`` block delimited by ``---`` lines."""
@@ -1289,6 +1384,7 @@ class Validator:
             self.check_markdown_file(path)
         self.check_layer_layout()
         self.check_corpora_catalog()
+        self.check_errata_catalog()
         self.check_content_directories()
         self.check_front_matter()
         self.check_markdown_encoding()
@@ -1301,7 +1397,7 @@ class Validator:
         print(
             f"Checked {len(markdown_files)} Markdown files, "
             f"{len(CONTENT_DIRS)} content directories, the corpus catalog, "
-            "the exam manifest and the uv toolchain pins."
+            "the exam manifest, the errata catalog and the uv toolchain pins."
         )
         for warning in self.warnings:
             print(f"WARNING: {warning}")
