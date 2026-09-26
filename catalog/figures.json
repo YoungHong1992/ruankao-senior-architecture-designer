@@ -352,6 +352,34 @@
       "printed_page": 55,
       "record": "verification/教材首轮核查-第02章-计算机系统基础知识.md",
       "note": "顶部系统生命周期框（经虚线层界标注系统需求/软件级别）下接四条泳道：开发进程泳道（软件需求/设计/编码/集成四进程及其数据产物，左侧各计划输入标注）、验证泳道（软件需求/设计/编码验证、集成进程验证、测试、验证活动）、分析泳道（需求覆盖率分析×2、结构覆盖率分析、测试结果分析，右缘输出分析报告）、左侧软件计划进程纵列；底部三条横向进程（软件配置管理进程、软件质量保证进程、审定联络进程）以四项计划输入连接。原书个别退化字照录。此前正文中的转写表由本 SVG 取代。"
+    },
+    {
+      "id": "tb-fig-0026",
+      "corpus": "textbook",
+      "file": "content/01-系统架构设计师教材-清洗版/第02章-计算机系统基础知识/第05节-计算机网络.md",
+      "figure": "图 2-17",
+      "title": "星状结构网络",
+      "kind": "svg",
+      "anchor": "> 图 2-17 星状结构网络",
+      "asset": "assets/figures/textbook/ch02-computer-system-fundamentals/figure-2-17.svg",
+      "physical_page": 72,
+      "printed_page": 63,
+      "record": "verification/教材首轮核查-第02章-计算机系统基础知识.md",
+      "note": "中心结点与六个外围结点以连线相连（上、左上、右上、左下、右下、下）。"
+    },
+    {
+      "id": "tb-fig-0027",
+      "corpus": "textbook",
+      "file": "content/01-系统架构设计师教材-清洗版/第02章-计算机系统基础知识/第05节-计算机网络.md",
+      "figure": "图 2-18",
+      "title": "树状结构网络",
+      "kind": "svg",
+      "anchor": "> 图 2-18 树状结构网络",
+      "asset": "assets/figures/textbook/ch02-computer-system-fundamentals/figure-2-18.svg",
+      "physical_page": 72,
+      "printed_page": 63,
+      "record": "verification/教材首轮核查-第02章-计算机系统基础知识.md",
+      "note": "根结点下接第二层三个结点；第二层左结点下接一个叶子，右结点下接两个叶子，共 7 个结点。"
     }
   ]
 }
