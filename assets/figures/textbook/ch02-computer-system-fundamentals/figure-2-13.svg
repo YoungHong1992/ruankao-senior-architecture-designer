@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="360" viewBox="0 0 700 360" font-family="sans-serif">
+  <title>图 2-13 嵌入式系统开发环境</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 49（物理页 58）插图。开发环境：宿主机（通用计算机）与目标机（嵌入式设备）之间经串口/网络/JTAG 连接。原图为实物照片，本图以标注框转录其结构与连接关系。</desc>
+  <rect width="700" height="360" fill="#ffffff"/>
+  <g fill="#eef3fb" stroke="#7d8da5" stroke-width="2">
+    <rect x="430" y="50" width="220" height="130" rx="6"/>
+    <rect x="140" y="290" width="230" height="60" rx="6"/>
+  </g>
+  <g font-size="17" fill="#1f2937">
+    <text x="540" y="120" text-anchor="middle">宿主机</text>
+    <text x="540" y="150" text-anchor="middle">（通用计算机）</text>
+    <text x="255" y="327" text-anchor="middle">目标机</text>
+    <text x="345" y="212" text-anchor="middle">串口/网络/JTAG</text>
+  </g>
+  <g stroke="#4a5568" stroke-width="2.2" fill="none">
+    <path d="M470 180 V235 H300 V286" marker-end="url(#a213)"/>
+  </g>
+  <defs>
+    <marker id="a213" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#4a5568"/>
+    </marker>
+  </defs>
+</svg>

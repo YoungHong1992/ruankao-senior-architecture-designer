@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="840" viewBox="0 0 920 840" font-family="sans-serif">
+  <title>图 2-14 嵌入式系统软件组成架构</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 50（物理页 59）插图。五层架构：应用层（工业控制应用、军事应用、物联网应用、…、移动设备应用）；中间件层（DDS/CORBA、Hadoop、数据库(DB)、OpenGL、JAVA、虚拟机）；操作系统层（可配置组件：文件系统/设备管理/运行时库与图形用户接口/网络管理/Agent管理；嵌入式(实时)操作系统(E(RT)OS)下辖任务管理、存储管理、通信管理、时间管理，左侧有双向大箭头）；抽象层（硬件抽象(HAL)、板级支持包(BSP)）；硬件层（A/D、D/A、I/O、微嵌入式处理器、通用接口、ROM、SDRAM、人机交互接口）。</desc>
+  <rect width="920" height="840" fill="#ffffff"/>
+  <g fill="#f2f6fc" stroke="#7d8da5" stroke-width="2">
+    <rect x="40" y="20" width="840" height="90"/>
+    <rect x="40" y="120" width="840" height="185"/>
+    <rect x="40" y="315" width="840" height="255"/>
+    <rect x="40" y="580" width="840" height="75"/>
+    <rect x="40" y="665" width="840" height="160"/>
+  </g>
+  <g fill="#eef3fb" stroke="#9aa7b8" stroke-width="1.5">
+    <rect x="175" y="35" width="150" height="50"/>
+    <rect x="340" y="35" width="140" height="50"/>
+    <rect x="495" y="35" width="150" height="50"/>
+    <rect x="700" y="35" width="165" height="50"/>
+    <rect x="175" y="140" width="300" height="50"/>
+    <rect x="530" y="140" width="280" height="50"/>
+    <rect x="170" y="215" width="215" height="50"/>
+    <rect x="405" y="215" width="215" height="50"/>
+    <rect x="640" y="215" width="110" height="50"/>
+    <rect x="775" y="215" width="95" height="50"/>
+    <rect x="290" y="340" width="240" height="80"/>
+    <rect x="560" y="340" width="240" height="80"/>
+    <rect x="200" y="440" width="560" height="115"/>
+    <rect x="230" y="450" width="115" height="38"/>
+    <rect x="365" y="450" width="115" height="38"/>
+    <rect x="500" y="450" width="115" height="38"/>
+    <rect x="635" y="450" width="115" height="38"/>
+    <rect x="235" y="592" width="290" height="50"/>
+    <rect x="575" y="592" width="285" height="50"/>
+    <rect x="205" y="678" width="155" height="32"/>
+    <rect x="205" y="714" width="155" height="32"/>
+    <rect x="205" y="750" width="155" height="32"/>
+    <rect x="425" y="678" width="230" height="106"/>
+    <rect x="700" y="678" width="160" height="32"/>
+    <rect x="700" y="714" width="160" height="32"/>
+    <rect x="700" y="750" width="160" height="32"/>
+    <rect x="205" y="786" width="655" height="32"/>
+  </g>
+  <g stroke="#8a99ad" stroke-width="10" fill="none">
+    <line x1="205" y1="365" x2="205" y2="505"/>
+  </g>
+  <g fill="#c7d3e4" stroke="none">
+    <path d="M188 372 L205 344 L222 372 Z M188 498 L205 526 L222 498 Z"/>
+  </g>
+  <g font-size="16" fill="#1f2937">
+    <text x="62" y="72">应用层</text>
+    <text x="196" y="66" text-anchor="middle">工业控制应用</text>
+    <text x="410" y="66" text-anchor="middle">军事应用</text>
+    <text x="570" y="66" text-anchor="middle">物联网应用</text>
+    <text x="668" y="66" text-anchor="middle">…</text>
+    <text x="782" y="66" text-anchor="middle">移动设备应用</text>
+    <text x="68" y="168">中</text>
+    <text x="68" y="192">间</text>
+    <text x="68" y="216">件</text>
+    <text x="68" y="240">层</text>
+    <text x="325" y="171" text-anchor="middle">DDS/CORBA</text>
+    <text x="670" y="171" text-anchor="middle">Hadoop</text>
+    <text x="277" y="246" text-anchor="middle">数据库（DB）</text>
+    <text x="512" y="246" text-anchor="middle">OpenGL</text>
+    <text x="695" y="246" text-anchor="middle">JAVA</text>
+    <text x="822" y="246" text-anchor="middle">虚拟机</text>
+    <text x="62" y="368">操</text>
+    <text x="62" y="392">作</text>
+    <text x="62" y="416">系</text>
+    <text x="62" y="440">统</text>
+    <text x="62" y="464">层</text>
+    <text x="410" y="366">文件系统</text>
+    <text x="410" y="390">设备管理</text>
+    <text x="410" y="414">运行时库</text>
+    <text x="680" y="366">图形用户接口</text>
+    <text x="680" y="390">网络管理</text>
+    <text x="680" y="414">Agent管理</text>
+    <text x="825" y="384">可配置组件</text>
+    <text x="287" y="474">任务管理</text>
+    <text x="422" y="474">存储管理</text>
+    <text x="557" y="474">通信管理</text>
+    <text x="692" y="474">时间管理</text>
+    <text x="480" y="528">嵌入式(实时)操作系统(E(RT)OS)</text>
+    <text x="60" y="622">抽象层</text>
+    <text x="380" y="623" text-anchor="middle">硬件抽象(HAL)</text>
+    <text x="717" y="623" text-anchor="middle">板级支持包 (BSP)</text>
+    <text x="62" y="700">硬</text>
+    <text x="62" y="724">件</text>
+    <text x="62" y="748">层</text>
+    <text x="282" y="699" text-anchor="middle">A/D</text>
+    <text x="282" y="735" text-anchor="middle">D/A</text>
+    <text x="282" y="771" text-anchor="middle">I/O</text>
+    <text x="540" y="736" text-anchor="middle">微嵌入式处理器</text>
+    <text x="780" y="699" text-anchor="middle">通用接口</text>
+    <text x="780" y="735" text-anchor="middle">ROM</text>
+    <text x="780" y="771" text-anchor="middle">SDRAM</text>
+    <text x="532" y="807" text-anchor="middle">人机交互接口</text>
+  </g>
+</svg>

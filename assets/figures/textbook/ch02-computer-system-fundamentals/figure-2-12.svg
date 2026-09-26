@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="520" viewBox="0 0 760 520" font-family="sans-serif">
+  <title>图 2-12 嵌入式系统分类</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 49（物理页 58）插图。三圆韦恩图：安全攸关系统（上）、嵌入式系统（左下）、实时系统（右下）；两两交集为嵌入式安全攸关系统、安全攸关实时系统、嵌入式实时系统，三者共同交集为嵌入式安全攸关实时系统。</desc>
+  <rect width="760" height="520" fill="#ffffff"/>
+  <g fill="none" stroke="#8a99ad" stroke-width="2.5">
+    <circle cx="380" cy="180" r="135"/>
+    <circle cx="300" cy="330" r="135"/>
+    <circle cx="460" cy="330" r="135"/>
+  </g>
+  <g font-size="17" fill="#1f2937">
+    <text x="380" y="152" text-anchor="middle">安全攸关系统</text>
+    <text x="297" y="248" text-anchor="middle">嵌入式安全</text>
+    <text x="297" y="271" text-anchor="middle">攸关系统</text>
+    <text x="466" y="248" text-anchor="middle">安全攸关</text>
+    <text x="466" y="271" text-anchor="middle">实时系统</text>
+    <text x="380" y="316" text-anchor="middle">嵌入式安</text>
+    <text x="380" y="339" text-anchor="middle">全攸关实</text>
+    <text x="380" y="362" text-anchor="middle">时系统</text>
+    <text x="228" y="398" text-anchor="middle">嵌入式系统</text>
+    <text x="530" y="398" text-anchor="middle">实时系统</text>
+  </g>
+</svg>

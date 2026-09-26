@@ -282,6 +282,48 @@
       "printed_page": 48,
       "record": "verification/教材首轮核查-第02章-计算机系统基础知识.md",
       "note": "中央为基于ARM架构的32位微处理器 Samsung S3C44BOX；左接 1M线性Flash(BIOS)、8MB SDRAM(系统内存)、16MB非线性Flash(硬盘)，右接 USB接口(USBN9603)、两个RS-232串行通信接口、JTAG调试端口，上接 LCD显示，下接键盘输入，并经竖直汇流线双向连接 TCP/IP协议与 CAN BUS。"
+    },
+    {
+      "id": "tb-fig-0021",
+      "corpus": "textbook",
+      "file": "content/01-系统架构设计师教材-清洗版/第02章-计算机系统基础知识/第04节-嵌入式系统及软件.md",
+      "figure": "图 2-12",
+      "title": "嵌入式系统分类",
+      "kind": "svg",
+      "anchor": "> 图 2-12 嵌入式系统分类",
+      "asset": "assets/figures/textbook/ch02-computer-system-fundamentals/figure-2-12.svg",
+      "physical_page": 58,
+      "printed_page": 49,
+      "record": "verification/教材首轮核查-第02章-计算机系统基础知识.md",
+      "note": "三圆韦恩图：安全攸关系统（上）、嵌入式系统（左下）、实时系统（右下）；两两交集为嵌入式安全攸关系统、安全攸关实时系统、嵌入式实时系统，三者共同交集为嵌入式安全攸关实时系统。此前正文中的交集转写表由本 SVG 取代。"
+    },
+    {
+      "id": "tb-fig-0022",
+      "corpus": "textbook",
+      "file": "content/01-系统架构设计师教材-清洗版/第02章-计算机系统基础知识/第04节-嵌入式系统及软件.md",
+      "figure": "图 2-13",
+      "title": "嵌入式系统开发环境",
+      "kind": "svg",
+      "anchor": "> 图 2-13 嵌入式系统开发环境",
+      "asset": "assets/figures/textbook/ch02-computer-system-fundamentals/figure-2-13.svg",
+      "physical_page": 58,
+      "printed_page": 49,
+      "record": "verification/教材首轮核查-第02章-计算机系统基础知识.md",
+      "note": "原图为实物照片（宿主机 PC 与目标机板卡），以标注框转录结构：宿主机（通用计算机）经串口/网络/JTAG 连接目标机。照片细节不转录。"
+    },
+    {
+      "id": "tb-fig-0023",
+      "corpus": "textbook",
+      "file": "content/01-系统架构设计师教材-清洗版/第02章-计算机系统基础知识/第04节-嵌入式系统及软件.md",
+      "figure": "图 2-14",
+      "title": "嵌入式系统软件组成架构",
+      "kind": "svg",
+      "anchor": "> 图 2-14 嵌入式系统软件组成架构",
+      "asset": "assets/figures/textbook/ch02-computer-system-fundamentals/figure-2-14.svg",
+      "physical_page": 59,
+      "printed_page": 50,
+      "record": "verification/教材首轮核查-第02章-计算机系统基础知识.md",
+      "note": "五层架构：应用层（工业控制应用、军事应用、物联网应用、…、移动设备应用）；中间件层（DDS/CORBA、Hadoop、数据库(DB)、OpenGL、JAVA、虚拟机）；操作系统层（可配置组件[文件系统/设备管理/运行时库；图形用户接口/网络管理/Agent管理]，嵌入式(实时)操作系统(E(RT)OS)下辖任务管理、存储管理、通信管理、时间管理，层左有双向大箭头）；抽象层（硬件抽象(HAL)、板级支持包(BSP)）；硬件层（A/D、D/A、I/O、微嵌入式处理器、通用接口、ROM、SDRAM、人机交互接口）。此前正文中的层次转写表由本 SVG 取代。"
     }
   ]
 }
