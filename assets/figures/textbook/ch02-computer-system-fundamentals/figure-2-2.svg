@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="560" viewBox="0 0 780 560" font-family="sans-serif">
+  <title>图 2-2 两种计算机系统的分类示意</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 25（物理页 34）插图。计算机系统分为嵌入式计算机（电信设备：基站、网络交换、移动终端；家用电子设备：视听设备、厨卫电器；可穿戴电子设备；医疗设备；交通设备；国防设备；金融设备）与通用计算机（个人计算机：台式电脑、平板电脑；网络服务器：云存储、云计算；超级计算机）。原书首分支印作「族嵌入式计算机」，「族」为衍字，按勘误 tb-0018 勘正；图题原书「•种」按 tb-0014 勘正为「两种」。原图节点旁的装饰性底纹未转录。</desc>
+  <rect width="780" height="560" fill="#ffffff"/>
+  <g stroke="#7d8da5" stroke-width="1.5" fill="none">
+    <path d="M96 280 H140 V170 H180"/>
+    <path d="M96 280 H140 V430 H180"/>
+    <path d="M290 170 H320 V50 H350 M320 170 V295 H350"/>
+    <path d="M480 55 H490 V28 H520 M490 55 V77 H520"/>
+    <path d="M480 110 H490 V88 H520 M490 110 V110 H520"/>
+    <path d="M290 430 H320 V365 H350 M320 480 H350 M320 515 H350"/>
+    <path d="M480 370 H490 V343 H520 M490 370 V392 H520"/>
+    <path d="M480 480 H490 V453 H520 M490 480 V502 H520"/>
+  </g>
+  <g font-size="15" fill="#1f2937">
+    <text x="40" y="286" font-size="16">计算机系统</text>
+    <text x="184" y="176" font-size="16">嵌入式计算机</text>
+    <text x="184" y="436" font-size="16">通用计算机</text>
+    <text x="324" y="55">电信设备</text>
+    <text x="324" y="110">家用电子设备</text>
+    <text x="324" y="155">可穿戴电子设备</text>
+    <text x="324" y="190">医疗设备</text>
+    <text x="324" y="225">交通设备</text>
+    <text x="324" y="260">国防设备</text>
+    <text x="324" y="295">金融设备</text>
+    <text x="324" y="370">个人计算机</text>
+    <text x="324" y="485">网络服务器</text>
+    <text x="324" y="520">超级计算机</text>
+    <text x="531" y="33">基站</text>
+    <text x="531" y="55">网络交换</text>
+    <text x="531" y="77">移动终端</text>
+    <text x="531" y="93">视听设备</text>
+    <text x="531" y="115">厨卫电器</text>
+    <text x="531" y="348">台式电脑</text>
+    <text x="531" y="397">平板电脑</text>
+    <text x="531" y="458">云存储</text>
+    <text x="531" y="507">云计算</text>
+  </g>
+</svg>
