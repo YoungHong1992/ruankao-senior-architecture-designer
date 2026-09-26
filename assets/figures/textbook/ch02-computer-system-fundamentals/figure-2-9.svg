@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="140" viewBox="0 0 720 140" font-family="sans-serif">
+  <title>图 2-9 构件组装模型的开发过程</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 44（物理页 53）插图。四个步骤依次相连：设计构件组装→建立构件库→构建应用软件→测试与发布。</desc>
+  <rect width="720" height="140" fill="#ffffff"/>
+  <defs>
+    <marker id="a29" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#4a5568"/>
+    </marker>
+  </defs>
+  <g fill="#eef3fb" stroke="#7d8da5" stroke-width="1.8">
+    <rect x="20" y="30" width="130" height="80"/>
+    <rect x="210" y="30" width="130" height="80"/>
+    <rect x="400" y="30" width="130" height="80"/>
+    <rect x="590" y="30" width="110" height="80"/>
+  </g>
+  <g font-size="17" fill="#1f2937" text-anchor="middle">
+    <text x="85" y="63">设计构件</text>
+    <text x="85" y="88">组装</text>
+    <text x="275" y="63">建立</text>
+    <text x="275" y="88">构件库</text>
+    <text x="465" y="63">构建</text>
+    <text x="465" y="88">应用软件</text>
+    <text x="645" y="63">测试</text>
+    <text x="645" y="88">与发布</text>
+  </g>
+  <g stroke="#4a5568" stroke-width="2.2">
+    <line x1="150" y1="70" x2="206" y2="70" marker-end="url(#a29)"/>
+    <line x1="340" y1="70" x2="396" y2="70" marker-end="url(#a29)"/>
+    <line x1="530" y1="70" x2="586" y2="70" marker-end="url(#a29)"/>
+  </g>
+</svg>

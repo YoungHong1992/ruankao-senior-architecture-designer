@@ -240,6 +240,20 @@
       "printed_page": 41,
       "record": "verification/教材首轮核查-第02章-计算机系统基础知识.md",
       "note": "四层叠放：应用（左、右，中间省略号）—中间件(分布式系统服务)横带—操作系统（左、右，中间省略号）—网络、数据库横带，层间竖线相连。"
+    },
+    {
+      "id": "tb-fig-0018",
+      "corpus": "textbook",
+      "file": "content/01-系统架构设计师教材-清洗版/第02章-计算机系统基础知识/第03节-计算机软件.md",
+      "figure": "图 2-9",
+      "title": "构件组装模型的开发过程",
+      "kind": "svg",
+      "anchor": "> 图 2-9 构件组装模型的开发过程",
+      "asset": "assets/figures/textbook/ch02-computer-system-fundamentals/figure-2-9.svg",
+      "physical_page": 53,
+      "printed_page": 44,
+      "record": "verification/教材首轮核查-第02章-计算机系统基础知识.md",
+      "note": "线性四步流程：设计构件组装→建立构件库→构建应用软件→测试与发布。"
     }
   ]
 }
