@@ -226,6 +226,20 @@
       "printed_page": 39,
       "record": "verification/教材首轮核查-第02章-计算机系统基础知识.md",
       "note": "位示图位串网格：第0字至第3字与第n-1字共五行，每行九格（含省略号格），行间为省略行。位串逐格与扫描件核对一致。此前正文中的 Markdown 转写表与推导列表（含原书没有的\"32(n-1)～32n-1\"推算列）已删除。"
+    },
+    {
+      "id": "tb-fig-0017",
+      "corpus": "textbook",
+      "file": "content/01-系统架构设计师教材-清洗版/第02章-计算机系统基础知识/第03节-计算机软件.md",
+      "figure": "图 2-8",
+      "title": "中间件图示",
+      "kind": "svg",
+      "anchor": "> 图 2-8 中间件图示",
+      "asset": "assets/figures/textbook/ch02-computer-system-fundamentals/figure-2-8.svg",
+      "physical_page": 50,
+      "printed_page": 41,
+      "record": "verification/教材首轮核查-第02章-计算机系统基础知识.md",
+      "note": "四层叠放：应用（左、右，中间省略号）—中间件(分布式系统服务)横带—操作系统（左、右，中间省略号）—网络、数据库横带，层间竖线相连。"
     }
   ]
 }
