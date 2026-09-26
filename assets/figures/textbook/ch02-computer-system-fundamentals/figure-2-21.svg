@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" font-family="sans-serif">
+  <title>图 2-21 5G网络的系统架构</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 69（物理页 78）插图。上排六个控制面网元 NSSF、NEF、NRF、PCF、UDM、AF 经各自服务化接口（Nnssf、Nnef、Nnrf、Npcf、Nudm、Naf）接入一条水平服务化接口总线；AUSF、AMF、SMF 经 Nausf、Namf、Nsmf 接入同一总线。下排 UE—(R)AN—UPF—DN 依次经 N1、N2、N3、N4、N6 接口相连（UE 经 N1 至 AMF，AMF 经 N2 至 (R)AN，SMF 经 N4 至 UPF），UPF 下有 N9 环回。</desc>
+  <rect width="960" height="560" fill="#ffffff"/>
+  <g fill="#eef3fb" stroke="#7d8da5" stroke-width="2">
+    <rect x="130" y="55" width="105" height="50"/>
+    <rect x="290" y="55" width="105" height="50"/>
+    <rect x="450" y="55" width="105" height="50"/>
+    <rect x="610" y="55" width="105" height="50"/>
+    <rect x="760" y="55" width="105" height="50"/>
+    <rect x="862" y="55" width="90" height="50"/>
+    <rect x="250" y="230" width="100" height="50"/>
+    <rect x="390" y="230" width="100" height="50"/>
+    <rect x="640" y="230" width="100" height="50"/>
+    <rect x="100" y="380" width="100" height="50"/>
+    <rect x="300" y="380" width="110" height="50"/>
+    <rect x="580" y="380" width="110" height="50"/>
+    <rect x="830" y="380" width="100" height="50"/>
+  </g>
+  <g stroke="#556070" stroke-width="2" fill="none">
+    <!-- 服务化总线 -->
+    <line x1="150" y1="165" x2="905" y2="165"/>
+    <!-- 上排网元接入总线 -->
+    <line x1="182" y1="105" x2="182" y2="165"/>
+    <line x1="342" y1="105" x2="342" y2="165"/>
+    <line x1="502" y1="105" x2="502" y2="165"/>
+    <line x1="662" y1="105" x2="662" y2="165"/>
+    <line x1="812" y1="105" x2="812" y2="165"/>
+    <line x1="914" y1="105" x2="914" y2="165"/>
+    <!-- 下排网元接入总线 -->
+    <line x1="300" y1="165" x2="300" y2="226"/>
+    <line x1="440" y1="165" x2="440" y2="226"/>
+    <line x1="690" y1="165" x2="690" y2="226"/>
+    <!-- 底层链路 -->
+    <line x1="200" y1="405" x2="296" y2="405"/>
+    <line x1="410" y1="405" x2="576" y2="405"/>
+    <line x1="690" y1="405" x2="826" y2="405"/>
+    <!-- UE-AMF 斜线 N1 -->
+    <line x1="175" y1="378" x2="415" y2="282"/>
+    <!-- AMF-(R)AN N2 -->
+    <line x1="430" y1="280" x2="375" y2="376"/>
+    <!-- SMF-UPF N4 -->
+    <line x1="700" y1="280" x2="650" y2="376"/>
+    <!-- UPF N9 环回 -->
+    <path d="M610 430 V460 H660 V434"/>
+  </g>
+  <g font-size="17" fill="#1f2937">
+    <text x="182" y="87" text-anchor="middle">NSSF</text>
+    <text x="342" y="87" text-anchor="middle">NEF</text>
+    <text x="502" y="87" text-anchor="middle">NRF</text>
+    <text x="662" y="87" text-anchor="middle">PCF</text>
+    <text x="812" y="87" text-anchor="middle">UDM</text>
+    <text x="914" y="87" text-anchor="middle">AF</text>
+    <text x="300" y="262" text-anchor="middle">AUSF</text>
+    <text x="440" y="262" text-anchor="middle">AMF</text>
+    <text x="690" y="262" text-anchor="middle">SMF</text>
+    <text x="150" y="411" text-anchor="middle">UE</text>
+    <text x="355" y="411" text-anchor="middle">(R)AN</text>
+    <text x="635" y="411" text-anchor="middle">UPF</text>
+    <text x="880" y="411" text-anchor="middle">DN</text>
+  </g>
+  <g font-size="16" fill="#1f2937">
+    <text x="128" y="152">Nnssf</text>
+    <text x="290" y="152">Nnef</text>
+    <text x="450" y="152">Nnrf</text>
+    <text x="610" y="152">Npcf</text>
+    <text x="758" y="152">Nudm</text>
+    <text x="930" y="152">Naf</text>
+    <text x="252" y="196">Nausf</text>
+    <text x="392" y="196">Namf</text>
+    <text x="642" y="196">Nsmf</text>
+    <text x="228" y="398">N1</text>
+    <text x="408" y="340">N2</text>
+    <text x="488" y="398">N3</text>
+    <text x="700" y="340">N4</text>
+    <text x="744" y="398">N6</text>
+    <text x="612" y="472">N9</text>
+  </g>
+</svg>

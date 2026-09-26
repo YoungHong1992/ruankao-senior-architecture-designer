@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="360" viewBox="0 0 880 360" font-family="sans-serif">
+  <title>图 2-22 5G网络切片组成</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 70（物理页 79）插图。中央 5G网络云（内含 eMBB切片、mMTC切片、uRLLC切片三个标签）；左侧三个业务群体：移动宽带、海量物联网、关键性任务物联网；右侧三个应用示例框：通信、互联网；物流、农业、气候等；无人驾驶、工厂等。业务群体与云之间为虚线，云与应用示例之间为实线。</desc>
+  <rect width="880" height="360" fill="#ffffff"/>
+  <!-- 5G 网络（云形） -->
+  <path d="M400 90 C340 80 300 110 310 145 C270 150 260 200 300 220 C290 260 340 285 390 270 C420 300 500 300 530 270 C590 285 640 255 625 215 C670 195 660 130 610 120 C615 80 545 60 505 85 C475 60 420 65 400 90 Z"
+        fill="#e3ebf6" stroke="#7d8da5" stroke-width="2"/>
+  <g fill="#ffffff" stroke="#7d8da5" stroke-width="1.5">
+    <rect x="430" y="90" width="130" height="34"/>
+    <rect x="440" y="145" width="130" height="34"/>
+    <rect x="430" y="200" width="130" height="34"/>
+  </g>
+  <g font-size="16" fill="#1f2937" text-anchor="middle">
+    <text x="495" y="113">eMBB切片</text>
+    <text x="505" y="168">mMTC切片</text>
+    <text x="495" y="223">uRLLC切片</text>
+  </g>
+  <text x="480" y="300" text-anchor="middle" font-size="16" fill="#1f2937">5G网络</text>
+  <!-- 左侧业务群体 -->
+  <g font-size="17" fill="#1f2937">
+    <text x="255" y="70" text-anchor="end">移动宽带</text>
+    <text x="255" y="163" text-anchor="end">海量物联网</text>
+    <text x="255" y="248" text-anchor="end">关键性任务物联网</text>
+  </g>
+  <g stroke="#8a99ad" stroke-width="2" stroke-dasharray="7 6" fill="none">
+    <line x1="265" y1="63" x2="375" y2="105"/>
+    <line x1="262" y1="155" x2="352" y2="162"/>
+    <line x1="262" y1="240" x2="368" y2="215"/>
+  </g>
+  <!-- 右侧应用示例 -->
+  <g fill="#eef3fb" stroke="#7d8da5" stroke-width="2">
+    <rect x="680" y="28" width="185" height="44"/>
+    <rect x="680" y="135" width="185" height="44"/>
+    <rect x="680" y="240" width="185" height="44"/>
+  </g>
+  <g font-size="16" fill="#1f2937" text-anchor="middle">
+    <text x="772" y="56">通信、互联网</text>
+    <text x="772" y="163">物流、农业、气候等</text>
+    <text x="772" y="268">无人驾驶、工厂等</text>
+  </g>
+  <g stroke="#556070" stroke-width="2" fill="none">
+    <line x1="640" y1="105" x2="676" y2="52"/>
+    <line x1="625" y1="165" x2="676" y2="157"/>
+    <line x1="628" y1="220" x2="676" y2="260"/>
+  </g>
+</svg>

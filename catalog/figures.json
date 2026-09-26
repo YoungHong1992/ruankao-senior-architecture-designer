@@ -408,6 +408,34 @@
       "printed_page": 64,
       "record": "verification/教材首轮核查-第02章-计算机系统基础知识.md",
       "note": "以太帧五个字段依次为 DMAC、SMAC、Length/Type、DATA/PAD、FCS。此前正文中的字段转写表由本 SVG 取代。"
+    },
+    {
+      "id": "tb-fig-0030",
+      "corpus": "textbook",
+      "file": "content/01-系统架构设计师教材-清洗版/第02章-计算机系统基础知识/第05节-计算机网络.md",
+      "figure": "图 2-21",
+      "title": "5G网络的系统架构",
+      "kind": "svg",
+      "anchor": "> 图 2-21 5G 网络的系统架构",
+      "asset": "assets/figures/textbook/ch02-computer-system-fundamentals/figure-2-21.svg",
+      "physical_page": 78,
+      "printed_page": 69,
+      "record": "verification/教材首轮核查-第02章-计算机系统基础知识.md",
+      "note": "上排六个控制面网元 NSSF/NEF/NRF/PCF/UDM/AF 经服务化接口（Nnssf/Nnef/Nnrf/Npcf/Nudm/Naf）接入水平服务化总线；AUSF/AMF/SMF 经 Nausf/Namf/Nsmf 接入同一总线；下排 UE—(R)AN—UPF—DN 经 N1/N2/N3/N4/N6 相连（UE 经 N1 至 AMF，AMF 经 N2 至 (R)AN，SMF 经 N4 至 UPF），UPF 有 N9 环回。此前正文中的接口转写表由本 SVG 取代。"
+    },
+    {
+      "id": "tb-fig-0031",
+      "corpus": "textbook",
+      "file": "content/01-系统架构设计师教材-清洗版/第02章-计算机系统基础知识/第05节-计算机网络.md",
+      "figure": "图 2-22",
+      "title": "5G网络切片组成",
+      "kind": "svg",
+      "anchor": "> 图 2-22 5G 网络切片组成",
+      "asset": "assets/figures/textbook/ch02-computer-system-fundamentals/figure-2-22.svg",
+      "physical_page": 79,
+      "printed_page": 70,
+      "record": "verification/教材首轮核查-第02章-计算机系统基础知识.md",
+      "note": "中央 5G网络云（内含 eMBB切片、mMTC切片、uRLLC切片）；左侧业务群体移动宽带/海量物联网/关键性任务物联网（虚线连接，原图带设备图标未转录）；右侧应用示例框：通信互联网、物流农业气候等、无人驾驶工厂等（实线连接）。此前正文中的转写表由本 SVG 取代。"
     }
   ]
 }
