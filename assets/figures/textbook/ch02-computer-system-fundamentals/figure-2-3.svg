@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="490" viewBox="0 0 900 490" font-family="sans-serif">
+  <title>图 2-3 典型的处理器体系结构示意图</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 26（物理页 35）插图。指令部件经分发线连接运算部件、寄存器组、存取部件；运算部件与寄存器组、寄存器组与存取部件间双向互连；运算/寄存器/存取结果经汇流线进入完成部件，完成部件经左侧反馈线回到指令部件；存取部件接 MMU 部件，MMU 部件与 Cache 部件互连并经右侧反馈线回到指令部件；Cache 部件与地址总线、数据总线双向连接。</desc>
+  <rect width="900" height="490" fill="#ffffff"/>
+  <defs>
+    <marker id="a23" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#4a5568"/>
+    </marker>
+    <marker id="a23s" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 10 0 L 0 5 L 10 10 Z" fill="#4a5568"/>
+    </marker>
+  </defs>
+  <rect width="900" height="490" fill="#ffffff"/>
+
+  <g fill="#eef3fb" stroke="#7d8da5" stroke-width="2">
+    <rect x="310" y="80" width="120" height="44"/>
+    <rect x="185" y="183" width="120" height="44"/>
+    <rect x="325" y="183" width="100" height="44"/>
+    <rect x="445" y="183" width="120" height="44"/>
+    <rect x="165" y="293" width="120" height="44"/>
+    <rect x="420" y="293" width="120" height="44"/>
+    <rect x="555" y="293" width="120" height="44"/>
+  </g>
+  <g font-size="17" fill="#1f2937">
+    <text x="370" y="108" text-anchor="middle">指令部件</text>
+    <text x="245" y="211" text-anchor="middle">运算部件</text>
+    <text x="375" y="211" text-anchor="middle">寄存器组</text>
+    <text x="505" y="211" text-anchor="middle">存取部件</text>
+    <text x="225" y="321" text-anchor="middle">完成部件</text>
+    <text x="480" y="321" text-anchor="middle">Cache部件</text>
+    <text x="615" y="321" text-anchor="middle">MMU部件</text>
+  </g>
+
+  <g stroke="#4a5568" stroke-width="2.2" fill="none">
+    <!-- 指令部件分发线：三路向下 -->
+    <path d="M370 124 V150"/>
+    <path d="M245 150 H505"/>
+    <path d="M245 150 V179" marker-end="url(#a23)"/>
+    <path d="M370 150 V179" marker-end="url(#a23)"/>
+    <path d="M505 150 V179" marker-end="url(#a23)"/>
+    <!-- 运算 ↔ 寄存器 ↔ 存取 -->
+    <line x1="309" y1="205" x2="321" y2="205" marker-end="url(#a23)" marker-start="url(#a23s)"/>
+    <line x1="429" y1="205" x2="441" y2="205" marker-end="url(#a23)" marker-start="url(#a23s)"/>
+    <!-- 结果汇流线 → 完成部件 -->
+    <path d="M245 227 V260 H505 V227 M375 227 V260"/>
+    <path d="M245 260 V289" marker-end="url(#a23)"/>
+    <!-- 完成部件 → 指令部件（左反馈） -->
+    <path d="M165 315 H145 V102 H306" marker-end="url(#a23)"/>
+    <!-- 存取部件 → MMU部件 -->
+    <path d="M565 205 H615 V289" marker-end="url(#a23)"/>
+    <!-- MMU部件 → 指令部件（右反馈） -->
+    <path d="M675 315 H700 V102 H434" marker-end="url(#a23)"/>
+    <!-- Cache ↔ MMU -->
+    <line x1="544" y1="315" x2="551" y2="315" marker-end="url(#a23)" marker-start="url(#a23s)"/>
+    <!-- Cache ↔ 地址总线 / 数据总线 -->
+    <line x1="462" y1="341" x2="462" y2="381" marker-end="url(#a23)" marker-start="url(#a23s)"/>
+    <line x1="498" y1="341" x2="498" y2="446" marker-end="url(#a23)" marker-start="url(#a23s)"/>
+  </g>
+
+  <!-- 双总线 -->
+  <g stroke="#4a5568" stroke-width="2.2">
+    <line x1="40" y1="385" x2="860" y2="385" marker-end="url(#a23)" marker-start="url(#a23s)"/>
+    <line x1="40" y1="450" x2="860" y2="450" marker-end="url(#a23)" marker-start="url(#a23s)"/>
+  </g>
+  <g font-size="17" fill="#1f2937">
+    <text x="370" y="391">地址总线</text>
+    <text x="370" y="456">数据总线</text>
+  </g>
+</svg>
