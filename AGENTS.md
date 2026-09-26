@@ -834,7 +834,7 @@ SVG 必须作为独立文件落盘并以 Markdown 图片语法引用——**GitH
 
 - 公式优先用 KaTeX（`$`/`$$`）表达；无法可靠恢复的公式保留原文文字描述，不臆造推导。
 
-- 如确有权纳入原始图片，放入 `assets/figures/<语料 id>/<章节 slug>/`（例：`assets/figures/textbook/ch07-architecture-design-fundamentals/figure-7-3.svg`），使用原图号命名并移除无关水印或个人信息；命名细则见 [assets/README.md](assets/README.md)，大批量图片引入前评估 Git LFS 和再分发权利。
+- 如确有权纳入原始图片，放入 `assets/figures/<语料 id>/<章节 slug>/`（例：`assets/figures/textbook/ch07-architecture-design-fundamentals/figure-07-03.svg`），使用原图号命名并移除无关水印或个人信息；命名细则见 [assets/README.md](assets/README.md)，大批量图片引入前评估 Git LFS 和再分发权利。
 
 
 
