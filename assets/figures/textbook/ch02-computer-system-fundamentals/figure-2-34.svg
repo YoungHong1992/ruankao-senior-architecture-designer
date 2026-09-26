@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="560" viewBox="0 0 920 560" font-family="sans-serif">
+  <title>图 2-34 UML用例图</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 83（物理页 92）插图。左侧为两个参与者（学生、国际留学生，国际留学生指向学生的泛化空心三角实线）；右侧系统边界框内含两个用例椭圆（执行安全检查、登记家庭成员），两用例之间有 include 与 extend 虚线关系；学生与执行安全检查之间为关联实线。图中以引线标注参与者、用例、系统边界、扩展关系、泛化关系。</desc>
+  <rect width="920" height="560" fill="#ffffff"/>
+
+  <!-- 系统边界框 -->
+  <rect x="360" y="60" width="530" height="440" fill="none" stroke="#556070" stroke-width="2"/>
+
+  <!-- 用例椭圆 -->
+  <ellipse cx="620" cy="150" rx="135" ry="45" fill="none" stroke="#556070" stroke-width="2"/>
+  <text x="620" y="157" text-anchor="middle" font-size="17" fill="#1f2937">执行安全检查</text>
+  <ellipse cx="700" cy="360" rx="130" ry="45" fill="none" stroke="#556070" stroke-width="2"/>
+  <text x="700" y="367" text-anchor="middle" font-size="17" fill="#1f2937">登记家庭成员</text>
+
+  <!-- include/extend 虚线（两用例间） -->
+  <line x1="640" y1="190" x2="668" y2="315" stroke="#556070" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="665" y="245" font-size="16" fill="#1f2937">&lt;&lt;include&gt;&gt;</text>
+  <text x="500" y="245" font-size="16" fill="#1f2937">&lt;&lt;extend&gt;&gt;</text>
+  <line x1="555" y1="238" x2="620" y2="243" stroke="#556070" stroke-width="1.5"/>
+
+  <!-- 参与者：学生 -->
+  <g stroke="#556070" stroke-width="2" fill="none">
+    <circle cx="200" cy="200" r="14"/>
+    <line x1="200" y1="214" x2="200" y2="280"/>
+    <line x1="170" y1="238" x2="230" y2="238"/>
+    <line x1="200" y1="280" x2="178" y2="322"/>
+    <line x1="200" y1="280" x2="222" y2="322"/>
+  </g>
+  <text x="200" y="185" text-anchor="middle" font-size="17" fill="#1f2937">学生</text>
+
+  <!-- 参与者：国际留学生 -->
+  <g stroke="#556070" stroke-width="2" fill="none">
+    <circle cx="200" cy="390" r="14"/>
+    <line x1="200" y1="404" x2="200" y2="470"/>
+    <line x1="170" y1="428" x2="230" y2="428"/>
+    <line x1="200" y1="470" x2="178" y2="512"/>
+    <line x1="200" y1="470" x2="222" y2="512"/>
+  </g>
+  <text x="200" y="542" text-anchor="middle" font-size="17" fill="#1f2937">国际留学生</text>
+
+  <!-- 参与者泛化（国际留学生 → 学生，空心三角） -->
+  <line x1="200" y1="374" x2="200" y2="330" stroke="#556070" stroke-width="2"/>
+  <path d="M188 342 L200 320 L212 342 Z" fill="#ffffff" stroke="#556070" stroke-width="2"/>
+
+  <!-- 关联：学生—执行安全检查 -->
+  <line x1="230" y1="205" x2="485" y2="150" stroke="#556070" stroke-width="2"/>
+
+  <!-- 标注 -->
+  <g font-size="16" fill="#1f2937">
+    <text x="80" y="130">参与者</text>
+    <text x="740" y="500">系统边界</text>
+    <text x="530" y="430">用例</text>
+    <text x="498" y="262">扩展关系</text>
+    <text x="800" y="250">泛化关系</text>
+  </g>
+  <g stroke="#556070" stroke-width="1.5" fill="none">
+    <line x1="120" y1="138" x2="178" y2="205"/>
+    <line x1="770" y1="492" x2="720" y2="450"/>
+    <line x1="545" y1="422" x2="560" y2="380"/>
+    <line x1="528" y1="255" x2="600" y2="270"/>
+    <line x1="795" y1="242" x2="212" y2="340"/>
+  </g>
+</svg>

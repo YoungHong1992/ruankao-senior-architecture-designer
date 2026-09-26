@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="470" viewBox="0 0 980 470" font-family="sans-serif">
+  <title>图 2-25 结构事物的图形表示</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 81（物理页 90）插图。两行八种结构事物记法：类（名称/-属性/+方法() 三格框）、接口（棒糖圆圈与分格框两种）、协作（协作名虚线椭圆）、用例（用例名实线椭圆）；主动类（粗边框三格框）、构件（component 构件名带构件图标）、制品（artifact 制品名带文档图标）、结点（结点名三维立方体）。</desc>
+  <rect width="980" height="470" fill="#ffffff"/>
+
+  <!-- 类 -->
+  <g fill="#ffffff" stroke="#556070" stroke-width="2">
+    <rect x="60" y="30" width="140" height="120"/>
+    <line x1="60" y1="70" x2="200" y2="70"/>
+    <line x1="60" y1="105" x2="200" y2="105"/>
+  </g>
+  <g font-size="16" fill="#1f2937" text-anchor="middle">
+    <text x="130" y="58">类</text>
+    <text x="130" y="94">-属性</text>
+    <text x="130" y="130">+方法()</text>
+    <text x="130" y="196">类</text>
+  </g>
+
+  <!-- 接口（两种记法） -->
+  <circle cx="300" cy="85" r="38" fill="none" stroke="#556070" stroke-width="2"/>
+  <g fill="#ffffff" stroke="#556070" stroke-width="2">
+    <rect x="370" y="30" width="130" height="80"/>
+    <line x1="370" y1="78" x2="500" y2="78"/>
+    <line x1="370" y1="100" x2="500" y2="100"/>
+    <circle cx="470" cy="55" r="14"/>
+  </g>
+  <text x="405" y="61" font-size="16" fill="#1f2937">接口</text>
+  <g font-size="16" fill="#1f2937" text-anchor="middle">
+    <text x="300" y="165">接口</text>
+    <text x="435" y="165">接口</text>
+  </g>
+
+  <!-- 协作 -->
+  <ellipse cx="620" cy="90" rx="95" ry="48" fill="none" stroke="#556070" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="620" y="97" text-anchor="middle" font-size="16" fill="#1f2937">协作名</text>
+  <text x="620" y="196" text-anchor="middle" font-size="16" fill="#1f2937">协作</text>
+
+  <!-- 用例 -->
+  <ellipse cx="860" cy="90" rx="95" ry="48" fill="none" stroke="#556070" stroke-width="2"/>
+  <text x="860" y="97" text-anchor="middle" font-size="16" fill="#1f2937">用例名</text>
+  <text x="860" y="196" text-anchor="middle" font-size="16" fill="#1f2937">用例</text>
+
+  <!-- 主动类（粗边框） -->
+  <g fill="#ffffff" stroke="#556070" stroke-width="5">
+    <rect x="60" y="240" width="140" height="120"/>
+  </g>
+  <g stroke="#556070" stroke-width="2">
+    <line x1="60" y1="280" x2="200" y2="280"/>
+    <line x1="60" y1="315" x2="200" y2="315"/>
+  </g>
+  <g font-size="16" fill="#1f2937" text-anchor="middle">
+    <text x="130" y="268">主动类</text>
+    <text x="130" y="304">-属性</text>
+    <text x="130" y="340">+方法()</text>
+    <text x="130" y="406">主动类</text>
+  </g>
+
+  <!-- 构件 -->
+  <g fill="#ffffff" stroke="#556070" stroke-width="2">
+    <rect x="290" y="240" width="215" height="120"/>
+  </g>
+  <g font-size="16" fill="#1f2937">
+    <text x="315" y="272">&lt;&lt;component&gt;&gt;</text>
+    <text x="360" y="300">构件名</text>
+  </g>
+  <g fill="none" stroke="#556070" stroke-width="2">
+    <rect x="450" y="248" width="32" height="36"/>
+    <rect x="444" y="256" width="32" height="36" fill="#ffffff"/>
+  </g>
+  <text x="397" y="406" text-anchor="middle" font-size="16" fill="#1f2937">构件</text>
+
+  <!-- 制品 -->
+  <g fill="#ffffff" stroke="#556070" stroke-width="2">
+    <path d="M560 250 H725 V330 L705 350 H540 V270 Z"/>
+    <path d="M725 330 L745 310 L745 268 L725 250 M705 330 L705 350"/>
+  </g>
+  <g font-size="16" fill="#1f2937">
+    <text x="580" y="282">&lt;&lt;artifact&gt;&gt;[</text>
+    <text x="610" y="312">制品名</text>
+  </g>
+  <text x="640" y="406" text-anchor="middle" font-size="16" fill="#1f2937">制品</text>
+
+  <!-- 结点（立方体） -->
+  <g fill="#ffffff" stroke="#556070" stroke-width="2">
+    <path d="M790 265 L870 265 L910 235 L910 345 L830 345 L790 310 Z"/>
+    <path d="M870 265 L870 315 L830 345 M870 265 L910 235"/>
+  </g>
+  <text x="836" y="300" text-anchor="middle" font-size="16" fill="#1f2937">结点名</text>
+  <text x="850" y="406" text-anchor="middle" font-size="16" fill="#1f2937">结点</text>
+</svg>
