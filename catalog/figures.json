@@ -268,6 +268,20 @@
       "printed_page": 47,
       "record": "verification/教材首轮核查-第02章-计算机系统基础知识.md",
       "note": "操作者经人机接口与嵌入式计算机双向交互；嵌入式计算机经数字/模拟接口与受控对象双向交互。"
+    },
+    {
+      "id": "tb-fig-0020",
+      "corpus": "textbook",
+      "file": "content/01-系统架构设计师教材-清洗版/第02章-计算机系统基础知识/第04节-嵌入式系统及软件.md",
+      "figure": "图 2-11",
+      "title": "基于ARM处理器的嵌入式计算机硬件组成",
+      "kind": "svg",
+      "anchor": "> 图 2-11 基于ARM处理器的嵌入式计算机硬件组成",
+      "asset": "assets/figures/textbook/ch02-computer-system-fundamentals/figure-2-11.svg",
+      "physical_page": 57,
+      "printed_page": 48,
+      "record": "verification/教材首轮核查-第02章-计算机系统基础知识.md",
+      "note": "中央为基于ARM架构的32位微处理器 Samsung S3C44BOX；左接 1M线性Flash(BIOS)、8MB SDRAM(系统内存)、16MB非线性Flash(硬盘)，右接 USB接口(USBN9603)、两个RS-232串行通信接口、JTAG调试端口，上接 LCD显示，下接键盘输入，并经竖直汇流线双向连接 TCP/IP协议与 CAN BUS。"
     }
   ]
 }
