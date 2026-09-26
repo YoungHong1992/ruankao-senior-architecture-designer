@@ -404,8 +404,8 @@ class Validator:
                 self.error(FIGURES_PATH, f"{label} references unknown corpus: {entry.get('corpus')!r}")
                 continue
             kind = entry.get("kind")
-            if kind not in {"table", "svg"}:
-                self.error(FIGURES_PATH, f"{label} kind must be 'table' or 'svg'")
+            if kind != "svg":
+                self.error(FIGURES_PATH, f"{label} kind must be 'svg'")
             file_value = entry.get("file")
             if not isinstance(file_value, str) or not file_value:
                 self.error(FIGURES_PATH, f"{label} is missing file")

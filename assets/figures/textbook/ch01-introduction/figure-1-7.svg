@@ -1,0 +1,303 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="700" viewBox="0 0 1400 700" font-family="sans-serif">
+  <title>图 1-7 软件架构技术发展路线概览</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 14（物理页 23）插图：以 1940s（底部）至 2017（顶部）为时间轴的软件架构技术路线图。节点位置按原图实测坐标放置；实线箭头为扫描件可确认的连线，虚线箭头为印刷重叠而无法逐段确认的连线（共 9 段，清单见 catalog/figures.json）。程序设计经横向主干总线分支至结构化编程、Zachman、MIL、软件度量、模块化编程、Artificial Intelligence、函数式编程、架构设计。</desc>
+  <rect width="1400" height="700" fill="#ffffff"/>
+  <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 Z" fill="#4a5568"/></marker></defs>
+  <g stroke="#4a5568" stroke-width="2.5" fill="none">
+    <line x1="620" y1="638" x2="620" y2="611" marker-end="url(#ah)"/>
+    <line x1="200" y1="611" x2="1035" y2="611"/>
+    <line x1="220" y1="611" x2="220" y2="601" marker-end="url(#ah)"/>
+    <line x1="339" y1="611" x2="339" y2="486" marker-end="url(#ah)"/>
+    <line x1="417" y1="611" x2="417" y2="519" marker-end="url(#ah)"/>
+    <line x1="466" y1="611" x2="466" y2="564" marker-end="url(#ah)"/>
+    <line x1="630" y1="611" x2="630" y2="558" marker-end="url(#ah)"/>
+    <line x1="945" y1="611" x2="945" y2="597" marker-end="url(#ah)"/>
+    <line x1="1015" y1="611" x2="1015" y2="588" marker-end="url(#ah)"/>
+    <line x1="578" y1="611" x2="578" y2="380" marker-end="url(#ah)"/>
+  </g>
+  <line x1="207" y1="576" x2="170" y2="501" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="220" y1="574" x2="220" y2="533" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="242" y1="582" x2="272" y2="561" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="221" y1="508" x2="223" y2="471" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="222" y1="446" x2="221" y2="415" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="211" y1="449" x2="179" y2="385" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="218" y1="390" x2="217" y2="335" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="211" y1="390" x2="169" y2="234" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="216" y1="310" x2="215" y2="272" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="166" y1="362" x2="163" y2="235" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="162" y1="210" x2="161" y2="139" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="227" y1="271" x2="260" y2="341" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="235" y1="266" x2="284" y2="307" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="237" y1="256" x2="292" y2="236" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="233" y1="252" x2="261" y2="219" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="195" y1="252" x2="180" y2="230" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="215" y1="247" x2="216" y2="155" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="290" y1="544" x2="288" y2="505" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="338" y1="459" x2="338" y2="385" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="338" y1="360" x2="339" y2="187" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="417" y1="492" x2="415" y2="337" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="392" y1="320" x2="381" y2="307" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="391" y1="328" x2="375" y2="338" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="399" y1="315" x2="392" y2="292" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="411" y1="312" x2="406" y2="261" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="420" y1="313" x2="437" y2="229" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="405" y1="236" x2="408" y2="178" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="490" y1="550" x2="525" y2="550" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="547" y1="537" x2="545" y2="461" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="554" y1="437" x2="570" y2="377" stroke="#4a5568" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#ah)"/>
+  <line x1="466" y1="537" x2="466" y2="505" stroke="#4a5568" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#ah)"/>
+  <line x1="467" y1="480" x2="467" y2="461" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="492" y1="449" x2="523" y2="449" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="559" y1="374" x2="485" y2="442" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="468" y1="436" x2="468" y2="394" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="468" y1="369" x2="468" y2="284" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="568" y1="354" x2="513" y2="218" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="573" y1="353" x2="537" y2="169" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="577" y1="353" x2="571" y2="137" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="579" y1="353" x2="584" y2="212" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="554" y1="365" x2="527" y2="361" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="590" y1="355" x2="699" y2="153" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="557" y1="360" x2="522" y2="331" stroke="#4a5568" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#ah)"/>
+  <line x1="614" y1="481" x2="585" y2="377" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="623" y1="480" x2="626" y2="408" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="626" y1="480" x2="659" y2="294" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="632" y1="481" x2="699" y2="320" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="635" y1="482" x2="709" y2="358" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="639" y1="484" x2="715" y2="399" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="627" y1="480" x2="695" y2="174" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="646" y1="492" x2="776" y2="478" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="626" y1="531" x2="625" y2="505" stroke="#4a5568" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#ah)"/>
+  <line x1="628" y1="383" x2="629" y2="337" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="627" y1="312" x2="614" y2="183" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="784" y1="487" x2="764" y2="531" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="819" y1="483" x2="837" y2="503" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="791" y1="465" x2="707" y2="174" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="795" y1="464" x2="763" y2="194" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="797" y1="464" x2="785" y2="226" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="777" y1="471" x2="598" y2="371" stroke="#4a5568" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#ah)"/>
+  <line x1="863" y1="496" x2="863" y2="476" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="863" y1="452" x2="857" y2="406" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="851" y1="381" x2="851" y2="259" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="829" y1="175" x2="860" y2="61" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="844" y1="183" x2="877" y2="163" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="891" y1="208" x2="894" y2="171" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="913" y1="486" x2="903" y2="446" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="895" y1="422" x2="897" y2="171" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="902" y1="422" x2="944" y2="282" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="711" y1="151" x2="700" y2="154" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="686" y1="143" x2="645" y2="142" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="708" y1="130" x2="708" y2="104" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="695" y1="133" x2="636" y2="45" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="614" y1="129" x2="608" y2="94" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="732" y1="138" x2="743" y2="125" stroke="#4a5568" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#ah)"/>
+  <line x1="728" y1="86" x2="763" y2="57" stroke="#4a5568" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#ah)"/>
+  <line x1="954" y1="571" x2="968" y2="515" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="945" y1="570" x2="950" y2="282" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="979" y1="320" x2="963" y2="280" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="1014" y1="561" x2="1013" y2="533" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="1022" y1="562" x2="1044" y2="471" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="1038" y1="570" x2="1059" y2="557" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="1011" y1="508" x2="1011" y2="489" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="1009" y1="464" x2="1008" y2="417" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="1080" y1="625" x2="1080" y2="565" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="1085" y1="540" x2="1104" y2="445" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="1079" y1="540" x2="1074" y2="305" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="1082" y1="540" x2="1087" y2="466" stroke="#4a5568" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#ah)"/>
+  <line x1="1064" y1="281" x2="1038" y2="205" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="1075" y1="280" x2="1081" y2="187" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="1081" y1="162" x2="1079" y2="123" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="1109" y1="447" x2="1145" y2="411" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="1111" y1="449" x2="1191" y2="409" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="1089" y1="441" x2="1083" y2="187" stroke="#4a5568" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#ah)"/>
+  <line x1="1161" y1="392" x2="1156" y2="312" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="1147" y1="288" x2="1135" y2="225" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="1153" y1="287" x2="1151" y2="185" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="1163" y1="288" x2="1184" y2="221" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="1173" y1="293" x2="1203" y2="258" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="1178" y1="300" x2="1217" y2="299" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <text x="622" y="33" text-anchor="middle" font-size="15" fill="#1f2937">无服务器计算/无服务器编程</text>
+  <text x="622" y="50" text-anchor="middle" font-size="13" fill="#6b7280">2017</text>
+  <text x="867" y="47" text-anchor="middle" font-size="15" fill="#1f2937">DevOps 工具链</text>
+  <text x="867" y="64" text-anchor="middle" font-size="13" fill="#6b7280">2013</text>
+  <text x="783" y="49" text-anchor="middle" font-size="15" fill="#1f2937">流式微服务</text>
+  <text x="783" y="66" text-anchor="middle" font-size="13" fill="#6b7280">2015</text>
+  <text x="599" y="81" text-anchor="middle" font-size="15" fill="#1f2937">容器技术</text>
+  <text x="599" y="98" text-anchor="middle" font-size="13" fill="#6b7280">2013</text>
+  <text x="707" y="90" text-anchor="middle" font-size="15" fill="#1f2937">Cloud Native/Microservice</text>
+  <text x="707" y="107" text-anchor="middle" font-size="13" fill="#6b7280">2012</text>
+  <text x="1078" y="109" text-anchor="middle" font-size="15" fill="#1f2937">DCI</text>
+  <text x="1078" y="126" text-anchor="middle" font-size="13" fill="#6b7280">2009</text>
+  <text x="763" y="118" text-anchor="middle" font-size="15" fill="#1f2937">RASIC</text>
+  <text x="763" y="135" text-anchor="middle" font-size="13" fill="#6b7280">2010</text>
+  <text x="570" y="123" text-anchor="middle" font-size="15" fill="#1f2937">PBE/PBSE</text>
+  <text x="570" y="140" text-anchor="middle" font-size="13" fill="#6b7280">2010</text>
+  <text x="161" y="125" text-anchor="middle" font-size="15" fill="#1f2937">CMMI v1.3</text>
+  <text x="161" y="142" text-anchor="middle" font-size="13" fill="#6b7280">2010</text>
+  <text x="623" y="147" text-anchor="middle" font-size="15" fill="#1f2937">虚拟化技术</text>
+  <text x="217" y="141" text-anchor="middle" font-size="15" fill="#1f2937">精益架构</text>
+  <text x="217" y="158" text-anchor="middle" font-size="13" fill="#6b7280">2010</text>
+  <text x="710" y="141" text-anchor="middle" font-size="15" fill="#1f2937">Cloud</text>
+  <text x="710" y="158" text-anchor="middle" font-size="13" fill="#6b7280">2006</text>
+  <text x="532" y="155" text-anchor="middle" font-size="15" fill="#1f2937">ADD</text>
+  <text x="532" y="172" text-anchor="middle" font-size="13" fill="#6b7280">2002</text>
+  <text x="897" y="157" text-anchor="middle" font-size="15" fill="#1f2937">软件生态系统</text>
+  <text x="897" y="174" text-anchor="middle" font-size="13" fill="#6b7280">2003</text>
+  <text x="1151" y="171" text-anchor="middle" font-size="15" fill="#1f2937">QDAD</text>
+  <text x="1151" y="188" text-anchor="middle" font-size="13" fill="#6b7280">2002</text>
+  <text x="339" y="173" text-anchor="middle" font-size="15" fill="#1f2937">DODAF</text>
+  <text x="339" y="190" text-anchor="middle" font-size="13" fill="#6b7280">2003</text>
+  <text x="1082" y="173" text-anchor="middle" font-size="15" fill="#1f2937">DDD</text>
+  <text x="1082" y="190" text-anchor="middle" font-size="13" fill="#6b7280">2004</text>
+  <text x="760" y="180" text-anchor="middle" font-size="15" fill="#1f2937">事件驱动架构</text>
+  <text x="760" y="197" text-anchor="middle" font-size="13" fill="#6b7280">2006</text>
+  <text x="822" y="193" text-anchor="middle" font-size="15" fill="#1f2937">软件管理</text>
+  <text x="1029" y="192" text-anchor="middle" font-size="15" fill="#1f2937">MDD/MDA</text>
+  <text x="1029" y="209" text-anchor="middle" font-size="13" fill="#6b7280">2001</text>
+  <text x="585" y="198" text-anchor="middle" font-size="15" fill="#1f2937">ASC</text>
+  <text x="585" y="215" text-anchor="middle" font-size="13" fill="#6b7280">2000</text>
+  <text x="1193" y="208" text-anchor="middle" font-size="15" fill="#1f2937">COPA</text>
+  <text x="1193" y="225" text-anchor="middle" font-size="13" fill="#6b7280">2000</text>
+  <text x="279" y="210" text-anchor="middle" font-size="15" fill="#1f2937">应急设计</text>
+  <text x="279" y="227" text-anchor="middle" font-size="13" fill="#6b7280">2000</text>
+  <text x="1128" y="212" text-anchor="middle" font-size="15" fill="#1f2937">KobrA</text>
+  <text x="1128" y="229" text-anchor="middle" font-size="13" fill="#6b7280">2001</text>
+  <text x="784" y="212" text-anchor="middle" font-size="15" fill="#1f2937">ABD</text>
+  <text x="784" y="229" text-anchor="middle" font-size="13" fill="#6b7280">2000</text>
+  <text x="442" y="215" text-anchor="middle" font-size="15" fill="#1f2937">Booch 方法</text>
+  <text x="442" y="232" text-anchor="middle" font-size="13" fill="#6b7280">2000</text>
+  <text x="162" y="221" text-anchor="middle" font-size="15" fill="#1f2937">CMMI</text>
+  <text x="162" y="238" text-anchor="middle" font-size="13" fill="#6b7280">2000</text>
+  <text x="1081" y="222" text-anchor="middle" font-size="15" fill="#1f2937">四色原型</text>
+  <text x="1081" y="239" text-anchor="middle" font-size="13" fill="#6b7280">1992</text>
+  <text x="314" y="231" text-anchor="middle" font-size="15" fill="#1f2937">TDD</text>
+  <text x="314" y="248" text-anchor="middle" font-size="13" fill="#6b7280">1999</text>
+  <text x="851" y="245" text-anchor="middle" font-size="15" fill="#1f2937">B/S</text>
+  <text x="851" y="262" text-anchor="middle" font-size="13" fill="#6b7280">2000</text>
+  <text x="1221" y="249" text-anchor="middle" font-size="15" fill="#1f2937">FORM</text>
+  <text x="1221" y="266" text-anchor="middle" font-size="13" fill="#6b7280">1998</text>
+  <text x="214" y="258" text-anchor="middle" font-size="15" fill="#1f2937">敏捷开发</text>
+  <text x="214" y="275" text-anchor="middle" font-size="13" fill="#6b7280">1990s</text>
+  <text x="951" y="268" text-anchor="middle" font-size="15" fill="#1f2937">SBSE</text>
+  <text x="951" y="285" text-anchor="middle" font-size="13" fill="#6b7280">1998</text>
+  <text x="468" y="270" text-anchor="middle" font-size="15" fill="#1f2937">ATAM</text>
+  <text x="468" y="287" text-anchor="middle" font-size="13" fill="#6b7280">1998</text>
+  <text x="664" y="281" text-anchor="middle" font-size="15" fill="#1f2937">DSA</text>
+  <text x="664" y="298" text-anchor="middle" font-size="13" fill="#6b7280">1998</text>
+  <text x="378" y="289" text-anchor="middle" font-size="15" fill="#1f2937">ACME</text>
+  <text x="1074" y="291" text-anchor="middle" font-size="15" fill="#1f2937">UML</text>
+  <text x="1074" y="308" text-anchor="middle" font-size="13" fill="#6b7280">1997</text>
+  <text x="1239" y="297" text-anchor="middle" font-size="15" fill="#1f2937">FAST</text>
+  <text x="1239" y="314" text-anchor="middle" font-size="13" fill="#6b7280">1995</text>
+  <text x="1154" y="298" text-anchor="middle" font-size="15" fill="#1f2937">软件产品线</text>
+  <text x="1154" y="315" text-anchor="middle" font-size="13" fill="#6b7280">1990s</text>
+  <text x="361" y="308" text-anchor="middle" font-size="15" fill="#1f2937">Wright</text>
+  <text x="708" y="307" text-anchor="middle" font-size="15" fill="#1f2937">Java Bean/EJB</text>
+  <text x="708" y="324" text-anchor="middle" font-size="13" fill="#6b7280">1997</text>
+  <text x="302" y="311" text-anchor="middle" font-size="15" fill="#1f2937">极限编程</text>
+  <text x="302" y="328" text-anchor="middle" font-size="13" fill="#6b7280">1996</text>
+  <text x="217" y="321" text-anchor="middle" font-size="15" fill="#1f2937">RUP</text>
+  <text x="217" y="338" text-anchor="middle" font-size="13" fill="#6b7280">1996</text>
+  <text x="503" y="323" text-anchor="middle" font-size="15" fill="#1f2937">"4+1" view</text>
+  <text x="503" y="340" text-anchor="middle" font-size="13" fill="#6b7280">1995</text>
+  <text x="414" y="323" text-anchor="middle" font-size="15" fill="#1f2937">ADL</text>
+  <text x="414" y="340" text-anchor="middle" font-size="13" fill="#6b7280">1990s</text>
+  <text x="630" y="323" text-anchor="middle" font-size="15" fill="#1f2937">Java API</text>
+  <text x="630" y="340" text-anchor="middle" font-size="13" fill="#6b7280">1995</text>
+  <text x="993" y="328" text-anchor="middle" font-size="15" fill="#1f2937">Big Data</text>
+  <text x="993" y="345" text-anchor="middle" font-size="13" fill="#6b7280">1990s</text>
+  <text x="354" y="347" text-anchor="middle" font-size="15" fill="#1f2937">C2</text>
+  <text x="721" y="346" text-anchor="middle" font-size="15" fill="#1f2937">COM/COM+</text>
+  <text x="721" y="363" text-anchor="middle" font-size="13" fill="#6b7280">1993</text>
+  <text x="272" y="350" text-anchor="middle" font-size="15" fill="#1f2937">SCRUM</text>
+  <text x="272" y="367" text-anchor="middle" font-size="13" fill="#6b7280">1995</text>
+  <text x="505" y="358" text-anchor="middle" font-size="15" fill="#1f2937">S4V</text>
+  <text x="505" y="375" text-anchor="middle" font-size="13" fill="#6b7280">1995</text>
+  <text x="578" y="372" text-anchor="middle" font-size="15" fill="#1f2937">架构设计</text>
+  <text x="337" y="371" text-anchor="middle" font-size="15" fill="#1f2937">TOGAF</text>
+  <text x="337" y="388" text-anchor="middle" font-size="13" fill="#6b7280">1995</text>
+  <text x="167" y="373" text-anchor="middle" font-size="15" fill="#1f2937">CMM v1.1</text>
+  <text x="167" y="390" text-anchor="middle" font-size="13" fill="#6b7280">1993</text>
+  <text x="468" y="380" text-anchor="middle" font-size="15" fill="#1f2937">SAAM</text>
+  <text x="468" y="397" text-anchor="middle" font-size="13" fill="#6b7280">1994</text>
+  <text x="731" y="389" text-anchor="middle" font-size="15" fill="#1f2937">CORBA</text>
+  <text x="731" y="406" text-anchor="middle" font-size="13" fill="#6b7280">1991</text>
+  <text x="851" y="392" text-anchor="middle" font-size="15" fill="#1f2937">C/S</text>
+  <text x="851" y="409" text-anchor="middle" font-size="13" fill="#6b7280">1990</text>
+  <text x="627" y="394" text-anchor="middle" font-size="15" fill="#1f2937">OS API</text>
+  <text x="627" y="411" text-anchor="middle" font-size="13" fill="#6b7280">1985</text>
+  <text x="218" y="401" text-anchor="middle" font-size="15" fill="#1f2937">IPD</text>
+  <text x="218" y="418" text-anchor="middle" font-size="13" fill="#6b7280">1992</text>
+  <text x="1008" y="403" text-anchor="middle" font-size="15" fill="#1f2937">Haskell</text>
+  <text x="1008" y="420" text-anchor="middle" font-size="13" fill="#6b7280">1990</text>
+  <text x="1163" y="403" text-anchor="middle" font-size="15" fill="#1f2937">DSSA</text>
+  <text x="1163" y="420" text-anchor="middle" font-size="13" fill="#6b7280">1990</text>
+  <text x="1211" y="403" text-anchor="middle" font-size="15" fill="#1f2937">FODA</text>
+  <text x="1211" y="420" text-anchor="middle" font-size="13" fill="#6b7280">1990</text>
+  <text x="1109" y="431" text-anchor="middle" font-size="15" fill="#1f2937">AOP/AOSD</text>
+  <text x="1109" y="448" text-anchor="middle" font-size="13" fill="#6b7280">1997</text>
+  <text x="895" y="433" text-anchor="middle" font-size="15" fill="#1f2937">开源</text>
+  <text x="895" y="450" text-anchor="middle" font-size="13" fill="#6b7280">1983</text>
+  <text x="468" y="455" text-anchor="middle" font-size="15" fill="#1f2937">架构度量</text>
+  <text x="545" y="455" text-anchor="middle" font-size="15" fill="#1f2937">架构重构</text>
+  <text x="224" y="457" text-anchor="middle" font-size="15" fill="#1f2937">螺旋模型</text>
+  <text x="224" y="474" text-anchor="middle" font-size="13" fill="#6b7280">1988</text>
+  <text x="1050" y="457" text-anchor="middle" font-size="15" fill="#1f2937">Clean</text>
+  <text x="1050" y="474" text-anchor="middle" font-size="13" fill="#6b7280">1990s</text>
+  <text x="869" y="463" text-anchor="middle" font-size="15" fill="#1f2937">MVC</text>
+  <text x="869" y="480" text-anchor="middle" font-size="13" fill="#6b7280">1978</text>
+  <text x="339" y="470" text-anchor="middle" font-size="15" fill="#1f2937">Zachman</text>
+  <text x="339" y="487" text-anchor="middle" font-size="13" fill="#6b7280">1987</text>
+  <text x="1009" y="475" text-anchor="middle" font-size="15" fill="#1f2937">λ 演算</text>
+  <text x="1009" y="492" text-anchor="middle" font-size="13" fill="#6b7280">1980</text>
+  <text x="798" y="483" text-anchor="middle" font-size="15" fill="#1f2937">架构风格</text>
+  <text x="158" y="489" text-anchor="middle" font-size="15" fill="#1f2937">净室软件工程</text>
+  <text x="158" y="506" text-anchor="middle" font-size="13" fill="#6b7280">1970s</text>
+  <text x="466" y="491" text-anchor="middle" font-size="15" fill="#1f2937">面向对象度量</text>
+  <text x="466" y="508" text-anchor="middle" font-size="13" fill="#6b7280">1990s</text>
+  <text x="286" y="491" text-anchor="middle" font-size="15" fill="#1f2937">Make/Build</text>
+  <text x="286" y="508" text-anchor="middle" font-size="13" fill="#6b7280">1976</text>
+  <text x="622" y="491" text-anchor="middle" font-size="15" fill="#1f2937">构件技术</text>
+  <text x="622" y="508" text-anchor="middle" font-size="13" fill="#6b7280">1970s</text>
+  <text x="923" y="504" text-anchor="middle" font-size="15" fill="#1f2937">软件版权</text>
+  <text x="976" y="502" text-anchor="middle" font-size="15" fill="#1f2937">遗传算法</text>
+  <text x="976" y="519" text-anchor="middle" font-size="13" fill="#6b7280">1970s</text>
+  <text x="417" y="503" text-anchor="middle" font-size="15" fill="#1f2937">MIL</text>
+  <text x="417" y="520" text-anchor="middle" font-size="13" fill="#6b7280">1970s</text>
+  <text x="220" y="519" text-anchor="middle" font-size="15" fill="#1f2937">瀑布模型</text>
+  <text x="220" y="536" text-anchor="middle" font-size="13" fill="#6b7280">1970</text>
+  <text x="1012" y="519" text-anchor="middle" font-size="15" fill="#1f2937">LISP</text>
+  <text x="1012" y="536" text-anchor="middle" font-size="13" fill="#6b7280">1958</text>
+  <text x="750" y="539" text-anchor="middle" font-size="15" fill="#1f2937">主程序/子程序</text>
+  <text x="750" y="556" text-anchor="middle" font-size="13" fill="#6b7280">1960s</text>
+  <text x="630" y="542" text-anchor="middle" font-size="15" fill="#1f2937">模块化编程</text>
+  <text x="630" y="559" text-anchor="middle" font-size="13" fill="#6b7280">1968</text>
+  <text x="466" y="548" text-anchor="middle" font-size="15" fill="#1f2937">软件度量</text>
+  <text x="466" y="565" text-anchor="middle" font-size="13" fill="#6b7280">1960s</text>
+  <text x="547" y="556" text-anchor="middle" font-size="15" fill="#1f2937">软件重构</text>
+  <text x="1079" y="551" text-anchor="middle" font-size="15" fill="#1f2937">OOP</text>
+  <text x="1079" y="568" text-anchor="middle" font-size="13" fill="#6b7280">1966</text>
+  <text x="293" y="555" text-anchor="middle" font-size="15" fill="#1f2937">Compiling</text>
+  <text x="293" y="572" text-anchor="middle" font-size="13" fill="#6b7280">1960s</text>
+  <text x="1015" y="580" text-anchor="middle" font-size="15" fill="#1f2937">函数式编程</text>
+  <text x="945" y="581" text-anchor="middle" font-size="15" fill="#1f2937">Artificial Intelligence</text>
+  <text x="945" y="598" text-anchor="middle" font-size="13" fill="#6b7280">1956</text>
+  <text x="220" y="585" text-anchor="middle" font-size="15" fill="#1f2937">结构化编程</text>
+  <text x="220" y="602" text-anchor="middle" font-size="13" fill="#6b7280">1960s</text>
+  <text x="1081" y="636" text-anchor="middle" font-size="15" fill="#1f2937">Abstract Data Type</text>
+  <text x="1081" y="653" text-anchor="middle" font-size="13" fill="#6b7280">1960</text>
+  <text x="620" y="648" text-anchor="middle" font-size="15" fill="#1f2937">程序设计</text>
+  <text x="620" y="665" text-anchor="middle" font-size="13" fill="#6b7280">1940s</text>
+  <text x="700" y="161" text-anchor="middle" font-size="15" fill="#1f2937">SOA</text>
+  <text x="700" y="178" text-anchor="middle" font-size="13" fill="#6b7280">2006</text>
+  <text x="504" y="205" text-anchor="middle" font-size="15" fill="#1f2937">BAPO/CAFCR</text>
+  <text x="504" y="222" text-anchor="middle" font-size="13" fill="#6b7280">2000</text>
+  <text x="403" y="255" text-anchor="middle" font-size="15" fill="#1f2937">xArch</text>
+  <text x="410" y="172" text-anchor="middle" font-size="15" fill="#1f2937">xADL 3.0</text>
+  <text x="612" y="169" text-anchor="middle" font-size="15" fill="#1f2937">WebAPI</text>
+  <text x="612" y="186" text-anchor="middle" font-size="13" fill="#6b7280">2002</text>
+  <text x="857" y="507" text-anchor="middle" font-size="15" fill="#1f2937">分层架构</text>
+  <text x="857" y="524" text-anchor="middle" font-size="13" fill="#6b7280">1970s</text>
+  <text x="1089" y="452" text-anchor="middle" font-size="15" fill="#1f2937">领域工程</text>
+  <text x="1089" y="469" text-anchor="middle" font-size="13" fill="#6b7280">1980s</text>
+  <text x="888" y="227" text-anchor="middle" font-size="15" fill="#1f2937">软件市场</text>
+</svg>

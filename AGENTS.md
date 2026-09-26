@@ -72,7 +72,7 @@
 
 - `catalog/errata.json`（schema 1）— 勘误登记簿：正文书**勘误后的正确内容**。逐条登记经扫描件图像证实为原书自身的排印错误或前后不一致之处（原书写法、勘正写法、物理页/印刷页、核查记录链接）；正确写法拿不准的存疑处（`kind: "noted"`）正文保留原书原貌、只登记不勘正。
 
-- `catalog/figures.json`（schema 1）— 图表登记簿：核查时对照扫描件渲染图像逐项转录复原的图表（图号、标题、表示形式 `table`/`svg`、物理页/印刷页、核查记录链接）；校验器断言每条锚点（图题）在正文中恰好出现一次。
+- `catalog/figures.json`（schema 1）— 图表登记簿：核查时对照扫描件渲染图像逐项转录复原的图（图号、标题、表示形式 `svg`、物理页/印刷页、核查记录链接）；校验器断言每条锚点（图题）在正文中恰好出现一次。
 
 
 
@@ -214,7 +214,7 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 - 勘误登记簿（`catalog/errata.json`，schema 1）：顶层仅 `schema_version`、`updated_at`、`entries`；每条 `id` 全簿唯一、`corpus` 必须是登记语料、`file` 必须落在该语料 `content_root` 内、`anchor` 必须在所指正文中**恰好出现一次**、`kind` 为 `typo` 时 `corrected` 必须出现在 `anchor` 内且不等于 `original`、`record` 必须真实存在。**不设数量与覆盖率目标**——没有登记等于没有发现，不是待办缺口。
 
-- 图表登记簿（`catalog/figures.json`，schema 1）：顶层仅 `schema_version`、`updated_at`、`entries`；每条 `id` 全簿唯一、`corpus`/`file` 合法、`anchor`（图题）必须在所指正文中**恰好出现一次**、`kind` 为 `table`/`svg`、`kind` 为 `svg` 时必须给出真实存在的 `asset` 文件、`record` 必须真实存在。**不设数量与覆盖率目标**。
+- 图表登记簿（`catalog/figures.json`，schema 1）：顶层仅 `schema_version`、`updated_at`、`entries`；每条 `id` 全簿唯一、`corpus`/`file` 合法、`anchor`（图题）必须在所指正文中**恰好出现一次**、`kind` 必须为 `svg` 且必须给出真实存在的 `asset` 文件、`record` 必须真实存在。**不设数量与覆盖率目标**。
 
 - 工具链：`pyproject.toml` 的 `requires-python` = `>=3.13`、`project.dependencies` 必须为空、`tool.uv.package` = `false`、`dependency-groups` 必须恰好是 `lint` 一组且只含一条 `==` 精确 pin（ruff）；`uv.lock` 的 `requires-python` 也须为 `>=3.13`。改任一处都要跑 `uv lock` 并提交锁文件。
 
@@ -768,7 +768,7 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 
 
-本仓库以纯文本 Markdown 为主。仓库中只入了库两份**整页扫描 PDF**（见 `sources/00-…`、`sources/01-…`），它们就是原书插图的原始图像来源：核查时对照页面渲染图像，把插图逐项转录为 Markdown 表格或 SVG 进入正文，并逐图登记进 `catalog/figures.json`；未复原的图仅保留图题。**图题存在不代表原图可用，也不代表已复原。**
+本仓库以纯文本 Markdown 为主。仓库中只入了库两份**整页扫描 PDF**（见 `sources/00-…`、`sources/01-…`），它们就是原书插图的原始图像来源：核查时对照页面渲染图像，把图逐项转录为 SVG、把表逐项转录为 Markdown 表格进入正文，并逐图登记进 `catalog/figures.json`；未复原的图仅保留图题。**图题存在不代表原图可用，也不代表已复原。**
 
 
 
@@ -776,7 +776,7 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 
 
-只有**手中有该图的原始图像并在制作时实际对照**，才能把图转成 SVG 或表格。本仓库的「原始图像」指入库扫描件的页面渲染图像（整页或局部放大）——核查时图像在手，对照转录即满足此前提。仅凭 OCR 残留的标签串、上下文散文或领域常识"还原"出来的图，是生成内容而非原图，一律禁止。
+只有**手中有该图的原始图像并在制作时实际对照**，才能把图转成 SVG。本仓库的「原始图像」指入库扫描件的页面渲染图像（整页或局部放大）——核查时图像在手，对照转录即满足此前提。仅凭 OCR 残留的标签串、上下文散文或领域常识"还原"出来的图，是生成内容而非原图，一律禁止。
 
 
 
@@ -808,7 +808,7 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 
 
-能用 Markdown 表格表达的用 Markdown 表格；其余插图一律独立 SVG（渲染核对后交付），不使用 Mermaid：
+原文的图一律独立 SVG（渲染核对后交付）；原文的表用 Markdown 表格。不使用 Mermaid：
 
 
 
@@ -816,9 +816,9 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 |---|---|
 
-| 行列对应表 | Markdown 表格 |
+| 原文插图（图 x-x：流程、时序、嵌套包含、物理布局等） | 独立 `.svg` 文件（渲染核对后交付） |
 
-| 其余插图（流程、时序、状态机、类图、树形层次、嵌套包含、物理布局等） | 独立 `.svg` 文件（渲染核对后交付） |
+| 原文表格（表 x-x） | Markdown 表格 |
 
 | 纯装饰、原书正文未引用 | 不转，直接删除，不留占位 |
 
