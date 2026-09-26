@@ -78,7 +78,7 @@
   <line x1="863" y1="496" x2="863" y2="476" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
   <line x1="863" y1="452" x2="857" y2="406" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
   <line x1="851" y1="381" x2="851" y2="259" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
-  <line x1="829" y1="175" x2="860" y2="61" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="832" y1="175" x2="876" y2="60" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
   <line x1="844" y1="183" x2="877" y2="163" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
   <line x1="891" y1="208" x2="894" y2="171" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
   <line x1="913" y1="486" x2="903" y2="446" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
@@ -90,7 +90,7 @@
   <line x1="695" y1="133" x2="636" y2="45" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
   <line x1="614" y1="129" x2="608" y2="94" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
   <line x1="732" y1="138" x2="743" y2="125" stroke="#4a5568" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#ah)"/>
-  <line x1="728" y1="86" x2="763" y2="57" stroke="#4a5568" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#ah)"/>
+  <line x1="727" y1="85" x2="749" y2="58" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
   <line x1="954" y1="571" x2="968" y2="515" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
   <line x1="945" y1="570" x2="950" y2="282" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
   <line x1="979" y1="320" x2="963" y2="280" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
@@ -117,10 +117,10 @@
   <line x1="1178" y1="300" x2="1217" y2="299" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
   <text x="622" y="33" text-anchor="middle" font-size="15" fill="#1f2937">无服务器计算/无服务器编程</text>
   <text x="622" y="50" text-anchor="middle" font-size="13" fill="#6b7280">2017</text>
-  <text x="867" y="47" text-anchor="middle" font-size="15" fill="#1f2937">DevOps 工具链</text>
-  <text x="867" y="64" text-anchor="middle" font-size="13" fill="#6b7280">2013</text>
-  <text x="783" y="49" text-anchor="middle" font-size="15" fill="#1f2937">流式微服务</text>
-  <text x="783" y="66" text-anchor="middle" font-size="13" fill="#6b7280">2015</text>
+  <text x="885" y="47" text-anchor="middle" font-size="15" fill="#1f2937">DevOps 工具链</text>
+  <text x="885" y="64" text-anchor="middle" font-size="13" fill="#6b7280">2015</text>
+  <text x="767" y="49" text-anchor="middle" font-size="15" fill="#1f2937">流式微服务</text>
+  <text x="767" y="66" text-anchor="middle" font-size="13" fill="#6b7280">2015</text>
   <text x="599" y="81" text-anchor="middle" font-size="15" fill="#1f2937">容器技术</text>
   <text x="599" y="98" text-anchor="middle" font-size="13" fill="#6b7280">2013</text>
   <text x="707" y="90" text-anchor="middle" font-size="15" fill="#1f2937">Cloud Native/Microservice</text>

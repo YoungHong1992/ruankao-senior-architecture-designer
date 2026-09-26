@@ -46,10 +46,10 @@
     <path d="M245 260 V289" marker-end="url(#a23)"/>
     <!-- 完成部件 → 指令部件（左反馈） -->
     <path d="M165 315 H145 V102 H306" marker-end="url(#a23)"/>
-    <!-- 存取部件 → MMU部件 -->
-    <path d="M565 205 H615 V289" marker-end="url(#a23)"/>
-    <!-- MMU部件 → 指令部件（右反馈） -->
-    <path d="M675 315 H700 V102 H434" marker-end="url(#a23)"/>
+    <!-- 存取部件 ↔ MMU部件 -->
+    <path d="M565 205 H615 V289" marker-end="url(#a23)" marker-start="url(#a23s)"/>
+    <!-- MMU部件 ↔ 指令部件（右反馈） -->
+    <path d="M675 315 H700 V102 H434" marker-end="url(#a23)" marker-start="url(#a23s)"/>
     <!-- Cache ↔ MMU -->
     <line x1="544" y1="315" x2="551" y2="315" marker-end="url(#a23)" marker-start="url(#a23s)"/>
     <!-- Cache ↔ 地址总线 / 数据总线 -->
