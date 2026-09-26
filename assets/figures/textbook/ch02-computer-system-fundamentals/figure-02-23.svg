@@ -83,22 +83,29 @@
     <line x1="785" y1="487" x2="785" y2="526" marker-end="url(#d23)" marker-start="url(#d23s)"/>
   </g>
 
-  <!-- 对等层协议虚线（上四层） -->
+  <!-- 对等层协议虚线（上四层，两端小箭头） -->
   <g stroke="#9aa7b8" stroke-width="2" stroke-dasharray="8 6">
-    <line x1="284" y1="81" x2="696" y2="81"/>
-    <line x1="284" y1="143" x2="696" y2="143"/>
-    <line x1="284" y1="205" x2="696" y2="205"/>
-    <line x1="284" y1="267" x2="696" y2="267"/>
+    <line x1="284" y1="81" x2="696" y2="81" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+    <line x1="284" y1="143" x2="696" y2="143" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+    <line x1="284" y1="205" x2="696" y2="205" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+    <line x1="284" y1="267" x2="696" y2="267" marker-end="url(#d23)" marker-start="url(#d23s)"/>
     <!-- 主机与 IMP 三层连线 -->
-    <line x1="284" y1="373" x2="356" y2="373"/>
-    <line x1="494" y1="373" x2="521" y2="373"/>
-    <line x1="659" y1="373" x2="696" y2="373"/>
-    <line x1="284" y1="466" x2="356" y2="466"/>
-    <line x1="494" y1="466" x2="521" y2="466"/>
-    <line x1="659" y1="466" x2="696" y2="466"/>
-    <line x1="284" y1="551" x2="356" y2="551"/>
-    <line x1="494" y1="551" x2="521" y2="551"/>
-    <line x1="659" y1="551" x2="696" y2="551"/>
+    <line x1="284" y1="373" x2="356" y2="373" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+    <line x1="494" y1="373" x2="521" y2="373" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+    <line x1="659" y1="373" x2="696" y2="373" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+    <line x1="284" y1="466" x2="356" y2="466" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+    <line x1="494" y1="466" x2="521" y2="466" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+    <line x1="659" y1="466" x2="696" y2="466" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+    <line x1="284" y1="551" x2="356" y2="551" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+    <line x1="494" y1="551" x2="521" y2="551" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+    <line x1="659" y1="551" x2="696" y2="551" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+  </g>
+
+  <!-- 底部图例三条竖引线（带上箭头，连到对应对等虚线） -->
+  <g stroke="#556070" stroke-width="1.5" fill="none">
+    <path d="M400 658 L345 382" marker-end="url(#d23)"/>
+    <path d="M425 690 L322 474" marker-end="url(#d23)"/>
+    <path d="M450 722 L322 559" marker-end="url(#d23)"/>
   </g>
 
   <!-- 协议标注 -->
