@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="380" viewBox="0 0 640 380" font-family="sans-serif">
+  <title>图 1-4 微核架构</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 11（物理页 20）插图。中央为内核系统，左右各三个即插组件以无箭头连线与内核直连。</desc>
+  <rect width="640" height="380" fill="#ffffff"/>
+
+  <rect x="280" y="40" width="80" height="300" rx="6" fill="#e3ebf6" stroke="#7d8da5" stroke-width="2"/>
+  <text x="320" y="196" text-anchor="middle" font-size="18" fill="#1f2937">内核系统</text>
+
+  <rect x="70" y="55" width="150" height="55" rx="6" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="145" y="89" text-anchor="middle" font-size="17" fill="#1f2937">即插组件</text>
+  <line x1="220" y1="82" x2="280" y2="82" stroke="#4a5568" stroke-width="7"/>
+
+  <rect x="70" y="165" width="150" height="55" rx="6" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="145" y="199" text-anchor="middle" font-size="17" fill="#1f2937">即插组件</text>
+  <line x1="220" y1="192" x2="280" y2="192" stroke="#4a5568" stroke-width="7"/>
+
+  <rect x="70" y="275" width="150" height="55" rx="6" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="145" y="309" text-anchor="middle" font-size="17" fill="#1f2937">即插组件</text>
+  <line x1="220" y1="302" x2="280" y2="302" stroke="#4a5568" stroke-width="7"/>
+
+  <rect x="420" y="55" width="150" height="55" rx="6" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="495" y="89" text-anchor="middle" font-size="17" fill="#1f2937">即插组件</text>
+  <line x1="360" y1="82" x2="420" y2="82" stroke="#4a5568" stroke-width="7"/>
+
+  <rect x="420" y="165" width="150" height="55" rx="6" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="495" y="199" text-anchor="middle" font-size="17" fill="#1f2937">即插组件</text>
+  <line x1="360" y1="192" x2="420" y2="192" stroke="#4a5568" stroke-width="7"/>
+
+  <rect x="420" y="275" width="150" height="55" rx="6" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="495" y="309" text-anchor="middle" font-size="17" fill="#1f2937">即插组件</text>
+  <line x1="360" y1="302" x2="420" y2="302" stroke="#4a5568" stroke-width="7"/>
+</svg>

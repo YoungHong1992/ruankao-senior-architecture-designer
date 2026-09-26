@@ -798,7 +798,9 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 5. 示意性装饰图形与无法辨认的细节不转录，逐图在 `catalog/figures.json` 的 note 中写明；
 
-6. 每幅复原的图表逐图登记进 `catalog/figures.json`（锚点为图题，校验器断言其唯一以防漂移）。
+6. 用 Mermaid 复原的图必须实际渲染核对布局层级与箭头关系，自动布局无法与原图对齐时改用独立 SVG；SVG 复原同样应渲染成图与原图核对后再交付；
+
+7. 每幅复原的图表逐图登记进 `catalog/figures.json`（锚点为图题，校验器断言其唯一以防漂移）。
 
 
 

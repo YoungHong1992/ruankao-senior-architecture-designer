@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="560" viewBox="0 0 760 560" font-family="sans-serif">
+  <title>图 1-3 事件驱动架构</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 10（物理页 19）插图。事件经事件队列进入分发器，分发器将事件分发到三条事件通道，三条通道分别连接五个事件处理器（左通道连两个、中通道连一个、右通道连两个）。各事件处理器内部绘有的「模块」小块属示意性细节，未逐一转录。</desc>
+  <rect width="760" height="560" fill="#ffffff"/>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#4a5568"/>
+    </marker>
+  </defs>
+
+  <rect x="330" y="25" width="100" height="44" rx="8" fill="#e3ebf6" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="380" y="54" text-anchor="middle" font-size="19" fill="#1f2937">事件</text>
+  <line x1="380" y1="69" x2="380" y2="118" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+
+  <rect x="322" y="120" width="116" height="48" rx="10" fill="#e3ebf6" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="380" y="150" text-anchor="middle" font-size="17" fill="#1f2937">事件队列</text>
+  <line x1="380" y1="168" x2="380" y2="212" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+
+  <rect x="305" y="214" width="150" height="46" rx="8" fill="#e3ebf6" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="380" y="244" text-anchor="middle" font-size="18" fill="#1f2937">分发器</text>
+
+  <!-- 分发器 → 三条事件通道 -->
+  <path d="M380 260 L380 280 L190 280 L190 318" fill="none" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="380" y1="260" x2="380" y2="318" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <path d="M380 260 L380 280 L570 280 L570 318" fill="none" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+
+  <rect x="135" y="320" width="110" height="52" rx="10" fill="#e3ebf6" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="190" y="341" text-anchor="middle" font-size="16" fill="#1f2937">事件</text>
+  <text x="190" y="362" text-anchor="middle" font-size="16" fill="#1f2937">通道</text>
+  <rect x="325" y="320" width="110" height="52" rx="10" fill="#e3ebf6" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="380" y="341" text-anchor="middle" font-size="16" fill="#1f2937">事件</text>
+  <text x="380" y="362" text-anchor="middle" font-size="16" fill="#1f2937">通道</text>
+  <rect x="515" y="320" width="110" height="52" rx="10" fill="#e3ebf6" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="570" y="341" text-anchor="middle" font-size="16" fill="#1f2937">事件</text>
+  <text x="570" y="362" text-anchor="middle" font-size="16" fill="#1f2937">通道</text>
+
+  <!-- 通道 → 事件处理器（左 2 / 中 1 / 右 2） -->
+  <path d="M190 372 L190 392 L100 392 L100 428" fill="none" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <path d="M190 372 L190 392 L240 392 L240 428" fill="none" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="380" y1="372" x2="380" y2="428" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <path d="M570 372 L570 392 L520 392 L520 428" fill="none" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+  <path d="M570 372 L570 392 L620 392 L620 428" fill="none" stroke="#4a5568" stroke-width="2" marker-end="url(#ah)"/>
+
+  <rect x="36" y="430" width="128" height="100" rx="8" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="100" y="455" text-anchor="middle" font-size="16" fill="#1f2937">事件处理器</text>
+  <rect x="176" y="430" width="128" height="100" rx="8" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="240" y="455" text-anchor="middle" font-size="16" fill="#1f2937">事件处理器</text>
+  <rect x="316" y="430" width="128" height="100" rx="8" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="380" y="455" text-anchor="middle" font-size="16" fill="#1f2937">事件处理器</text>
+  <rect x="456" y="430" width="128" height="100" rx="8" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="520" y="455" text-anchor="middle" font-size="16" fill="#1f2937">事件处理器</text>
+  <rect x="596" y="430" width="128" height="100" rx="8" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="660" y="455" text-anchor="middle" font-size="16" fill="#1f2937">事件处理器</text>
+</svg>
