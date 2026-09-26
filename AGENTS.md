@@ -70,6 +70,10 @@
 
 - `catalog/exams.json`（schema 4）— 真题 manifest：36 份 canonical、90 份 source_versions 路径、来源目录与同名冲突映射。校验器断言 manifest、两份索引、正文与 frontmatter 的 `id` 彼此一致。
 
+- `catalog/errata.json`（schema 1）— 勘误登记簿：正文书**勘误后的正确内容**。逐条登记经扫描件图像证实为原书自身的排印错误或前后不一致之处（原书写法、勘正写法、物理页/印刷页、核查记录链接）；正确写法拿不准的存疑处（`kind: "noted"`）正文保留原书原貌、只登记不勘正。
+
+- `catalog/figures.json`（schema 1）— 图表登记簿：核查时对照扫描件渲染图像逐项转录复原的图（图号、标题、表示形式 `svg`、物理页/印刷页、核查记录链接）；校验器断言每条锚点（图题）在正文中恰好出现一次。
+
 
 
 数据流：**正文与清单** →（`validate_knowledge_base.py` 断言四层结构、frontmatter、manifest、两份索引与正文彼此一致，并做编码与结构检查）→ **CI 门禁**。
@@ -208,6 +212,10 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 - manifest（schema 4）：顶层仅有 `schema_version`、`updated_at`、`source_catalog`、`exams`；每卷 `notes` 非空且与两份索引的说明列逐字一致（总索引中同名冲突卷的说明带 `**同名冲突，禁止自动混并。**` 前缀）。
 
+- 勘误登记簿（`catalog/errata.json`，schema 1）：顶层仅 `schema_version`、`updated_at`、`entries`；每条 `id` 全簿唯一、`corpus` 必须是登记语料、`file` 必须落在该语料 `content_root` 内、`anchor` 必须在所指正文中**恰好出现一次**、`kind` 为 `typo` 时 `corrected` 必须出现在 `anchor` 内且不等于 `original`、`record` 必须真实存在。**不设数量与覆盖率目标**——没有登记等于没有发现，不是待办缺口。
+
+- 图表登记簿（`catalog/figures.json`，schema 1）：顶层仅 `schema_version`、`updated_at`、`entries`；每条 `id` 全簿唯一、`corpus`/`file` 合法、`anchor`（图题）必须在所指正文中**恰好出现一次**、`kind` 必须为 `svg` 且必须给出真实存在的 `asset` 文件、`record` 必须真实存在。**不设数量与覆盖率目标**。
+
 - 工具链：`pyproject.toml` 的 `requires-python` = `>=3.13`、`project.dependencies` 必须为空、`tool.uv.package` = `false`、`dependency-groups` 必须恰好是 `lint` 一组且只含一条 `==` 精确 pin（ruff）；`uv.lock` 的 `requires-python` 也须为 `>=3.13`。改任一处都要跑 `uv lock` 并提交锁文件。
 
 - 全部 Markdown 必须是**标准 UTF-8（无 BOM）+ CRLF**，不得含裸 CR；校验器逐字节检查。每个存放正文的目录（含教材的每个章目录）都要有 `INDEX.md`，不得超过 200 行，且必须收录本目录下全部 Markdown 与各子目录的 `INDEX.md`；清洗目录内标题不得跳级；三个清洗目录**递归**扫描 `兰亭图书阁`、`Outer Jion` 等高风险 OCR 残留词。
@@ -260,13 +268,15 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 - **大纲/教材事实核查**：唯一标准是清洗稿忠于扫描件图像；核查不得使用 OCR、PDF 文本层抽取或外部事实判断。逐项比对并由另一 AI 在不看首轮结论的前提下独立验证；证据不足标“无法判定”，不得猜测。操作与记录要求见 [`verification/README.md`](verification/README.md)。
 
-- **图表/公式**：遵循 [图表与公式处理](#图表与公式处理)——**手中没有原图就不要画图**；保留图题、清除图内 OCR 噪声，不得依据 OCR 标签串或领域常识"还原"示意图。
+- **图表/公式**：遵循 [图表与公式处理](#图表与公式处理)——**手中没有原图就不要画图**（原图 = 入库扫描件的页面渲染图像）；核查时对照原图逐项转录复原，保留图题、清除图内 OCR 噪声，不得依据 OCR 标签串或领域常识"还原"示意图，逐图登记 `catalog/figures.json`。
 
 - **不造假**：无法确认的题面、选项、空号、连线、答案不得凭空补写，也不得写成已经确认；宁可缺失，不可编造。
 
 - **正文只放正文**：清洗稿正文只保留题面/课文、图表题注、共用题干、作答规则与题量声明；过程记录、来源清单、核验结论不写进正文，改放 [verification/](verification/)。正文层的元数据只能以 frontmatter 形式出现，不要在正文段落里另写一份数量或来源说明。
 
 - **数字只有一处真相**：份数、章节数、冲突组数一律写进 `catalog/corpora.json`，正文和 README 只做人类可读的转述；校验器以清单为准。
+
+- **勘误口径**：正文书**勘误后的正确内容**。仅当扫描件图像证实为原书自身的排印错误或前后不一致时才勘正正文，原书写法、证据页码与存疑说明登记进 `catalog/errata.json`；正文不出现任何注记或核查语言；正确写法拿不准的存疑处保持原书原貌、只登记不勘正。
 
 - **权利边界**：教材/大纲/真题/答案及其 OCR/清洗派生文本均为第三方内容，仓库不主张版权；仅 `scripts/` 与 `.github/workflows/` 适用 [LICENSE-CODE](LICENSE-CODE)（MIT）。边界与来源见 [内容与权利政策](#内容与权利政策)、[DATA_SOURCES.md](DATA_SOURCES.md)。两份已登记源扫描件按治理决定入库；除此之外不得提交任何未登记的源 PDF/扫描件、盗版 PDF、下载链接或访问凭据。
 
@@ -758,7 +768,7 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 
 
-本仓库以纯文本 Markdown 为主。仓库中只入了库两份**整页扫描 PDF**（见 `sources/00-…`、`sources/01-…`）；原书单幅插图未从扫描件抽取，`content/` 下只有文本，`assets/` 仍为空。**图题存在不代表原图可用。**
+本仓库以纯文本 Markdown 为主。仓库中只入了库两份**整页扫描 PDF**（见 `sources/00-…`、`sources/01-…`），它们就是原书插图与表格的原始图像来源：核查时对照页面渲染图像，把图和表逐项转录为 SVG 进入正文，并逐项登记进 `catalog/figures.json`；未复原的仅保留图题/表题。**图题存在不代表原图可用，也不代表已复原。**
 
 
 
@@ -766,7 +776,7 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 
 
-只有**手中有该图的原始图像并在制作时实际对照**，才能把图转成 SVG、Mermaid 或表格。仅凭 OCR 残留的标签串、上下文散文或领域常识"还原"出来的图，是生成内容而非原图，一律禁止。
+只有**手中有该图的原始图像并在制作时实际对照**，才能把图和表转成 SVG。本仓库的「原始图像」指入库扫描件的页面渲染图像（整页或局部放大）——核查时图像在手，对照转录即满足此前提。仅凭 OCR 残留的标签串、上下文散文或领域常识"还原"出来的图，是生成内容而非原图，一律禁止。
 
 
 
@@ -784,7 +794,13 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 3. 不美化、不合并同类项、不推测看不清的部分；看不清就留空并在图题或 `<desc>` 中写明；
 
-4. 版式差异（列宽、字体、绝对尺寸）无需复刻，但承载信息的几何关系必须保留。
+4. 版式差异（列宽、字体、绝对尺寸）无需复刻，但承载信息的几何关系必须保留；
+
+5. 示意性装饰图形与无法辨认的细节不转录，逐图在 `catalog/figures.json` 的 note 中写明；
+
+6. 图一律以独立 SVG 复原，**不使用 Mermaid**（2026-09-26 维护者定稿：自动布局无法保证与原图构图对齐，且第 1 章 7 幅 Mermaid 初稿全部因此废弃）；SVG 复原必须渲染成图与原图核对布局层级与箭头关系后再交付；**交付前必须由干净上下文的子代理把渲染图与原图做客观比对，比对通过才算合格**（2026-09-27 维护者定稿：绘制者自查不可靠，图 2-5/2-27/2-28 等均由子代理比对或维护者抽查发现）；
+
+7. 每幅复原的图表逐图登记进 `catalog/figures.json`（锚点为图题，校验器断言其唯一以防漂移）。
 
 
 
@@ -792,7 +808,7 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 
 
-按原图性质决定，不自由选择：
+原文的图和表一律独立 SVG（渲染核对后交付），不使用 Mermaid、不用 Markdown 表格表示：
 
 
 
@@ -800,11 +816,7 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 |---|---|
 
-| 行列对应表 | Markdown 表格 |
-
-| 流程、时序、状态机、类图、树形层次 | Mermaid |
-
-| 几何本身承载信息：跨边界、重叠、嵌套包含、带编号部件的物理布局 | 独立 `.svg` 文件 |
+| 原文图与表（图 x-x、表 x-x：流程、嵌套包含、物理布局、表格网格等） | 独立 `.svg` 文件（渲染核对后交付） |
 
 | 纯装饰、原书正文未引用 | 不转，直接删除，不留占位 |
 
@@ -822,7 +834,7 @@ SVG 必须作为独立文件落盘并以 Markdown 图片语法引用——**GitH
 
 - 公式优先用 KaTeX（`$`/`$$`）表达；无法可靠恢复的公式保留原文文字描述，不臆造推导。
 
-- 如确有权纳入原始图片，放入 `assets/figures/<语料 id>/<章节 slug>/`（例：`assets/figures/textbook/ch07-architecture-design-fundamentals/figure-7-3.svg`），使用原图号命名并移除无关水印或个人信息；命名细则见 [assets/README.md](assets/README.md)，大批量图片引入前评估 Git LFS 和再分发权利。
+- 如确有权纳入原始图片，放入 `assets/figures/<语料 id>/<章节 slug>/`（例：`assets/figures/textbook/ch07-architecture-design-fundamentals/figure-07-03.svg`），使用原图号命名并移除无关水印或个人信息；命名细则见 [assets/README.md](assets/README.md)，大批量图片引入前评估 Git LFS 和再分发权利。
 
 
 

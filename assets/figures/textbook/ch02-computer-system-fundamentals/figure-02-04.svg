@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560" font-family="sans-serif">
+  <title>图 2-4 二维表表示</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 33（物理页 42）插图。(a) 学生关系、(b) 课程关系、(c) 选课关系三张二维表，(a)(b) 在左列、(c) 在右列。单元格内容经与扫描件逐格核对（含原书选课关系 S4|C1 的印刷值"8"）。</desc>
+  <rect width="900" height="560" fill="#ffffff"/>
+  <rect x="40" y="30" width="380" height="168" fill="#f6f9fd" stroke="#556070" stroke-width="1.5"/>
+  <rect x="40" y="30" width="380" height="36" fill="#dce6f3" stroke="#556070" stroke-width="1.5"/>
+  <line x1="40" y1="66" x2="420" y2="66" stroke="#556070" stroke-width="1"/>
+  <line x1="40" y1="99" x2="420" y2="99" stroke="#556070" stroke-width="1"/>
+  <line x1="40" y1="132" x2="420" y2="132" stroke="#556070" stroke-width="1"/>
+  <line x1="40" y1="165" x2="420" y2="165" stroke="#556070" stroke-width="1"/>
+  <line x1="125" y1="30" x2="125" y2="198" stroke="#556070" stroke-width="1"/>
+  <line x1="230" y1="30" x2="230" y2="198" stroke="#556070" stroke-width="1"/>
+  <line x1="305" y1="30" x2="305" y2="198" stroke="#556070" stroke-width="1"/>
+  <text x="82" y="53" text-anchor="middle" font-size="15" font-weight="bold" fill="#1f2937">学号</text>
+  <text x="178" y="53" text-anchor="middle" font-size="15" font-weight="bold" fill="#1f2937">姓名</text>
+  <text x="268" y="53" text-anchor="middle" font-size="15" font-weight="bold" fill="#1f2937">年龄</text>
+  <text x="362" y="53" text-anchor="middle" font-size="15" font-weight="bold" fill="#1f2937">系别</text>
+  <text x="82" y="88" text-anchor="middle" font-size="15" fill="#1f2937">S1</text>
+  <text x="178" y="88" text-anchor="middle" font-size="15" fill="#1f2937">许文秀</text>
+  <text x="268" y="88" text-anchor="middle" font-size="15" fill="#1f2937">21</text>
+  <text x="362" y="88" text-anchor="middle" font-size="15" fill="#1f2937">电信系</text>
+  <text x="82" y="120" text-anchor="middle" font-size="15" fill="#1f2937">S2</text>
+  <text x="178" y="120" text-anchor="middle" font-size="15" fill="#1f2937">赵国兴</text>
+  <text x="268" y="120" text-anchor="middle" font-size="15" fill="#1f2937">23</text>
+  <text x="362" y="120" text-anchor="middle" font-size="15" fill="#1f2937">计算机系</text>
+  <text x="82" y="154" text-anchor="middle" font-size="15" fill="#1f2937">S3</text>
+  <text x="178" y="154" text-anchor="middle" font-size="15" fill="#1f2937">周新娥</text>
+  <text x="268" y="154" text-anchor="middle" font-size="15" fill="#1f2937">22</text>
+  <text x="362" y="154" text-anchor="middle" font-size="15" fill="#1f2937">计算机系</text>
+  <text x="82" y="186" text-anchor="middle" font-size="15" fill="#1f2937">S4</text>
+  <text x="178" y="186" text-anchor="middle" font-size="15" fill="#1f2937">刘德峰</text>
+  <text x="268" y="186" text-anchor="middle" font-size="15" fill="#1f2937">24</text>
+  <text x="362" y="186" text-anchor="middle" font-size="15" fill="#1f2937">电信系</text>
+  <text x="232" y="245" text-anchor="middle" font-size="16" fill="#1f2937">(a) 学生关系</text>
+  <rect x="40" y="280" width="380" height="168" fill="#f6f9fd" stroke="#556070" stroke-width="1.5"/>
+  <rect x="40" y="280" width="380" height="36" fill="#dce6f3" stroke="#556070" stroke-width="1.5"/>
+  <line x1="40" y1="316" x2="420" y2="316" stroke="#556070" stroke-width="1"/>
+  <line x1="40" y1="349" x2="420" y2="349" stroke="#556070" stroke-width="1"/>
+  <line x1="40" y1="382" x2="420" y2="382" stroke="#556070" stroke-width="1"/>
+  <line x1="40" y1="415" x2="420" y2="415" stroke="#556070" stroke-width="1"/>
+  <line x1="135" y1="280" x2="135" y2="448" stroke="#556070" stroke-width="1"/>
+  <line x1="320" y1="280" x2="320" y2="448" stroke="#556070" stroke-width="1"/>
+  <text x="88" y="303" text-anchor="middle" font-size="15" font-weight="bold" fill="#1f2937">课程号</text>
+  <text x="228" y="303" text-anchor="middle" font-size="15" font-weight="bold" fill="#1f2937">课程名</text>
+  <text x="370" y="303" text-anchor="middle" font-size="15" font-weight="bold" fill="#1f2937">学分</text>
+  <text x="88" y="338" text-anchor="middle" font-size="15" fill="#1f2937">C1</text>
+  <text x="228" y="338" text-anchor="middle" font-size="15" fill="#1f2937">计算机导论</text>
+  <text x="370" y="338" text-anchor="middle" font-size="15" fill="#1f2937">2.0</text>
+  <text x="88" y="370" text-anchor="middle" font-size="15" fill="#1f2937">C2</text>
+  <text x="228" y="370" text-anchor="middle" font-size="15" fill="#1f2937">C++程序设计</text>
+  <text x="370" y="370" text-anchor="middle" font-size="15" fill="#1f2937">3.0</text>
+  <text x="88" y="404" text-anchor="middle" font-size="15" fill="#1f2937">C3</text>
+  <text x="228" y="404" text-anchor="middle" font-size="15" fill="#1f2937">数据库原理及应用</text>
+  <text x="370" y="404" text-anchor="middle" font-size="15" fill="#1f2937">3.5</text>
+  <text x="88" y="436" text-anchor="middle" font-size="15" fill="#1f2937">C4</text>
+  <text x="228" y="436" text-anchor="middle" font-size="15" fill="#1f2937">数字信号处理</text>
+  <text x="370" y="436" text-anchor="middle" font-size="15" fill="#1f2937">3.0</text>
+  <text x="232" y="495" text-anchor="middle" font-size="16" fill="#1f2937">(b) 课程关系</text>
+  <rect x="490" y="30" width="370" height="346" fill="#f6f9fd" stroke="#556070" stroke-width="1.5"/>
+  <rect x="490" y="30" width="370" height="36" fill="#dce6f3" stroke="#556070" stroke-width="1.5"/>
+  <line x1="490" y1="66" x2="860" y2="66" stroke="#556070" stroke-width="1"/>
+  <line x1="490" y1="97" x2="860" y2="97" stroke="#556070" stroke-width="1"/>
+  <line x1="490" y1="128" x2="860" y2="128" stroke="#556070" stroke-width="1"/>
+  <line x1="490" y1="159" x2="860" y2="159" stroke="#556070" stroke-width="1"/>
+  <line x1="490" y1="190" x2="860" y2="190" stroke="#556070" stroke-width="1"/>
+  <line x1="490" y1="221" x2="860" y2="221" stroke="#556070" stroke-width="1"/>
+  <line x1="490" y1="252" x2="860" y2="252" stroke="#556070" stroke-width="1"/>
+  <line x1="490" y1="283" x2="860" y2="283" stroke="#556070" stroke-width="1"/>
+  <line x1="490" y1="314" x2="860" y2="314" stroke="#556070" stroke-width="1"/>
+  <line x1="490" y1="345" x2="860" y2="345" stroke="#556070" stroke-width="1"/>
+  <line x1="605" y1="30" x2="605" y2="376" stroke="#556070" stroke-width="1"/>
+  <line x1="730" y1="30" x2="730" y2="376" stroke="#556070" stroke-width="1"/>
+  <text x="548" y="53" text-anchor="middle" font-size="15" font-weight="bold" fill="#1f2937">学号</text>
+  <text x="668" y="53" text-anchor="middle" font-size="15" font-weight="bold" fill="#1f2937">课程号</text>
+  <text x="795" y="53" text-anchor="middle" font-size="15" font-weight="bold" fill="#1f2937">分数</text>
+  <text x="548" y="86" text-anchor="middle" font-size="15" fill="#1f2937">S1</text>
+  <text x="668" y="86" text-anchor="middle" font-size="15" fill="#1f2937">C2</text>
+  <text x="795" y="86" text-anchor="middle" font-size="15" fill="#1f2937">78</text>
+  <text x="548" y="118" text-anchor="middle" font-size="15" fill="#1f2937">S1</text>
+  <text x="668" y="118" text-anchor="middle" font-size="15" fill="#1f2937">C4</text>
+  <text x="795" y="118" text-anchor="middle" font-size="15" fill="#1f2937">85</text>
+  <text x="548" y="148" text-anchor="middle" font-size="15" fill="#1f2937">S2</text>
+  <text x="668" y="148" text-anchor="middle" font-size="15" fill="#1f2937">C1</text>
+  <text x="795" y="148" text-anchor="middle" font-size="15" fill="#1f2937">88</text>
+  <text x="548" y="180" text-anchor="middle" font-size="15" fill="#1f2937">S2</text>
+  <text x="668" y="180" text-anchor="middle" font-size="15" fill="#1f2937">C2</text>
+  <text x="795" y="180" text-anchor="middle" font-size="15" fill="#1f2937">90</text>
+  <text x="548" y="210" text-anchor="middle" font-size="15" fill="#1f2937">S2</text>
+  <text x="668" y="210" text-anchor="middle" font-size="15" fill="#1f2937">C3</text>
+  <text x="795" y="210" text-anchor="middle" font-size="15" fill="#1f2937">76</text>
+  <text x="548" y="242" text-anchor="middle" font-size="15" fill="#1f2937">S3</text>
+  <text x="668" y="242" text-anchor="middle" font-size="15" fill="#1f2937">C1</text>
+  <text x="795" y="242" text-anchor="middle" font-size="15" fill="#1f2937">91</text>
+  <text x="548" y="272" text-anchor="middle" font-size="15" fill="#1f2937">S3</text>
+  <text x="668" y="272" text-anchor="middle" font-size="15" fill="#1f2937">C2</text>
+  <text x="795" y="272" text-anchor="middle" font-size="15" fill="#1f2937">92</text>
+  <text x="548" y="304" text-anchor="middle" font-size="15" fill="#1f2937">S3</text>
+  <text x="668" y="304" text-anchor="middle" font-size="15" fill="#1f2937">C3</text>
+  <text x="795" y="304" text-anchor="middle" font-size="15" fill="#1f2937">84</text>
+  <text x="548" y="334" text-anchor="middle" font-size="15" fill="#1f2937">S4</text>
+  <text x="668" y="334" text-anchor="middle" font-size="15" fill="#1f2937">C1</text>
+  <text x="795" y="334" text-anchor="middle" font-size="15" fill="#1f2937">8</text>
+  <text x="548" y="366" text-anchor="middle" font-size="15" fill="#1f2937">S4</text>
+  <text x="668" y="366" text-anchor="middle" font-size="15" fill="#1f2937">C4</text>
+  <text x="795" y="366" text-anchor="middle" font-size="15" fill="#1f2937">76</text>
+  <text x="680" y="445" text-anchor="middle" font-size="16" fill="#1f2937">(c) 选课关系</text>
+</svg>

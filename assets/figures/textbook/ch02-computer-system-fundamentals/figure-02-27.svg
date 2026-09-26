@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="300" viewBox="0 0 380 300" font-family="sans-serif">
+  <title>图 2-27 包</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 82（物理页 91）插图。包记法：左上小标签页矩形与下方主体矩形，主体内含原文标注 Business rules。</desc>
+  <rect width="380" height="300" fill="#ffffff"/>
+  <g fill="#ffffff" stroke="#7d8da5" stroke-width="2.5">
+    <rect x="115" y="60" width="110" height="55"/>
+    <rect x="115" y="115" width="190" height="120"/>
+  </g>
+  <text x="210" y="185" text-anchor="middle" font-size="26" fill="#1f2937">Business rules</text>
+</svg>

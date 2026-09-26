@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="780" viewBox="0 0 1180 780" font-family="sans-serif">
+  <title>图 1-1 传统MIS系统软件架构</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 7（物理页 16）插图。MIS系统含四个子系统列（OCRM系统、资金管理系统、资产风险系统、……系统），各列自上而下为业务流程、业务构件、EOS 系中间件与平台层；四列经 ESB-WebSphere Message Broker（传输服务、事件服务、中转服务、服务路由目录库）连接主机、交易系统与服务注册管理中心，连线均为双向箭头。业务流程与业务构件区内的示意性图形未转录。</desc>
+  <rect width="1180" height="780" fill="#ffffff"/>
+
+  <!-- MIS 系统总框 -->
+  <rect x="85" y="15" width="1010" height="405" rx="14" fill="#f6f9fd" stroke="#7d8da5" stroke-width="2"/>
+  <text x="590" y="46" text-anchor="middle" font-size="21" fill="#1f2937">MIS系统</text>
+
+  <!-- 子系统列 1：OCRM系统 -->
+  <rect x="100" y="62" width="308" height="338" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="254" y="86" text-anchor="middle" font-size="19" fill="#1f2937">OCRM系统</text>
+  <rect x="112" y="96" width="284" height="96" fill="#ffffff" stroke="#9db0c9" stroke-width="1"/>
+  <text x="122" y="122" font-size="17" fill="#1f2937">业务流程</text>
+  <rect x="112" y="196" width="284" height="104" fill="#ffffff" stroke="#9db0c9" stroke-width="1"/>
+  <text x="122" y="222" font-size="17" fill="#1f2937">业务构件</text>
+  <rect x="112" y="304" width="284" height="46" fill="#e3ebf6" stroke="#9db0c9" stroke-width="1"/>
+  <text x="254" y="333" text-anchor="middle" font-size="16" fill="#1f2937">面向构件的SOA中间件-EOS</text>
+  <rect x="112" y="352" width="284" height="40" fill="#e9eef7" stroke="#9db0c9" stroke-width="1"/>
+  <text x="254" y="378" text-anchor="middle" font-size="16" fill="#1f2937">J2EE Server Websphere</text>
+
+  <!-- 子系统列 2：资金管理系统 -->
+  <rect x="424" y="62" width="282" height="338" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="565" y="86" text-anchor="middle" font-size="19" fill="#1f2937">资金管理系统</text>
+  <rect x="436" y="96" width="258" height="96" fill="#ffffff" stroke="#9db0c9" stroke-width="1"/>
+  <text x="446" y="122" font-size="17" fill="#1f2937">业务流程</text>
+  <rect x="436" y="196" width="258" height="104" fill="#ffffff" stroke="#9db0c9" stroke-width="1"/>
+  <text x="446" y="222" font-size="17" fill="#1f2937">业务构件</text>
+  <rect x="436" y="304" width="258" height="46" fill="#e3ebf6" stroke="#9db0c9" stroke-width="1"/>
+  <text x="565" y="333" text-anchor="middle" font-size="17" fill="#1f2937">EOS</text>
+  <rect x="436" y="352" width="258" height="40" fill="#e9eef7" stroke="#9db0c9" stroke-width="1"/>
+  <text x="565" y="378" text-anchor="middle" font-size="16" fill="#1f2937">Websphere</text>
+
+  <!-- 子系统列 3：资产风险系统 -->
+  <rect x="720" y="62" width="154" height="338" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="797" y="86" text-anchor="middle" font-size="18" fill="#1f2937">资产风险系统</text>
+  <rect x="730" y="96" width="134" height="96" fill="#ffffff" stroke="#9db0c9" stroke-width="1"/>
+  <text x="738" y="122" font-size="16" fill="#1f2937">业务流程</text>
+  <rect x="730" y="196" width="134" height="104" fill="#ffffff" stroke="#9db0c9" stroke-width="1"/>
+  <text x="738" y="222" font-size="16" fill="#1f2937">业务构件</text>
+  <rect x="730" y="304" width="134" height="46" fill="#e3ebf6" stroke="#9db0c9" stroke-width="1"/>
+  <text x="797" y="333" text-anchor="middle" font-size="17" fill="#1f2937">EOS</text>
+  <rect x="730" y="352" width="134" height="40" fill="#e9eef7" stroke="#9db0c9" stroke-width="1"/>
+  <text x="797" y="378" text-anchor="middle" font-size="15" fill="#1f2937">Websphere</text>
+
+  <!-- 子系统列 4：……系统 -->
+  <rect x="888" y="62" width="156" height="338" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="966" y="86" text-anchor="middle" font-size="18" fill="#1f2937">……系统</text>
+  <rect x="898" y="96" width="136" height="96" fill="#ffffff" stroke="#9db0c9" stroke-width="1"/>
+  <text x="906" y="122" font-size="16" fill="#1f2937">业务流程</text>
+  <rect x="898" y="196" width="136" height="104" fill="#ffffff" stroke="#9db0c9" stroke-width="1"/>
+  <text x="906" y="222" font-size="16" fill="#1f2937">业务构件</text>
+  <rect x="898" y="304" width="136" height="46" fill="#e3ebf6" stroke="#9db0c9" stroke-width="1"/>
+  <text x="966" y="333" text-anchor="middle" font-size="17" fill="#1f2937">EOS</text>
+  <rect x="898" y="352" width="136" height="40" fill="#e9eef7" stroke="#9db0c9" stroke-width="1"/>
+  <text x="966" y="378" text-anchor="middle" font-size="15" fill="#1f2937">Websphere</text>
+
+  <!-- MIS系统 ↔ ESB 的 4 组双向箭头 -->
+  <path d="M250 436 L250 449 M242 436 L250 424 L258 436 Z M242 449 L250 461 L258 449 Z" fill="#4a5568" stroke="#4a5568" stroke-width="5"/>
+  <path d="M565 436 L565 449 M557 436 L565 424 L573 436 Z M557 449 L565 461 L573 449 Z" fill="#4a5568" stroke="#4a5568" stroke-width="5"/>
+  <path d="M797 436 L797 449 M789 436 L797 424 L805 436 Z M789 449 L797 461 L805 449 Z" fill="#4a5568" stroke="#4a5568" stroke-width="5"/>
+  <path d="M950 436 L950 449 M942 436 L950 424 L958 436 Z M942 449 L950 461 L958 449 Z" fill="#4a5568" stroke="#4a5568" stroke-width="5"/>
+
+  <!-- ESB 横带 -->
+  <rect x="85" y="465" width="1010" height="95" fill="#f6f9fd" stroke="#7d8da5" stroke-width="2"/>
+  <rect x="100" y="478" width="150" height="30" fill="#e3ebf6" stroke="#9db0c9" stroke-width="1"/>
+  <text x="175" y="499" text-anchor="middle" font-size="16" fill="#1f2937">传输服务</text>
+  <rect x="100" y="518" width="150" height="30" fill="#e3ebf6" stroke="#9db0c9" stroke-width="1"/>
+  <text x="175" y="539" text-anchor="middle" font-size="16" fill="#1f2937">事件服务</text>
+  <rect x="505" y="478" width="150" height="30" fill="#e3ebf6" stroke="#9db0c9" stroke-width="1"/>
+  <text x="580" y="499" text-anchor="middle" font-size="16" fill="#1f2937">中转服务</text>
+  <text x="590" y="545" text-anchor="middle" font-size="19" fill="#1f2937">ESB-WebSphere Message Broker</text>
+  <path d="M880 490 A85 11 0 0 1 1050 490 L1050 544 A85 11 0 0 1 880 544 Z" fill="#e3ebf6" stroke="#9db0c9" stroke-width="1"/>
+  <ellipse cx="965" cy="490" rx="85" ry="11" fill="#dce6f3" stroke="#9db0c9" stroke-width="1"/>
+  <text x="965" y="530" text-anchor="middle" font-size="16" fill="#1f2937">服务路由目录库</text>
+
+  <!-- ESB ↔ 主机、交易系统 的 2 组双向箭头；ESB ↔ 服务注册管理中心 -->
+  <path d="M250 576 L250 589 M242 576 L250 564 L258 576 Z M242 589 L250 601 L258 589 Z" fill="#4a5568" stroke="#4a5568" stroke-width="5"/>
+  <path d="M705 576 L705 589 M697 576 L705 564 L713 576 Z M697 589 L705 601 L713 589 Z" fill="#4a5568" stroke="#4a5568" stroke-width="5"/>
+  <path d="M965 587 L965 600 M957 587 L965 575 L973 587 Z M957 600 L965 612 L973 600 Z" fill="#4a5568" stroke="#4a5568" stroke-width="5"/>
+
+  <!-- 主机、交易系统（虚线框） -->
+  <rect x="85" y="605" width="780" height="140" rx="12" fill="none" stroke="#7d8da5" stroke-width="2" stroke-dasharray="8 6"/>
+  <rect x="100" y="645" width="125" height="40" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="162" y="671" text-anchor="middle" font-size="16" fill="#1f2937">主机系统</text>
+  <rect x="233" y="645" width="155" height="40" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="310" y="671" text-anchor="middle" font-size="16" fill="#1f2937">网上银行系统</text>
+  <rect x="396" y="645" width="160" height="40" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="476" y="671" text-anchor="middle" font-size="16" fill="#1f2937">基金交易系统</text>
+  <rect x="564" y="645" width="160" height="40" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="644" y="671" text-anchor="middle" font-size="16" fill="#1f2937">外汇交易系统</text>
+  <rect x="735" y="660" width="80" height="40" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="775" y="686" text-anchor="middle" font-size="16" fill="#1f2937">……</text>
+  <text x="475" y="728" text-anchor="middle" font-size="17" fill="#1f2937">主机、交易系统</text>
+
+  <!-- 服务注册管理中心（叠层方块） -->
+  <rect x="922" y="626" width="140" height="110" fill="#dfe8f5" stroke="#7d8da5" stroke-width="1.5"/>
+  <rect x="908" y="640" width="140" height="110" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="978" y="687" text-anchor="middle" font-size="17" fill="#1f2937">服务注册</text>
+  <text x="978" y="714" text-anchor="middle" font-size="17" fill="#1f2937">管理中心</text>
+</svg>

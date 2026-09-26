@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560" font-family="sans-serif">
+  <title>图 2-6 分布式数据库结构模式</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 35（物理页 44）插图。四层结构：全局外层（三个全局视图）经虚线层界进入全局概念层（全局概念模式、分片模式、分配模式），再经虚线层界进入局部概念层（三个局部概念模式）与局部内层（三个局部内模式，各自下接局部数据库圆柱）。中央垂直连线贯通各层；两侧全局视图以斜线汇入全局概念模式。</desc>
+  <rect width="900" height="560" fill="#ffffff"/>
+  <g fill="#eef3fb" stroke="#7d8da5" stroke-width="1.8">
+    <rect x="260" y="45" width="180" height="40"/>
+    <rect x="440" y="45" width="180" height="40"/>
+    <rect x="620" y="45" width="180" height="40"/>
+    <rect x="400" y="110" width="200" height="40"/>
+    <rect x="400" y="165" width="200" height="40"/>
+    <rect x="400" y="220" width="200" height="40"/>
+    <rect x="130" y="300" width="220" height="40"/>
+    <rect x="390" y="300" width="220" height="40"/>
+    <rect x="650" y="300" width="220" height="40"/>
+    <rect x="130" y="400" width="220" height="40"/>
+    <rect x="390" y="400" width="220" height="40"/>
+    <rect x="650" y="400" width="220" height="40"/>
+  </g>
+  <g fill="#dce6f3" stroke="#7d8da5" stroke-width="1.8">
+    <path d="M170 470 A80 14 0 0 1 330 470 L330 510 A80 14 0 0 1 170 510 Z"/>
+    <ellipse cx="250" cy="470" rx="80" ry="14"/>
+    <path d="M420 470 A80 14 0 0 1 580 470 L580 510 A80 14 0 0 1 420 510 Z"/>
+    <ellipse cx="500" cy="470" rx="80" ry="14"/>
+    <path d="M670 470 A80 14 0 0 1 830 470 L830 510 A80 14 0 0 1 670 510 Z"/>
+    <ellipse cx="750" cy="470" rx="80" ry="14"/>
+  </g>
+  <g stroke="#9aa7b8" stroke-width="1.5" stroke-dasharray="6 5" fill="none">
+    <line x1="90" y1="98" x2="860" y2="98"/>
+    <line x1="90" y1="285" x2="860" y2="285"/>
+    <line x1="90" y1="385" x2="860" y2="385"/>
+  </g>
+  <g stroke="#7d8da5" stroke-width="1.8" fill="none">
+    <path d="M350 85 L440 110"/>
+    <path d="M710 85 L560 110"/>
+    <line x1="500" y1="150" x2="500" y2="165"/>
+    <line x1="500" y1="205" x2="500" y2="220"/>
+    <line x1="500" y1="260" x2="500" y2="300"/>
+    <line x1="500" y1="340" x2="500" y2="400"/>
+    <line x1="500" y1="440" x2="500" y2="470"/>
+    <line x1="240" y1="440" x2="240" y2="470"/>
+    <line x1="750" y1="440" x2="750" y2="470"/>
+  </g>
+  <g font-size="16" fill="#1f2937">
+    <text x="14" y="72">全局外层</text>
+    <text x="14" y="187">全局概念层</text>
+    <text x="14" y="326">局部概念层</text>
+    <text x="14" y="426">局部内层</text>
+    <text x="350" y="71" text-anchor="middle">全局视图</text>
+    <text x="530" y="71" text-anchor="middle">全局视图</text>
+    <text x="710" y="71" text-anchor="middle">全局视图</text>
+    <text x="500" y="136" text-anchor="middle">全局概念模式</text>
+    <text x="500" y="191" text-anchor="middle">分片模式</text>
+    <text x="500" y="246" text-anchor="middle">分配模式</text>
+    <text x="240" y="326" text-anchor="middle">局部概念模式</text>
+    <text x="500" y="326" text-anchor="middle">局部概念模式</text>
+    <text x="760" y="326" text-anchor="middle">局部概念模式</text>
+    <text x="240" y="426" text-anchor="middle">局部内模式</text>
+    <text x="500" y="426" text-anchor="middle">局部内模式</text>
+    <text x="760" y="426" text-anchor="middle">局部内模式</text>
+    <text x="250" y="496" text-anchor="middle">局部数据库</text>
+    <text x="500" y="496" text-anchor="middle">局部数据库</text>
+    <text x="750" y="496" text-anchor="middle">局部数据库</text>
+  </g>
+</svg>

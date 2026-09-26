@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="700" viewBox="0 -60 940 700" font-family="sans-serif">
+  <title>图 2-24 UML的发展历史</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 80（物理页 89）插图。阶梯时间线自左下向右上：Booch方法、OMT 汇入 Unified Method 0.8（1995），OOSE 汇入 0.9（1996），其后依次 1.0（1997年1月最初提交给OMG）、1.1（1997年9月最后提交给OMG）、1.2（1998）、1.3（1999）、1.4（2001）、2.0（2001）。</desc>
+  <rect x="0" y="-60" width="940" height="700" fill="#ffffff"/>
+  <defs>
+    <marker id="e24" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#7d8da5"/>
+    </marker>
+  </defs>
+
+  <!-- 版本框（阶梯上行） -->
+  <g fill="#eef3fb" stroke="#7d8da5" stroke-width="2">
+    <rect x="185" y="480" width="250" height="46"/>
+    <rect x="260" y="410" width="250" height="46"/>
+    <rect x="335" y="340" width="250" height="46"/>
+    <rect x="410" y="270" width="250" height="46"/>
+    <rect x="485" y="200" width="250" height="46"/>
+    <rect x="560" y="130" width="250" height="46"/>
+    <rect x="635" y="60" width="200" height="46"/>
+    <rect x="710" y="-10" width="220" height="46"/>
+  </g>
+  <g font-size="17" fill="#1f2937" text-anchor="middle">
+    <text x="310" y="509">Unified Method 0.8</text>
+    <text x="385" y="439">Unified Method 0.9</text>
+    <text x="460" y="369">Unified Method 1.0</text>
+    <text x="535" y="299">Unified Method 1.1</text>
+    <text x="610" y="229">Unified Method 1.2</text>
+    <text x="685" y="159">Unified Method 1.3</text>
+    <text x="735" y="89" text-anchor="middle">Unified Method 1.4</text>
+    <text x="820" y="19">Unified Method 2.0</text>
+  </g>
+  <!-- 年份标注（左侧） -->
+  <g font-size="14" fill="#1f2937" text-anchor="end">
+    <text x="175" y="509">1995</text>
+    <text x="250" y="439">1996</text>
+    <text x="325" y="362">1997年1月最初提</text>
+    <text x="325" y="381">交给OMG</text>
+    <text x="400" y="292">1997年9月最后提</text>
+    <text x="400" y="311">交给OMG</text>
+    <text x="475" y="222">1998</text>
+    <text x="550" y="152">1999</text>
+    <text x="625" y="82">2001</text>
+    <text x="655" y="19">2001</text>
+  </g>
+  <!-- 版本间连接箭头 -->
+  <g stroke="#7d8da5" stroke-width="2" fill="none">
+    <line x1="430" y1="478" x2="365" y2="462" marker-end="url(#e24)"/>
+    <line x1="505" y1="408" x2="440" y2="392" marker-end="url(#e24)"/>
+    <line x1="580" y1="338" x2="515" y2="322" marker-end="url(#e24)"/>
+    <line x1="655" y1="268" x2="590" y2="252" marker-end="url(#e24)"/>
+    <line x1="730" y1="198" x2="665" y2="182" marker-end="url(#e24)"/>
+    <line x1="745" y1="130" x2="745" y2="112" marker-end="url(#e24)"/>
+    <line x1="745" y1="56" x2="745" y2="40" marker-end="url(#e24)"/>
+  </g>
+  <!-- 三方法汇入 0.8 -->
+  <g stroke="#7d8da5" stroke-width="2" fill="none">
+    <line x1="150" y1="600" x2="240" y2="532" marker-end="url(#e24)"/>
+    <line x1="330" y1="600" x2="308" y2="532" marker-end="url(#e24)"/>
+    <line x1="460" y1="600" x2="460" y2="462" marker-end="url(#e24)"/>
+  </g>
+  <g font-size="17" fill="#1f2937">
+    <text x="115" y="628">Booch方法</text>
+    <text x="300" y="628">OMT</text>
+    <text x="460" y="628">OOSE</text>
+  </g>
+</svg>

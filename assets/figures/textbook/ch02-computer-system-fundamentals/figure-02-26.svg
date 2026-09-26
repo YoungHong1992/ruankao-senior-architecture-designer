@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="200" viewBox="0 0 820 200" font-family="sans-serif">
+  <title>图 2-26 行为事物的图形表示</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 81（物理页 90）插图。三种行为事物记法：消息（带 display 标注的实线箭头）、状态（Waiting 圆角矩形）、动作（place order 矩形）。</desc>
+  <rect width="820" height="200" fill="#ffffff"/>
+  <g stroke="#556070" stroke-width="2" fill="none">
+    <line x1="120" y1="80" x2="240" y2="80" marker-end="url(#f26)"/>
+  </g>
+  <defs>
+    <marker id="f26" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#556070"/>
+    </marker>
+  </defs>
+  <text x="175" y="66" text-anchor="middle" font-size="17" fill="#1f2937">display</text>
+  <text x="175" y="150" text-anchor="middle" font-size="17" fill="#1f2937">消息</text>
+  <rect x="330" y="55" width="160" height="50" rx="14" fill="none" stroke="#556070" stroke-width="2"/>
+  <text x="410" y="87" text-anchor="middle" font-size="17" fill="#1f2937">Waiting</text>
+  <text x="410" y="150" text-anchor="middle" font-size="17" fill="#1f2937">状态</text>
+  <rect x="590" y="55" width="170" height="50" fill="none" stroke="#556070" stroke-width="2"/>
+  <text x="675" y="87" text-anchor="middle" font-size="17" fill="#1f2937">place order</text>
+  <text x="675" y="150" text-anchor="middle" font-size="17" fill="#1f2937">动作</text>
+</svg>

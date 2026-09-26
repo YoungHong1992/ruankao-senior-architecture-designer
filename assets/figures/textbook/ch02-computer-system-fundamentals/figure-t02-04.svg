@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="480" viewBox="0 0 1060 480" font-family="sans-serif">
+  <title>表 2-4 软件安全等级与目标关系</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 53（物理页 62）表格。四列：等级（A～E）、失效状态（灾难性的/危害性的/严重的/不严重的/没有影响的）、简要说明、目标数量（66/65/56/28/0）。单元格内容经扫描件逐格核对。</desc>
+  <rect width="1060" height="480" fill="#ffffff"/>
+  <rect x="30" y="30" width="990" height="390" fill="#f6f9fd" stroke="#556070" stroke-width="1.5"/>
+  <rect x="30" y="30" width="990" height="40" fill="#dce6f3" stroke="#556070" stroke-width="1.5"/>
+  <line x1="30" y1="70" x2="1020" y2="70" stroke="#556070" stroke-width="1"/>
+  <line x1="30" y1="140" x2="1020" y2="140" stroke="#556070" stroke-width="1"/>
+  <line x1="30" y1="210" x2="1020" y2="210" stroke="#556070" stroke-width="1"/>
+  <line x1="30" y1="280" x2="1020" y2="280" stroke="#556070" stroke-width="1"/>
+  <line x1="30" y1="350" x2="1020" y2="350" stroke="#556070" stroke-width="1"/>
+  <line x1="140" y1="30" x2="140" y2="420" stroke="#556070" stroke-width="1"/>
+  <line x1="320" y1="30" x2="320" y2="420" stroke="#556070" stroke-width="1"/>
+  <line x1="900" y1="30" x2="900" y2="420" stroke="#556070" stroke-width="1"/>
+  <text x="85" y="55" text-anchor="middle" font-size="15" font-weight="bold" fill="#1f2937">等级</text>
+  <text x="230" y="55" text-anchor="middle" font-size="15" font-weight="bold" fill="#1f2937">失效状态</text>
+  <text x="330" y="55" text-anchor="start" font-size="15" font-weight="bold" fill="#1f2937">简要说明</text>
+  <text x="960" y="55" text-anchor="middle" font-size="15" font-weight="bold" fill="#1f2937">目标数量</text>
+  <text x="85" y="110" text-anchor="middle" font-size="15" fill="#1f2937">A级</text>
+  <text x="230" y="110" text-anchor="middle" font-size="15" fill="#1f2937">灾难性的</text>
+  <text x="330" y="110" text-anchor="start" font-size="15" fill="#1f2937">软件异常会导致的后果是：航空器无法安全飞行和着陆</text>
+  <text x="960" y="110" text-anchor="middle" font-size="15" fill="#1f2937">66</text>
+  <text x="85" y="180" text-anchor="middle" font-size="15" fill="#1f2937">B级</text>
+  <text x="230" y="180" text-anchor="middle" font-size="15" fill="#1f2937">危害性的</text>
+  <text x="330" y="180" text-anchor="start" font-size="15" fill="#1f2937">软件异常会导致的后果是：严重降低了航空器或机组在克服不利运行情况时的能力</text>
+  <text x="960" y="180" text-anchor="middle" font-size="15" fill="#1f2937">65</text>
+  <text x="85" y="250" text-anchor="middle" font-size="15" fill="#1f2937">C级</text>
+  <text x="230" y="250" text-anchor="middle" font-size="15" fill="#1f2937">严重的</text>
+  <text x="330" y="250" text-anchor="start" font-size="15" fill="#1f2937">软件异常会导致的后果是：显著降低了航空器或机组在克服不利运行情况时的能力</text>
+  <text x="960" y="250" text-anchor="middle" font-size="15" fill="#1f2937">56</text>
+  <text x="85" y="320" text-anchor="middle" font-size="15" fill="#1f2937">D级</text>
+  <text x="230" y="320" text-anchor="middle" font-size="15" fill="#1f2937">不严重的</text>
+  <text x="330" y="320" text-anchor="start" font-size="15" fill="#1f2937">软件异常会导致的后果是：轻微降低了航空器或机组在克服不利运行情况时的能力</text>
+  <text x="960" y="320" text-anchor="middle" font-size="15" fill="#1f2937">28</text>
+  <text x="85" y="390" text-anchor="middle" font-size="15" fill="#1f2937">E级</text>
+  <text x="230" y="390" text-anchor="middle" font-size="15" fill="#1f2937">没有影响的</text>
+  <text x="330" y="390" text-anchor="start" font-size="15" fill="#1f2937">软件异常会导致的后果是：不会影响航空器或机组任何能力</text>
+  <text x="960" y="390" text-anchor="middle" font-size="15" fill="#1f2937">0</text>
+</svg>

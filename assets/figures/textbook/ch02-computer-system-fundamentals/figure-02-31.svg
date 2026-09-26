@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="110" viewBox="0 0 420 110" font-family="sans-serif">
+  <title>图 2-31 聚集</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 82（物理页 91）插图。聚集记法：一端带空心菱形的实线。</desc>
+  <rect width="420" height="110" fill="#ffffff"/>
+  <line x1="60" y1="55" x2="330" y2="55" stroke="#556070" stroke-width="2"/>
+  <path d="M330 55 L358 42 L386 55 L358 68 Z" fill="#ffffff" stroke="#556070" stroke-width="2"/>
+</svg>
