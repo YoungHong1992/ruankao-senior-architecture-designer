@@ -72,6 +72,8 @@
 
 - `catalog/errata.json`（schema 1）— 勘误登记簿：正文书**勘误后的正确内容**。逐条登记经扫描件图像证实为原书自身的排印错误或前后不一致之处（原书写法、勘正写法、物理页/印刷页、核查记录链接）；正确写法拿不准的存疑处（`kind: "noted"`）正文保留原书原貌、只登记不勘正。
 
+- `catalog/figures.json`（schema 1）— 图表登记簿：核查时对照扫描件渲染图像逐项转录复原的图表（图号、标题、表示形式 `table`/`mermaid`/`svg`、物理页/印刷页、核查记录链接）；校验器断言每条锚点（图题）在正文中恰好出现一次。
+
 
 
 数据流：**正文与清单** →（`validate_knowledge_base.py` 断言四层结构、frontmatter、manifest、两份索引与正文彼此一致，并做编码与结构检查）→ **CI 门禁**。
@@ -212,6 +214,8 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 - 勘误登记簿（`catalog/errata.json`，schema 1）：顶层仅 `schema_version`、`updated_at`、`entries`；每条 `id` 全簿唯一、`corpus` 必须是登记语料、`file` 必须落在该语料 `content_root` 内、`anchor` 必须在所指正文中**恰好出现一次**、`kind` 为 `typo` 时 `corrected` 必须出现在 `anchor` 内且不等于 `original`、`record` 必须真实存在。**不设数量与覆盖率目标**——没有登记等于没有发现，不是待办缺口。
 
+- 图表登记簿（`catalog/figures.json`，schema 1）：顶层仅 `schema_version`、`updated_at`、`entries`；每条 `id` 全簿唯一、`corpus`/`file` 合法、`anchor`（图题）必须在所指正文中**恰好出现一次**、`kind` 为 `table`/`mermaid`/`svg`、`kind` 为 `svg` 时必须给出真实存在的 `asset` 文件、`record` 必须真实存在。**不设数量与覆盖率目标**。
+
 - 工具链：`pyproject.toml` 的 `requires-python` = `>=3.13`、`project.dependencies` 必须为空、`tool.uv.package` = `false`、`dependency-groups` 必须恰好是 `lint` 一组且只含一条 `==` 精确 pin（ruff）；`uv.lock` 的 `requires-python` 也须为 `>=3.13`。改任一处都要跑 `uv lock` 并提交锁文件。
 
 - 全部 Markdown 必须是**标准 UTF-8（无 BOM）+ CRLF**，不得含裸 CR；校验器逐字节检查。每个存放正文的目录（含教材的每个章目录）都要有 `INDEX.md`，不得超过 200 行，且必须收录本目录下全部 Markdown 与各子目录的 `INDEX.md`；清洗目录内标题不得跳级；三个清洗目录**递归**扫描 `兰亭图书阁`、`Outer Jion` 等高风险 OCR 残留词。
@@ -264,7 +268,7 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 - **大纲/教材事实核查**：唯一标准是清洗稿忠于扫描件图像；核查不得使用 OCR、PDF 文本层抽取或外部事实判断。逐项比对并由另一 AI 在不看首轮结论的前提下独立验证；证据不足标“无法判定”，不得猜测。操作与记录要求见 [`verification/README.md`](verification/README.md)。
 
-- **图表/公式**：遵循 [图表与公式处理](#图表与公式处理)——**手中没有原图就不要画图**；保留图题、清除图内 OCR 噪声，不得依据 OCR 标签串或领域常识"还原"示意图。
+- **图表/公式**：遵循 [图表与公式处理](#图表与公式处理)——**手中没有原图就不要画图**（原图 = 入库扫描件的页面渲染图像）；核查时对照原图逐项转录复原，保留图题、清除图内 OCR 噪声，不得依据 OCR 标签串或领域常识"还原"示意图，逐图登记 `catalog/figures.json`。
 
 - **不造假**：无法确认的题面、选项、空号、连线、答案不得凭空补写，也不得写成已经确认；宁可缺失，不可编造。
 
@@ -764,7 +768,7 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 
 
-本仓库以纯文本 Markdown 为主。仓库中只入了库两份**整页扫描 PDF**（见 `sources/00-…`、`sources/01-…`）；原书单幅插图未从扫描件抽取，`content/` 下只有文本，`assets/` 仍为空。**图题存在不代表原图可用。**
+本仓库以纯文本 Markdown 为主。仓库中只入了库两份**整页扫描 PDF**（见 `sources/00-…`、`sources/01-…`），它们就是原书插图的原始图像来源：核查时对照页面渲染图像，把插图逐项转录为 Markdown 表格、Mermaid 或 SVG 进入正文，并逐图登记进 `catalog/figures.json`；未复原的图仅保留图题。**图题存在不代表原图可用，也不代表已复原。**
 
 
 
@@ -772,7 +776,7 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 
 
-只有**手中有该图的原始图像并在制作时实际对照**，才能把图转成 SVG、Mermaid 或表格。仅凭 OCR 残留的标签串、上下文散文或领域常识"还原"出来的图，是生成内容而非原图，一律禁止。
+只有**手中有该图的原始图像并在制作时实际对照**，才能把图转成 SVG、Mermaid 或表格。本仓库的「原始图像」指入库扫描件的页面渲染图像（整页或局部放大）——核查时图像在手，对照转录即满足此前提。仅凭 OCR 残留的标签串、上下文散文或领域常识"还原"出来的图，是生成内容而非原图，一律禁止。
 
 
 
@@ -790,7 +794,11 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 3. 不美化、不合并同类项、不推测看不清的部分；看不清就留空并在图题或 `<desc>` 中写明；
 
-4. 版式差异（列宽、字体、绝对尺寸）无需复刻，但承载信息的几何关系必须保留。
+4. 版式差异（列宽、字体、绝对尺寸）无需复刻，但承载信息的几何关系必须保留；
+
+5. 示意性装饰图形与无法辨认的细节不转录，逐图在 `catalog/figures.json` 的 note 中写明；
+
+6. 每幅复原的图表逐图登记进 `catalog/figures.json`（锚点为图题，校验器断言其唯一以防漂移）。
 
 
 
@@ -798,7 +806,7 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 
 
-按原图性质决定，不自由选择：
+能用 Markdown 表格表达的优先用 Markdown 表格；其余按原图性质决定，不自由选择：
 
 
 
