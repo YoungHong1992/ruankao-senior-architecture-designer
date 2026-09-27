@@ -266,7 +266,7 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 - **教材清洗/校对**：遵循 [教材 Markdown 清洗与校对标准](#教材-markdown-清洗与校对标准)——忠于原文、先纠错后美化、可读优先。
 
-- **大纲/教材事实核查**：唯一标准是清洗稿忠于扫描件图像；核查不得使用 OCR、PDF 文本层抽取或外部事实判断。逐项比对并由另一 AI 在不看首轮结论的前提下独立验证；证据不足标“无法判定”，不得猜测。操作与记录要求见 [`verification/README.md`](verification/README.md)。
+- **大纲/教材事实核查**：唯一标准是清洗稿忠于扫描件图像；核查不得使用 OCR、PDF 文本层抽取或外部事实判断。逐项比对并由另一 AI 在不看首轮结论的前提下独立验证；证据不足标“无法判定”，不得猜测。操作与记录要求见 [`verification/README.md`](verification/README.md)；逐章作业规程（轮次组织、盲比口径、图表 SVG 复原流程与工具命令模板）见 [`verification/教材核查与图表复原作业规程.md`](verification/教材核查与图表复原作业规程.md)。
 
 - **图表/公式**：遵循 [图表与公式处理](#图表与公式处理)——**手中没有原图就不要画图**（原图 = 入库扫描件的页面渲染图像）；核查时对照原图逐项转录复原，保留图题、清除图内 OCR 噪声，不得依据 OCR 标签串或领域常识"还原"示意图，逐图登记 `catalog/figures.json`。
 
