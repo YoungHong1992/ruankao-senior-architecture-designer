@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="330" viewBox="0 0 700 330" font-family="sans-serif">
+  <title>图 2-8 中间件图示</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 41（物理页 50）插图。应用（左、右，中间省略号）经中间件（分布式系统服务）横带连接操作系统（左、右，中间省略号），操作系统之下为网络、数据库横带，各层以竖线相连。</desc>
+  <rect width="700" height="330" fill="#ffffff"/>
+  <g stroke="#7d8da5" stroke-width="1.5" fill="none">
+    <line x1="115" y1="82" x2="115" y2="110"/>
+    <line x1="585" y1="82" x2="585" y2="110"/>
+    <line x1="115" y1="156" x2="115" y2="185"/>
+    <line x1="585" y1="156" x2="585" y2="185"/>
+    <line x1="115" y1="227" x2="115" y2="255"/>
+    <line x1="585" y1="227" x2="585" y2="255"/>
+  </g>
+  <g fill="#eef3fb" stroke="#7d8da5" stroke-width="1.8">
+    <rect x="60" y="40" width="110" height="42"/>
+    <rect x="530" y="40" width="110" height="42"/>
+    <rect x="60" y="110" width="580" height="46"/>
+    <rect x="60" y="185" width="110" height="42"/>
+    <rect x="530" y="185" width="110" height="42"/>
+    <rect x="60" y="255" width="580" height="46"/>
+  </g>
+  <g font-size="17" fill="#1f2937">
+    <text x="115" y="67" text-anchor="middle">应用</text>
+    <text x="350" y="67" text-anchor="middle">…</text>
+    <text x="585" y="67" text-anchor="middle">应用</text>
+    <text x="350" y="139" text-anchor="middle">中间件(分布式系统服务)</text>
+    <text x="115" y="212" text-anchor="middle">操作系统</text>
+    <text x="350" y="212" text-anchor="middle">…</text>
+    <text x="585" y="212" text-anchor="middle">操作系统</text>
+    <text x="350" y="284" text-anchor="middle">网络、数据库</text>
+  </g>
+</svg>

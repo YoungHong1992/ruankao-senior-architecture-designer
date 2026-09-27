@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="760" viewBox="0 0 960 760" font-family="sans-serif">
+  <title>图 2-23 OSI网络体系结构</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 71（物理页 80）插图。左右两台主机各含七层协议栈（应用层、表示层、会话层、传输层、网络层、数据链路层、物理层，层间双向箭头相连）；中间两台 IMP（接口报文处理机）各含网络层、数据链路层、物理层；对等层之间以虚线表示协议（应用层协议、表示层协议、会话层协议、传输层协议，网络层及以下为子网协议虚框），主机与 IMP 之间按层虚线相连；底部标注三条：网络层主机——IMP协议、数据链路层主机——IMP协议、物理层主机——IMP协议。</desc>
+  <rect width="960" height="760" fill="#ffffff"/>
+  <defs>
+    <marker id="d23" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#7d8da5"/>
+    </marker>
+    <marker id="d23s" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 10 0 L 0 5 L 10 10 Z" fill="#7d8da5"/>
+    </marker>
+  </defs>
+
+  <!-- 子网协议虚框（覆盖中列两台 IMP 的三层） -->
+  <rect x="345" y="345" width="330" height="205" fill="none" stroke="#8a99ad" stroke-width="1.5" stroke-dasharray="7 5"/>
+
+  <!-- 左右主机栈与中列 IMP 框 -->
+  <g fill="#eef3fb" stroke="#7d8da5" stroke-width="2">
+    <!-- 左主机 7 层 -->
+    <rect x="110" y="60" width="170" height="42"/>
+    <rect x="110" y="122" width="170" height="42"/>
+    <rect x="110" y="184" width="170" height="42"/>
+    <rect x="110" y="246" width="170" height="42"/>
+    <rect x="110" y="352" width="170" height="42"/>
+    <rect x="110" y="445" width="170" height="42"/>
+    <rect x="110" y="530" width="170" height="42"/>
+    <!-- 右主机 7 层 -->
+    <rect x="700" y="60" width="170" height="42"/>
+    <rect x="700" y="122" width="170" height="42"/>
+    <rect x="700" y="184" width="170" height="42"/>
+    <rect x="700" y="246" width="170" height="42"/>
+    <rect x="700" y="352" width="170" height="42"/>
+    <rect x="700" y="445" width="170" height="42"/>
+    <rect x="700" y="530" width="170" height="42"/>
+    <!-- IMP1 三层 -->
+    <rect x="360" y="352" width="130" height="42"/>
+    <rect x="360" y="445" width="130" height="42"/>
+    <rect x="360" y="530" width="130" height="42"/>
+    <!-- IMP2 三层 -->
+    <rect x="525" y="352" width="130" height="42"/>
+    <rect x="525" y="445" width="130" height="42"/>
+    <rect x="525" y="530" width="130" height="42"/>
+  </g>
+
+  <g font-size="16" fill="#1f2937" text-anchor="middle">
+    <text x="195" y="87">应用层</text>
+    <text x="195" y="149">表示层</text>
+    <text x="195" y="211">会话层</text>
+    <text x="195" y="273">传输层</text>
+    <text x="195" y="379">网络层</text>
+    <text x="195" y="472">数据链路层</text>
+    <text x="195" y="557">物理层</text>
+    <text x="785" y="87">应用层</text>
+    <text x="785" y="149">表示层</text>
+    <text x="785" y="211">会话层</text>
+    <text x="785" y="273">传输层</text>
+    <text x="785" y="379">网络层</text>
+    <text x="785" y="472">数据链路层</text>
+    <text x="785" y="557">物理层</text>
+    <text x="425" y="379">网络层</text>
+    <text x="425" y="472">数据链路层</text>
+    <text x="425" y="557">物理层</text>
+    <text x="590" y="379">网络层</text>
+    <text x="590" y="472">数据链路层</text>
+    <text x="590" y="557">物理层</text>
+    <text x="425" y="620">IMP</text>
+    <text x="590" y="620">IMP</text>
+  </g>
+
+  <!-- 层间双向箭头（左右栈） -->
+  <g stroke="#7d8da5" stroke-width="2">
+    <line x1="195" y1="102" x2="195" y2="118" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+    <line x1="195" y1="164" x2="195" y2="180" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+    <line x1="195" y1="226" x2="195" y2="242" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+    <line x1="195" y1="288" x2="195" y2="348" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+    <line x1="195" y1="394" x2="195" y2="441" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+    <line x1="195" y1="487" x2="195" y2="526" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+    <line x1="785" y1="102" x2="785" y2="118" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+    <line x1="785" y1="164" x2="785" y2="180" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+    <line x1="785" y1="226" x2="785" y2="242" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+    <line x1="785" y1="288" x2="785" y2="348" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+    <line x1="785" y1="394" x2="785" y2="441" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+    <line x1="785" y1="487" x2="785" y2="526" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+  </g>
+
+  <!-- 对等层协议虚线（上四层，两端小箭头） -->
+  <g stroke="#9aa7b8" stroke-width="2" stroke-dasharray="8 6">
+    <line x1="284" y1="81" x2="696" y2="81" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+    <line x1="284" y1="143" x2="696" y2="143" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+    <line x1="284" y1="205" x2="696" y2="205" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+    <line x1="284" y1="267" x2="696" y2="267" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+    <!-- 主机与 IMP 三层连线 -->
+    <line x1="284" y1="373" x2="356" y2="373" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+    <line x1="494" y1="373" x2="521" y2="373" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+    <line x1="659" y1="373" x2="696" y2="373" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+    <line x1="284" y1="466" x2="356" y2="466" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+    <line x1="494" y1="466" x2="521" y2="466" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+    <line x1="659" y1="466" x2="696" y2="466" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+    <line x1="284" y1="551" x2="356" y2="551" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+    <line x1="494" y1="551" x2="521" y2="551" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+    <line x1="659" y1="551" x2="696" y2="551" marker-end="url(#d23)" marker-start="url(#d23s)"/>
+  </g>
+
+  <!-- 底部图例三条竖引线（带上箭头，连到对应对等虚线） -->
+  <g stroke="#556070" stroke-width="1.5" fill="none">
+    <path d="M400 658 L345 382" marker-end="url(#d23)"/>
+    <path d="M425 690 L322 474" marker-end="url(#d23)"/>
+    <path d="M450 722 L322 559" marker-end="url(#d23)"/>
+  </g>
+
+  <!-- 协议标注 -->
+  <g font-size="17" fill="#1f2937" text-anchor="middle">
+    <text x="490" y="72">应用层协议</text>
+    <text x="490" y="134">表示层协议</text>
+    <text x="490" y="196">会话层协议</text>
+    <text x="490" y="258">传输层协议</text>
+    <text x="510" y="415">子网协议</text>
+  </g>
+
+  <!-- 底部三条标注 -->
+  <g font-size="16" fill="#1f2937">
+    <text x="395" y="672">—网络层主机——IMP协议</text>
+    <text x="395" y="704">数据链路层主机——IMP协议</text>
+    <text x="395" y="736">物理层主机——IMP 协议</text>
+  </g>
+</svg>

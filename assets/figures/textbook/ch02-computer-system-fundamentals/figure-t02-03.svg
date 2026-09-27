@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="620" viewBox="0 0 900 620" font-family="sans-serif">
+  <title>表 2-3 通用应用软件的主要类别和功能</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 46（物理页 55）表格。三列：类别、功能、流行软件举例；九行通用软件类别。单元格内容经扫描件逐格核对。</desc>
+  <rect width="900" height="620" fill="#ffffff"/>
+  <rect x="40" y="30" width="780" height="468" fill="#f6f9fd" stroke="#556070" stroke-width="1.5"/>
+  <rect x="40" y="30" width="780" height="36" fill="#dce6f3" stroke="#556070" stroke-width="1.5"/>
+  <line x1="40" y1="66" x2="820" y2="66" stroke="#556070" stroke-width="1"/>
+  <line x1="40" y1="114" x2="820" y2="114" stroke="#556070" stroke-width="1"/>
+  <line x1="40" y1="162" x2="820" y2="162" stroke="#556070" stroke-width="1"/>
+  <line x1="40" y1="210" x2="820" y2="210" stroke="#556070" stroke-width="1"/>
+  <line x1="40" y1="258" x2="820" y2="258" stroke="#556070" stroke-width="1"/>
+  <line x1="40" y1="306" x2="820" y2="306" stroke="#556070" stroke-width="1"/>
+  <line x1="40" y1="354" x2="820" y2="354" stroke="#556070" stroke-width="1"/>
+  <line x1="40" y1="402" x2="820" y2="402" stroke="#556070" stroke-width="1"/>
+  <line x1="40" y1="450" x2="820" y2="450" stroke="#556070" stroke-width="1"/>
+  <line x1="210" y1="30" x2="210" y2="498" stroke="#556070" stroke-width="1"/>
+  <line x1="540" y1="30" x2="540" y2="498" stroke="#556070" stroke-width="1"/>
+  <text x="125" y="53" text-anchor="middle" font-size="15" font-weight="bold" fill="#1f2937">类别</text>
+  <text x="220" y="53" text-anchor="start" font-size="15" font-weight="bold" fill="#1f2937">功能</text>
+  <text x="550" y="53" text-anchor="start" font-size="15" font-weight="bold" fill="#1f2937">流行软件举例</text>
+  <text x="125" y="95" text-anchor="middle" font-size="15" fill="#1f2937">文字处理软件</text>
+  <text x="220" y="95" text-anchor="start" font-size="15" fill="#1f2937">文本编辑、文字处理、桌面排版等</text>
+  <text x="550" y="95" text-anchor="start" font-size="15" fill="#1f2937">WPS、Word、Adobe、FrontPage等</text>
+  <text x="125" y="143" text-anchor="middle" font-size="15" fill="#1f2937">电子表格软件</text>
+  <text x="220" y="143" text-anchor="start" font-size="15" fill="#1f2937">表格设计、数值计算、制表、绘图</text>
+  <text x="550" y="143" text-anchor="start" font-size="15" fill="#1f2937">Excel 等</text>
+  <text x="125" y="191" text-anchor="middle" font-size="15" fill="#1f2937">图形图像软件</text>
+  <text x="220" y="191" text-anchor="start" font-size="15" fill="#1f2937">图像处理、几何图形绘制、动画制作等</text>
+  <text x="550" y="191" text-anchor="start" font-size="15" fill="#1f2937">AutoCAD、Photoshop、3DMAX、Flash等</text>
+  <text x="125" y="239" text-anchor="middle" font-size="15" fill="#1f2937">媒体播放软件</text>
+  <text x="220" y="239" text-anchor="start" font-size="15" fill="#1f2937">播放各种数字音频和视频文件</text>
+  <text x="550" y="239" text-anchor="start" font-size="15" fill="#1f2937">Microsoft Media Player、RealPlayer 等</text>
+  <text x="125" y="287" text-anchor="middle" font-size="15" fill="#1f2937">网络通信软件</text>
+  <text x="220" y="287" text-anchor="start" font-size="15" fill="#1f2937">电子邮件、聊天、 IP电话、微博、微信等</text>
+  <text x="550" y="287" text-anchor="start" font-size="15" fill="#1f2937">Outlook、Express、MSN、QQ、ICQ 等</text>
+  <text x="125" y="335" text-anchor="middle" font-size="15" fill="#1f2937">演示软件</text>
+  <text x="220" y="335" text-anchor="start" font-size="15" fill="#1f2937">投影片制作与播放</text>
+  <text x="550" y="335" text-anchor="start" font-size="15" fill="#1f2937">PowerPoint 等</text>
+  <text x="125" y="383" text-anchor="middle" font-size="15" fill="#1f2937">信息检索软件</text>
+  <text x="220" y="383" text-anchor="start" font-size="15" fill="#1f2937">在因特网中查找需要的信息</text>
+  <text x="550" y="383" text-anchor="start" font-size="15" fill="#1f2937">百度、Google、 天网等</text>
+  <text x="125" y="431" text-anchor="middle" font-size="15" fill="#1f2937">个人信息管理软件</text>
+  <text x="220" y="431" text-anchor="start" font-size="15" fill="#1f2937">记事本、日程安排、通信录</text>
+  <text x="550" y="431" text-anchor="start" font-size="15" fill="#1f2937">Notepad、Lotus Notes 等</text>
+  <text x="125" y="479" text-anchor="middle" font-size="15" fill="#1f2937">游戏软件</text>
+  <text x="220" y="479" text-anchor="start" font-size="15" fill="#1f2937">游戏和娱乐</text>
+  <text x="550" y="479" text-anchor="start" font-size="15" fill="#1f2937">下棋、扑克、休闲游戏、角色游戏等</text>
+</svg>

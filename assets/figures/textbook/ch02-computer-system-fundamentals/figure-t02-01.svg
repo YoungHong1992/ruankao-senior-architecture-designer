@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="300" viewBox="0 0 680 300" font-family="sans-serif">
+  <title>表 2-1 空闲区表</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 39（物理页 48）表格。四列：序号、第1个空闲块号、空闲块数、状态；三行可用（18/5、29/8、105/19）与一行未用（—/—）。单元格内容经扫描件逐格核对。</desc>
+  <rect width="680" height="300" fill="#ffffff"/>
+  <rect x="40" y="30" width="590" height="168" fill="#f6f9fd" stroke="#556070" stroke-width="1.5"/>
+  <rect x="40" y="30" width="590" height="36" fill="#dce6f3" stroke="#556070" stroke-width="1.5"/>
+  <line x1="40" y1="66" x2="630" y2="66" stroke="#556070" stroke-width="1"/>
+  <line x1="40" y1="99" x2="630" y2="99" stroke="#556070" stroke-width="1"/>
+  <line x1="40" y1="132" x2="630" y2="132" stroke="#556070" stroke-width="1"/>
+  <line x1="40" y1="165" x2="630" y2="165" stroke="#556070" stroke-width="1"/>
+  <line x1="150" y1="30" x2="150" y2="198" stroke="#556070" stroke-width="1"/>
+  <line x1="340" y1="30" x2="340" y2="198" stroke="#556070" stroke-width="1"/>
+  <line x1="490" y1="30" x2="490" y2="198" stroke="#556070" stroke-width="1"/>
+  <text x="95" y="53" text-anchor="middle" font-size="15" font-weight="bold" fill="#1f2937">序号</text>
+  <text x="245" y="53" text-anchor="middle" font-size="15" font-weight="bold" fill="#1f2937">第1个空闲块号</text>
+  <text x="415" y="53" text-anchor="middle" font-size="15" font-weight="bold" fill="#1f2937">空闲块数</text>
+  <text x="560" y="53" text-anchor="middle" font-size="15" font-weight="bold" fill="#1f2937">状态</text>
+  <text x="95" y="88" text-anchor="middle" font-size="15" fill="#1f2937">1</text>
+  <text x="245" y="88" text-anchor="middle" font-size="15" fill="#1f2937">18</text>
+  <text x="415" y="88" text-anchor="middle" font-size="15" fill="#1f2937">5</text>
+  <text x="560" y="88" text-anchor="middle" font-size="15" fill="#1f2937">可用</text>
+  <text x="95" y="120" text-anchor="middle" font-size="15" fill="#1f2937">2</text>
+  <text x="245" y="120" text-anchor="middle" font-size="15" fill="#1f2937">29</text>
+  <text x="415" y="120" text-anchor="middle" font-size="15" fill="#1f2937">8</text>
+  <text x="560" y="120" text-anchor="middle" font-size="15" fill="#1f2937">可用</text>
+  <text x="95" y="154" text-anchor="middle" font-size="15" fill="#1f2937">3</text>
+  <text x="245" y="154" text-anchor="middle" font-size="15" fill="#1f2937">105</text>
+  <text x="415" y="154" text-anchor="middle" font-size="15" fill="#1f2937">19</text>
+  <text x="560" y="154" text-anchor="middle" font-size="15" fill="#1f2937">可用</text>
+  <text x="95" y="186" text-anchor="middle" font-size="15" fill="#1f2937">4</text>
+  <text x="245" y="186" text-anchor="middle" font-size="15" fill="#1f2937">—</text>
+  <text x="415" y="186" text-anchor="middle" font-size="15" fill="#1f2937">—</text>
+  <text x="560" y="186" text-anchor="middle" font-size="15" fill="#1f2937">未用</text>
+</svg>

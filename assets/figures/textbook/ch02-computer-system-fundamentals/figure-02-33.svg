@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="110" viewBox="0 0 480 110" font-family="sans-serif">
+  <title>图 2-33 实现</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 82（物理页 91）插图。实现记法：带空心三角箭头的虚线，箭头指向类元。</desc>
+  <rect width="480" height="110" fill="#ffffff"/>
+  <line x1="60" y1="55" x2="380" y2="55" stroke="#556070" stroke-width="2" stroke-dasharray="9 6"/>
+  <path d="M380 40 L420 55 L380 70 Z" fill="#ffffff" stroke="#556070" stroke-width="2"/>
+</svg>

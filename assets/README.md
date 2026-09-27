@@ -1,7 +1,6 @@
 # assets —— 图片与图表资产
 
 本目录存放**依法取得、并与原图逐一对照**后落盘的图片与矢量图，供正文以 Markdown 图片语法引用。
-目前为空：仓库尚未收录任何原书插图。
 
 ## 目录约定
 
@@ -11,9 +10,12 @@ assets/figures/<语料 id>/<章节 slug>/<原图号>.<svg|png>
 
 - `<语料 id>` 取 [catalog/corpora.json](../catalog/corpora.json) 中的 `outline` / `textbook` / `exams`；
 - `<章节 slug>` 取该文件 frontmatter 的 `slug`，例如 `ch07-architecture-design-fundamentals`；
-- `<原图号>` 用原书图号，例如 `figure-7-3`；无编号图用 `figure-7-unnumbered-1`。
+- `<原图号>` 用原书图号，例如 `figure-07-03`；表格用 `table` 前缀，例如 `figure` 改 `figure-t07-01`（首码 t + 表号）；
+- **序号一律两位零填充**（章号、图号/表号均如此），保证文件名按字典序排列与原书顺序一致：
+  `figure-01-01` … `figure-01-09`、`figure-02-01` … `figure-02-35`；无编号图用 `figure-07-unnumbered-01`。
 
-例：教材第 7 章图 7-3 → `assets/figures/textbook/ch07-architecture-design-fundamentals/figure-7-3.svg`。
+例：教材第 7 章图 7-3 → `assets/figures/textbook/ch07-architecture-design-fundamentals/figure-07-03.svg`；
+教材第 2 章表 2-1 → `assets/figures/textbook/ch02-computer-system-fundamentals/figure-t02-01.svg`。
 
 ## 硬性前提
 

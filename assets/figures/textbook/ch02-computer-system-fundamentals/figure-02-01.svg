@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="560" viewBox="0 0 760 560" font-family="sans-serif">
+  <title>图 2-1 典型计算机系统的组成</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 24（物理页 33）插图。计算机系统分为硬件与软件：硬件含中央处理器（运算单元、控制单元）、存储器（主存(内存)、外存）、输入设备（键盘、鼠标、……）、输出设备（显示器、……）；软件含系统软件（操作系统、编译工具、……）与应用软件（办公软件、娱乐软件、……）。原图中的省略占位框以"……"转录。</desc>
+  <rect width="760" height="560" fill="#ffffff"/>
+  <g stroke="#7d8da5" stroke-width="1.5" fill="none">
+    <!-- 根到两大类 -->
+    <path d="M96 280 H150 V168 H178"/>
+    <path d="M96 280 H150 V424 H178"/>
+    <!-- 硬件脊线 -->
+    <path d="M262 168 H290 V56 H318 M290 168 V296 H318"/>
+    <!-- 中央处理器 -->
+    <path d="M430 56 H440 V40 H470 M440 56 V72 H470"/>
+    <!-- 存储器 -->
+    <path d="M430 120 H440 V104 H470 M440 120 V136 H470"/>
+    <!-- 输入设备 -->
+    <path d="M430 200 H440 V168 H470 M440 200 V232 H470"/>
+    <!-- 输出设备 -->
+    <path d="M430 280 H440 V264 H470 M440 280 V296 H470"/>
+    <!-- 软件脊线 -->
+    <path d="M262 424 H290 V376 H318 M290 424 V472 H318"/>
+    <!-- 系统软件 -->
+    <path d="M430 376 H440 V360 H470 M440 376 V392 H470"/>
+    <!-- 应用软件 -->
+    <path d="M430 472 H440 V456 H470 M440 472 V488 H470"/>
+  </g>
+  <g fill="#eef3fb" stroke="#9db0c9" stroke-width="1.2">
+    <rect x="470" y="28" width="110" height="26" rx="4"/>
+    <rect x="470" y="60" width="110" height="26" rx="4"/>
+    <rect x="470" y="92" width="110" height="26" rx="4"/>
+    <rect x="470" y="124" width="110" height="26" rx="4"/>
+    <rect x="470" y="156" width="110" height="26" rx="4"/>
+    <rect x="470" y="188" width="110" height="26" rx="4"/>
+    <rect x="470" y="220" width="110" height="26" rx="4"/>
+    <rect x="470" y="252" width="110" height="26" rx="4"/>
+    <rect x="470" y="348" width="110" height="26" rx="4"/>
+    <rect x="470" y="380" width="110" height="26" rx="4"/>
+    <rect x="470" y="412" width="110" height="26" rx="4"/>
+    <rect x="470" y="444" width="110" height="26" rx="4"/>
+    <rect x="470" y="476" width="110" height="26" rx="4"/>
+  </g>
+  <g font-size="15" fill="#1f2937">
+    <text x="40" y="286" font-size="16">计算机系统</text>
+    <text x="178" y="174" font-size="16">硬件</text>
+    <text x="178" y="430" font-size="16">软件</text>
+    <text x="264" y="62">中央处理器</text>
+    <text x="264" y="126">存储器</text>
+    <text x="264" y="206">输入设备</text>
+    <text x="264" y="286">输出设备</text>
+    <text x="264" y="382">系统软件</text>
+    <text x="264" y="478">应用软件</text>
+    <text x="481" y="46">运算单元</text>
+    <text x="481" y="78">控制单元</text>
+    <text x="481" y="110">主存(内存)</text>
+    <text x="481" y="142">外存</text>
+    <text x="481" y="174">键盘</text>
+    <text x="481" y="206">鼠标</text>
+    <text x="481" y="238">……</text>
+    <text x="481" y="270">显示器</text>
+    <text x="481" y="302">……</text>
+    <text x="481" y="366">操作系统</text>
+    <text x="481" y="398">编译工具</text>
+    <text x="481" y="430">……</text>
+    <text x="481" y="462">办公软件</text>
+    <text x="481" y="494">娱乐软件</text>
+    <text x="481" y="526">……</text>
+  </g>
+</svg>

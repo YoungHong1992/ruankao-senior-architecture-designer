@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="130" viewBox="0 0 560 130" font-family="sans-serif">
+  <title>图 2-30 关联</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 82（物理页 91）插图。关联记法：employer（重数 0..1）以实线连向 employee（重数 0..*）。</desc>
+  <rect width="560" height="130" fill="#ffffff"/>
+  <line x1="150" y1="75" x2="410" y2="75" stroke="#556070" stroke-width="2"/>
+  <text x="205" y="45" font-size="16" fill="#1f2937">0..1</text>
+  <text x="392" y="45" font-size="16" fill="#1f2937">0..*</text>
+  <text x="130" y="82" font-size="17" fill="#1f2937">employer</text>
+  <text x="408" y="82" font-size="17" fill="#1f2937">employee</text>
+</svg>

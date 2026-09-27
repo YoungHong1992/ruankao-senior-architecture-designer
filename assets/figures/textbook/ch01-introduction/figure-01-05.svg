@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="500" viewBox="0 0 720 500" font-family="sans-serif">
+  <title>图 1-5 微服务架构</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 11（物理页 20）插图。三个客户需求与三个服务组件经用户接口层以双向箭头连接。服务组件内部绘有的「模块」小块属示意性细节，未逐一转录。</desc>
+  <rect width="720" height="500" fill="#ffffff"/>
+  <defs>
+    <marker id="ah5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#4a5568"/>
+    </marker>
+    <marker id="ah5s" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto">
+      <path d="M 10 0 L 0 5 L 10 10 Z" fill="#4a5568"/>
+    </marker>
+  </defs>
+
+  <rect x="55" y="30" width="170" height="50" rx="10" fill="#e3ebf6" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="140" y="62" text-anchor="middle" font-size="18" fill="#1f2937">客户需求</text>
+  <rect x="275" y="30" width="170" height="50" rx="10" fill="#e3ebf6" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="360" y="62" text-anchor="middle" font-size="18" fill="#1f2937">客户需求</text>
+  <rect x="495" y="30" width="170" height="50" rx="10" fill="#e3ebf6" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="580" y="62" text-anchor="middle" font-size="18" fill="#1f2937">客户需求</text>
+
+  <line x1="140" y1="84" x2="140" y2="146" stroke="#4a5568" stroke-width="3.5" marker-end="url(#ah5)" marker-start="url(#ah5s)"/>
+  <line x1="360" y1="84" x2="360" y2="146" stroke="#4a5568" stroke-width="3.5" marker-end="url(#ah5)" marker-start="url(#ah5s)"/>
+  <line x1="580" y1="84" x2="580" y2="146" stroke="#4a5568" stroke-width="3.5" marker-end="url(#ah5)" marker-start="url(#ah5s)"/>
+
+  <rect x="40" y="150" width="640" height="60" rx="8" fill="#dce6f3" stroke="#7d8da5" stroke-width="2"/>
+  <text x="360" y="187" text-anchor="middle" font-size="19" fill="#1f2937">用户接口层</text>
+
+  <line x1="145" y1="214" x2="145" y2="276" stroke="#4a5568" stroke-width="3.5" marker-end="url(#ah5)" marker-start="url(#ah5s)"/>
+  <line x1="360" y1="214" x2="360" y2="276" stroke="#4a5568" stroke-width="3.5" marker-end="url(#ah5)" marker-start="url(#ah5s)"/>
+  <line x1="575" y1="214" x2="575" y2="276" stroke="#4a5568" stroke-width="3.5" marker-end="url(#ah5)" marker-start="url(#ah5s)"/>
+
+  <rect x="50" y="280" width="190" height="130" rx="10" fill="#eef3fb" stroke="#7d8da5" stroke-width="2"/>
+  <text x="145" y="312" text-anchor="middle" font-size="18" fill="#1f2937">服务组件</text>
+  <rect x="265" y="280" width="190" height="130" rx="10" fill="#eef3fb" stroke="#7d8da5" stroke-width="2"/>
+  <text x="360" y="312" text-anchor="middle" font-size="18" fill="#1f2937">服务组件</text>
+  <rect x="480" y="280" width="190" height="130" rx="10" fill="#eef3fb" stroke="#7d8da5" stroke-width="2"/>
+  <text x="575" y="312" text-anchor="middle" font-size="18" fill="#1f2937">服务组件</text>
+</svg>

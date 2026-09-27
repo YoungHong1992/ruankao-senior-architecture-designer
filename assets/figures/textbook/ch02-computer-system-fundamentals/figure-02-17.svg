@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="440" viewBox="0 0 480 440" font-family="sans-serif">
+  <title>图 2-17 星状结构网络</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 63（物理页 72）插图。中心结点与六个外围结点以连线相连（上、左上、右上、左下、右下、下）。</desc>
+  <rect width="480" height="440" fill="#ffffff"/>
+  <g stroke="#9aa7b8" stroke-width="2.5">
+    <line x1="240" y1="220" x2="240" y2="80"/>
+    <line x1="240" y1="220" x2="105" y2="130"/>
+    <line x1="240" y1="220" x2="375" y2="130"/>
+    <line x1="240" y1="220" x2="105" y2="310"/>
+    <line x1="240" y1="220" x2="375" y2="310"/>
+    <line x1="240" y1="220" x2="240" y2="360"/>
+  </g>
+  <g fill="#eef3fb" stroke="#7d8da5" stroke-width="2.5">
+    <rect x="218" y="200" width="44" height="40"/>
+    <rect x="218" y="55" width="44" height="40"/>
+    <rect x="83" y="105" width="44" height="40"/>
+    <rect x="353" y="105" width="44" height="40"/>
+    <rect x="83" y="285" width="44" height="40"/>
+    <rect x="353" y="285" width="44" height="40"/>
+    <rect x="218" y="340" width="44" height="40"/>
+  </g>
+</svg>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="330" viewBox="0 0 700 330" font-family="sans-serif">
+  <title>图 2-7 位示图例</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 39（物理页 48）插图。位示图示例：第0字至第3字与第n-1字共五行，每行九个格位（含省略号格），格内为 0/1 位串；第3字与第n-1字之间为省略行。位串经与扫描件逐格核对。</desc>
+  <rect width="700" height="330" fill="#ffffff"/>
+  <g fill="none" stroke="#7d8da5" stroke-width="1.8">
+    <rect x="110" y="30" width="468" height="184"/>
+    <path d="M162 30 V214 M214 30 V214 M266 30 V214 M318 30 V214 M370 30 V214 M422 30 V214 M474 30 V214 M526 30 V214"/>
+    <path d="M110 76 H578 M110 122 H578 M110 168 H578"/>
+    <rect x="110" y="248" width="468" height="46"/>
+    <path d="M162 248 V294 M214 248 V294 M266 248 V294 M318 248 V294 M370 248 V294 M422 248 V294 M474 248 V294 M526 248 V294"/>
+  </g>
+  <g font-size="16" fill="#1f2937">
+    <text x="20" y="58">第0字</text>
+    <text x="20" y="104">第1字</text>
+    <text x="20" y="150">第2字</text>
+    <text x="20" y="196">第3字</text>
+    <text x="20" y="276">第n-1字</text>
+  </g>
+  <g font-size="16" fill="#1f2937" text-anchor="middle">
+    <text x="136" y="58">1</text><text x="188" y="58">0</text><text x="240" y="58">1</text><text x="292" y="58">0</text><text x="344" y="58">0</text><text x="396" y="58">1</text><text x="448" y="58">…</text><text x="500" y="58">0</text><text x="552" y="58">1</text>
+    <text x="136" y="104">0</text><text x="188" y="104">1</text><text x="240" y="104">1</text><text x="292" y="104">1</text><text x="344" y="104">0</text><text x="396" y="104">0</text><text x="448" y="104">…</text><text x="500" y="104">1</text><text x="552" y="104">1</text>
+    <text x="136" y="150">0</text><text x="188" y="150">1</text><text x="240" y="150">1</text><text x="292" y="150">1</text><text x="344" y="150">1</text><text x="396" y="150">0</text><text x="448" y="150">…</text><text x="500" y="150">1</text><text x="552" y="150">0</text>
+    <text x="136" y="196">0</text><text x="188" y="196">1</text><text x="240" y="196">1</text><text x="292" y="196">1</text><text x="344" y="196">0</text><text x="396" y="196">0</text><text x="448" y="196">…</text><text x="500" y="196">0</text><text x="552" y="196">1</text>
+    <text x="136" y="276">0</text><text x="188" y="276">1</text><text x="240" y="276">0</text><text x="292" y="276">1</text><text x="344" y="276">0</text><text x="396" y="276">1</text><text x="448" y="276">…</text><text x="500" y="276">0</text><text x="552" y="276">1</text>
+  </g>
+  <g font-size="18" fill="#1f2937" text-anchor="middle">
+    <text x="344" y="236">………</text>
+    <text x="60" y="236">………</text>
+  </g>
+</svg>

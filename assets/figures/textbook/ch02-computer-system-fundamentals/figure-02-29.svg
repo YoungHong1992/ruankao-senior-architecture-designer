@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="110" viewBox="0 0 420 110" font-family="sans-serif">
+  <title>图 2-29 依赖</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 82（物理页 91）插图。依赖记法：一条可能带方向的虚线箭头。</desc>
+  <rect width="420" height="110" fill="#ffffff"/>
+  <line x1="60" y1="55" x2="360" y2="55" stroke="#556070" stroke-width="2" stroke-dasharray="9 6" marker-end="url(#g29)"/>
+  <defs>
+    <marker id="g29" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#556070"/>
+    </marker>
+  </defs>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="430" viewBox="0 0 560 430" font-family="sans-serif">
+  <title>图 1-9 系统架构设计师的6种角色特质</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 18（物理页 27）插图。六个角色特质（沟通专家、领导者、战略技术专家、开发者、企业家、系统综合者）经虚线辐条自无字中心放射；中心在原图中为无字交点，各特质旁的装饰性小图标未转录。</desc>
+  <rect width="560" height="430" fill="#ffffff"/>
+
+  <g stroke="#4a5568" stroke-width="3" stroke-dasharray="2 6" stroke-linecap="round">
+    <line x1="100" y1="215" x2="460" y2="215"/>
+    <line x1="165" y1="95" x2="395" y2="335"/>
+    <line x1="395" y1="95" x2="165" y2="335"/>
+  </g>
+
+  <text x="120" y="72" text-anchor="middle" font-size="18" fill="#1f2937">沟通专家</text>
+  <text x="450" y="72" text-anchor="middle" font-size="18" fill="#1f2937">领导者</text>
+  <text x="78" y="206" text-anchor="middle" font-size="18" fill="#1f2937">战略技术</text>
+  <text x="78" y="230" text-anchor="middle" font-size="18" fill="#1f2937">专家</text>
+  <text x="474" y="222" text-anchor="start" font-size="18" fill="#1f2937">开发者</text>
+  <text x="130" y="368" text-anchor="middle" font-size="18" fill="#1f2937">企业家</text>
+  <text x="440" y="368" text-anchor="middle" font-size="18" fill="#1f2937">系统综合者</text>
+</svg>

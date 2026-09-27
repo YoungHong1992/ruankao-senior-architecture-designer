@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="430" viewBox="0 0 480 430" font-family="sans-serif">
+  <title>图 2-18 树状结构网络</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 63（物理页 72）插图。根结点下接第二层三个结点；第二层左结点下接一个叶子，第二层右结点下接两个叶子（共 7 个结点）。</desc>
+  <rect width="480" height="430" fill="#ffffff"/>
+  <g stroke="#9aa7b8" stroke-width="2.5" fill="none">
+    <path d="M240 70 V110 H105 V150 M240 110 H375 V150 M240 110 V150"/>
+    <line x1="105" y1="195" x2="105" y2="290"/>
+    <path d="M375 195 V240 H285 V290 M375 240 V290"/>
+  </g>
+  <g fill="#eef3fb" stroke="#7d8da5" stroke-width="2.5">
+    <rect x="218" y="30" width="44" height="40"/>
+    <rect x="83" y="150" width="44" height="45"/>
+    <rect x="218" y="150" width="44" height="45"/>
+    <rect x="353" y="150" width="44" height="45"/>
+    <rect x="83" y="290" width="44" height="45"/>
+    <rect x="263" y="290" width="44" height="45"/>
+    <rect x="353" y="290" width="44" height="45"/>
+  </g>
+</svg>

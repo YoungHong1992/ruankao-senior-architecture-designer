@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560" font-family="sans-serif">
+  <title>图 2-11 基于ARM处理器的嵌入式计算机硬件组成</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 48（物理页 57）插图。中央为基于ARM架构的32位微处理器 Samsung S3C44BOX，左接 1M线性Flash(BIOS)、8MB SDRAM(系统内存)、16MB非线性Flash(硬盘)，右接 USB接口(USBN9603)、两个RS-232串行通信接口、JTAG调试端口，上接 LCD显示，下接键盘输入，并经竖直汇流线连接 TCP/IP协议与 CAN BUS；各连接均为双向箭头。</desc>
+  <rect width="900" height="560" fill="#ffffff"/>
+  <g fill="#eef3fb" stroke="#9aa7b8" stroke-width="2">
+    <rect x="310" y="150" width="250" height="180"/>
+    <rect x="380" y="30" width="100" height="50"/>
+    <rect x="80" y="130" width="180" height="55"/>
+    <rect x="80" y="210" width="180" height="55"/>
+    <rect x="80" y="290" width="180" height="55"/>
+    <rect x="610" y="130" width="200" height="55"/>
+    <rect x="610" y="210" width="200" height="55"/>
+    <rect x="610" y="290" width="200" height="55"/>
+    <rect x="300" y="440" width="110" height="50"/>
+    <rect x="560" y="390" width="130" height="50"/>
+    <rect x="560" y="470" width="130" height="50"/>
+  </g>
+  <g font-size="15" fill="#1f2937">
+    <text x="435" y="205" text-anchor="middle">基于ARM架构的32位</text>
+    <text x="435" y="230" text-anchor="middle">微处理器</text>
+    <text x="435" y="255" text-anchor="middle">Samsung</text>
+    <text x="435" y="280" text-anchor="middle">S3C44BOX</text>
+    <text x="430" y="61" text-anchor="middle">LCD显示</text>
+    <text x="170" y="152" text-anchor="middle">1M线性Flash</text>
+    <text x="170" y="177" text-anchor="middle">(BIOS)</text>
+    <text x="170" y="232" text-anchor="middle">8MB SDRAM</text>
+    <text x="170" y="257" text-anchor="middle">(系统内存)</text>
+    <text x="170" y="312" text-anchor="middle">16MB非线性</text>
+    <text x="170" y="337" text-anchor="middle">Flash (硬盘)</text>
+    <text x="710" y="152" text-anchor="middle">USB接口</text>
+    <text x="710" y="177" text-anchor="middle">USBN9603</text>
+    <text x="710" y="232" text-anchor="middle">两个RS-232</text>
+    <text x="710" y="257" text-anchor="middle">串行通信接口</text>
+    <text x="710" y="312" text-anchor="middle">JTAG调试端口</text>
+    <text x="355" y="471" text-anchor="middle">键盘输入</text>
+    <text x="625" y="421" text-anchor="middle">TCP/IP协议</text>
+    <text x="625" y="501" text-anchor="middle">CAN BUS</text>
+  </g>
+  <!-- 双向箭头：杆 + 两端三角 -->
+  <g fill="#8a99ad" stroke="#8a99ad" stroke-width="9">
+    <line x1="430" y1="92" x2="430" y2="138"/>
+    <line x1="268" y1="157" x2="302" y2="157"/>
+    <line x1="268" y1="237" x2="302" y2="237"/>
+    <line x1="268" y1="317" x2="302" y2="317"/>
+    <line x1="568" y1="157" x2="602" y2="157"/>
+    <line x1="568" y1="237" x2="602" y2="237"/>
+    <line x1="568" y1="317" x2="602" y2="317"/>
+    <line x1="355" y1="342" x2="355" y2="436"/>
+    <line x1="524" y1="342" x2="524" y2="495"/>
+    <line x1="530" y1="415" x2="548" y2="415"/>
+    <line x1="530" y1="495" x2="548" y2="495"/>
+  </g>
+  <g fill="#8a99ad" stroke="none">
+    <path d="M418 92 L430 78 L442 92 Z M418 138 L430 152 L442 138 Z"/>
+    <path d="M298 147 L310 157 L298 167 Z M278 147 L266 157 L278 167 Z"/>
+    <path d="M298 227 L310 237 L298 247 Z M278 227 L266 237 L278 247 Z"/>
+    <path d="M298 307 L310 317 L298 327 Z M278 307 L266 317 L278 327 Z"/>
+    <path d="M572 147 L560 157 L572 167 Z M592 147 L604 157 L592 167 Z"/>
+    <path d="M572 227 L560 237 L572 247 Z M592 227 L604 237 L592 247 Z"/>
+    <path d="M572 307 L560 317 L572 327 Z M592 307 L604 317 L592 327 Z"/>
+    <path d="M343 342 L355 330 L367 342 Z M343 432 L355 444 L367 432 Z"/>
+    <path d="M512 352 L524 340 L536 352 Z"/>
+    <path d="M540 405 L528 415 L540 425 Z M548 405 L560 415 L548 425 Z"/>
+    <path d="M540 485 L528 495 L540 505 Z M548 485 L560 495 L548 505 Z"/>
+  </g>
+</svg>

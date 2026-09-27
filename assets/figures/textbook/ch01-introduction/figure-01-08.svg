@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="300" viewBox="0 0 480 300" font-family="sans-serif">
+  <title>图 1-8 架构设计师、架构设计和架构的关系</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 15（物理页 24）插图。架构设计师、架构设计、架构三节点呈三角形，连线分别标注执行、创建、生成；原图连线无箭头。</desc>
+  <rect width="480" height="300" fill="#ffffff"/>
+
+  <rect x="40" y="40" width="170" height="56" rx="8" fill="#e3ebf6" stroke="#7d8da5" stroke-width="2"/>
+  <text x="125" y="74" text-anchor="middle" font-size="18" fill="#1f2937">架构设计师</text>
+  <rect x="280" y="40" width="160" height="56" rx="8" fill="#e3ebf6" stroke="#7d8da5" stroke-width="2"/>
+  <text x="360" y="74" text-anchor="middle" font-size="18" fill="#1f2937">架构设计</text>
+  <rect x="195" y="210" width="90" height="56" rx="8" fill="#e3ebf6" stroke="#7d8da5" stroke-width="2"/>
+  <text x="240" y="244" text-anchor="middle" font-size="18" fill="#1f2937">架构</text>
+
+  <line x1="210" y1="68" x2="280" y2="68" stroke="#4a5568" stroke-width="2.5"/>
+  <text x="245" y="56" text-anchor="middle" font-size="16" fill="#1f2937">执行</text>
+  <line x1="125" y1="96" x2="215" y2="212" stroke="#4a5568" stroke-width="2.5"/>
+  <text x="140" y="158" text-anchor="middle" font-size="16" fill="#1f2937">创建</text>
+  <line x1="365" y1="96" x2="268" y2="212" stroke="#4a5568" stroke-width="2.5"/>
+  <text x="345" y="158" text-anchor="middle" font-size="16" fill="#1f2937">生成</text>
+</svg>
