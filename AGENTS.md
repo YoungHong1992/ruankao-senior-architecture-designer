@@ -66,7 +66,7 @@
 
 - `content/02-历年真题总索引.md` — 人工/AI 查询真题的统一入口，规定每卷的“首选文件”。
 
-- `catalog/corpora.json`（schema 1）— 语料总清单：层根、三套语料的 content_root/source_roots、各 `kind` 的期望文档数、真题不变量（36/17/90/53）、已入库源扫描件的路径、字节数与 SHA-256。**数量类断言一律从这里读，不再散落在脚本和正文里。**
+- `catalog/corpora.json`（schema 1）— 语料总清单：层根、三套语料的 content_root/source_roots、各 `kind` 的期望文档数、真题不变量（36/17/90/53）、已入库源扫描件的路径、字节数与 SHA-256。教材语料的 `blind_checked_chapters` 登记已完成第二轮独立盲核的章号，校验器对这些章断言同父标题无重号（未核查章不受此门禁约束，随核查进度扩列）。**数量类断言一律从这里读，不再散落在脚本和正文里。**
 
 - `catalog/exams.json`（schema 4）— 真题 manifest：36 份 canonical、90 份 source_versions 路径、来源目录与同名冲突映射。校验器断言 manifest、两份索引、正文与 frontmatter 的 `id` 彼此一致。
 
@@ -212,7 +212,7 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 - manifest（schema 4）：顶层仅有 `schema_version`、`updated_at`、`source_catalog`、`exams`；每卷 `notes` 非空且与两份索引的说明列逐字一致（总索引中同名冲突卷的说明带 `**同名冲突，禁止自动混并。**` 前缀）。
 
-- 勘误登记簿（`catalog/errata.json`，schema 1）：顶层仅 `schema_version`、`updated_at`、`entries`；每条 `id` 全簿唯一、`corpus` 必须是登记语料、`file` 必须落在该语料 `content_root` 内、`anchor` 必须在所指正文中**恰好出现一次**、`kind` 为 `typo` 时 `corrected` 必须出现在 `anchor` 内且不等于 `original`、`record` 必须真实存在。**不设数量与覆盖率目标**——没有登记等于没有发现，不是待办缺口。
+- 勘误登记簿（`catalog/errata.json`，schema 1）：顶层仅 `schema_version`、`updated_at`、`entries`；每条 `id` 全簿唯一、`corpus` 必须是登记语料、`file` 必须落在该语料 `content_root` 内、`anchor` 必须在所指正文中**恰好出现一次**、`kind` 为 `typo` 时 `corrected` 必须出现在 `anchor` 内且不等于 `original`、`record` 必须真实存在且 `id` 必须出现在该记录文件中（溯源断言，防登记与证据脱钩）。**不设数量与覆盖率目标**——没有登记等于没有发现，不是待办缺口。
 
 - 图表登记簿（`catalog/figures.json`，schema 1）：顶层仅 `schema_version`、`updated_at`、`entries`；每条 `id` 全簿唯一、`corpus`/`file` 合法、`anchor`（图题）必须在所指正文中**恰好出现一次**、`kind` 必须为 `svg` 且必须给出真实存在的 `asset` 文件、`record` 必须真实存在。**不设数量与覆盖率目标**。
 
