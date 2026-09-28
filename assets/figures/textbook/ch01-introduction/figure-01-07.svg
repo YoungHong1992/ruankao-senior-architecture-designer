@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1400" height="700" viewBox="0 0 1400 700" font-family="sans-serif">
   <title>图 1-7 软件架构技术发展路线概览</title>
-  <desc>复原自《系统架构设计师教程（第2版）》印刷页 14（物理页 23）插图：以 1940s（底部）至 2017（顶部）为时间轴的软件架构技术路线图。节点位置按原图实测坐标放置；实线箭头为扫描件可确认的连线，虚线箭头为印刷重叠而无法逐段确认的连线（现存 1 段：模块化编程→构件技术，其余早期虚线段经放大核验后已改实线，登记见 catalog/figures.json）。程序设计经横向主干总线分支至结构化编程、Zachman、MIL、软件度量、模块化编程、Artificial Intelligence、函数式编程、架构设计；主干横线自架构设计一方延伸直达 OOP（箭头入）并继续右行上折入领域工程。</desc>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 14（物理页 23）插图：以 1940s（底部）至 2017（顶部）为时间轴的软件架构技术路线图。节点位置按原图实测坐标放置；实线箭头为扫描件可确认的连线，虚线箭头为印刷重叠而无法逐段确认的连线（现存 1 段：模块化编程→构件技术，其余早期虚线段经放大核验后已改实线，登记见 catalog/figures.json）。程序设计经横向主干总线分支至结构化编程、Zachman、MIL、软件度量、模块化编程、Artificial Intelligence、函数式编程、架构设计；主干横线自架构设计一方延伸直达 OOP（箭头入）并继续右行上折入领域工程。Clean 节点的年份数字约 6×10px 且被连线压盖，最大放大倍率下仍无法判定（读数在 1980s/1990s 间摆动），图面暂按 1980s 标注，留待高清复核。</desc>
   <rect width="1400" height="700" fill="#ffffff"/>
   <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 Z" fill="#4a5568"/></marker></defs>
   <g stroke="#4a5568" stroke-width="2.5" fill="none">
