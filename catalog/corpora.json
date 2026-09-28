@@ -48,6 +48,10 @@
       ],
       "derivation": "ocr-cleaned",
       "rights": "third-party",
+      "blind_checked_chapters": [
+        "01",
+        "02"
+      ],
       "expected_documents": {
         "index": 1,
         "preface": 1,

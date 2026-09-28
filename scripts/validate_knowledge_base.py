@@ -93,6 +93,9 @@ LINK_RE = re.compile(
     r"(?:\s+[\"'][^)]*[\"'])?\)"
 )
 HEADING_RE = re.compile(r"^(#{1,6})\s+")
+# Leading numbering of a heading title: "1. 机器语言"、"2.6.2 分类"、"3)高级语言".
+# The full dotted number is captured so "1.1.1" never collides with "1.1.2".
+HEADING_NUMBER_RE = re.compile(r"^(\d+(?:\.\d+)*)(?=[\.、\)）]|\s)")
 # CommonMark fenced code blocks: backtick or tilde fences of length >= 3,
 # indented by at most three spaces.  A fence closes only with the same marker
 # character at a length >= the opening run.
@@ -355,6 +358,17 @@ class Validator:
             record = entry.get("record")
             if not isinstance(record, str) or not record or not (ROOT / record).is_file():
                 self.error(ERRATA_PATH, f"{label} record does not exist: {record!r}")
+            elif isinstance(entry_id, str) and entry_id:
+                # Traceability: a registry entry must be anchored in the very
+                # record that verified it, so an entry cannot outlive or detach
+                # from its evidence (round-2 checking found registered page
+                # numbers drifting exactly this way).
+                record_text = self.read_text(ROOT / record)
+                if record_text is not None and entry_id not in record_text:
+                    self.error(
+                        ERRATA_PATH,
+                        f"{label} id '{entry_id}' does not appear in its record file: {record}",
+                    )
 
     def check_figures_catalog(self) -> None:
         """Check catalog/figures.json: restored figures must match the content.
@@ -723,6 +737,15 @@ class Validator:
                         self.error(
                             CORPORA_PATH, f"{corpus_id}: expected_documents['{kind}'] must be a non-negative int"
                         )
+            blind_chapters = entry.get("blind_checked_chapters")
+            if blind_chapters is not None and (
+                not isinstance(blind_chapters, list)
+                or not all(isinstance(c, str) and len(c) == 2 and c.isdigit() for c in blind_chapters)
+            ):
+                self.error(
+                    CORPORA_PATH,
+                    f"{corpus_id}: blind_checked_chapters must be a list of two-digit chapter numbers",
+                )
             source = entry["source"]
             if not isinstance(source, dict):
                 self.error(CORPORA_PATH, f"{corpus_id}: source must be an object")
@@ -982,6 +1005,75 @@ class Validator:
                             f"high-risk OCR residue '{label}' "
                             f"({len(matches)} occurrence(s), first at line {line_number})",
                         )
+
+    def check_heading_duplicates(self) -> None:
+        """Same-parent duplicate heading numbers in blind-checked chapters.
+
+        Round-2 independent blind checking found ~86 sub-headings flattened to
+        their parent's level, whose visible signature is two same-numbered
+        headings under one parent (e.g. two "### 4."). That signature is
+        mechanically detectable, but un checked chapters still carry their
+        pre-check state, so the gate is scoped to chapters that have completed
+        the round-2 blind check: the textbook corpus entry in
+        catalog/corpora.json lists them under "blind_checked_chapters", and
+        the gated set grows chapter by chapter as the sweep progresses.
+        Numbering legitimately restarts within every parent, so the collision
+        key is the full ancestor chain plus the full dotted number.
+        """
+        textbook = next(
+            (entry for entry in self.corpus_entries().values() if str(entry.get("id")) == "textbook"),
+            None,
+        )
+        if textbook is None:
+            return
+        chapters = textbook.get("blind_checked_chapters")
+        if not isinstance(chapters, list):
+            return
+        content_root = ROOT / str(textbook.get("content_root", ""))
+        for chapter in chapters:
+            for path in sorted(content_root.glob(f"第{chapter}章-*/第*节-*.md")):
+                text = self.read_text(path)
+                if text is None:
+                    continue
+                fence_char = ""
+                fence_length = 0
+                stack: list[tuple[int, str]] = []
+                # ancestor chain -> first line number seen for each number
+                seen: dict[tuple[tuple[int, str], ...], dict[str, int]] = {}
+                for line_number, line in enumerate(text.splitlines(), start=1):
+                    fence_match = FENCE_RE.match(line)
+                    if fence_match:
+                        marker = fence_match.group(1)
+                        if fence_char:
+                            if marker[0] == fence_char and len(marker) >= fence_length:
+                                fence_char = ""
+                                fence_length = 0
+                        else:
+                            fence_char = marker[0]
+                            fence_length = len(marker)
+                        continue
+                    if fence_char:
+                        continue
+                    match = HEADING_RE.match(line)
+                    if not match:
+                        continue
+                    number_match = HEADING_NUMBER_RE.match(line[match.end() :].strip())
+                    if not number_match:
+                        continue
+                    level = len(match.group(1))
+                    value = number_match.group(1)
+                    while stack and stack[-1][0] >= level:
+                        stack.pop()
+                    chain = tuple(stack)
+                    first = seen.setdefault(chain, {}).setdefault(value, line_number)
+                    if first != line_number:
+                        self.error(
+                            path,
+                            f"duplicate heading number '{value}' under the same parent "
+                            f"(lines {first} and {line_number}); "
+                            "flattened sub-headings must be demoted one level",
+                        )
+                    stack.append((level, value))
 
     def check_markdown_encoding(self) -> None:
         """All Markdown must be UTF-8 without BOM and use CRLF line endings.
@@ -1481,6 +1573,7 @@ class Validator:
         self.check_markdown_encoding()
         self.check_path_naming()
         self.check_clean_ocr()
+        self.check_heading_duplicates()
         self.check_exam_manifest()
         self.check_clean_exam_counts()
         self.check_python_toolchain()
