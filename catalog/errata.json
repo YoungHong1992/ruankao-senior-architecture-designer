@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-29",
+  "updated_at": "2026-10-04",
   "note": "勘误登记簿：正文书勘误后的正确内容。仅登记经扫描件图像证实为原书自身排印错误（kind=typo，正文已勘正）或存疑未勘正（kind=noted，正文保留原书原貌）之处；anchor 为现行正文中的唯一锚点，校验器逐条核对以防漂移。不设数量与覆盖率目标。",
   "entries": [
     {
@@ -320,6 +320,66 @@
       "printed_page": 33,
       "record": "verification/教材第二轮独立盲核记录-第01-02章.md",
       "note": "原书正文自述主码「带下画线」，但其关系式与图 2-4 表头均未印下画线（验证者高倍亲验），前后不一，疑印刷脱标记；正文照录印面（不加任何标记，首轮曾以加粗替代，2026-09-29 裁定删去），存疑登记。"
+    },
+    {
+      "id": "tb-0026",
+      "corpus": "textbook",
+      "kind": "noted",
+      "file": "content/01-系统架构设计师教材-清洗版/第04章-信息安全技术基础知识/第06节-访问控制及数字签名技术.md",
+      "anchor": "甚至可以是应用服务程序程序或进程。",
+      "original": "应用服务程序程序",
+      "physical_page": 165,
+      "printed_page": 156,
+      "record": "verification/教材首轮核查-第04章-信息安全技术基础知识.md",
+      "note": "扫描件图像清晰印为“应用服务程序程序”；疑为原书衍字，但图像不能支持可靠的删改写法，正文照录。"
+    },
+    {
+      "id": "tb-0027",
+      "corpus": "textbook",
+      "kind": "noted",
+      "file": "content/01-系统架构设计师教材-清洗版/第04章-信息安全技术基础知识/第07节-信息安全的抗攻击技术.md",
+      "anchor": "如选择 “Klore”, 而不是“*9(hH^A-”",
+      "original": "Klore；*9(hH^A-",
+      "physical_page": 169,
+      "printed_page": 160,
+      "record": "verification/教材首轮核查-第04章-信息安全技术基础知识.md",
+      "note": "扫描件图像清晰印为“Klore”和“*9(hH^A-”；清洗稿原先写作 Klone 和反斜线，已照录扫描件。是否为原书示例笔误不能仅凭图像确定。"
+    },
+    {
+      "id": "tb-0028",
+      "corpus": "textbook",
+      "kind": "noted",
+      "file": "content/01-系统架构设计师教材-清洗版/第04章-信息安全技术基础知识/第07节-信息安全的抗攻击技术.md",
+      "anchor": "`EnableDcadGWDetect`",
+      "original": "EnableDcadGWDetect",
+      "physical_page": 177,
+      "printed_page": 168,
+      "record": "verification/教材首轮核查-第04章-信息安全技术基础知识.md",
+      "note": "表 4-3 的扫描件图像清晰印为“EnableDcadGWDetect”；该键名疑为原书排印错误，但不能依据外部知识替换，正文照录。"
+    },
+    {
+      "id": "tb-0029",
+      "corpus": "textbook",
+      "kind": "noted",
+      "file": "content/01-系统架构设计师教材-清洗版/第04章-信息安全技术基础知识/第06节-访问控制及数字签名技术.md",
+      "anchor": "(Cap-ability Lists)",
+      "original": "Cap-ability Lists",
+      "physical_page": 167,
+      "printed_page": 158,
+      "record": "verification/教材首轮核查-第04章-信息安全技术基础知识.md",
+      "note": "扫描件在能力表英文名中印有“Cap-ability Lists”连字符；疑为原书断词或排印遗留，正文照录。"
+    },
+    {
+      "id": "tb-0030",
+      "corpus": "textbook",
+      "kind": "noted",
+      "file": "content/01-系统架构设计师教材-清洗版/第04章-信息安全技术基础知识/第07节-信息安全的抗攻击技术.md",
+      "anchor": "“Ping of Dcath”",
+      "original": "Ping of Dcath",
+      "physical_page": 177,
+      "printed_page": 168,
+      "record": "verification/教材首轮核查-第04章-信息安全技术基础知识.md",
+      "note": "扫描件图像清晰印为“Ping of Dcath”；疑为原书英文拼写错误，正文照录，不凭外部知识改写。"
     }
   ]
 }
