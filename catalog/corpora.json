@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-25",
+  "updated_at": "2026-10-08",
   "layers": {
     "content": "content",
     "sources": "sources",
@@ -50,7 +50,9 @@
       "rights": "third-party",
       "blind_checked_chapters": [
         "01",
-        "02"
+        "02",
+        "03",
+        "04"
       ],
       "expected_documents": {
         "index": 1,
