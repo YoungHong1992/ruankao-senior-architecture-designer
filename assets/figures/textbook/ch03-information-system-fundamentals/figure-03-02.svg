@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520" font-family="sans-serif">
+  <title>图 3-2 TPS的构成</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 116（物理页 125）插图。左侧笔记本（屏幕两行：数据／输入）→中央矩形框（框内三行：数据处理、·批处理〔项目符与文字间约三字宽空档，照录〕、·联机实时处理），箭头在框端；框→右侧上方笔记本（屏幕两行：文件、报表／生成），箭头在笔记本端；框底边与下方数据库圆柱（数据库维护）之间为垂直双箭头；框右下角与右下笔记本（屏幕：查询处理）左上角之间为斜线双箭头。笔记本与圆柱为示意性剪贴画，以简化图形表示。全部文字逐字经扫描件核对。</desc>
+  <rect width="900" height="520" fill="#ffffff"/>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#4a5568"/>
+    </marker>
+    <g id="laptop">
+      <rect x="-70" y="0" width="140" height="110" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+      <rect x="-58" y="12" width="116" height="74" fill="#ffffff" stroke="#9aa5b5" stroke-width="1"/>
+      <path d="M-78 110 L78 110 L64 138 L-64 138 Z" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+      <rect x="-14" y="116" width="28" height="14" rx="4" fill="#ffffff" stroke="#9aa5b5" stroke-width="1"/>
+    </g>
+  </defs>
+
+  <use href="#laptop" x="140" y="90"/>
+  <text x="140" y="132" text-anchor="middle" font-size="14" fill="#1f2937">数据</text>
+  <text x="140" y="157" text-anchor="middle" font-size="14" fill="#1f2937">输入</text>
+
+  <rect x="390" y="110" width="170" height="120" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="475" y="140" text-anchor="middle" font-size="15" fill="#1f2937">数据处理</text>
+  <text x="418" y="182" font-size="14" fill="#1f2937">·&#160;&#160;&#160;批处理</text>
+  <text x="418" y="214" font-size="14" fill="#1f2937">·联机实时处理</text>
+
+  <use href="#laptop" x="720" y="90"/>
+  <text x="720" y="132" text-anchor="middle" font-size="14" fill="#1f2937">文件、报表</text>
+  <text x="720" y="157" text-anchor="middle" font-size="14" fill="#1f2937">生成</text>
+
+  <ellipse cx="475" cy="360" rx="58" ry="14" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <path d="M417 360 V430 A58 14 0 0 0 533 430 V360" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="475" y="402" text-anchor="middle" font-size="14" fill="#1f2937">数据库维护</text>
+
+  <use href="#laptop" x="720" y="330"/>
+  <text x="720" y="388" text-anchor="middle" font-size="14" fill="#1f2937">查询处理</text>
+
+  <g stroke="#4a5568" stroke-width="1.4" fill="none">
+    <line x1="218" y1="150" x2="386" y2="150" marker-end="url(#arr)"/>
+    <line x1="560" y1="150" x2="642" y2="150" marker-end="url(#arr)"/>
+    <line x1="475" y1="344" x2="475" y2="233" marker-end="url(#arr)"/>
+    <line x1="475" y1="230" x2="475" y2="341" marker-end="url(#arr)"/>
+    <line x1="560" y1="230" x2="646" y2="338" marker-start="url(#arr)" marker-end="url(#arr)"/>
+  </g>
+</svg>

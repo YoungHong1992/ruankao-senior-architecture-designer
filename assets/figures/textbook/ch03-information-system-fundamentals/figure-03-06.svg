@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560" font-family="sans-serif">
+  <title>图 3-6 管理信息系统的金字塔结构</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 120（物理页 129）插图。顶点朝上的金字塔：塔尖高度另有一条自塔尖向左伸出的水平顶线；4 条水平层线（自上而下标注 战略计划、管理控制、运行控制、业务处理，层名在各层带内、塔外左侧）自上而下逐条向左伸出塔外、右端落在右斜边上，底层为塔底基线（左端亦伸出塔外）；5 条斜线自顶点放射（左坡、3 条内斜线、右坡）分出 4 个斜条。斜条标签沿条排印：第 1 条「销售与市场」（末两字经 45° 旋转放大可辨）、第 2 条直排「生／产」、第 3 条「财务与会计」、第 4 条「其他」。全部细实线，无箭头。</desc>
+  <rect width="900" height="560" fill="#ffffff"/>
+
+  <g stroke="#4a5568" stroke-width="1.4" fill="none">
+    <line x1="560" y1="60" x2="240" y2="480"/>
+    <line x1="560" y1="60" x2="400" y2="480"/>
+    <line x1="560" y1="60" x2="560" y2="480"/>
+    <line x1="560" y1="60" x2="720" y2="480"/>
+    <line x1="560" y1="60" x2="880" y2="480"/>
+    <line x1="428" y1="180" x2="652" y2="180"/>
+    <line x1="352" y1="280" x2="728" y2="280"/>
+    <line x1="276" y1="380" x2="804" y2="380"/>
+    <line x1="200" y1="480" x2="880" y2="480"/>
+    <line x1="304" y1="60" x2="560" y2="60"/>
+  </g>
+
+  <g font-size="14" fill="#1f2937" text-anchor="end">
+    <text x="490" y="126">战略计划</text>
+    <text x="370" y="238">管理控制</text>
+    <text x="330" y="338">运行控制</text>
+    <text x="250" y="438">业务处理</text>
+  </g>
+
+  <text x="404" y="339" font-size="14" fill="#1f2937" text-anchor="middle" transform="rotate(-59.7,404,339)">销售与市场</text>
+  <text x="544" y="322" font-size="14" fill="#1f2937" text-anchor="middle">生</text>
+  <text x="544" y="350" font-size="14" fill="#1f2937" text-anchor="middle">产</text>
+  <text x="586" y="339" font-size="14" fill="#1f2937" text-anchor="middle" transform="rotate(79.2,586,339)">财务与会计</text>
+  <text x="656" y="339" font-size="14" fill="#1f2937" text-anchor="middle" transform="rotate(60.3,656,339)">其他</text>
+</svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="280" viewBox="0 0 860 280" font-family="sans-serif">
+  <title>图 3-4 管理信息系统总体结构</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 119（物理页 128）插图。四个实线框：上为信息管理者，左为信息源，中为信息处理器，右为信息用户。信息管理者分别以斜线单向箭头指向信息源与信息用户框顶；与信息处理器之间为两端都有箭头的竖线。信息源→信息处理器→信息用户为水平单向箭头。无虚线框、无外框、无下划线。</desc>
+  <rect width="860" height="280" fill="#ffffff"/>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#4a5568"/>
+    </marker>
+  </defs>
+
+  <rect x="330" y="18" width="160" height="48" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.6"/>
+  <text x="410" y="48" text-anchor="middle" font-size="16" fill="#1f2937">信息管理者</text>
+
+  <rect x="40" y="150" width="140" height="48" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.6"/>
+  <text x="110" y="180" text-anchor="middle" font-size="16" fill="#1f2937">信息源</text>
+
+  <rect x="310" y="150" width="160" height="48" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.6"/>
+  <text x="390" y="180" text-anchor="middle" font-size="16" fill="#1f2937">信息处理器</text>
+
+  <rect x="620" y="150" width="140" height="48" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.6"/>
+  <text x="690" y="180" text-anchor="middle" font-size="16" fill="#1f2937">信息用户</text>
+
+  <line x1="370" y1="66" x2="110" y2="148" stroke="#4a5568" stroke-width="1.6" marker-end="url(#arr)"/>
+  <line x1="450" y1="66" x2="690" y2="148" stroke="#4a5568" stroke-width="1.6" marker-end="url(#arr)"/>
+  <line x1="410" y1="66" x2="410" y2="148" stroke="#4a5568" stroke-width="1.6" marker-start="url(#arr)" marker-end="url(#arr)"/>
+  <line x1="180" y1="174" x2="308" y2="174" stroke="#4a5568" stroke-width="1.6" marker-end="url(#arr)"/>
+  <line x1="470" y1="174" x2="618" y2="174" stroke="#4a5568" stroke-width="1.6" marker-end="url(#arr)"/>
+</svg>

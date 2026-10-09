@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="160" viewBox="0 0 980 160" font-family="sans-serif">
+  <title>图 4-2 DES加密算法</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 151（物理页 160）插图。自左向右：明文→初始交换→16次替换和换位→反向交换→密文。连线上无文字，箭头全部向右。</desc>
+  <rect width="980" height="160" fill="#ffffff"/>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#4a5568"/>
+    </marker>
+  </defs>
+
+  <text x="48" y="86" text-anchor="middle" font-size="16" fill="#1f2937">明文</text>
+  <rect x="100" y="58" width="160" height="52" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.6"/>
+  <text x="180" y="89" text-anchor="middle" font-size="16" fill="#1f2937">初始交换</text>
+  <rect x="360" y="58" width="210" height="52" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.6"/>
+  <text x="465" y="89" text-anchor="middle" font-size="16" fill="#1f2937">16次替换和换位</text>
+  <rect x="670" y="58" width="160" height="52" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.6"/>
+  <text x="750" y="89" text-anchor="middle" font-size="16" fill="#1f2937">反向交换</text>
+  <text x="910" y="86" text-anchor="middle" font-size="16" fill="#1f2937">密文</text>
+
+  <line x1="72" y1="80" x2="98" y2="80" stroke="#4a5568" stroke-width="1.6" marker-end="url(#arr)"/>
+  <line x1="260" y1="80" x2="358" y2="80" stroke="#4a5568" stroke-width="1.6" marker-end="url(#arr)"/>
+  <line x1="570" y1="80" x2="668" y2="80" stroke="#4a5568" stroke-width="1.6" marker-end="url(#arr)"/>
+  <line x1="830" y1="80" x2="886" y2="80" stroke="#4a5568" stroke-width="1.6" marker-end="url(#arr)"/>
+</svg>

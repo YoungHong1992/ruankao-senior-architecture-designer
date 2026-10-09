@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="270" viewBox="0 0 880 270" font-family="sans-serif">
+  <title>表 3-1 专家系统与一般计算机系统的比较</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 129（物理页 138）表格。4 行 × 3 列：表头（系统 / 专家系统 / 一般计算机系统）与三行数据。横线贯通全宽（含顶线与底线），列间两条竖线，左右无外框竖线；首列窄、后两列宽，无合并格。单元格逐格经扫描件核对，与清洗稿逐字一致（「解释结果」「使用于特定的领域」等易错点已放大复核）。</desc>
+  <rect width="880" height="270" fill="#ffffff"/>
+  <g stroke="#556070" stroke-width="1">
+    <line x1="40" y1="30" x2="840" y2="30" stroke-width="2.2"/>
+    <line x1="40" y1="88" x2="840" y2="88"/>
+    <line x1="40" y1="148" x2="840" y2="148"/>
+    <line x1="40" y1="206" x2="840" y2="206"/>
+    <line x1="40" y1="240" x2="840" y2="240" stroke-width="2.2"/>
+    <line x1="230" y1="30" x2="230" y2="240"/>
+    <line x1="530" y1="30" x2="530" y2="240"/>
+  </g>
+  <g font-size="14" fill="#1f2937">
+    <text x="60" y="65" font-weight="bold">系统</text>
+    <text x="250" y="65" font-weight="bold">专家系统</text>
+    <text x="550" y="65" font-weight="bold">一般计算机系统</text>
+    <text x="60" y="123">功能</text>
+    <text x="250" y="115">解决问题、解释结果、</text>
+    <text x="250" y="137">进行判断与决策</text>
+    <text x="550" y="123">解决问题</text>
+    <text x="60" y="182">处理能力</text>
+    <text x="250" y="182">处理数字与符号</text>
+    <text x="550" y="182">处理数字</text>
+    <text x="60" y="218">处理问题种类</text>
+    <text x="250" y="212">多属准结构性或非结构性，可处理</text>
+    <text x="250" y="232">不确定的知识，使用于特定的领域</text>
+    <text x="550" y="218">多属结构性，</text>
+    <text x="550" y="232">处理确定的知识</text>
+  </g>
+</svg>

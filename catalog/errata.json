@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-08",
+  "updated_at": "2026-10-09",
   "note": "勘误登记簿：正文书勘误后的正确内容。仅登记经扫描件图像证实为原书自身排印错误（kind=typo，正文已勘正）或存疑未勘正（kind=noted，正文保留原书原貌）之处；anchor 为现行正文中的唯一锚点，校验器逐条核对以防漂移。不设数量与覆盖率目标。",
   "entries": [
     {
@@ -350,12 +350,12 @@
       "corpus": "textbook",
       "kind": "noted",
       "file": "content/01-系统架构设计师教材-清洗版/第04章-信息安全技术基础知识/第07节-信息安全的抗攻击技术.md",
-      "anchor": "`EnableDcadGWDetect`",
+      "anchor": "> 表 4-3 防御SNMP攻击所需修改键值",
       "original": "EnableDcadGWDetect",
       "physical_page": 177,
       "printed_page": 168,
       "record": "verification/教材首轮核查-第04章-信息安全技术基础知识.md",
-      "note": "表 4-3 的扫描件图像清晰印为“EnableDcadGWDetect”；该键名疑为原书排印错误，但不能依据外部知识替换，正文照录。"
+      "note": "表 4-3 的扫描件图像清晰印为“EnableDcadGWDetect”；该键名疑为原书排印错误，但不能依据外部知识替换，照录印面。表 4-3 已复原为 SVG（figure-t04-03.svg），“EnableDcadGWDetect”以图内文字照录；锚点因此改指表题行。"
     },
     {
       "id": "tb-0029",

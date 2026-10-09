@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="560" viewBox="0 0 1000 560" font-family="sans-serif">
+  <title>图 3-11 DSS的基本模式</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 124（物理页 133）插图。左侧竖长矩形「真实系统」（字竖排）；其右自上而下：决策、问题、与个人的行为有关的信息（四角短括开框）、处理数据；左下独立小框「决策」；管理者居中；底部 MIS信息、外部信息；右侧大实线矩形（DSS）内含对话子系统（上中）、数据库子系统（左下）、模型库子系统（右下），库间水平线无箭头；大矩形上方菱形分布协作人员（顶）、操作（左）、响应（右）。17 条连线均为实线：决策→真实系统、真实系统→问题、管理者→决策、问题→管理者、真实系统→与个人的行为有关的信息、该框斜线入 DSS 顶左、真实系统→处理数据、处理数据→DSS 左边、真实系统↔左下决策（竖向双箭头）、决策→外部信息、MIS信息与外部信息各以水平右向箭头入 DSS 大矩形左边、操作→协作人员、协作人员→响应、操作斜线入 DSS 顶边、DSS 顶边斜线出响应、数据库子系统—模型库子系统（无箭头）。协作人员、操作、响应三者均带矩形框。</desc>
+  <rect width="1000" height="560" fill="#ffffff"/>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#4a5568"/>
+    </marker>
+  </defs>
+
+  <rect x="60" y="100" width="60" height="280" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="90" y="150" text-anchor="middle" font-size="14" fill="#1f2937">真</text>
+  <text x="90" y="186" text-anchor="middle" font-size="14" fill="#1f2937">实</text>
+  <text x="90" y="222" text-anchor="middle" font-size="14" fill="#1f2937">系</text>
+  <text x="90" y="258" text-anchor="middle" font-size="14" fill="#1f2937">统</text>
+
+  <rect x="180" y="80" width="150" height="44" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.4"/>
+  <text x="255" y="108" text-anchor="middle" font-size="14" fill="#1f2937">决策</text>
+  <rect x="180" y="150" width="150" height="44" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.4"/>
+  <text x="255" y="178" text-anchor="middle" font-size="14" fill="#1f2937">问题</text>
+  <path d="M180 228 h24 M180 268 h24 M336 228 h24 M336 268 h24 M180 228 v40 M360 228 v40" fill="none" stroke="#7d8da5" stroke-width="1.4"/>
+  <text x="270" y="254" text-anchor="middle" font-size="13" fill="#1f2937">与个人的行为有关的信息</text>
+  <rect x="180" y="292" width="150" height="44" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.4"/>
+  <text x="255" y="320" text-anchor="middle" font-size="14" fill="#1f2937">处理数据</text>
+
+  <rect x="70" y="450" width="80" height="44" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.4"/>
+  <text x="110" y="478" text-anchor="middle" font-size="14" fill="#1f2937">决策</text>
+
+  <rect x="410" y="130" width="80" height="44" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.4"/>
+  <text x="450" y="158" text-anchor="middle" font-size="14" fill="#1f2937">管理者</text>
+
+  <rect x="310" y="340" width="100" height="40" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.4"/>
+  <text x="360" y="366" text-anchor="middle" font-size="13" fill="#1f2937">MIS信息</text>
+  <rect x="450" y="384" width="100" height="40" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.4"/>
+  <text x="500" y="410" text-anchor="middle" font-size="13" fill="#1f2937">外部信息</text>
+
+  <rect x="598" y="190" width="282" height="230" fill="#f8fafd" stroke="#7d8da5" stroke-width="1.6"/>
+  <rect x="680" y="210" width="130" height="44" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.4"/>
+  <text x="745" y="238" text-anchor="middle" font-size="13" fill="#1f2937">对话子系统</text>
+  <rect x="620" y="340" width="120" height="44" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.4"/>
+  <text x="680" y="368" text-anchor="middle" font-size="13" fill="#1f2937">数据库子系统</text>
+  <rect x="748" y="340" width="120" height="44" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.4"/>
+  <text x="808" y="368" text-anchor="middle" font-size="13" fill="#1f2937">模型库子系统</text>
+
+  <rect x="690" y="96" width="100" height="34" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.4"/>
+  <text x="740" y="119" text-anchor="middle" font-size="13" fill="#1f2937">协作人员</text>
+  <rect x="596" y="132" width="70" height="34" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.4"/>
+  <text x="631" y="155" text-anchor="middle" font-size="13" fill="#1f2937">操作</text>
+  <rect x="816" y="132" width="70" height="34" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.4"/>
+  <text x="851" y="155" text-anchor="middle" font-size="13" fill="#1f2937">响应</text>
+
+  <g stroke="#4a5568" stroke-width="1.4" fill="none">
+    <line x1="178" y1="102" x2="124" y2="102" marker-end="url(#arr)"/>
+    <line x1="122" y1="172" x2="176" y2="172" marker-end="url(#arr)"/>
+    <line x1="408" y1="140" x2="334" y2="102" marker-end="url(#arr)"/>
+    <line x1="332" y1="172" x2="406" y2="152" marker-end="url(#arr)"/>
+    <line x1="122" y1="242" x2="176" y2="242" marker-end="url(#arr)"/>
+    <line x1="362" y1="244" x2="594" y2="196" marker-end="url(#arr)"/>
+    <line x1="122" y1="312" x2="176" y2="312" marker-end="url(#arr)"/>
+    <line x1="332" y1="314" x2="594" y2="314" marker-end="url(#arr)"/>
+    <line x1="105" y1="382" x2="105" y2="446" marker-end="url(#arr)"/>
+    <line x1="105" y1="448" x2="105" y2="384" marker-end="url(#arr)"/>
+    <line x1="152" y1="472" x2="446" y2="408" marker-end="url(#arr)"/>
+    <line x1="410" y1="360" x2="594" y2="360" marker-end="url(#arr)"/>
+    <line x1="550" y1="404" x2="594" y2="404" marker-end="url(#arr)"/>
+    <line x1="666" y1="132" x2="714" y2="118" marker-end="url(#arr)"/>
+    <line x1="766" y1="118" x2="812" y2="134" marker-end="url(#arr)"/>
+    <line x1="666" y1="166" x2="672" y2="186" marker-end="url(#arr)"/>
+    <line x1="812" y1="188" x2="830" y2="168" marker-end="url(#arr)"/>
+    <line x1="740" y1="362" x2="728" y2="362"/>
+  </g>
+</svg>

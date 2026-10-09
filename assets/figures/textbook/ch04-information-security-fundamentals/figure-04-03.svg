@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="340" viewBox="0 0 1040 340" font-family="sans-serif">
+  <title>图 4-3 无KDC的密钥分配</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 154（物理页 163）插图。左椭圆 A、右椭圆 B。①上弧 A→B：request||N₁。②中线 B→A：E 的下标字形无法唯一辨认，字符不绘制并留空；其后为 [Ks||request||IDB||f (N₁)||N₂]，IDB 与 f 之间为双竖线。③下弧 A→B（标号③悬于弧上方）：E 下标 Ks，[f (N₂)]，f 与括号之间有空格。无第三参与方，无图内注释。</desc>
+  <rect width="1040" height="340" fill="#ffffff"/>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#4a5568"/>
+    </marker>
+  </defs>
+
+  <ellipse cx="120" cy="168" rx="42" ry="30" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.6"/>
+  <text x="120" y="174" text-anchor="middle" font-size="18" fill="#1f2937">A</text>
+  <ellipse cx="920" cy="168" rx="42" ry="30" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.6"/>
+  <text x="920" y="174" text-anchor="middle" font-size="18" fill="#1f2937">B</text>
+
+  <path d="M168 142 Q520 28 872 142" fill="none" stroke="#4a5568" stroke-width="1.6" marker-end="url(#arr)"/>
+  <path d="M872 168 L168 168" fill="none" stroke="#4a5568" stroke-width="1.6" marker-end="url(#arr)"/>
+  <path d="M168 198 Q520 312 872 198" fill="none" stroke="#4a5568" stroke-width="1.6" marker-end="url(#arr)"/>
+
+  <text x="520" y="78" text-anchor="middle" font-size="15" fill="#1f2937">
+    <tspan>①request||</tspan><tspan font-style="italic">N</tspan><tspan font-size="11" dy="4">1</tspan>
+  </text>
+  <text x="520" y="156" text-anchor="middle" font-size="15" fill="#1f2937">
+    <tspan>②E</tspan><tspan font-size="11" dy="4">　</tspan><tspan dy="-4">[</tspan><tspan font-style="italic">K</tspan><tspan font-size="11" dy="4">s</tspan><tspan dy="-4">||request||</tspan><tspan font-style="italic">ID</tspan><tspan font-size="11" dy="4">B</tspan><tspan dy="-4">||</tspan><tspan font-style="italic">f</tspan><tspan> (</tspan><tspan font-style="italic">N</tspan><tspan font-size="11" dy="4">1</tspan><tspan dy="-4">)||</tspan><tspan font-style="italic">N</tspan><tspan font-size="11" dy="4">2</tspan><tspan dy="-4">]</tspan>
+  </text>
+  <text x="520" y="242" text-anchor="middle" font-size="15" fill="#1f2937">
+    <tspan>③E</tspan><tspan font-size="11" dy="4" font-style="italic">K</tspan><tspan font-size="9" dy="3">s</tspan><tspan dy="-7">[</tspan><tspan font-style="italic">f</tspan><tspan> (</tspan><tspan font-style="italic">N</tspan><tspan font-size="11" dy="4">2</tspan><tspan dy="-4">)]</tspan>
+  </text>
+</svg>

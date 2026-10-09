@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="430" viewBox="0 0 1000 430" font-family="sans-serif">
+  <title>图 4-8 DDoS的三级控制结构</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 162（物理页 171）插图。三层总线型剪贴画：上层 2 个客户端电脑图标（标签照录印面「C ient」，C 后一字母位印面无字形、无法判定），各接一条水平细总线；中层 4 个机柜式服务器图标（标签 Handler，每条总线接 2 个）；下层一条横贯全图的粗总线，向下接 8 个机柜式服务器图标（标签 Agent）。全部连线为细实线、无箭头。电脑与机柜图标为示意性剪贴画，以简化图形表示；总线两端渐淡不接图标的装饰性短竖线与 Agent 行第 2、3 个之间的浅灰竖痕（无法判定）未转录。</desc>
+  <rect width="1000" height="430" fill="#ffffff"/>
+  <defs>
+    <g id="pc">
+      <rect x="-30" y="0" width="60" height="40" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.4"/>
+      <line x1="-8" y1="40" x2="-8" y2="50" stroke="#7d8da5" stroke-width="1.4"/>
+      <line x1="8" y1="40" x2="8" y2="50" stroke="#7d8da5" stroke-width="1.4"/>
+      <line x1="-18" y1="50" x2="18" y2="50" stroke="#7d8da5" stroke-width="1.4"/>
+    </g>
+    <g id="rack">
+      <rect x="-20" y="0" width="40" height="60" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.4"/>
+      <line x1="-20" y1="15" x2="20" y2="15" stroke="#7d8da5" stroke-width="1"/>
+      <line x1="-20" y1="30" x2="20" y2="30" stroke="#7d8da5" stroke-width="1"/>
+      <line x1="-20" y1="45" x2="20" y2="45" stroke="#7d8da5" stroke-width="1"/>
+    </g>
+    <g id="rack-s">
+      <rect x="-17" y="0" width="34" height="50" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.4"/>
+      <line x1="-17" y1="13" x2="17" y2="13" stroke="#7d8da5" stroke-width="1"/>
+      <line x1="-17" y1="26" x2="17" y2="26" stroke="#7d8da5" stroke-width="1"/>
+      <line x1="-17" y1="39" x2="17" y2="39" stroke="#7d8da5" stroke-width="1"/>
+    </g>
+  </defs>
+
+  <use href="#pc" x="250" y="38"/>
+  <text x="250" y="112" text-anchor="middle" font-size="14" fill="#1f2937">C ient</text>
+  <use href="#pc" x="750" y="38"/>
+  <text x="750" y="112" text-anchor="middle" font-size="14" fill="#1f2937">C ient</text>
+
+  <line x1="250" y1="88" x2="250" y2="150" stroke="#9aa5b5" stroke-width="1.3"/>
+  <line x1="750" y1="88" x2="750" y2="150" stroke="#9aa5b5" stroke-width="1.3"/>
+  <line x1="195" y1="150" x2="305" y2="150" stroke="#9aa5b5" stroke-width="1.3"/>
+  <line x1="695" y1="150" x2="805" y2="150" stroke="#9aa5b5" stroke-width="1.3"/>
+
+  <use href="#rack" x="180" y="185"/>
+  <use href="#rack" x="320" y="185"/>
+  <use href="#rack" x="680" y="185"/>
+  <use href="#rack" x="820" y="185"/>
+  <text x="180" y="268" text-anchor="middle" font-size="13" fill="#1f2937">Handler</text>
+  <text x="320" y="268" text-anchor="middle" font-size="13" fill="#1f2937">Handler</text>
+  <text x="680" y="268" text-anchor="middle" font-size="13" fill="#1f2937">Handler</text>
+  <text x="820" y="268" text-anchor="middle" font-size="13" fill="#1f2937">Handler</text>
+
+  <line x1="180" y1="150" x2="180" y2="185" stroke="#9aa5b5" stroke-width="1.3"/>
+  <line x1="320" y1="150" x2="320" y2="185" stroke="#9aa5b5" stroke-width="1.3"/>
+  <line x1="680" y1="150" x2="680" y2="185" stroke="#9aa5b5" stroke-width="1.3"/>
+  <line x1="820" y1="150" x2="820" y2="185" stroke="#9aa5b5" stroke-width="1.3"/>
+
+  <line x1="120" y1="300" x2="880" y2="300" stroke="#6b7686" stroke-width="5"/>
+  <line x1="180" y1="245" x2="180" y2="300" stroke="#9aa5b5" stroke-width="1.3"/>
+  <line x1="320" y1="245" x2="320" y2="300" stroke="#9aa5b5" stroke-width="1.3"/>
+  <line x1="680" y1="245" x2="680" y2="300" stroke="#9aa5b5" stroke-width="1.3"/>
+  <line x1="820" y1="245" x2="820" y2="300" stroke="#9aa5b5" stroke-width="1.3"/>
+
+  <g stroke="#9aa5b5" stroke-width="1.3">
+    <line x1="155" y1="300" x2="155" y2="335"/>
+    <line x1="250" y1="300" x2="250" y2="335"/>
+    <line x1="345" y1="300" x2="345" y2="335"/>
+    <line x1="440" y1="300" x2="440" y2="335"/>
+    <line x1="535" y1="300" x2="535" y2="335"/>
+    <line x1="630" y1="300" x2="630" y2="335"/>
+    <line x1="725" y1="300" x2="725" y2="335"/>
+    <line x1="820" y1="300" x2="820" y2="335"/>
+  </g>
+  <use href="#rack-s" x="155" y="335"/>
+  <use href="#rack-s" x="250" y="335"/>
+  <use href="#rack-s" x="345" y="335"/>
+  <use href="#rack-s" x="440" y="335"/>
+  <use href="#rack-s" x="535" y="335"/>
+  <use href="#rack-s" x="630" y="335"/>
+  <use href="#rack-s" x="725" y="335"/>
+  <use href="#rack-s" x="820" y="335"/>
+  <g font-size="13" fill="#1f2937" text-anchor="middle">
+    <text x="155" y="412">Agent</text>
+    <text x="250" y="412">Agent</text>
+    <text x="345" y="412">Agent</text>
+    <text x="440" y="412">Agent</text>
+    <text x="535" y="412">Agent</text>
+    <text x="630" y="412">Agent</text>
+    <text x="725" y="412">Agent</text>
+    <text x="820" y="412">Agent</text>
+  </g>
+</svg>

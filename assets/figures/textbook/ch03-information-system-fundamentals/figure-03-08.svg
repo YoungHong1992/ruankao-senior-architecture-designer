@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1150" height="760" viewBox="0 0 1150 760" font-family="sans-serif">
+  <title>图 3-8 管理信息系统的功能-过程结构</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 120（物理页 129）插图。顶部三段式阶段带（主计划、细计划、执行计划，每段一条水平双箭头线）；主体三排框：上排 指令性/计划/订货（无编号）、2 订货服务、10 采购及进货、11 库房安排；中排主链 3 预测→4 主生产计划→5 库存管理→6 制造活动计划→7 发出工作令→8 工厂监督→包装运出（无编号）；下排 1 工程技术与生产数据管理、12 成本计划与控制（上方标「各子系统」及短粗下箭头）、9 工厂维护。箭头：指令性→2；2↓4；3→4；主链右行；5 顶部上行折右长横线折下入 11 顶部；10→11 为一条独立连线（左端与 10 右缘平接无箭头、箭头只指 11）；7 顶部为另一条独立折线（上行折左、箭头只指 10 右缘，与 10→11 线不同高、互不相连）；11 底部↓8 顶部；1 顶部竖线上行接水平汇流线，两端及中点 3 支向上箭头分别入 4、5、6 底部；7、8 底部竖线汇合后单支向下箭头入 9 顶部。阶段带「细计划/执行计划」交界竖线与长横线交叉处原书有洇墨团，无法判定是否另有符号。框内文字换行照印面。</desc>
+  <rect width="1150" height="760" fill="#ffffff"/>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#4a5568"/>
+    </marker>
+  </defs>
+
+  <g stroke="#4a5568" stroke-width="1.3">
+    <line x1="60" y1="28" x2="60" y2="70"/>
+    <line x1="403" y1="28" x2="403" y2="70"/>
+    <line x1="746" y1="28" x2="746" y2="70"/>
+    <line x1="1090" y1="28" x2="1090" y2="70"/>
+  </g>
+  <g font-size="14" fill="#1f2937" text-anchor="middle">
+    <text x="231" y="46">主计划</text>
+    <text x="574" y="46">细计划</text>
+    <text x="918" y="46">执行计划</text>
+  </g>
+  <g stroke="#4a5568" stroke-width="1.3">
+    <line x1="80" y1="60" x2="382" y2="60"/>
+    <line x1="80" y1="60" x2="96" y2="60" marker-end="url(#arr)"/>
+    <line x1="382" y1="60" x2="366" y2="60" marker-end="url(#arr)"/>
+    <line x1="423" y1="60" x2="725" y2="60"/>
+    <line x1="423" y1="60" x2="439" y2="60" marker-end="url(#arr)"/>
+    <line x1="725" y1="60" x2="709" y2="60" marker-end="url(#arr)"/>
+    <line x1="766" y1="60" x2="1068" y2="60"/>
+    <line x1="766" y1="60" x2="782" y2="60" marker-end="url(#arr)"/>
+    <line x1="1068" y1="60" x2="1052" y2="60" marker-end="url(#arr)"/>
+  </g>
+
+  <g fill="#eef3fb" stroke="#7d8da5" stroke-width="1.4">
+    <rect x="40" y="110" width="120" height="118"/>
+    <rect x="190" y="110" width="120" height="118"/>
+    <rect x="560" y="110" width="130" height="118"/>
+    <rect x="800" y="110" width="130" height="118"/>
+    <rect x="60" y="300" width="110" height="80"/>
+    <rect x="190" y="300" width="120" height="80"/>
+    <rect x="330" y="300" width="120" height="80"/>
+    <rect x="470" y="300" width="130" height="80"/>
+    <rect x="620" y="300" width="130" height="80"/>
+    <rect x="770" y="300" width="120" height="80"/>
+    <rect x="910" y="300" width="130" height="80"/>
+    <rect x="140" y="500" width="190" height="80"/>
+    <rect x="520" y="500" width="190" height="80"/>
+    <rect x="820" y="500" width="150" height="80"/>
+  </g>
+
+  <g font-size="13" fill="#1f2937" text-anchor="middle">
+    <text x="100" y="146">指令性</text><text x="100" y="168">计划</text><text x="100" y="190">订货</text>
+    <text x="250" y="160">2  订货</text><text x="250" y="182">服务</text>
+    <text x="625" y="160">10  采购</text><text x="625" y="182">及进货</text>
+    <text x="865" y="174">11  库房安排</text>
+    <text x="115" y="326">3  预测</text>
+    <text x="250" y="326">4  主生产</text><text x="250" y="350">计划</text>
+    <text x="390" y="326">5  库存</text><text x="390" y="350">管理</text>
+    <text x="535" y="326">6  制造活</text><text x="535" y="350">动计划</text>
+    <text x="685" y="326">7  发出</text><text x="685" y="350">工作令</text>
+    <text x="830" y="326">8  工厂</text><text x="830" y="350">监督</text>
+    <text x="975" y="326">包装</text><text x="975" y="350">运出</text>
+    <text x="235" y="532">1  工程技术与</text><text x="235" y="556">生产数据管理</text>
+    <text x="615" y="544">12  成本计划与控制</text>
+    <text x="895" y="544">9  工厂维护</text>
+  </g>
+  <text x="615" y="478" text-anchor="middle" font-size="14" fill="#1f2937">各子系统</text>
+  <line x1="615" y1="482" x2="615" y2="498" stroke="#4a5568" stroke-width="3" marker-end="url(#arr)"/>
+
+  <g stroke="#4a5568" stroke-width="1.3" fill="none">
+    <line x1="160" y1="170" x2="188" y2="170" marker-end="url(#arr)"/>
+    <line x1="250" y1="228" x2="250" y2="298" marker-end="url(#arr)"/>
+    <line x1="170" y1="340" x2="188" y2="340" marker-end="url(#arr)"/>
+    <line x1="310" y1="340" x2="328" y2="340" marker-end="url(#arr)"/>
+    <line x1="450" y1="340" x2="468" y2="340" marker-end="url(#arr)"/>
+    <line x1="600" y1="340" x2="618" y2="340" marker-end="url(#arr)"/>
+    <line x1="750" y1="340" x2="768" y2="340" marker-end="url(#arr)"/>
+    <line x1="890" y1="340" x2="908" y2="340" marker-end="url(#arr)"/>
+    <path d="M390 300 V95 H865 V108" marker-end="url(#arr)"/>
+    <line x1="690" y1="170" x2="798" y2="170" marker-end="url(#arr)"/>
+    <path d="M730 300 V215 H692" marker-end="url(#arr)"/>
+    <line x1="865" y1="228" x2="865" y2="298" marker-end="url(#arr)"/>
+    <path d="M235 500 V430 H250" fill="none"/>
+    <line x1="250" y1="430" x2="535" y2="430"/>
+    <line x1="250" y1="430" x2="250" y2="382" marker-end="url(#arr)"/>
+    <line x1="390" y1="430" x2="390" y2="382" marker-end="url(#arr)"/>
+    <line x1="535" y1="430" x2="535" y2="382" marker-end="url(#arr)"/>
+    <path d="M685 380 V450 H895 V498" marker-end="url(#arr)"/>
+    <path d="M830 380 V450" fill="none"/>
+  </g>
+</svg>
