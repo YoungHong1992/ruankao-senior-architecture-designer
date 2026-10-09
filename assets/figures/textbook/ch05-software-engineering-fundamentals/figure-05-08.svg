@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1460" height="610" viewBox="0 0 1460 610" role="img" xml:lang="zh-CN">
+  <title>图5-8 影响软件质量的三个主要因素关系图</title>
+  <desc>中心三角形分为三个区域，底部区域文字可辨为“产品运行”；另外两处斜排标签在扫描图中无法判定，未转录。左侧四项因素及问题、底部六项因素及问题按扫描图可辨文字转录。右侧三项问题可辨，但对应因素名称在扫描图中有模糊遮盖，留空未补。</desc>
+  <rect width="1460" height="610" fill="#fff" />
+  <g fill="none" stroke="#9a9a9a" stroke-width="2">
+    <path d="M710 22 L520 268 L900 268 Z" />
+    <path d="M710 22 V160 L520 268 M710 160 L900 268" />
+  </g>
+  <g fill="#222" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23">
+    <text x="28" y="70">可理解性（我能理解它吗？）</text>
+    <text x="28" y="112">可维修性（我能修复它吗？）</text>
+    <text x="28" y="154">灵活性（我能改变它吗？）</text>
+    <text x="28" y="196">可测试性（我能测试它吗？）</text>
+
+    <text x="920" y="70">（我能在另一台机器上使用它吗？）</text>
+    <text x="920" y="112">（我能再用它的某些部分吗？）</text>
+    <text x="920" y="154">（我能把它和另一个系统结合吗？）</text>
+
+    <text x="710" y="250" text-anchor="middle">产品运行</text>
+
+    <text x="390" y="330">正确性（它按我的需要工作吗？）</text>
+    <text x="390" y="372">健壮性（对意外环境它能适当地响应吗？）</text>
+    <text x="390" y="414">效率（完成预定功能时它需要的计算机资源多吗？）</text>
+    <text x="390" y="456">完整性（它是安全的吗？）</text>
+    <text x="390" y="498">可用性（我能使用它吗？）</text>
+    <text x="390" y="540">风险（能按预定计划完成它吗？）</text>
+  </g>
+</svg>

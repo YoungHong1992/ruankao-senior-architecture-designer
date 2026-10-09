@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="405" viewBox="0 0 1200 405" role="img" xml:lang="zh-CN">
+  <title>表5-2 模块的内聚类型</title>
+  <desc>依据教材物理页206（印刷页197）转录。两列分别为内聚类型和描述，含表头及七个等高数据行；每行用横线分隔，类型列与描述列之间有纵向分隔线。</desc>
+  <rect width="1200" height="405" fill="#fff" />
+  <g fill="none" stroke="#858585" stroke-width="1.5">
+    <path d="M0 7 H1200 M0 55 H1200 M0 104 H1200 M0 153 H1200 M0 202 H1200 M0 251 H1200 M0 300 H1200 M0 349 H1200 M0 398 H1200" />
+    <path d="M265 7 V398" />
+  </g>
+  <g fill="#222" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" text-anchor="middle" dominant-baseline="middle">
+    <text x="132.5" y="31">内聚类型</text>
+    <text x="732.5" y="31" font-weight="700">描述</text>
+    <text x="132.5" y="79.5">功能内聚</text>
+    <text x="132.5" y="128.5">顺序内聚</text>
+    <text x="132.5" y="177.5">通信内聚</text>
+    <text x="132.5" y="226.5">过程内聚</text>
+    <text x="132.5" y="275.5">时间内聚</text>
+    <text x="132.5" y="324.5">逻辑内聚</text>
+    <text x="132.5" y="373.5">偶然内聚</text>
+    <text x="732.5" y="79.5">完成一个单一功能，各个部分协同工作，缺一不可</text>
+    <text x="732.5" y="128.5">处理元素相关，而且必须顺序执行</text>
+    <text x="732.5" y="177.5">所有处理元素集中在一个数据结构的区域上</text>
+    <text x="732.5" y="226.5">处理元素相关，而且必须按特定的次序执行</text>
+    <text x="732.5" y="275.5">所包含的任务必须在同一时间间隔内执行</text>
+    <text x="732.5" y="324.5">完成逻辑上相关的一组任务</text>
+    <text x="732.5" y="373.5">完成一组没有关系或松散关系的任务</text>
+  </g>
+</svg>

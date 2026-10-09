@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="630" viewBox="0 0 900 630" role="img" aria-labelledby="title desc">
+  <title id="title">图5-2 原型模型</title>
+  <desc id="desc">The eight main software-development stages descend diagonally. A prototype-development box sits below the first stages and is linked to the early analysis and design stages with dashed arrows.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#777"/>
+    </marker>
+    <filter id="soft-shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feOffset dx="2" dy="2"/>
+      <feGaussianBlur stdDeviation="1.3" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.65 0 0 0 0 0.65 0 0 0 0 0.65 0 0 0 .4 0"/>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect x="0" y="0" width="900" height="630" fill="#fff"/>
+  <g fill="none" stroke="#858585" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)">
+    <path d="M 250 66 H 285 V 112"/>
+    <path d="M 320 132 H 355 V 178"/>
+    <path d="M 390 198 H 425 V 244"/>
+    <path d="M 460 264 H 495 V 310"/>
+    <path d="M 530 330 H 565 V 376"/>
+    <path d="M 600 396 H 635 V 442"/>
+    <path d="M 670 462 H 705 V 508"/>
+  </g>
+  <g fill="none" stroke="#8a8a8a" stroke-width="1.8" stroke-dasharray="6 6" stroke-linejoin="round" marker-end="url(#arrow)">
+    <path d="M 65 66 H 100"/>
+    <path d="M 65 66 V 430 H 135"/>
+    <path d="M 230 132 V 430 H 285"/>
+    <path d="M 360 198 V 430 H 285"/>
+  </g>
+  <g fill="#fff" stroke="#858585" stroke-width="1.5" filter="url(#soft-shadow)">
+    <rect x="100" y="42" width="150" height="48"/>
+    <rect x="170" y="108" width="150" height="48"/>
+    <rect x="240" y="174" width="150" height="48"/>
+    <rect x="310" y="240" width="150" height="48"/>
+    <rect x="380" y="306" width="150" height="48"/>
+    <rect x="450" y="372" width="150" height="48"/>
+    <rect x="520" y="438" width="150" height="48"/>
+    <rect x="590" y="504" width="150" height="48"/>
+    <rect x="135" y="406" width="150" height="48"/>
+  </g>
+  <g fill="#222" font-family="WenQuanYi Zen Hei, sans-serif" font-size="25" text-anchor="middle" dominant-baseline="middle">
+    <text x="175" y="66">需求分析</text>
+    <text x="245" y="132">系统设计</text>
+    <text x="315" y="198">程序设计</text>
+    <text x="385" y="264">编码实现</text>
+    <text x="455" y="330">单元测试</text>
+    <text x="525" y="396">集成测试</text>
+    <text x="595" y="462">系统测试</text>
+    <text x="665" y="528">运行维护</text>
+    <text x="210" y="430">原型开发</text>
+  </g>
+</svg>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="650" viewBox="0 0 820 650" role="img" aria-labelledby="title desc">
+  <title id="title">图5-1 瀑布模型</title>
+  <desc id="desc">Eight outlined software-development stages descend diagonally from requirements analysis to operation and maintenance, joined by elbow-shaped downward arrows.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#777"/>
+    </marker>
+    <filter id="soft-shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feOffset dx="2" dy="2"/>
+      <feGaussianBlur stdDeviation="1.3" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.65 0 0 0 0 0.65 0 0 0 0 0.65 0 0 0 .4 0"/>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect x="0" y="0" width="820" height="650" fill="#fff"/>
+  <g fill="none" stroke="#858585" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)">
+    <path d="M 210 66 H 245 V 112"/>
+    <path d="M 280 132 H 315 V 178"/>
+    <path d="M 350 198 H 385 V 244"/>
+    <path d="M 420 264 H 455 V 310"/>
+    <path d="M 490 330 H 525 V 376"/>
+    <path d="M 560 396 H 595 V 442"/>
+    <path d="M 630 462 H 665 V 508"/>
+  </g>
+  <g fill="#fff" stroke="#858585" stroke-width="1.5" filter="url(#soft-shadow)">
+    <rect x="60" y="42" width="150" height="48"/>
+    <rect x="130" y="108" width="150" height="48"/>
+    <rect x="200" y="174" width="150" height="48"/>
+    <rect x="270" y="240" width="150" height="48"/>
+    <rect x="340" y="306" width="150" height="48"/>
+    <rect x="410" y="372" width="150" height="48"/>
+    <rect x="480" y="438" width="150" height="48"/>
+    <rect x="550" y="504" width="150" height="48"/>
+  </g>
+  <g fill="#222" font-family="WenQuanYi Zen Hei, sans-serif" font-size="25" text-anchor="middle" dominant-baseline="middle">
+    <text x="135" y="66">需求分析</text>
+    <text x="205" y="132">系统设计</text>
+    <text x="275" y="198">程序设计</text>
+    <text x="345" y="264">编码实现</text>
+    <text x="415" y="330">单元测试</text>
+    <text x="485" y="396">集成测试</text>
+    <text x="555" y="462">系统测试</text>
+    <text x="625" y="528">运行维护</text>
+  </g>
+</svg>

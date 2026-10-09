@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1120" viewBox="0 0 1500 1120" role="img" aria-labelledby="title desc">
+  <title id="title">图5-3 螺旋模型</title>
+  <desc id="desc">A spiral-model diagram with three expanding risk-analysis loops, prototype labels, planning and development regions, a cost axis, iteration arrow, and phase labels. The small superscript 4 after 成本 is legible in the source and is reproduced.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#777"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1500" height="1120" fill="#fff"/>
+  <g fill="none" stroke="#858585" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Expanding loop contours -->
+    <path d="M 680 720 C 520 690 470 585 520 465 C 580 325 760 250 990 260 C 1220 270 1375 420 1360 610 C 1345 800 1180 940 950 970 C 760 995 590 955 485 885"/>
+    <path d="M 700 720 C 585 700 550 620 585 525 C 625 415 770 365 950 370 C 1125 375 1245 485 1230 635 C 1215 770 1085 865 925 880 C 785 895 675 855 625 800"/>
+    <path d="M 720 720 C 650 695 635 640 660 585 C 690 525 790 500 900 510 C 1005 520 1080 590 1065 690 C 1050 780 965 815 875 805 C 790 795 735 765 720 720"/>
+    <!-- Spiral process and phase guides visible across the loops -->
+    <path d="M 535 280 C 590 220 665 190 745 177" marker-end="url(#arrow)"/>
+    <path d="M 595 760 L 1305 245" stroke-dasharray="8 9"/>
+    <path d="M 645 720 H 1370" stroke-dasharray="8 9"/>
+    <path d="M 920 835 H 1220" stroke-dasharray="8 9"/>
+    <path d="M 930 835 V 970" stroke-dasharray="8 9"/>
+    <path d="M 1085 800 V 900" stroke-dasharray="8 9"/>
+    <path d="M 600 150 V 1010"/>
+    <path d="M 600 850 V 1030" stroke-dasharray="7 8"/>
+    <path d="M 770 850 V 980" stroke-dasharray="7 8"/>
+    <path d="M 940 840 V 950" stroke-dasharray="7 8"/>
+    <path d="M 1175 840 V 900" stroke-dasharray="7 8"/>
+    <!-- Small internal curves and review arcs -->
+    <path d="M 460 790 C 485 850 545 875 625 877"/>
+    <path d="M 510 720 C 545 665 600 635 675 628"/>
+    <path d="M 760 640 C 820 615 880 620 930 645"/>
+  </g>
+  <g fill="#222" font-family="WenQuanYi Zen Hei, sans-serif" font-size="26">
+    <text x="520" y="126">成本<tspan baseline-shift="super" font-size="16">4</tspan></text>
+    <text x="720" y="156">过程迭代</text>
+
+    <text x="42" y="360" text-anchor="middle">
+      <tspan x="150" dy="0">确定下阶段目标和</tspan>
+      <tspan x="150" dy="34">约束条件</tspan>
+    </text>
+    <text x="66" y="708" writing-mode="tb" glyph-orientation-vertical="0">评审</text>
+    <text x="45" y="1040">制定下阶段计划</text>
+    <text x="1280" y="215" text-anchor="middle">
+      <tspan x="1305" dy="0">风险分析</tspan>
+      <tspan x="1305" dy="34">建造原型</tspan>
+    </text>
+    <text x="1215" y="382">可操作原型</text>
+
+    <text x="930" y="292">风险分析</text>
+    <text x="845" y="468">风险分析</text>
+    <text x="735" y="590">风险分析</text>
+    <text x="1010" y="548">原型3</text>
+    <text x="905" y="657">原型2</text>
+    <text x="810" y="690">原型1</text>
+    <text x="890" y="742">建模</text>
+    <text x="1085" y="730">模拟</text>
+    <text x="1320" y="688">评价</text>
+    <text x="1265" y="792">详细设计，</text>
+
+    <text x="320" y="865">生命周期计划</text>
+    <text x="450" y="935">开发计划</text>
+    <text x="294" y="1015">集成和测试计划</text>
+    <text x="445" y="795">需求计划</text>
+    <text x="645" y="790">操作概念</text>
+    <text x="630" y="855">需求确认</text>
+    <text x="610" y="925">设计确认和验证</text>
+    <text x="787" y="770">软件需求/软件产品</text>
+    <text x="892" y="814">设计</text>
+
+    <text x="622" y="1005">实现</text>
+    <text x="800" y="1038">接受测试</text>
+    <text x="980" y="980">集成测试</text>
+    <text x="1060" y="842" writing-mode="tb" glyph-orientation-vertical="0">单元测试</text>
+    <text x="1160" y="858">编码</text>
+    <text x="1275" y="900" text-anchor="middle">
+      <tspan x="1280" dy="0">开发，验证</tspan>
+      <tspan x="1280" dy="34">阶段性软件产品</tspan>
+    </text>
+  </g>
+</svg>
