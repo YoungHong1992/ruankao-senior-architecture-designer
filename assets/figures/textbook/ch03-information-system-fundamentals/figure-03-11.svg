@@ -23,8 +23,8 @@
   <rect x="180" y="292" width="150" height="44" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.4"/>
   <text x="255" y="320" text-anchor="middle" font-size="14" fill="#1f2937">处理数据</text>
 
-  <rect x="70" y="400" width="80" height="44" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.4"/>
-  <text x="110" y="428" text-anchor="middle" font-size="14" fill="#1f2937">决策</text>
+  <rect x="70" y="450" width="80" height="44" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.4"/>
+  <text x="110" y="478" text-anchor="middle" font-size="14" fill="#1f2937">决策</text>
 
   <rect x="410" y="130" width="80" height="44" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.4"/>
   <text x="450" y="158" text-anchor="middle" font-size="14" fill="#1f2937">管理者</text>
@@ -58,9 +58,9 @@
     <line x1="362" y1="244" x2="594" y2="196" marker-end="url(#arr)"/>
     <line x1="122" y1="312" x2="176" y2="312" marker-end="url(#arr)"/>
     <line x1="332" y1="314" x2="594" y2="314" marker-end="url(#arr)"/>
-    <line x1="105" y1="382" x2="105" y2="396" marker-end="url(#arr)"/>
-    <line x1="105" y1="398" x2="105" y2="384" marker-end="url(#arr)"/>
-    <line x1="152" y1="422" x2="446" y2="408" marker-end="url(#arr)"/>
+    <line x1="105" y1="382" x2="105" y2="446" marker-end="url(#arr)"/>
+    <line x1="105" y1="448" x2="105" y2="384" marker-end="url(#arr)"/>
+    <line x1="152" y1="472" x2="446" y2="408" marker-end="url(#arr)"/>
     <line x1="410" y1="360" x2="594" y2="360" marker-end="url(#arr)"/>
     <line x1="550" y1="404" x2="594" y2="404" marker-end="url(#arr)"/>
     <line x1="666" y1="132" x2="714" y2="118" marker-end="url(#arr)"/>

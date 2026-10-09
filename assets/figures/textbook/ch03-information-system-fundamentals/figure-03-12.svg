@@ -6,6 +6,9 @@
     <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
       <path d="M 0 0 L 10 5 L 0 10 Z" fill="#4a5568"/>
     </marker>
+    <marker id="arr-reverse" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 10 0 L 0 5 L 10 10 Z" fill="#4a5568"/>
+    </marker>
   </defs>
 
   <ellipse cx="180" cy="112" rx="76" ry="34" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
@@ -18,9 +21,9 @@
   <text x="575" y="330" text-anchor="middle" font-size="14" fill="#1f2937">模型库子系统</text>
 
   <g stroke="#4a5568" stroke-width="1.4">
-    <line x1="258" y1="112" x2="448" y2="112" marker-start="url(#arr)" marker-end="url(#arr)"/>
-    <line x1="480" y1="138" x2="288" y2="296" marker-start="url(#arr)" marker-end="url(#arr)"/>
-    <line x1="575" y1="138" x2="575" y2="296" marker-start="url(#arr)" marker-end="url(#arr)"/>
-    <line x1="302" y1="324" x2="466" y2="324" marker-start="url(#arr)" marker-end="url(#arr)"/>
+    <line x1="258" y1="112" x2="448" y2="112" marker-start="url(#arr-reverse)" marker-end="url(#arr)"/>
+    <line x1="480" y1="138" x2="288" y2="296" marker-start="url(#arr-reverse)" marker-end="url(#arr)"/>
+    <line x1="575" y1="138" x2="575" y2="296" marker-start="url(#arr-reverse)" marker-end="url(#arr)"/>
+    <line x1="302" y1="324" x2="466" y2="324" marker-start="url(#arr-reverse)" marker-end="url(#arr)"/>
   </g>
 </svg>

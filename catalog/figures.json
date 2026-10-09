@@ -728,7 +728,7 @@
       "asset": "assets/figures/textbook/ch04-information-security-fundamentals/figure-04-01.svg",
       "physical_page": 159,
       "printed_page": 150,
-      "record": "verification/教材首轮核查-第04章-信息安全技术基础知识.md",
+      "record": "verification/教材第二轮SVG事实核查记录-第03-04章.md",
       "note": "左明文P→发送端加密算法E→密文C=E(K,P)→接收端解密算法D，右端明文P。两处密钥K自下向上进入对应框。中段向上箭头指向偷听者（20×字形裁定为「偷」，非「窃」）。右框至右端明文P原图为无箭头直线，照录不画箭头。"
     },
     {
@@ -742,7 +742,7 @@
       "asset": "assets/figures/textbook/ch04-information-security-fundamentals/figure-04-02.svg",
       "physical_page": 160,
       "printed_page": 151,
-      "record": "verification/教材首轮核查-第04章-信息安全技术基础知识.md",
+      "record": "verification/教材第二轮SVG事实核查记录-第03-04章.md",
       "note": "单链向右：明文→初始交换→16次替换和换位→反向交换→密文。连线上无文字，四段均有右向箭头。"
     },
     {
@@ -756,7 +756,7 @@
       "asset": "assets/figures/textbook/ch04-information-security-fundamentals/figure-04-05.svg",
       "physical_page": 165,
       "printed_page": 156,
-      "record": "verification/教材首轮核查-第04章-信息安全技术基础知识.md",
+      "record": "verification/教材第二轮SVG事实核查记录-第03-04章.md",
       "note": "左椭圆 A、右椭圆 B。①上弧 A→B：E 下标 PKB，[N₁||IDA]。②中上线 B→A：E 下标 PKA，[N₁||N₂]。③中下线 B→A：E 下标 PKB，[N₂]。④下弧 A→B：E 下标 PKB，内层 E 下标 SKA，两层方括号 [E[Ks]]。盲比四项通过。"
     },
     {
@@ -770,8 +770,8 @@
       "asset": "assets/figures/textbook/ch04-information-security-fundamentals/figure-04-03.svg",
       "physical_page": 163,
       "printed_page": 154,
-      "record": "verification/教材首轮核查-第04章-信息安全技术基础知识.md",
-      "note": "左椭圆 A、右椭圆 B。①上弧 A→B：request||N₁。②中线 B→A：E 的下标经像素级裁定无法辨字（4 团墨迹，逐字母拼读无像素依据），本图留空；其后为 [Ks||request||IDB||f (N₁)||N₂]。③下弧 A→B（标号悬于弧上方）：E 下标 Ks，[f (N₂)]。三条线均仅箭头端有箭头。"
+      "record": "verification/教材第二轮SVG事实核查记录-第03-04章.md",
+      "note": "左椭圆 A、右椭圆 B。①上弧 A→B：request||N₁。②中线 B→A：E 的下标字形无法唯一辨认，字符不绘制并留空；其后为 [Ks||request||IDB||f (N₁)||N₂]。③下弧 A→B（标号悬于弧上方）：E 下标 Ks，[f (N₂)]。三条线均仅箭头端有箭头。"
     },
     {
       "id": "tb-fig-0055",
@@ -784,8 +784,8 @@
       "asset": "assets/figures/textbook/ch04-information-security-fundamentals/figure-04-04.svg",
       "physical_page": 163,
       "printed_page": 154,
-      "record": "verification/教材首轮核查-第04章-信息安全技术基础知识.md",
-      "note": "经两轮像素级盲态裁定：KDC 左上、A 左下、B 右。KDC–A 两条线：①A→KDC 仅 KDC 端箭头（request||N₁）；②KDC→A 仅 A 端箭头，标号②首个 E 的下标无法辨字、本图留空，其后为 [Ks||request||N₁|| E_Kb(Ks, IDA)]。A–B 三条线：③浅凸弧 A→B 仅 B 端箭头，标号③悬于弧上方（E_Kb[Ks||IDA]）；④浅凹弧 B→A 仅 A 端箭头，标号④悬于弧③与线④之间（E_Ks[N₂]）；⑤深凹弧 A→B 仅 B 端箭头，标号⑤悬于弧谷上方（E_Ks[f (N₂)]）。盲比四项通过。"
+      "record": "verification/教材第二轮SVG事实核查记录-第03-04章.md",
+      "note": "经两轮像素级盲态裁定：KDC 左上、A 左下、B 右。KDC–A 两条线：①A→KDC 仅 KDC 端箭头（request||N₁）；②KDC→A 仅 A 端箭头，标号②首个 E 的下标可辨 K，K 后一字位因像素不足无法判定；SVG 绘出 K 并留空后续字位，其后为 [Ks||request||N₁|| E_Kb(Ks, IDA)]。A–B 三条线：③浅凸弧 A→B 仅 B 端箭头，标号③悬于弧上方（E_Kb[Ks||IDA]）；④浅凹弧 B→A 仅 A 端箭头，标号④悬于弧③与线④之间（E_Ks[N₂]）；⑤深凹弧 A→B 仅 B 端箭头，标号⑤悬于弧谷上方（E_Ks[f (N₂)]）。盲比四项通过。"
     },
     {
       "id": "tb-fig-0056",
@@ -798,7 +798,7 @@
       "asset": "assets/figures/textbook/ch04-information-security-fundamentals/figure-04-07.svg",
       "physical_page": 168,
       "printed_page": 159,
-      "record": "verification/教材首轮核查-第04章-信息安全技术基础知识.md",
+      "record": "verification/教材第二轮SVG事实核查记录-第03-04章.md",
       "note": "左右两个大外框，上标发送方、接收方。左框内 A的私钥（D_A）→B的公钥（E_B），右框内 B的私钥（D_B）→A的公钥（E_A）。主链五段右向实线箭头：P 入、四内框、P 出，穿越外框处无箭头。三条竖直向上箭头落在第 2、3、4 段主线上，底部标注 D_A (P)、E_B (D_A (P))、D_A (P)（圆括号，括号两侧有空隙）。盲比四项通过。"
     },
     {
@@ -812,8 +812,8 @@
       "asset": "assets/figures/textbook/ch04-information-security-fundamentals/figure-04-06.svg",
       "physical_page": 168,
       "printed_page": 159,
-      "record": "verification/教材首轮核查-第04章-信息安全技术基础知识.md",
-      "note": "五框自左向右：A、消息框一、BB、消息框二、B；消息框一与 A/BB 顶对齐、消息框二底对齐，构成上下两条水平通道。四条水平连线：A→消息框一与 BB→消息框二无箭头，另两段右向箭头。消息框一 A, K_A（B, R_A, t, P）；消息框二 K_B（A, R_A, t, P, K_BB（A, t, P））（全角圆括号、逗号后空格）。BB 框左下方另标 K_S（R□），R 的下标无法判定（可排除 A，其余不可辨），本图留空。盲比经三轮收敛通过。"
+      "record": "verification/教材第二轮SVG事实核查记录-第03-04章.md",
+      "note": "五框自左向右：A、消息框一、BB、消息框二、B；消息框一与 A/BB 顶对齐、消息框二底对齐，构成上下两条水平通道。四条水平连线：A→消息框一与 BB→消息框二无箭头，另两段右向箭头。消息框一 A, K_A（B, R_A, t, P）；消息框二 K_B（A, R_A, t, P, K_BB（A, L, P））（全角圆括号、逗号后空格）。BB 框左下方另标 K_S（R_A）。源图该字形经像素盲比确认可辨为斜体大写 L。"
     },
     {
       "id": "tb-fig-0058",
@@ -826,7 +826,7 @@
       "asset": "assets/figures/textbook/ch03-information-system-fundamentals/figure-03-04.svg",
       "physical_page": 128,
       "printed_page": 119,
-      "record": "verification/教材首轮核查-第03章-信息系统基础知识.md",
+      "record": "verification/教材第二轮SVG事实核查记录-第03-04章.md",
       "note": "四个实线框：上为信息管理者，左为信息源，中为信息处理器，右为信息用户。信息管理者以斜线单向箭头指向信息源与信息用户框顶，与信息处理器之间为两端箭头的竖线；信息源→信息处理器→信息用户为水平单向箭头。无虚线框、无外框、无下划线。盲比四项通过。"
     },
     {
@@ -840,7 +840,7 @@
       "asset": "assets/figures/textbook/ch03-information-system-fundamentals/figure-03-05.svg",
       "physical_page": 128,
       "printed_page": 119,
-      "record": "verification/教材首轮核查-第03章-信息系统基础知识.md",
+      "record": "verification/教材第二轮SVG事实核查记录-第03-04章.md",
       "note": "分 (a) 开环系统与 (b) 闭环系统，经四轮盲比与像素测量收敛。六高框（识别、记录、变换、行动、结果、评价）文字竖排；决策为大号四折角外向开口框、「决」「策」竖排；存储框相对记录右移。(a)：虚线框只框记录与变换，存储在框外；记录→存储两条线自记录底边下行折右、右向箭头入存储左缘（右出线入上 1/3、左出线入下 2/3）；变换→存储两条两端箭头折线入存储右缘；虚线框上方反馈线右接决策顶点、左端下箭头入识别顶；评价右缘自由端右向箭头，底边线自该线 T 形分叉下行（行于存储下方）入事件2。(b)：括号为两顶边短钩+双竖线（止于外部行下端）+数据源下悬空底横线，企业下另有短横线；虚线框框住记录、变换与存储；四条下行箭头落底边总线，总线左端上行折右、箭头入括号左竖线（内部/外部行之间）。"
     },
     {
@@ -854,7 +854,7 @@
       "asset": "assets/figures/textbook/ch04-information-security-fundamentals/figure-04-08.svg",
       "physical_page": 171,
       "printed_page": 162,
-      "record": "verification/教材首轮核查-第04章-信息安全技术基础知识.md",
+      "record": "verification/教材第二轮SVG事实核查记录-第03-04章.md",
       "note": "三层总线型剪贴画：上层 2 个客户端图标（标签照录印面「C ient」——C 后一字母位印面无字形、无法判定），各接一条水平细总线；中层 4 个机柜图标（Handler，每总线 2 个）向下接到横贯全图的粗总线；粗总线向下接 8 个机柜图标（Agent×8）。全部细实线、无箭头。图标以简化图形表示；总线两端渐淡不接图标的装饰短竖线与 Agent 行浅灰竖痕（无法判定）未转录。盲比四项通过。"
     },
     {
@@ -868,7 +868,7 @@
       "asset": "assets/figures/textbook/ch04-information-security-fundamentals/figure-04-09.svg",
       "physical_page": 172,
       "printed_page": 163,
-      "record": "verification/教材首轮核查-第04章-信息安全技术基础知识.md",
+      "record": "verification/教材第二轮SVG事实核查记录-第03-04章.md",
       "note": "三台电脑三角分布：C 左上（上方 MAC: CC:CC:CC:CC、下方 C）、A 中右（下方 A）、B 左下（上方 MAC: BB:BB:BB:BB、下方 B）。C→A 短划虚线、A 端实心箭头，沿线灰斜体「信任关系」；B→A 实线、A 端箭头，沿线「ARP报文」。C 标签下至 B 的 MAC 标签上有竖细实线，上端深色小方点（性质原图无法判定，照录为小方块），下端无箭头；竖线旁「使C瘫痪」。A 右上云泡两行（C的MAC地址为 / BB:BB:BB:BB），云不连线。盲比四项通过。"
     },
     {
@@ -882,7 +882,7 @@
       "asset": "assets/figures/textbook/ch04-information-security-fundamentals/figure-04-10.svg",
       "physical_page": 173,
       "printed_page": 164,
-      "record": "verification/教材首轮核查-第04章-信息安全技术基础知识.md",
+      "record": "verification/教材第二轮SVG事实核查记录-第03-04章.md",
       "note": "立式服务器图标顶中（下标 DNS服务器）；左电脑 www.xxx.com / IP：  202.109.2.2；右电脑右侧 www.angle.com（印面为 angle，非 angel）；底电脑 www.heike.com / IP：  200.1.1.1；右上云泡 www.xxx.com / IP：  200.1.1.1，云不连线。左→服务器、右→服务器（线上「DNS查询」）箭头均在服务器端；底→右箭头在右电脑端（线上「IP： 200.1.1.1」）。盲比四项通过。"
     },
     {
@@ -896,7 +896,7 @@
       "asset": "assets/figures/textbook/ch04-information-security-fundamentals/figure-04-11.svg",
       "physical_page": 181,
       "printed_page": 172,
-      "record": "verification/教材首轮核查-第04章-信息安全技术基础知识.md",
+      "record": "verification/教材第二轮SVG事实核查记录-第03-04章.md",
       "note": "5 圆角矩形（脆弱性、资产、威胁、风险、安全措施）+ 5 椭圆（业务数据、资产价值、安全需求、安全事件、残余风险），17 条细实线边、小实心三角箭头：业务数据→资产（依赖）；脆弱性→资产（暴露）；资产→资产价值（拥有）；威胁→脆弱性（利用）；威胁→风险（增加，标签嵌线）；风险→安全需求（导出，嵌线）；威胁→安全事件（演变）；风险→残余风险（残留）；安全措施→残余风险（未控制，嵌线）；残余风险→安全事件（可能诱发，嵌线）；安全需求→资产价值（成本）；安全需求→安全措施（被满足）；脆弱性→风险斜线无标签（印面如此）；脆弱性→安全需求缓斜线两端无箭头（未被满足）；资产价值→风险斜线（增加）与该缓斜线 X 交叉；安全措施→威胁（抗击）；安全措施→风险（降低）。脆弱性右下角两斜线交汇处有一约 5px 深色记号，最高可用分辨率下无法确证是否为箭头，本图未画。盲比四项通过。"
     },
     {
@@ -910,7 +910,7 @@
       "asset": "assets/figures/textbook/ch04-information-security-fundamentals/figure-t04-01.svg",
       "physical_page": 176,
       "printed_page": 167,
-      "record": "verification/教材首轮核查-第04章-信息安全技术基础知识.md",
+      "record": "verification/教材第二轮SVG事实核查记录-第03-04章.md",
       "note": "两列十行（表头 值名称 / 值(REG_DWORD)，半角括号+下划线）。第 5 行键名 Tcp 与 Max 之间一个空格；第 3、4 行值印面为「5 0 0」「4 0 0」（数字间空格照录，同表 300000 紧排可证非字距）；300000(5分钟) 半角括号；零为斜线零字形（不承载信息，未复刻）。框线：上下粗线、行间细线、列间一竖线、无左右框。此前正文 Markdown 表由本 SVG 取代；盲比经一轮修订收敛。"
     },
     {
@@ -924,7 +924,7 @@
       "asset": "assets/figures/textbook/ch04-information-security-fundamentals/figure-t04-02.svg",
       "physical_page": 177,
       "printed_page": 168,
-      "record": "verification/教材首轮核查-第04章-信息安全技术基础知识.md",
+      "record": "verification/教材第二轮SVG事实核查记录-第03-04章.md",
       "note": "两列两行：EnableICMPRedirect / 0。框线同表 4-1。此前正文 Markdown 表由本 SVG 取代；盲比通过。"
     },
     {
@@ -938,7 +938,7 @@
       "asset": "assets/figures/textbook/ch04-information-security-fundamentals/figure-t04-03.svg",
       "physical_page": 177,
       "printed_page": 168,
-      "record": "verification/教材首轮核查-第04章-信息安全技术基础知识.md",
+      "record": "verification/教材第二轮SVG事实核查记录-第03-04章.md",
       "note": "两列两行：EnableDcadGWDetect / 0。原书印作 Dcad（非 Windows 注册表实名 Dead），按印面照录。框线同表 4-1。此前正文 Markdown 表由本 SVG 取代；盲比通过。"
     },
     {
@@ -952,7 +952,7 @@
       "asset": "assets/figures/textbook/ch03-information-system-fundamentals/figure-03-01.svg",
       "physical_page": 123,
       "printed_page": 114,
-      "record": "verification/教材首轮核查-第03章-信息系统基础知识.md",
+      "record": "verification/教材第二轮SVG事实核查记录-第03-04章.md",
       "note": "上下两个大矩形。上框两行三列六框：采购/会计/销售与物料规划/生产/库存控制，行内右向单箭头、三列上下双箭头；下框三列各五条·条目（采购合同、收货通知书、供应商发票、给供应商的付款凭证、其他；工艺单、库存记录、员工工时卡、员工工资卡、其他；销售合同、发货通知、顾客发票、顾客的付款凭证、其他）。两条虚线自下框顶边上行折入上框（左入采购左边、右入销售右边）；一条实线自下框顶边向上单箭头入上框底边。原书条目两种字模混排、项目符方圆混用（示意细节，未复刻）。盲比经一轮修订收敛。"
     },
     {
@@ -966,7 +966,7 @@
       "asset": "assets/figures/textbook/ch03-information-system-fundamentals/figure-03-02.svg",
       "physical_page": 125,
       "printed_page": 116,
-      "record": "verification/教材首轮核查-第03章-信息系统基础知识.md",
+      "record": "verification/教材第二轮SVG事实核查记录-第03-04章.md",
       "note": "五节点：左笔记本（数据/输入）→中央框（数据处理、·　批处理〔项目符后约三字宽空档照录〕、·联机实时处理）→右上笔记本（文件、报表/生成）；框底与下方圆柱（数据库维护）垂直双箭头；框右下角与右下笔记本（查询处理）斜线双箭头。笔记本与圆柱以简化图形表示。盲比经一轮修订收敛。"
     },
     {
@@ -980,7 +980,7 @@
       "asset": "assets/figures/textbook/ch03-information-system-fundamentals/figure-03-03.svg",
       "physical_page": 126,
       "printed_page": 117,
-      "record": "verification/教材首轮核查-第03章-信息系统基础知识.md",
+      "record": "verification/教材第二轮SVG事实核查记录-第03-04章.md",
       "note": "叠层文档（账目）左行折角下行入「自动输入/并分类」框顶；框→事务文件圆柱→对账处理框（「账」字经 10× 字形比对确认）→储户文件（右上斜）、其他报表（近水平略上斜）；主文件圆柱顶垂直上行入框底；框右下角斜入「修改后的/主文件」圆柱。七条线全实线单箭头。文档叠层与圆柱以简化图形表示。盲比经一轮修订收敛。"
     },
     {
@@ -994,7 +994,7 @@
       "asset": "assets/figures/textbook/ch03-information-system-fundamentals/figure-03-06.svg",
       "physical_page": 129,
       "printed_page": 120,
-      "record": "verification/教材首轮核查-第03章-信息系统基础知识.md",
+      "record": "verification/教材第二轮SVG事实核查记录-第03-04章.md",
       "note": "顶点朝上的金字塔：塔尖高度另有一条向左伸出的水平顶线（约塔底宽四成）；4 条水平层线（层名 战略计划/管理控制/运行控制/业务处理 在各层带内、塔外左侧）逐条向左伸出塔外；5 条斜线自顶点放射分 4 斜条，标签沿条排印：销售与市场（末两字经 45° 旋转放大裁定）、生/产（直排）、财务与会计、其他。全部细实线无箭头。盲比经一轮修订收敛。"
     },
     {
@@ -1008,7 +1008,7 @@
       "asset": "assets/figures/textbook/ch03-information-system-fundamentals/figure-03-07.svg",
       "physical_page": 129,
       "printed_page": 120,
-      "record": "verification/教材首轮核查-第03章-信息系统基础知识.md",
+      "record": "verification/教材第二轮SVG事实核查记录-第03-04章.md",
       "note": "组织图式两层：顶部横框「管理信息系统」，其底中心竖线直落水平母线并穿过母线延续入中间框顶部；母线止于最外侧两根引下线（端部无下钩），共接 5 个竖长框（文字竖排）：市场子系统、财会子系统、人事子系统、生产子系统、供运子系统。全部细实线无箭头。盲比经一轮修订收敛。"
     },
     {
@@ -1022,7 +1022,7 @@
       "asset": "assets/figures/textbook/ch03-information-system-fundamentals/figure-03-08.svg",
       "physical_page": 129,
       "printed_page": 120,
-      "record": "verification/教材首轮核查-第03章-信息系统基础知识.md",
+      "record": "verification/教材第二轮SVG事实核查记录-第03-04章.md",
       "note": "顶部三段式阶段带（主计划/细计划/执行计划，每段一条水平双箭头线）；上排：指令性/计划/订货（无编号，位于最左）、2 订货服务（正对 4 号框上方）、10 采购及进货、11 库房安排；中排主链：3 预测→4 主生产计划→5 库存管理→6 制造活动计划→7 发出工作令→8 工厂监督→包装运出（无编号）；下排：1 工程技术与生产数据管理、12 成本计划与控制（上方「各子系统」+短粗下箭头）、9 工厂维护。11 组箭头：指令性→2、2↓4、3→4、链右行、5 顶上行折右折下入 11 顶、10→11（左端平接无箭头）、7 顶独立折线入 10 右缘、11↓8、1 顶汇流线 3 支上箭头入 4/5/6 底、7/8 底汇合单箭头入 9。阶段带交界与长横线交叉处原书有洇墨团（无法判定）。盲比经两轮修订收敛。"
     },
     {
@@ -1036,7 +1036,7 @@
       "asset": "assets/figures/textbook/ch03-information-system-fundamentals/figure-03-09.svg",
       "physical_page": 130,
       "printed_page": 121,
-      "record": "verification/教材首轮核查-第03章-信息系统基础知识.md",
+      "record": "verification/教材第二轮SVG事实核查记录-第03-04章.md",
       "note": "编织式矩阵：7 根细长竖条（上下端伸出横带外）×4 条横长条带（左右端伸出竖条外），格线全部互相贯穿、交点无遮挡，28 个交叉格内无文字。列名（两行）：销售/市场、生/产、后/勤、人/事、财务/会计、信息/处理、高层/管理；行名：战略计划、管理控制、运行控制、业务处理。盲比经一轮修订收敛。"
     },
     {
@@ -1050,7 +1050,7 @@
       "asset": "assets/figures/textbook/ch03-information-system-fundamentals/figure-03-10.svg",
       "physical_page": 132,
       "printed_page": 123,
-      "record": "verification/教材首轮核查-第03章-信息系统基础知识.md",
+      "record": "verification/教材第二轮SVG事实核查记录-第03-04章.md",
       "note": "左侧行标签：应用软件/用于、战略计划、管理控制、运行控制、业务处理、专用文件、公用数据/文件。7 根竖条各分 4 格（格内无文字），列标题：销售/市场、生（第二字印面仅淡影无法判定，只有一字）、后/勤、人/事、财务/会计、信息/处理、高层/管理。竖条下 7 个专用文件小方块；底部公用数据文件贯通横条（至数据库管理系统框右缘）；右侧模型库/公用应用程序两格框与数据库管理系统四行框，上方两段互不相连的端部括线（足尖外张），标「公用程序」。盲比经两轮修订收敛。"
     },
     {
@@ -1064,7 +1064,7 @@
       "asset": "assets/figures/textbook/ch03-information-system-fundamentals/figure-03-11.svg",
       "physical_page": 133,
       "printed_page": 124,
-      "record": "verification/教材首轮核查-第03章-信息系统基础知识.md",
+      "record": "verification/教材第二轮SVG事实核查记录-第03-04章.md",
       "note": "左侧竖长「真实系统」（字竖排）；右侧列 决策/问题/与个人的行为有关的信息（四角括开框）/处理数据；左下小框 决策；管理者居中；MIS信息、外部信息以水平右向箭头入 DSS 大矩形左边；大矩形内含对话子系统（上中）、数据库子系统与模型库子系统（两库间无箭头线）；上方矩形框 协作人员（顶）、操作（左）、响应（右）菱形分布。17 条实线连线方向逐一转录。盲比经一轮修订收敛。"
     },
     {
@@ -1078,7 +1078,7 @@
       "asset": "assets/figures/textbook/ch03-information-system-fundamentals/figure-03-12.svg",
       "physical_page": 134,
       "printed_page": 125,
-      "record": "verification/教材首轮核查-第03章-信息系统基础知识.md",
+      "record": "verification/教材第二轮SVG事实核查记录-第03-04章.md",
       "note": "用户（椭圆，左上）、对话子系统（右上）、数据库子系统（左下）、模型库子系统（右下），四条连线均为实线双箭头（对话与模型库间为斜线）。盲比通过。"
     },
     {
@@ -1092,7 +1092,7 @@
       "asset": "assets/figures/textbook/ch03-information-system-fundamentals/figure-03-13.svg",
       "physical_page": 138,
       "printed_page": 129,
-      "record": "verification/教材首轮核查-第03章-信息系统基础知识.md",
+      "record": "verification/教材第二轮SVG事实核查记录-第03-04章.md",
       "note": "顶部矩形「人工智能」，底中竖线接横贯母线，6 条竖直落线入 6 个瘦高竖排框（一字一行），自左至右：机器人技术、视觉系统、自然语言处理、学习系统、神经网络、专家系统。全部实线无箭头。盲比经一轮修订收敛。"
     },
     {
@@ -1106,7 +1106,7 @@
       "asset": "assets/figures/textbook/ch03-information-system-fundamentals/figure-03-14.svg",
       "physical_page": 139,
       "printed_page": 130,
-      "record": "verification/教材首轮核查-第03章-信息系统基础知识.md",
+      "record": "verification/教材第二轮SVG事实核查记录-第03-04章.md",
       "note": "上排无框文字 专家/用户；第二排 知识获取（矩形）与人—机接口（四角括开框，连接符原印一条长横，照录「—」）；大虚线矩形内 知识库（左）、推理机（右）与（专家系统核心）。专家↔知识获取、用户↔人—机接口为竖向双箭头；知识获取→知识库向下单箭头；知识库↔推理机水平双箭头；接口与虚线框间两条竖线：左线「咨询，」（带逗号，线左；该线箭头高倍放大无法判定，未画），右线「建议」（向上箭头，线右）。盲比经一轮修订收敛。"
     },
     {
@@ -1120,7 +1120,7 @@
       "asset": "assets/figures/textbook/ch03-information-system-fundamentals/figure-03-15.svg",
       "physical_page": 145,
       "printed_page": 136,
-      "record": "verification/教材首轮核查-第03章-信息系统基础知识.md",
+      "record": "verification/教材第二轮SVG事实核查记录-第03-04章.md",
       "note": "顶/底通长条（物流流入/信息流/物流流出；资金流入/信息流/资金流出）；中部 5 框链 供应市场→采购→加工→销售→需求市场（右向单箭头）；4 个竖向空心大箭头全向上；横向空心大箭头 物流过程（向右）与 资金流过程（向左）。盲比通过。"
     },
     {
@@ -1134,8 +1134,8 @@
       "asset": "assets/figures/textbook/ch03-information-system-fundamentals/figure-03-16.svg",
       "physical_page": 146,
       "printed_page": 137,
-      "record": "verification/教材首轮核查-第03章-信息系统基础知识.md",
-      "note": "20 框：顶行 5（综合信息、财务管理、成本管理、基本数据、分销资源管理）与底行 5（客户关系管理、供应链管理、生产管理、质量管理、库存管理）在闭合大矩形外，各以竖向真双箭头接矩形顶/底边（接点与内侧竖线错开）；大矩形内左列 3（经营管理、生产预测、销售管理，汇流入主生产计划）、中行 3（主生产计划、□□级生产计划、车间作业计划——第二框左端两字残缺无法判定，以 □□ 占位；中行三框各以双箭头接矩形顶边）、中下层 4（采购管理、设备管理、工具管理、人事管理，由 □□级 底部分配线 4 支向下箭头接入）。盲比经一轮修订收敛。"
+      "record": "verification/教材第二轮SVG事实核查记录-第03-04章.md",
+      "note": "20 框：顶行 5（综合信息、财务管理、成本管理、基本数据、分销资源管理）与底行 5（客户关系管理、供应链管理、生产管理、质量管理、库存管理）在闭合大矩形外，各以竖向真双箭头接矩形顶/底边（接点与内侧竖线错开）；大矩形内左列 3（经营管理、生产预测、销售管理，汇流入主生产计划）、中行 3（主生产计划、一个无法辨认的字形留空后接“级生产计划”、车间作业计划——中行三框各以双箭头接矩形顶边）、中下层 4（采购管理、设备管理、工具管理、人事管理，由留空字形所在框底部分配线 4 支向下箭头接入）。盲比经一轮修订收敛。"
     },
     {
       "id": "tb-fig-0081",
@@ -1148,7 +1148,7 @@
       "asset": "assets/figures/textbook/ch03-information-system-fundamentals/figure-t03-01.svg",
       "physical_page": 138,
       "printed_page": 129,
-      "record": "verification/教材首轮核查-第03章-信息系统基础知识.md",
+      "record": "verification/教材第二轮SVG事实核查记录-第03-04章.md",
       "note": "4 行 3 列：系统/专家系统/一般计算机系统；功能、处理能力、处理问题种类。横线贯通全宽（顶/底粗）、列间两竖线、无左右外框。逐格与清洗稿一致（「解释结果」「使用于特定的领域」等易错点已放大复核）；此前正文 Markdown 表由本 SVG 取代。盲比通过。"
     }
   ]

@@ -15,8 +15,8 @@
   </defs>
 
   <use href="#laptop" x="140" y="90"/>
-  <text x="140" y="55" text-anchor="middle" font-size="14" fill="#1f2937">数据</text>
-  <text x="140" y="80" text-anchor="middle" font-size="14" fill="#1f2937">输入</text>
+  <text x="140" y="132" text-anchor="middle" font-size="14" fill="#1f2937">数据</text>
+  <text x="140" y="157" text-anchor="middle" font-size="14" fill="#1f2937">输入</text>
 
   <rect x="390" y="110" width="170" height="120" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
   <text x="475" y="140" text-anchor="middle" font-size="15" fill="#1f2937">数据处理</text>
@@ -24,8 +24,8 @@
   <text x="418" y="214" font-size="14" fill="#1f2937">·联机实时处理</text>
 
   <use href="#laptop" x="720" y="90"/>
-  <text x="720" y="55" text-anchor="middle" font-size="14" fill="#1f2937">文件、报表</text>
-  <text x="720" y="80" text-anchor="middle" font-size="14" fill="#1f2937">生成</text>
+  <text x="720" y="132" text-anchor="middle" font-size="14" fill="#1f2937">文件、报表</text>
+  <text x="720" y="157" text-anchor="middle" font-size="14" fill="#1f2937">生成</text>
 
   <ellipse cx="475" cy="360" rx="58" ry="14" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
   <path d="M417 360 V430 A58 14 0 0 0 533 430 V360" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
