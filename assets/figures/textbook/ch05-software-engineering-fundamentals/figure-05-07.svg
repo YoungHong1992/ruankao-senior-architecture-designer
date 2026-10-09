@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="280" viewBox="0 0 1120 280" role="img" xml:lang="zh-CN">
+  <title>图5-7 WBS示意图</title>
+  <desc>软件系统树形分解：一个软件系统连接三个子系统/组件，三个父节点分别连接三个、两个、三个功能模块。连接线无箭头。</desc>
+  <rect width="1120" height="280" fill="#fff" />
+  <g fill="none" stroke="#858585" stroke-width="1.6">
+    <path d="M560 62 V82 H250 V100 M560 82 V100 M560 82 H870 V100" />
+    <path d="M250 148 V178 H120 V210 M250 178 V210 M250 178 H380 V210" />
+    <path d="M560 148 V178 H500 V210 M560 178 H620 V210" />
+    <path d="M870 148 V178 H740 V210 M870 178 V210 M870 178 H1000 V210" />
+    <rect x="485" y="14" width="150" height="48" fill="#fff" />
+    <rect x="175" y="100" width="150" height="48" fill="#fff" />
+    <rect x="485" y="100" width="150" height="48" fill="#fff" />
+    <rect x="795" y="100" width="150" height="48" fill="#fff" />
+    <rect x="60" y="210" width="120" height="46" fill="#fff" />
+    <rect x="190" y="210" width="120" height="46" fill="#fff" />
+    <rect x="320" y="210" width="120" height="46" fill="#fff" />
+    <rect x="440" y="210" width="120" height="46" fill="#fff" />
+    <rect x="560" y="210" width="120" height="46" fill="#fff" />
+    <rect x="680" y="210" width="120" height="46" fill="#fff" />
+    <rect x="810" y="210" width="120" height="46" fill="#fff" />
+    <rect x="940" y="210" width="120" height="46" fill="#fff" />
+  </g>
+  <g fill="#222" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" text-anchor="middle" dominant-baseline="middle">
+    <text x="560" y="38" font-size="23">软件系统</text>
+    <text x="250" y="124" font-size="22">子系统/组件</text>
+    <text x="560" y="124" font-size="22">子系统/组件</text>
+    <text x="870" y="124" font-size="22">子系统/组件</text>
+    <text x="120" y="233" font-size="20">功能模块</text>
+    <text x="250" y="233" font-size="20">功能模块</text>
+    <text x="380" y="233" font-size="20">功能模块</text>
+    <text x="500" y="233" font-size="20">功能模块</text>
+    <text x="620" y="233" font-size="20">功能模块</text>
+    <text x="740" y="233" font-size="20">功能模块</text>
+    <text x="870" y="233" font-size="20">功能模块</text>
+    <text x="1000" y="233" font-size="20">功能模块</text>
+  </g>
+</svg>

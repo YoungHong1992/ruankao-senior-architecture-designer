@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="520" viewBox="0 0 1000 520" role="img" aria-labelledby="title desc">
+  <title id="title">图5-4 “4+1”视图模型</title>
+  <desc id="desc">Four outlined rectangular view boxes surround an overlapping central ellipse. The center's English label is reproduced as visibly printed: “Usc Case View.”</desc>
+  <rect x="0" y="0" width="1000" height="520" fill="#fff"/>
+  <g fill="#fff" stroke="#858585" stroke-width="2">
+    <rect x="70" y="55" width="370" height="150"/>
+    <rect x="560" y="55" width="370" height="150"/>
+    <rect x="70" y="315" width="370" height="150"/>
+    <rect x="560" y="315" width="370" height="150"/>
+  </g>
+  <ellipse cx="500" cy="260" rx="155" ry="112" fill="#fff" stroke="#858585" stroke-width="2"/>
+  <g fill="#222" text-anchor="middle">
+    <g font-family="WenQuanYi Zen Hei, sans-serif" font-size="31">
+      <text x="255" y="112">逻辑视图</text>
+      <text x="745" y="112">实现视图</text>
+      <text x="255" y="373">进程视图</text>
+      <text x="745" y="373">部署视图</text>
+      <text x="500" y="242" font-size="34">用例视图</text>
+    </g>
+    <g font-family="serif" font-size="28">
+      <text x="255" y="158">(Logical View)</text>
+      <text x="745" y="158">(Implementation View)</text>
+      <text x="255" y="419">(Process View)</text>
+      <text x="745" y="419">(Deployment View)</text>
+      <text x="500" y="291" font-size="27">(Usc Case View)</text>
+    </g>
+  </g>
+</svg>

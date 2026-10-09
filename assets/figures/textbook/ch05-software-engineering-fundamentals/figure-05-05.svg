@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="320" viewBox="0 0 860 320" role="img" xml:lang="zh-CN">
+  <title>图5-5 需求管理的主要活动</title>
+  <desc>需求管理分支到变更控制、版本控制、需求跟踪和需求状态跟踪四个活动框。各框中的文字逐项按扫描图转录。</desc>
+  <g fill="none" stroke="#777" stroke-width="1.4">
+    <path d="M430 58 L110 105" />
+    <path d="M430 58 L318 105" />
+    <path d="M430 58 L526 105" />
+    <path d="M430 58 L734 105" />
+    <rect x="365" y="14" width="130" height="44" fill="#fff" />
+    <rect x="12" y="105" width="196" height="190" fill="#fff" />
+    <rect x="220" y="105" width="196" height="190" fill="#fff" />
+    <rect x="428" y="105" width="196" height="190" fill="#fff" />
+    <rect x="636" y="105" width="196" height="190" fill="#fff" />
+  </g>
+  <g fill="#222" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif">
+    <text x="430" y="42" text-anchor="middle" font-size="20">需求管理</text>
+
+    <text x="110" y="135" text-anchor="middle" font-size="18">变更控制</text>
+    <circle cx="27" cy="160" r="2.3" />
+    <text x="37" y="165" font-size="15.5">建议变更</text>
+    <circle cx="27" cy="184" r="2.3" />
+    <text x="37" y="189" font-size="15.5">分析影响</text>
+    <circle cx="27" cy="208" r="2.3" />
+    <text x="37" y="213" font-size="15.5">做出决策</text>
+    <circle cx="27" cy="232" r="2.3" />
+    <text x="37" y="237" font-size="15.5">交流</text>
+    <circle cx="27" cy="256" r="2.3" />
+    <text x="37" y="261" font-size="15.5">合并</text>
+    <circle cx="27" cy="280" r="2.3" />
+    <text x="37" y="285" font-size="15.5">测量需求的稳定性</text>
+
+    <text x="318" y="135" text-anchor="middle" font-size="18">版本控制</text>
+    <circle cx="235" cy="160" r="2.3" />
+    <text x="245" y="165" font-size="15.5">确定需求文档版本</text>
+    <circle cx="235" cy="184" r="2.3" />
+    <text x="245" y="189" font-size="15.5">确定单个需求文档</text>
+    <text x="245" y="210" font-size="15.5">版本</text>
+
+    <text x="526" y="135" text-anchor="middle" font-size="18">需求跟踪</text>
+    <circle cx="443" cy="160" r="2.3" />
+    <text x="453" y="165" font-size="15.5">定义对其他需求的</text>
+    <text x="453" y="186" font-size="15.5">连接链</text>
+    <circle cx="443" cy="210" r="2.3" />
+    <text x="453" y="215" font-size="15.5">定义对其他系统元</text>
+    <text x="453" y="236" font-size="15.5">素的连接链</text>
+
+    <text x="734" y="135" text-anchor="middle" font-size="18">需求状态跟踪</text>
+    <circle cx="651" cy="160" r="2.3" />
+    <text x="661" y="165" font-size="15.5">定义需求状态</text>
+    <circle cx="651" cy="184" r="2.3" />
+    <text x="661" y="189" font-size="15.5">跟踪需求每一个</text>
+    <text x="661" y="210" font-size="15.5">状态</text>
+  </g>
+</svg>

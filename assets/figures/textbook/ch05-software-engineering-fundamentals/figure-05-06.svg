@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="330" viewBox="0 0 980 330" role="img" xml:lang="zh-CN">
+  <title>图5-6 需求变更管理过程</title>
+  <desc>从“识别出问题”开始，依次经过问题分析和变更描述、变更分析和成本计算、变更实现，输出修改后的需求。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,4 L0,8 z" fill="#666" />
+    </marker>
+  </defs>
+  <g fill="none" stroke="#777" stroke-width="1.5">
+    <rect x="45" y="77" width="245" height="48" fill="#fff" />
+    <rect x="350" y="157" width="245" height="48" fill="#fff" />
+    <rect x="650" y="237" width="175" height="48" fill="#fff" />
+    <path d="M151 43 H166 V76" marker-end="url(#arrow)" />
+    <path d="M290 101 H472 V156" marker-end="url(#arrow)" />
+    <path d="M595 181 H737 V236" marker-end="url(#arrow)" />
+    <path d="M825 261 H962" marker-end="url(#arrow)" />
+  </g>
+  <g fill="#222" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19">
+    <text x="45" y="48">识别出问题</text>
+    <text x="167.5" y="107" text-anchor="middle">问题分析和变更描述</text>
+    <text x="472.5" y="187" text-anchor="middle">变更分析和成本计算</text>
+    <text x="737.5" y="267" text-anchor="middle">变更实现</text>
+    <text x="836" y="246">修改后的需求</text>
+  </g>
+</svg>

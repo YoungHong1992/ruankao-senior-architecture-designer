@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" role="img" xml:lang="zh-CN">
+  <title>表5-1 模块的耦合类型</title>
+  <desc>依据教材物理页205（印刷页196）转录。两列分别为耦合类型和描述，共七行；通信耦合、公共耦合、内容耦合的描述各分为两行。原表有横线和列分隔线，无底色。</desc>
+  <rect width="1200" height="500" fill="#fff" />
+  <g fill="none" stroke="#858585" stroke-width="1.5">
+    <path d="M0 8 H1200 M0 58 H1200 M0 108 H1200 M0 158 H1200 M0 208 H1200 M0 258 H1200 M0 334 H1200 M0 410 H1200 M0 486 H1200" />
+    <path d="M165 8 V486" />
+  </g>
+  <g fill="#222" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24.5" text-anchor="middle" dominant-baseline="middle">
+    <text x="82.5" y="33">耦合类型</text>
+    <text x="682.5" y="33">描述</text>
+    <text x="82.5" y="83">非直接耦合</text>
+    <text x="82.5" y="133">数据耦合</text>
+    <text x="82.5" y="183">标记耦合</text>
+    <text x="82.5" y="233">控制耦合</text>
+    <text x="82.5" y="296">通信耦合</text>
+    <text x="82.5" y="372">公共耦合</text>
+    <text x="82.5" y="448">内容耦合</text>
+  </g>
+  <g fill="#222" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24.5" dominant-baseline="middle">
+    <text x="177" y="83">两个模块之间没有直接关系，它们之间的联系完全是通过上级模块的控制和调用来实现的</text>
+    <text x="177" y="133">一组模块借助参数表传递简单数据</text>
+    <text x="177" y="183">一组模块通过参数表传递记录等复杂信息(数据结构)</text>
+    <text x="177" y="233">模块之间传递的信息中包含用于控制模块内部逻辑的信息</text>
+    <text x="177" y="282">一组模块共用了一组输入信息，或者它们的输出需要整合以形成完整数据，即共享了输入</text>
+    <text x="177" y="310">或输出</text>
+    <text x="177" y="358">多个模块都访问同一个公共数据环境，公共的数据环境可以是全局数据结构、共享的通信</text>
+    <text x="177" y="386">区、内存的公共覆盖区等</text>
+    <text x="177" y="434">一个模块直接访问另一个模块的内部数据；一个模块不通过正常入口转到另一个模块的内</text>
+    <text x="177" y="462">部；两个模块有一部分程序代码重叠；一个模块有多个入口等</text>
+  </g>
+</svg>
