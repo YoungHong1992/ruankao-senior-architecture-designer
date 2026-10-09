@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="420" viewBox="0 0 900 420" font-family="sans-serif">
+  <title>图 3-7 管理信息系统的功能结构</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 120（物理页 129）插图。组织图式两层：顶部横框「管理信息系统」；其底中心一根竖线直落水平母线并穿过母线延续入中间框顶部；母线止于最外侧两根引下线（端部无下钩），共接 5 个等宽竖长框（文字竖排），自左至右：市场子系统、财会子系统、人事子系统、生产子系统、供运子系统。全部细实线，无箭头。</desc>
+  <rect width="900" height="420" fill="#ffffff"/>
+
+  <rect x="370" y="40" width="160" height="48" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="450" y="70" text-anchor="middle" font-size="15" fill="#1f2937">管理信息系统</text>
+
+  <g stroke="#4a5568" stroke-width="1.4" fill="none">
+    <line x1="450" y1="88" x2="450" y2="190"/>
+    <line x1="150" y1="150" x2="750" y2="150"/>
+    <line x1="150" y1="150" x2="150" y2="190"/>
+    <line x1="300" y1="150" x2="300" y2="190"/>
+    <line x1="600" y1="150" x2="600" y2="190"/>
+    <line x1="750" y1="150" x2="750" y2="190"/>
+  </g>
+
+  <g fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5">
+    <rect x="110" y="190" width="80" height="150"/>
+    <rect x="260" y="190" width="80" height="150"/>
+    <rect x="410" y="190" width="80" height="150"/>
+    <rect x="560" y="190" width="80" height="150"/>
+    <rect x="710" y="190" width="80" height="150"/>
+  </g>
+  <g font-size="14" fill="#1f2937" text-anchor="middle">
+    <text x="150" y="222">市</text><text x="150" y="248">场</text><text x="150" y="274">子</text><text x="150" y="300">系</text><text x="150" y="326">统</text>
+    <text x="300" y="222">财</text><text x="300" y="248">会</text><text x="300" y="274">子</text><text x="300" y="300">系</text><text x="300" y="326">统</text>
+    <text x="450" y="222">人</text><text x="450" y="248">事</text><text x="450" y="274">子</text><text x="450" y="300">系</text><text x="450" y="326">统</text>
+    <text x="600" y="222">生</text><text x="600" y="248">产</text><text x="600" y="274">子</text><text x="600" y="300">系</text><text x="600" y="326">统</text>
+    <text x="750" y="222">供</text><text x="750" y="248">运</text><text x="750" y="274">子</text><text x="750" y="300">系</text><text x="750" y="326">统</text>
+  </g>
+</svg>

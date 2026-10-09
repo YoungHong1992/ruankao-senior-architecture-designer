@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="640" viewBox="0 0 960 640" font-family="sans-serif">
+  <title>图 4-10 DNS欺骗</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 164（物理页 173）插图。顶部中央立式服务器机柜图标，下方标 DNS服务器；左侧电脑标 www.xxx.com / IP：  202.109.2.2；右侧电脑右侧标 www.angle.com（印面为 angle 非 angel）；底部中央电脑标 www.heike.com / IP：  200.1.1.1；右上云形气泡内两行 www.xxx.com / IP：  200.1.1.1，云不与任何图标连线。左电脑→DNS服务器与右电脑→DNS服务器均为实线、服务器端实心箭头（右线沿标「DNS查询」）；底部电脑→右电脑实线、右上端箭头指向 www.angle.com，沿线标「IP： 200.1.1.1」。服务器与电脑为示意性剪贴画，以简化图形表示。</desc>
+  <rect width="960" height="640" fill="#ffffff"/>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#4a5568"/>
+    </marker>
+    <g id="pc">
+      <rect x="-34" y="0" width="68" height="46" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.4"/>
+      <line x1="-8" y1="46" x2="-8" y2="56" stroke="#7d8da5" stroke-width="1.4"/>
+      <line x1="8" y1="46" x2="8" y2="56" stroke="#7d8da5" stroke-width="1.4"/>
+      <line x1="-20" y1="56" x2="20" y2="56" stroke="#7d8da5" stroke-width="1.4"/>
+    </g>
+    <g id="srv">
+      <rect x="-24" y="0" width="48" height="80" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.4"/>
+      <line x1="-24" y1="20" x2="24" y2="20" stroke="#7d8da5" stroke-width="1"/>
+      <line x1="-24" y1="40" x2="24" y2="40" stroke="#7d8da5" stroke-width="1"/>
+      <line x1="-24" y1="60" x2="24" y2="60" stroke="#7d8da5" stroke-width="1"/>
+    </g>
+  </defs>
+
+  <use href="#srv" x="450" y="40"/>
+  <text x="450" y="146" text-anchor="middle" font-size="14" fill="#1f2937">DNS服务器</text>
+
+  <use href="#pc" x="150" y="258"/>
+  <text x="150" y="346" text-anchor="middle" font-size="13" fill="#1f2937">www.xxx.com</text>
+  <text x="150" y="368" text-anchor="middle" font-size="13" fill="#1f2937">IP：  202.109.2.2</text>
+
+  <use href="#pc" x="750" y="258"/>
+  <text x="858" y="290" text-anchor="middle" font-size="13" fill="#1f2937">www.angle.com</text>
+
+  <path d="M20 90 Q50 62 88 78 Q108 42 152 62 Q196 46 228 74 Q266 66 284 94 Q296 124 268 144 Q240 164 202 152 Q174 176 136 162 Q98 172 72 152 Q40 142 34 114 Q14 104 20 90 Z"
+    transform="translate(640,10)" fill="#f4f7fc" stroke="#9aa5b5" stroke-width="1.4"/>
+  <text x="790" y="88" text-anchor="middle" font-size="13" fill="#1f2937">www.xxx.com</text>
+  <text x="790" y="110" text-anchor="middle" font-size="13" fill="#1f2937">IP：  200.1.1.1</text>
+
+  <use href="#pc" x="450" y="452"/>
+  <text x="450" y="540" text-anchor="middle" font-size="13" fill="#1f2937">www.heike.com</text>
+  <text x="450" y="562" text-anchor="middle" font-size="13" fill="#1f2937">IP：  200.1.1.1</text>
+
+  <line x1="192" y1="252" x2="416" y2="124" stroke="#4a5568" stroke-width="1.4" marker-end="url(#arr)"/>
+  <line x1="708" y1="252" x2="484" y2="124" stroke="#4a5568" stroke-width="1.4" marker-end="url(#arr)"/>
+  <text x="612" y="176" text-anchor="middle" font-size="13" font-style="italic" fill="#6b7280">DNS查询</text>
+  <line x1="488" y1="446" x2="716" y2="312" stroke="#4a5568" stroke-width="1.4" marker-end="url(#arr)"/>
+  <text x="588" y="398" text-anchor="middle" font-size="13" font-style="italic" fill="#6b7280">IP： 200.1.1.1</text>
+</svg>

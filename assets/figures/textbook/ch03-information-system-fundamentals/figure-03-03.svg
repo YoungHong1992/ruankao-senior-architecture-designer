@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="850" height="540" viewBox="0 0 850 540" font-family="sans-serif">
+  <title>图 3-3 银行的账目批处理</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 117（物理页 126）插图。左上为多页叠层文档图形（前页标「账目」，前页底边波浪缺口为示意性装饰，未复刻）；其左水平左行折角下行，箭头向下指入左下「自动输入／并分类」框顶边。该框→「事务文件」圆柱→中央「对账处理」框（「账」字经 10× 字形比对确认，低倍易误看为「频」）均为水平右向箭头。对账处理右上角斜线箭头指入「储户文件」框；右边近水平（略上斜）箭头指入「其他报表」框；下方「主文件」圆柱顶垂直向上箭头指入框底；右下角斜线箭头指入「修改后的／主文件」圆柱左上。七条连线全部实线单箭头。文档叠层、圆柱为示意性剪贴画，以简化图形表示。</desc>
+  <rect width="850" height="540" fill="#ffffff"/>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#4a5568"/>
+    </marker>
+    <g id="doc">
+      <rect x="-42" y="-34" width="84" height="66" fill="#f4f7fc" stroke="#9aa5b5" stroke-width="1.2"/>
+      <rect x="-34" y="-42" width="84" height="66" fill="#f4f7fc" stroke="#9aa5b5" stroke-width="1.2"/>
+      <rect x="-26" y="-50" width="84" height="66" fill="#ffffff" stroke="#7d8da5" stroke-width="1.4"/>
+    </g>
+    <g id="cyl">
+      <ellipse cx="0" cy="7" rx="56" ry="13" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+      <path d="M-56 7 V62 A56 13 0 0 0 56 62 V7" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+    </g>
+  </defs>
+
+  <use href="#doc" x="190" y="88"/>
+  <text x="194" y="78" text-anchor="middle" font-size="14" fill="#1f2937">账目</text>
+
+  <rect x="60" y="210" width="140" height="80" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="130" y="243" text-anchor="middle" font-size="14" fill="#1f2937">自动输入</text>
+  <text x="130" y="271" text-anchor="middle" font-size="14" fill="#1f2937">并分类</text>
+
+  <use href="#cyl" x="310" y="230"/>
+  <text x="310" y="248" text-anchor="middle" font-size="14" fill="#1f2937">事务</text>
+  <text x="310" y="276" text-anchor="middle" font-size="14" fill="#1f2937">文件</text>
+
+  <rect x="430" y="220" width="140" height="80" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="500" y="267" text-anchor="middle" font-size="15" fill="#1f2937">对账处理</text>
+
+  <rect x="650" y="120" width="140" height="60" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="720" y="157" text-anchor="middle" font-size="14" fill="#1f2937">储户文件</text>
+
+  <rect x="650" y="230" width="140" height="60" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="720" y="267" text-anchor="middle" font-size="14" fill="#1f2937">其他报表</text>
+
+  <use href="#cyl" x="500" y="410"/>
+  <text x="500" y="450" text-anchor="middle" font-size="14" fill="#1f2937">主文件</text>
+
+  <use href="#cyl" x="700" y="410"/>
+  <text x="700" y="445" text-anchor="middle" font-size="14" fill="#1f2937">修改后的</text>
+  <text x="700" y="473" text-anchor="middle" font-size="14" fill="#1f2937">主文件</text>
+
+  <g stroke="#4a5568" stroke-width="1.4" fill="none">
+    <path d="M148 85 H95 V206" marker-end="url(#arr)"/>
+    <line x1="200" y1="250" x2="252" y2="250" marker-end="url(#arr)"/>
+    <line x1="368" y1="250" x2="426" y2="250" marker-end="url(#arr)"/>
+    <line x1="566" y1="222" x2="646" y2="158" marker-end="url(#arr)"/>
+    <line x1="572" y1="268" x2="646" y2="252" marker-end="url(#arr)"/>
+    <line x1="500" y1="408" x2="500" y2="304" marker-end="url(#arr)"/>
+    <line x1="562" y1="298" x2="652" y2="392" marker-end="url(#arr)"/>
+  </g>
+</svg>

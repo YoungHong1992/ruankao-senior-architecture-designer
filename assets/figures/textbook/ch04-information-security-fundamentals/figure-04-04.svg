@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="470" viewBox="0 0 1180 470" font-family="sans-serif">
+  <title>图 4-4 有KDC的密钥分配</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 154（物理页 163）插图，经两轮像素级盲态裁定。KDC 椭圆在左上，A 在左下，B 在右侧。KDC–A 之间两条线：① A→KDC（仅 KDC 端有箭头，A 端裸端），标号①悬于线上方偏左；② KDC→A（仅 A 端有箭头），标号②悬于线右侧，首个 E 的下标无法辨字，本图留空。A–B 之间三条线：③ 上方浅凸弧 A→B（仅 B 端右向箭头），标号③悬于弧上方；④ 中间浅凹弧 B→A（仅 A 端左向箭头），标号④悬于线上方；⑤ 底部深凹弧 A→B（仅 B 端沿行进方向箭头，与 B 轮廓留有空隙），标号⑤悬于弧谷上方。三条 A–B 线均连续，无白底断口。</desc>
+  <rect width="1180" height="470" fill="#ffffff"/>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#4a5568"/>
+    </marker>
+  </defs>
+
+  <ellipse cx="250" cy="80" rx="52" ry="32" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.6"/>
+  <text x="250" y="86" text-anchor="middle" font-size="18" fill="#1f2937">KDC</text>
+  <ellipse cx="150" cy="300" rx="40" ry="28" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.6"/>
+  <text x="150" y="306" text-anchor="middle" font-size="18" fill="#1f2937">A</text>
+  <ellipse cx="980" cy="300" rx="40" ry="28" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.6"/>
+  <text x="980" y="306" text-anchor="middle" font-size="18" fill="#1f2937">B</text>
+
+  <g stroke="#4a5568" stroke-width="1.6" fill="none">
+    <!-- 1: A -> KDC, arrow at KDC end only -->
+    <path d="M163 274 L222 112" marker-end="url(#arr)"/>
+    <!-- 2: KDC -> A, arrow at A end only -->
+    <path d="M268 112 L177 274" marker-end="url(#arr)"/>
+    <!-- 3: A -> B flat arc (convex up), arrow at B -->
+    <path d="M192 278 Q565 248 941 283" marker-end="url(#arr)"/>
+    <!-- 4: B -> A shallow sag, arrow at A -->
+    <path d="M943 314 Q565 336 194 308" marker-end="url(#arr)"/>
+    <!-- 5: A -> B deep arc, arrow at B along travel direction, short of outline -->
+    <path d="M182 314 Q565 400 932 315" marker-end="url(#arr)"/>
+  </g>
+
+  <text x="112" y="182" text-anchor="end" font-size="15" fill="#1f2937">
+    <tspan>①request||</tspan><tspan font-style="italic">N</tspan><tspan font-size="11" dy="4">1</tspan>
+  </text>
+  <text x="470" y="122" text-anchor="middle" font-size="15" fill="#1f2937">
+    <tspan>②E</tspan><tspan font-size="11" dy="4">□</tspan><tspan dy="-4">[</tspan><tspan font-style="italic">K</tspan><tspan font-size="11" dy="4">s</tspan><tspan dy="-4">||request||</tspan><tspan font-style="italic">N</tspan><tspan font-size="11" dy="4">1</tspan><tspan dy="-4">|| E</tspan><tspan font-size="11" dy="4" font-style="italic">K</tspan><tspan font-size="9" dy="3">b</tspan><tspan dy="-7">(</tspan><tspan font-style="italic">K</tspan><tspan font-size="11" dy="4">s</tspan><tspan dy="-4">, </tspan><tspan font-style="italic">ID</tspan><tspan font-size="11" dy="4">A</tspan><tspan dy="-4">)]</tspan>
+  </text>
+  <text x="565" y="240" text-anchor="middle" font-size="15" fill="#1f2937">
+    <tspan>③E</tspan><tspan font-size="11" dy="4" font-style="italic">K</tspan><tspan font-size="9" dy="3">b</tspan><tspan dy="-7">[</tspan><tspan font-style="italic">K</tspan><tspan font-size="11" dy="4">s</tspan><tspan dy="-4">||</tspan><tspan font-style="italic">ID</tspan><tspan font-size="11" dy="4">A</tspan><tspan dy="-4">]</tspan>
+  </text>
+  <text x="565" y="300" text-anchor="middle" font-size="15" fill="#1f2937">
+    <tspan>④E</tspan><tspan font-size="11" dy="4" font-style="italic">K</tspan><tspan font-size="9" dy="3">s</tspan><tspan dy="-7">[</tspan><tspan font-style="italic">N</tspan><tspan font-size="11" dy="4">2</tspan><tspan dy="-4">]</tspan>
+  </text>
+  <text x="565" y="350" text-anchor="middle" font-size="15" fill="#1f2937">
+    <tspan>⑤E</tspan><tspan font-size="11" dy="4" font-style="italic">K</tspan><tspan font-size="9" dy="3">s</tspan><tspan dy="-7">[</tspan><tspan font-style="italic">f</tspan><tspan> (</tspan><tspan font-style="italic">N</tspan><tspan font-size="11" dy="4">2</tspan><tspan dy="-4">)]</tspan>
+  </text>
+</svg>

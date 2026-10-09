@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="200" viewBox="0 0 1160 200" font-family="sans-serif">
+  <title>图 4-6 基于密钥的数字签名</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 159（物理页 168）插图。五个方框自左向右：A、消息框一、BB、消息框二、B。消息框一与 A/BB 箱顶对齐（处上部），消息框二底对齐（处下部），构成上下两条水平通道。四条水平连线：A→消息框一无箭头；消息框一→BB 右向箭头；BB→消息框二无箭头；消息框二→B 右向箭头。消息框内圆括号为全角，逗号后有空格：A, K_A（B, R_A, t, P）与 K_B（A, R_A, t, P, K_BB（A, t, P））。上下通道之间、BB 框左侧另标 K_S（R□）：R 的下标原图无法判定，本图留空。</desc>
+  <rect width="1160" height="200" fill="#ffffff"/>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#4a5568"/>
+    </marker>
+  </defs>
+
+  <rect x="30" y="70" width="70" height="56" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="65" y="104" text-anchor="middle" font-size="16" fill="#1f2937">A</text>
+
+  <rect x="180" y="74" width="330" height="30" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="345" y="95" text-anchor="middle" font-size="14" fill="#1f2937">
+    <tspan>A, </tspan><tspan font-style="italic">K</tspan><tspan font-size="11" dy="4">A</tspan><tspan dy="-4">（B, </tspan><tspan font-style="italic">R</tspan><tspan font-size="11" dy="4">A</tspan><tspan dy="-4">, t, P）</tspan>
+  </text>
+
+  <rect x="590" y="70" width="70" height="56" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="625" y="104" text-anchor="middle" font-size="16" fill="#1f2937">BB</text>
+
+  <rect x="740" y="92" width="320" height="30" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="900" y="113" text-anchor="middle" font-size="14" fill="#1f2937">
+    <tspan font-style="italic">K</tspan><tspan font-size="11" dy="4">B</tspan><tspan dy="-4">（A, </tspan><tspan font-style="italic">R</tspan><tspan font-size="11" dy="4">A</tspan><tspan dy="-4">, t, P, </tspan><tspan font-style="italic">K</tspan><tspan font-size="11" dy="4">BB</tspan><tspan dy="-4">（A, t, P））</tspan>
+  </text>
+
+  <rect x="1090" y="70" width="56" height="56" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="1118" y="104" text-anchor="middle" font-size="16" fill="#1f2937">B</text>
+
+  <line x1="100" y1="89" x2="178" y2="89" stroke="#4a5568" stroke-width="1.5"/>
+  <line x1="510" y1="89" x2="588" y2="89" stroke="#4a5568" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="660" y1="107" x2="738" y2="107" stroke="#4a5568" stroke-width="1.5"/>
+  <line x1="1060" y1="107" x2="1088" y2="107" stroke="#4a5568" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <text x="549" y="108" text-anchor="middle" font-size="13" fill="#1f2937">
+    <tspan font-style="italic">K</tspan><tspan font-size="10" dy="3">S</tspan><tspan dy="-3">（</tspan><tspan font-style="italic">R</tspan><tspan font-size="10" dy="3">□</tspan><tspan dy="-3">）</tspan>
+  </text>
+</svg>

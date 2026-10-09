@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="520" viewBox="0 0 1000 520" font-family="sans-serif">
+  <title>图 3-15 企业运作的供需链图</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 136（物理页 145）插图。顶部通长矩形（内无分栏线）：物流流入（左）、信息流（中）、物流流出（右）；底部通长矩形：资金流入（左）、信息流（中）、资金流出（右）。中部一行 5 框：供应市场、采购、加工、销售、需求市场，其间四段细实线右向单箭头。4 个竖向空心大箭头全部向上：供应市场→物流流入、需求市场→物流流出、资金流入→供应市场、资金流出→需求市场。2 个横向空心大箭头：物流过程（中上层，向右，头部抵需求市场/物流流出一侧）、资金流过程（中下层，向左，头部抵供应市场/资金流入一侧）。</desc>
+  <rect width="1000" height="520" fill="#ffffff"/>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#4a5568"/>
+    </marker>
+    <g id="varrow">
+      <path d="M-16 0 V-150 L-34 -150 L0 -196 L34 -150 L16 -150 V0 Z" fill="none" stroke="#7d8da5" stroke-width="1.5"/>
+    </g>
+    <g id="harrow-r">
+      <path d="M0 -16 H360 V-34 H360 L404 0 L360 34 V16 H0 Z" fill="none" stroke="#7d8da5" stroke-width="1.5"/>
+    </g>
+  </defs>
+
+  <rect x="60" y="30" width="880" height="42" fill="#f8fafd" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="160" y="57" text-anchor="middle" font-size="14" fill="#1f2937">物流流入</text>
+  <text x="500" y="57" text-anchor="middle" font-size="14" fill="#1f2937">信息流</text>
+  <text x="840" y="57" text-anchor="middle" font-size="14" fill="#1f2937">物流流出</text>
+  <rect x="60" y="448" width="880" height="42" fill="#f8fafd" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="160" y="475" text-anchor="middle" font-size="14" fill="#1f2937">资金流入</text>
+  <text x="500" y="475" text-anchor="middle" font-size="14" fill="#1f2937">信息流</text>
+  <text x="840" y="475" text-anchor="middle" font-size="14" fill="#1f2937">资金流出</text>
+
+  <g fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5">
+    <rect x="80" y="220" width="120" height="52"/>
+    <rect x="260" y="220" width="80" height="52"/>
+    <rect x="420" y="220" width="80" height="52"/>
+    <rect x="580" y="220" width="80" height="52"/>
+    <rect x="720" y="220" width="120" height="52"/>
+  </g>
+  <g font-size="14" fill="#1f2937" text-anchor="middle">
+    <text x="140" y="252">供应市场</text>
+    <text x="300" y="252">采购</text>
+    <text x="460" y="252">加工</text>
+    <text x="620" y="252">销售</text>
+    <text x="780" y="252">需求市场</text>
+  </g>
+  <g stroke="#4a5568" stroke-width="1.4">
+    <line x1="202" y1="246" x2="256" y2="246" marker-end="url(#arr)"/>
+    <line x1="342" y1="246" x2="416" y2="246" marker-end="url(#arr)"/>
+    <line x1="502" y1="246" x2="576" y2="246" marker-end="url(#arr)"/>
+    <line x1="662" y1="246" x2="716" y2="246" marker-end="url(#arr)"/>
+  </g>
+
+  <use href="#varrow" x="140" y="216"/>
+  <use href="#varrow" x="780" y="216"/>
+  <use href="#varrow" x="140" y="444"/>
+  <use href="#varrow" x="780" y="444"/>
+  <use href="#harrow-r" x="270" y="140"/>
+  <text x="470" y="146" text-anchor="middle" font-size="14" fill="#1f2937">物流过程</text>
+  <use href="#harrow-r" transform="translate(744,360) scale(-1,1)"/>
+  <text x="540" y="366" text-anchor="middle" font-size="14" fill="#1f2937">资金流过程</text>
+</svg>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="560" viewBox="0 0 800 560" font-family="sans-serif">
+  <title>图 3-14 专家系统的一般结构</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 130（物理页 139）插图。上排无框文字：专家（左）、用户（右）；第二排左「知识获取」矩形、右「人—机接口」（连接符原印为一条长横，照录「—」；框线只画四角短括的开框）；下部一个大虚线矩形，内含知识库（左）、推理机（右）两矩形，虚线框内底部中央标「（专家系统核心）」。连线：专家↔知识获取（竖向双箭头）；用户↔人—机接口（竖向双箭头）；知识获取→知识库（向下单箭头，穿过虚线框顶边）；知识库↔推理机（水平双箭头）；人—机接口框底至虚线框顶边有两条竖线——左线标「咨询，」（原印带逗号，位于线左侧；该线箭头在高倍放大下无法判定，本图不画箭头），右线为「建议」（向上箭头入接口底边，标签位于线右侧）。</desc>
+  <rect width="800" height="560" fill="#ffffff"/>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#4a5568"/>
+    </marker>
+  </defs>
+
+  <text x="215" y="62" text-anchor="middle" font-size="15" fill="#1f2937">专家</text>
+  <text x="600" y="62" text-anchor="middle" font-size="15" fill="#1f2937">用户</text>
+
+  <rect x="150" y="110" width="130" height="50" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="215" y="141" text-anchor="middle" font-size="14" fill="#1f2937">知识获取</text>
+
+  <path d="M520 110 h24 M520 166 h24 M680 110 h24 M680 166 h24 M520 110 v56 M704 110 v56" fill="none" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="612" y="145" text-anchor="middle" font-size="14" fill="#1f2937">人—机接口</text>
+
+  <rect x="120" y="220" width="560" height="240" fill="none" stroke="#7d8da5" stroke-width="1.5" stroke-dasharray="7 5"/>
+  <rect x="170" y="260" width="150" height="70" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="245" y="301" text-anchor="middle" font-size="14" fill="#1f2937">知识库</text>
+  <rect x="450" y="260" width="150" height="70" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.5"/>
+  <text x="525" y="301" text-anchor="middle" font-size="14" fill="#1f2937">推理机</text>
+  <text x="400" y="432" text-anchor="middle" font-size="14" fill="#1f2937">（专家系统核心）</text>
+
+  <g stroke="#4a5568" stroke-width="1.4" fill="none">
+    <line x1="215" y1="70" x2="215" y2="106" marker-end="url(#arr)"/>
+    <line x1="215" y1="108" x2="215" y2="72" marker-end="url(#arr)"/>
+    <line x1="600" y1="70" x2="600" y2="106" marker-end="url(#arr)"/>
+    <line x1="600" y1="108" x2="600" y2="72" marker-end="url(#arr)"/>
+    <line x1="215" y1="162" x2="215" y2="256" marker-end="url(#arr)"/>
+    <line x1="322" y1="295" x2="446" y2="295" marker-start="url(#arr)" marker-end="url(#arr)"/>
+    <line x1="560" y1="168" x2="560" y2="218"/>
+    <line x1="600" y1="218" x2="600" y2="170" marker-end="url(#arr)"/>
+  </g>
+  <text x="548" y="200" text-anchor="end" font-size="13" fill="#1f2937">咨询，</text>
+  <text x="612" y="200" font-size="13" fill="#1f2937">建议</text>
+</svg>

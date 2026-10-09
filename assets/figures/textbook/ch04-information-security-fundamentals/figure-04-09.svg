@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560" font-family="sans-serif">
+  <title>图 4-9 ARP欺骗</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 163（物理页 172）插图。三台电脑三角分布：C 左上（上方标 MAC: CC:CC:CC:CC，下方标 C）、A 中右（下方标 A）、B 左下（上方标 MAC: BB:BB:BB:BB，下方标 B）。C→A 为短划虚线、A 端实心箭头，沿线灰色斜体标「信任关系」；B→A 为实线、A 端实心箭头，沿线标「ARP报文」。C 标签下方至 B 的 MAC 标签上方有一条浅灰竖细实线，上端有一深色小方点（其性质原图无法判定），下端无箭头；竖线旁标「使C瘫痪」。A 右上方云形气泡内两行：C的MAC地址为 / BB:BB:BB:BB，云不与任何图标连线。电脑为示意性剪贴画，以简化图形表示。</desc>
+  <rect width="900" height="560" fill="#ffffff"/>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#4a5568"/>
+    </marker>
+    <g id="pc">
+      <rect x="-34" y="0" width="68" height="46" fill="#eef3fb" stroke="#7d8da5" stroke-width="1.4"/>
+      <line x1="-8" y1="46" x2="-8" y2="56" stroke="#7d8da5" stroke-width="1.4"/>
+      <line x1="8" y1="46" x2="8" y2="56" stroke="#7d8da5" stroke-width="1.4"/>
+      <line x1="-20" y1="56" x2="20" y2="56" stroke="#7d8da5" stroke-width="1.4"/>
+    </g>
+  </defs>
+
+  <text x="200" y="70" text-anchor="middle" font-size="14" fill="#1f2937">MAC: CC:CC:CC:CC</text>
+  <use href="#pc" x="200" y="92"/>
+  <text x="200" y="180" text-anchor="middle" font-size="15" fill="#1f2937">C</text>
+
+  <text x="200" y="368" text-anchor="middle" font-size="14" fill="#1f2937">MAC: BB:BB:BB:BB</text>
+  <use href="#pc" x="200" y="392"/>
+  <text x="200" y="480" text-anchor="middle" font-size="15" fill="#1f2937">B</text>
+
+  <use href="#pc" x="620" y="240"/>
+  <text x="620" y="328" text-anchor="middle" font-size="15" fill="#1f2937">A</text>
+
+  <path d="M40 90 Q70 60 110 78 Q130 40 180 62 Q226 44 260 74 Q300 66 318 96 Q330 128 300 148 Q270 170 230 158 Q200 182 160 168 Q120 180 92 158 Q58 148 52 118 Q30 108 40 90 Z"
+    transform="translate(540,20)" fill="#f4f7fc" stroke="#9aa5b5" stroke-width="1.4"/>
+  <text x="700" y="100" text-anchor="middle" font-size="13" fill="#1f2937">C的MAC地址为</text>
+  <text x="700" y="122" text-anchor="middle" font-size="13" fill="#1f2937">BB:BB:BB:BB</text>
+
+  <line x1="244" y1="128" x2="580" y2="252" stroke="#4a5568" stroke-width="1.4" stroke-dasharray="7 5" marker-end="url(#arr)"/>
+  <text x="400" y="168" text-anchor="middle" font-size="13" font-style="italic" fill="#6b7280">信任关系</text>
+  <line x1="244" y1="416" x2="580" y2="292" stroke="#4a5568" stroke-width="1.4" marker-end="url(#arr)"/>
+  <text x="400" y="372" text-anchor="middle" font-size="13" font-style="italic" fill="#6b7280">ARP报文</text>
+
+  <line x1="200" y1="192" x2="200" y2="360" stroke="#b6bec9" stroke-width="1.2"/>
+  <rect x="196" y="188" width="8" height="8" fill="#4a5568"/>
+  <text x="132" y="282" text-anchor="middle" font-size="13" fill="#1f2937">使C瘫痪</text>
+</svg>

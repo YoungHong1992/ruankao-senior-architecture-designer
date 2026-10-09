@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="110" viewBox="0 0 700 110" font-family="sans-serif">
+  <title>表 4-2 防御ICMP攻击所需修改键值</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 168（物理页 177）表格。两列：值名称、值(REG_DWORD)。表头加一行数据（EnableICMPRedirect / 0）。上下粗横线、表头下细横线、列间一条竖线、左右无外框。单元格经扫描件核对。</desc>
+  <rect width="700" height="110" fill="#ffffff"/>
+  <line x1="40" y1="24" x2="660" y2="24" stroke="#556070" stroke-width="2.5"/>
+  <line x1="40" y1="58" x2="660" y2="58" stroke="#556070" stroke-width="1"/>
+  <line x1="40" y1="92" x2="660" y2="92" stroke="#556070" stroke-width="2.5"/>
+  <line x1="470" y1="24" x2="470" y2="92" stroke="#556070" stroke-width="1"/>
+  <rect x="40" y="24" width="620" height="34" fill="#e8eef7"/>
+  <g font-size="15" fill="#1f2937">
+    <text x="60" y="47" font-weight="bold">值名称</text>
+    <text x="490" y="47" font-weight="bold">值(REG_DWORD)</text>
+    <text x="60" y="81">EnableICMPRedirect</text>
+    <text x="490" y="81">0</text>
+  </g>
+</svg>

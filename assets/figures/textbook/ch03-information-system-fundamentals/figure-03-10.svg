@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" font-family="sans-serif">
+  <title>图 3-10 管理信息系统的软件结构</title>
+  <desc>复原自《系统架构设计师教程（第2版）》印刷页 123（物理页 132）插图。左侧行标签：应用软件/用于（左上角）、战略计划、管理控制、运行控制、业务处理、专用文件、公用数据/文件。主体 7 根等宽竖长条（每条分 4 格：顶部小格对应战略计划、第二小格对应管理控制、中部大格对应运行控制、下部大格对应业务处理；格内无文字），列标题两行：销售/市场、生（第二字印面仅淡影，无法判定，故只有一字）、后/勤、人/事、财务/会计、信息/处理、高层/管理。竖条下方 7 个小方块一行（专用文件行，与竖条一一对齐，格内无文字）；最下一根贯通横条（公用数据文件），自第 1 根竖条左缘起至右侧数据库管理系统框右缘。右侧两竖框：模型库（上格）与公用/应用/程序（下格）、数据库管理系统（数据/库管/理系/统四行单格）；两框上方为左右两段互不相连的端部括线（每段横线外端向下斜折，中段断开），上标「公用程序」。全图无连线无箭头。</desc>
+  <rect width="1200" height="640" fill="#ffffff"/>
+
+  <g font-size="13" fill="#1f2937">
+    <text x="20" y="66">应用软件</text>
+    <text x="20" y="86">用于</text>
+    <text x="20" y="126">战略计划</text>
+    <text x="20" y="170">管理控制</text>
+    <text x="20" y="246">运行控制</text>
+    <text x="20" y="372">业务处理</text>
+    <text x="20" y="486">专用文件</text>
+    <text x="20" y="568">公用数据</text>
+    <text x="20" y="588">文件</text>
+  </g>
+
+  <g font-size="13" fill="#1f2937" text-anchor="middle">
+    <text x="265" y="66">销售</text><text x="265" y="84">市场</text>
+    <text x="369" y="66">生</text>
+    <text x="473" y="66">后</text><text x="473" y="84">勤</text>
+    <text x="577" y="66">人</text><text x="577" y="84">事</text>
+    <text x="681" y="66">财务</text><text x="681" y="84">会计</text>
+    <text x="785" y="66">信息</text><text x="785" y="84">处理</text>
+    <text x="889" y="66">高层</text><text x="889" y="84">管理</text>
+  </g>
+
+  <g fill="#f8fafd" stroke="#7d8da5" stroke-width="1.3">
+    <rect x="220" y="100" width="90" height="330"/>
+    <rect x="324" y="100" width="90" height="330"/>
+    <rect x="428" y="100" width="90" height="330"/>
+    <rect x="532" y="100" width="90" height="330"/>
+    <rect x="636" y="100" width="90" height="330"/>
+    <rect x="740" y="100" width="90" height="330"/>
+    <rect x="844" y="100" width="90" height="330"/>
+  </g>
+  <g stroke="#7d8da5" stroke-width="1.1">
+    <line x1="220" y1="140" x2="934" y2="140"/>
+    <line x1="220" y1="180" x2="934" y2="180"/>
+    <line x1="220" y1="300" x2="934" y2="300"/>
+  </g>
+
+  <g fill="#f8fafd" stroke="#7d8da5" stroke-width="1.3">
+    <rect x="245" y="460" width="40" height="40"/>
+    <rect x="349" y="460" width="40" height="40"/>
+    <rect x="453" y="460" width="40" height="40"/>
+    <rect x="557" y="460" width="40" height="40"/>
+    <rect x="661" y="460" width="40" height="40"/>
+    <rect x="765" y="460" width="40" height="40"/>
+    <rect x="869" y="460" width="40" height="40"/>
+  </g>
+
+  <rect x="980" y="100" width="80" height="165" fill="#f8fafd" stroke="#7d8da5" stroke-width="1.3"/>
+  <line x1="980" y1="180" x2="1060" y2="180" stroke="#7d8da5" stroke-width="1.1"/>
+  <text x="1020" y="145" text-anchor="middle" font-size="13" fill="#1f2937">模型库</text>
+  <text x="1020" y="212" text-anchor="middle" font-size="13" fill="#1f2937">公用</text>
+  <text x="1020" y="232" text-anchor="middle" font-size="13" fill="#1f2937">应用</text>
+  <text x="1020" y="252" text-anchor="middle" font-size="13" fill="#1f2937">程序</text>
+
+  <rect x="1080" y="100" width="80" height="165" fill="#f8fafd" stroke="#7d8da5" stroke-width="1.3"/>
+  <text x="1120" y="140" text-anchor="middle" font-size="13" fill="#1f2937">数据</text>
+  <text x="1120" y="164" text-anchor="middle" font-size="13" fill="#1f2937">库管</text>
+  <text x="1120" y="188" text-anchor="middle" font-size="13" fill="#1f2937">理系</text>
+  <text x="1120" y="212" text-anchor="middle" font-size="13" fill="#1f2937">统</text>
+
+  <path d="M975 85 H1030 M975 85 L966 95" fill="none" stroke="#4a5568" stroke-width="1.4"/>
+  <path d="M1110 85 H1165 M1165 85 L1174 95" fill="none" stroke="#4a5568" stroke-width="1.4"/>
+  <text x="1070" y="76" text-anchor="middle" font-size="13" fill="#1f2937">公用程序</text>
+
+  <rect x="220" y="540" width="940" height="60" fill="#f8fafd" stroke="#7d8da5" stroke-width="1.3"/>
+</svg>
