@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="470" viewBox="0 0 420 470">
+  <title>图7-3 体系结构需求过程</title>
+  <desc>复原自 sources/01-系统架构设计师教材 入库扫描件物理页 265（印刷页 256），图题：图7-3 体系结构需求过程。竖排五个矩形框自上而下以实线箭头直连：需求获取、生成类图、对类进行分组、把类打包成构件、需求评审。右上圆柱「需求库」一条实线箭头指入「需求获取」右边缘。中部虚框套住中间三框（虚框上边横穿需求获取至生成类图的箭头、下边横穿把类打包成构件至需求评审的箭头），虚框右侧竖排标签「标识构件」。左侧虚线回路自「需求评审」左边缘向左、向上，末端箭头指入「需求获取」左边缘，回路中段标注 0:N。</desc>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#000"/>
+    </marker>
+  </defs>
+  <!-- 竖排实线箭头 -->
+  <g fill="none" stroke="#000" stroke-width="1.4">
+    <line x1="195" y1="70" x2="195" y2="114" marker-end="url(#ah)"/>
+    <line x1="195" y1="158" x2="195" y2="202" marker-end="url(#ah)"/>
+    <line x1="195" y1="246" x2="195" y2="290" marker-end="url(#ah)"/>
+    <line x1="195" y1="334" x2="195" y2="378" marker-end="url(#ah)"/>
+    <!-- 圆柱至需求获取的实线箭头 -->
+    <line x1="328" y1="50" x2="296" y2="50" marker-end="url(#ah)"/>
+    <!-- 左侧虚线回路：需求评审至需求获取 -->
+    <path d="M100,402 H48 V50 H96" stroke-dasharray="6,4" marker-end="url(#ah)"/>
+  </g>
+  <!-- 标识构件虚框 -->
+  <rect x="82" y="94" width="233" height="264" fill="none" stroke="#000" stroke-width="1.2" stroke-dasharray="6,4"/>
+  <g fill="none" stroke="#000" stroke-width="1.4">
+    <rect x="100" y="30" width="190" height="40"/>
+    <rect x="100" y="118" width="190" height="40"/>
+    <rect x="100" y="206" width="190" height="40"/>
+    <rect x="100" y="294" width="190" height="40"/>
+    <rect x="100" y="382" width="190" height="40"/>
+  </g>
+  <g font-family="sans-serif" font-size="18" fill="#000" text-anchor="middle">
+    <text x="195" y="56">需求获取</text>
+    <text x="195" y="144">生成类图</text>
+    <text x="195" y="232">对类进行分组</text>
+    <text x="195" y="320">把类打包成构件</text>
+    <text x="195" y="408">需求评审</text>
+  </g>
+  <!-- 需求库圆柱 -->
+  <g fill="none" stroke="#000" stroke-width="1.4">
+    <ellipse cx="368" cy="30" rx="40" ry="9"/>
+    <path d="M328,30 V76 A40,9 0 0 0 408,76 V30"/>
+  </g>
+  <text x="368" y="66" font-family="sans-serif" font-size="16" fill="#000" text-anchor="middle">需求库</text>
+  <!-- 标识构件竖排标签 -->
+  <g font-family="sans-serif" font-size="17" fill="#000" text-anchor="middle">
+    <text x="336" y="172">标</text>
+    <text x="336" y="196">识</text>
+    <text x="336" y="220">构</text>
+    <text x="336" y="244">件</text>
+  </g>
+  <text x="42" y="232" font-family="sans-serif" font-size="16" fill="#000" text-anchor="end">0:N</text>
+</svg>

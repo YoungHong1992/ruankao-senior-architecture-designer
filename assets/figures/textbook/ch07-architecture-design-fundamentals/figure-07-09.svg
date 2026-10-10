@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 580" width="760" height="580" role="img" aria-labelledby="fig07-09-title fig07-09-desc">
+  <title id="fig07-09-title">图7-9 面向对象体系结构风格</title>
+  <desc id="fig07-09-desc">复原自 sources/01-系统架构设计师教材 入库扫描件物理页 270（印刷页 261），图题：图7-9面向对象体系结构风格（原书无空格）。结构要点：五个圆均内标「对象」，布于左上、右上、中、左下、右下。细线箭头共 7 支（两轮盲比加验证者 3 次放大回图定案）：左上对象水平右向箭头入右上对象左缘；左上对象两条平行斜线箭头分别入中央对象左上缘与左下缘；左上对象底部另发两条平行斜线、穿过中央对象下方，箭头入右下对象左上缘（两处箭头）；中央对象底部发两条平行斜线、箭头入左下对象右上缘（两处箭头）；下行两对线与中央—左下两线在中央对象左下方交叉成 X。空心块箭头两支：右下标签「抽象数据类型」引块箭头指向上方，尖端抵右上对象右下缘；下方标签「过程调用」引块箭头指向上方，尖端止于中央对象与左下对象之间的空白，不触任何圆。</desc>
+  <defs>
+    <marker id="fig07-09-ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0.5,0.8 L9.5,5 L0.5,9.2 Z" fill="#000000"/></marker>
+  </defs>
+  <rect width="760" height="580" fill="#ffffff"/>
+  <g font-family="SimSun, 'Noto Serif CJK SC', 'WenQuanYi Zen Hei', serif" fill="#000000">
+    <!-- 五个对象圆 -->
+    <circle cx="150" cy="110" r="48" fill="#ffffff" stroke="#000000" stroke-width="1.3"/>
+    <text x="150" y="117" text-anchor="middle" font-size="19">对象</text>
+    <circle cx="555" cy="110" r="48" fill="#ffffff" stroke="#000000" stroke-width="1.3"/>
+    <text x="555" y="117" text-anchor="middle" font-size="19">对象</text>
+    <circle cx="352" cy="244" r="48" fill="#ffffff" stroke="#000000" stroke-width="1.3"/>
+    <text x="352" y="251" text-anchor="middle" font-size="19">对象</text>
+    <circle cx="150" cy="470" r="48" fill="#ffffff" stroke="#000000" stroke-width="1.3"/>
+    <text x="150" y="477" text-anchor="middle" font-size="19">对象</text>
+    <circle cx="555" cy="470" r="48" fill="#ffffff" stroke="#000000" stroke-width="1.3"/>
+    <text x="555" y="477" text-anchor="middle" font-size="19">对象</text>
+    <!-- 细线箭头 7 支 -->
+    <line x1="198" y1="110" x2="505" y2="110" stroke="#000000" stroke-width="1.3" marker-end="url(#fig07-09-ah)"/>
+    <line x1="190" y1="137" x2="312" y2="218" stroke="#000000" stroke-width="1.3" marker-end="url(#fig07-09-ah)"/>
+    <line x1="163" y1="155" x2="307" y2="266" stroke="#000000" stroke-width="1.3" marker-end="url(#fig07-09-ah)"/>
+    <line x1="150" y1="158" x2="521" y2="437" stroke="#000000" stroke-width="1.3" marker-end="url(#fig07-09-ah)"/>
+    <line x1="158" y1="157" x2="535" y2="426" stroke="#000000" stroke-width="1.3" marker-end="url(#fig07-09-ah)"/>
+    <line x1="331" y1="287" x2="184" y2="436" stroke="#000000" stroke-width="1.3" marker-end="url(#fig07-09-ah)"/>
+    <line x1="362" y1="290" x2="174" y2="428" stroke="#000000" stroke-width="1.3" marker-end="url(#fig07-09-ah)"/>
+    <!-- 空心块箭头：抽象数据类型 -->
+    <polygon points="690.4,232.6 613.8,155.6 621.5,148.3 589,144 593.3,176.5 601.0,169.2 677.6,245.4" fill="#ffffff" stroke="#000000" stroke-width="1.3"/>
+    <text x="688" y="272" text-anchor="middle" font-size="17">抽象数据类型</text>
+    <!-- 空心块箭头：过程调用 -->
+    <polygon points="396.4,513.6 319.8,436.6 327.5,429.3 295,425 299.3,457.5 307.0,450.2 383.6,526.4" fill="#ffffff" stroke="#000000" stroke-width="1.3"/>
+    <text x="400" y="556" text-anchor="middle" font-size="17">过程调用</text>
+  </g>
+</svg>

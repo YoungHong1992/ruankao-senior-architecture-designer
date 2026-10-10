@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="570" viewBox="0 0 440 570">
+  <title>图7-5体系结构实现过程</title>
+  <desc>复原自 sources/01-系统架构设计师教材 入库扫描件物理页 267（印刷页 258），图题：图7-5体系结构实现过程（原书编号后无空格）。顶部矩形两行文字「复审后的文档化的／体系结构」，其下竖排四框以实线箭头直连：分析与设计、构件实现、构件组装、系统测试，最下矩形「体系结构演化」。虚框套住中间四框（上边横穿顶部框至分析与设计的箭头、下边横穿系统测试至体系结构演化的箭头），虚框右边界在圆柱右侧、「构件库」圆柱整体位于虚框内部（盲比复验按原书改正），其两条实线箭头分别指入「分析与设计」右边缘和「构件组装」右边缘、不与虚框相交。虚框无旁注标签。无 0:N 类标注。</desc>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#000"/>
+    </marker>
+  </defs>
+  <!-- 竖排实线箭头 -->
+  <g fill="none" stroke="#000" stroke-width="1.4">
+    <line x1="175" y1="90" x2="175" y2="126" marker-end="url(#ah)"/>
+    <line x1="175" y1="174" x2="175" y2="214" marker-end="url(#ah)"/>
+    <line x1="175" y1="262" x2="175" y2="302" marker-end="url(#ah)"/>
+    <line x1="175" y1="350" x2="175" y2="390" marker-end="url(#ah)"/>
+    <line x1="175" y1="438" x2="175" y2="474" marker-end="url(#ah)"/>
+    <!-- 构件库两条实线箭头 -->
+    <line x1="340" y1="222" x2="266" y2="157" marker-end="url(#ah)"/>
+    <line x1="340" y1="256" x2="266" y2="323" marker-end="url(#ah)"/>
+  </g>
+  <!-- 实现过程虚框 -->
+  <rect x="66" y="108" width="366" height="352" fill="none" stroke="#000" stroke-width="1.2" stroke-dasharray="6,4"/>
+  <g fill="none" stroke="#000" stroke-width="1.4">
+    <rect x="90" y="30" width="170" height="60"/>
+    <rect x="90" y="130" width="170" height="44"/>
+    <rect x="90" y="218" width="170" height="44"/>
+    <rect x="90" y="306" width="170" height="44"/>
+    <rect x="90" y="394" width="170" height="44"/>
+    <rect x="90" y="478" width="170" height="44"/>
+  </g>
+  <g font-family="sans-serif" font-size="18" fill="#000" text-anchor="middle">
+    <text x="175" y="56">复审后的文档化的</text>
+    <text x="175" y="80">体系结构</text>
+    <text x="175" y="158">分析与设计</text>
+    <text x="175" y="246">构件实现</text>
+    <text x="175" y="334">构件组装</text>
+    <text x="175" y="422">系统测试</text>
+    <text x="175" y="506">体系结构演化</text>
+  </g>
+  <!-- 构件库圆柱 -->
+  <g fill="none" stroke="#000" stroke-width="1.4">
+    <ellipse cx="372" cy="210" rx="40" ry="9"/>
+    <path d="M332,210 V256 A40,9 0 0 0 412,256 V210"/>
+  </g>
+  <text x="372" y="242" font-family="sans-serif" font-size="16" fill="#000" text-anchor="middle">构件库</text>
+</svg>

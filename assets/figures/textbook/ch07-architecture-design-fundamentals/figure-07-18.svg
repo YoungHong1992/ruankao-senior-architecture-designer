@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 170" width="900" height="170" role="img" aria-labelledby="fig07-18-title fig07-18-desc">
+  <title id="fig07-18-title">图7-18 软件架构复用的基本过程</title>
+  <desc id="fig07-18-desc">复原自 sources/01-系统架构设计师教材 入库扫描件物理页 275（印刷页 266），图题：图7-18 软件架构复用的基本过程。结构要点：三个节点位于同一水平中线——左侧细灰描边白底椭圆「构造可复用资产」，中部数据库圆柱形「可复用资产库」（细灰网点格纹填充、顶部椭圆沿，柱身中部叠白色矩形标签框黑字），右侧细灰描边白底椭圆「复用这些资产」；两条水平自左向右的单箭头（实心小箭头在右端）：左椭圆至圆柱，箭头上方标签「入库」；圆柱至右椭圆，箭头上方标签「选择/定制/组装」。原图无双向箭头、无分叉汇聚、无虚框与阴影，本图不添加原图没有的元素。</desc>
+  <defs>
+    <pattern id="fig07-18-grid" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="4" fill="#ffffff"/>
+      <path d="M 4 0 L 0 0 L 0 4" fill="none" stroke="#c8c8c8" stroke-width="0.6"/>
+    </pattern>
+  </defs>
+  <rect width="900" height="170" fill="#ffffff"/>
+  <g font-family="SimSun, 'Noto Serif CJK SC', 'WenQuanYi Zen Hei', serif" fill="#000000">
+    <!-- 左椭圆：构造可复用资产 -->
+    <ellipse cx="233" cy="88" rx="64" ry="27" fill="#ffffff" stroke="#a8a8a8" stroke-width="1.4"/>
+    <text x="233" y="95" text-anchor="middle" font-size="15">构造可复用资产</text>
+    <!-- 箭头1：入库 -->
+    <line x1="297" y1="89" x2="341" y2="89" stroke="#a0a0a0" stroke-width="1.2"/>
+    <polygon points="348.5,89 341,85.7 341,92.3" fill="#4a4a4a"/>
+    <text x="321" y="84" text-anchor="middle" font-size="14">入库</text>
+    <!-- 中部圆柱：可复用资产库 -->
+    <path d="M 349 52 L 349 113 A 56 12.5 0 0 0 461 113 L 461 52 A 56 12.5 0 0 1 349 52 Z" fill="url(#fig07-18-grid)" stroke="#8a8a8a" stroke-width="1.2"/>
+    <ellipse cx="405" cy="52" rx="56" ry="12.5" fill="url(#fig07-18-grid)" stroke="#8a8a8a" stroke-width="1.2"/>
+    <rect x="352" y="74" width="104" height="27" fill="#ffffff" stroke="#999999" stroke-width="1"/>
+    <text x="404" y="95" text-anchor="middle" font-size="15">可复用资产库</text>
+    <!-- 箭头2：选择/定制/组装 -->
+    <line x1="460" y1="89" x2="591" y2="89" stroke="#a0a0a0" stroke-width="1.2"/>
+    <polygon points="599,89 591,85.7 591,92.3" fill="#4a4a4a"/>
+    <text x="529" y="84" text-anchor="middle" font-size="14">选择/定制/组装</text>
+    <!-- 右椭圆：复用这些资产 -->
+    <ellipse cx="657" cy="88" rx="54" ry="27" fill="#ffffff" stroke="#a8a8a8" stroke-width="1.4"/>
+    <text x="657" y="95" text-anchor="middle" font-size="15">复用这些资产</text>
+  </g>
+</svg>

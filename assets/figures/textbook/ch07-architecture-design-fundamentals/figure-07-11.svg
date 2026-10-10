@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 430" width="780" height="430" role="img" aria-labelledby="fig07-11-title fig07-11-desc">
+  <title id="fig07-11-title">图7-11 C/S体系结构风格</title>
+  <desc id="fig07-11-desc">复原自 sources/01-系统架构设计师教材 入库扫描件物理页 270（印刷页 261），图题：图7-11 C/S体系结构风格。结构要点：插画型简笔画——顶部一台主机（立式机箱＋显示器，机下横线示台面），左侧文字标签「OS:UNIX」，主机下方标签「主机」；下方三台终端简笔画（显示器＋底座），各标「终端」。主机底部引 3 条细直线呈放射状分别接三台终端顶部，均为无箭头素线，不画箭头。</desc>
+  <rect width="780" height="430" fill="#ffffff"/>
+  <g font-family="SimSun, 'Noto Serif CJK SC', 'WenQuanYi Zen Hei', serif" fill="#000000">
+    <!-- 主机：机箱 + 显示器 + 台面 -->
+    <g stroke="#000000" stroke-width="1.3" fill="none">
+      <rect x="352" y="58" width="38" height="99"/>
+      <line x1="356" y1="72" x2="386" y2="72"/>
+      <line x1="356" y1="78" x2="386" y2="78"/>
+      <line x1="356" y1="84" x2="386" y2="84"/>
+      <rect x="357" y="94" width="28" height="10"/>
+      <rect x="357" y="110" width="28" height="10"/>
+      <rect x="395" y="72" width="105" height="68"/>
+      <rect x="405" y="82" width="83" height="46"/>
+      <polyline points="438,140 438,150 458,150 458,140"/>
+      <line x1="415" y1="152" x2="478" y2="152"/>
+      <line x1="330" y1="157" x2="560" y2="157" stroke-width="1.8"/>
+    </g>
+    <text x="344" y="112" text-anchor="end" font-size="17">OS:UNIX</text>
+    <text x="472" y="187" text-anchor="middle" font-size="19">主机</text>
+    <!-- 放射素线：主机底 -> 三终端顶（无箭头） -->
+    <g stroke="#000000" stroke-width="1.2">
+      <line x1="437" y1="158" x2="148" y2="284"/>
+      <line x1="445" y1="158" x2="400" y2="284"/>
+      <line x1="453" y1="158" x2="648" y2="284"/>
+    </g>
+    <!-- 终端 1 -->
+    <g stroke="#000000" stroke-width="1.3" fill="none">
+      <rect x="82" y="285" width="116" height="60"/>
+      <rect x="93" y="293" width="84" height="38"/>
+      <rect x="70" y="348" width="144" height="34"/>
+      <rect x="146" y="355" width="36" height="12"/>
+      <line x1="78" y1="370" x2="138" y2="370"/>
+    </g>
+    <text x="132" y="408" text-anchor="middle" font-size="19">终端</text>
+    <!-- 终端 2 -->
+    <g stroke="#000000" stroke-width="1.3" fill="none">
+      <rect x="342" y="285" width="116" height="60"/>
+      <rect x="353" y="293" width="84" height="38"/>
+      <rect x="330" y="348" width="144" height="34"/>
+      <rect x="406" y="355" width="36" height="12"/>
+      <line x1="338" y1="370" x2="398" y2="370"/>
+    </g>
+    <text x="392" y="408" text-anchor="middle" font-size="19">终端</text>
+    <!-- 终端 3 -->
+    <g stroke="#000000" stroke-width="1.3" fill="none">
+      <rect x="590" y="285" width="116" height="60"/>
+      <rect x="601" y="293" width="84" height="38"/>
+      <rect x="578" y="348" width="144" height="34"/>
+      <rect x="654" y="355" width="36" height="12"/>
+      <line x1="586" y1="370" x2="646" y2="370"/>
+    </g>
+    <text x="640" y="408" text-anchor="middle" font-size="19">终端</text>
+  </g>
+</svg>

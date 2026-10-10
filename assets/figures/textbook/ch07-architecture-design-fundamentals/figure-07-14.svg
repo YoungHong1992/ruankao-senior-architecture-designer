@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 540" width="800" height="540" role="img" aria-labelledby="fig07-14-title fig07-14-desc">
+  <title id="fig07-14-title">图7-14 黑板体系结构风格</title>
+  <desc id="fig07-14-desc">复原自 sources/01-系统架构设计师教材 入库扫描件物理页 272（印刷页 263），图题：图7-14黑板体系结构风格（原书无空格）。结构要点：中央为带左右厚侧板的黑板架形矩形，内两行字「黑板」与「(共享数据)」；四周 4 个胶囊框均标「知识源」，布于上、左、右、下。连线：上胶囊与黑板之间竖向双向细箭头，左胶囊与黑板之间横向双向细箭头，右胶囊与黑板之间横向双向细箭头（双向箭头两端均有实心小箭头）；下胶囊悬空，无任何连线。文字标注：右上「计算」发出 2 条细单箭头，一条左下向入上胶囊右缘、一条竖直下行入右胶囊顶缘；左上「直接存取」引 1 支空心块箭头（多边形描边不填充）右下向，尖端抵黑板左上角；右下「内存」引 1 支空心块箭头左上向，尖端抵黑板右下角。</desc>
+  <defs>
+    <marker id="fig07-14-ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0.5,0.8 L9.5,5 L0.5,9.2 Z" fill="#000000"/></marker>
+  </defs>
+  <rect width="800" height="540" fill="#ffffff"/>
+  <g font-family="SimSun, 'Noto Serif CJK SC', 'WenQuanYi Zen Hei', serif" fill="#000000">
+    <!-- 黑板架形：外框 + 左右厚侧板 -->
+    <rect x="300" y="190" width="260" height="200" fill="#ffffff" stroke="#000000" stroke-width="1.4"/>
+    <line x1="324" y1="190" x2="324" y2="390" stroke="#000000" stroke-width="1.4"/>
+    <line x1="536" y1="190" x2="536" y2="390" stroke="#000000" stroke-width="1.4"/>
+    <text x="430" y="268" text-anchor="middle" font-size="21">黑板</text>
+    <text x="430" y="304" text-anchor="middle" font-size="18">(共享数据)</text>
+    <!-- 4 个知识源胶囊 -->
+    <rect x="350" y="58" width="160" height="54" rx="27" fill="#ffffff" stroke="#000000" stroke-width="1.3"/>
+    <text x="430" y="91" text-anchor="middle" font-size="19">知识源</text>
+    <rect x="58" y="228" width="160" height="54" rx="27" fill="#ffffff" stroke="#000000" stroke-width="1.3"/>
+    <text x="138" y="261" text-anchor="middle" font-size="19">知识源</text>
+    <rect x="628" y="228" width="160" height="54" rx="27" fill="#ffffff" stroke="#000000" stroke-width="1.3"/>
+    <text x="708" y="261" text-anchor="middle" font-size="19">知识源</text>
+    <rect x="350" y="438" width="160" height="54" rx="27" fill="#ffffff" stroke="#000000" stroke-width="1.3"/>
+    <text x="430" y="471" text-anchor="middle" font-size="19">知识源</text>
+    <!-- 三向双向细箭头（下胶囊无连线） -->
+    <line x1="430" y1="114" x2="430" y2="188" stroke="#000000" stroke-width="1.2" marker-start="url(#fig07-14-ah)" marker-end="url(#fig07-14-ah)"/>
+    <line x1="220" y1="255" x2="298" y2="255" stroke="#000000" stroke-width="1.2" marker-start="url(#fig07-14-ah)" marker-end="url(#fig07-14-ah)"/>
+    <line x1="562" y1="255" x2="626" y2="255" stroke="#000000" stroke-width="1.2" marker-start="url(#fig07-14-ah)" marker-end="url(#fig07-14-ah)"/>
+    <!-- 计算：2 条细单箭头 -->
+    <text x="665" y="58" text-anchor="middle" font-size="19">计算</text>
+    <line x1="630" y1="66" x2="510" y2="88" stroke="#000000" stroke-width="1.2" marker-end="url(#fig07-14-ah)"/>
+    <line x1="700" y1="70" x2="700" y2="226" stroke="#000000" stroke-width="1.2" marker-end="url(#fig07-14-ah)"/>
+    <!-- 直接存取：空心块箭头右下向 -->
+    <text x="238" y="104" text-anchor="middle" font-size="19">直接存取</text>
+    <polygon points="225.8,124.3 282.0,178.9 276.4,184.7 302,190 296.0,164.5 290.4,170.3 234.2,115.7" fill="#ffffff" stroke="#000000" stroke-width="1.3"/>
+    <!-- 内存：空心块箭头左上向 -->
+    <text x="652" y="464" text-anchor="middle" font-size="19">内存</text>
+    <polygon points="623.6,433.2 579.1,399.5 584.0,393.1 558,391 567.0,415.5 571.9,409.1 616.4,442.8" fill="#ffffff" stroke="#000000" stroke-width="1.3"/>
+  </g>
+</svg>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" width="900" height="460" role="img" aria-labelledby="fig07-16-title fig07-16-desc">
+  <title id="fig07-16-title">图7-16 规则系统体系结构风格</title>
+  <desc id="fig07-16-desc">复原自 sources/01-系统架构设计师教材 入库扫描件物理页 273（印刷页 264），图题：图7-16　规则系统体系结构风格。结构要点：矩形「工作内存」（上中左）；右上双线外框上方标「知识库」，框内含两个并列矩形「规则集」「事实集」；圆角矩形「规则解释器」（下中左）；矩形「规则/数据选择」（下右），框内无『器』字照录（与正文「规则/数据选择器」不一致系原书自身不一致）。细线箭头与标签：「输入」右向入工作内存左缘；工作内存底引两根竖线，左线标「数据」下行箭头入规则解释器顶、右线标「更新」上行箭头入工作内存底；工作内存右缘引长斜线右下（线上方标「触发数据」）箭头入规则/数据选择框左上角；知识库外框底竖直下行（线右旁标「规则/事实」）箭头入规则/数据选择框顶缘；规则/数据选择左缘引水平线左行（线上下分标两行「被选择的规则」「被选择的数据」）箭头入规则解释器右缘；规则解释器左缘水平线左出，端点标「输出」。</desc>
+  <defs>
+    <marker id="fig07-16-ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0.5,0.8 L9.5,5 L0.5,9.2 Z" fill="#000000"/></marker>
+  </defs>
+  <rect width="900" height="460" fill="#ffffff"/>
+  <g font-family="SimSun, 'Noto Serif CJK SC', 'WenQuanYi Zen Hei', serif" fill="#000000">
+    <!-- 输入 -->
+    <text x="100" y="150" text-anchor="middle" font-size="19">输入</text>
+    <line x1="124" y1="144" x2="218" y2="144" stroke="#000000" stroke-width="1.2" marker-end="url(#fig07-16-ah)"/>
+    <!-- 工作内存 -->
+    <rect x="222" y="100" width="275" height="82" fill="#ffffff" stroke="#000000" stroke-width="1.3"/>
+    <text x="359" y="148" text-anchor="middle" font-size="20">工作内存</text>
+    <!-- 知识库双线外框 -->
+    <text x="740" y="68" text-anchor="middle" font-size="20">知识库</text>
+    <rect x="618" y="82" width="244" height="156" fill="#ffffff" stroke="#000000" stroke-width="1.2"/>
+    <rect x="629" y="93" width="222" height="134" fill="none" stroke="#000000" stroke-width="1.2"/>
+    <rect x="643" y="107" width="92" height="115" fill="#ffffff" stroke="#000000" stroke-width="1.2"/>
+    <text x="689" y="170" text-anchor="middle" font-size="19">规则集</text>
+    <rect x="745" y="107" width="92" height="115" fill="#ffffff" stroke="#000000" stroke-width="1.2"/>
+    <text x="791" y="170" text-anchor="middle" font-size="19">事实集</text>
+    <!-- 规则解释器（圆角） -->
+    <rect x="172" y="318" width="218" height="90" rx="20" fill="#ffffff" stroke="#000000" stroke-width="1.3"/>
+    <text x="281" y="370" text-anchor="middle" font-size="20">规则解释器</text>
+    <!-- 规则/数据选择（框内无「器」字照录） -->
+    <rect x="635" y="318" width="227" height="90" fill="#ffffff" stroke="#000000" stroke-width="1.3"/>
+    <text x="748" y="370" text-anchor="middle" font-size="20">规则/数据选择</text>
+    <!-- 数据（下行）、更新（上行） -->
+    <text x="246" y="261" text-anchor="middle" font-size="19">数据</text>
+    <line x1="272" y1="184" x2="272" y2="314" stroke="#000000" stroke-width="1.2" marker-end="url(#fig07-16-ah)"/>
+    <text x="356" y="261" text-anchor="middle" font-size="19">更新</text>
+    <line x1="326" y1="316" x2="326" y2="186" stroke="#000000" stroke-width="1.2" marker-end="url(#fig07-16-ah)"/>
+    <!-- 触发数据 -->
+    <text x="576" y="212" text-anchor="middle" font-size="19">触发数据</text>
+    <line x1="499" y1="136" x2="631" y2="318" stroke="#000000" stroke-width="1.2" marker-end="url(#fig07-16-ah)"/>
+    <!-- 规则/事实 -->
+    <text x="830" y="288" text-anchor="middle" font-size="19">规则/事实</text>
+    <line x1="777" y1="240" x2="777" y2="314" stroke="#000000" stroke-width="1.2" marker-end="url(#fig07-16-ah)"/>
+    <!-- 被选择的规则 / 被选择的数据 -->
+    <text x="514" y="348" text-anchor="middle" font-size="19">被选择的规则</text>
+    <text x="514" y="430" text-anchor="middle" font-size="19">被选择的数据</text>
+    <line x1="635" y1="388" x2="394" y2="388" stroke="#000000" stroke-width="1.2" marker-end="url(#fig07-16-ah)"/>
+    <!-- 输出 -->
+    <text x="118" y="350" text-anchor="middle" font-size="19">输出</text>
+    <line x1="170" y1="363" x2="80" y2="363" stroke="#000000" stroke-width="1.2" marker-end="url(#fig07-16-ah)"/>
+  </g>
+</svg>

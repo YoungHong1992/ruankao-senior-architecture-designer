@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="560" viewBox="0 0 420 560">
+  <title>图7-6 体系结构演化过程</title>
+  <desc>复原自 sources/01-系统架构设计师教材 入库扫描件物理页 267（印刷页 258），图题：图7-6 体系结构演化过程。竖排七个矩形框自上而下以实线箭头直连：需求变化归类、体系结构演化计划、构件变动、更新构件的相互作用、构件组装与测试、技术评审、演化后的体系结构。右侧圆柱「构件库」一条实线箭头指入「构件变动」右边缘。左侧虚线回路自「技术评审」左边缘向左、向上，末端箭头指入「体系结构演化计划」左边缘，回路标注原书紧排作 0N，冒号不可辨，照录。无虚框。</desc>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#000"/>
+    </marker>
+  </defs>
+  <!-- 竖排实线箭头 -->
+  <g fill="none" stroke="#000" stroke-width="1.4">
+    <line x1="200" y1="70" x2="200" y2="98" marker-end="url(#ah)"/>
+    <line x1="200" y1="142" x2="200" y2="170" marker-end="url(#ah)"/>
+    <line x1="200" y1="214" x2="200" y2="242" marker-end="url(#ah)"/>
+    <line x1="200" y1="286" x2="200" y2="314" marker-end="url(#ah)"/>
+    <line x1="200" y1="358" x2="200" y2="386" marker-end="url(#ah)"/>
+    <line x1="200" y1="430" x2="200" y2="458" marker-end="url(#ah)"/>
+    <!-- 构件库至构件变动的实线箭头 -->
+    <line x1="325" y1="194" x2="294" y2="194" marker-end="url(#ah)"/>
+    <!-- 左侧虚线回路：技术评审至体系结构演化计划 -->
+    <path d="M110,410 H58 V122 H106" stroke-dasharray="6,4" marker-end="url(#ah)"/>
+  </g>
+  <g fill="none" stroke="#000" stroke-width="1.4">
+    <rect x="110" y="30" width="180" height="40"/>
+    <rect x="110" y="102" width="180" height="40"/>
+    <rect x="110" y="174" width="180" height="40"/>
+    <rect x="110" y="246" width="180" height="40"/>
+    <rect x="110" y="318" width="180" height="40"/>
+    <rect x="110" y="390" width="180" height="40"/>
+    <rect x="110" y="462" width="180" height="40"/>
+  </g>
+  <g font-family="sans-serif" font-size="17" fill="#000" text-anchor="middle">
+    <text x="200" y="56">需求变化归类</text>
+    <text x="200" y="128">体系结构演化计划</text>
+    <text x="200" y="200">构件变动</text>
+    <text x="200" y="272">更新构件的相互作用</text>
+    <text x="200" y="344">构件组装与测试</text>
+    <text x="200" y="416">技术评审</text>
+    <text x="200" y="488">演化后的体系结构</text>
+  </g>
+  <!-- 构件库圆柱 -->
+  <g fill="none" stroke="#000" stroke-width="1.4">
+    <ellipse cx="365" cy="172" rx="40" ry="9"/>
+    <path d="M325,172 V218 A40,9 0 0 0 405,218 V172"/>
+  </g>
+  <text x="365" y="204" font-family="sans-serif" font-size="16" fill="#000" text-anchor="middle">构件库</text>
+  <text x="52" y="272" font-family="sans-serif" font-size="16" fill="#000" text-anchor="end">0N</text>
+</svg>
