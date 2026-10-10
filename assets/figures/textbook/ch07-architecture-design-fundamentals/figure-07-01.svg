@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="730" viewBox="0 0 900 730">
+  <title>图7-1 ABSD方法过程</title>
+  <desc>复原自 sources/01-系统架构设计师教材 入库扫描件物理页 263（印刷页 254），图题：图7-1 ABSD方法过程。三层树形加右下图例：顶层大圆（左侧标签「系统」）；第2层两圆一矩形（左侧标签「概念子系统」，矩形右侧标签「模板」）；第3层四圆一矩形（左侧标签「概念构件」，矩形右侧标签「模板」）。圆到圆为继承式连线：子端实心圆点、父端箭头；圆到矩形为聚合式连线：矩形端空心圆点、父端箭头；上矩形与下矩形之间竖线：上端实心圆点、下端空心圆点、无箭头。第3层四圆各引虚线向下穿过一条横贯实线，箭头朝下，左侧标签「实际构件」。右下图例区标题「图示」，下有横向虚线分隔，三行样例依次为聚合（空心圆点加箭头）、继承（实心圆点加箭头）、进化（虚线加箭头）。</desc>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#000"/>
+    </marker>
+  </defs>
+  <g fill="none" stroke="#000" stroke-width="1.4">
+    <!-- 继承式连线：子端实心点，父端箭头 -->
+    <line x1="336" y1="260" x2="439" y2="141" marker-end="url(#ah)"/>
+    <line x1="434" y1="251" x2="459" y2="152" marker-end="url(#ah)"/>
+    <line x1="279" y1="431" x2="301" y2="329" marker-end="url(#ah)"/>
+    <line x1="361" y1="432" x2="324" y2="328" marker-end="url(#ah)"/>
+    <line x1="468" y1="432" x2="437" y2="328" marker-end="url(#ah)"/>
+    <line x1="558" y1="440" x2="452" y2="320" marker-end="url(#ah)"/>
+    <!-- 聚合式连线：矩形端空心圆点，父端箭头 -->
+    <line x1="662" y1="250" x2="508" y2="134" marker-end="url(#ah)"/>
+    <line x1="660" y1="430" x2="459" y2="311" marker-end="url(#ah)"/>
+    <!-- 上矩形-下矩形竖线：上端实心点、下端空心点、无箭头 -->
+    <line x1="705" y1="330" x2="705" y2="430"/>
+    <!-- 横贯实线（实际构件分界） -->
+    <line x1="150" y1="548" x2="880" y2="548" stroke-width="1.6"/>
+    <!-- 进化虚线：向下穿过实线，箭头朝下 -->
+    <line x1="270" y1="514" x2="270" y2="630" stroke-dasharray="6,4" marker-end="url(#ah)"/>
+    <line x1="375" y1="514" x2="375" y2="630" stroke-dasharray="6,4" marker-end="url(#ah)"/>
+    <line x1="480" y1="514" x2="480" y2="630" stroke-dasharray="6,4" marker-end="url(#ah)"/>
+    <line x1="585" y1="514" x2="585" y2="630" stroke-dasharray="6,4" marker-end="url(#ah)"/>
+  </g>
+  <!-- 顶层大圆 -->
+  <circle cx="470" cy="105" r="48" fill="none" stroke="#000" stroke-width="1.4"/>
+  <!-- 第2层 -->
+  <circle cx="310" cy="290" r="40" fill="none" stroke="#000" stroke-width="1.4"/>
+  <circle cx="425" cy="290" r="40" fill="none" stroke="#000" stroke-width="1.4"/>
+  <rect x="645" y="250" width="120" height="80" fill="none" stroke="#000" stroke-width="1.4"/>
+  <!-- 第3层 -->
+  <circle cx="270" cy="470" r="40" fill="none" stroke="#000" stroke-width="1.4"/>
+  <circle cx="375" cy="470" r="40" fill="none" stroke="#000" stroke-width="1.4"/>
+  <circle cx="480" cy="470" r="40" fill="none" stroke="#000" stroke-width="1.4"/>
+  <circle cx="585" cy="470" r="40" fill="none" stroke="#000" stroke-width="1.4"/>
+  <rect x="645" y="430" width="120" height="80" fill="none" stroke="#000" stroke-width="1.4"/>
+  <!-- 连线端点记号：子端实心点 -->
+  <circle cx="336" cy="260" r="4" fill="#000"/>
+  <circle cx="434" cy="251" r="4" fill="#000"/>
+  <circle cx="279" cy="431" r="4" fill="#000"/>
+  <circle cx="361" cy="432" r="4" fill="#000"/>
+  <circle cx="468" cy="432" r="4" fill="#000"/>
+  <circle cx="558" cy="440" r="4" fill="#000"/>
+  <!-- 聚合端空心点 -->
+  <circle cx="662" cy="250" r="4.5" fill="#fff" stroke="#000" stroke-width="1.4"/>
+  <circle cx="660" cy="430" r="4.5" fill="#fff" stroke="#000" stroke-width="1.4"/>
+  <!-- 矩形竖线端点：上实心、下空心 -->
+  <circle cx="705" cy="335" r="4.5" fill="#000"/>
+  <circle cx="705" cy="425" r="4.5" fill="#fff" stroke="#000" stroke-width="1.4"/>
+  <!-- 左侧层级标签 -->
+  <g font-family="sans-serif" font-size="20" fill="#000">
+    <text x="142" y="112">系统</text>
+    <text x="142" y="297">概念子系统</text>
+    <text x="142" y="477">概念构件</text>
+    <text x="142" y="598">实际构件</text>
+    <text x="778" y="297">模板</text>
+    <text x="778" y="477">模板</text>
+  </g>
+  <!-- 右下图例区 -->
+  <g font-family="sans-serif" font-size="20" fill="#000">
+    <text x="718" y="588">图示</text>
+  </g>
+  <line x1="712" y1="604" x2="885" y2="604" stroke="#000" stroke-width="1.2" stroke-dasharray="6,4"/>
+  <g fill="none" stroke="#000" stroke-width="1.4">
+    <line x1="722" y1="638" x2="842" y2="638" marker-end="url(#ah)"/>
+    <line x1="722" y1="671" x2="842" y2="671" marker-end="url(#ah)"/>
+    <line x1="722" y1="704" x2="842" y2="704" stroke-dasharray="6,4" marker-end="url(#ah)"/>
+  </g>
+  <circle cx="722" cy="638" r="4" fill="#fff" stroke="#000" stroke-width="1.4"/>
+  <circle cx="722" cy="671" r="4" fill="#000"/>
+  <g font-family="sans-serif" font-size="20" fill="#000">
+    <text x="856" y="645">聚合</text>
+    <text x="856" y="678">继承</text>
+    <text x="856" y="711">进化</text>
+  </g>
+</svg>

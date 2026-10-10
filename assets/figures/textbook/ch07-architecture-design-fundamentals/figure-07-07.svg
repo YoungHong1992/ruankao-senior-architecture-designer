@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 320" width="900" height="320" role="img" aria-labelledby="fig07-07-title fig07-07-desc">
+  <title id="fig07-07-title">图7-7 批处理体系结构风格示意图</title>
+  <desc id="fig07-07-desc">复原自 sources/01-系统架构设计师教材 入库扫描件物理页 269（印刷页 260），图题：图7-7　批处理体系结构风格示意图。结构要点：中部一行四个矩形框「验证」「排序」「更新」「打印」，水平主线自页外经行首标签「磁带」右向箭头入验证框，框间三处「磁带」标签各伴一段右向箭头，打印框右出线经标签「输出」后以右向箭头收尾；顶部标签「数据转换」发出 3 条下行斜箭头，分别落入排序、更新、打印三框顶左；底部标签「数据流」发出 3 条上行斜箭头，分别落于主链水平线段上：验证框左侧输入段、验证—排序段近排序框左缘处、排序—更新段近更新框左缘处（盲比复验按原书改正：箭头停在线段上，不触及框底）。全部为细实线单向小实心箭头，无双向箭头、无环。</desc>
+  <defs>
+    <marker id="fig07-07-ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0.5,0.8 L9.5,5 L0.5,9.2 Z" fill="#000000"/></marker>
+  </defs>
+  <rect width="900" height="320" fill="#ffffff"/>
+  <g font-family="SimSun, 'Noto Serif CJK SC', 'WenQuanYi Zen Hei', serif" fill="#000000">
+    <!-- 主水平线与四个处理框 -->
+    <line x1="55" y1="185" x2="183" y2="185" stroke="#000000" stroke-width="1.3" marker-end="url(#fig07-07-ah)"/>
+    <text x="127" y="172" text-anchor="middle" font-size="16">磁带</text>
+    <rect x="185" y="161" width="92" height="48" fill="#ffffff" stroke="#000000" stroke-width="1.3"/>
+    <text x="231" y="191" text-anchor="middle" font-size="19">验证</text>
+    <line x1="279" y1="185" x2="351" y2="185" stroke="#000000" stroke-width="1.3" marker-end="url(#fig07-07-ah)"/>
+    <text x="316" y="172" text-anchor="middle" font-size="16">磁带</text>
+    <rect x="355" y="161" width="92" height="48" fill="#ffffff" stroke="#000000" stroke-width="1.3"/>
+    <text x="401" y="191" text-anchor="middle" font-size="19">排序</text>
+    <line x1="449" y1="185" x2="521" y2="185" stroke="#000000" stroke-width="1.3" marker-end="url(#fig07-07-ah)"/>
+    <text x="486" y="172" text-anchor="middle" font-size="16">磁带</text>
+    <rect x="525" y="161" width="92" height="48" fill="#ffffff" stroke="#000000" stroke-width="1.3"/>
+    <text x="571" y="191" text-anchor="middle" font-size="19">更新</text>
+    <line x1="619" y1="185" x2="691" y2="185" stroke="#000000" stroke-width="1.3" marker-end="url(#fig07-07-ah)"/>
+    <text x="656" y="172" text-anchor="middle" font-size="16">磁带</text>
+    <rect x="695" y="161" width="92" height="48" fill="#ffffff" stroke="#000000" stroke-width="1.3"/>
+    <text x="741" y="191" text-anchor="middle" font-size="19">打印</text>
+    <line x1="789" y1="185" x2="893" y2="185" stroke="#000000" stroke-width="1.3" marker-end="url(#fig07-07-ah)"/>
+    <text x="846" y="172" text-anchor="middle" font-size="16">输出</text>
+    <!-- 数据转换：3 条下行斜箭头 -->
+    <text x="565" y="48" text-anchor="middle" font-size="20">数据转换</text>
+    <line x1="528" y1="64" x2="395" y2="155" stroke="#000000" stroke-width="1.3" marker-end="url(#fig07-07-ah)"/>
+    <line x1="563" y1="64" x2="553" y2="155" stroke="#000000" stroke-width="1.3" marker-end="url(#fig07-07-ah)"/>
+    <line x1="598" y1="64" x2="723" y2="155" stroke="#000000" stroke-width="1.3" marker-end="url(#fig07-07-ah)"/>
+    <!-- 数据流：3 条上行斜箭头 -->
+    <text x="300" y="290" text-anchor="middle" font-size="20">数据流</text>
+    <line x1="275" y1="274" x2="130" y2="185" stroke="#000000" stroke-width="1.3" marker-end="url(#fig07-07-ah)"/>
+    <line x1="318" y1="274" x2="330" y2="185" stroke="#000000" stroke-width="1.3" marker-end="url(#fig07-07-ah)"/>
+    <line x1="330" y1="274" x2="505" y2="185" stroke="#000000" stroke-width="1.3" marker-end="url(#fig07-07-ah)"/>
+  </g>
+</svg>

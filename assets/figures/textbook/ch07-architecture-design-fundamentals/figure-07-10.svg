@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 520" width="640" height="520" role="img" aria-labelledby="fig07-10-title fig07-10-desc">
+  <title id="fig07-10-title">图7-10 层次型体系结构风格</title>
+  <desc id="fig07-10-desc">复原自 sources/01-系统架构设计师教材 入库扫描件物理页 270（印刷页 261），图题：图7-10　层次型体系结构风格。结构要点：三重同心圆细线，由外至内标注「用户系统」（文字横跨外环顶部，环线断开让字）、「基本工具」（横跨中环顶部，断开）、「核心层」（居内环内部，内环顶部断开）。右上标签「过程调用」引 2 条平行斜细线左下向，箭头分别止于基本工具右侧（中环顶部）与内环顶部偏右；右下标签「各种构件」引 3 条平行斜细线左上向，箭头分别止于内环右侧近核心层、中环内下、中环外缘底部。无其他连线，无双向箭头。</desc>
+  <defs>
+    <marker id="fig07-10-ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0.5,0.8 L9.5,5 L0.5,9.2 Z" fill="#000000"/></marker>
+  </defs>
+  <rect width="640" height="520" fill="#ffffff"/>
+  <g font-family="SimSun, 'Noto Serif CJK SC', 'WenQuanYi Zen Hei', serif" fill="#000000">
+    <!-- 外环：顶部断开让「用户系统」 -->
+    <path d="M 305.1 84.1 A 192 192 0 1 1 194.9 84.1" fill="none" stroke="#000000" stroke-width="1.2"/>
+    <text x="250" y="96" text-anchor="middle" font-size="21">用户系统</text>
+    <!-- 中环：顶部断开让「基本工具」 -->
+    <path d="M 304.1 152.0 A 128 128 0 1 1 195.9 152.0" fill="none" stroke="#000000" stroke-width="1.2"/>
+    <text x="250" y="163" text-anchor="middle" font-size="21">基本工具</text>
+    <!-- 内环：顶部偏右断开 -->
+    <path d="M 315.7 250.4 A 68 68 0 1 1 261.8 201.0" fill="none" stroke="#000000" stroke-width="1.2"/>
+    <text x="250" y="276" text-anchor="middle" font-size="21">核心层</text>
+    <!-- 过程调用：2 条平行斜线 -->
+    <text x="545" y="78" text-anchor="middle" font-size="20">过程调用</text>
+    <line x1="518" y1="94" x2="312" y2="151" stroke="#000000" stroke-width="1.2" marker-end="url(#fig07-10-ah)"/>
+    <line x1="526" y1="114" x2="297" y2="212" stroke="#000000" stroke-width="1.2" marker-end="url(#fig07-10-ah)"/>
+    <!-- 各种构件：3 条平行斜线 -->
+    <text x="566" y="490" text-anchor="middle" font-size="20">各种构件</text>
+    <line x1="515" y1="462" x2="292" y2="289" stroke="#000000" stroke-width="1.2" marker-end="url(#fig07-10-ah)"/>
+    <line x1="520" y1="472" x2="309" y2="351" stroke="#000000" stroke-width="1.2" marker-end="url(#fig07-10-ah)"/>
+    <line x1="524" y1="482" x2="319" y2="378" stroke="#000000" stroke-width="1.2" marker-end="url(#fig07-10-ah)"/>
+  </g>
+</svg>

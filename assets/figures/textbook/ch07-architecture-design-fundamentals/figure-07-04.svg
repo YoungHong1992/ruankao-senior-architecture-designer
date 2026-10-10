@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="490" viewBox="0 0 420 490">
+  <title>图7-4体系结构设计过程</title>
+  <desc>复原自 sources/01-系统架构设计师教材 入库扫描件物理页 265（印刷页 256），图题：图7-4体系结构设计过程（原书编号后无空格）。竖排五个矩形框自上而下以实线箭头直连：提出体系结构模型、映射构件、分析构件相互作用、产生体系结构、设计评审。左侧虚线回路自「设计评审」左边缘向左、向上，末端箭头指入「映射构件」左边缘，回路中段标注 0:N。无虚框、无圆柱、无其他记号。</desc>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#000"/>
+    </marker>
+  </defs>
+  <!-- 竖排实线箭头 -->
+  <g fill="none" stroke="#000" stroke-width="1.4">
+    <line x1="225" y1="84" x2="225" y2="126" marker-end="url(#ah)"/>
+    <line x1="225" y1="174" x2="225" y2="216" marker-end="url(#ah)"/>
+    <line x1="225" y1="264" x2="225" y2="306" marker-end="url(#ah)"/>
+    <line x1="225" y1="354" x2="225" y2="396" marker-end="url(#ah)"/>
+    <!-- 左侧虚线回路：设计评审至映射构件 -->
+    <path d="M120,422 H60 V152 H116" stroke-dasharray="6,4" marker-end="url(#ah)"/>
+  </g>
+  <g fill="none" stroke="#000" stroke-width="1.4">
+    <rect x="120" y="40" width="210" height="44"/>
+    <rect x="120" y="130" width="210" height="44"/>
+    <rect x="120" y="220" width="210" height="44"/>
+    <rect x="120" y="310" width="210" height="44"/>
+    <rect x="120" y="400" width="210" height="44"/>
+  </g>
+  <g font-family="sans-serif" font-size="18" fill="#000" text-anchor="middle">
+    <text x="225" y="68">提出体系结构模型</text>
+    <text x="225" y="158">映射构件</text>
+    <text x="225" y="248">分析构件相互作用</text>
+    <text x="225" y="338">产生体系结构</text>
+    <text x="225" y="428">设计评审</text>
+  </g>
+  <text x="54" y="292" font-family="sans-serif" font-size="16" fill="#000" text-anchor="end">0:N</text>
+</svg>

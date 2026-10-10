@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" width="900" height="420" role="img" aria-labelledby="fig07-17-title fig07-17-desc">
+  <title id="fig07-17-title">图7-17 事件系统体系结构风格</title>
+  <desc id="fig07-17-desc">复原自 sources/01-系统架构设计师教材 入库扫描件物理页 274（印刷页 265），图题：图7-17事件系统体系结构风格（原书无空格）。结构要点：自左至右：圆内三行字「事件源／Event／Source」→细箭头（线上方标「发布」）→椭圆「事件Event」→细箭头→圆柱体内两行字「事件管理器／Event Manager」→自圆柱右缘发 3 条放射细线（旁标三行「分发／或／通知」）：上线经上方椭圆「事件Event」箭头入右上圆「事件／处理器，」，中线经中椭圆「事件Event」箭头入右圆「Event／Handler」，下线经下椭圆「事件Event」箭头入右下圆「Event／Handler，」。右上灰色装饰形（星形、三角形、圆角方形、五边形）未转录、登记于 figures.json note；圆内尾随记号照录为逗号（「处理器，」与「Handler,」）。全部为细实线单向小实心箭头。</desc>
+  <defs>
+    <marker id="fig07-17-ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0.5,0.8 L9.5,5 L0.5,9.2 Z" fill="#000000"/></marker>
+  </defs>
+  <rect width="900" height="420" fill="#ffffff"/>
+  <g font-family="SimSun, 'Noto Serif CJK SC', 'WenQuanYi Zen Hei', serif" fill="#000000">
+    <!-- 事件源圆 -->
+    <circle cx="110" cy="225" r="58" fill="#ffffff" stroke="#000000" stroke-width="1.3"/>
+    <text x="110" y="210" text-anchor="middle" font-size="17">事件源</text>
+    <text x="110" y="231" text-anchor="middle" font-size="15">Event</text>
+    <text x="110" y="251" text-anchor="middle" font-size="15">Source</text>
+    <!-- 发布箭头 -->
+    <text x="232" y="184" text-anchor="middle" font-size="17">发布</text>
+    <line x1="168" y1="225" x2="242" y2="225" stroke="#000000" stroke-width="1.2" marker-end="url(#fig07-17-ah)"/>
+    <!-- 事件Event 椭圆 1 -->
+    <ellipse cx="322" cy="225" rx="76" ry="28" fill="#ffffff" stroke="#000000" stroke-width="1.3"/>
+    <text x="322" y="231" text-anchor="middle" font-size="19">事件<tspan font-size="16">Event</tspan></text>
+    <line x1="400" y1="225" x2="441" y2="225" stroke="#000000" stroke-width="1.2" marker-end="url(#fig07-17-ah)"/>
+    <!-- 事件管理器圆柱 -->
+    <path d="M 445 185 L 445 265 A 50 15 0 0 0 545 265 L 545 185" fill="#ffffff" stroke="#000000" stroke-width="1.3"/>
+    <ellipse cx="495" cy="185" rx="50" ry="15" fill="#ffffff" stroke="#000000" stroke-width="1.3"/>
+    <text x="495" y="228" text-anchor="middle" font-size="18">事件管理器</text>
+    <text x="495" y="252" text-anchor="middle" font-size="15">Event Manager</text>
+    <!-- 分发或通知 三行标签 -->
+    <text x="600" y="98" text-anchor="middle" font-size="17">分发</text>
+    <text x="600" y="120" text-anchor="middle" font-size="17">或</text>
+    <text x="600" y="142" text-anchor="middle" font-size="17">通知</text>
+    <!-- 三线扇出 -->
+    <line x1="547" y1="220" x2="760" y2="121" stroke="#000000" stroke-width="1.2" marker-end="url(#fig07-17-ah)"/>
+    <line x1="547" y1="225" x2="755" y2="225" stroke="#000000" stroke-width="1.2" marker-end="url(#fig07-17-ah)"/>
+    <line x1="547" y1="230" x2="760" y2="329" stroke="#000000" stroke-width="1.2" marker-end="url(#fig07-17-ah)"/>
+    <!-- 三个事件Event 椭圆 -->
+    <ellipse cx="688" cy="150" rx="62" ry="24" fill="#ffffff" stroke="#000000" stroke-width="1.3"/>
+    <text x="688" y="156" text-anchor="middle" font-size="18">事件<tspan font-size="15">Event</tspan></text>
+    <ellipse cx="688" cy="225" rx="62" ry="24" fill="#ffffff" stroke="#000000" stroke-width="1.3"/>
+    <text x="688" y="231" text-anchor="middle" font-size="18">事件<tspan font-size="15">Event</tspan></text>
+    <ellipse cx="688" cy="300" rx="62" ry="24" fill="#ffffff" stroke="#000000" stroke-width="1.3"/>
+    <text x="688" y="306" text-anchor="middle" font-size="18">事件<tspan font-size="15">Event</tspan></text>
+    <!-- 三个处理器圆（尾随逗号照录） -->
+    <circle cx="805" cy="100" r="46" fill="#ffffff" stroke="#000000" stroke-width="1.3"/>
+    <text x="805" y="96" text-anchor="middle" font-size="17">事件</text>
+    <text x="805" y="118" text-anchor="middle" font-size="16">处理器，</text>
+    <circle cx="805" cy="225" r="46" fill="#ffffff" stroke="#000000" stroke-width="1.3"/>
+    <text x="805" y="221" text-anchor="middle" font-size="15">Event</text>
+    <text x="805" y="241" text-anchor="middle" font-size="15">Handler</text>
+    <circle cx="805" cy="350" r="46" fill="#ffffff" stroke="#000000" stroke-width="1.3"/>
+    <text x="805" y="346" text-anchor="middle" font-size="15">Event</text>
+    <text x="805" y="366" text-anchor="middle" font-size="15">Handler,</text>
+  </g>
+</svg>

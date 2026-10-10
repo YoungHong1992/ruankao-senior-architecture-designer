@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 570" width="900" height="570" role="img" aria-labelledby="fig07-15-title fig07-15-desc">
+  <title id="fig07-15-title">图7-15 解释器体系结构风格</title>
+  <desc id="fig07-15-desc">复原自 sources/01-系统架构设计师教材 入库扫描件物理页 272（印刷页 263），图题：图7-15解释器体系结构风格（原书无空格）。结构要点：矩形「程序执行的当前状态」（左上）、矩形「被解释执行的程序」（右上）、矩形「解释器引擎的内部状态」三行字（右下）、圆「解释器引擎」（中下）。细线箭头：左上「输入」右向入状态框左缘；引擎圆左缘水平左出箭头至「输出」；状态框底与引擎顶之间两根平行竖线，左线上行箭头入状态框底、右线下行箭头入引擎顶；状态框右缘引长斜线右下行，箭头入内部状态框左上角；被解释执行的程序底缘竖直下行箭头入内部状态框顶缘；「选择的指令／选择的数据」两行标签右侧引水平素线（无箭头）接内部状态框左缘，左侧引细箭头左行入引擎圆右缘。空心块箭头 4 支（多边形描边不填充）：左中「计算状态机」右下向、尖端抵引擎圆左上缘；顶部「存储器」发 2 支，一支左下向尖端抵状态框右上角、一支长支右下向尖端抵内部状态框左上角上方；下方自「选择的指令/选择的数据」区域引大支左上向，尖端止于状态框右下方空白。文字标签另有「数据存储」「获取/存储」。</desc>
+  <defs>
+    <marker id="fig07-15-ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0.5,0.8 L9.5,5 L0.5,9.2 Z" fill="#000000"/></marker>
+  </defs>
+  <rect width="900" height="570" fill="#ffffff"/>
+  <g font-family="SimSun, 'Noto Serif CJK SC', 'WenQuanYi Zen Hei', serif" fill="#000000">
+    <!-- 四个形体 -->
+    <rect x="280" y="150" width="175" height="112" fill="#ffffff" stroke="#000000" stroke-width="1.3"/>
+    <text x="367" y="198" text-anchor="middle" font-size="19">程序执行的</text>
+    <text x="367" y="230" text-anchor="middle" font-size="19">当前状态</text>
+    <rect x="600" y="112" width="230" height="110" fill="#ffffff" stroke="#000000" stroke-width="1.3"/>
+    <text x="715" y="161" text-anchor="middle" font-size="19">被解释执行</text>
+    <text x="715" y="193" text-anchor="middle" font-size="19">的程序</text>
+    <rect x="645" y="372" width="175" height="133" fill="#ffffff" stroke="#000000" stroke-width="1.3"/>
+    <text x="732" y="412" text-anchor="middle" font-size="19">解释器</text>
+    <text x="732" y="444" text-anchor="middle" font-size="19">引擎的</text>
+    <text x="732" y="476" text-anchor="middle" font-size="19">内部状态</text>
+    <circle cx="400" cy="445" r="66" fill="#ffffff" stroke="#000000" stroke-width="1.3"/>
+    <text x="400" y="444" text-anchor="middle" font-size="19">解释器</text>
+    <text x="400" y="470" text-anchor="middle" font-size="19">引擎</text>
+    <!-- 细线箭头：输入 -->
+    <text x="192" y="196" text-anchor="middle" font-size="19">输入</text>
+    <line x1="214" y1="190" x2="278" y2="190" stroke="#000000" stroke-width="1.2" marker-end="url(#fig07-15-ah)"/>
+    <!-- 细线箭头：输出（向左外） -->
+    <text x="265" y="436" text-anchor="middle" font-size="19">输出</text>
+    <line x1="332" y1="445" x2="224" y2="445" stroke="#000000" stroke-width="1.2" marker-end="url(#fig07-15-ah)"/>
+    <!-- 竖线对：左线上行、右线下行 -->
+    <line x1="388" y1="378" x2="388" y2="266" stroke="#000000" stroke-width="1.2" marker-end="url(#fig07-15-ah)"/>
+    <line x1="418" y1="264" x2="418" y2="375" stroke="#000000" stroke-width="1.2" marker-end="url(#fig07-15-ah)"/>
+    <!-- 状态框右缘长斜线入内部状态框左上角 -->
+    <line x1="455" y1="210" x2="639" y2="370" stroke="#000000" stroke-width="1.2" marker-end="url(#fig07-15-ah)"/>
+    <!-- 被解释执行的程序底缘竖直下行 -->
+    <line x1="710" y1="224" x2="710" y2="368" stroke="#000000" stroke-width="1.2" marker-end="url(#fig07-15-ah)"/>
+    <!-- 选择的指令／选择的数据：左箭头入引擎圆、右素线接内部状态框 -->
+    <text x="540" y="461" text-anchor="middle" font-size="19">选择的指令</text>
+    <text x="540" y="488" text-anchor="middle" font-size="19">选择的数据</text>
+    <line x1="488" y1="470" x2="466" y2="470" stroke="#000000" stroke-width="1.2" marker-end="url(#fig07-15-ah)"/>
+    <line x1="592" y1="470" x2="643" y2="470" stroke="#000000" stroke-width="1.2"/>
+    <!-- 空心块箭头：计算状态机 -->
+    <text x="225" y="342" text-anchor="middle" font-size="19">计算状态机</text>
+    <polygon points="280.5,349.3 343.2,385.3 339.7,391.4 363,391 351.7,370.6 348.2,376.7 285.5,340.7" fill="#ffffff" stroke="#000000" stroke-width="1.2"/>
+    <!-- 存储器标签与两支空心块箭头 -->
+    <text x="530" y="106" text-anchor="middle" font-size="20">存储器</text>
+    <polygon points="513.9,115.5 469.3,136.0 464.8,130.5 455,148 478.0,150.5 473.5,145.0 518.1,124.5" fill="#ffffff" stroke="#000000" stroke-width="1.2"/>
+    <polygon points="540.4,121.9 628.9,341.3 622.4,343.9 641,358 644.6,334.9 638.1,337.5 549.6,118.1" fill="#ffffff" stroke="#000000" stroke-width="1.2"/>
+    <!-- 下方大空心块箭头：左上向 -->
+    <polygon points="509.9,438.9 487.1,333.4 493.9,331.9 478,315 470.5,337.1 477.3,335.7 500.1,441.1" fill="#ffffff" stroke="#000000" stroke-width="1.2"/>
+    <!-- 数据存储、获取/存储 -->
+    <text x="475" y="546" text-anchor="middle" font-size="19">数据存储</text>
+    <text x="600" y="546" text-anchor="middle" font-size="19">获取/存储</text>
+  </g>
+</svg>
