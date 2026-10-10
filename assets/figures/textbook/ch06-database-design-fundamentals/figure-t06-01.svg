@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1128" height="576" viewBox="0 0 940 480">
+  <title>表6-1 关系代数运算符（复原）</title>
+  <desc>复原自入库扫描件《系统架构设计师教程》第2版物理页236（印刷页227）表6-1 关系代数运算符。原表为无边框表：四列（运算符/含义/运算符/含义），分组标签置于左列位置（集合运算符、比较运算符、专门的关系运算符——「专门的关系运/算符」按原书换行、逻辑运算符）。集合运算符组：U（印面为方角 U 形，照录）–并、∩–差（印面∩即与差同行）、符号位空白–交（照录留空）、×–笛卡儿积（原书表内作「儿」，与正文散文作「尔」不一，照录）；专门的关系运算符组：o（印面为正圆环形，无 σ 尾迹，照录）–选择、π–投影、符号位空白–连接（照录留空）、÷–除；比较运算符组：&gt;–大于、≥–大于等于、&lt;–小于、≤–小于等于、=–等于、≠–不等于；逻辑运算符组：非、与、或三行符号位均空白（照录留空）。</desc>
+  <rect width="940" height="480" fill="#ffffff"/>
+  <style>
+    .txt { fill:#1a1a1a; font-family:'WenQuanYi Zen Hei','Noto Sans CJK SC','Microsoft YaHei',sans-serif; font-size:19px; }
+    .sym { font-family:'WenQuanYi Zen Hei','Noto Sans CJK SC','DejaVu Sans',sans-serif; font-size:20px; }
+  </style>
+
+  <!-- 表头 -->
+  <text class="txt" x="153" y="36" text-anchor="middle">运算符</text>
+  <text class="txt" x="393" y="36" text-anchor="middle">含义</text>
+  <text class="txt" x="627" y="36" text-anchor="middle">运算符</text>
+  <text class="txt" x="887" y="36" text-anchor="middle">含义</text>
+
+  <!-- 分组标签 -->
+  <text class="txt" x="78" y="147" text-anchor="middle">集合运算符</text>
+  <text class="txt" x="78" y="295" text-anchor="middle">专门的关系运</text>
+  <text class="txt" x="78" y="321" text-anchor="middle">算符</text>
+  <text class="txt" x="552" y="149" text-anchor="middle">比较运算符</text>
+  <text class="txt" x="552" y="314" text-anchor="middle">逻辑运算符</text>
+
+  <!-- 集合运算符组 -->
+  <text class="txt sym" x="240" y="98" text-anchor="middle">U</text>
+  <text class="txt" x="393" y="98" text-anchor="middle">并</text>
+  <text class="txt sym" x="240" y="131" text-anchor="middle">&#8745;</text>
+  <text class="txt" x="393" y="131" text-anchor="middle">差</text>
+  <!-- 交：印面符号位空白，照录留空 -->
+  <text class="txt" x="393" y="164" text-anchor="middle">交</text>
+  <text class="txt sym" x="240" y="197" text-anchor="middle">&#215;</text>
+  <text class="txt" x="393" y="197" text-anchor="middle">笛卡儿积</text>
+
+  <!-- 专门的关系运算符组 -->
+  <text class="txt sym" x="240" y="256" text-anchor="middle">o</text>
+  <text class="txt" x="393" y="256" text-anchor="middle">选择</text>
+  <text class="txt sym" x="240" y="289" text-anchor="middle">&#960;</text>
+  <text class="txt" x="393" y="289" text-anchor="middle">投影</text>
+  <!-- 连接：印面符号位空白，照录留空 -->
+  <text class="txt" x="393" y="322" text-anchor="middle">连接</text>
+  <text class="txt sym" x="240" y="355" text-anchor="middle">&#247;</text>
+  <text class="txt" x="393" y="355" text-anchor="middle">除</text>
+
+  <!-- 比较运算符组 -->
+  <text class="txt sym" x="705" y="68" text-anchor="middle">&gt;</text>
+  <text class="txt" x="887" y="68" text-anchor="middle">大于</text>
+  <text class="txt sym" x="705" y="101" text-anchor="middle">&#8805;</text>
+  <text class="txt" x="887" y="101" text-anchor="middle">大于等于</text>
+  <text class="txt sym" x="705" y="133" text-anchor="middle">&lt;</text>
+  <text class="txt" x="887" y="133" text-anchor="middle">小于</text>
+  <text class="txt sym" x="705" y="166" text-anchor="middle">&#8804;</text>
+  <text class="txt" x="887" y="166" text-anchor="middle">小于等于</text>
+  <text class="txt sym" x="705" y="198" text-anchor="middle">=</text>
+  <text class="txt" x="887" y="198" text-anchor="middle">等于</text>
+  <text class="txt sym" x="705" y="231" text-anchor="middle">&#8800;</text>
+  <text class="txt" x="887" y="231" text-anchor="middle">不等于</text>
+
+  <!-- 逻辑运算符组（三行符号位均空白，照录留空） -->
+  <text class="txt" x="887" y="278" text-anchor="middle">非</text>
+  <text class="txt" x="887" y="314" text-anchor="middle">与</text>
+  <text class="txt" x="887" y="350" text-anchor="middle">或</text>
+</svg>

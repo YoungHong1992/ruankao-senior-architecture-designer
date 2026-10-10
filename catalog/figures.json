@@ -1290,6 +1290,48 @@
       "printed_page": 215,
       "record": "verification/教材首轮核查-第05章-软件工程基础知识.md",
       "note": "独立盲比确认可辨的三角分区、底部“产品运行”标签及左侧 4 项、下方 6 项和右侧 3 项问题文字与扫描图对应。盲比指出三角形两斜面标签及右侧问题前 3 个模糊字块未转录；回看物理页 224 放大图仍无法辨认，按规程留空，不依正文猜补。不可辨标签的具体字形及其在 SVG 中的表达不作通过结论。"
+    },
+    {
+      "id": "tb-fig-0092",
+      "corpus": "textbook",
+      "file": "content/01-系统架构设计师教材-清洗版/第06章-数据库设计基础知识/第01节-数据库基本概念.md",
+      "figure": "图 6-1",
+      "title": "数据库系统体系结构",
+      "kind": "svg",
+      "anchor": "> 图 6-1 数据库系统体系结构",
+      "asset": "assets/figures/textbook/ch06-database-design-fundamentals/figure-06-01.svg",
+      "physical_page": 232,
+      "printed_page": 223,
+      "record": "verification/教材首轮核查-第06章-数据库设计基础知识.md",
+      "note": "三级模式体系结构：顶部 5 个用户框（首标签印面即作「用户A?」，印刷问号照录；框内两行「主语」「+DML」）、外部视图A/B（左旁注 外模式）、外模式/概念模式映象A/B（印面「映象」照录）、概念视图（左旁注 概念模式）、概念模式/内模式映象、底部 6 圆柱数据库框（左旁注 内模式）、右侧 DBMS 大圆、左侧花括号旁注「由数据库管理员建立和维护」、三条水平虚线分层（视图层/逻辑层/物理层）。13 组连线及双/单向箭头逐条放大核对后描绘。干净上下文盲比：17 条连线数量、起止、汇聚、箭头方向逐条一致，文字逐字一致（图题行按仓库惯例留在正文，SVG 内不含题行）。"
+    },
+    {
+      "id": "tb-fig-0093",
+      "corpus": "textbook",
+      "file": "content/01-系统架构设计师教材-清洗版/第06章-数据库设计基础知识/第02节-关系数据库.md",
+      "figure": "表 6-1",
+      "title": "关系代数运算符",
+      "kind": "svg",
+      "anchor": "> 表 6-1 关系代数运算符",
+      "asset": "assets/figures/textbook/ch06-database-design-fundamentals/figure-t06-01.svg",
+      "physical_page": 236,
+      "printed_page": 227,
+      "record": "verification/教材首轮核查-第06章-数据库设计基础知识.md",
+      "note": "无边框四列布局（运算符/含义/运算符/含义）+分组标签照录。原书排印原貌照录：∩ 与「差」同行、交/连接/非/与/或 五格符号位空白留空；「并」行符号印面为方角 U 形（照录 U，不写 ∪）；「选择」行符号印面为正圆环形、无 σ 尾迹（照录 o；疑为 σ 退化印，见 errata tb-0061/勘误登记口径）。干净上下文盲比后修正两处符号字形（∪→U、σ→o）并复渲染。第二轮盲核发现原稿 × 行含义列作「笛卡尔积」，印面实为「笛卡儿积」（10× NEAREST；原书表内作「儿」、散文作「尔」），SVG 已改照录并复渲染。"
+    },
+    {
+      "id": "tb-fig-0094",
+      "corpus": "textbook",
+      "file": "content/01-系统架构设计师教材-清洗版/第06章-数据库设计基础知识/第02节-关系数据库.md",
+      "figure": "表 6-2",
+      "title": "FIRST",
+      "kind": "svg",
+      "anchor": "> 表 6-2 FIRST",
+      "asset": "assets/figures/textbook/ch06-database-design-fundamentals/figure-t06-02.svg",
+      "physical_page": 241,
+      "printed_page": 232,
+      "record": "verification/教材首轮核查-第06章-数据库设计基础知识.md",
+      "note": "三线表（顶粗线/表头细线/底粗线，5 条竖分隔线，无外侧竖边框），6 列 8 行数据逐格对照：S1/S2/S3/S4 与 精益/盛锡/东方红/泰达、200/300/480/168/500/300/280/460 全部核符。表题印面误拼 FITST，正文按勘误口径作 FIRST（errata tb-0074）。干净上下文盲比：表体逐格一致，题行按仓库惯例留在正文。"
     }
   ]
 }

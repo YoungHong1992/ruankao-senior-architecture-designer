@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1250" height="400" viewBox="0 0 1000 320">
+  <title>表6-2 FIRST（复原）</title>
+  <desc>复原自入库扫描件《系统架构设计师教程》第2版物理页241（印刷页232）表6-2 FIRST。原表为三线表：顶线、表头下横线、底线均为横贯全表的水平线，无外侧竖边框，仅列间有 5 条竖线（Sno|Sname|Status|City|Pno|Qty 六栏）；表头下一横线与底线之间 8 行数据行间无横线。数据逐格照录：S1 精益 20 天津 P1 200／S1 精益 20 天津 P2 300／S1 精益 20 天津 P3 480／S2 盛锡 10 北京 P2 168／S2 盛锡 10 北京 P3 500／S3 东方红 30 北京 P1 300／S3 东方红 30 北京 P2 280／S4 泰达 40 上海 P2 460。</desc>
+  <rect width="1000" height="320" fill="#ffffff"/>
+  <style>
+    .txt { fill:#1a1a1a; font-family:'WenQuanYi Zen Hei','Noto Sans CJK SC','DejaVu Sans','Microsoft YaHei',sans-serif; font-size:19px; }
+    .rule-thick { stroke:#3d3d3d; stroke-width:2.2; }
+    .rule-thin { stroke:#3d3d3d; stroke-width:1.1; }
+    .vsep { stroke:#6e6e6e; stroke-width:1.1; }
+  </style>
+
+  <!-- 三线 + 列间竖线 -->
+  <line class="rule-thick" x1="14" y1="13" x2="987" y2="13"/>
+  <line class="rule-thin" x1="14" y1="53" x2="987" y2="53"/>
+  <line class="rule-thick" x1="14" y1="306" x2="987" y2="306"/>
+  <line class="vsep" x1="169" y1="13" x2="169" y2="306"/>
+  <line class="vsep" x1="336" y1="13" x2="336" y2="306"/>
+  <line class="vsep" x1="491.5" y1="13" x2="491.5" y2="306"/>
+  <line class="vsep" x1="661" y1="13" x2="661" y2="306"/>
+  <line class="vsep" x1="817" y1="13" x2="817" y2="306"/>
+
+  <!-- 表头 -->
+  <g class="txt" text-anchor="middle">
+    <text x="93" y="39">Sno</text>
+    <text x="250" y="39">Sname</text>
+    <text x="411" y="39">Status</text>
+    <text x="577" y="39">City</text>
+    <text x="738" y="39">Pno</text>
+    <text x="903" y="39">Qty</text>
+  </g>
+
+  <!-- 数据行 -->
+  <g class="txt" text-anchor="middle">
+    <text x="93" y="76">S1</text><text x="250" y="76">精益</text><text x="411" y="76">20</text><text x="577" y="76">天津</text><text x="738" y="76">P1</text><text x="903" y="76">200</text>
+    <text x="93" y="108">S1</text><text x="250" y="108">精益</text><text x="411" y="108">20</text><text x="577" y="108">天津</text><text x="738" y="108">P2</text><text x="903" y="108">300</text>
+    <text x="93" y="139">S1</text><text x="250" y="139">精益</text><text x="411" y="139">20</text><text x="577" y="139">天津</text><text x="738" y="139">P3</text><text x="903" y="139">480</text>
+    <text x="93" y="171">S2</text><text x="250" y="171">盛锡</text><text x="411" y="171">10</text><text x="577" y="171">北京</text><text x="738" y="171">P2</text><text x="903" y="171">168</text>
+    <text x="93" y="203">S2</text><text x="250" y="203">盛锡</text><text x="411" y="203">10</text><text x="577" y="203">北京</text><text x="738" y="203">P3</text><text x="903" y="203">500</text>
+    <text x="93" y="234">S3</text><text x="250" y="234">东方红</text><text x="411" y="234">30</text><text x="577" y="234">北京</text><text x="738" y="234">P1</text><text x="903" y="234">300</text>
+    <text x="93" y="266">S3</text><text x="250" y="266">东方红</text><text x="411" y="266">30</text><text x="577" y="266">北京</text><text x="738" y="266">P2</text><text x="903" y="266">280</text>
+    <text x="93" y="298">S4</text><text x="250" y="298">泰达</text><text x="411" y="298">40</text><text x="577" y="298">上海</text><text x="738" y="298">P2</text><text x="903" y="298">460</text>
+  </g>
+</svg>

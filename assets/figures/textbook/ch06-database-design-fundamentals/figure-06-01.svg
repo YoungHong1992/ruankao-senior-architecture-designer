@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="720" viewBox="0 0 920 720">
+  <title>图6-1 数据库系统体系结构（复原）</title>
+  <desc>复原自入库扫描件《系统架构设计师教程》第2版物理页232（印刷页223）图6-1 数据库系统体系结构。结构要点：顶部5个用户框（标签依次为用户A?、用户A2、用户A3、用户B1、用户B2，首标签末字符为印制问号照录），框内两行「主语」「+DML」；其下外部视图A、外部视图B两框（左侧旁注外模式）；映象标注「外模式/概念模式 映象A」「外模式/概念模式 映象B」（印面为映象）；中部概念视图框（左旁注概念模式）与「概念模式/内模式映象」标注；底部圆角框内6个数据库圆柱符号，框下标签数据库(内部视图)（左旁注内模式）；右侧圆内三行「数据库管/理系统/DBMS」；左侧大花括号旁注三行「由数据库/管理员建/立和维护」；右侧三条水平虚线分层，右端标签视图层/逻辑层/物理层。连线均双向箭头（映象标注至上下框的两线仅指向框端），方向照扫描件描绘。</desc>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="9" markerHeight="7.2" orient="auto-start-reverse">
+      <path d="M0.5,0.5 L9.5,4 L0.5,7.5 Z" fill="#8c8c8c"/>
+    </marker>
+  </defs>
+  <rect width="920" height="720" fill="#ffffff"/>
+  <style>
+    .txt { fill:#1a1a1a; font-family:'WenQuanYi Zen Hei','Noto Sans CJK SC','Microsoft YaHei',sans-serif; }
+    .box { fill:none; stroke:#a6a6a6; stroke-width:1.6; }
+    .line { stroke:#8c8c8c; stroke-width:1.4; fill:none; }
+    .dash { stroke:#a3a3a3; stroke-width:1.6; stroke-dasharray:8 6; fill:none; }
+  </style>
+
+  <!-- 三条分层虚线（底层） -->
+  <line class="dash" x1="150" y1="167" x2="775" y2="167"/>
+  <line class="dash" x1="150" y1="361" x2="775" y2="361"/>
+  <line class="dash" x1="150" y1="529" x2="775" y2="529"/>
+  <text class="txt" x="782" y="173" font-size="18">视图层</text>
+  <line class="dash" x1="852" y1="167" x2="893" y2="167"/>
+  <text class="txt" x="782" y="367" font-size="18">逻辑层</text>
+  <line class="dash" x1="852" y1="361" x2="872" y2="361"/>
+  <text class="txt" x="782" y="535" font-size="18">物理层</text>
+  <line class="dash" x1="852" y1="529" x2="872" y2="529"/>
+
+  <!-- 连线 -->
+  <!-- 用户A? - 外部视图A -->
+  <line class="line" x1="202" y1="142" x2="259" y2="196" marker-start="url(#ah)" marker-end="url(#ah)"/>
+  <!-- 用户A2 - 外部视图A -->
+  <line class="line" x1="316" y1="142" x2="315" y2="196" marker-start="url(#ah)" marker-end="url(#ah)"/>
+  <!-- 用户A3 - 外部视图A -->
+  <line class="line" x1="430" y1="142" x2="349" y2="196" marker-start="url(#ah)" marker-end="url(#ah)"/>
+  <!-- 用户B1 - 外部视图B -->
+  <line class="line" x1="552" y1="142" x2="566" y2="196" marker-start="url(#ah)" marker-end="url(#ah)"/>
+  <!-- 用户B2 - 外部视图B -->
+  <line class="line" x1="666" y1="142" x2="599" y2="196" marker-start="url(#ah)" marker-end="url(#ah)"/>
+  <!-- 映象A - 外部视图A（箭头指向框） -->
+  <line class="line" x1="283" y1="284" x2="276" y2="239" marker-end="url(#ah)"/>
+  <!-- 映象A - 概念视图（箭头指向框） -->
+  <line class="line" x1="318" y1="328" x2="395" y2="395" marker-end="url(#ah)"/>
+  <!-- 映象B - 外部视图B（箭头指向框） -->
+  <line class="line" x1="578" y1="284" x2="589" y2="239" marker-end="url(#ah)"/>
+  <!-- 映象B - 概念视图（箭头指向框） -->
+  <line class="line" x1="548" y1="328" x2="492" y2="395" marker-end="url(#ah)"/>
+  <!-- 映象B - DBMS（双向） -->
+  <line class="line" x1="600" y1="316" x2="654" y2="375" marker-start="url(#ah)" marker-end="url(#ah)"/>
+  <!-- 外部视图B - DBMS（双向） -->
+  <line class="line" x1="633" y1="237" x2="677" y2="369" marker-start="url(#ah)" marker-end="url(#ah)"/>
+  <!-- 用户B2 - DBMS 长竖线（双向），顶端旁有短虚线 -->
+  <line class="line" x1="720" y1="115" x2="720" y2="370" marker-start="url(#ah)" marker-end="url(#ah)"/>
+  <line class="dash" x1="727" y1="112" x2="762" y2="112"/>
+  <!-- 概念视图 - DBMS（双向水平线） -->
+  <line class="line" x1="530" y1="407" x2="629" y2="407" marker-start="url(#ah)" marker-end="url(#ah)"/>
+  <!-- 概念模式/内模式映象 - DBMS（双向斜线） -->
+  <line class="line" x1="566" y1="486" x2="647" y2="466" marker-start="url(#ah)" marker-end="url(#ah)"/>
+  <!-- DBMS - 数据库框（双向斜线） -->
+  <line class="line" x1="657" y1="483" x2="606" y2="543" marker-start="url(#ah)" marker-end="url(#ah)"/>
+  <!-- 概念视图 - 概念模式/内模式映象 - 数据库（竖线被标签隔断，箭头指向框） -->
+  <line class="line" x1="442" y1="473" x2="442" y2="439" marker-end="url(#ah)"/>
+  <line class="line" x1="442" y1="507" x2="442" y2="543" marker-end="url(#ah)"/>
+
+  <!-- 用户框 -->
+  <g>
+    <rect class="box" x="157" y="68" width="85" height="74"/>
+    <rect class="box" x="274" y="68" width="85" height="74"/>
+    <rect class="box" x="391" y="68" width="86" height="74"/>
+    <rect class="box" x="509" y="68" width="86" height="74"/>
+    <rect class="box" x="627" y="68" width="85" height="74"/>
+    <text class="txt" x="199" y="58" font-size="17" text-anchor="middle">用户A?</text>
+    <text class="txt" x="316" y="58" font-size="17" text-anchor="middle">用户A2</text>
+    <text class="txt" x="434" y="58" font-size="17" text-anchor="middle">用户A3</text>
+    <text class="txt" x="552" y="58" font-size="17" text-anchor="middle">用户B1</text>
+    <text class="txt" x="669" y="58" font-size="17" text-anchor="middle">用户B2</text>
+    <g text-anchor="middle" font-size="19">
+      <text class="txt" x="199" y="94">主语</text>
+      <text class="txt" x="199" y="126">+DML</text>
+      <text class="txt" x="316" y="94">主语</text>
+      <text class="txt" x="316" y="126">+DML</text>
+      <text class="txt" x="434" y="94">主语</text>
+      <text class="txt" x="434" y="126">+DML</text>
+      <text class="txt" x="552" y="94">主语</text>
+      <text class="txt" x="552" y="126">+DML</text>
+      <text class="txt" x="669" y="94">主语</text>
+      <text class="txt" x="669" y="126">+DML</text>
+    </g>
+  </g>
+
+  <!-- 外部视图框 -->
+  <rect class="box" x="245" y="198" width="128" height="37"/>
+  <rect class="box" x="507" y="198" width="128" height="37"/>
+  <text class="txt" x="309" y="223" font-size="18" text-anchor="middle">外部视图A</text>
+  <text class="txt" x="571" y="223" font-size="18" text-anchor="middle">外部视图B</text>
+  <!-- 外部视图B右侧短虚线 -->
+  <line class="dash" x1="637" y1="212" x2="770" y2="212"/>
+
+  <!-- 映象标注 -->
+  <g text-anchor="middle" font-size="17">
+    <text class="txt" x="302" y="297">外模式/概念模式</text>
+    <text class="txt" x="302" y="322">映象A</text>
+    <text class="txt" x="557" y="297">外模式/概念模式</text>
+    <text class="txt" x="557" y="322">映象B</text>
+  </g>
+
+  <!-- 概念视图 -->
+  <rect class="box" x="358" y="399" width="168" height="38"/>
+  <text class="txt" x="442" y="424" font-size="19" text-anchor="middle">概念视图</text>
+
+  <!-- 概念模式/内模式映象 -->
+  <text class="txt" x="447" y="497" font-size="18" text-anchor="middle">概念模式/内模式映象</text>
+
+  <!-- DBMS 圆 -->
+  <circle cx="698" cy="432" r="65" fill="none" stroke="#a6a6a6" stroke-width="1.6"/>
+  <g text-anchor="middle" font-size="18">
+    <text class="txt" x="698" y="416">数据库管</text>
+    <text class="txt" x="698" y="440">理系统</text>
+    <text class="txt" x="698" y="468">DBMS</text>
+  </g>
+
+  <!-- 数据库（圆角框 + 6 圆柱） -->
+  <rect class="box" x="252" y="547" width="403" height="75" rx="8"/>
+  <g stroke="#8c8c8c" stroke-width="1.4">
+    <g fill="#f2f2f2">
+      <path d="M269,567 v36 a21.5,9 0 0 0 43,0 v-36 Z"/>
+      <path d="M334,567 v36 a21,9 0 0 0 42,0 v-36 Z"/>
+      <path d="M398,567 v36 a21,9 0 0 0 42,0 v-36 Z"/>
+      <path d="M462,567 v36 a21.5,9 0 0 0 43,0 v-36 Z"/>
+      <path d="M527,567 v36 a21,9 0 0 0 42,0 v-36 Z"/>
+      <path d="M591,567 v36 a21,9 0 0 0 42,0 v-36 Z"/>
+    </g>
+    <g fill="#d9d9d9">
+      <ellipse cx="290.5" cy="567" rx="21.5" ry="9"/>
+      <ellipse cx="355" cy="567" rx="21" ry="9"/>
+      <ellipse cx="419" cy="567" rx="21" ry="9"/>
+      <ellipse cx="483.5" cy="567" rx="21.5" ry="9"/>
+      <ellipse cx="548" cy="567" rx="21" ry="9"/>
+      <ellipse cx="612" cy="567" rx="21" ry="9"/>
+    </g>
+  </g>
+  <text class="txt" x="453" y="652" font-size="18" text-anchor="middle">数据库(内部视图)</text>
+
+  <!-- 左侧花括号与旁注 -->
+  <path d="M142,180 C133,180 131,190 131,205 L131,380 C131,398 130,404 125,407 C130,410 131,416 131,434 L131,609 C131,624 133,634 142,634" fill="none" stroke="#8c8c8c" stroke-width="1.6"/>
+  <g text-anchor="end" font-size="17">
+    <text class="txt" x="108" y="386">由数据库</text>
+    <text class="txt" x="108" y="414">管理员建</text>
+    <text class="txt" x="108" y="442">立和维护</text>
+  </g>
+
+  <!-- 左侧三旁注 -->
+  <text class="txt" x="215" y="215" font-size="18" text-anchor="end">外模式</text>
+  <text class="txt" x="196" y="425" font-size="18" text-anchor="middle">概念模式</text>
+  <text class="txt" x="225" y="623" font-size="18" text-anchor="end">内模式</text>
+</svg>
