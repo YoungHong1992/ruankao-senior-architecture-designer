@@ -1282,7 +1282,7 @@
    "physical_page": 297,
    "printed_page": 288,
    "record": "verification/教材首轮核查-第08章-系统质量属性与架构评估.md",
-   "note": "原书自身排版不一致：6）AHP方法为该页唯一加粗的方法标题，其余 1）SAEM方法等 6 个方法标题均不加粗（medrun=2.0，e82b-p297-h6-ahp-line.png、h7-cosmic-line.png）。照录印面：AHP 保留标题层级，其余 6 行照录为正文级编号行。"
+   "note": "原书自身排版不一致：全部 7 个「N）××方法」标题行跨物理页 292/293/296/297（297 页本身仅含 6)、7) 两行），「6）AHP方法」为其中唯一加粗者（medrun=3.0），其余 1）SAEM方法等 6 行均不加粗（medrun=2.0，e82b-p297-h6-ahp-line.png、h7-cosmic-line.png；第二轮盲核 s02b 逐行亲测维持成立，原 note「该页唯一加粗」表述不准确已更正）。照录印面：AHP 保留标题层级，其余 6 行照录为正文级编号行。"
   },
   {
    "id": "tb-0105",
@@ -1493,12 +1493,61 @@
    "corpus": "textbook",
    "kind": "noted",
    "file": "content/01-系统架构设计师教材-清洗版/第08章-系统质量属性与架构评估/第03节-ATAM方法架构评估实践.md",
-   "anchor": "1. 首先，情景是在利益相关者的大风暴活动之后收集的。",
+   "anchor": "- 首先，情景是在利益相关者的大风暴活动之后收集的。",
    "original": "印面「利益相关者的大风暴活动」（e83b-p308-20x-dafengbao2.png，20× 确认）",
    "physical_page": 308,
    "printed_page": 299,
    "record": "verification/教材首轮核查-第08章-系统质量属性与架构评估.md",
    "note": "印面「大风暴」疑脱「头脑」二字，照录；清洗稿原作「头脑风暴」并改写句式。同句印面作「情景」，见 tb-0116。"
+  },
+  {
+   "id": "tb-0123",
+   "corpus": "textbook",
+   "kind": "noted",
+   "file": "content/01-系统架构设计师教材-清洗版/第08章-系统质量属性与架构评估/第01节-软件系统质量属性.md",
+   "anchor": "(`Modifability`)",
+   "original": "印面英文拼作「Modifability」（f 后无 i）",
+   "physical_page": 282,
+   "printed_page": 273,
+   "record": "verification/教材第二轮独立盲核记录-第08章.md",
+   "note": "原书误拼（规范拼法 Modifiability），第二轮盲核 s01 以 20× NEAREST 两段拼读确证、验证者独立裁剪同证（s01-p282-modifi-20x-a/b.png、val-s01-d4-modif.png），照录；清洗稿原作规范拼法，首轮漏检，第二轮核查处还原印面。"
+  },
+  {
+   "id": "tb-0124",
+   "corpus": "textbook",
+   "kind": "typo",
+   "file": "content/01-系统架构设计师教材-清洗版/第08章-系统质量属性与架构评估/第02节-系统架构评估.md",
+   "anchor": "\\frac{1}{|A_x||A_y|}R_\\infty(h_1,h'_1)",
+   "original": "印面分母作 |A_x|||A_y|（|A_x| 后紧跟双竖线簇再接 A_y|，共 5 条竖线）",
+   "corrected": "\\frac{1}{|A_x||A_y|}R_\\infty(h_1,h'_1)",
+   "physical_page": 294,
+   "printed_page": 285,
+   "record": "verification/教材第二轮独立盲核记录-第08章.md",
+   "note": "第二轮盲核 s02b 报出、验证者 14× NEAREST 逐画清点确证印面分母中部为三条竖线（val-s02b-f4-denom2-14x.png），疑排印衍一竖线；按同式 |A| 记号系统（与 tb-0102 同口径）勘正为 |A_x||A_y|。"
+  },
+  {
+   "id": "tb-0125",
+   "corpus": "textbook",
+   "kind": "noted",
+   "file": "content/01-系统架构设计师教材-清洗版/第08章-系统质量属性与架构评估/第02节-系统架构评估.md",
+   "anchor": "R_\\infty(h_1,h'_1)=\\gamma^2+",
+   "original": "印面公式5 两个英文分母的 h 均带撇记号（第一处一撇明确；第二处一撇外另有一淡点，40× NEAREST 仍不能定是否第二撇）",
+   "physical_page": 294,
+   "printed_page": 285,
+   "record": "verification/教材第二轮独立盲核记录-第08章.md",
+   "note": "印面撇记号与公式自身 LHS 记号系统 R_∞(h₁,h′₁) 不合，疑排印整体加撇；第一处按「存疑照录」录为 h′₁（清洗稿原作 h₁），第二处淡点按「无法判定不计差异」保留稿形 h′₁，待高清复核（val-s02b-f5-h1/h2-20x.png、-40x.png）。乘号「×」与大数据括号同式补录。"
+  },
+  {
+   "id": "tb-0126",
+   "corpus": "textbook",
+   "kind": "noted",
+   "file": "content/01-系统架构设计师教材-清洗版/第08章-系统质量属性与架构评估/第02节-系统架构评估.md",
+   "anchor": "(3)场景 (`scenarios`)。",
+   "original": "印面 8.2.1 三处段首导语 (1)敏感点、(2)风险承担者 加粗（medrun=3.0）而 (3)场景 不加粗（medrun=2.0）",
+   "physical_page": 288,
+   "printed_page": 279,
+   "record": "verification/教材第二轮独立盲核记录-第08章.md",
+   "note": "原书自身排版不一，照录：(1)(2) 保留段首加粗导语，(3) 不加粗。第二轮盲核 s02a 报出、验证者 medrun 复测定案（s02a-p287-p2line1.png、s02a-p288-sc3lead.png；val 测量 p287(1)=3/p288(3)=2）；清洗稿原三处全部加粗，首轮漏检 (3)。"
   }
  ]
 }
