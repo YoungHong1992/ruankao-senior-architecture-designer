@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1034" height="732" viewBox="0 0 1034 732">
+<title>表8-12示例投票活动的结果</title>
+<desc>复原自《系统架构设计师教程》(第2版)扫描件物理页310(印刷页301)表8-12,逐格转录。7列(Sc# 场景编号/Scenario 场景/Quality Attribute 质量属性/User votes 用户投票/Architect votes 架构师投票/App. Dev votes 开发人员投票/Total Votes 总票数)×8数据行,按总票数降序(14/4/5/8/1/2/13/6);行5与行1的用户投票格原书为浅灰短横线占位,照录为「—」;行5架构师投票与行2用户投票、行6架构师投票为浅印数字,逐格辨认照录;行13质量属性中文印「概念上的完整性」,照录;原表无「合计」行,不画。</desc>
+<rect x="0" y="0" width="1034" height="732" fill="#ffffff"/>
+<line x1="12" y1="4" x2="12" y2="724" stroke="#000000" stroke-width="1"/>
+<line x1="82" y1="4" x2="82" y2="724" stroke="#000000" stroke-width="1"/>
+<line x1="482" y1="4" x2="482" y2="724" stroke="#000000" stroke-width="1"/>
+<line x1="642" y1="4" x2="642" y2="724" stroke="#000000" stroke-width="1"/>
+<line x1="737" y1="4" x2="737" y2="724" stroke="#000000" stroke-width="1"/>
+<line x1="832" y1="4" x2="832" y2="724" stroke="#000000" stroke-width="1"/>
+<line x1="927" y1="4" x2="927" y2="724" stroke="#000000" stroke-width="1"/>
+<line x1="1022" y1="4" x2="1022" y2="724" stroke="#000000" stroke-width="1"/>
+<line x1="12" y1="4" x2="1022" y2="4" stroke="#000000" stroke-width="2"/>
+<line x1="12" y1="128" x2="1022" y2="128" stroke="#000000" stroke-width="1"/>
+<line x1="12" y1="208" x2="1022" y2="208" stroke="#000000" stroke-width="1"/>
+<line x1="12" y1="266" x2="1022" y2="266" stroke="#000000" stroke-width="1"/>
+<line x1="12" y1="346" x2="1022" y2="346" stroke="#000000" stroke-width="1"/>
+<line x1="12" y1="426" x2="1022" y2="426" stroke="#000000" stroke-width="1"/>
+<line x1="12" y1="484" x2="1022" y2="484" stroke="#000000" stroke-width="1"/>
+<line x1="12" y1="564" x2="1022" y2="564" stroke="#000000" stroke-width="1"/>
+<line x1="12" y1="644" x2="1022" y2="644" stroke="#000000" stroke-width="1"/>
+<line x1="12" y1="724" x2="1022" y2="724" stroke="#000000" stroke-width="2"/>
+<text x="47" y="50" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">Sc #</text>
+<text x="47" y="72" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">场景</text>
+<text x="47" y="94" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">编号</text>
+<text x="282" y="61" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">Scenario</text>
+<text x="282" y="83" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">场景</text>
+<text x="562" y="50" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">Quality</text>
+<text x="562" y="72" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">Attribute</text>
+<text x="562" y="94" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">质量属性</text>
+<text x="689.5" y="39" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">User</text>
+<text x="689.5" y="61" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">votes</text>
+<text x="689.5" y="83" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">用户投</text>
+<text x="689.5" y="105" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">票</text>
+<text x="784.5" y="39" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">Architect</text>
+<text x="784.5" y="61" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">votes</text>
+<text x="784.5" y="83" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">架构师投</text>
+<text x="784.5" y="105" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">票</text>
+<text x="879.5" y="28" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">App.</text>
+<text x="879.5" y="50" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">Dev</text>
+<text x="879.5" y="72" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">votes</text>
+<text x="879.5" y="94" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">开发人</text>
+<text x="879.5" y="116" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">员投票</text>
+<text x="974.5" y="50" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">Total</text>
+<text x="974.5" y="72" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">Votes</text>
+<text x="974.5" y="94" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">总票数</text>
+<text x="47" y="174" font-family="serif" font-size="13" fill="#000000" text-anchor="middle">14</text>
+<text x="92" y="152" font-family="serif" font-size="15" fill="#000000" text-anchor="start">Framework should be complete clear and</text>
+<text x="92" y="174" font-family="serif" font-size="15" fill="#000000" text-anchor="start">perform exactly as required</text>
+<text x="92" y="196" font-family="serif" font-size="15" fill="#000000" text-anchor="start">框架应该是完全清晰的，并且完全按照需求执行</text>
+<text x="562" y="163" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">Functionality</text>
+<text x="562" y="185" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">功能性</text>
+<text x="689.5" y="174" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">0</text>
+<text x="784.5" y="174" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">0</text>
+<text x="879.5" y="174" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">3</text>
+<text x="974.5" y="174" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">3</text>
+<text x="47" y="243" font-family="serif" font-size="13" fill="#000000" text-anchor="middle">4</text>
+<text x="92" y="232" font-family="serif" font-size="15" fill="#000000" text-anchor="start">User errors in using system should be handled</text>
+<text x="92" y="254" font-family="serif" font-size="15" fill="#000000" text-anchor="start">处理用户在使用系统时出现的错误</text>
+<text x="562" y="232" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">Reliability</text>
+<text x="562" y="254" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">可靠性</text>
+<text x="689.5" y="243" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">2</text>
+<text x="784.5" y="243" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">0</text>
+<text x="879.5" y="243" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">1</text>
+<text x="974.5" y="243" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">3</text>
+<text x="47" y="312" font-family="serif" font-size="13" fill="#000000" text-anchor="middle">5</text>
+<text x="92" y="290" font-family="serif" font-size="15" fill="#000000" text-anchor="start">New demands on system functionality should</text>
+<text x="92" y="312" font-family="serif" font-size="15" fill="#000000" text-anchor="start">be accommodated.</text>
+<text x="92" y="334" font-family="serif" font-size="15" fill="#000000" text-anchor="start">适应系统新的功能需求</text>
+<text x="562" y="301" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">Modifiability</text>
+<text x="562" y="323" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">可修改性</text>
+<text x="689.5" y="312" font-family="serif" font-size="15" fill="#808080" text-anchor="middle">—</text>
+<text x="784.5" y="312" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">1</text>
+<text x="879.5" y="312" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">0</text>
+<text x="974.5" y="312" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">2</text>
+<text x="47" y="392" font-family="serif" font-size="13" fill="#000000" text-anchor="middle">8</text>
+<text x="92" y="370" font-family="serif" font-size="15" fill="#000000" text-anchor="start">Components in framework interact in a</text>
+<text x="92" y="392" font-family="serif" font-size="15" fill="#000000" text-anchor="start">coordinated manner</text>
+<text x="92" y="414" font-family="serif" font-size="15" fill="#000000" text-anchor="start">框架中的组件通过交互协议交互</text>
+<text x="562" y="381" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">Functionality</text>
+<text x="562" y="403" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">功能性</text>
+<text x="689.5" y="392" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">0</text>
+<text x="784.5" y="392" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">2</text>
+<text x="879.5" y="392" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">0</text>
+<text x="974.5" y="392" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">2</text>
+<text x="47" y="461" font-family="serif" font-size="13" fill="#000000" text-anchor="middle">1</text>
+<text x="92" y="450" font-family="serif" font-size="15" fill="#000000" text-anchor="start">No unauthorized access to the system</text>
+<text x="92" y="472" font-family="serif" font-size="15" fill="#000000" text-anchor="start">禁止非法访问系统</text>
+<text x="562" y="450" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">Security</text>
+<text x="562" y="472" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">安全性</text>
+<text x="689.5" y="461" font-family="serif" font-size="15" fill="#808080" text-anchor="middle">—</text>
+<text x="784.5" y="461" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">0</text>
+<text x="879.5" y="461" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">1</text>
+<text x="974.5" y="461" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">2</text>
+<text x="47" y="530" font-family="serif" font-size="13" fill="#000000" text-anchor="middle">2</text>
+<text x="92" y="508" font-family="serif" font-size="15" fill="#000000" text-anchor="start">All operations are processed in fastest</text>
+<text x="92" y="530" font-family="serif" font-size="15" fill="#000000" text-anchor="start">possible speed</text>
+<text x="92" y="552" font-family="serif" font-size="15" fill="#000000" text-anchor="start">所有的操作都以最快的速度处理</text>
+<text x="562" y="519" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">Performance</text>
+<text x="562" y="541" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">性能</text>
+<text x="689.5" y="530" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">1</text>
+<text x="784.5" y="530" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">0</text>
+<text x="879.5" y="530" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">0</text>
+<text x="974.5" y="530" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">1</text>
+<text x="47" y="610" font-family="serif" font-size="13" fill="#000000" text-anchor="middle">13</text>
+<text x="92" y="588" font-family="serif" font-size="15" fill="#000000" text-anchor="start">Overall consistent behavior expected from</text>
+<text x="92" y="610" font-family="serif" font-size="15" fill="#000000" text-anchor="start">the architecture</text>
+<text x="92" y="632" font-family="serif" font-size="15" fill="#000000" text-anchor="start">架构预期的整体行为一致</text>
+<text x="562" y="599" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">Functionality</text>
+<text x="562" y="621" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">概念上的完整性</text>
+<text x="689.5" y="610" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">0</text>
+<text x="784.5" y="610" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">1</text>
+<text x="879.5" y="610" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">0</text>
+<text x="974.5" y="610" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">1</text>
+<text x="47" y="690" font-family="serif" font-size="13" fill="#000000" text-anchor="middle">6</text>
+<text x="92" y="668" font-family="serif" font-size="15" fill="#000000" text-anchor="start">Major parts of the framework should be</text>
+<text x="92" y="690" font-family="serif" font-size="15" fill="#000000" text-anchor="start">reusable for future architectures</text>
+<text x="92" y="712" font-family="serif" font-size="15" fill="#000000" text-anchor="start">未来的体系结构可重用框架的主体部分</text>
+<text x="562" y="679" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">Variability</text>
+<text x="562" y="701" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">可变性</text>
+<text x="689.5" y="690" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">0</text>
+<text x="784.5" y="690" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">1</text>
+<text x="879.5" y="690" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">0</text>
+<text x="974.5" y="690" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">1</text>
+</svg>

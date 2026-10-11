@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="930" height="400" viewBox="0 0 930 400">
+<title>图 8-4 架构转移矩阵与 LOC 变化趋势</title>
+<desc>复原自《系统架构设计师教程》(第2版)第8章扫描件物理页295(印刷页286)。双纵轴折线图：横轴0-12(刻度间距2)；左纵轴-1至1(刻度间距0.5)，右纵轴100000至300000(刻度间距50000)，两纵轴五条水平刻度线共用。图例居绘图区左上部：Architecture transition=实线+圆点标记(数据点自x=1起共12个，x=1的点落在横轴上)；LOC transition=虚线+三角标记(共13个)。两系列在x=10、x=12处标记重合，按重合点照录。各点像素测量值与换算数据值见绘制报告。</desc>
+<rect x="0" y="0" width="930" height="400" fill="#ffffff"/>
+<rect x="60.0" y="60.0" width="796.0" height="238.0" fill="none" stroke="#000" stroke-width="1.2"/>
+<line x1="54.0" y1="60.0" x2="60.0" y2="60.0" stroke="#000" stroke-width="1"/>
+<line x1="856.0" y1="60.0" x2="862.0" y2="60.0" stroke="#000" stroke-width="1"/>
+<text x="50.0" y="64.0" font-family="serif" font-size="13" text-anchor="end" fill="#000">1</text>
+<text x="866.0" y="64.0" font-family="serif" font-size="13" text-anchor="start" fill="#000">300000</text>
+<line x1="54.0" y1="119.5" x2="60.0" y2="119.5" stroke="#000" stroke-width="1"/>
+<line x1="856.0" y1="119.5" x2="862.0" y2="119.5" stroke="#000" stroke-width="1"/>
+<text x="50.0" y="123.5" font-family="serif" font-size="13" text-anchor="end" fill="#000">0.5</text>
+<text x="866.0" y="123.5" font-family="serif" font-size="13" text-anchor="start" fill="#000">250000</text>
+<line x1="54.0" y1="179.0" x2="60.0" y2="179.0" stroke="#000" stroke-width="1"/>
+<line x1="856.0" y1="179.0" x2="862.0" y2="179.0" stroke="#000" stroke-width="1"/>
+<text x="50.0" y="183.0" font-family="serif" font-size="13" text-anchor="end" fill="#000">0</text>
+<text x="866.0" y="183.0" font-family="serif" font-size="13" text-anchor="start" fill="#000">200000</text>
+<line x1="54.0" y1="238.5" x2="60.0" y2="238.5" stroke="#000" stroke-width="1"/>
+<line x1="856.0" y1="238.5" x2="862.0" y2="238.5" stroke="#000" stroke-width="1"/>
+<text x="50.0" y="242.5" font-family="serif" font-size="13" text-anchor="end" fill="#000">-0.5</text>
+<text x="866.0" y="242.5" font-family="serif" font-size="13" text-anchor="start" fill="#000">150000</text>
+<line x1="54.0" y1="298.0" x2="60.0" y2="298.0" stroke="#000" stroke-width="1"/>
+<line x1="856.0" y1="298.0" x2="862.0" y2="298.0" stroke="#000" stroke-width="1"/>
+<text x="50.0" y="302.0" font-family="serif" font-size="13" text-anchor="end" fill="#000">-1</text>
+<text x="866.0" y="302.0" font-family="serif" font-size="13" text-anchor="start" fill="#000">100000</text>
+<line x1="60.0" y1="298.0" x2="60.0" y2="304.0" stroke="#000" stroke-width="1"/>
+<text x="60.0" y="318.0" font-family="serif" font-size="13" text-anchor="middle" fill="#000">0</text>
+<line x1="192.7" y1="298.0" x2="192.7" y2="304.0" stroke="#000" stroke-width="1"/>
+<text x="192.7" y="318.0" font-family="serif" font-size="13" text-anchor="middle" fill="#000">2</text>
+<line x1="325.3" y1="298.0" x2="325.3" y2="304.0" stroke="#000" stroke-width="1"/>
+<text x="325.3" y="318.0" font-family="serif" font-size="13" text-anchor="middle" fill="#000">4</text>
+<line x1="458.0" y1="298.0" x2="458.0" y2="304.0" stroke="#000" stroke-width="1"/>
+<text x="458.0" y="318.0" font-family="serif" font-size="13" text-anchor="middle" fill="#000">6</text>
+<line x1="590.7" y1="298.0" x2="590.7" y2="304.0" stroke="#000" stroke-width="1"/>
+<text x="590.7" y="318.0" font-family="serif" font-size="13" text-anchor="middle" fill="#000">8</text>
+<line x1="723.3" y1="298.0" x2="723.3" y2="304.0" stroke="#000" stroke-width="1"/>
+<text x="723.3" y="318.0" font-family="serif" font-size="13" text-anchor="middle" fill="#000">10</text>
+<line x1="856.0" y1="298.0" x2="856.0" y2="304.0" stroke="#000" stroke-width="1"/>
+<text x="856.0" y="318.0" font-family="serif" font-size="13" text-anchor="middle" fill="#000">12</text>
+<polyline points="60.0,276.6 126.3,279.0 192.7,268.2 259.0,256.4 325.3,198.0 391.7,187.3 458.0,181.4 524.3,169.5 590.7,162.3 657.0,151.6 723.3,137.3 789.7,114.7 856.0,101.7" fill="none" stroke="#000" stroke-width="1.1" stroke-dasharray="5,4"/>
+<path d="M 60.0,273.2 L 63.2,279.2 L 56.8,279.2 z" fill="#000"/>
+<path d="M 126.3,275.6 L 129.5,281.6 L 123.1,281.6 z" fill="#000"/>
+<path d="M 192.7,264.9 L 195.9,270.9 L 189.5,270.9 z" fill="#000"/>
+<path d="M 259.0,253.0 L 262.2,259.0 L 255.8,259.0 z" fill="#000"/>
+<path d="M 325.3,194.6 L 328.5,200.6 L 322.1,200.6 z" fill="#000"/>
+<path d="M 391.7,183.9 L 394.9,189.9 L 388.5,189.9 z" fill="#000"/>
+<path d="M 458.0,178.0 L 461.2,184.0 L 454.8,184.0 z" fill="#000"/>
+<path d="M 524.3,166.1 L 527.5,172.1 L 521.1,172.1 z" fill="#000"/>
+<path d="M 590.7,158.9 L 593.9,164.9 L 587.5,164.9 z" fill="#000"/>
+<path d="M 657.0,148.2 L 660.2,154.2 L 653.8,154.2 z" fill="#000"/>
+<path d="M 723.3,133.9 L 726.5,139.9 L 720.1,139.9 z" fill="#000"/>
+<path d="M 789.7,111.3 L 792.9,117.3 L 786.5,117.3 z" fill="#000"/>
+<path d="M 856.0,98.2 L 859.2,104.2 L 852.8,104.2 z" fill="#000"/>
+<polyline points="126.3,298.0 192.7,180.2 259.0,219.5 325.3,148.1 391.7,136.2 458.0,121.9 524.3,127.8 590.7,127.8 657.0,102.8 723.3,137.3 789.7,61.2 856.0,101.7" fill="none" stroke="#000" stroke-width="1.2"/>
+<circle cx="126.3" cy="298.0" r="3.1" fill="#000"/>
+<circle cx="192.7" cy="180.2" r="3.1" fill="#000"/>
+<circle cx="259.0" cy="219.5" r="3.1" fill="#000"/>
+<circle cx="325.3" cy="148.1" r="3.1" fill="#000"/>
+<circle cx="391.7" cy="136.2" r="3.1" fill="#000"/>
+<circle cx="458.0" cy="121.9" r="3.1" fill="#000"/>
+<circle cx="524.3" cy="127.8" r="3.1" fill="#000"/>
+<circle cx="590.7" cy="127.8" r="3.1" fill="#000"/>
+<circle cx="657.0" cy="102.8" r="3.1" fill="#000"/>
+<circle cx="723.3" cy="137.3" r="3.1" fill="#000"/>
+<circle cx="789.7" cy="61.2" r="3.1" fill="#000"/>
+<circle cx="856.0" cy="101.7" r="3.1" fill="#000"/>
+<text x="92.0" y="96.0" font-family="serif" font-size="13.5" fill="#000">Architecture transition</text>
+<line x1="270.0" y1="92.0" x2="330.0" y2="92.0" stroke="#000" stroke-width="1.2"/>
+<circle cx="300.0" cy="92.0" r="3.1" fill="#000"/>
+<text x="92.0" y="120.0" font-family="serif" font-size="13.5" fill="#000">LOC transition</text>
+<line x1="270.0" y1="116.0" x2="330.0" y2="116.0" stroke="#000" stroke-width="1.1" stroke-dasharray="5,4"/>
+<path d="M 300.0,112.6 L 303.2,118.6 L 296.8,118.6 z" fill="#000"/>
+<text x="465.0" y="362" font-family="serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#000">图 8-4 架构转移矩阵与 LOC 变化趋势</text>
+</svg>
