@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="710" viewBox="0 0 1100 710">
+  <title>表8-5 易用性质量属性场景描述</title>
+  <desc>复原自 sources/01-系统架构设计师教材 入库扫描件物理页 285(印刷页 276),表题:表8-5 易用性质量属性场景描述。结构:两列(场景要素/可能的情况),表头加粗;响应格11行,含(1)-(5)编号分项与引导行,分行照印面;引号为全角、「(或)」括号为半角,照录;响应度量格2行。</desc>
+  <rect x="0" y="0" width="1100" height="710" fill="#ffffff"/>
+  <text x="550" y="31" text-anchor="middle" font-family="WenQuanYi Zen Hei, sans-serif" font-size="16" font-weight="bold" fill="#000000">表8-5易用性质量属性场景描述</text>
+  <rect x="40" y="44" width="1020" height="652" fill="none" stroke="#000000" stroke-width="1.5"/>
+  <line x1="210" y1="44" x2="210" y2="696" stroke="#000000" stroke-width="1"/>
+  <text x="125" y="73" text-anchor="middle" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" font-weight="bold" fill="#000000">场景要素</text>
+  <text x="635" y="73" text-anchor="middle" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" font-weight="bold" fill="#000000">可能的情况</text>
+  <line x1="40" y1="90" x2="1060" y2="90" stroke="#000000" stroke-width="2"/>
+  <text x="125" y="119" text-anchor="middle" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">刺激源</text>
+  <text x="224" y="119" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">最终用户</text>
+  <line x1="40" y1="136" x2="1060" y2="136" stroke="#000000" stroke-width="1"/>
+  <text x="125" y="165" text-anchor="middle" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">刺激</text>
+  <text x="224" y="165" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">想要学习系统特性、有效使用系统、使错误的影响最低、适配系统、对系统满意</text>
+  <line x1="40" y1="182" x2="1060" y2="182" stroke="#000000" stroke-width="1"/>
+  <text x="125" y="211" text-anchor="middle" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">环境</text>
+  <text x="224" y="211" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">系统运行时或配置时</text>
+  <line x1="40" y1="228" x2="1060" y2="228" stroke="#000000" stroke-width="1"/>
+  <text x="125" y="257" text-anchor="middle" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">制品</text>
+  <text x="224" y="257" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">系统</text>
+  <line x1="40" y1="274" x2="1060" y2="274" stroke="#000000" stroke-width="1"/>
+  <text x="125" y="453" text-anchor="middle" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">响应</text>
+  <text x="224" y="303" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">(1)系统提供以下一个或多个响应来支持“学习系统特性”：</text>
+  <text x="224" y="333" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">帮助系统与环境联系紧密；界面为用户所熟悉；在不熟悉的环境中，界面是可以使用的</text>
+  <text x="224" y="363" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">(2)系统提供以下一个或多个响应来支持“有效使用系统”：</text>
+  <text x="224" y="393" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">数据和(或)命令的聚合；已输入的数据和(或)命令的重用；支持在界面中的有效导航；</text>
+  <text x="224" y="423" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">具有一致操作的不同视图；全面搜索；多个同时进行的活动</text>
+  <text x="224" y="453" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">(3)系统提供以下一个或多个响应来“使错误的影响最低”：</text>
+  <text x="224" y="483" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">撤销；取消；从系统故障中恢复；识别并纠正用户错误；检索忘记的密码；验证系统资源</text>
+  <text x="224" y="513" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">(4)系统提供以下一个或多个响应来“适配系统”：</text>
+  <text x="224" y="543" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">定制能力；国际化</text>
+  <text x="224" y="573" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">(5)系统提供以下一个或多个响应来使客户“对系统的满意”：</text>
+  <text x="224" y="603" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">显示系统状态；与客户的节奏合拍</text>
+  <line x1="40" y1="620" x2="1060" y2="620" stroke="#000000" stroke-width="1"/>
+  <text x="125" y="664" text-anchor="middle" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">响应度量</text>
+  <text x="224" y="649" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">任务时间、错误数量、解决问题的数量、用户满意度、用户知识的获得、成功操作在总操</text>
+  <text x="224" y="679" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">作中所占的比例、损失的时间/丢失的数据量</text>
+  <line x1="40" y1="696" x2="1060" y2="696" stroke="#000000" stroke-width="1.5"/>
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="560" viewBox="0 0 1100 560">
+  <title>表8-6 安全性质量属性场景描述</title>
+  <desc>复原自 sources/01-系统架构设计师教材 入库扫描件物理页 286(印刷页 277),表题:表8-6 安全性质量属性场景描述。结构:两列(场景要素/可能的情况),表头加粗;刺激源格2行、响应格4行(末行印面有一字缩进,照录为行首全角空格)、响应度量格3行;斜杠「/」与半角括号「(或)」照录。</desc>
+  <rect x="0" y="0" width="1100" height="560" fill="#ffffff"/>
+  <text x="550" y="31" text-anchor="middle" font-family="WenQuanYi Zen Hei, sans-serif" font-size="16" font-weight="bold" fill="#000000">表8-6安全性质量属性场景描述</text>
+  <rect x="40" y="44" width="1020" height="502" fill="none" stroke="#000000" stroke-width="1.5"/>
+  <line x1="210" y1="44" x2="210" y2="546" stroke="#000000" stroke-width="1"/>
+  <text x="125" y="73" text-anchor="middle" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" font-weight="bold" fill="#000000">场景要素</text>
+  <text x="635" y="73" text-anchor="middle" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" font-weight="bold" fill="#000000">可能的情况</text>
+  <line x1="40" y1="90" x2="1060" y2="90" stroke="#000000" stroke-width="2"/>
+  <text x="125" y="134" text-anchor="middle" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">刺激源</text>
+  <text x="224" y="119" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">正确识别、非正确识别身份未知的来自内部/外部的个人或系统；经过了授权/未授权它</text>
+  <text x="224" y="149" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">访问了有限的资源/大量资源</text>
+  <line x1="40" y1="166" x2="1060" y2="166" stroke="#000000" stroke-width="1"/>
+  <text x="125" y="195" text-anchor="middle" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">刺激</text>
+  <text x="224" y="195" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">试图显示数据，改变/删除数据，访问系统服务，降低系统服务的可用性</text>
+  <line x1="40" y1="212" x2="1060" y2="212" stroke="#000000" stroke-width="1"/>
+  <text x="125" y="241" text-anchor="middle" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">环境</text>
+  <text x="224" y="241" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">在线或离线、联网或断网、连接有防火墙或者直接连到了网络</text>
+  <line x1="40" y1="258" x2="1060" y2="258" stroke="#000000" stroke-width="1"/>
+  <text x="125" y="287" text-anchor="middle" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">制品</text>
+  <text x="224" y="287" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">系统服务、系统中的数据</text>
+  <line x1="40" y1="304" x2="1060" y2="304" stroke="#000000" stroke-width="1"/>
+  <text x="125" y="378" text-anchor="middle" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">响应</text>
+  <text x="224" y="333" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">对用户身份进行认证；隐藏用户的身份；阻止对数据或服务的访问；允许访问数据或服务；</text>
+  <text x="224" y="363" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">授予或收回对访问数据或服务的许可；根据身份记录访问、修改或试图访问、修改数据、</text>
+  <text x="224" y="393" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">服务；以一种不可读的格式存储数据；识别无法解释的对服务的高需求；通知用户或另外</text>
+  <text x="224" y="423" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">　个系统，并限制服务的可用性</text>
+  <line x1="40" y1="440" x2="1060" y2="440" stroke="#000000" stroke-width="1"/>
+  <text x="125" y="499" text-anchor="middle" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">响应度量</text>
+  <text x="224" y="469" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">用成功的概率表示，避开安全防范措施所需要的时间、努力、资源；检测到攻击的可能性；</text>
+  <text x="224" y="499" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">确定攻击或访问、修改数据或服务的个人的可能性；在拒绝服务攻击的情况下仍然获得服</text>
+  <text x="224" y="529" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">务的百分比；恢复数据、服务；被破坏的数据、服务和(或)被拒绝的合法访问的范围</text>
+  <line x1="40" y1="546" x2="1060" y2="546" stroke="#000000" stroke-width="1.5"/>
+</svg>
