@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="770" height="510" viewBox="0 0 770 510">
+  <title>图8-2 ATAM分析评估过程</title>
+  <desc>复原自《系统架构设计师教程》(第2版)第8章扫描件物理页290(印刷页281)。结构要点：一个圆被竖直与水平两条直径线分为四象限，象限内环形排布步骤1-7(右上1.收集场景、2.收集需求/约束/环境；右下3.描述体系结构视图、4.实现场景，；左下5.特定属性分析(优秀的单一理论)；左上7.标志折中、6.标志敏感度)；圆外一支半径稍大的顺时针弧线组12点→3点→6点→9点三段、段末各带箭头(3点处向下、6点处向左、9点处向上)，左上象限无外弧；竖直直径顶端向右引水平连线至"行□计划"矩形框(框内第二字为叠影套印墨迹、放大不可辨，照录为"□")；圆外四角标注阶段4折中(左上)、阶段1场景和需求收集(右上)、阶段2体系结构视图和场景实现(右下)、阶段3属性模型构造和分析(左下)。</desc>
+  <rect x="0" y="0" width="770" height="510" fill="#ffffff"/>
+  <defs>
+    <marker id="ar2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#000"/>
+    </marker>
+  </defs>
+  <g stroke="#000" stroke-width="1.2" fill="none">
+    <circle cx="300" cy="240" r="150"/>
+    <line x1="300" y1="60" x2="300" y2="428"/>
+    <line x1="118" y1="240" x2="484" y2="240"/>
+    <path d="M 300,62 A 172,172 0 0 1 472,240" marker-end="url(#ar2)"/>
+    <path d="M 472,240 A 172,172 0 0 1 300,412" marker-end="url(#ar2)"/>
+    <path d="M 300,412 A 172,172 0 0 1 128,240" marker-end="url(#ar2)"/>
+    <line x1="300" y1="62" x2="466" y2="62"/>
+    <rect x="466" y="40" width="100" height="46" fill="#fff"/>
+  </g>
+  <g font-family="serif" fill="#000" text-anchor="middle">
+    <text x="516" y="70" font-size="17">行□计划</text>
+    <text x="390" y="162" font-size="15">1.收集场景</text>
+    <text x="390" y="186" font-size="15">2.收集需求/约</text>
+    <text x="390" y="210" font-size="15">束/环境</text>
+    <text x="385" y="272" font-size="15">3.描述体系结</text>
+    <text x="385" y="296" font-size="15">构视图</text>
+    <text x="385" y="320" font-size="15">4.实现场景，</text>
+    <text x="230" y="276" font-size="15">5.特定属性分</text>
+    <text x="230" y="300" font-size="15">析(优秀的单</text>
+    <text x="230" y="324" font-size="15">一理论)</text>
+    <text x="230" y="156" font-size="15">7.标志折中</text>
+    <text x="230" y="180" font-size="15">6.标志敏感度</text>
+    <text x="163" y="100" font-size="15">阶段4</text>
+    <text x="163" y="124" font-size="15">折中</text>
+    <text x="597" y="122" font-size="15">阶段1</text>
+    <text x="597" y="146" font-size="15">场景和需</text>
+    <text x="597" y="170" font-size="15">求收集</text>
+    <text x="520" y="356" font-size="15">阶段2</text>
+    <text x="520" y="380" font-size="15">体系结构视图</text>
+    <text x="520" y="404" font-size="15">和场景实现</text>
+    <text x="80" y="360" font-size="15">阶段3</text>
+    <text x="80" y="384" font-size="15">属性模型构造</text>
+    <text x="80" y="408" font-size="15">和分析</text>
+    <text x="300" y="478" font-size="16" font-weight="bold">图8-2 ATAM分析评估过程</text>
+  </g>
+</svg>

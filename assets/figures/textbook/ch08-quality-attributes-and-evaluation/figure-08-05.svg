@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="710" height="1460" viewBox="0 0 355 730">
+  <title>图8-5 ATAM方法的评估实践阶段划分</title>
+  <desc>复原自《系统架构设计师教程》(第2版)入库扫描件第298页(印刷页289)右侧图8-5。纵向流程:9个处理框自上而下以单向箭头串联,按4个基本阶段分组;前三个阶段各有点划虚线分组框,右侧竖排阶段名依次为描述和介绍阶段、调查和分析阶段、测试阶段,报告阶段(提交结果框)无分组框。逐节点对照印面转录,渲染核对后交付。</desc>
+  <rect x="0" y="0" width="355" height="730" fill="#ffffff"/>
+  <!-- 阶段分组虚线框 -->
+  <g fill="none" stroke="#999" stroke-width="1.3" stroke-dasharray="7 5">
+    <rect x="27" y="42" width="291" height="180"/>
+    <rect x="27" y="245" width="291" height="181"/>
+    <rect x="27" y="448" width="291" height="118"/>
+  </g>
+  <!-- 连线与箭头 -->
+  <g stroke="#555" stroke-width="1.4" fill="none">
+    <line x1="165" y1="90" x2="165" y2="104"/>
+    <line x1="165" y1="153" x2="165" y2="168"/>
+    <line x1="165" y1="217" x2="165" y2="245"/>
+    <line x1="165" y1="293" x2="165" y2="308"/>
+    <line x1="165" y1="356" x2="165" y2="371"/>
+    <line x1="165" y1="419" x2="165" y2="447"/>
+    <line x1="165" y1="495" x2="165" y2="510"/>
+    <line x1="165" y1="559" x2="165" y2="565"/>
+  </g>
+  <g fill="#555">
+    <polygon points="160.5,104 169.5,104 165,112"/>
+    <polygon points="160.5,168 169.5,168 165,176"/>
+    <polygon points="160.5,245 169.5,245 165,253"/>
+    <polygon points="160.5,308 169.5,308 165,316"/>
+    <polygon points="160.5,371 169.5,371 165,379"/>
+    <polygon points="160.5,447 169.5,447 165,455"/>
+    <polygon points="160.5,510 169.5,510 165,518"/>
+    <polygon points="160.5,565 169.5,565 165,573"/>
+  </g>
+  <!-- 处理框 -->
+  <g fill="#ffffff" stroke="#333" stroke-width="1.6">
+    <rect x="60" y="50" width="210" height="40"/>
+    <rect x="60" y="113" width="210" height="40"/>
+    <rect x="60" y="177" width="210" height="40"/>
+    <rect x="60" y="254" width="210" height="39"/>
+    <rect x="60" y="317" width="210" height="39"/>
+    <rect x="60" y="380" width="210" height="39"/>
+    <rect x="60" y="456" width="210" height="39"/>
+    <rect x="60" y="519" width="210" height="40"/>
+    <rect x="60" y="574" width="210" height="40"/>
+  </g>
+  <g font-family="Liberation Serif, WenQuanYi Zen Hei, DejaVu Serif, serif" font-size="20" fill="#111" text-anchor="middle">
+    <text x="165" y="77">介绍ATAM方法</text>
+    <text x="165" y="140">描述商业目标</text>
+    <text x="165" y="204">描述体系结构</text>
+    <text x="165" y="280">标识体系结构步骤</text>
+    <text x="165" y="343">产生质量属性树</text>
+    <text x="165" y="406">分析体系结构步骤</text>
+    <text x="165" y="482">讨论质量需求的次序</text>
+    <text x="165" y="546">分析体系结构步骤</text>
+    <text x="165" y="601">提交结果</text>
+  </g>
+  <!-- 右侧竖排阶段名 -->
+  <g font-family="Liberation Serif, WenQuanYi Zen Hei, DejaVu Serif, serif" font-size="20" fill="#111" text-anchor="middle">
+    <text x="327" y="80">描</text>
+    <text x="327" y="100">述</text>
+    <text x="327" y="120">和</text>
+    <text x="327" y="140">介</text>
+    <text x="327" y="160">绍</text>
+    <text x="327" y="180">阶</text>
+    <text x="327" y="200">段</text>
+    <text x="327" y="282">调</text>
+    <text x="327" y="302">查</text>
+    <text x="327" y="322">和</text>
+    <text x="327" y="342">分</text>
+    <text x="327" y="362">析</text>
+    <text x="327" y="382">阶</text>
+    <text x="327" y="402">段</text>
+    <text x="327" y="486">测</text>
+    <text x="327" y="506">试</text>
+    <text x="327" y="526">阶</text>
+    <text x="327" y="546">段</text>
+    <text x="287" y="588" font-size="17">报</text>
+    <text x="304" y="588" font-size="17">告</text>
+    <text x="287" y="609" font-size="17">阶</text>
+    <text x="304" y="609" font-size="17">段</text>
+  </g>
+  <!-- 图题 -->
+  <g font-family="Liberation Serif, WenQuanYi Zen Hei, DejaVu Serif, serif" font-size="23" fill="#111" text-anchor="middle">
+    <text x="177" y="675">图8-5 ATAM方法的评估实践</text>
+    <text x="177" y="708">阶段划分</text>
+  </g>
+</svg>

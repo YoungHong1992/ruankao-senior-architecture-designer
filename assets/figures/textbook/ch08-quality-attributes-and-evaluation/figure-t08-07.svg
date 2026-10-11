@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1124" viewBox="0 0 800 1124">
+<title>表8-7 系统架构评估涉及的问题</title>
+<desc>复原自《系统架构设计师教程》(第2版)第8章扫描件物理页287-288(印刷页278-279)。原书表格跨页：287页含表题、表头、系统生产者组、系统消费者组前三行；288页右上印"(续表)"并重复表头，续任务专家行、系统服务人员组、其他人员组。本图为整表复原，共4个通栏分组行、20个条目行。印面照录：受限藕合/简单裁减机制/可裁减性照原书用字；集成人员职责中"和"与"组装"之间印一矩形空框(虚缺号样式)，照录为"□"。</desc>
+<rect x="0" y="0" width="800" height="1124" fill="#ffffff"/>
+<text x="400.0" y="49" font-family="serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">表8-7 系统架构评估涉及的问题</text>
+<g font-family="serif" font-size="13" font-weight="bold" text-anchor="middle">
+<rect x="20.0" y="66" width="150" height="33" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="95.0" y="87.18">风险承担者</text>
+<rect x="170.0" y="66" width="300" height="33" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="320.0" y="87.18">职责</text>
+<rect x="470.0" y="66" width="310" height="33" fill="none" stroke="#000" stroke-width="1.4"/>
+<text x="625.0" y="87.18">所关心的问题</text>
+</g>
+<rect x="20.0" y="99" width="760" height="33" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="400.0" y="120.18" font-family="serif" font-size="13" text-anchor="middle" fill="#000">系统生产者</text>
+<rect x="20.0" y="132" width="150" height="33" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="95.0" y="150.7" font-family="serif" font-size="13" text-anchor="middle" fill="#000">软件系统架构师</text>
+<rect x="170.0" y="132" width="300" height="33" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="177.0" y="150.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">负责软件架构的质量需求间进行权衡的人</text>
+<rect x="470.0" y="132" width="310" height="33" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="477.0" y="150.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">对其他风险承担者提出的质量需求的折中和调停</text>
+<rect x="20.0" y="165" width="150" height="52" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="95.0" y="193.2" font-family="serif" font-size="13" text-anchor="middle" fill="#000">开发人员</text>
+<rect x="170.0" y="165" width="300" height="52" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="177.0" y="193.2" font-family="serif" font-size="13" text-anchor="start" fill="#000">设计人员或程序员</text>
+<rect x="470.0" y="165" width="310" height="52" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="477.0" y="183.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">架构描述的清晰与完整、各部分的内聚性与受限藕</text>
+<text x="477.0" y="202.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">合、清楚的交互机制</text>
+<rect x="20.0" y="217" width="150" height="52" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="95.0" y="245.2" font-family="serif" font-size="13" text-anchor="middle" fill="#000">维护人员</text>
+<rect x="170.0" y="217" width="300" height="52" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="177.0" y="245.2" font-family="serif" font-size="13" text-anchor="start" fill="#000">系统初次部署完成后对系统进行更改的人</text>
+<rect x="470.0" y="217" width="310" height="52" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="477.0" y="235.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">可维护性，确定出某个更改发生后必须对系统中哪</text>
+<text x="477.0" y="254.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">些地方进行改动的能力</text>
+<rect x="20.0" y="269" width="150" height="33" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="95.0" y="287.7" font-family="serif" font-size="13" text-anchor="middle" fill="#000">集成人员</text>
+<rect x="170.0" y="269" width="300" height="33" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="177.0" y="287.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">负责构件集成和□组装的开发人员</text>
+<rect x="470.0" y="269" width="310" height="33" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="477.0" y="287.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">与上同</text>
+<rect x="20.0" y="302" width="150" height="52" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="95.0" y="330.2" font-family="serif" font-size="13" text-anchor="middle" fill="#000">测试人员</text>
+<rect x="170.0" y="302" width="300" height="52" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="177.0" y="330.2" font-family="serif" font-size="13" text-anchor="start" fill="#000">负责系统测试的开发人员</text>
+<rect x="470.0" y="302" width="310" height="52" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="477.0" y="320.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">集成、一致的错误处理协议，受限的构件耦合、构</text>
+<text x="477.0" y="339.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">件的高内聚性、概念完整性</text>
+<rect x="20.0" y="354" width="150" height="33" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="95.0" y="372.7" font-family="serif" font-size="13" text-anchor="middle" fill="#000">标准专家</text>
+<rect x="170.0" y="354" width="300" height="33" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="177.0" y="372.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">负责所开发软件必须满足的标准的细节的开发人员</text>
+<rect x="470.0" y="354" width="310" height="33" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="477.0" y="372.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">对所关心问题的分离、可修改性和互操作性</text>
+<rect x="20.0" y="387" width="150" height="52" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="95.0" y="415.2" font-family="serif" font-size="13" text-anchor="middle" fill="#000">性能工程师</text>
+<rect x="170.0" y="387" width="300" height="52" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="177.0" y="405.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">分析系统的工作产品以确定系统是否满足其性能及</text>
+<text x="177.0" y="424.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">吞吐量需求的人员</text>
+<rect x="470.0" y="387" width="310" height="52" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="477.0" y="415.2" font-family="serif" font-size="13" text-anchor="start" fill="#000">易理解性、概念完整性、性能、可靠性</text>
+<rect x="20.0" y="439" width="150" height="33" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="95.0" y="457.7" font-family="serif" font-size="13" text-anchor="middle" fill="#000">安全专家</text>
+<rect x="170.0" y="439" width="300" height="33" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="177.0" y="457.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">负责保证系统满足其安全性需求的人员</text>
+<rect x="470.0" y="439" width="310" height="33" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="477.0" y="457.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">安全性</text>
+<rect x="20.0" y="472" width="150" height="52" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="95.0" y="500.2" font-family="serif" font-size="13" text-anchor="middle" fill="#000">项目经理</text>
+<rect x="170.0" y="472" width="300" height="52" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="177.0" y="490.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">负责为各小组配置资源、保证开发进度、保证不超</text>
+<text x="177.0" y="509.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">出预算的人员，负责与客户沟通</text>
+<rect x="470.0" y="472" width="310" height="52" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="477.0" y="490.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">架构层次清晰，便于组建小组；任务划分结构、进</text>
+<text x="477.0" y="509.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">度标志和最后期限等</text>
+<rect x="20.0" y="524" width="150" height="52" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="95.0" y="552.2" font-family="serif" font-size="13" text-anchor="middle" fill="#000">产品线经理</text>
+<rect x="170.0" y="524" width="300" height="52" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="177.0" y="542.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">设想该架构和相关资产怎样在该组织的其他开发中</text>
+<text x="177.0" y="561.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">得以重用的人员</text>
+<rect x="470.0" y="524" width="310" height="52" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="477.0" y="552.2" font-family="serif" font-size="13" text-anchor="start" fill="#000">可重用性、灵活性</text>
+<rect x="20.0" y="576" width="760" height="33" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="400.0" y="597.18" font-family="serif" font-size="13" text-anchor="middle" fill="#000">系统消费者</text>
+<rect x="20.0" y="609" width="150" height="52" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="95.0" y="637.2" font-family="serif" font-size="13" text-anchor="middle" fill="#000">客户</text>
+<rect x="170.0" y="609" width="300" height="52" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="177.0" y="637.2" font-family="serif" font-size="13" text-anchor="start" fill="#000">系统的购买者</text>
+<rect x="470.0" y="609" width="310" height="52" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="477.0" y="627.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">开发的进度、总体预算、系统的有用性、满足需求</text>
+<text x="477.0" y="646.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">的情况</text>
+<rect x="20.0" y="661" width="150" height="33" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="95.0" y="679.7" font-family="serif" font-size="13" text-anchor="middle" fill="#000">最终用户</text>
+<rect x="170.0" y="661" width="300" height="33" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="177.0" y="679.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">所实现系统的使用者</text>
+<rect x="470.0" y="661" width="310" height="33" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="477.0" y="679.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">功能性、可用性</text>
+<rect x="20.0" y="694" width="150" height="52" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="95.0" y="712.7" font-family="serif" font-size="13" text-anchor="middle" fill="#000">应用开发者（对产品架</text>
+<text x="95.0" y="731.7" font-family="serif" font-size="13" text-anchor="middle" fill="#000">构而言）</text>
+<rect x="170.0" y="694" width="300" height="52" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="177.0" y="712.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">利用该架构及其他已有可重用构件，通过将其实例</text>
+<text x="177.0" y="731.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">化而构建产品的人员</text>
+<rect x="470.0" y="694" width="310" height="52" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="477.0" y="712.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">架构的清晰性、完整性、简单交互机制、简单裁减</text>
+<text x="477.0" y="731.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">机制</text>
+<rect x="20.0" y="746" width="150" height="33" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="95.0" y="764.7" font-family="serif" font-size="13" text-anchor="middle" fill="#000">任务专家、任务规划者</text>
+<rect x="170.0" y="746" width="300" height="33" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="177.0" y="764.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">知道系统将会怎样使用以实现战略目标的客户代表</text>
+<rect x="470.0" y="746" width="310" height="33" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="477.0" y="764.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">功能性、可用性、灵活性</text>
+<rect x="20.0" y="779" width="760" height="33" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="400.0" y="800.18" font-family="serif" font-size="13" text-anchor="middle" fill="#000">系统服务人员</text>
+<rect x="20.0" y="812" width="150" height="33" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="95.0" y="830.7" font-family="serif" font-size="13" text-anchor="middle" fill="#000">系统管理员</text>
+<rect x="170.0" y="812" width="300" height="33" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="177.0" y="830.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">负责系统运行的人员</text>
+<rect x="470.0" y="812" width="310" height="33" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="477.0" y="830.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">容易找到可能出现问题的地方</text>
+<rect x="20.0" y="845" width="150" height="33" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="95.0" y="863.7" font-family="serif" font-size="13" text-anchor="middle" fill="#000">网络管理员</text>
+<rect x="170.0" y="845" width="300" height="33" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="177.0" y="863.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">管理网络的人员</text>
+<rect x="470.0" y="845" width="310" height="33" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="477.0" y="863.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">网络性能、可预测性</text>
+<rect x="20.0" y="878" width="150" height="33" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="95.0" y="896.7" font-family="serif" font-size="13" text-anchor="middle" fill="#000">技术支持人员</text>
+<rect x="170.0" y="878" width="300" height="33" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="177.0" y="896.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">为系统在该领域中的使用和维护提供支持的人员</text>
+<rect x="470.0" y="878" width="310" height="33" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="477.0" y="896.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">使用性、可服务性、可裁减性</text>
+<rect x="20.0" y="911" width="760" height="33" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="400.0" y="932.18" font-family="serif" font-size="13" text-anchor="middle" fill="#000">其他人员</text>
+<rect x="20.0" y="944" width="150" height="52" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="95.0" y="972.2" font-family="serif" font-size="13" text-anchor="middle" fill="#000">领域代表</text>
+<rect x="170.0" y="944" width="300" height="52" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="177.0" y="962.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">类似系统或所考察系统将要在其中运行的系统的构</text>
+<text x="177.0" y="981.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">建者或拥有者</text>
+<rect x="470.0" y="944" width="310" height="52" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="477.0" y="972.2" font-family="serif" font-size="13" text-anchor="start" fill="#000">可互操作性</text>
+<rect x="20.0" y="996" width="150" height="52" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="95.0" y="1024.2" font-family="serif" font-size="13" text-anchor="middle" fill="#000">系统设计师</text>
+<rect x="170.0" y="996" width="300" height="52" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="177.0" y="1014.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">整个系统的架构设计师，负责在软件和硬件之间进</text>
+<text x="177.0" y="1033.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">行权衡并选择硬件环境的人</text>
+<rect x="470.0" y="996" width="310" height="52" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="477.0" y="1024.2" font-family="serif" font-size="13" text-anchor="start" fill="#000">可移植性、灵活性、性能和效率</text>
+<rect x="20.0" y="1048" width="150" height="52" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="95.0" y="1076.2" font-family="serif" font-size="13" text-anchor="middle" fill="#000">设备专家</text>
+<rect x="170.0" y="1048" width="300" height="52" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="177.0" y="1066.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">熟悉该软件必须与之交互的硬件的人员，能够预测</text>
+<text x="177.0" y="1085.7" font-family="serif" font-size="13" text-anchor="start" fill="#000">硬件技术的未来发展趋势的人员</text>
+<rect x="470.0" y="1048" width="310" height="52" fill="none" stroke="#000" stroke-width="1.1"/>
+<text x="477.0" y="1076.2" font-family="serif" font-size="13" text-anchor="start" fill="#000">可维护性、性能</text>
+</svg>

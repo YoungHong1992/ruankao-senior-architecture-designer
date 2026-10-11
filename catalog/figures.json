@@ -1682,6 +1682,62 @@
    "printed_page": 277,
    "record": "verification/教材首轮核查-第08章-系统质量属性与架构评估.md",
    "note": "斜杠列举照录(内部/外部、授权/未授权、改变/删除、有限的资源/大量资源);「经过了授权/未授权它访问了」照录;响应度量格「确定攻击或访问」无「者」(20× 核 e81-p286-20x-gongji.png,疑脱字照录);「修改数据、服务」顿号照录;响应末行行首一字缩进照录。d1 批绘制,自检通过。"
+  },
+  {
+   "id": "tb-fig-0120",
+   "corpus": "textbook",
+   "file": "content/01-系统架构设计师教材-清洗版/第08章-系统质量属性与架构评估/第03节-ATAM方法架构评估实践.md",
+   "figure": "图 8-5",
+   "title": "ATAM 方法的评估实践阶段划分",
+   "kind": "svg",
+   "anchor": "> 图 8-5 ATAM 方法的评估实践阶段划分",
+   "asset": "assets/figures/textbook/ch08-quality-attributes-and-evaluation/figure-08-05.svg",
+   "physical_page": 298,
+   "printed_page": 289,
+   "record": "verification/教材首轮核查-第08章-系统质量属性与架构评估.md",
+   "note": "纵向流程框图,四阶段结构照印面;节点文字逐项放大转录。稿原题注漏「阶段划分」三字,已照印面补全。d3 批绘制,渲染自检通过。"
+  },
+  {
+   "id": "tb-fig-0121",
+   "corpus": "textbook",
+   "file": "content/01-系统架构设计师教材-清洗版/第08章-系统质量属性与架构评估/第03节-ATAM方法架构评估实践.md",
+   "figure": "图 8-6",
+   "title": "Hoover 体系结构的简单类图",
+   "kind": "svg",
+   "anchor": "> 图 8-6 Hoover 体系结构的简单类图",
+   "asset": "assets/figures/textbook/ch08-quality-attributes-and-evaluation/figure-08-06.svg",
+   "physical_page": 299,
+   "printed_page": 290,
+   "record": "verification/教材首轮核查-第08章-系统质量属性与架构评估.md",
+   "note": "UML 类图。原书怪字照录:事件管理器框「Event/Managei」(末字 i,20× 核)、事件框「Event:/Type, Args」(冒号)、注册表「EventType Registry」(空格分词)、图例「A key component」。多重性:main—Event Manager 线 EM 端「1」,state/Event Type/Application Handler 端「*」,照印面。框架虚线框与灰色背景阴影区域照录。印面 EM 框顶/底边中段淡出、图例椭圆右弧中断,按完整矩形/椭圆复原(d3-p299-fig86-embox.png、legend2.png);AH 左侧 * 的几何归属照印面位置、语义不裁决。稿内人工核对表/事件流段为清洗阶段添加,随 SVG 落地移除。d3 批绘制,渲染自检通过。"
+  },
+  {
+   "id": "tb-fig-0122",
+   "corpus": "textbook",
+   "file": "content/01-系统架构设计师教材-清洗版/第08章-系统质量属性与架构评估/第03节-ATAM方法架构评估实践.md",
+   "figure": "图 8-7",
+   "title": "一个简单的“银行”体系结构类图",
+   "kind": "svg",
+   "anchor": "> 图 8-7 一个简单的“银行”体系结构类图",
+   "asset": "assets/figures/textbook/ch08-quality-attributes-and-evaluation/figure-08-07.svg",
+   "physical_page": 300,
+   "printed_page": 291,
+   "record": "verification/教材首轮核查-第08章-系统质量属性与架构评估.md",
+   "note": "UML 类图。原书怪字照录:图例「Akey component」(A 后无空格)、「Type Binding」(无 s)。EM—main 线上端照印面止于 EM 框左下角外空白、不接触(d3-p300-fig87-em-main-corner.png);Handler 框与 Application 框顶边印面缺段,按完整矩形复原(d3-p300-fig87-handler-region.png)。稿内人工核对表为清洗阶段添加,随 SVG 落地移除。d3 批绘制,渲染自检通过。"
+  },
+  {
+   "id": "tb-fig-0123",
+   "corpus": "textbook",
+   "file": "content/01-系统架构设计师教材-清洗版/第08章-系统质量属性与架构评估/第03节-ATAM方法架构评估实践.md",
+   "figure": "表 8-9",
+   "title": "与利益相关者有关的情景和其代表的质量属性",
+   "kind": "svg",
+   "anchor": "> 表 8-9 与利益相关者有关的情景和其代表的质量属性",
+   "asset": "assets/figures/textbook/ch08-quality-attributes-and-evaluation/figure-t08-09.svg",
+   "physical_page": 302,
+   "printed_page": 293,
+   "record": "verification/教材首轮核查-第08章-系统质量属性与架构评估.md",
+   "note": "三列 14 行。表题「情景」照录(见 tb-0116);行3「失效发生后应该立即回复」照录(12× 核「回复」非「恢复」,d3-p302-tab89-r03-tail.png,疑原书误排);行10/行12 质量属性均「可移植性」照录(行12 6× 核 d3-p302-tab89-qa-r12c.png)。d3 批绘制,渲染自检通过。"
   }
  ]
 }

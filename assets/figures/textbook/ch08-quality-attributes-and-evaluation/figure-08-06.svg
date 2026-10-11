@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="1240" viewBox="0 0 1000 620">
+  <title>图8-6 Hoover 体系结构的简单类图</title>
+  <desc>复原自《系统架构设计师教程》(第2版)入库扫描件第299页(印刷页290)图8-6。结构:浅灰底点划虚线大矩形表示框架范围;框内为Event Manager(印面作Managei)、Queue、Type Bindings、EventType Registry、Event Type、Event: Type, Args、Handler、Handler_IDLE、Handler STOP;框外左侧main与state、下方Application Handler与Framework(虚线框);图例:矩形=A key component,椭圆=Activities pertaining to a class。多重性:main—Event Manager线Event Manager端为1,main—state线state端、main—Event Type线Event Type端、main—Application Handler线Application Handler端各为*。连线端点与节点文字逐项对照印面转录,渲染核对后交付。</desc>
+  <rect x="0" y="0" width="1000" height="620" fill="#ffffff"/>
+  <!-- 框架范围:浅灰底虚线矩形 -->
+  <rect x="149" y="16" width="455" height="463" fill="#f2f2f2" stroke="#999" stroke-width="1.4" stroke-dasharray="6 4"/>
+  <!-- 连线(画在节点框之下) -->
+  <g stroke="#555" stroke-width="1.4" fill="none">
+    <polyline points="108,56 265,56 265,114"/>
+    <polyline points="108,69 179,69 179,259 214,259"/>
+    <polyline points="108,81 167,81 167,528 214,528"/>
+    <line x1="72" y1="97" x2="72" y2="167"/>
+    <polyline points="72,208 72,540 214,540"/>
+    <line x1="321" y1="137" x2="423" y2="67"/>
+    <line x1="321" y1="137" x2="397" y2="136"/>
+    <line x1="321" y1="137" x2="421" y2="190"/>
+    <polyline points="319,259 381,259 381,334 317,334"/>
+    <line x1="322" y1="390" x2="420" y2="376"/>
+    <line x1="322" y1="409" x2="426" y2="432"/>
+    <line x1="279" y1="426" x2="279" y2="500"/>
+  </g>
+  <!-- Framework 指向框架范围的虚线箭头(开放箭头) -->
+  <g stroke="#888" stroke-width="1.3" fill="none" stroke-dasharray="5 4">
+    <line x1="465" y1="523" x2="385" y2="486"/>
+  </g>
+  <g stroke="#888" stroke-width="1.3" fill="none">
+    <polyline points="389,480 380,480 385,487"/>
+  </g>
+  <!-- 节点框 -->
+  <g fill="#ffffff" stroke="#333" stroke-width="1.5">
+    <rect x="37" y="37" width="71" height="61"/>
+    <rect x="39" y="167" width="69" height="41"/>
+    <rect x="209" y="114" width="112" height="46"/>
+    <rect x="423" y="46" width="76" height="38"/>
+    <rect x="217" y="309" width="100" height="60"/>
+    <rect x="240" y="381" width="76" height="38"/>
+    <rect x="420" y="354" width="134" height="41"/>
+    <rect x="426" y="412" width="127" height="40"/>
+    <rect x="214" y="500" width="130" height="55"/>
+  </g>
+  <rect x="467" y="520" width="111" height="40" fill="#ffffff" stroke="#999" stroke-width="1.3" stroke-dasharray="5 4"/>
+  <!-- 椭圆节点 -->
+  <g fill="#ffffff" fill-opacity="0" stroke="#666" stroke-width="1.5">
+    <ellipse cx="466" cy="136" rx="69" ry="20"/>
+    <ellipse cx="458" cy="209" rx="88" ry="18"/>
+    <ellipse cx="265" cy="259" rx="51" ry="31"/>
+  </g>
+  <!-- 连接圆点 -->
+  <g fill="#333">
+    <circle cx="108" cy="56" r="2.6"/>
+    <circle cx="108" cy="69" r="2.6"/>
+    <circle cx="108" cy="81" r="2.6"/>
+    <circle cx="72" cy="97" r="2.6"/>
+    <circle cx="74" cy="211" r="2.6"/>
+    <circle cx="319" cy="259" r="2.6"/>
+    <circle cx="322" cy="390" r="2.6"/>
+    <circle cx="322" cy="409" r="2.6"/>
+    <circle cx="279" cy="426" r="2.6"/>
+  </g>
+  <!-- 节点文字(印面怪字照录:Managei、Event:、EventType Registry) -->
+  <g font-family="Liberation Serif, WenQuanYi Zen Hei, DejaVu Serif, serif" font-size="17" fill="#111" text-anchor="middle">
+    <text x="72" y="74">main</text>
+    <text x="73" y="193" letter-spacing="4">state</text>
+    <text x="265" y="137">Event</text>
+    <text x="265" y="154">Managei</text>
+    <text x="461" y="70">Queue</text>
+    <text x="466" y="142">Type Bindings</text>
+    <text x="458" y="215">EventType Registry</text>
+    <text x="265" y="253">Event</text>
+    <text x="265" y="277">Type</text>
+    <text x="267" y="333">Event:</text>
+    <text x="267" y="355">Type, Args</text>
+    <text x="278" y="406">Handler</text>
+    <text x="487" y="380">Handler_IDLE</text>
+    <text x="489" y="438">Handler STOP</text>
+    <text x="279" y="525">Application</text>
+    <text x="279" y="547">Handler</text>
+    <text x="522" y="546">Framework</text>
+  </g>
+  <!-- 多重性 -->
+  <g font-family="Liberation Serif, WenQuanYi Zen Hei, DejaVu Serif, serif" font-size="15" fill="#333" text-anchor="middle">
+    <text x="251" y="110">1</text>
+    <text x="62" y="162">*</text>
+    <text x="188" y="260">*</text>
+    <text x="176" y="527">*</text>
+  </g>
+  <!-- 图例 -->
+  <g font-family="Liberation Serif, WenQuanYi Zen Hei, DejaVu Serif, serif" fill="#111">
+    <text x="628" y="457" font-size="18" font-weight="bold">Legend:</text>
+    <rect x="627" y="473" width="55" height="37" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+    <text x="698" y="497" font-size="17">A key component</text>
+    <ellipse cx="653" cy="544" rx="28" ry="19" fill="#ffffff" fill-opacity="0" stroke="#666" stroke-width="1.5"/>
+    <text x="695" y="551" font-size="17">Activities pertaining to a class</text>
+  </g>
+  <!-- 图题 -->
+  <text x="507" y="607" font-family="Liberation Serif, WenQuanYi Zen Hei, DejaVu Serif, serif" font-size="23" fill="#111" text-anchor="middle">图8-6 Hoover 体系结构的简单类图</text>
+</svg>

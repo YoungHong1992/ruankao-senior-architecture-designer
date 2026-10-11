@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="950" height="350" viewBox="0 0 950 350">
+  <title>图8-1 SAAM输入与评估过程</title>
+  <desc>复原自《系统架构设计师教程》(第2版)第8章扫描件物理页289(印刷页280)。结构要点：左侧三个椭圆(问题描述/需求说明/体系结构描述)经带箭头折线汇入SAAM矩形(右侧两路旁注为需求分析、体系结构设计)；SAAM右侧一枚左尖大括号把场景开发、单个场景评估、场景交互评估归组为"单个体系结构评估"(括号下标注)；场景开发与体系结构描述之间为带迭代旁注的双向箭头，二者各发一条斜线汇入单个场景评估(汇点旁注AND)；单个场景评估向下箭头到场景交互评估，并向右下斜线入总体评估，场景交互评估向右上斜线入总体评估，两斜线汇点旁注OR；总体评估右侧区域与左侧以一条竖直虚线分隔，其下旁注"比较多个体系结构"。</desc>
+  <rect x="0" y="0" width="950" height="350" fill="#ffffff"/>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#000"/>
+    </marker>
+  </defs>
+  <g stroke="#000" stroke-width="1.3" fill="none">
+    <!-- left column arrows -->
+    <line x1="150" y1="84" x2="150" y2="114" marker-end="url(#ar)"/>
+    <line x1="150" y1="164" x2="150" y2="201" marker-end="url(#ar)"/>
+    <polyline points="228,62 365,62 365,116" marker-end="url(#ar)"/>
+    <line x1="228" y1="142" x2="294" y2="142" marker-end="url(#ar)"/>
+    <polyline points="230,227 365,227 365,166" marker-end="url(#ar)"/>
+    <!-- iteration double arrow -->
+    <line x1="616" y1="52" x2="754" y2="52" marker-start="url(#ar)" marker-end="url(#ar)"/>
+    <!-- convergence diagonals into single-scenario evaluation -->
+    <line x1="500" y1="72" x2="556" y2="116" marker-end="url(#ar)"/>
+    <line x1="752" y1="72" x2="648" y2="116" marker-end="url(#ar)"/>
+    <!-- single-scenario down to interaction -->
+    <line x1="570" y1="162" x2="570" y2="206" marker-end="url(#ar)"/>
+    <!-- to overall evaluation -->
+    <line x1="664" y1="142" x2="724" y2="168" marker-end="url(#ar)"/>
+    <line x1="664" y1="232" x2="724" y2="192" marker-end="url(#ar)"/>
+    <!-- dashed separator -->
+    <line x1="706" y1="100" x2="706" y2="242" stroke-dasharray="6,5" stroke-width="1"/>
+    <!-- big brace -->
+    <path d="M 452,30 C 432,46 437,96 437,128 C 437,146 431,151 422,154 C 431,157 437,162 437,180 C 437,212 432,250 452,268" stroke-width="1.2"/>
+  </g>
+  <g font-family="serif" font-size="16" fill="#000" text-anchor="middle">
+    <ellipse cx="150" cy="62" rx="78" ry="22" fill="none" stroke="#000" stroke-width="1.2"/>
+    <text x="150" y="68">问题描述</text>
+    <ellipse cx="150" cy="142" rx="78" ry="22" fill="none" stroke="#000" stroke-width="1.2"/>
+    <text x="150" y="148">需求说明</text>
+    <ellipse cx="152" cy="227" rx="80" ry="22" fill="none" stroke="#000" stroke-width="1.2"/>
+    <text x="152" y="233">体系结构描述</text>
+    <rect x="296" y="120" width="106" height="44" fill="#fff" stroke="#000" stroke-width="1.2"/>
+    <text x="349" y="148">SAAM</text>
+    <rect x="482" y="30" width="132" height="42" fill="#fff" stroke="#000" stroke-width="1.2"/>
+    <text x="548" y="57">场景开发</text>
+    <rect x="756" y="30" width="148" height="42" fill="#fff" stroke="#000" stroke-width="1.2"/>
+    <text x="830" y="57">体系结构描述</text>
+    <rect x="482" y="118" width="180" height="44" fill="#fff" stroke="#000" stroke-width="1.2"/>
+    <text x="572" y="146">单个场景评估</text>
+    <rect x="482" y="208" width="180" height="44" fill="#fff" stroke="#000" stroke-width="1.2"/>
+    <text x="572" y="236">场景交互评估</text>
+    <rect x="726" y="154" width="126" height="42" fill="#fff" stroke="#000" stroke-width="1.2"/>
+    <text x="789" y="181">总体评估</text>
+  </g>
+  <g font-family="serif" fill="#000">
+    <text x="548" y="20" font-size="15" text-anchor="middle">场景</text>
+    <text x="686" y="26" font-size="15" text-anchor="middle">迭代</text>
+    <text x="358" y="98" font-size="15" text-anchor="end">需求分析</text>
+    <text x="358" y="200" font-size="15" text-anchor="end">体系结构设计</text>
+    <text x="672" y="92" font-size="15" text-anchor="middle">AND</text>
+    <text x="688" y="176" font-size="15" text-anchor="middle">OR</text>
+    <text x="790" y="222" font-size="15" text-anchor="middle">比较多个体系结构</text>
+    <text x="600" y="292" font-size="16" text-anchor="middle">单个体系结构评估</text>
+    <text x="475" y="336" font-size="16" font-weight="bold" text-anchor="middle">图8-1 SAAM输入与评估过程</text>
+  </g>
+</svg>

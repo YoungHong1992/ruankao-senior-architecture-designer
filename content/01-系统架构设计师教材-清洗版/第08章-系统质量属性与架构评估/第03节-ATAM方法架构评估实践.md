@@ -13,6 +13,8 @@ source_pages: "289-304"
 
 用 `ATAM` 方法评估软件体系结构，其工作分为 4 个基本阶段，即演示、调查和分析、测试和报告 `ATAM`（如图 8-5 所示）。下面就每个阶段的实践进行详细介绍。
 
+![figure-08-05](../../../assets/figures/textbook/ch08-quality-attributes-and-evaluation/figure-08-05.svg)
+
 > 图 8-5 ATAM 方法的评估实践阶段划分
 
 ## 8.3.1 阶段 1——演示（Presentation）
@@ -43,26 +45,11 @@ source_pages: "289-304"
 
 胡佛的事件架构由组成事件框架的组件和利用框架服务的应用程序组成。
 
+![figure-08-06](../../../assets/figures/textbook/ch08-quality-attributes-and-evaluation/figure-08-06.svg)
+
 > 图 8-6 Hoover 体系结构的简单类图
 
-原图关系逐项核对如下；“无”表示原图只画关联线，没有可辨箭头。
-
-| 起点或一端 | 终点或另一端 | 原图箭头 | 可见多重性 |
-| --- | --- | --- | --- |
-| `main` | `Event Manager` | 无 | `Event Manager` 端为 `1` |
-| `main` | `Event Type` | 无 | `Event Type` 端为 `*` |
-| `main` | `state` | 无 | `state` 端为 `*` |
-| `main` | `Application Handler` | 无 | `Application Handler` 端为 `*` |
-| `Event Manager` | `Queue`、`Type Bindings`、`EventTypeRegistry` | 无 | 未标 |
-| `Event(Type, Args)` | `Event Type` | 指向 `Event Type` | 未标 |
-| `Handler_IDLE`、`Handler STOP` | `Handler` | 均指向 `Handler` | 未标 |
-| `Application Handler` | `Handler`、`state` | 分别指向 `Handler`、`state` | 未标 |
-
-框架虚线边界内恰为 `Event Manager`、`Queue`、`Type Bindings`、`EventTypeRegistry`、`Event Type`、`Event(Type, Args)`、`Handler`、`Handler_IDLE`、`Handler STOP`；`main`、`state`、`Application Handler` 在边界外。
-
-结构化事件流为：`IDLE` 处理程序接收输入 → 事件管理器把事件存入 `Queue` → `main` 取出并重新分派给事件管理器 → 事件管理器按注册表匹配处理程序 → 处理程序执行事件并可能改变状态。未注册事件由事件管理器丢弃。
-
-如前所述，该框架基于事件框架，根据事件不同的类型进行相应处理。一个事件由两个主要部分组成：事件类型(`Event Type`)和事件需要处理的参数(`Args`)。为了处理多个事件，系统中存在一个事件队列(`Qucue`)组件。
+该框架基于事件框架，根据事件不同的类型进行相应处理。一个事件由两个主要部分组成：事件类型(`Event Type`)和事件需要处理的参数(`Args`)。为了处理多个事件，系统中存在一个事件队列(`Qucue`)组件。
 
 事件队列(`Event Queue`)保存系统中的事件，并以先来先服务(`FIFO`)模式进行分派。事件队列能够存储任意时间内产生的事件，并支持检索以供将来处理。
 
@@ -81,22 +68,9 @@ source_pages: "289-304"
 
 “银行”体系结构由组成事件框架的组件和利用框架服务的应用程序组成。
 
+![figure-08-07](../../../assets/figures/textbook/ch08-quality-attributes-and-evaluation/figure-08-07.svg)
+
 > 图 8-7 一个简单的“银行”体系结构类图
-
-原图关系逐项核对如下。箭头方向按图转录；只有 `Handler_START`、`Handler_IDLE`、`Handler STOP` 指向 `Handler` 的三条关系可结合正文确定为标准处理程序到基类的关系，其余不额外推定 UML 关系类型。
-
-| 起点 | 箭头终点 | 可见多重性 |
-| --- | --- | --- |
-| `Type Binding`、`Application` | `Event Manager` | 未标 |
-| `Event Manager` | `main` | `Event Manager` 端为 `1` |
-| `Queue`、`Event(Type, Args)` | `main` | `Event` 端为 `*`；`Queue` 未标 |
-| `Handler` | `Event Manager` | 未标 |
-| `Handler_START`、`Handler_IDLE`、`Handler STOP` | `Handler` | 未标 |
-| `Application Handler` | `Event Manager`、`Handler` | 两条关系在 `Application Handler` 端均标 `*` |
-
-框架虚线边界内恰为 `main`、`Queue`、`Event(Type, Args)`、`Handler`、`Handler_START`、`Handler_IDLE`、`Handler STOP`。
-
-结构化事件流为：`START` 事件初始化系统；`IDLE` 处理程序校验输入并把有效事件送入队列；`Main` 从队列取出事件并分派给事件管理器；事件管理器匹配应用处理程序并执行事件；队列为空时发送空闲事件。
 
 这个框架与上面描述的架构类似，但有一些区别。在这种架构中，即使没有特有的事件组件，底层主题也可看作是一种事件(框架默认)。在这种架构中，事件有两个主要部分：类型(`Type`)及其参数(`Args`)。
 
@@ -150,24 +124,9 @@ source_pages: "289-304"
 
 情景生成是创建效用树之前的重要步骤。表8-9显示了与每个利益相关者有关的情景以及它所代表的质量属性。
 
-> 表 8-9 与利益相关者有关的情景和其代表的质量属性
+![table-08-09](../../../assets/figures/textbook/ch08-quality-attributes-and-evaluation/figure-t08-09.svg)
 
-| 利益相关者 | 场景 | 质量属性 |
-| --- | --- | --- |
-| 用户 | 针对系统的未授权访问 | 安全性 |
-| 用户 | 所有操作以尽可能快的速度处理 | 性能 |
-| 用户 | 失效发生后应该立即回复 | 可用性 |
-| 用户 | 处理使用系统过程中的用户错误 | 可靠性 |
-| 用户 | 处理针对系统功能的新需求 | 可修改性 |
-| 架构师 | 框架的主要部分应该支持重用 | 可变性 |
-| 架构师 | 框架的修改开销小、速度快、时间短 | 可修改性 |
-| 架构师 | 框架中的组件能够协同交互 | 功能性 |
-| 架构师 | 框架能够扩展以支持更复杂的选项 | 可变性 |
-| 架构师 | 可以在不同环境中执行 | 可移植性 |
-| 架构师 | 合适的数据封装和安全的数据结构 | 安全性 |
-| 架构师 | 可以用其他编程语言灵活实现 | 可移植性 |
-| 应用开发人员 | 架构层面上期望有着全局一致的行为 | 概念一致性 |
-| 应用开发人员 | 框架应该完整、清晰并与需求一致 | 功能性 |
+> 表 8-9 与利益相关者有关的情景和其代表的质量属性
 
 2) 质量属性效用树生成
 
