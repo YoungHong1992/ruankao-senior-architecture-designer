@@ -243,12 +243,9 @@ source_pages: "289-304"
 
 此步骤的最后阶段是确定风险、无风险、敏感点和权衡点。风险是架构中的一个问题点，后者不支持给定的优先级质量属性；非风险是体系结构的优势，后者实现特定的优先级质量属性；敏感点是一个或多个组件的属性，对于实现给定的质量属性至关重要。如果架构对多个属性敏感，那么该点称为权衡点。敏感点和权衡点的确切定义见 8.2.1 节。胡佛架构与银行体系结构的风险和非风险对比如表 8-10 所示。
 
-> 表 8-10 两种体系结构的风险和非风险对比
+![table-08-10](../../../assets/figures/textbook/ch08-quality-attributes-and-evaluation/figure-t08-10.svg)
 
-| 架构 | 风险 | 非风险 |
-|---|---|---|
-| 胡佛架构 | — | 可变性、可靠性、概念一致性、功能性、可修改性 |
-| 银行体系结构 | 可变性、概念一致性、可修改性 | 可靠性、功能性 |
+> 表 8-10 两种体系结构的风险和非风险对比
 
 (1)敏感点。
 
@@ -289,26 +286,9 @@ $$票数=场景总数\times 30\%$$
 
 这里，首先介绍这一步中的头脑风暴情景列表，用于正在评估的架构中的三个利益相关者。场景列表不需要与步骤 5 中生成的场景不同，但也可以通过头脑风暴过程生成新场景。表8-11显示了编号方案的列表、类型以及所代表的质量属性。
 
-> 表 8-11 编号方案的列表、类型以及所代表的质量属性
+![table-08-11](../../../assets/figures/textbook/ch08-quality-attributes-and-evaluation/figure-t08-11.svg)
 
-| 编号 | 场景类型（`Scenario Type`） | 场景（`Scenario`） | 质量属性（`Quality Attribute`） |
-|---:|---|---|---|
-| 1 | 用例场景<br>`Use case` | 禁止非法访问系统<br>`No unauthorized access to the system` | 安全性<br>`Security` |
-| 2 | 用例场景<br>`Use case` | 所有的操作都以最快的速度处理<br>`All operations are processed in fastest possible speed` | 性能<br>`Performance` |
-| 3 | 用例场景<br>`Use case` | 在任何故障发生后立即恢复<br>`Any failure should be followed by immediate recovery` | 可用性<br>`Availability` |
-| 4 | 用例场景<br>`Use case` | 处理用户在使用系统时出现的错误<br>`User errors in using system should be handled` | 可靠性<br>`Reliability` |
-| 5 | 增长场景<br>`Growth Scenarios` | 适应系统新的功能需求<br>`New demands on system functionality should be accommodated` | 可修改性<br>`Modifiability` |
-| 6 | 增长场景<br>`Growth Scenarios` | 未来的体系结构可重用框架的主体部分<br>`Major parts of the framework should be reusable for future architectures` | 可变性<br>`Variability` |
-| 7 | 增长场景<br>`Growth Scenarios` | 框架修改应高效、快速，并在最短时间内完成<br>`Framework modification is cost-effective, fast and in minimal time` | 可修改性<br>`Modifiability` |
-| 8 | 增长场景<br>`Growth Scenarios` | 框架中的组件通过交互协议交互<br>`Components in framework interact in a coordinated manner` | 功能性<br>`Functionality` |
-| 9 | 增长场景<br>`Growth Scenarios` | 框架可以向更复杂方向扩展<br>`Framework expansion is possible to allow for more sophisticated options` | 可变性<br>`Variability` |
-| 10 | 增长场景<br>`Growth Scenarios` | 系统可以在不同环境中运行<br>`Implementation allows for execution in different environments` | 可移植性<br>`Portability` |
-| 11 | 增长场景<br>`Growth Scenarios` | 适当的数据封装和安全的数据结构<br>`Proper data encapsulation and secure data structures` | 安全性<br>`Security` |
-| 12 | 增长场景<br>`Growth Scenarios` | 系统实现方式可灵活使用其他编程语言<br>`Flexible implementation using other programming languages` | 可移植性<br>`Portability` |
-| 13 | 增长场景<br>`Growth Scenarios` | 架构预期的整体行为一致<br>`Overall consistent behavior expected from the architecture` | 功能性<br>`Functionality`（原表此处印有“(此处有修改)”修订标记） |
-| 14 | 增长场景<br>`Growth Scenarios` | 框架应该是完全清晰的，并且完全按照需求执行<br>`Framework should be complete clear and perform exactly as required` | 功能性<br>`Functionality` |
-| 15 | 探索性场景<br>`Exploratory Scenarios` | 同时将多个应用程序连接到框架<br>`Hook up multiple applications to the framework at same time` | 功能性<br>`Functionality` |
-| 16 | 探索性场景<br>`Exploratory Scenarios` | 将交互方式从基于命令行修改为基于窗口方式<br>`Change interface from command-driven to window-based` | 可变性<br>`Variability` |
+> 表 8-11 编号方案的列表、类型以及所代表的质量属性
 
 在这一点上，头脑风暴的场景清单已经准备就绪。下一步是让利益相关者为他们认为重要的情景进行投票。分配给每个利益相关者的票数定义如下：
 
@@ -316,33 +296,15 @@ $$票数=情景总数\times 30\%=0.3\times16（到最近的整数）=5$$
 
 因此，三个利益相关者都有5张投票可供选择。接下来，我们模拟一个投票活动，每个利益相关者对他们最感兴趣的情景进行投票。在这个阶段，我们根据不同的利益相关者进行思考，并对各种情况进行投票。示例投票活动的结果显示在下面的表8-12中（得到0张选票的情况均不包含在此表中）。最终，根据不同的需求类别对投票结果进行整理统计，统计结果如表8-13所示。
 
-> 表 8-12 示例投票活动的结果
+![table-08-12](../../../assets/figures/textbook/ch08-quality-attributes-and-evaluation/figure-t08-12.svg)
 
-| Sc# 场景编号 | Scenario 场景 | Quality Attribute 质量属性 | User votes 用户投票 | Architect votes 架构师投票 | App. Dev votes 开发人员投票 | Total Votes 总票数 |
-|---:|---|---|---:|---:|---:|---:|
-| 14 | 框架应该是完全清晰的，并且完全按照需求执行<br>`Framework should be complete clear and perform exactly as required` | 功能性<br>`Functionality` | 0 | 0 | 3 | 3 |
-| 4 | 处理用户在使用系统时出现的错误<br>`User errors in using system should be handled` | 可靠性<br>`Reliability` | 2 | 0 | 1 | 3 |
-| 5 | 适应系统新的功能需求<br>`New demands on system functionality should be accommodated` | 可修改性<br>`Modifiability` | — | 1 | 0 | 2 |
-| 8 | 框架中的组件通过交互协议交互<br>`Components in framework interact in a coordinated manner` | 功能性<br>`Functionality` | 0 | 2 | 0 | 2 |
-| 1 | 禁止非法访问系统<br>`No unauthorized access to the system` | 安全性<br>`Security` | — | 0 | 1 | 2 |
-| 2 | 所有的操作都以最快的速度处理<br>`All operations are processed in fastest possible speed` | 性能<br>`Performance` | 1 | 0 | 0 | 1 |
-| 13 | 架构预期的整体行为一致<br>`Overall consistent behavior expected from the architecture` | 功能性（概念上的完整性）<br>`Functionality` | 0 | 1 | 0 | 1 |
-| 6 | 未来的体系结构可重用框架的主体部分<br>`Major parts of the framework should be reusable for future architectures` | 可变性<br>`Variability` | 0 | 1 | 0 | 1 |
+> 表 8-12 示例投票活动的结果
 
 表 8-13 按质量属性整理进入后续分析的场景。
 
-> 表 8-13 示例统计结果
+![table-08-13](../../../assets/figures/textbook/ch08-quality-attributes-and-evaluation/figure-t08-13.svg)
 
-| 场景编号 | 场景（`Scenario`） | 质量属性（`Quality Attribute`） |
-|---:|---|---|
-| 8 | 框架中的组件通过交互协议交互<br>`Components in framework interact in a coordinated manner` | 功能性<br>`Functionality` |
-| 13 | 架构预期的整体行为一致<br>`Overall consistent behavior expected from the architecture` | 功能性<br>`Functionality` |
-| 14 | 框架应该是完全清晰的，并且完全按照需求执行<br>`Framework should be complete clear and perform exactly as required` | 功能性<br>`Functionality` |
-| 4 | 处理用户在使用系统时出现的错误<br>`User errors in using system should be handled` | 可靠性<br>`Reliability` |
-| 5 | 适应系统新的功能需求<br>`New demands on system functionality should be accommodated` | 可修改性<br>`Modifiability` |
-| 1 | 禁止非法访问系统<br>`No unauthorized access to the system` | 安全性<br>`Security` |
-| 2 | 所有的操作都以最快的速度处理<br>`All operations are processed in fastest possible speed` | 性能<br>`Performance` |
-| 6 | 未来的体系结构可重用框架的主体部分<br>`Major parts of the framework should be reusable for future architectures` | 可变性<br>`Variability` |
+> 表 8-13 示例统计结果
 
 从示例投票活动中，高票质量属性主要集中在功能性、可靠性、可修改性、安全性、性能和可变性。
 
@@ -403,12 +365,9 @@ $$票数=情景总数\times 30\%=0.3\times16（到最近的整数）=5$$
 
 #### 4. 找出风险、非风险、敏感点和权衡点
 
-> 表 8-14 两种体系结构涉及的风险和非风险
+![table-08-14](../../../assets/figures/textbook/ch08-quality-attributes-and-evaluation/figure-t08-14.svg)
 
-| 架构（`Architecture`） | 风险（`Risks`） | 非风险（`Non-Risks`） |
-|---|---|---|
-| 胡佛架构<br>`Hoover's Architecture` | — | 安全性（`Security`）、性能（`Performance`） |
-| 银行架构<br>`Banking Architecture` | 安全性（`Security`）、性能（`Performance`） | — |
+> 表 8-14 两种体系结构涉及的风险和非风险
 
 (2)敏感点。
 

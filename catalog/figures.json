@@ -1822,6 +1822,76 @@
    "printed_page": 286,
    "record": "verification/教材首轮核查-第08章-系统质量属性与架构评估.md",
    "note": "双纵轴数据曲线图:左轴 −1–1(0.5 间距)、右轴 100000–300000、横轴 0–12;图例 Architecture transition(实线+圆点)/LOC transition(虚线+三角)。25 点像素测量换算(LOC 13 点、Architecture 12 点自 x=1 起);x=12 处两系列重合于 0.65/265000。整句引用「图8-4展示了…右侧纵轴是LOC。」已照印面补回(F38)。d2 批绘制,渲染自检通过。"
+  },
+  {
+   "id": "tb-fig-0130",
+   "corpus": "textbook",
+   "file": "content/01-系统架构设计师教材-清洗版/第08章-系统质量属性与架构评估/第03节-ATAM方法架构评估实践.md",
+   "figure": "表 8-10",
+   "title": "两种体系结构的风险和非风险对比",
+   "kind": "svg",
+   "anchor": "> 表 8-10 两种体系结构的风险和非风险对比",
+   "asset": "../../../assets/figures/textbook/ch08-quality-attributes-and-evaluation/figure-t08-10.svg",
+   "physical_page": 307,
+   "printed_page": 298,
+   "record": "verification/教材首轮核查-第08章-系统质量属性与架构评估.md",
+   "note": "三列两行,三线式。「胡佛架构」行风险格为浅灰「—」占位(非「无」字,照录——清洗稿原写「无」,F307-02)。d4 批绘制,渲染自检通过。"
+  },
+  {
+   "id": "tb-fig-0131",
+   "corpus": "textbook",
+   "file": "content/01-系统架构设计师教材-清洗版/第08章-系统质量属性与架构评估/第03节-ATAM方法架构评估实践.md",
+   "figure": "表 8-11",
+   "title": "编号方案的列表、类型以及所代表的质量属性",
+   "kind": "svg",
+   "anchor": "> 表 8-11 编号方案的列表、类型以及所代表的质量属性",
+   "asset": "../../../assets/figures/textbook/ch08-quality-attributes-and-evaluation/figure-t08-11.svg",
+   "physical_page": 308,
+   "printed_page": 299,
+   "record": "verification/教材首轮核查-第08章-系统质量属性与架构评估.md",
+   "note": "跨页表(308–309,309 右上「(续表)」)合并为一幅;列序 场景分类（Scenario Type）｜场景（Scenario）｜质量属性（Quality Attribute）｜场景编号(末列)——清洗稿原把编号列提前且改「场景类型」,已照印面(F308-11)。组标签跨行格:用例场景=行1–4、增长场景=行5–14、探索性场景=行15–16;行13/14 印面属增长场景组(清洗稿误标探索性,F309-01)。行13 质量属性带原表「(此处有修改)」修订标记照录。原书自身排印不一:行5 拼写 308 页「Modifability」/309 页「Modifiability」(d4-t0811-p308-modif8x.png),SVG 取 309 页写法,308 页变体留档。行9英文按印面分两行。d4 批绘制,渲染自检通过。"
+  },
+  {
+   "id": "tb-fig-0132",
+   "corpus": "textbook",
+   "file": "content/01-系统架构设计师教材-清洗版/第08章-系统质量属性与架构评估/第03节-ATAM方法架构评估实践.md",
+   "figure": "表 8-12",
+   "title": "示例投票活动的结果",
+   "kind": "svg",
+   "anchor": "> 表 8-12 示例投票活动的结果",
+   "asset": "../../../assets/figures/textbook/ch08-quality-attributes-and-evaluation/figure-t08-12.svg",
+   "physical_page": 310,
+   "printed_page": 301,
+   "record": "verification/教材首轮核查-第08章-系统质量属性与架构评估.md",
+   "note": "七列八行(无「合计」行——清洗稿增写,已去,F310 系列)。表头中英双行照印面。行5/行1 用户投票格「—」占位照录(清洗稿填「1」,20× 与同列「2」字形对照确认为横线,F310-03/04)。行13 质量属性印「概念上的完整性」照录。印面算术不自洽处照录:行5 用户=—、架构师=1、开发=0 而总票=2(和为1);行1 用户=—、架构师=0、开发=1 而总票=2;行2/行6 浅印小号「1」(d4-t0812-r2-uv-av.png 等),「—」是否代表未印出的票数无法判定,均照录原样。d4 批绘制,渲染自检通过。"
+  },
+  {
+   "id": "tb-fig-0133",
+   "corpus": "textbook",
+   "file": "content/01-系统架构设计师教材-清洗版/第08章-系统质量属性与架构评估/第03节-ATAM方法架构评估实践.md",
+   "figure": "表 8-13",
+   "title": "示例统计结果",
+   "kind": "svg",
+   "anchor": "> 表 8-13 示例统计结果",
+   "asset": "../../../assets/figures/textbook/ch08-quality-attributes-and-evaluation/figure-t08-13.svg",
+   "physical_page": 310,
+   "printed_page": 301,
+   "record": "verification/教材首轮核查-第08章-系统质量属性与架构评估.md",
+   "note": "跨页表(310–311,311「(续表)」)合并为一幅;行8/13/14 质量属性为跨行合并单元格,仅印「Functionality 功能性」一次——清洗稿行13 增写「（概念上的完整性）」,已去(F310-05)。d4 批绘制,渲染自检通过。"
+  },
+  {
+   "id": "tb-fig-0134",
+   "corpus": "textbook",
+   "file": "content/01-系统架构设计师教材-清洗版/第08章-系统质量属性与架构评估/第03节-ATAM方法架构评估实践.md",
+   "figure": "表 8-14",
+   "title": "两种体系结构涉及的风险和非风险",
+   "kind": "svg",
+   "anchor": "> 表 8-14 两种体系结构涉及的风险和非风险",
+   "asset": "../../../assets/figures/textbook/ch08-quality-attributes-and-evaluation/figure-t08-14.svg",
+   "physical_page": 313,
+   "printed_page": 304,
+   "record": "verification/教材首轮核查-第08章-系统质量属性与架构评估.md",
+   "note": "三列两行,列头中英双行照印面。胡佛行风险格与银行行非风险格两处浅灰「—」占位照录(清洗稿写「无」,F313-03)。引用行「(1)风险与非风险见表8-14。」已照印面补回。d4 批绘制,渲染自检通过。"
   }
  ]
 }
