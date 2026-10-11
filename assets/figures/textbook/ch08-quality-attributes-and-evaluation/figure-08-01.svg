@@ -58,6 +58,5 @@
     <text x="688" y="176" font-size="15" text-anchor="middle">OR</text>
     <text x="790" y="222" font-size="15" text-anchor="middle">比较多个体系结构</text>
     <text x="600" y="292" font-size="16" text-anchor="middle">单个体系结构评估</text>
-    <text x="475" y="336" font-size="16" font-weight="bold" text-anchor="middle">图8-1 SAAM输入与评估过程</text>
   </g>
 </svg>

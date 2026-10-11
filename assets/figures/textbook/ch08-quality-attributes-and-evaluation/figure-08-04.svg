@@ -70,5 +70,4 @@
 <text x="92.0" y="120.0" font-family="serif" font-size="13.5" fill="#000">LOC transition</text>
 <line x1="270.0" y1="116.0" x2="330.0" y2="116.0" stroke="#000" stroke-width="1.1" stroke-dasharray="5,4"/>
 <path d="M 300.0,112.6 L 303.2,118.6 L 296.8,118.6 z" fill="#000"/>
-<text x="465.0" y="362" font-family="serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#000">图 8-4 架构转移矩阵与 LOC 变化趋势</text>
 </svg>

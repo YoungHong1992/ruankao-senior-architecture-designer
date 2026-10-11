@@ -2,7 +2,6 @@
 <title>表8-8架构属性、质量准则和质量因素</title>
 <desc>复原自《系统架构设计师教程》(第2版)第8章扫描件物理页293(印刷页284)。一张表，表题下有三组跨列分组标题行(架构属性变量/质量准则变量/质量因素变量)，各带自己的"属性/可选值/属性/可选值"表头行；单元格文字照印面(含"管道-过滤器、代理、层、平台""C++、Java""high、low"等)，原书空白格留空；"线程应用"一行照印面转录。印面未出现"通信信道"字样。</desc>
 <rect x="0" y="0" width="920" height="612" fill="#ffffff"/>
-<text x="460.0" y="47" font-family="serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">表8-8架构属性、质量准则和质量因素</text>
 <line x1="20" y1="78.0" x2="411.0" y2="78.0" stroke="#000" stroke-width="1.4"/>
 <line x1="509.0" y1="78.0" x2="900" y2="78.0" stroke="#000" stroke-width="1.4"/>
 <text x="460.0" y="82.68" font-family="serif" font-size="13" text-anchor="middle" fill="#000">架构属性变量</text>

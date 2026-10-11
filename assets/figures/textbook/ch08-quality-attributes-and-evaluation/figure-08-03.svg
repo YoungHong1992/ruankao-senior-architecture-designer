@@ -68,5 +68,4 @@
 <text x="430.0" y="100.0" font-family="serif" font-size="13.5" fill="#000">Distance from Architecture in Mar 05</text>
 <line x1="675.0" y1="96.0" x2="730.0" y2="96.0" stroke="#000" stroke-width="1.1" stroke-dasharray="5,4"/>
 <path d="M 702.0,92.6 L 705.2,98.6 L 698.8,98.6 z" fill="#000"/>
-<text x="450.0" y="360" font-family="serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#000">图 8-3 架构变化曲线</text>
 </svg>

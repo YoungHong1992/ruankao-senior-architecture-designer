@@ -2,7 +2,6 @@
 <title>表8-7 系统架构评估涉及的问题</title>
 <desc>复原自《系统架构设计师教程》(第2版)第8章扫描件物理页287-288(印刷页278-279)。原书表格跨页：287页含表题、表头、系统生产者组、系统消费者组前三行；288页右上印"(续表)"并重复表头，续任务专家行、系统服务人员组、其他人员组。本图为整表复原，共4个通栏分组行、20个条目行。印面照录：受限藕合/简单裁减机制/可裁减性照原书用字；集成人员职责中"和"与"组装"之间印一矩形空框(虚缺号样式)，照录为"□"。</desc>
 <rect x="0" y="0" width="800" height="1124" fill="#ffffff"/>
-<text x="400.0" y="49" font-family="serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">表8-7 系统架构评估涉及的问题</text>
 <g font-family="serif" font-size="13" font-weight="bold" text-anchor="middle">
 <rect x="20.0" y="66" width="150" height="33" fill="none" stroke="#000" stroke-width="1.4"/>
 <text x="95.0" y="87.18">风险承担者</text>
