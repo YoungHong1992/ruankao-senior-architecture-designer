@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="984" height="1064" viewBox="0 0 984 1064">
+<title>表8-11 编号方案的列表、类型以及所代表的质量属性</title>
+<desc>复原自《系统架构设计师教程》(第2版)扫描件物理页308-309(印刷页299-300)表8-11,309页右上印有「(续表)」,合并复原为单表。4列(场景分类/场景/质量属性/场景编号,编号在末列)×16数据行;组标签跨行单元格:Use case 用例场景覆盖行1-4,Growth Scenarios 增长场景覆盖行5-14,Exploratory Scenarios 探索性场景覆盖行15-16;行13质量属性格带原表修订标记「(此处有修改)」,照录;行5质量属性行5在308/309两页重复出现且英文拼写不一致(308页「Modifability」,309页「Modifiability」),本图取309页(增长场景组内)写法;中英双行单元格照录。</desc>
+<rect x="0" y="0" width="984" height="1064" fill="#ffffff"/>
+<line x1="12" y1="4" x2="12" y2="1056" stroke="#000000" stroke-width="1"/>
+<line x1="162" y1="4" x2="162" y2="1056" stroke="#000000" stroke-width="1"/>
+<line x1="722" y1="4" x2="722" y2="1056" stroke="#000000" stroke-width="1"/>
+<line x1="892" y1="4" x2="892" y2="1056" stroke="#000000" stroke-width="1"/>
+<line x1="972" y1="4" x2="972" y2="1056" stroke="#000000" stroke-width="1"/>
+<line x1="12" y1="4" x2="972" y2="4" stroke="#000000" stroke-width="2"/>
+<line x1="12" y1="84" x2="972" y2="84" stroke="#000000" stroke-width="1"/>
+<line x1="162" y1="142" x2="972" y2="142" stroke="#000000" stroke-width="1"/>
+<line x1="162" y1="200" x2="972" y2="200" stroke="#000000" stroke-width="1"/>
+<line x1="162" y1="258" x2="972" y2="258" stroke="#000000" stroke-width="1"/>
+<line x1="12" y1="316" x2="972" y2="316" stroke="#000000" stroke-width="1"/>
+<line x1="162" y1="374" x2="972" y2="374" stroke="#000000" stroke-width="1"/>
+<line x1="162" y1="432" x2="972" y2="432" stroke="#000000" stroke-width="1"/>
+<line x1="162" y1="490" x2="972" y2="490" stroke="#000000" stroke-width="1"/>
+<line x1="162" y1="548" x2="972" y2="548" stroke="#000000" stroke-width="1"/>
+<line x1="162" y1="628" x2="972" y2="628" stroke="#000000" stroke-width="1"/>
+<line x1="162" y1="686" x2="972" y2="686" stroke="#000000" stroke-width="1"/>
+<line x1="162" y1="744" x2="972" y2="744" stroke="#000000" stroke-width="1"/>
+<line x1="162" y1="802" x2="972" y2="802" stroke="#000000" stroke-width="1"/>
+<line x1="162" y1="882" x2="972" y2="882" stroke="#000000" stroke-width="1"/>
+<line x1="12" y1="940" x2="972" y2="940" stroke="#000000" stroke-width="1"/>
+<line x1="162" y1="998" x2="972" y2="998" stroke="#000000" stroke-width="1"/>
+<line x1="12" y1="1056" x2="972" y2="1056" stroke="#000000" stroke-width="2"/>
+<text x="87" y="28" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">Scenario</text>
+<text x="87" y="50" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">Type</text>
+<text x="87" y="72" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">场景分类</text>
+<text x="442" y="39" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">Scenario</text>
+<text x="442" y="61" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">场景</text>
+<text x="807" y="28" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">Quality</text>
+<text x="807" y="50" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">Attribute</text>
+<text x="807" y="72" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">质量属性</text>
+<text x="932" y="39" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">场景</text>
+<text x="932" y="61" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">编号</text>
+<text x="87" y="195" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">Use case</text>
+<text x="87" y="217" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">用例场景</text>
+<text x="172" y="108" font-family="serif" font-size="15" fill="#000000" text-anchor="start">No unauthorized access to the system</text>
+<text x="172" y="130" font-family="serif" font-size="15" fill="#000000" text-anchor="start">禁止非法访问系统</text>
+<text x="807" y="108" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">Security</text>
+<text x="807" y="130" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">安全性</text>
+<text x="932" y="119" font-family="serif" font-size="13" fill="#000000" text-anchor="middle">1</text>
+<text x="172" y="166" font-family="serif" font-size="15" fill="#000000" text-anchor="start">All operations are processed in fastest possible speed</text>
+<text x="172" y="188" font-family="serif" font-size="15" fill="#000000" text-anchor="start">所有的操作都以最快的速度处理</text>
+<text x="807" y="166" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">Performance</text>
+<text x="807" y="188" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">性能</text>
+<text x="932" y="177" font-family="serif" font-size="13" fill="#000000" text-anchor="middle">2</text>
+<text x="172" y="224" font-family="serif" font-size="15" fill="#000000" text-anchor="start">Any failure should be followed by immediate recovery</text>
+<text x="172" y="246" font-family="serif" font-size="15" fill="#000000" text-anchor="start">在任何发生的故障之后，立即修复</text>
+<text x="807" y="224" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">Availability</text>
+<text x="807" y="246" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">可用性</text>
+<text x="932" y="235" font-family="serif" font-size="13" fill="#000000" text-anchor="middle">3</text>
+<text x="172" y="282" font-family="serif" font-size="15" fill="#000000" text-anchor="start">User errors in using system should be handled</text>
+<text x="172" y="304" font-family="serif" font-size="15" fill="#000000" text-anchor="start">处理用户在使用系统时出现的错误</text>
+<text x="807" y="282" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">Reliability</text>
+<text x="807" y="304" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">可靠性</text>
+<text x="932" y="293" font-family="serif" font-size="13" fill="#000000" text-anchor="middle">4</text>
+<text x="87" y="612" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">Growth</text>
+<text x="87" y="634" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">Scenarios</text>
+<text x="87" y="656" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">增长场景</text>
+<text x="172" y="340" font-family="serif" font-size="15" fill="#000000" text-anchor="start">New demands on system functionality should be accommodated</text>
+<text x="172" y="362" font-family="serif" font-size="15" fill="#000000" text-anchor="start">适应系统新的功能需求</text>
+<text x="807" y="340" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">Modifiability</text>
+<text x="807" y="362" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">可修改性</text>
+<text x="932" y="351" font-family="serif" font-size="13" fill="#000000" text-anchor="middle">5</text>
+<text x="172" y="398" font-family="serif" font-size="15" fill="#000000" text-anchor="start">Major parts of the framework should be reusable for future architectures</text>
+<text x="172" y="420" font-family="serif" font-size="15" fill="#000000" text-anchor="start">未来的体系结构可重用框架的主体部分</text>
+<text x="807" y="398" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">Variability</text>
+<text x="807" y="420" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">可变性</text>
+<text x="932" y="409" font-family="serif" font-size="13" fill="#000000" text-anchor="middle">6</text>
+<text x="172" y="456" font-family="serif" font-size="15" fill="#000000" text-anchor="start">Framework modification is cost-effective, fast and in minimal time</text>
+<text x="172" y="478" font-family="serif" font-size="15" fill="#000000" text-anchor="start">框架的修改应高效、快速，并在最短的时间内完成</text>
+<text x="807" y="456" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">Modifiability</text>
+<text x="807" y="478" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">可修改性</text>
+<text x="932" y="467" font-family="serif" font-size="13" fill="#000000" text-anchor="middle">7</text>
+<text x="172" y="514" font-family="serif" font-size="15" fill="#000000" text-anchor="start">Components in framework interact in a coordinated manner</text>
+<text x="172" y="536" font-family="serif" font-size="15" fill="#000000" text-anchor="start">框架中的组件通过交互协议交互</text>
+<text x="807" y="514" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">Functionality</text>
+<text x="807" y="536" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">功能性</text>
+<text x="932" y="525" font-family="serif" font-size="13" fill="#000000" text-anchor="middle">8</text>
+<text x="172" y="572" font-family="serif" font-size="15" fill="#000000" text-anchor="start">Framework expansion is possible to allow for more sophisticated</text>
+<text x="172" y="594" font-family="serif" font-size="15" fill="#000000" text-anchor="start">options</text>
+<text x="172" y="616" font-family="serif" font-size="15" fill="#000000" text-anchor="start">框架可以向更复杂的方向扩展</text>
+<text x="807" y="583" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">Variability</text>
+<text x="807" y="605" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">可变性</text>
+<text x="932" y="594" font-family="serif" font-size="13" fill="#000000" text-anchor="middle">9</text>
+<text x="172" y="652" font-family="serif" font-size="15" fill="#000000" text-anchor="start">Implementation allows for execution in different environments</text>
+<text x="172" y="674" font-family="serif" font-size="15" fill="#000000" text-anchor="start">系统可以在不同的环境中运行</text>
+<text x="807" y="652" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">Portability</text>
+<text x="807" y="674" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">可移植性</text>
+<text x="932" y="663" font-family="serif" font-size="13" fill="#000000" text-anchor="middle">10</text>
+<text x="172" y="710" font-family="serif" font-size="15" fill="#000000" text-anchor="start">Proper data encapsulation and secure data structures</text>
+<text x="172" y="732" font-family="serif" font-size="15" fill="#000000" text-anchor="start">适当的数据封装和安全的数据结构</text>
+<text x="807" y="710" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">Security</text>
+<text x="807" y="732" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">安全性</text>
+<text x="932" y="721" font-family="serif" font-size="13" fill="#000000" text-anchor="middle">11</text>
+<text x="172" y="768" font-family="serif" font-size="15" fill="#000000" text-anchor="start">Flexible implementation using other programming languages</text>
+<text x="172" y="790" font-family="serif" font-size="15" fill="#000000" text-anchor="start">系统的实现方式可灵活使用其他编程语言</text>
+<text x="807" y="768" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">Portability</text>
+<text x="807" y="790" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">可移植性</text>
+<text x="932" y="779" font-family="serif" font-size="13" fill="#000000" text-anchor="middle">12</text>
+<text x="172" y="837" font-family="serif" font-size="15" fill="#000000" text-anchor="start">Overall consistent behavior expected from the architecture</text>
+<text x="172" y="859" font-family="serif" font-size="15" fill="#000000" text-anchor="start">架构预期的整体行为一致</text>
+<text x="807" y="826" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">Functionality</text>
+<text x="807" y="848" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">功能性</text>
+<text x="807" y="870" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">(此处有修改)</text>
+<text x="932" y="848" font-family="serif" font-size="13" fill="#000000" text-anchor="middle">13</text>
+<text x="172" y="906" font-family="serif" font-size="15" fill="#000000" text-anchor="start">Framework should be complete clear and perform exactly as required</text>
+<text x="172" y="928" font-family="serif" font-size="15" fill="#000000" text-anchor="start">框架应该是完全清晰的，并且完全按照需求执行</text>
+<text x="807" y="906" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">Functionality</text>
+<text x="807" y="928" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">功能性</text>
+<text x="932" y="917" font-family="serif" font-size="13" fill="#000000" text-anchor="middle">14</text>
+<text x="87" y="982" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">Exploratory</text>
+<text x="87" y="1004" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">Scenarios</text>
+<text x="87" y="1026" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">探索性场景</text>
+<text x="172" y="964" font-family="serif" font-size="15" fill="#000000" text-anchor="start">Hook up multiple applications to the framework at same time</text>
+<text x="172" y="986" font-family="serif" font-size="15" fill="#000000" text-anchor="start">同时将多个应用程序连接到框架</text>
+<text x="807" y="964" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">Functionality</text>
+<text x="807" y="986" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">功能性</text>
+<text x="932" y="975" font-family="serif" font-size="13" fill="#000000" text-anchor="middle">15</text>
+<text x="172" y="1022" font-family="serif" font-size="15" fill="#000000" text-anchor="start">Change interface from command-driven to window-based</text>
+<text x="172" y="1044" font-family="serif" font-size="15" fill="#000000" text-anchor="start">将交互方式从基于命令行的方式修改为基于窗口的方式</text>
+<text x="807" y="1022" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">Variability</text>
+<text x="807" y="1044" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">可变性</text>
+<text x="932" y="1033" font-family="serif" font-size="13" fill="#000000" text-anchor="middle">16</text>
+</svg>

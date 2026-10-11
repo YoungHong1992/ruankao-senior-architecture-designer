@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1960" height="1140" viewBox="0 0 980 570">
+  <title>图8-7 一个简单的“银行”体系结构类图</title>
+  <desc>复原自《系统架构设计师教程》(第2版)入库扫描件第300页(印刷页291)图8-7。结构:浅灰底点划虚线大矩形表示框架范围,内含main、Queue、Event: Type, Args椭圆、Handler、Handler_START、Handler_IDLE、Handler STOP;矩形上方为Event Manager、Type Binding椭圆、Application;下方为Application Handler与灰底虚线Framework框。带箭头连线:Type Binding与Application指向Event Manager,Queue指向main,Handler与Application Handler指向Event Manager,Application Handler指向Handler;Event Manager—main线Event Manager端标1、main端箭头,main—Event:线Event:端标*、main端箭头,Event Manager—Application Handler与Application Handler—Handler两线Application Handler端各标*;Handler右侧三个连接点扇出至三个Handler变体。图例:矩形=Akey component(印面A后无空格),椭圆=Activities pertaining to a class。逐节点、逐线对照印面转录,渲染核对后交付。</desc>
+  <rect x="0" y="0" width="980" height="570" fill="#ffffff"/>
+  <!-- 框架范围:浅灰底虚线矩形 -->
+  <rect x="30" y="116" width="581" height="300" fill="#f2f2f2" stroke="#999" stroke-width="1.4" stroke-dasharray="6 4"/>
+  <!-- 连线(画在节点框之下) -->
+  <g stroke="#555" stroke-width="1.4" fill="none">
+    <line x1="416" y1="39" x2="365" y2="50"/>
+    <line x1="440" y1="76.5" x2="368" y2="76.5"/>
+    <polyline points="189,65 189,172 113,172.5"/>
+    <polyline points="113,193.5 172,193.5 171,314"/>
+    <line x1="75" y1="216" x2="75" y2="263"/>
+    <line x1="309" y1="96" x2="309" y2="251"/>
+    <line x1="262" y1="96" x2="262" y2="443"/>
+    <line x1="325" y1="296" x2="325" y2="443"/>
+    <line x1="368" y1="256" x2="450" y2="215"/>
+    <line x1="367" y1="269" x2="450" y2="269.5"/>
+    <line x1="364" y1="281" x2="450" y2="319"/>
+  </g>
+  <!-- 实心箭头 -->
+  <g fill="#555">
+    <polygon points="360,52 368.5,54 366.5,47"/>
+    <polygon points="362,76.5 371,72.5 371,80.5"/>
+    <polygon points="75,208 71,217 79,217"/>
+    <polygon points="309,87 305,96 313,96"/>
+    <polygon points="262,87 258,96 266,96"/>
+    <polygon points="325,290 321,299 329,299"/>
+    <polygon points="107,172.5 116,168 116,177"/>
+    <polygon points="107,193.5 116,189 116,198"/>
+  </g>
+  <!-- 连接圆点 -->
+  <g fill="#333">
+
+    <circle cx="368" cy="256" r="2.6"/>
+    <circle cx="367" cy="269" r="2.6"/>
+    <circle cx="364" cy="281" r="2.6"/>
+  </g>
+  <!-- Framework 指向框架范围的虚线箭头(开放箭头) -->
+  <g stroke="#888" stroke-width="1.3" fill="none" stroke-dasharray="5 4">
+    <line x1="470" y1="464" x2="408" y2="419"/>
+  </g>
+  <g stroke="#888" stroke-width="1.3" fill="none">
+    <polyline points="412,416 403,414 407,422"/>
+  </g>
+  <!-- 节点框 -->
+  <g fill="#ffffff" stroke="#333" stroke-width="1.5">
+    <rect x="205" y="39" width="155" height="41"/>
+    <rect x="440" y="60" width="116" height="35"/>
+    <rect x="44" y="160" width="63" height="48"/>
+    <rect x="40" y="263" width="69" height="34"/>
+    <rect x="291" y="250" width="72" height="38"/>
+    <rect x="450" y="197" width="148" height="35"/>
+    <rect x="450" y="251" width="148" height="37"/>
+    <rect x="450" y="305" width="148" height="38"/>
+    <rect x="227" y="442" width="135" height="53"/>
+  </g>
+  <rect x="470" y="464" width="111" height="36" fill="#ebebeb" stroke="#999" stroke-width="1.3" stroke-dasharray="5 4"/>
+  <!-- 椭圆节点 -->
+  <g fill="#ffffff" fill-opacity="0" stroke="#666" stroke-width="1.5">
+    <ellipse cx="502" cy="36" rx="87" ry="15" transform="rotate(-2 502 36)"/>
+    <ellipse cx="169" cy="350" rx="68" ry="36"/>
+  </g>
+  <!-- 节点文字(印面怪字照录:Akey component) -->
+  <g font-family="Liberation Serif, WenQuanYi Zen Hei, DejaVu Serif, serif" font-size="17" fill="#111" text-anchor="middle">
+    <text x="282" y="66" letter-spacing="2">Event Manager</text>
+    <text x="514" y="37">Type Binding</text>
+    <text x="498" y="84">Application</text>
+    <text x="75" y="190">main</text>
+    <text x="74" y="286">Queue</text>
+    <text x="169" y="348">Event:</text>
+    <text x="169" y="371">Type, Args</text>
+    <text x="327" y="275">Handler</text>
+    <text x="524" y="221">Handler_START</text>
+    <text x="524" y="276">Handler_IDLE</text>
+    <text x="524" y="330">Handler STOP</text>
+    <text x="294" y="467">Application</text>
+    <text x="294" y="489">Handler</text>
+    <text x="525" y="488" fill="#7a7a7a">Framework</text>
+  </g>
+  <!-- 多重性 -->
+  <g font-family="Liberation Serif, WenQuanYi Zen Hei, DejaVu Serif, serif" font-size="15" fill="#333" text-anchor="middle">
+    <text x="189" y="61">1</text>
+    <text x="157" y="310">*</text>
+    <text x="245" y="435">*</text>
+    <text x="335" y="436">*</text>
+  </g>
+  <!-- 图例 -->
+  <g font-family="Liberation Serif, WenQuanYi Zen Hei, DejaVu Serif, serif" fill="#111">
+    <text x="622" y="402" font-size="18" font-weight="bold">Legend:</text>
+    <rect x="623" y="422" width="50" height="35" fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+    <text x="705" y="444" font-size="17">Akey component</text>
+    <ellipse cx="649" cy="493" rx="26" ry="20" fill="#ffffff" fill-opacity="0" stroke="#666" stroke-width="1.5"/>
+    <text x="695" y="499" font-size="17">Activities pertaining to a class</text>
+  </g>
+  <!-- 图题 -->
+</svg>

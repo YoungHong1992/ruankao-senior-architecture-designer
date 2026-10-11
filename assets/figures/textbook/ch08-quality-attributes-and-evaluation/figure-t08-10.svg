@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="924" height="252" viewBox="0 0 924 252">
+<title>表8-10两种体系结构的风险和非风险对比</title>
+<desc>复原自《系统架构设计师教程》(第2版)扫描件物理页307(印刷页298)表8-10,逐格转录。3列(架构/风险/非风险)×2数据行;胡佛架构行风险格原书为浅灰短横线占位,照录为「—」;胡佛架构非风险5项(可变性/可靠性/概念一致性/功能性/可修改性),银行体系结构风险3项(可变性/概念一致性/可修改性)、非风险2项(可靠性/功能性)。</desc>
+<rect x="0" y="0" width="924" height="252" fill="#ffffff"/>
+<line x1="12" y1="4" x2="12" y2="244" stroke="#000000" stroke-width="1"/>
+<line x1="312" y1="4" x2="312" y2="244" stroke="#000000" stroke-width="1"/>
+<line x1="612" y1="4" x2="612" y2="244" stroke="#000000" stroke-width="1"/>
+<line x1="912" y1="4" x2="912" y2="244" stroke="#000000" stroke-width="1"/>
+<line x1="12" y1="4" x2="912" y2="4" stroke="#000000" stroke-width="2"/>
+<line x1="12" y1="40" x2="912" y2="40" stroke="#000000" stroke-width="1"/>
+<line x1="12" y1="164" x2="912" y2="164" stroke="#000000" stroke-width="1"/>
+<line x1="12" y1="244" x2="912" y2="244" stroke="#000000" stroke-width="2"/>
+<text x="162" y="28" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">架构</text>
+<text x="462" y="28" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">风险</text>
+<text x="762" y="28" font-family="serif" font-size="15" font-weight="bold" fill="#000000" text-anchor="middle">非风险</text>
+<text x="162" y="108" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">胡佛架构</text>
+<text x="462" y="108" font-family="serif" font-size="15" fill="#808080" text-anchor="middle">—</text>
+<text x="762" y="64" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">可变性</text>
+<text x="762" y="86" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">可靠性</text>
+<text x="762" y="108" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">概念一致性</text>
+<text x="762" y="130" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">功能性</text>
+<text x="762" y="152" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">可修改性</text>
+<text x="162" y="210" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">银行体系结构</text>
+<text x="462" y="188" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">可变性</text>
+<text x="462" y="210" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">概念一致性</text>
+<text x="462" y="232" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">可修改性</text>
+<text x="762" y="199" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">可靠性</text>
+<text x="762" y="221" font-family="serif" font-size="15" fill="#000000" text-anchor="middle">功能性</text>
+</svg>

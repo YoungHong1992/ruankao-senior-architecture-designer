@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="500" viewBox="0 0 1100 500">
+  <title>表8-4 可测试性质量属性场景描述</title>
+  <desc>复原自 sources/01-系统架构设计师教材 入库扫描件物理页 285(印刷页 276),表题:表8-4 可测试性质量属性场景描述。结构:两列(场景要素/可能的情况),表头加粗;响应度量格5行,分行照印面。</desc>
+  <rect x="0" y="0" width="1100" height="500" fill="#ffffff"/>
+  <rect x="40" y="44" width="1020" height="442" fill="none" stroke="#000000" stroke-width="1.5"/>
+  <line x1="210" y1="44" x2="210" y2="486" stroke="#000000" stroke-width="1"/>
+  <text x="125" y="73" text-anchor="middle" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" font-weight="bold" fill="#000000">场景要素</text>
+  <text x="635" y="73" text-anchor="middle" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" font-weight="bold" fill="#000000">可能的情况</text>
+  <line x1="40" y1="90" x2="1060" y2="90" stroke="#000000" stroke-width="2"/>
+  <text x="125" y="119" text-anchor="middle" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">刺激源</text>
+  <text x="224" y="119" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">开发人员、增量开发人员、系统验证人员、客户验收测试人员、系统用户</text>
+  <line x1="40" y1="136" x2="1060" y2="136" stroke="#000000" stroke-width="1"/>
+  <text x="125" y="165" text-anchor="middle" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">刺激</text>
+  <text x="224" y="165" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">已完成的分析、架构、设计、类和子系统集成；所交付的系统</text>
+  <line x1="40" y1="182" x2="1060" y2="182" stroke="#000000" stroke-width="1"/>
+  <text x="125" y="211" text-anchor="middle" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">环境</text>
+  <text x="224" y="211" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">设计时、开发时、编译时、部署时</text>
+  <line x1="40" y1="228" x2="1060" y2="228" stroke="#000000" stroke-width="1"/>
+  <text x="125" y="257" text-anchor="middle" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">制品</text>
+  <text x="224" y="257" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">设计、代码段、完整的应用</text>
+  <line x1="40" y1="274" x2="1060" y2="274" stroke="#000000" stroke-width="1"/>
+  <text x="125" y="303" text-anchor="middle" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">响应</text>
+  <text x="224" y="303" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">提供对状态值的访问，提供所计算的值，准备测试环境</text>
+  <line x1="40" y1="320" x2="1060" y2="320" stroke="#000000" stroke-width="1"/>
+  <text x="125" y="409" text-anchor="middle" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">响应度量</text>
+  <text x="224" y="349" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">已执行的可执行语句的百分比</text>
+  <text x="224" y="379" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">如果存在缺陷出现故障的概率</text>
+  <text x="224" y="409" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">执行测试的时间</text>
+  <text x="224" y="439" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">测试中最长依赖的长度</text>
+  <text x="224" y="469" font-family="WenQuanYi Zen Hei, sans-serif" font-size="15" fill="#000000">准备测试环境的时间</text>
+  <line x1="40" y1="486" x2="1060" y2="486" stroke="#000000" stroke-width="1.5"/>
+</svg>
