@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1960" height="1140" viewBox="0 0 980 570">
   <title>图8-7 一个简单的“银行”体系结构类图</title>
-  <desc>复原自《系统架构设计师教程》(第2版)入库扫描件第300页(印刷页291)图8-7。结构:浅灰底点划虚线大矩形表示框架范围,内含main、Queue、Event: Type, Args椭圆、Handler、Handler_START、Handler_IDLE、Handler STOP;矩形上方为Event Manager、Type Binding椭圆、Application;下方为Application Handler与灰底虚线Framework框。带箭头连线:Type Binding与Application指向Event Manager,Queue指向main,Handler与Application Handler指向Event Manager,Application Handler指向Handler;Event Manager—main线Event Manager端标1,main—Event:线Event:端、Event Manager—Application Handler与Application Handler—Handler两线Application Handler端各标*;Handler右侧三个连接点扇出至三个Handler变体。图例:矩形=Akey component(印面A后无空格),椭圆=Activities pertaining to a class。逐节点、逐线对照印面转录,渲染核对后交付。</desc>
+  <desc>复原自《系统架构设计师教程》(第2版)入库扫描件第300页(印刷页291)图8-7。结构:浅灰底点划虚线大矩形表示框架范围,内含main、Queue、Event: Type, Args椭圆、Handler、Handler_START、Handler_IDLE、Handler STOP;矩形上方为Event Manager、Type Binding椭圆、Application;下方为Application Handler与灰底虚线Framework框。带箭头连线:Type Binding与Application指向Event Manager,Queue指向main,Handler与Application Handler指向Event Manager,Application Handler指向Handler;Event Manager—main线Event Manager端标1、main端箭头,main—Event:线Event:端标*、main端箭头,Event Manager—Application Handler与Application Handler—Handler两线Application Handler端各标*;Handler右侧三个连接点扇出至三个Handler变体。图例:矩形=Akey component(印面A后无空格),椭圆=Activities pertaining to a class。逐节点、逐线对照印面转录,渲染核对后交付。</desc>
   <rect x="0" y="0" width="980" height="570" fill="#ffffff"/>
   <!-- 框架范围:浅灰底虚线矩形 -->
   <rect x="30" y="116" width="581" height="300" fill="#f2f2f2" stroke="#999" stroke-width="1.4" stroke-dasharray="6 4"/>
@@ -27,11 +27,12 @@
     <polygon points="309,87 305,96 313,96"/>
     <polygon points="262,87 258,96 266,96"/>
     <polygon points="325,290 321,299 329,299"/>
+    <polygon points="107,172.5 116,168 116,177"/>
+    <polygon points="107,193.5 116,189 116,198"/>
   </g>
   <!-- 连接圆点 -->
   <g fill="#333">
-    <circle cx="110" cy="172.5" r="2.6"/>
-    <circle cx="110" cy="193.5" r="2.6"/>
+
     <circle cx="368" cy="256" r="2.6"/>
     <circle cx="367" cy="269" r="2.6"/>
     <circle cx="364" cy="281" r="2.6"/>
