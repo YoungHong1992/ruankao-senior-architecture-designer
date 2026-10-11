@@ -1892,6 +1892,76 @@
    "printed_page": 304,
    "record": "verification/教材首轮核查-第08章-系统质量属性与架构评估.md",
    "note": "三列两行,列头中英双行照印面。胡佛行风险格与银行行非风险格两处浅灰「—」占位照录(清洗稿写「无」,F313-03)。引用行「(1)风险与非风险见表8-14。」已照印面补回。d4 批绘制,渲染自检通过。"
+  },
+  {
+   "id": "tb-fig-0135",
+   "corpus": "textbook",
+   "file": "content/01-系统架构设计师教材-清洗版/第09章-软件可靠性基础知识/第01节-软件可靠性基本概念.md",
+   "figure": "表 9-1",
+   "title": "按照对成本的影响划分失效严重程度类",
+   "kind": "svg",
+   "anchor": "> 表 9-1 按照对成本的影响划分失效严重程度类",
+   "asset": "assets/figures/textbook/ch09-software-reliability-fundamentals/figure-t09-01.svg",
+   "physical_page": 318,
+   "printed_page": 309,
+   "record": "verification/教材首轮核查-第09章-软件可靠性基础知识.md",
+   "note": "印面为一张表、左右两组并排4列(失效严重程度类|定义(人民币万元)×2),组间双竖线,左组行1/2/3、右组行4/5,右组第3行两格原书即空格;比较符>、<、≤逐格照录。清洗稿原拉直为2列5行MD表且无题注行,首轮补题注并复原。d1 批绘制,渲染自检通过。"
+  },
+  {
+   "id": "tb-fig-0136",
+   "corpus": "textbook",
+   "file": "content/01-系统架构设计师教材-清洗版/第09章-软件可靠性基础知识/第01节-软件可靠性基本概念.md",
+   "figure": "表 9-2",
+   "title": "按照对系统能力的影响划分失效严重程度类",
+   "kind": "svg",
+   "anchor": "> 表 9-2 按照对系统能力的影响划分失效严重程度类",
+   "asset": "assets/figures/textbook/ch09-software-reliability-fundamentals/figure-t09-02.svg",
+   "physical_page": 318,
+   "printed_page": 309,
+   "record": "verification/教材首轮核查-第09章-软件可靠性基础知识.md",
+   "note": "两列4行;首列第1行印面仅存极淡短横残迹(30×不可辨,e91b-p318-30x-t92-r1c1-mark.png),按残迹照录留空,不得据文义补「1」;待高清复核。d1 批绘制,渲染自检通过。"
+  },
+  {
+   "id": "tb-fig-0137",
+   "corpus": "textbook",
+   "file": "content/01-系统架构设计师教材-清洗版/第09章-软件可靠性基础知识/第01节-软件可靠性基本概念.md",
+   "figure": "表 9-3",
+   "title": "可靠性目标参考表",
+   "kind": "svg",
+   "anchor": "> 表 9-3 可靠性目标参考表",
+   "asset": "assets/figures/textbook/ch09-software-reliability-fundamentals/figure-t09-03.svg",
+   "physical_page": 319,
+   "printed_page": 310,
+   "record": "verification/教材首轮核查-第09章-软件可靠性基础知识.md",
+   "note": "四列4行;失效强度列负指数上标(10⁻⁶/10⁻⁴/10⁻¹)经22×–40×终读照录,第4行「1」无幂;行3「4 天」右下原书极小墨点不构成字符,未补写。d1 批绘制,渲染自检通过。"
+  },
+  {
+   "id": "tb-fig-0138",
+   "corpus": "textbook",
+   "file": "content/01-系统架构设计师教材-清洗版/第09章-软件可靠性基础知识/第01节-软件可靠性基本概念.md",
+   "figure": "图 9-1",
+   "title": "广义的软件可靠性测试",
+   "kind": "svg",
+   "anchor": "> 图 9-1 广义的软件可靠性测试",
+   "asset": "assets/figures/textbook/ch09-software-reliability-fundamentals/figure-09-01.svg",
+   "physical_page": 320,
+   "printed_page": 311,
+   "record": "verification/教材首轮核查-第09章-软件可靠性基础知识.md",
+   "note": "流程图:15矩形+2椭圆(实施测试、可靠性模型),五输入汇入实施测试,实施测试→测试问题集→排错后右侧回流线指回;测试数据→可靠性数据箭头旁注「分析」;无框区域标注「狭义的软件可靠性测试」「广义的软件可靠性测试」。清洗稿原以编者添加的图解读散文替代原图,随SVG落地移除。d1 批绘制,渲染自检通过。"
+  },
+  {
+   "id": "tb-fig-0139",
+   "corpus": "textbook",
+   "file": "content/01-系统架构设计师教材-清洗版/第09章-软件可靠性基础知识/第05节-软件可靠性测试.md",
+   "figure": "表 9-4",
+   "title": "可靠性测试用例设计时重点考虑的特殊情况",
+   "kind": "svg",
+   "anchor": "> 表 9-4 可靠性测试用例设计时重点考虑的特殊情况",
+   "asset": "assets/figures/textbook/ch09-software-reliability-fundamentals/figure-t09-04.svg",
+   "physical_page": 333,
+   "printed_page": 324,
+   "record": "verification/教材首轮核查-第09章-软件可靠性基础知识.md",
+   "note": "三列5行;行5描述格印面为「异常情况包括:」+圆点分行三项(硬件故障/网络故障/部分软件模块失效),末尾无「等」字(r-95 F44 裁决);行1两处「的」、行4三处「的」照印面。清洗稿原 MD 表行5合并三项并增「等」。d2 批绘制,渲染自检通过。"
   }
  ]
 }
