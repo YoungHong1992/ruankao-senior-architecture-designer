@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "updated_at": "2026-10-11",
+ "updated_at": "2026-10-12",
  "note": "勘误登记簿：正文书勘误后的正确内容。仅登记经扫描件图像证实为原书自身排印错误（kind=typo，正文已勘正）或存疑未勘正（kind=noted，正文保留原书原貌）之处；anchor 为现行正文中的唯一锚点，校验器逐条核对以防漂移。不设数量与覆盖率目标。",
  "entries": [
   {
@@ -1681,6 +1681,18 @@
    "printed_page": 319,
    "record": "verification/教材首轮核查-第09章-软件可靠性基础知识.md",
    "note": "首轮 r-94 逐行 medrun 测量（e94-p328-20x-1huifu-line.png、-2nver-line.png、-3rongyu-line.png、e94-p330-band-944head.png、e94-p331-band-top.png），验证者回图复核 1)/3) 字重差明显；按 tb-0104/tb-0126 照录原书不一口径：四行不加粗者降为正文级编号行，3)冗余设计 保留标题层级。清洗稿原五处统一升为 ### 标题。"
+  },
+  {
+   "id": "tb-0138",
+   "corpus": "textbook",
+   "kind": "noted",
+   "file": "content/01-系统架构设计师教材-清洗版/第09章-软件可靠性基础知识/第03节-软件可靠性管理.md",
+   "anchor": "4. 调整可靠性模型。",
+   "original": "印面实施阶段第 4 条作「(4)调整可靠性模型」，其余五阶段同位条目均作「(N)调整可靠性活动计划」，句式前后不一",
+   "physical_page": 327,
+   "printed_page": 318,
+   "record": "verification/教材第二轮独立盲核记录-第09章.md",
+   "note": "第二轮盲核 s03 批发现并报请裁决，另经不知争议内容的中立转录代理独立证实（阶段2/3/4/5 各有一条「(N)调整可靠性活动计划。」、唯阶段 6 第 4 条作「(4)调整可靠性模型。」，adjudicate-tiaozheng-s2full–s6full.png）；正文照录印面，未勘正。"
   }
  ]
 }
