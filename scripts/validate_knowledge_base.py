@@ -42,16 +42,17 @@ CONTENT_ROOT = ROOT / "content"
 SOURCES_ROOT = ROOT / "sources"
 CATALOG_ROOT = ROOT / "catalog"
 ASSETS_ROOT = ROOT / "assets"
-# content/ holds the cleaned prose that the site and the AI knowledge base read;
+# content/ holds cleaned sources and explicitly labelled AI-assisted study guides;
 # sources/ keeps the third-party material the cleaned prose derives from.
 OUTLINE_DIR = CONTENT_ROOT / "00-系统架构设计师考试大纲-清洗版"
 TEXTBOOK_DIR = CONTENT_ROOT / "01-系统架构设计师教材-清洗版"
 CLEAN_EXAM_DIR = CONTENT_ROOT / "02-历年真题-清洗版"
+STUDY_DIR = CONTENT_ROOT / "03-核心考点精要"
 EXAM_SOURCE_DIRS = (
     SOURCES_ROOT / "02-历年真题",
     SOURCES_ROOT / "02-历年真题(补充)",
 )
-CONTENT_DIRS = (CONTENT_ROOT, OUTLINE_DIR, TEXTBOOK_DIR, CLEAN_EXAM_DIR, *EXAM_SOURCE_DIRS)
+CONTENT_DIRS = (CONTENT_ROOT, OUTLINE_DIR, TEXTBOOK_DIR, CLEAN_EXAM_DIR, STUDY_DIR, *EXAM_SOURCE_DIRS)
 CLEAN_DIRS = (OUTLINE_DIR, TEXTBOOK_DIR, CLEAN_EXAM_DIR)
 CHAPTER_DIRS = (OUTLINE_DIR, TEXTBOOK_DIR)
 # The registered scans are committed to the repository since 2026-09 (see
@@ -158,7 +159,7 @@ FRONT_MATTER_LINE_RE = re.compile(r"^(?P<key>[a-z][a-z0-9_]*): (?P<value>.+)$")
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 SOURCE_PAGES_RE = re.compile(r"^\d+-\d+$")
 REQUIRED_FRONT_MATTER = ("id", "corpus", "slug", "title", "kind")
-FRONT_MATTER_CORPORA = {"root", "outline", "textbook", "exams"}
+FRONT_MATTER_CORPORA = {"root", "outline", "textbook", "exams", "study"}
 FRONT_MATTER_KINDS = {
     "root-index",
     "index",
@@ -168,6 +169,7 @@ FRONT_MATTER_KINDS = {
     "section",
     "exam",
     "exam-variant",
+    "guide",
 }
 # Which extra keys each kind must carry beyond REQUIRED_FRONT_MATTER.
 FRONT_MATTER_EXTRA_KEYS = {
@@ -176,6 +178,7 @@ FRONT_MATTER_EXTRA_KEYS = {
     "section": ("order", "parent", "source_pages"),
     "exam": ("year", "session", "subject"),
     "exam-variant": ("year", "session", "subject"),
+    "guide": ("order", "derivation", "authority"),
 }
 INTEGER_FRONT_MATTER_KEYS = frozenset({"order", "year"})
 EXAM_SESSIONS = {"h1", "h2"}
@@ -517,7 +520,7 @@ class Validator:
         # legitimately start at H2); anything deeper is a jump from the
         # implicit document root.
         previous_level = 1
-        check_heading_jumps = any(path.is_relative_to(directory) for directory in CLEAN_DIRS)
+        check_heading_jumps = any(path.is_relative_to(directory) for directory in (*CLEAN_DIRS, STUDY_DIR))
         for line_number, line in enumerate(lines, start=1):
             fence_match = FENCE_RE.match(line)
             if fence_match:
@@ -707,7 +710,7 @@ class Validator:
         if not isinstance(entries, list):
             self.error(CORPORA_PATH, "corpora must be an array")
             return
-        expected_ids = {"outline", "textbook", "exams"}
+        expected_ids = FRONT_MATTER_CORPORA - {"root"}
         seen_ids: set[str] = set()
         committed_pdfs: set[str] = set()
         data_sources_text = self.read_text(DATA_SOURCES_PATH) or ""
@@ -750,6 +753,15 @@ class Validator:
             if not isinstance(source, dict):
                 self.error(CORPORA_PATH, f"{corpus_id}: source must be an object")
                 continue
+            if corpus_id == "study":
+                if entry["content_root"] != self.relative(STUDY_DIR):
+                    self.error(CORPORA_PATH, "study: content_root must be content/03-核心考点精要")
+                if entry["source_roots"] != []:
+                    self.error(CORPORA_PATH, "study: source_roots must be empty; references reuse existing corpora")
+                if entry.get("derivation") != "ai-assisted" or source.get("kind") != "markdown":
+                    self.error(CORPORA_PATH, "study: derivation must be ai-assisted and source.kind must be markdown")
+                if isinstance(expected_documents, dict) and set(expected_documents) != {"index", "guide"}:
+                    self.error(CORPORA_PATH, "study: expected_documents must contain only index and guide")
             checksum = source.get("sha256")
             if checksum is not None:
                 # The same checksum is printed in DATA_SOURCES.md for humans;
@@ -885,6 +897,7 @@ class Validator:
         section_parents: dict[str, tuple[Path, str]] = {}
         section_pages: dict[str, str] = {}
         chapter_pages: dict[str, str] = {}
+        study_orders: set[int] = set()
         self.exam_front_matter_ids = set()
         for path in sorted(CONTENT_ROOT.rglob("*.md")):
             fields = self.parse_front_matter(path)
@@ -914,6 +927,8 @@ class Validator:
             kind = str(values["kind"])
             document_id = str(values["id"])
             slug = str(values["slug"])
+            if path.is_relative_to(STUDY_DIR) or corpus == "study" or kind == "guide":
+                self.check_study_document(path, values, study_orders)
             if corpus not in FRONT_MATTER_CORPORA:
                 self.error(path, f"unknown corpus '{corpus}'")
                 continue
@@ -986,6 +1001,37 @@ class Validator:
                         CORPORA_PATH,
                         f"{corpus_id}: expected {expected_count} document(s) of kind '{kind}', found {actual}",
                     )
+
+    def check_study_document(self, path: Path, values: dict[str, str | int], orders: set[int]) -> None:
+        """Keep generated teaching material distinct from cleaned third-party text."""
+        if values["corpus"] != "study" or path.parent != STUDY_DIR:
+            self.error(path, "study documents must use corpus 'study' and live directly in the study directory")
+        expected_kind = "index" if path.name == "INDEX.md" else "guide"
+        if values["kind"] != expected_kind:
+            self.error(path, f"study document kind must be '{expected_kind}'")
+        for key, expected in (("derivation", "ai-assisted"), ("authority", "unofficial")):
+            if values.get(key) != expected:
+                self.error(path, f"study document requires {key}: {expected!r}")
+        if expected_kind == "index":
+            return
+        order = values.get("order")
+        if not isinstance(order, int) or not 1 <= order <= 99:
+            self.error(path, "study guide order must be an integer from 1 to 99")
+        else:
+            if order in orders:
+                self.error(path, f"duplicate study guide order: {order}")
+            orders.add(order)
+            if not re.fullmatch(rf"{order:02d}-.+\.md", path.name):
+                self.error(path, "study guide filename must match NN-标题.md with NN equal to order")
+        references = self.extract_local_links(path)
+        if not any(
+            target.is_file()
+            and target.suffix == ".md"
+            and target.name != "INDEX.md"
+            and any(target.is_relative_to(directory) for directory in CLEAN_DIRS)
+            for target in references
+        ):
+            self.error(path, "study guide must link to at least one cleaned source document, not only an index")
 
     def check_clean_ocr(self) -> None:
         # Every cleaned directory is scanned, not just the textbook: the outline

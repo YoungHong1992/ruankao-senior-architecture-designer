@@ -38,7 +38,7 @@
 
 
 
-三套语料在正文层与来源层的对应关系：
+第三方语料与 AI 辅助学习语料在正文层与来源层的对应关系：
 
 
 
@@ -52,9 +52,11 @@
 
 | 真题 | `sources/02-历年真题/` + `sources/02-历年真题(补充)/` | `content/02-历年真题-清洗版/` | 36 份唯一试卷 + 1 份独立备选 + INDEX |
 
+| 核心考点精要 | 不新增来源目录；链接已有清洗正文 | `content/03-核心考点精要/` | AI 辅助学习手册 + INDEX；数量见清单 |
 
 
-大纲与教材的 OCR 提取稿已从版本库移除：**清洗稿是唯一正文层**，不要重建提取稿目录。两份源扫描件已按 2026-09 治理决定入库（`sources/00-…`、`sources/01-…`，登记见 `catalog/corpora.json`），复核时直接对照它们。
+
+大纲与教材的 OCR 提取稿已从版本库移除：**清洗稿是第三方语料的唯一可读正文**，不要重建提取稿目录。两份源扫描件已按 2026-09 治理决定入库（`sources/00-…`、`sources/01-…`，登记见 `catalog/corpora.json`），复核时直接对照它们。
 
 
 
@@ -62,11 +64,11 @@
 
 
 
-- `content/INDEX.md` — 正文层根导航，链接三套语料的 `INDEX.md` 与真题总索引。
+- `content/INDEX.md` — 正文层根导航，链接各语料的 `INDEX.md` 与真题总索引。
 
 - `content/02-历年真题总索引.md` — 人工/AI 查询真题的统一入口，规定每卷的“首选文件”。
 
-- `catalog/corpora.json`（schema 1）— 语料总清单：层根、三套语料的 content_root/source_roots、各 `kind` 的期望文档数、真题不变量（36/17/90/53）、已入库源扫描件的路径、字节数与 SHA-256。教材语料的 `blind_checked_chapters` 登记已完成第二轮独立盲核的章号，校验器对这些章断言同父标题无重号（未核查章不受此门禁约束，随核查进度扩列）。**数量类断言一律从这里读，不再散落在脚本和正文里。**
+- `catalog/corpora.json`（schema 1）— 语料总清单：层根、各语料的 content_root/source_roots、各 `kind` 的期望文档数、真题不变量（36/17/90/53）、已入库源扫描件的路径、字节数与 SHA-256。教材语料的 `blind_checked_chapters` 登记已完成第二轮独立盲核的章号，校验器对这些章断言同父标题无重号（未核查章不受此门禁约束，随核查进度扩列）。**数量类断言一律从这里读，不再散落在脚本和正文里。**
 
 - `catalog/exams.json`（schema 4）— 真题 manifest：36 份 canonical、90 份 source_versions 路径、来源目录与同名冲突映射。校验器断言 manifest、两份索引、正文与 frontmatter 的 `id` 彼此一致。
 
@@ -118,15 +120,17 @@ source_pages: "248-270"
 
 | `id` | 全部 | 全仓库唯一；真题的 `id` 必须与 `catalog/exams.json` 的 `id` 集合完全相等 |
 
-| `corpus` | 全部 | `root` / `outline` / `textbook` / `exams` |
+| `corpus` | 全部 | `root` / `outline` / `textbook` / `exams` / `study` |
 
 | `slug` | 全部 | 纯小写 ASCII，用 `-` 连接；同一语料内唯一；网址由它生成，中文文件名不参与路由 |
 
 | `title` | 全部 | 中文标题，非空 |
 
-| `kind` | 全部 | `root-index` / `index` / `master-index` / `preface` / `chapter` / `section` / `exam` / `exam-variant` |
+| `kind` | 全部 | `root-index` / `index` / `master-index` / `preface` / `chapter` / `section` / `exam` / `exam-variant` / `guide` |
 
-| `order` | `preface`、`chapter`、`section` | 整数，前言为 0；`section` 为该节在本章内的序号 |
+| `order` | `preface`、`chapter`、`section`、`guide` | 整数，前言为 0；`section` 为章内序号；`guide` 为建议学习顺序（1–99，语料内唯一） |
+
+| `derivation` / `authority` | `study` 的全部文档（含索引） | 固定双引号字符串 `ai-assisted` / `unofficial` |
 
 | `parent` | `section` | 所属章的 `id`；节的 `id` 必须是它加 `-sNN` 后缀 |
 
@@ -200,7 +204,7 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 - 四层结构：`content/INDEX.md`、`sources/README.md`、`catalog/README.md`、`assets/README.md` 必须存在；`sources/00-…`、`sources/01-…` 各须有 README 说明已入库的源扫描件；`.gitignore` 必须保留 `*.pdf` 默认忽略规则，并通过 `!` 反选放行 `corpora.json` 登记的扫描件。
 
-- `catalog/corpora.json`（schema 1）：`layers` 中每个路径必须是真实目录；`root_index.path` 必须是 `content/INDEX.md`；`corpora` 必须恰好是 `outline`/`textbook`/`exams`；每个 `sha256` 必须是 64 位小写十六进制**且同时出现在 `DATA_SOURCES.md`**（防两处漂移）；`kind: "pdf"` 的 source 必须标 `committed: true`，其文件必须被 git 跟踪且字节数、SHA-256 与入库文件逐字节一致，`.gitignore` 须有对应 `!` 反选行（校验器双向核对 git 跟踪的 PDF 集合与登记清单）。
+- `catalog/corpora.json`（schema 1）：`layers` 中每个路径必须是真实目录；`root_index.path` 必须是 `content/INDEX.md`；`corpora` 必须恰好是 `outline`/`textbook`/`exams`/`study`；每个 `sha256` 必须是 64 位小写十六进制**且同时出现在 `DATA_SOURCES.md`**（防两处漂移）；`kind: "pdf"` 的 source 必须标 `committed: true`，其文件必须被 git 跟踪且字节数、SHA-256 与入库文件逐字节一致，`.gitignore` 须有对应 `!` 反选行（校验器双向核对 git 跟踪的 PDF 集合与登记清单）。
 
 - frontmatter：`content/` 下每个 md 都要有；必填字段齐全；`id` 全仓库唯一；`slug` 语料内唯一且为小写 ASCII；按 `(corpus, kind)` 统计的文档数必须等于 `expected_documents`；`kind=exam` 的 `id` 集合必须等于 `catalog/exams.json` 的 `id` 集合。
 
@@ -218,7 +222,7 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 
 - 工具链：`pyproject.toml` 的 `requires-python` = `>=3.13`、`project.dependencies` 必须为空、`tool.uv.package` = `false`、`dependency-groups` 必须恰好是 `lint` 一组且只含一条 `==` 精确 pin（ruff）；`uv.lock` 的 `requires-python` 也须为 `>=3.13`。改任一处都要跑 `uv lock` 并提交锁文件。
 
-- 全部 Markdown 必须是**标准 UTF-8（无 BOM）+ CRLF**，不得含裸 CR；校验器逐字节检查。每个存放正文的目录（含教材的每个章目录）都要有 `INDEX.md`，不得超过 200 行，且必须收录本目录下全部 Markdown 与各子目录的 `INDEX.md`；清洗目录内标题不得跳级；三个清洗目录**递归**扫描 `兰亭图书阁`、`Outer Jion` 等高风险 OCR 残留词。
+- 全部 Markdown 必须是**标准 UTF-8（无 BOM）+ CRLF**，不得含裸 CR；校验器逐字节检查。每个存放正文的目录（含教材的每个章目录）都要有 `INDEX.md`，不得超过 200 行，且必须收录本目录下全部 Markdown 与各子目录的 `INDEX.md`；清洗目录与核心考点精要内标题不得跳级；三个清洗目录**递归**扫描 `兰亭图书阁`、`Outer Jion` 等高风险 OCR 残留词。
 - **路径命名不得含小数点**：文件名与目录名中除扩展名分隔符外不得出现 `.`，序号与标题一律用 `-` 连接（`02-历年真题-清洗版/`，不是 `02.历年真题-清洗版/`）。只有 `.github/`、`.gitignore`、`.gitattributes` 这类以点开头的约定名例外。校验器逐条扫描已跟踪路径。
 
 
@@ -241,6 +245,20 @@ uv run --group lint ruff format scripts/          # CI 用 ruff format --check
 - 需要按主题、年份或科目批量筛选时，先读 frontmatter 标签，不要靠猜文件名。
 
 
+
+## AI 辅助学习手册
+
+`content/03-核心考点精要/` 是独立的 `study` 语料，允许摘要、解释、记忆口诀、工程补充、自编练习和答题模板，不冒充教材原文、官方考点或答案。第三方清洗稿仍遵守忠于原文的规则，手册不得反向覆盖它们。
+
+- 面向公共考试范围组织，不将个别学习者的职业背景、薄弱项、考试日期或学习日程写入手册；个性化辅导留在聊天中。
+- 先读该目录 `INDEX.md`；只收录已经形成的手册，后续主题可以列为无链接的教学路线，不创建空白占位文档。顺序依据跨科目价值与知识依赖，无统计证据不声称“必考”“高频”或预测分值。
+- 索引使用 `kind: index`，手册使用 `kind: guide`；所有文件均直接位于该语料根目录，`corpus: study`、`derivation: ai-assisted`、`authority: unofficial` 为必填标签。手册文件名为 `NN-标题.md`，NN 与 `order` 一致且不重复；ID 与 slug 延续全仓库规则。
+- 每篇包括学习范围与优先理由、核心概念、易混点及适用条件、作答方法、带教学参考答案的自测、具体教材或清洗正文回查链接。校验器要求至少链接一篇真实存在的清洗正文（不能只有 INDEX）；这只验证可追溯入口，不自动认证事实或语义覆盖。
+- 教材归纳、记忆口诀、工程补充、自编示例必须清楚区分。示例不写成真实项目事实，自测不写成真题或官方答案。过程与核验记录仍放 `verification/`；手册可保留教学性质的回查链接、覆盖边界与适用条件。
+- 本系列可使用自行编写的 Markdown 对照表；它们不是原书图表复原。涉及原书图表时仍遵守 SVG 复原及独立盲比规则，不借手册名义推测原图。
+- 清单登记 `derivation: ai-assisted`、`source.kind: markdown`、`source_roots: []`，表示没有新增原始材料，各篇复用已有清洗正文。新增手册必须同步索引、`expected_documents` 和必要的来源说明。
+- 考频统计使用 manifest 首选卷并保留逐题归类，不混入独立备选或重复计多版本同题；增加年份时同步索引、篇首摘要及 `verification/` 记录。覆盖表按大纲条目、教材节对应实际手册段落，完整／简述／缺失须保守判断；内容变化时同步覆盖映射与边界，不以名词命中判完整。
+- AI 学习手册不适用代码 MIT 许可；引用内容仍受原有权利边界约束。手册编辑不等于教材扫描件事实核查，不沿用 `blind_checked_chapters` 作为手册独立核查结论。
 
 ## 真题加载规则
 
@@ -848,7 +866,7 @@ SVG 必须作为独立文件落盘并以 Markdown 图片语法引用——**GitH
 
 
 
-本政策适用于本仓库中的教材、考试大纲、历年试题、答案、解析、OCR 文本、清洗稿、图片、脚本、工作流和项目文档。
+本政策适用于本仓库中的教材、考试大纲、历年试题、答案、解析、OCR 文本、清洗稿、AI 辅助学习手册、图片、脚本、工作流和项目文档。
 
 
 
@@ -894,7 +912,7 @@ SVG 必须作为独立文件落盘并以 Markdown 图片语法引用——**GitH
 
 
 
-该代码许可明确不覆盖教材、大纲、试题、答案、解析、OCR/清洗文本、图片、表格、出版物版式、来源网站内容或其他第三方素材。文件与代码位于同一仓库，不表示它们采用相同许可。
+该代码许可明确不覆盖 AI 辅助学习手册、教材、大纲、试题、答案、解析、OCR/清洗文本、图片、表格、出版物版式、来源网站内容或其他第三方素材。文件与代码位于同一仓库，不表示它们采用相同许可。
 
 
 
@@ -1010,6 +1028,8 @@ SVG 必须作为独立文件落盘并以 Markdown 图片语法引用——**GitH
 
 - 索引、验证脚本和工作流改进；
 
+- 与第三方原文区分、带具体回查链接的 AI 辅助学习手册；
+
 - 在有权提交的前提下恢复必要图表。
 
 
@@ -1083,4 +1103,3 @@ SVG 必须作为独立文件落盘并以 Markdown 图片语法引用——**GitH
 
 
 项目自有脚本和工作流采用 [LICENSE-CODE](LICENSE-CODE)；提交第三方内容不表示其采用该许可证。提交者应确认自己有权提交相关变更。
-
