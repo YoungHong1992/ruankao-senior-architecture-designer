@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "updated_at": "2026-10-11",
+ "updated_at": "2026-10-12",
  "note": "勘误登记簿：正文书勘误后的正确内容。仅登记经扫描件图像证实为原书自身排印错误（kind=typo，正文已勘正）或存疑未勘正（kind=noted，正文保留原书原貌）之处；anchor 为现行正文中的唯一锚点，校验器逐条核对以防漂移。不设数量与覆盖率目标。",
  "entries": [
   {
@@ -1548,6 +1548,151 @@
    "printed_page": 279,
    "record": "verification/教材第二轮独立盲核记录-第08章.md",
    "note": "原书自身排版不一，照录：(1)(2) 保留段首加粗导语，(3) 不加粗。第二轮盲核 s02a 报出、验证者 medrun 复测定案（s02a-p287-p2line1.png、s02a-p288-sc3lead.png；val 测量 p287(1)=3/p288(3)=2）；清洗稿原三处全部加粗，首轮漏检 (3)。"
+  },
+  {
+   "id": "tb-0127",
+   "corpus": "textbook",
+   "kind": "noted",
+   "file": "content/01-系统架构设计师教材-清洗版/第09章-软件可靠性基础知识/第01节-软件可靠性基本概念.md",
+   "anchor": "(F(t+Δt)-f(t))/Δt",
+   "original": "印面式(9-2)分子第二项为小写斜体 f(t)，与同段行内式「(F(t+Δt)−F(t))/Δt」的大写 F 前后不一",
+   "physical_page": 317,
+   "printed_page": 308,
+   "record": "verification/教材首轮核查-第09章-软件可靠性基础知识.md",
+   "note": "首轮 r-91a 以 20× NEAREST 与首项大写 F 同片对照确证（e91a-p317-20x-f2-num2.png：F 有竖笔双横，f 为弯钩单竖无双横），行内式两项均大写 F 亦经同片对照（e91a-p317-20x-inline-num.png）；疑原书排印不一致，正文照录印面作 f(t)。清洗稿原公式区作大写 F(t)，首轮按印面改小写。"
+  },
+  {
+   "id": "tb-0128",
+   "corpus": "textbook",
+   "kind": "noted",
+   "file": "content/01-系统架构设计师教材-清洗版/第09章-软件可靠性基础知识/第01节-软件可靠性基本概念.md",
+   "anchor": "定义为一种表态度量",
+   "original": "印面作「表态度量」，与本条前句「动态度量」对举，疑为「静态度量」之误",
+   "physical_page": 317,
+   "printed_page": 308,
+   "record": "verification/教材首轮核查-第09章-软件可靠性基础知识.md",
+   "note": "首轮 r-91a 20× 字形确证「表」（e91a-p317-20x-biaotai.png），疑原书用字之误（动静对举），照录；清洗稿原作「静态度量」，首轮按印面还原。"
+  },
+  {
+   "id": "tb-0129",
+   "corpus": "textbook",
+   "kind": "noted",
+   "file": "content/01-系统架构设计师教材-清洗版/第09章-软件可靠性基础知识/第01节-软件可靠性基本概念.md",
+   "anchor": "Failure Made And Effect Analysis",
+   "original": "印面英文作「Failure Made And Effect Analysis」，FMEA 规范术语应为 Mode，疑原书误排",
+   "physical_page": 319,
+   "printed_page": 310,
+   "record": "verification/教材首轮核查-第09章-软件可靠性基础知识.md",
+   "note": "首轮 r-91b 以 30× NEAREST 确证「ade」三字母（e91b-p319-30x-made.png），并取同页 Fortran 作 o/a 字形对照（e91b-p319-20x-fortran2.png），照录；清洗稿原作「Mode」系静默改写，首轮按印面还原。"
+  },
+  {
+   "id": "tb-0130",
+   "corpus": "textbook",
+   "kind": "noted",
+   "file": "content/01-系统架构设计师教材-清洗版/第09章-软件可靠性基础知识/第01节-软件可靠性基本概念.md",
+   "anchor": "AIVEY",
+   "original": "印面英国计划名作「AIVEY」，拼写存疑（正确写法拿不准）",
+   "physical_page": 314,
+   "printed_page": 305,
+   "record": "verification/教材首轮核查-第09章-软件可靠性基础知识.md",
+   "note": "首轮 r-91a 以 20× 确证首字母 A（两斜笔+横笔，无竖笔无碗，与同行 ESPRIT 之 R 对照排除，e91a-p314-20x-aivey3.png、e91a-p314-20x-esprit3.png），照录；清洗稿原已照录，登记存疑待高清复核。"
+  },
+  {
+   "id": "tb-0131",
+   "corpus": "textbook",
+   "kind": "typo",
+   "file": "content/01-系统架构设计师教材-清洗版/第09章-软件可靠性基础知识/第03节-软件可靠性管理.md",
+   "anchor": "1. 可靠性测试(含于验收测试)。",
+   "original": "印面作「(1)可靠性测试(含于验收测试)」，句末无句号（同组 (2)–(6) 条目句末均有句号）",
+   "corrected": "1. 可靠性测试(含于验收测试)。",
+   "physical_page": 327,
+   "printed_page": 318,
+   "record": "verification/教材首轮核查-第09章-软件可靠性基础知识.md",
+   "note": "首轮 r-93 以 20× NEAREST 确证印面句末无句号（e93-p327-20x-s6-1-noperiod.png），疑原书排印脱漏；按 tb-0102 机械性脱漏勘正口径保留句末句号并登记。"
+  },
+  {
+   "id": "tb-0132",
+   "corpus": "textbook",
+   "kind": "noted",
+   "file": "content/01-系统架构设计师教材-清洗版/第09章-软件可靠性基础知识/第02节-软件可靠性建模.md",
+   "anchor": "`Goa` 和 `Okumoto` 不完全排错模型",
+   "original": "印面失效率类清单第 6 条作者名作「Goa和Okumoto」，同章物理页 325 同名作者又印作「Goel」，印面自相矛盾",
+   "physical_page": 324,
+   "printed_page": 315,
+   "record": "verification/教材首轮核查-第09章-软件可靠性基础知识.md",
+   "note": "首轮 r-92 以 16× NEAREST 确证此处仅 G-o-a 三字母（e92-p324-20x-goel-zoom2.png），与 p325「Goel」（e92-p325-loc-bullets.png 四字母可辨）矛盾，疑原书误排；照录，清洗稿原按 Goel 统一属改字，首轮还原印面。"
+  },
+  {
+   "id": "tb-0133",
+   "corpus": "textbook",
+   "kind": "noted",
+   "file": "content/01-系统架构设计师教材-清洗版/第09章-软件可靠性基础知识/第02节-软件可靠性建模.md",
+   "anchor": "`Littewood` 马尔可夫结构模型",
+   "original": "印面作「Littewood马尔可夫结构模型」，拼写存疑（规范姓氏通作 Littlewood）",
+   "physical_page": 324,
+   "printed_page": 315,
+   "record": "verification/教材首轮核查-第09章-软件可靠性基础知识.md",
+   "note": "首轮 r-92 以 8× 逐字母判读 L-i-t-t-e-w-o-o-d，tt 与 e 间无 l（e92-p324-20x-littewood2.png），照录；清洗稿原作 Littlewood 系静默改写，首轮还原印面。"
+  },
+  {
+   "id": "tb-0134",
+   "corpus": "textbook",
+   "kind": "noted",
+   "file": "content/01-系统架构设计师教材-清洗版/第09章-软件可靠性基础知识/第02节-软件可靠性建模.md",
+   "anchor": "`S_` 型可靠性增长模型",
+   "original": "印面 S 后有下划线形记号（「S_型」），记号性质（下标记号/排版残留）无法判定",
+   "physical_page": 325,
+   "printed_page": 316,
+   "record": "verification/教材首轮核查-第09章-软件可靠性基础知识.md",
+   "note": "首轮 r-92 以 16× NEAREST 确证记号实有（e92-p325-20x-sx3.png：基线处短横线，非污渍非残缺），按印面补录；性质待高清复核。清洗稿原作「S 型」脱记号。"
+  },
+  {
+   "id": "tb-0135",
+   "corpus": "textbook",
+   "kind": "noted",
+   "file": "content/01-系统架构设计师教材-清洗版/第09章-软件可靠性基础知识/第02节-软件可靠性建模.md",
+   "anchor": "捕获一再捕获抽样技术",
+   "original": "印面作汉字「捕获一再捕获」（满宽横画「一」非半角连字符），疑原书排印之误",
+   "physical_page": 323,
+   "printed_page": 314,
+   "record": "verification/教材首轮核查-第09章-软件可靠性基础知识.md",
+   "note": "首轮 r-92 以 20× 确证为满宽横画汉字「一」（e92-p323-20x-yizai.png），照录；清洗稿原作半角连字符「捕获-再捕获」，首轮还原印面。"
+  },
+  {
+   "id": "tb-0136",
+   "corpus": "textbook",
+   "kind": "noted",
+   "file": "content/01-系统架构设计师教材-清洗版/第09章-软件可靠性基础知识/第02节-软件可靠性建模.md",
+   "anchor": "`Goel` 和 `Okumoto` 的 `NHPP` 模型，",
+   "original": "印面 9.2.3 第 8 类清单第 2 条尾标点为逗号，同清单其余各条均为句号",
+   "physical_page": 325,
+   "printed_page": 316,
+   "record": "verification/教材首轮核查-第09章-软件可靠性基础知识.md",
+   "note": "首轮 r-92 以 12× 确证尾标点为逗号（e92-p325-20x-comma.png），照录；清洗稿原作句号系体例归一，首轮还原印面。"
+  },
+  {
+   "id": "tb-0137",
+   "corpus": "textbook",
+   "kind": "noted",
+   "file": "content/01-系统架构设计师教材-清洗版/第09章-软件可靠性基础知识/第04节-软件可靠性设计.md",
+   "anchor": "### 3. 冗余设计",
+   "original": "印面 9.4 的五处「N)」式小目行体例自身不一：1)恢复块设计、2）N版本程序设计、1)双机热备技术、2）服务器集群技术 四行同字号不加粗（medrun=2.0），唯 3)冗余设计 加粗（medrun=3.0）",
+   "physical_page": 328,
+   "printed_page": 319,
+   "record": "verification/教材首轮核查-第09章-软件可靠性基础知识.md",
+   "note": "首轮 r-94 逐行 medrun 测量（e94-p328-20x-1huifu-line.png、-2nver-line.png、-3rongyu-line.png、e94-p330-band-944head.png、e94-p331-band-top.png），验证者回图复核 1)/3) 字重差明显；按 tb-0104/tb-0126 照录原书不一口径：四行不加粗者降为正文级编号行，3)冗余设计 保留标题层级。清洗稿原五处统一升为 ### 标题。"
+  },
+  {
+   "id": "tb-0138",
+   "corpus": "textbook",
+   "kind": "noted",
+   "file": "content/01-系统架构设计师教材-清洗版/第09章-软件可靠性基础知识/第03节-软件可靠性管理.md",
+   "anchor": "4. 调整可靠性模型。",
+   "original": "印面实施阶段第 4 条作「(4)调整可靠性模型」，其余五阶段同位条目均作「(N)调整可靠性活动计划」，句式前后不一",
+   "physical_page": 327,
+   "printed_page": 318,
+   "record": "verification/教材第二轮独立盲核记录-第09章.md",
+   "note": "第二轮盲核 s03 批发现并报请裁决，另经不知争议内容的中立转录代理独立证实（阶段2/3/4/5 各有一条「(N)调整可靠性活动计划。」、唯阶段 6 第 4 条作「(4)调整可靠性模型。」，adjudicate-tiaozheng-s2full–s6full.png）；正文照录印面，未勘正。"
   }
  ]
 }

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1300" height="330" viewBox="0 0 1300 330">
+  <title>表9-3 可靠性目标参考表</title>
+  <desc>复原自入库教材扫描件物理页319（原书印刷页310）。结构：四列（失效严重程度类、可靠性要求 /%、失 效 强 度、平均无失效时间）四行；全网格线，顶边线与底边线粗于内部网格线。失效强度列的负指数为原书上标形式（-6、-4、-1），以 tspan 基线抬升呈现；第4行失效强度为「1」，无幂。表头「可靠性要求 /%」的「/%」已回图核对。</desc>
+  <rect x="0" y="0" width="1300" height="330" fill="#fff"/>
+  <g stroke="#000" fill="none">
+    <line x1="36" y1="20" x2="1264" y2="20" stroke-width="3"/>
+    <line x1="36" y1="80" x2="1264" y2="80" stroke-width="2"/>
+    <line x1="36" y1="136" x2="1264" y2="136" stroke-width="1.2"/>
+    <line x1="36" y1="192" x2="1264" y2="192" stroke-width="1.2"/>
+    <line x1="36" y1="248" x2="1264" y2="248" stroke-width="1.2"/>
+    <line x1="36" y1="304" x2="1264" y2="304" stroke-width="2.2"/>
+    <line x1="36" y1="20" x2="36" y2="304" stroke-width="1.2"/>
+    <line x1="304" y1="20" x2="304" y2="304" stroke-width="1.2"/>
+    <line x1="584" y1="20" x2="584" y2="304" stroke-width="1.2"/>
+    <line x1="864" y1="20" x2="864" y2="304" stroke-width="1.2"/>
+    <line x1="1264" y1="20" x2="1264" y2="304" stroke-width="1.2"/>
+  </g>
+  <g font-family="sans-serif" fill="#000" text-anchor="middle">
+    <g font-size="30">
+      <text x="170" y="63">失效严重程度类</text>
+      <text x="444" y="63">可靠性要求 /%</text>
+      <text x="724" y="63">失 效 强 度</text>
+      <text x="1064" y="63">平均无失效时间</text>
+    </g>
+    <g font-size="31">
+      <text x="170" y="121">1</text>
+      <text x="444" y="121">99.9999</text>
+      <text x="724" y="121">10<tspan dy="-12" font-size="20">-6</tspan></text>
+      <text x="1064" y="121">114 年</text>
+      <text x="170" y="177">2</text>
+      <text x="444" y="177">99.99</text>
+      <text x="724" y="177">10<tspan dy="-12" font-size="20">-4</tspan></text>
+      <text x="1064" y="177">417 天</text>
+      <text x="170" y="233">3</text>
+      <text x="444" y="233">99</text>
+      <text x="724" y="233">10<tspan dy="-12" font-size="20">-1</tspan></text>
+      <text x="1064" y="233">4 天</text>
+      <text x="170" y="289">4</text>
+      <text x="444" y="289">90</text>
+      <text x="724" y="289">1</text>
+      <text x="1064" y="289">9 小时</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1300" height="280" viewBox="0 0 1300 280">
+  <title>表9-1 按照对成本的影响划分失效严重程度类</title>
+  <desc>复原自入库教材扫描件物理页318（原书印刷页309）。结构：一张表，左右两组并排，各含「失效严重程度类」「定义(人民币万元)」两列，组间以双竖线分隔；左组行为1、2、3，右组行为4、5，右组第三行两格原书即为空格；全网格线，顶边线与底边线粗于内部网格线。比较符逐格回图核对：成本&gt;100；10&lt;成本≤100；1&lt;成本≤10；0.1&lt;成本≤1；成本&lt;0.1。</desc>
+  <rect x="0" y="0" width="1300" height="280" fill="#fff"/>
+  <g stroke="#000" fill="none">
+    <line x1="36" y1="20" x2="1264" y2="20" stroke-width="3"/>
+    <line x1="36" y1="80" x2="1264" y2="80" stroke-width="2"/>
+    <line x1="36" y1="136" x2="1264" y2="136" stroke-width="1.2"/>
+    <line x1="36" y1="192" x2="1264" y2="192" stroke-width="1.2"/>
+    <line x1="36" y1="248" x2="1264" y2="248" stroke-width="2.2"/>
+    <line x1="36" y1="20" x2="36" y2="248" stroke-width="1.2"/>
+    <line x1="296" y1="20" x2="296" y2="248" stroke-width="1.2"/>
+    <line x1="608" y1="20" x2="608" y2="248" stroke-width="1.2"/>
+    <line x1="614" y1="20" x2="614" y2="248" stroke-width="1.2"/>
+    <line x1="871" y1="20" x2="871" y2="248" stroke-width="1.2"/>
+    <line x1="1264" y1="20" x2="1264" y2="248" stroke-width="1.2"/>
+  </g>
+  <g font-family="sans-serif" fill="#000" text-anchor="middle">
+    <g font-size="30">
+      <text x="166" y="63">失效严重程度类</text>
+      <text x="453" y="63">定义(人民币万元)</text>
+      <text x="742" y="63">失效严重程度类</text>
+      <text x="1067" y="63">定义(人民币万元)</text>
+    </g>
+    <g font-size="31">
+      <text x="166" y="121">1</text>
+      <text x="453" y="121">成本&gt;100</text>
+      <text x="742" y="121">4</text>
+      <text x="1067" y="121">0.1&lt;成本≤1</text>
+      <text x="166" y="177">2</text>
+      <text x="453" y="177">10&lt;成本≤100</text>
+      <text x="742" y="177">5</text>
+      <text x="1067" y="177">成本&lt;0.1</text>
+      <text x="166" y="233">3</text>
+      <text x="453" y="233">1&lt;成本≤10</text>
+    </g>
+  </g>
+</svg>

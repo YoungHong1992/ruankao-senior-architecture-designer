@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1300" height="330" viewBox="0 0 1300 330">
+  <title>表9-2 按照对系统能力的影响划分失效严重程度类</title>
+  <desc>复原自入库教材扫描件物理页318（原书印刷页309）。结构：两列（失效严重程度类、定义）四行；全网格线，顶边线与底边线粗于内部网格线。首列第1行原书墨迹极淡不可辨，按残迹照录留空（证据裁片 e91b-p318-30x-t92-r1c1-mark.png）；第2至4行首列依次为2、3、4。</desc>
+  <rect x="0" y="0" width="1300" height="330" fill="#fff"/>
+  <g stroke="#000" fill="none">
+    <line x1="36" y1="20" x2="1264" y2="20" stroke-width="3"/>
+    <line x1="36" y1="80" x2="1264" y2="80" stroke-width="2"/>
+    <line x1="36" y1="136" x2="1264" y2="136" stroke-width="1.2"/>
+    <line x1="36" y1="192" x2="1264" y2="192" stroke-width="1.2"/>
+    <line x1="36" y1="248" x2="1264" y2="248" stroke-width="1.2"/>
+    <line x1="36" y1="304" x2="1264" y2="304" stroke-width="2.2"/>
+    <line x1="36" y1="20" x2="36" y2="304" stroke-width="1.2"/>
+    <line x1="386" y1="20" x2="386" y2="304" stroke-width="1.2"/>
+    <line x1="1264" y1="20" x2="1264" y2="304" stroke-width="1.2"/>
+  </g>
+  <g font-family="sans-serif" fill="#000" text-anchor="middle">
+    <g font-size="30">
+      <text x="211" y="63">失效严重程度类</text>
+      <text x="825" y="63">定义</text>
+    </g>
+    <g font-size="31">
+      <text x="825" y="121">系统崩溃，重要数据不可恢复</text>
+      <text x="211" y="177">2</text>
+      <text x="825" y="177">系统出错停止响应，重要数据可恢复</text>
+      <text x="211" y="233">3</text>
+      <text x="825" y="233">用户重要操作无响应，可恢复</text>
+      <text x="211" y="289">4</text>
+      <text x="825" y="289">部分操作无响应，但可用其他操作方式替代</text>
+    </g>
+  </g>
+</svg>
