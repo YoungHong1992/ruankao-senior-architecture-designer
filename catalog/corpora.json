@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-09",
+  "updated_at": "2026-10-11",
   "layers": {
     "content": "content",
     "sources": "sources",
@@ -106,6 +106,23 @@
         "kind": "markdown",
         "committed": true,
         "note": "来源层本身就是 Markdown（回忆版、公开解析版、原始整理版），不是官方题库，也没有统一的源文件。"
+      }
+    },
+    {
+      "id": "study",
+      "label": "核心考点精要（AI 辅助整理）",
+      "content_root": "content/03-核心考点精要",
+      "source_roots": [],
+      "derivation": "ai-assisted",
+      "rights": "study-material-not-covered-by-code-license",
+      "expected_documents": {
+        "index": 1,
+        "guide": 11
+      },
+      "source": {
+        "kind": "markdown",
+        "committed": true,
+        "note": "基于已登记语料与教学交流编写的非官方学习摘要；每篇链接具体清洗正文供回查，示例和口诀单独标识。无新增第三方原始材料，不复制 sources；AI 整理不改变引用内容权利，也不适用代码 MIT 许可。"
       }
     }
   ]
